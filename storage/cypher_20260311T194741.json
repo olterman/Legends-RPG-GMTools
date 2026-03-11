@@ -1,0 +1,26 @@
+{
+  "saved_at": "2026-03-11T19:47:41.035964+00:00",
+  "filename": "cypher_20260311T194741.json",
+  "payload": {
+    "environment": "fenmir_highlands"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Hollow Needle",
+    "level": 5,
+    "sections": {
+      "name": "Hollow Needle",
+      "level": "5",
+      "manifestation": "wind-reading charm",
+      "appearance": "worn smooth by generations",
+      "effect": "predicts imminent danger in the surrounding terrain",
+      "limitation": "cracks after activation",
+      "quirk": "chills the air briefly",
+      "style": "painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration"
+    },
+    "text": "Cypher.\n\nName:\nHollow Needle.\n\nLevel:\n5\n\nManifestation:\nwind-reading charm.\n\nAppearance:\nworn smooth by generations.\n\nEffect:\npredicts imminent danger in the surrounding terrain.\n\nLimitation / Depletion:\ncracks after activation.\n\nQuirk:\nchills the air briefly.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
+    "metadata": {
+      "environment": "fenmir_highlands"
+    }
+  }
+}

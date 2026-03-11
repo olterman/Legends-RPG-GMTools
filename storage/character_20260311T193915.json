@@ -1,0 +1,33 @@
+{
+  "saved_at": "2026-03-11T19:39:15.949103+00:00",
+  "filename": "character_20260311T193915.json",
+  "payload": {
+    "environment": "almadir",
+    "gender": "female",
+    "profession": "assassin",
+    "race": "alfirin"
+  },
+  "result": {
+    "type": "character",
+    "name": "Naevys Star of the West",
+    "sections": {
+      "setting": "Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.",
+      "character": "Naevys Star of the West, female alfirin assassin",
+      "appearance": "pointed ears, ageless refined features, elegant posture, inhuman beauty, controlled stillness, unreadable expression, lethal economy of movement",
+      "clothing": "layered elegant garments, subtle authority, luminous fabrics, refined martial or scholarly attire, dark fitted garments, concealed sheaths, quiet fabrics suited for stealth",
+      "weapons_props": "stiletto blade, poison vials",
+      "pose": "ready to strike",
+      "environment": "Vast living forest realm of ancient groves and shifting paths. Bioluminescent greens illuminate a civilization bound to nature, instinctive magic, and a covenant with the land.",
+      "lighting": "moonlight",
+      "race_flavor": "Core truths: Immortal beings who fled a shattered world.; Entered this world through damaged Gates after failed negotiation with the Velim.; Their arrival caused lasting damage to reality.. Themes: immortality versus responsibility, curated history, denial of guilt, elegance masking ancient error. Tone: ancient, refined, confident, restrained, quietly burdened. Visual cues: scale human sized or slightly taller; skin palette varies by kindred; signature features pointed ears, ageless refined features, elegant posture, inhuman beauty. Avoid: portraying them as purely benevolent, portraying them as flawless stewards.",
+      "style": "painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration"
+    },
+    "text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nNaevys Star of the West, female alfirin assassin.\n\nAppearance:\npointed ears, ageless refined features, elegant posture, inhuman beauty, controlled stillness, unreadable expression, lethal economy of movement.\n\nClothing:\nlayered elegant garments, subtle authority, luminous fabrics, refined martial or scholarly attire, dark fitted garments, concealed sheaths, quiet fabrics suited for stealth.\n\nWeapons / Props:\nstiletto blade, poison vials.\n\nPose:\nready to strike.\n\nEnvironment:\nVast living forest realm of ancient groves and shifting paths. Bioluminescent greens illuminate a civilization bound to nature, instinctive magic, and a covenant with the land.\n\nLighting:\nmoonlight.\n\nRace Flavor:\nCore truths: Immortal beings who fled a shattered world.; Entered this world through damaged Gates after failed negotiation with the Velim.; Their arrival caused lasting damage to reality.. Themes: immortality versus responsibility, curated history, denial of guilt, elegance masking ancient error. Tone: ancient, refined, confident, restrained, quietly burdened. Visual cues: scale human sized or slightly taller; skin palette varies by kindred; signature features pointed ears, ageless refined features, elegant posture, inhuman beauty. Avoid: portraying them as purely benevolent, portraying them as flawless stewards.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n",
+    "metadata": {
+      "race": "alfirin",
+      "variant": null,
+      "profession": "assassin",
+      "environment": "almadir"
+    }
+  }
+}

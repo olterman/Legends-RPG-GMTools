@@ -1,0 +1,28 @@
+{
+  "saved_at": "2026-03-11T19:49:47.405550+00:00",
+  "filename": "encounter_20260311T194947.json",
+  "payload": {
+    "environment": "fenmir_free_cities"
+  },
+  "result": {
+    "type": "encounter",
+    "sections": {
+      "environment": "Independent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.",
+      "first_notice": "a ship is unloading at night under the protection of too many hired blades",
+      "subject": "an armed contract scribe",
+      "truth": "somebody is using the Free Accords to justify murder",
+      "complication": "if the cargo leaves the city, the problem becomes much larger",
+      "hook": "interpret or steal a contract before blood settles the issue",
+      "style": "painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art"
+    },
+    "text": "Encounter seed.\n\nEnvironment:\nIndependent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.\n\nWhat the party first notices:\na ship is unloading at night under the protection of too many hired blades.\n\nWho or what is involved:\nan armed contract scribe.\n\nWhat is actually happening:\nsomebody is using the Free Accords to justify murder.\n\nComplication:\nif the cargo leaves the city, the problem becomes much larger.\n\nGM Hook:\ninterpret or steal a contract before blood settles the issue.\n\nSTYLE:\npainted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.\n",
+    "metadata": {
+      "environment": "fenmir_free_cities",
+      "first_impression": "a ship is unloading at night under the protection of too many hired blades",
+      "subject": "an armed contract scribe",
+      "truth": "somebody is using the Free Accords to justify murder",
+      "complication": "if the cargo leaves the city, the problem becomes much larger",
+      "hook": "interpret or steal a contract before blood settles the issue"
+    }
+  }
+}

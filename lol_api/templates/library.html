@@ -308,269 +308,316 @@
   </div>
 
   <script>
-    const state = {
-      meta: null,
-      selectedFilename: null
+  const state = {
+    meta: null,
+    selectedFilename: null
+  };
+
+  const els = {
+    type: document.getElementById('filter-type'),
+    environment: document.getElementById('filter-environment'),
+    race: document.getElementById('filter-race'),
+    profession: document.getElementById('filter-profession'),
+    name: document.getElementById('filter-name'),
+    searchBtn: document.getElementById('search-btn'),
+    resetBtn: document.getElementById('reset-btn'),
+    results: document.getElementById('results'),
+    viewer: document.getElementById('viewer'),
+    status: document.getElementById('status')
+  };
+
+  function fillSelect(select, values, includeAll = false) {
+    select.innerHTML = '';
+    if (includeAll) {
+      const all = document.createElement('option');
+      all.value = '';
+      all.textContent = 'All';
+      select.appendChild(all);
+    }
+    values.forEach(value => {
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = value;
+      select.appendChild(opt);
+    });
+  }
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function titleCase(key) {
+    return key
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function typeLabel(value) {
+    const labels = {
+      npc: "NPC",
+      monster: "Monster",
+      cypher: "Cypher",
+      inn: "Inn",
+      encounter: "Encounter",
+      settlement: "Settlement",
+      character: "Character"
+    };
+    return labels[value] || titleCase(value || "item");
+  }
+
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.error || `Request failed: ${res.status}`);
+    }
+    return data;
+  }
+
+  function renderSectionsCard(title, sections) {
+    const rows = Object.entries(sections || {})
+      .filter(([, value]) => value)
+      .map(([key, value]) => `
+        <div class="output-row">
+          <div class="output-label">${escapeHtml(titleCase(key))}</div>
+          <div class="output-value">${escapeHtml(value)}</div>
+        </div>
+      `)
+      .join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(title)}</h3>
+        ${rows}
+      </div>
+    `;
+  }
+
+  function renderStatBlockCard(statBlock) {
+    const top = `
+      <div class="stat-grid">
+        <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(statBlock.level ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(statBlock.target_number ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(statBlock.health ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(statBlock.armor ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(statBlock.damage ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
+      </div>
+    `;
+
+    const renderList = (label, items) => {
+      if (!Array.isArray(items) || !items.length) return "";
+      return `
+        <div class="output-row" style="margin-top:12px;">
+          <div class="output-label">${escapeHtml(label)}</div>
+          <ul class="output-list">
+            ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+      `;
     };
 
-    const els = {
-      type: document.getElementById('filter-type'),
-      environment: document.getElementById('filter-environment'),
-      race: document.getElementById('filter-race'),
-      profession: document.getElementById('filter-profession'),
-      name: document.getElementById('filter-name'),
-      searchBtn: document.getElementById('search-btn'),
-      resetBtn: document.getElementById('reset-btn'),
-      results: document.getElementById('results'),
-      viewer: document.getElementById('viewer'),
-      status: document.getElementById('status')
-    };
+    return `
+      <div class="output-card">
+        <h3>Stat Block</h3>
+        ${top}
+        ${renderList("Modifications", statBlock.modifications)}
+        ${renderList("Combat", statBlock.combat)}
+        ${renderList("Interaction", statBlock.interaction)}
+        ${renderList("Loot", statBlock.loot)}
+      </div>
+    `;
+  }
 
-    function fillSelect(select, values, includeAll = false) {
-      select.innerHTML = '';
-      if (includeAll) {
-        const all = document.createElement('option');
-        all.value = '';
-        all.textContent = 'All';
-        select.appendChild(all);
-      }
-      values.forEach(value => {
-        const opt = document.createElement('option');
-        opt.value = value;
-        opt.textContent = value;
-        select.appendChild(opt);
-      });
-    }
+  function renderViewer(record) {
+    const result = record.result || {};
+    const metadata = result.metadata || {};
+    let html = "";
 
-    function escapeHtml(text) {
-      return String(text ?? '')
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-    }
-
-    function titleCase(key) {
-      return key
-        .replace(/_/g, " ")
-        .replace(/\b\w/g, c => c.toUpperCase());
-    }
-
-    async function fetchJson(url) {
-      const res = await fetch(url);
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || `Request failed: ${res.status}`);
-      }
-      return data;
-    }
-
-    function renderSectionsCard(title, sections) {
-      const rows = Object.entries(sections || {})
-        .filter(([, value]) => value)
-        .map(([key, value]) => `
-          <div class="output-row">
-            <div class="output-label">${escapeHtml(titleCase(key))}</div>
-            <div class="output-value">${escapeHtml(value)}</div>
-          </div>
-        `)
-        .join("");
-
-      return `
-        <div class="output-card">
-          <h3>${escapeHtml(title)}</h3>
-          ${rows}
+    html += `
+      <div class="output-card">
+        <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+        <div class="output-row">
+          <div class="output-label">Name</div>
+          <div class="output-value">${escapeHtml(result.name || "Unnamed")}</div>
         </div>
-      `;
+        <div class="output-row">
+          <div class="output-label">Saved At</div>
+          <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
+        </div>
+        <div class="output-row">
+          <div class="output-label">Filename</div>
+          <div class="output-value">${escapeHtml(record.filename || "")}</div>
+        </div>
+        ${metadata.environment ? `
+        <div class="output-row">
+          <div class="output-label">Environment</div>
+          <div class="output-value">${escapeHtml(metadata.environment)}</div>
+        </div>` : ""}
+        ${metadata.race ? `
+        <div class="output-row">
+          <div class="output-label">Race</div>
+          <div class="output-value">${escapeHtml(metadata.race)}</div>
+        </div>` : ""}
+        ${metadata.profession ? `
+        <div class="output-row">
+          <div class="output-label">Profession</div>
+          <div class="output-value">${escapeHtml(metadata.profession)}</div>
+        </div>` : ""}
+        ${metadata.family ? `
+        <div class="output-row">
+          <div class="output-label">Family</div>
+          <div class="output-value">${escapeHtml(metadata.family)}</div>
+        </div>` : ""}
+        ${metadata.role ? `
+        <div class="output-row">
+          <div class="output-label">Role</div>
+          <div class="output-value">${escapeHtml(metadata.role)}</div>
+        </div>` : ""}
+      </div>
+    `;
+
+    if (result.sections) {
+      html += renderSectionsCard("Generated Content", result.sections);
     }
 
-    function renderStatBlockCard(statBlock) {
-      const top = `
-        <div class="stat-grid">
-          <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(statBlock.level ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(statBlock.target_number ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(statBlock.health ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(statBlock.armor ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(statBlock.damage ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
-        </div>
-      `;
-
-      const renderList = (label, items) => {
-        if (!Array.isArray(items) || !items.length) return "";
-        return `
-          <div class="output-row" style="margin-top:12px;">
-            <div class="output-label">${escapeHtml(label)}</div>
-            <ul class="output-list">
-              ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
-            </ul>
-          </div>
-        `;
-      };
-
-      return `
-        <div class="output-card">
-          <h3>Stat Block</h3>
-          ${top}
-          ${renderList("Modifications", statBlock.modifications)}
-          ${renderList("Combat", statBlock.combat)}
-          ${renderList("Interaction", statBlock.interaction)}
-          ${renderList("Loot", statBlock.loot)}
-        </div>
-      `;
+    if (result.stat_block) {
+      html += renderStatBlockCard(result.stat_block);
     }
 
-    function renderViewer(record) {
-      const result = record.result || {};
-      let html = "";
-
+    if (result.storage && result.storage.filename) {
       html += `
         <div class="output-card">
-          <h3>Saved Record</h3>
+          <h3>Storage</h3>
           <div class="output-row">
-            <div class="output-label">Filename</div>
-            <div class="output-value">${escapeHtml(record.filename || "")}</div>
+            <div class="output-label">Stored Filename</div>
+            <div class="output-value">${escapeHtml(result.storage.filename)}</div>
           </div>
-          <div class="output-row">
-            <div class="output-label">Saved At</div>
-            <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
-          </div>
-          <div class="output-row">
-            <div class="output-label">Type</div>
-            <div class="output-value">${escapeHtml(result.type || "")}</div>
-          </div>
-          ${result.name ? `
-          <div class="output-row">
-            <div class="output-label">Name</div>
-            <div class="output-value">${escapeHtml(result.name)}</div>
-          </div>` : ""}
         </div>
       `;
-
-      if (result.sections) {
-        html += renderSectionsCard("Generated Content", result.sections);
-      }
-
-      if (result.stat_block) {
-        html += renderStatBlockCard(result.stat_block);
-      }
-
-      if (record.payload) {
-        html += `
-          <div class="output-card">
-            <h3>Original Payload</h3>
-            <div class="output-value">${escapeHtml(JSON.stringify(record.payload, null, 2))}</div>
-          </div>
-        `;
-      }
-
-      if (!result.sections && !result.stat_block && result.text) {
-        html += `
-          <div class="output-card">
-            <h3>Raw Text</h3>
-            <div class="output-value">${escapeHtml(result.text)}</div>
-          </div>
-        `;
-      }
-
-      els.viewer.innerHTML = html;
     }
 
-    function renderResults(items) {
-      if (!items.length) {
-        els.results.innerHTML = `
-          <div class="output-card">
-            <div class="output-value">No saved items found.</div>
-          </div>
-        `;
-        return;
-      }
+    if (record.payload) {
+      html += `
+        <div class="output-card">
+          <h3>Original Payload</h3>
+          <div class="output-value">${escapeHtml(JSON.stringify(record.payload, null, 2))}</div>
+        </div>
+      `;
+    }
 
-      els.results.innerHTML = items.map(item => {
-        const meta = item.metadata || {};
-        const lines = [];
+    if (!result.sections && !result.stat_block && result.text) {
+      html += `
+        <div class="output-card">
+          <h3>Raw Text</h3>
+          <div class="output-value">${escapeHtml(result.text)}</div>
+        </div>
+      `;
+    }
 
-        if (meta.environment) lines.push(`environment: ${meta.environment}`);
-        if (meta.race) lines.push(`race: ${meta.race}`);
-        if (meta.profession) lines.push(`profession: ${meta.profession}`);
-        if (meta.role) lines.push(`role: ${meta.role}`);
-        if (meta.family) lines.push(`family: ${meta.family}`);
-        if (item.saved_at) lines.push(`saved: ${item.saved_at}`);
+    els.viewer.innerHTML = html;
+  }
 
-        return `
-          <div class="result-card" data-filename="${escapeHtml(item.filename)}">
-            <div class="result-top">
-              <div class="result-name">${escapeHtml(item.name || item.filename)}</div>
-              <div class="result-type">${escapeHtml(item.type || "unknown")}</div>
+  function renderResults(items) {
+    if (!items.length) {
+      els.results.innerHTML = `
+        <div class="output-card">
+          <div class="output-value">No saved items found.</div>
+        </div>
+      `;
+      return;
+    }
+
+    els.results.innerHTML = items.map(item => {
+      const meta = item.metadata || {};
+      const subtitle = [
+        meta.environment ? `environment: ${meta.environment}` : null,
+        meta.race ? `race: ${meta.race}` : null,
+        meta.profession ? `profession: ${meta.profession}` : null,
+        meta.role ? `role: ${meta.role}` : null,
+        meta.family ? `family: ${meta.family}` : null,
+      ].filter(Boolean).join(" • ");
+
+      return `
+        <div class="result-card" data-filename="${escapeHtml(item.filename)}">
+          <div class="result-top">
+            <div>
+              <div class="result-name">${escapeHtml(item.name || "Unnamed")}</div>
+              <div class="small" style="margin-top:4px;">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
             </div>
-            <div class="result-meta">${escapeHtml(lines.join("\n"))}</div>
-            <div class="small" style="margin-top:8px;">${escapeHtml(item.filename)}</div>
           </div>
-        `;
-      }).join("");
+          ${subtitle ? `<div class="result-meta">${escapeHtml(subtitle)}</div>` : ""}
+          <div class="small" style="margin-top:8px;">${escapeHtml(item.saved_at || "")}</div>
+        </div>
+      `;
+    }).join("");
 
-      document.querySelectorAll('.result-card').forEach(card => {
-        card.addEventListener('click', async () => {
-          const filename = card.getAttribute('data-filename');
-          await loadRecord(filename);
-        });
+    document.querySelectorAll('.result-card').forEach(card => {
+      card.addEventListener('click', async () => {
+        const filename = card.getAttribute('data-filename');
+        await loadRecord(filename);
       });
-    }
-
-    function buildSearchUrl() {
-      const params = new URLSearchParams();
-
-      if (els.type.value) params.set('type', els.type.value);
-      if (els.environment.value) params.set('environment', els.environment.value);
-      if (els.race.value) params.set('race', els.race.value);
-      if (els.profession.value) params.set('profession', els.profession.value);
-      if (els.name.value.trim()) params.set('name', els.name.value.trim());
-
-      const qs = params.toString();
-      return qs ? `/storage/search?${qs}` : `/storage/search`;
-    }
-
-    async function loadFilters() {
-      const meta = await fetchJson('/meta');
-      state.meta = meta;
-
-      fillSelect(els.type, meta.types || [], true);
-      fillSelect(els.environment, meta.environments || [], true);
-      fillSelect(els.race, meta.races || [], true);
-      fillSelect(els.profession, meta.professions || [], true);
-    }
-
-    async function search() {
-      els.status.textContent = 'Searching...';
-      const data = await fetchJson(buildSearchUrl());
-      renderResults(data.items || []);
-      els.status.textContent = `Found ${data.count ?? 0} item(s).`;
-    }
-
-    async function loadRecord(filename) {
-      els.status.textContent = `Loading ${filename}...`;
-      const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
-      renderViewer(record);
-      els.status.textContent = `Loaded ${filename}.`;
-    }
-
-    function resetFilters() {
-      els.type.value = '';
-      els.environment.value = '';
-      els.race.value = '';
-      els.profession.value = '';
-      els.name.value = '';
-      search();
-    }
-
-    els.searchBtn.addEventListener('click', search);
-    els.resetBtn.addEventListener('click', resetFilters);
-
-    Promise.all([loadFilters()]).then(() => {
-      els.status.textContent = 'Ready.';
-      return search();
-    }).catch(err => {
-      els.status.textContent = `Error: ${err.message}`;
     });
-  </script>
+  }
+
+  function buildSearchUrl() {
+    const params = new URLSearchParams();
+
+    if (els.type.value) params.set('type', els.type.value);
+    if (els.environment.value) params.set('environment', els.environment.value);
+    if (els.race.value) params.set('race', els.race.value);
+    if (els.profession.value) params.set('profession', els.profession.value);
+    if (els.name.value.trim()) params.set('name', els.name.value.trim());
+
+    const qs = params.toString();
+    return qs ? `/storage/search?${qs}` : `/storage/search`;
+  }
+
+  async function loadFilters() {
+    const meta = await fetchJson('/meta');
+    state.meta = meta;
+
+    fillSelect(els.type, meta.types || [], true);
+    fillSelect(els.environment, meta.environments || [], true);
+    fillSelect(els.race, meta.races || [], true);
+    fillSelect(els.profession, meta.professions || [], true);
+  }
+
+  async function search() {
+    els.status.textContent = 'Searching...';
+    const data = await fetchJson(buildSearchUrl());
+    renderResults(data.items || []);
+    els.status.textContent = `Found ${data.count ?? 0} item(s).`;
+  }
+
+  async function loadRecord(filename) {
+    els.status.textContent = `Loading ${filename}...`;
+    const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
+    renderViewer(record);
+    els.status.textContent = `Loaded ${filename}.`;
+  }
+
+  function resetFilters() {
+    els.type.value = '';
+    els.environment.value = '';
+    els.race.value = '';
+    els.profession.value = '';
+    els.name.value = '';
+    search();
+  }
+
+  els.searchBtn.addEventListener('click', search);
+  els.resetBtn.addEventListener('click', resetFilters);
+
+  Promise.all([loadFilters()]).then(() => {
+    els.status.textContent = 'Ready.';
+    return search();
+  }).catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lands of Legends Library</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111318;
+      --panel: #1a1f29;
+      --panel-2: #222938;
+      --text: #eceff4;
+      --muted: #aab3c5;
+      --accent: #7aa2ff;
+      --accent-2: #ffd479;
+      --border: #31394a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(180deg, #0f1116, #151923);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 16px;
+    }
+
+    .panel {
+      background: rgba(26,31,41,0.92);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      min-width: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    input, select, button {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+    }
+
+    .field { margin-bottom: 14px; }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: var(--accent);
+      color: #081120;
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #2f3849;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .status {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 12px;
+    }
+
+    .results {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .result-card {
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+    }
+
+    .result-card:hover {
+      border-color: var(--accent);
+    }
+
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 8px;
+    }
+
+    .result-name {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .result-type {
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .result-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    .viewer {
+      display: grid;
+      gap: 14px;
+      min-height: 500px;
+    }
+
+    .output-card {
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .output-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .output-row {
+      margin-bottom: 10px;
+    }
+
+    .output-label {
+      font-weight: 700;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .output-value {
+      white-space: pre-wrap;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat-chip {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .stat-chip .k {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stat-chip .v {
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .output-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .output-list li {
+      margin-bottom: 4px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/">Generator</a>
+      <a href="/map-tools">Map Tools</a>
+      <a href="/library">Library</a>
+    </div>
+
+    <h1>Library</h1>
+    <p>Browse saved generated content from storage.</p>
+
+    <div class="layout">
+      <div class="panel">
+        <div class="field">
+          <label for="filter-type">Type</label>
+          <select id="filter-type">
+            <option value="">All</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="filter-environment">Environment</label>
+          <select id="filter-environment">
+            <option value="">All</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="filter-race">Race</label>
+          <select id="filter-race">
+            <option value="">All</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="filter-profession">Profession</label>
+          <select id="filter-profession">
+            <option value="">All</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="filter-name">Name contains</label>
+          <input id="filter-name" placeholder="e.g. stag" />
+        </div>
+
+        <div class="actions">
+          <button id="search-btn" type="button">Search</button>
+          <button id="reset-btn" type="button" class="secondary">Reset</button>
+        </div>
+
+        <div class="status" id="status">Loading filters...</div>
+
+        <div class="results" id="results"></div>
+      </div>
+
+      <div class="panel">
+        <div class="viewer" id="viewer">
+          <div class="output-card">
+            <h3>Saved Item Viewer</h3>
+            <div class="output-value">Select an item from the left to view it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const state = {
+      meta: null,
+      selectedFilename: null
+    };
+
+    const els = {
+      type: document.getElementById('filter-type'),
+      environment: document.getElementById('filter-environment'),
+      race: document.getElementById('filter-race'),
+      profession: document.getElementById('filter-profession'),
+      name: document.getElementById('filter-name'),
+      searchBtn: document.getElementById('search-btn'),
+      resetBtn: document.getElementById('reset-btn'),
+      results: document.getElementById('results'),
+      viewer: document.getElementById('viewer'),
+      status: document.getElementById('status')
+    };
+
+    function fillSelect(select, values, includeAll = false) {
+      select.innerHTML = '';
+      if (includeAll) {
+        const all = document.createElement('option');
+        all.value = '';
+        all.textContent = 'All';
+        select.appendChild(all);
+      }
+      values.forEach(value => {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = value;
+        select.appendChild(opt);
+      });
+    }
+
+    function escapeHtml(text) {
+      return String(text ?? '')
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function titleCase(key) {
+      return key
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    async function fetchJson(url) {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || `Request failed: ${res.status}`);
+      }
+      return data;
+    }
+
+    function renderSectionsCard(title, sections) {
+      const rows = Object.entries(sections || {})
+        .filter(([, value]) => value)
+        .map(([key, value]) => `
+          <div class="output-row">
+            <div class="output-label">${escapeHtml(titleCase(key))}</div>
+            <div class="output-value">${escapeHtml(value)}</div>
+          </div>
+        `)
+        .join("");
+
+      return `
+        <div class="output-card">
+          <h3>${escapeHtml(title)}</h3>
+          ${rows}
+        </div>
+      `;
+    }
+
+    function renderStatBlockCard(statBlock) {
+      const top = `
+        <div class="stat-grid">
+          <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(statBlock.level ?? "")}</div></div>
+          <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(statBlock.target_number ?? "")}</div></div>
+          <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(statBlock.health ?? "")}</div></div>
+          <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(statBlock.armor ?? "")}</div></div>
+          <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(statBlock.damage ?? "")}</div></div>
+          <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
+        </div>
+      `;
+
+      const renderList = (label, items) => {
+        if (!Array.isArray(items) || !items.length) return "";
+        return `
+          <div class="output-row" style="margin-top:12px;">
+            <div class="output-label">${escapeHtml(label)}</div>
+            <ul class="output-list">
+              ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+      };
+
+      return `
+        <div class="output-card">
+          <h3>Stat Block</h3>
+          ${top}
+          ${renderList("Modifications", statBlock.modifications)}
+          ${renderList("Combat", statBlock.combat)}
+          ${renderList("Interaction", statBlock.interaction)}
+          ${renderList("Loot", statBlock.loot)}
+        </div>
+      `;
+    }
+
+    function renderViewer(record) {
+      const result = record.result || {};
+      let html = "";
+
+      html += `
+        <div class="output-card">
+          <h3>Saved Record</h3>
+          <div class="output-row">
+            <div class="output-label">Filename</div>
+            <div class="output-value">${escapeHtml(record.filename || "")}</div>
+          </div>
+          <div class="output-row">
+            <div class="output-label">Saved At</div>
+            <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
+          </div>
+          <div class="output-row">
+            <div class="output-label">Type</div>
+            <div class="output-value">${escapeHtml(result.type || "")}</div>
+          </div>
+          ${result.name ? `
+          <div class="output-row">
+            <div class="output-label">Name</div>
+            <div class="output-value">${escapeHtml(result.name)}</div>
+          </div>` : ""}
+        </div>
+      `;
+
+      if (result.sections) {
+        html += renderSectionsCard("Generated Content", result.sections);
+      }
+
+      if (result.stat_block) {
+        html += renderStatBlockCard(result.stat_block);
+      }
+
+      if (record.payload) {
+        html += `
+          <div class="output-card">
+            <h3>Original Payload</h3>
+            <div class="output-value">${escapeHtml(JSON.stringify(record.payload, null, 2))}</div>
+          </div>
+        `;
+      }
+
+      if (!result.sections && !result.stat_block && result.text) {
+        html += `
+          <div class="output-card">
+            <h3>Raw Text</h3>
+            <div class="output-value">${escapeHtml(result.text)}</div>
+          </div>
+        `;
+      }
+
+      els.viewer.innerHTML = html;
+    }
+
+    function renderResults(items) {
+      if (!items.length) {
+        els.results.innerHTML = `
+          <div class="output-card">
+            <div class="output-value">No saved items found.</div>
+          </div>
+        `;
+        return;
+      }
+
+      els.results.innerHTML = items.map(item => {
+        const meta = item.metadata || {};
+        const lines = [];
+
+        if (meta.environment) lines.push(`environment: ${meta.environment}`);
+        if (meta.race) lines.push(`race: ${meta.race}`);
+        if (meta.profession) lines.push(`profession: ${meta.profession}`);
+        if (meta.role) lines.push(`role: ${meta.role}`);
+        if (meta.family) lines.push(`family: ${meta.family}`);
+        if (item.saved_at) lines.push(`saved: ${item.saved_at}`);
+
+        return `
+          <div class="result-card" data-filename="${escapeHtml(item.filename)}">
+            <div class="result-top">
+              <div class="result-name">${escapeHtml(item.name || item.filename)}</div>
+              <div class="result-type">${escapeHtml(item.type || "unknown")}</div>
+            </div>
+            <div class="result-meta">${escapeHtml(lines.join("\n"))}</div>
+            <div class="small" style="margin-top:8px;">${escapeHtml(item.filename)}</div>
+          </div>
+        `;
+      }).join("");
+
+      document.querySelectorAll('.result-card').forEach(card => {
+        card.addEventListener('click', async () => {
+          const filename = card.getAttribute('data-filename');
+          await loadRecord(filename);
+        });
+      });
+    }
+
+    function buildSearchUrl() {
+      const params = new URLSearchParams();
+
+      if (els.type.value) params.set('type', els.type.value);
+      if (els.environment.value) params.set('environment', els.environment.value);
+      if (els.race.value) params.set('race', els.race.value);
+      if (els.profession.value) params.set('profession', els.profession.value);
+      if (els.name.value.trim()) params.set('name', els.name.value.trim());
+
+      const qs = params.toString();
+      return qs ? `/storage/search?${qs}` : `/storage/search`;
+    }
+
+    async function loadFilters() {
+      const meta = await fetchJson('/meta');
+      state.meta = meta;
+
+      fillSelect(els.type, meta.types || [], true);
+      fillSelect(els.environment, meta.environments || [], true);
+      fillSelect(els.race, meta.races || [], true);
+      fillSelect(els.profession, meta.professions || [], true);
+    }
+
+    async function search() {
+      els.status.textContent = 'Searching...';
+      const data = await fetchJson(buildSearchUrl());
+      renderResults(data.items || []);
+      els.status.textContent = `Found ${data.count ?? 0} item(s).`;
+    }
+
+    async function loadRecord(filename) {
+      els.status.textContent = `Loading ${filename}...`;
+      const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
+      renderViewer(record);
+      els.status.textContent = `Loaded ${filename}.`;
+    }
+
+    function resetFilters() {
+      els.type.value = '';
+      els.environment.value = '';
+      els.race.value = '';
+      els.profession.value = '';
+      els.name.value = '';
+      search();
+    }
+
+    els.searchBtn.addEventListener('click', search);
+    els.resetBtn.addEventListener('click', resetFilters);
+
+    Promise.all([loadFilters()]).then(() => {
+      els.status.textContent = 'Ready.';
+      return search();
+    }).catch(err => {
+      els.status.textContent = `Error: ${err.message}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+monster_roles:
+
+  brute:
+    level_range: [3, 7]
+    health_multiplier: 4
+    armor: 1
+    damage: 6
+    movement: short
+    modifications:
+      - Might defense as one level higher
+      - Speed defense as one level lower
+    combat:
+      - Heavy natural attack inflicts {damage} damage
+      - Can smash light cover, doors, or weak barriers
+    interaction:
+      - Driven by hunger, rage, pain, territory, or instinct
+    loot:
+      - salvageable hide, horn, fang, gland, or bone plate
+
+  skirmisher:
+    level_range: [2, 6]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Speed defense as one level higher
+      - Initiative as one level higher
+    combat:
+      - Fast attack inflicts {damage} damage
+      - Can disengage or reposition without provoking under favorable terrain
+    interaction:
+      - Wary, reactive, and likely to test weakness before committing
+    loot:
+      - claw, venom sac, feather, scale, or useful organ
+
+  stalker:
+    level_range: [3, 6]
+    health_multiplier: 3
+    armor: 0
+    damage: 5
+    movement: short
+    modifications:
+      - Stealth as one level higher
+      - Perception as one level higher
+    combat:
+      - Ambush attack inflicts {damage} damage
+      - If attacking from concealment, deals +2 damage
+    interaction:
+      - Patient predator behavior, avoids obvious disadvantage
+    loot:
+      - pelt, eye cluster, scent gland, shadow organ, or tracking residue
+
+  ambusher:
+    level_range: [2, 5]
+    health_multiplier: 2
+    armor: 0
+    damage: 5
+    movement: immediate burst
+    modifications:
+      - Stealth as one level higher
+      - Speed defense as one level higher
+    combat:
+      - Surprise strike inflicts {damage} damage
+      - If it acts before a target in the first round, that target is hindered
+    interaction:
+      - Avoids direct confrontation unless advantage is obvious
+    loot:
+      - venom, barbed spine, snapping mandible, or concealment organ
+
+  artillery:
+    level_range: [3, 7]
+    health_multiplier: 2
+    armor: 0
+    damage: 5
+    movement: short
+    modifications:
+      - Ranged attacks as one level higher
+      - Melee defense as one level lower
+    combat:
+      - Ranged attack inflicts {damage} damage at long range
+      - Can saturate an area with a lesser effect at GM discretion
+    interaction:
+      - Prefers distance, elevation, and defended positions
+    loot:
+      - projectile sac, resonance organ, gland, or volatile fluid
+
+  horror:
+    level_range: [4, 8]
+    health_multiplier: 4
+    armor: 2
+    damage: 6
+    movement: short
+    modifications:
+      - Intellect defense against fear or dread effects as one level higher
+      - Creatures seeing it for the first time may hesitate at GM discretion
+    combat:
+      - Primary attack inflicts {damage} damage
+      - Presence, scream, aura, or unnatural form can hinder nearby creatures
+    interaction:
+      - Alien, dreadful, and difficult to predict using normal instincts
+    loot:
+      - corrupted organ, unstable relic growth, nightmare ichor, or occult residue
+
+  swarm:
+    level_range: [2, 6]
+    health_multiplier: 3
+    armor: 0
+    damage: 3
+    movement: short
+    modifications:
+      - Cannot easily be meaningfully affected by single-target intimidation
+      - Area attacks against the swarm act as one level higher
+    combat:
+      - Swarm attack inflicts {damage} damage and may persist on a target
+      - Occupies an area rather than a single normal body space
+    interaction:
+      - Driven by mass instinct, hunger, signal, or environmental trigger
+    loot:
+      - usually nothing intact beyond residue, larvae, husks, or infection source
+
+  elite:
+    level_range: [5, 9]
+    health_multiplier: 5
+    armor: 2
+    damage: 7
+    movement: short
+    modifications:
+      - One attack, defense, or special task as one level higher
+      - Resists being hindered by lesser foes
+    combat:
+      - Major attack inflicts {damage} damage
+      - Often has one special attack mode, aura, or command effect
+    interaction:
+      - Dominant, singular, cunning, or unnaturally willful
+    loot:
+      - rare organ, relic shard, trophy material, or significant cypher chance
+
+  guardian:
+    level_range: [3, 7]
+    health_multiplier: 4
+    armor: 2
+    damage: 5
+    movement: short
+    modifications:
+      - Tasks related to holding a location as one level higher
+      - Might defense as one level higher
+    combat:
+      - Defensive attack inflicts {damage} damage
+      - In or near its assigned site, acts as one level higher
+    interaction:
+      - Bound to place, command, oath, mechanism, or ancient pattern
+    loot:
+      - key fragment, seal component, embedded rune, or structural cypher
+
+  lurker:
+    level_range: [2, 5]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Stealth as one level higher in favored terrain
+      - Perception as one level higher when motionless
+    combat:
+      - Sudden close attack inflicts {damage} damage
+      - If ignored or unseen, gains advantage on its next action
+    interaction:
+      - Avoidant, territorial, and prone to vanish when pressed
+    loot:
+      - residue, molts, fragments, spoor, or environmental clue
+
+  controller:
+    level_range: [4, 8]
+    health_multiplier: 3
+    armor: 1
+    damage: 4
+    movement: short
+    modifications:
+      - Intellect-based effects as one level higher
+      - Direct physical confrontations as one level lower
+    combat:
+      - Attack inflicts {damage} damage or imposes a hindering condition
+      - Can alter battlefield position, perception, or movement at GM discretion
+    interaction:
+      - Manipulative, alien-minded, or unnervingly aware
+    loot:
+      - psionic node, command organ, memory sac, or unstable control relic

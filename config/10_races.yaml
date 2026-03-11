@@ -1,0 +1,451 @@
+races:
+
+  alfirin:
+    name: Alfirin
+    group: Immortal Exiles
+    character_base: alfirin
+
+    core_truths:
+      - Immortal beings who fled a shattered world.
+      - Entered this world through damaged Gates after failed negotiation with the Velim.
+      - Their arrival caused lasting damage to reality.
+
+    themes:
+      - immortality versus responsibility
+      - curated history
+      - denial of guilt
+      - elegance masking ancient error
+
+    tone:
+      - ancient
+      - refined
+      - confident
+      - restrained
+      - quietly burdened
+
+    avoid:
+      - portraying them as purely benevolent
+      - portraying them as flawless stewards
+
+    visual_defaults:
+      scale: human sized or slightly taller
+      skin_palette: varies by kindred
+      signature_features:
+        - pointed ears
+        - ageless refined features
+        - elegant posture
+        - inhuman beauty
+
+      clothing: >
+        layered elegant garments, subtle authority,
+        luminous fabrics, refined martial or scholarly attire
+
+    variants:
+
+      sky_children:
+        label: Sky Children
+        appearance:
+          - blue skin
+          - clear luminous eyes
+          - calm noble bearing
+        clothing: >
+          sea-silk robes, scholar garments,
+          wind-borne fabrics, coastal ornament
+        tone: open cultured trade-oriented
+
+      galadhrim:
+        label: Galadhrim
+        appearance:
+          - green skin
+          - wild natural grace
+          - forest-bound presence
+        clothing: >
+          living fiber garments, leaf-patterned leathers,
+          draped natural textures
+        tone: instinctive nature stewards
+
+      duathrim:
+        label: Duathrim
+        appearance:
+          - white hair
+          - pale to violet skin
+          - cold watchful gaze
+        clothing: >
+          dark layered robes, hidden blades,
+          shadow-draped fabrics
+        tone: secretive hierarchical manipulators
+
+
+  velim:
+    name: Velim
+    group: Gate Wardens
+    character_base: velim
+
+    core_truths:
+      - Existed before the arrival of the Alfirin.
+      - Custodians of Gates and thresholds.
+      - Forced into guardianship after the Gate passage damaged reality.
+
+    themes:
+      - maintenance over prophecy
+      - quiet vigilance
+      - restraint
+      - cosmic balance
+
+    tone:
+      - ancient
+      - soft
+      - precise
+      - emotionally distant
+
+    avoid:
+      - portraying them as gods
+      - portraying them as villains
+      - making them manipulative tricksters
+
+    visual_defaults:
+      scale: tiny
+      skin_palette: luminous pale tones
+      signature_features:
+        - faint inner glow
+        - delicate luminous wings
+        - translucent skin
+        - delicate body structure
+
+      clothing: >
+        minimal luminous adornment,
+        symbolic threshold markings
+
+
+  human:
+    name: Humans
+    group: The Mortal Peoples
+    character_base: human
+
+    core_truths:
+      - Adaptable and short-lived.
+      - Diverse cultures filling the spaces left by elder stagnation.
+
+    themes:
+      - ambition
+      - resilience
+      - contradiction
+      - cultural friction
+
+    tone:
+      - grounded
+      - passionate
+      - volatile
+
+    avoid:
+      - portraying humans as weak
+      - portraying humans as secondary to elder races
+
+    visual_defaults:
+      scale: human
+      skin_palette: varied
+      signature_features:
+        - expressive faces
+        - weathered mortal features
+
+      clothing: >
+        culturally varied practical garments
+        shaped by climate and profession
+
+    variants:
+
+      fenmir:
+        label: Fenmir
+        appearance:
+          - wind-weathered skin
+          - ritual tattoos
+        clothing: >
+          highland leathers, clan cloth,
+          carved bone charms
+        tone: spiritual proud highlanders
+
+      caldoran:
+        label: Caldorans
+        appearance:
+          - confident cosmopolitan bearing
+        clothing: >
+          refined trade-city garments,
+          renaissance merchant fashion
+        tone: ambitious merchant culture
+
+      xanthir:
+        label: Xanthir
+        appearance:
+          - stern disciplined gaze
+        clothing: >
+          militant temple vestments,
+          red religious insignia
+        tone: militant theocracy
+
+
+  uruk:
+    name: Uruk
+    group: The Strong Peoples
+    character_base: uruk
+
+    core_truths:
+      - Powerful nomadic peoples who arrived suddenly from the east.
+      - Often misunderstood by outsiders.
+
+    themes:
+      - strength paired with culture
+      - honor misunderstood
+      - reputation shaped by fear
+
+    tone:
+      - physical
+      - proud
+      - intense
+
+    avoid:
+      - reducing them to mindless brutes
+
+    visual_defaults:
+      scale: much larger than humans
+      signature_features:
+        - protruding lower tusks
+        - powerful build
+        - heavy jaw
+        - immense physical presence
+
+      clothing: >
+        tribal leathers, war gear,
+        symbolic adornment
+
+    variants:
+
+      highland:
+        label: Highland Uruk
+        appearance:
+          - blue skin
+          - weathered philosopher-warrior presence
+        clothing: >
+          nomadic layers, herd gear,
+          carved memory tokens
+        tone: herders poets philosophers
+
+      lowland:
+        label: Lowland Uruk
+        appearance:
+          - green skin
+          - scarred martial bearing
+        clothing: >
+          disciplined war armor,
+          conquest trophies
+        tone: militant conquerors
+
+
+  lilim:
+    name: Lilim
+    group: The Wandering Flame
+    character_base: lilim
+
+    core_truths:
+      - Children of rebellion and innovation.
+      - Inherently magical wanderers.
+      - Bound by shared ritual language Darb-Nasr.
+
+    themes:
+      - motion
+      - artistic survival
+      - freedom
+      - dangerous inspiration
+
+    tone:
+      - mystical
+      - passionate
+      - poetic
+      - unsettling
+
+    avoid:
+      - portraying them as demonic villains
+      - portraying them as simple tricksters
+
+    visual_defaults:
+      scale: human sized
+      signature_features:
+        - horned or infernal traits
+        - unusual skin tones
+        - expressive eyes
+        - subtle magical aura
+
+      clothing: >
+        travelling performer garments,
+        silk layers, jewelry,
+        ritual accessories
+
+
+  fellic:
+    name: Fellic
+    group: The Ever-Watching
+    character_base: fellic
+
+    core_truths:
+      - Beast-aspected peoples tied to the natural balance.
+      - Observers and keepers rather than conquerors.
+
+    themes:
+      - instinctive wisdom
+      - balance
+      - memory
+      - restraint
+
+    tone:
+      - mythic
+      - quiet
+      - animal-wise
+
+    avoid:
+      - portraying them as primitive
+      - portraying them as cute
+
+    visual_defaults:
+      scale: human sized or larger
+      signature_features:
+        - animal-aspected traits
+        - watchful stillness
+        - powerful instinctive posture
+
+      clothing: >
+        woven natural garments,
+        symbolic tribal adornment
+
+    variants:
+
+      cat:
+        label: Cat
+        tone: watchers wanderers
+
+      fox:
+        label: Fox
+        tone: diplomats weavers
+
+      dog:
+        label: Dog
+        tone: guardians oath-keepers
+
+      bear:
+        label: Bear
+        tone: elders memory keepers
+
+      bull:
+        label: Bull
+        tone: keepers of the land
+
+      turtle:
+        label: Turtle
+        tone: time guardians
+
+      mallard:
+        label: Mallard
+        tone: traders and friends of humans
+
+
+  gitz:
+    name: Gitz
+    group: Small Survivors
+    character_base: gitz
+
+    core_truths:
+      - Small clever forest peoples.
+      - Oral history predates Alfirin settlement.
+
+    themes:
+      - adaptation
+      - clever survival
+      - quiet resilience
+
+    tone:
+      - quick
+      - wary
+      - pragmatic
+
+    avoid:
+      - linking them to Uruk origins
+      - portraying them as servants
+
+    visual_defaults:
+      scale: small
+      skin_palette: green
+      signature_features:
+        - quick agile bodies
+        - bright alert eyes
+
+      clothing: >
+        patched woodland gear,
+        clever handmade tools
+
+
+  vaettyr:
+    name: Vaettyr
+    group: Quiet Engineers
+    character_base: vaettyr
+
+    core_truths:
+      - Subterranean engineers maintaining ancient stabilizing machines.
+      - Awakened due to damage caused during the Alfirin passage.
+
+    themes:
+      - repair over glory
+      - patience
+      - deep time
+
+    tone:
+      - methodical
+      - understated
+      - quietly ominous
+
+    avoid:
+      - comic tinkerer stereotypes
+
+    visual_defaults:
+      scale: small compact
+      signature_features:
+        - thoughtful analytical gaze
+        - soot-marked hands
+
+      clothing: >
+        engineer garments,
+        tool harnesses,
+        machine maintenance gear
+
+
+  duergar:
+    name: Duergar
+    group: Stonebound Clans
+    character_base: duergar
+
+    core_truths:
+      - Deep-dwelling forge clans of stone and shadow.
+      - Isolationist and tradition-bound.
+
+    themes:
+      - endurance
+      - grudges
+      - craftsmanship as identity
+
+    tone:
+      - heavy
+      - severe
+      - deliberate
+
+    avoid:
+      - portraying them as universally evil
+
+    visual_defaults:
+      scale: short but extremely broad
+      skin_palette: stone grey ash dark
+      signature_features:
+        - heavy bone structure
+        - deep-set eyes
+        - forge-scarred skin
+
+      clothing: >
+        forge leathers,
+        heavy aprons,
+        ritual engineering armor

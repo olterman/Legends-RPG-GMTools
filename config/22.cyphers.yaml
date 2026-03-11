@@ -1,0 +1,278 @@
+cyphers:
+
+  cirdion:
+    forms:
+      - crystalline navigation disk
+      - star-chart lens
+      - tide-measure rod
+      - luminous astrolabe token
+      - sea-light prism
+
+    appearances:
+      - clear crystal etched with impossibly precise lines
+      - pale stone glowing with inner sea-blue light
+      - delicate instrument built with scholarly elegance
+      - thin plates of silver and glass rotating silently
+      - smooth white alloy warm to the touch
+
+    effects:
+      - reveals the safest path through treacherous terrain or waters
+      - predicts the next significant environmental change
+      - allows the user to see hidden currents of magic or motion
+      - creates a brief zone of perfect balance and stability
+      - aligns navigation, preventing the user from becoming lost
+
+    limits:
+      - functions only once before going inert
+      - fractures after activation
+      - must be exposed to open sky to function
+      - loses power at sunrise
+
+    quirks:
+      - emits faint harmonic tones when danger approaches
+      - reflects stars even in daylight
+      - leaves faint geometric marks on the user's skin
+      - subtly alters the direction of wind nearby
+
+
+  almadir:
+    forms:
+      - seed-pod charm
+      - living thorn ring
+      - sap crystal vial
+      - leaf-shaped talisman
+      - root-bound stone
+
+    appearances:
+      - grown rather than crafted
+      - veined with soft green bioluminescence
+      - warm and faintly pulsing
+      - wrapped in delicate root fibers
+      - carrying the scent of deep forest soil
+
+    effects:
+      - causes roots and vines to entangle a nearby creature
+      - allows the user to move silently through dense vegetation
+      - reveals hidden creatures within natural terrain
+      - rapidly grows a temporary wall of plant matter
+      - restores minor vitality when near living forest
+
+    limits:
+      - dissolves into soil after use
+      - works only once per day
+      - functions only within natural wilderness
+      - becomes inert if removed from sunlight for too long
+
+    quirks:
+      - attracts small animals
+      - causes moss to grow where it rests
+      - whispers faint plant-like sounds
+      - briefly stains the user's skin green
+
+
+  ered_engrin:
+    forms:
+      - iron seal spike
+      - pressure rune plate
+      - forge capsule
+      - mechanical lock token
+      - black metal gear charm
+
+    appearances:
+      - dense and heavy for its size
+      - engraved with containment runes
+      - warm like banked forge heat
+      - built with severe mechanical precision
+      - dark metal with faint glowing seams
+
+    effects:
+      - locks a door or mechanism completely shut
+      - stabilizes a collapsing structure briefly
+      - releases a burst of intense furnace heat
+      - disables nearby machinery
+      - reinforces armor or tools for a short time
+
+    limits:
+      - shatters after activation
+      - must be struck against stone to trigger
+      - overheats and becomes unusable
+      - functions only underground
+
+    quirks:
+      - smells faintly of iron and ash
+      - hums near large metal structures
+      - makes nearby shadows appear heavier
+      - warms when danger approaches
+
+
+  fenmir_highlands:
+    forms:
+      - carved bone token
+      - wind-reading charm
+      - clan oath pendant
+      - stone memory bead
+      - braided charm cord
+
+    appearances:
+      - carved from antler or bone
+      - etched with clan markings
+      - worn smooth by generations
+      - decorated with feathers or leather ties
+      - faintly warm when held
+
+    effects:
+      - predicts imminent danger in the surrounding terrain
+      - grants sudden physical endurance
+      - reveals the safest mountain path
+      - inspires nearby allies with ancestral courage
+      - allows the user to sense betrayal or dishonor
+
+    limits:
+      - cracks after activation
+      - must be used beneath open sky
+      - becomes inert after sunset
+      - works only once per oath sworn
+
+    quirks:
+      - whispers ancestral names in wind
+      - chills the air briefly
+      - causes nearby fires to flare brighter
+      - briefly reveals ghostly silhouettes
+
+
+  fenmir_wilds:
+    forms:
+      - scavenged relic fragment
+      - unstable crystal shard
+      - stitched talisman bundle
+      - broken arcane instrument
+      - improvised charm of mixed origins
+
+    appearances:
+      - patched together from many cultures
+      - faintly warped by unstable magic
+      - glowing unevenly with strange energy
+      - cracked and partially melted
+      - humming unpredictably
+
+    effects:
+      - unleashes a chaotic burst of energy
+      - disrupts magical effects nearby
+      - allows the user to briefly phase through obstacles
+      - releases a confusing wave of illusions
+      - reveals hidden or unstable magical zones
+
+    limits:
+      - unpredictable outcome
+      - shatters violently after use
+      - drains the user's stamina
+      - attracts unwanted magical attention
+
+    quirks:
+      - flickers with random colors
+      - vibrates when near ruins
+      - produces strange whispers
+      - leaves faint glowing footprints
+
+  gate_ruins:
+    forms:
+      - fractured threshold shard
+      - broken gate mechanism fragment
+      - floating glyph plate
+      - warped crystal from the Gate ring
+      - small containment capsule recovered from Velim machinery
+
+    appearances:
+      - etched with alien geometric runes
+      - faintly distorting nearby light
+      - humming with unstable resonance
+      - shifting shape slightly when observed from different angles
+      - emitting soft pulses of pale blue or violet energy
+
+    effects:
+      - briefly opens a short-range spatial rift
+      - distorts gravity around a target
+      - reveals hidden magical structures
+      - disrupts magical effects in a small area
+      - allows the user to step through solid matter momentarily
+
+    limits:
+      - destabilizes after a single use
+      - may produce unpredictable spatial effects
+      - drains energy from nearby magical items
+      - fractures into inert fragments
+
+    quirks:
+      - reflections appear delayed by a heartbeat
+      - nearby shadows move independently
+      - faint voices echo from other places
+      - the user briefly sees another landscape overlapping reality
+
+  pirate_seas:
+    forms:
+      - tide-compass token
+      - sailor's bone charm
+      - brass storm capsule
+      - driftglass amulet
+      - navigator's rune coin
+
+    appearances:
+      - salt-crusted metal
+      - sea-worn glass
+      - etched with crude maritime symbols
+      - smells faintly of salt and tar
+      - decorated with rope and shell fragments
+
+    effects:
+      - calms dangerous waves briefly
+      - reveals hidden reefs or safe passage
+      - summons a sudden gust of wind
+      - repels sea creatures
+      - guides the user unerringly toward land
+
+    limits:
+      - dissolves in seawater after use
+      - only works at sea
+      - becomes inert under clear skies
+      - sinks if dropped
+
+    quirks:
+      - drips seawater constantly
+      - whispers faint ocean sounds
+      - attracts gulls
+      - briefly darkens nearby water
+
+
+  sands:
+    forms:
+      - black glass shard
+      - ash-carved idol fragment
+      - twisted relic capsule
+      - Daelgast crystal
+      - bone relic from a vanished ruin
+
+    appearances:
+      - dark reflective glass
+      - cracked stone etched with unknown script
+      - warped metal fused with sand
+      - faintly vibrating crystal
+      - cold to the touch despite the heat
+
+    effects:
+      - distorts gravity briefly
+      - reveals hidden ruins or structures
+      - forces hostile creatures to hesitate in dread
+      - creates a mirage double of the user
+      - suppresses undead for a short time
+
+    limits:
+      - crumbles after activation
+      - warps reality unpredictably
+      - drains vitality from the user
+      - works only in corrupted regions
+
+    quirks:
+      - causes shadows to move independently
+      - whispers in forgotten languages
+      - distorts reflections
+      - leaves black dust on the user's hands

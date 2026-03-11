@@ -1,0 +1,34 @@
+{
+  "saved_at": "2026-03-11T17:33:30.013101+00:00",
+  "filename": "character_20260311T173330.json",
+  "payload": {
+    "environment": "fenmir_free_cities",
+    "mood": "seductive",
+    "gender": "female",
+    "profession": "poet_warrior",
+    "race": "lilim"
+  },
+  "result": {
+    "type": "character",
+    "name": "Rhaevan Ash of Dawn",
+    "sections": {
+      "setting": "Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.",
+      "character": "Rhaevan Ash of Dawn, female lilim poet warrior",
+      "appearance": "horned or infernal traits, unusual skin tones, expressive eyes, subtle magical aura, immense but thoughtful presence, calm reflective gaze, strength tempered by memory, mood of seductive",
+      "clothing": "travelling performer garments, silk layers, jewelry, ritual accessories, nomadic garments, symbolic adornments, carved tokens of journeys",
+      "weapons_props": "side sword, travel bundles",
+      "pose": "weapon resting nearby, mood of seductive",
+      "environment": "Independent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.",
+      "lighting": "windswept sky lighting",
+      "race_flavor": "Core truths: Children of rebellion and innovation.; Inherently magical wanderers.; Bound by shared ritual language Darb-Nasr.. Themes: motion, artistic survival, freedom, dangerous inspiration. Tone: mystical, passionate, poetic, unsettling. Visual cues: scale human sized; signature features horned or infernal traits, unusual skin tones, expressive eyes, subtle magical aura. Avoid: portraying them as demonic villains, portraying them as simple tricksters.",
+      "style": "painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration"
+    },
+    "text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nRhaevan Ash of Dawn, female lilim poet warrior.\n\nAppearance:\nhorned or infernal traits, unusual skin tones, expressive eyes, subtle magical aura, immense but thoughtful presence, calm reflective gaze, strength tempered by memory, mood of seductive.\n\nClothing:\ntravelling performer garments, silk layers, jewelry, ritual accessories, nomadic garments, symbolic adornments, carved tokens of journeys.\n\nWeapons / Props:\nside sword, travel bundles.\n\nPose:\nweapon resting nearby, mood of seductive.\n\nEnvironment:\nIndependent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.\n\nLighting:\nwindswept sky lighting.\n\nRace Flavor:\nCore truths: Children of rebellion and innovation.; Inherently magical wanderers.; Bound by shared ritual language Darb-Nasr.. Themes: motion, artistic survival, freedom, dangerous inspiration. Tone: mystical, passionate, poetic, unsettling. Visual cues: scale human sized; signature features horned or infernal traits, unusual skin tones, expressive eyes, subtle magical aura. Avoid: portraying them as demonic villains, portraying them as simple tricksters.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n",
+    "metadata": {
+      "race": "lilim",
+      "variant": null,
+      "profession": "poet_warrior",
+      "environment": "fenmir_free_cities"
+    }
+  }
+}

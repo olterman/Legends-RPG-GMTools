@@ -1,0 +1,199 @@
+styles:
+  legends_style_art:
+    name: Legends Style Art
+    summary: >
+      Dark fantasy painted British graphic-novel aesthetic with heavy ink outlines,
+      thick painterly brush strokes, saturated colors, dramatic perspective,
+      exaggerated anatomy, and a mythic but brutal sense of lived-in fantasy.
+
+    prompt_text: >
+      painted british comic illustration, gritty graphic novel art,
+      heavy ink outlines, thick painterly brush strokes,
+      high contrast saturated colors, dramatic low-angle perspective,
+      exaggerated anatomy, chaotic layered backgrounds,
+      heavy shadows, glowing highlights,
+      metal textures and worn surfaces,
+      dark fantasy graphic novel illustration
+
+    visual_traits:
+      linework:
+        - heavy ink outlines
+        - bold contour lines
+        - graphic shadow shapes
+
+      brushwork:
+        - thick painterly brush strokes
+        - visible paint texture
+        - rough blended surfaces
+        - expressive mark-making
+
+      color:
+        - saturated colors
+        - high contrast values
+        - deep shadow masses
+        - glowing highlights
+        - strong warm-cool separation
+
+      composition:
+        - dramatic low-angle perspective
+        - dynamic comic panel composition
+        - heroic or ominous silhouettes
+        - layered foreground and background depth
+        - visual storytelling through posture and environment
+
+      anatomy:
+        - exaggerated anatomy
+        - physically expressive poses
+        - strong silhouettes
+        - larger-than-life presence
+
+      materials:
+        - metal textures and worn surfaces
+        - weathered cloth
+        - scarred skin
+        - carved stone
+        - aged wood
+        - mud, ash, and dust
+
+      mood:
+        - mythic
+        - ancient
+        - severe
+        - brutal
+        - haunted
+        - epic
+        - lived-in
+
+    preferred_lighting:
+      - harsh directional light
+      - strong rim light
+      - deep cast shadows
+      - storm light
+      - forge glow
+      - sunset glare
+      - moonlit contrast
+
+    preferred_backgrounds:
+      - chaotic layered backgrounds
+      - ruined architecture
+      - storm-heavy skies
+      - smoke and drifting ash
+      - towering landscape forms
+      - crowded symbolic detail
+      - ritual structures
+
+    negative_bias:
+      - avoid modern visual language
+      - avoid clean minimalist composition
+      - avoid soft pastel rendering
+      - avoid flat cel shading
+      - avoid glossy plastic surfaces
+      - avoid cute or comedic presentation unless explicitly requested
+
+  legends_cover_art:
+    name: Legends Cover Art
+    summary: >
+      Variant of legends style art emphasizing a painted comic-cover composition
+      with a single dominant focal figure or confrontation.
+
+    based_on: legends_style_art
+
+    prompt_text: >
+      painted british comic cover illustration, gritty graphic novel cover art,
+      heavy ink outlines, thick painterly brush strokes,
+      high contrast saturated colors, dramatic low-angle perspective,
+      exaggerated anatomy, intense focal composition,
+      heavy shadows, glowing highlights,
+      weathered materials, mythic dark fantasy cover illustration
+
+    emphasis:
+      - central heroic or villainous figure
+      - iconic silhouette
+      - cover-like visual clarity
+      - fewer but stronger focal elements
+
+  legends_character_sheet:
+    name: Legends Character Sheet
+    summary: >
+      Variant of legends style art adapted for cleaner full-body presentation while
+      preserving the dark painted comic feel.
+
+    based_on: legends_style_art
+
+    prompt_text: >
+      painted british comic illustration, gritty graphic novel art,
+      heavy ink outlines, thick painterly brush strokes,
+      high contrast saturated colors, dramatic but readable full-body composition,
+      exaggerated anatomy, clean figure readability,
+      weathered materials, dark fantasy character sheet illustration
+
+    emphasis:
+      - full-body readability
+      - equipment visibility
+      - reduced background clutter
+      - silhouette clarity
+      - parchment or presentation layout compatibility
+
+  legends_settlement_art:
+    name: Legends Settlement Art
+    summary: >
+      Variant of legends style art for villages, camps, ruins, and small cities,
+      emphasizing environmental storytelling over a single figure.
+
+    based_on: legends_style_art
+
+    prompt_text: >
+      painted british comic environment illustration, gritty graphic novel landscape art,
+      heavy ink outlines, thick painterly brush strokes,
+      high contrast saturated colors, layered architecture,
+      dramatic environmental perspective, weathered surfaces,
+      dark fantasy settlement illustration
+
+    emphasis:
+      - architecture and lived-in detail
+      - environmental storytelling
+      - cultural texture
+      - atmospheric scale
+      - clear landmark elements
+
+  legends_encounter_art:
+    name: Legends Encounter Art
+    summary: >
+      Variant of legends style art for playable tabletop scenes, with emphasis on
+      immediate tension, readable action, and situational storytelling.
+
+    based_on: legends_style_art
+
+    prompt_text: >
+      painted british comic encounter illustration, gritty graphic novel action scene,
+      heavy ink outlines, thick painterly brush strokes,
+      high contrast saturated colors, dramatic composition,
+      immediate tension, layered action, dark fantasy encounter art
+
+    emphasis:
+      - readable conflict
+      - scene tension
+      - clear threat or mystery
+      - local environmental context
+      - strong action silhouette
+
+  legends_cypher_art:
+    name: Legends Cypher Art
+    summary: >
+      Variant of legends style art for strange one-use relics, oddities, and magical tools,
+      emphasizing object presence and implied history.
+
+    based_on: legends_style_art
+
+    prompt_text: >
+      painted british comic object illustration, gritty graphic novel relic art,
+      heavy ink outlines, thick painterly brush strokes,
+      high contrast saturated colors, strong material rendering,
+      ancient strange object design, dark fantasy cypher illustration
+
+    emphasis:
+      - object silhouette clarity
+      - material age and use
+      - implied function
+      - cultural origin
+      - eerie or mythic detail

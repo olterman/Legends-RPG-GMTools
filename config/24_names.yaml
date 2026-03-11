@@ -1,0 +1,982 @@
+names:
+
+  personal_names:
+
+    alfirin:
+      first:
+        - Aelar
+        - Saelion
+        - Thaelir
+        - Vaeril
+        - Calaith
+        - Eryndor
+        - Loraen
+        - Myrith
+        - Sylvar
+        - Naevys
+        - Ithriel
+        - Vaelith
+
+      by_variant:
+        sky_children:
+          first:
+            - Ciryon
+            - Elenor
+            - Thalir
+            - Saelwen
+            - Aerion
+            - Miralith
+
+        galadhrim:
+          first:
+            - Theryn
+            - Galeth
+            - Syllen
+            - Vaeros
+            - Lethira
+            - Maelor
+
+        duathrim:
+          first:
+            - Vorien
+            - Saevra
+            - Nytheris
+            - Vaelkor
+            - Thyris
+            - Morvain
+
+      surnames:
+        - of the White Tide
+        - Star of the West
+        - Seaborn
+        - of the Quiet Archive
+        - Wind-Marked
+        - Tide-Sworn
+        - of the Hidden Bough
+        - Night-Voiced
+        - of the Pale Court
+
+    human:
+      first:
+        - Edric
+        - Maelin
+        - Bryn
+        - Talia
+        - Corvin
+        - Ysra
+        - Harlan
+        - Sena
+        - Dain
+        - Rowan
+        - Mira
+        - Toren
+
+      by_variant:
+        fenmir:
+          first:
+            - Aila
+            - Branoc
+            - Fenna
+            - Cael
+            - Rurik
+            - Moira
+          surnames:
+            - Stoneblood
+            - Windwalker
+            - Ashcloak
+            - Cairnson
+            - Red Heather
+            - Oath-Bearer
+
+        caldoran:
+          first:
+            - Lucan
+            - Marcella
+            - Cassian
+            - Virella
+            - Dorian
+            - Elira
+          surnames:
+            - Valcero
+            - Marovant
+            - Delisca
+            - Corvane
+            - Talleri
+            - Seneca Vale
+
+        xanthir:
+          first:
+            - Malrec
+            - Serapha
+            - Istran
+            - Vardis
+            - Calthea
+            - Oren Voss
+          surnames:
+            - Red Vow
+            - Ash Standard
+            - of the Iron Rite
+            - Ember Creed
+            - Voss
+            - Karthis
+
+      surnames:
+        - Greymark
+        - Holloway
+        - Thorn
+        - Vale
+        - Harrow
+        - Blackmere
+
+    uruk:
+      first:
+        - Drogan
+        - Varkh
+        - Urza
+        - Maagha
+        - Korv
+        - Thruk
+        - Vaasha
+        - Ghorin
+
+      by_variant:
+        highland:
+          first:
+            - Azhur
+            - Korum
+            - Vaarka
+            - Dhorak
+            - Mirga
+            - Thuram
+          clan_names:
+            - Stone Wind
+            - High Grass
+            - Sky Herd
+            - Red Cairn
+            - Far Thunder
+            - Winter Horn
+
+        lowland:
+          first:
+            - Ghorzak
+            - Murgan
+            - Varsha
+            - Krul
+            - Thorga
+            - Azruk
+          clan_names:
+            - Iron Lash
+            - Black Banner
+            - Red Fang
+            - Ash Spear
+            - Broken Gate
+            - War Hand
+
+      surnames:
+        - of the Long Step
+        - Bone-Singer
+        - Black Tusk
+        - Storm Jaw
+        - Far Rider
+
+    lilim:
+      first:
+        - Nazeera
+        - Selvarin
+        - Ilyas
+        - Vaesh
+        - Liora
+        - Nahal
+        - Zafira
+        - Rhaevan
+        - Samir
+        - Taziel
+
+      surnames:
+        - Flame-Born
+        - of the Third Lantern
+        - Silkfire
+        - Ember-Voice
+        - Veil-Dancer
+        - Ash of Dawn
+
+      stage_names:
+        - Velvet Ash
+        - Candle in Rain
+        - Crimson Thread
+        - Lantern Smile
+        - the Last Kiss
+        - Ember Saint
+
+    fellic:
+      first:
+        - Sable
+        - Rook
+        - Ember
+        - Thistle
+        - Moss
+        - Flint
+        - Reed
+        - Bramble
+
+      by_variant:
+        cat:
+          titles:
+            - Soft-Step
+            - Night-Eye
+            - Long Shadow
+
+        fox:
+          titles:
+            - Bright-Tongue
+            - Reed-Whisper
+            - Thread-Mind
+
+        dog:
+          titles:
+            - Oath-Keeper
+            - Gate-Tooth
+            - Hearth-Guard
+
+        bear:
+          titles:
+            - Winter-Memory
+            - Root-Elder
+            - Stone-Sleeper
+
+        bull:
+          titles:
+            - Field-Binder
+            - Furrow-Horn
+            - Earth-Shoulder
+
+        turtle:
+          titles:
+            - Slow River
+            - Long Shell
+            - Keeper of Dusk
+
+        mallard:
+          titles:
+            - Reed-Coin
+            - Market-Wing
+            - River-Broker
+
+    gitz:
+      first:
+        - Snikket
+        - Varra
+        - Titch
+        - Grin
+        - Nib
+        - Kessa
+        - Rukket
+        - Fennik
+
+      surnames:
+        - Quickhands
+        - Mossboot
+        - Burrow-Bright
+        - Thornskip
+        - Tanglesnout
+        - Swiftroot
+
+    vaettyr:
+      first:
+        - Pellin
+        - Orsa
+        - Tivik
+        - Brenna
+        - Korril
+        - Senvek
+        - Mirrin
+        - Dovik
+
+      surnames:
+        - Gearwright
+        - Hollowpin
+        - Cinderthread
+        - Brassvein
+        - Stonecoil
+        - Wireshade
+
+    duergar:
+      first:
+        - Durn
+        - Khara
+        - Borik
+        - Vaska
+        - Morin
+        - Tholda
+        - Dravik
+        - Surna
+
+      clan_names:
+        - Irondeep
+        - Black Anvil
+        - Ash Vault
+        - Stone Oath
+        - Ember Chain
+        - Deep Seal
+
+
+  settlement_names:
+
+    cirdion:
+      prefixes:
+        - Cir
+        - Cala
+        - Ael
+        - Thal
+        - Vae
+        - Lora
+      suffixes:
+        - dion
+        - theris
+        - mar
+        - eon
+        - thir
+        - ael
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Terrace"
+        - "{prefix}{suffix} Harbor"
+
+    cird:
+      fixed:
+        - Cird
+        - Cirth
+
+    almadir:
+      prefixes:
+        - Alma
+        - Syl
+        - Ther
+        - Gal
+        - Leth
+        - Vir
+      suffixes:
+        - adir
+        - grove
+        - root
+        - thalen
+        - myr
+        - wend
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Grove"
+        - "{prefix}{suffix} Hollow"
+
+    ered_engrin:
+      prefixes:
+        - Ered
+        - Khar
+        - Dorn
+        - Baz
+        - Mor
+        - Thuld
+      suffixes:
+        - engrin
+        - hold
+        - var
+        - dran
+        - kath
+        - vault
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Hold"
+        - "{prefix}{suffix} Gate"
+
+    fenmir_highlands:
+      prefixes:
+        - Fen
+        - Caer
+        - Bren
+        - Mor
+        - Tair
+        - Rowan
+      suffixes:
+        - cairn
+        - stead
+        - hill
+        - tor
+        - watch
+        - hearth
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Stead"
+        - "{prefix}{suffix} Cairn"
+
+    fenmir_lowlands:
+      prefixes:
+        - Black
+        - Thorn
+        - Grey
+        - Ash
+        - Red
+        - Hollow
+      suffixes:
+        - ford
+        - watch
+        - field
+        - bridge
+        - hollow
+        - keep
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Village"
+        - "{prefix}{suffix} Cross"
+
+    fenmir_wilds:
+      prefixes:
+        - Broken
+        - Tangle
+        - Wolf
+        - Green
+        - Last
+        - Ragged
+      suffixes:
+        - camp
+        - stockade
+        - pass
+        - hollow
+        - mark
+        - post
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+        - "{prefix} {suffix}"
+
+    fenmir_free_cities:
+      fixed:
+        - Freeport
+        - Xul
+        - Kahn
+      prefixes:
+        - Salt
+        - Lantern
+        - Black
+        - Gull
+        - Red
+        - Drift
+      suffixes:
+        - quay
+        - harbor
+        - port
+        - dock
+        - reach
+        - strand
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix} {suffix}"
+
+    pirate_seas:
+      prefixes:
+        - Skull
+        - Drift
+        - Black
+        - Gull
+        - Storm
+        - Dead
+      suffixes:
+        - cove
+        - reef
+        - haven
+        - anchorage
+        - shoal
+        - reach
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+
+    sands:
+      prefixes:
+        - Ash
+        - Glass
+        - Dread
+        - Hollow
+        - Last
+        - Black
+      suffixes:
+        - waste
+        - refuge
+        - well
+        - cairn
+        - camp
+        - reach
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+
+    lomeanor:
+      prefixes:
+        - Lom
+        - Vael
+        - Nyth
+        - Mor
+        - Thae
+        - Vor
+      suffixes:
+        - eanor
+        - court
+        - veil
+        - haven
+        - dusk
+        - watch
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Court"
+        - "{prefix}{suffix} Enclave"
+
+    xanthir:
+      prefixes:
+        - Red
+        - Ash
+        - Iron
+        - Ember
+        - Vow
+        - Flame
+      suffixes:
+        - gate
+        - march
+        - altar
+        - wall
+        - crown
+        - keep
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix} {suffix}"
+
+    caldor:
+      prefixes:
+        - Val
+        - Mar
+        - Cor
+        - Del
+        - Sen
+        - Luc
+      suffixes:
+        - ora
+        - ello
+        - anta
+        - aro
+        - ena
+        - via
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix}{suffix} Port"
+        - "{prefix}{suffix} Canal"
+
+    caldor_island:
+      fixed:
+        - Southport
+        - Mountainhome
+        - Lakehome
+        - The Vale
+      prefixes:
+        - Green
+        - White
+        - Deep
+        - North
+        - Apple
+        - Cedar
+      suffixes:
+        - brook
+        - cove
+        - field
+        - hollow
+        - point
+        - vale
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix} {suffix}"
+
+    gate_ruins:
+      prefixes:
+        - Broken
+        - Shattered
+        - Pale
+        - Threshold
+        - Silent
+        - Lost
+      suffixes:
+        - gate
+        - arch
+        - ring
+        - crossing
+        - vault
+        - ruin
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+
+
+  artifact_names:
+
+    general:
+      prefixes:
+        - Ash
+        - Star
+        - Thorn
+        - Black
+        - Silver
+        - Red
+        - Hollow
+        - Ember
+      nouns:
+        - Key
+        - Crown
+        - Shard
+        - Idol
+        - Needle
+        - Lantern
+        - Seal
+        - Mirror
+      templates:
+        - "{prefix} {noun}"
+        - "The {prefix} {noun}"
+
+    gate_ruins:
+      prefixes:
+        - Fractured
+        - Threshold
+        - Shattered
+        - Pale
+        - Echoing
+        - Lost
+      nouns:
+        - Ring
+        - Shard
+        - Seal
+        - Plate
+        - Key
+        - Lens
+      templates:
+        - "{prefix} {noun}"
+        - "The {prefix} {noun}"
+
+    almadir:
+      prefixes:
+        - Root
+        - Thorn
+        - Green
+        - Moonleaf
+        - Sap
+        - Moss
+      nouns:
+        - Charm
+        - Seed
+        - Ring
+        - Heart
+        - Token
+        - Bloom
+      templates:
+        - "{prefix} {noun}"
+        - "The {prefix} {noun}"
+
+    ered_engrin:
+      prefixes:
+        - Iron
+        - Ash
+        - Deep
+        - Black
+        - Furnace
+        - Seal
+      nouns:
+        - Spike
+        - Key
+        - Plate
+        - Weight
+        - Gear
+        - Brand
+      templates:
+        - "{prefix} {noun}"
+        - "The {prefix} {noun}"
+
+
+  ship_names:
+
+    cirdion:
+      prefixes:
+        - Star
+        - White
+        - Tide
+        - Wind
+        - Crystal
+        - Azure
+      suffixes:
+        - Swan
+        - Wake
+        - Voyager
+        - Crown
+        - Current
+        - Lantern
+      templates:
+        - "The {prefix} {suffix}"
+
+    fenmir_free_cities:
+      prefixes:
+        - Black
+        - Salt
+        - Lantern
+        - Gull
+        - Widow
+        - Drift
+      suffixes:
+        - Queen
+        - Knife
+        - Hound
+        - Bride
+        - Saint
+        - Raven
+      templates:
+        - "The {prefix} {suffix}"
+
+    pirate_seas:
+      prefixes:
+        - Dead
+        - Storm
+        - Bloody
+        - Skull
+        - Ragged
+        - Broken
+      suffixes:
+        - Gull
+        - Widow
+        - Fang
+        - Tide
+        - Crown
+        - Wake
+      templates:
+        - "The {prefix} {suffix}"
+
+
+  clan_names:
+
+    fenmir:
+      prefixes:
+        - Ash
+        - Red
+        - High
+        - Cairn
+        - Rowan
+        - Stone
+      suffixes:
+        - blood
+        - hearth
+        - cloak
+        - mark
+        - hand
+        - song
+      templates:
+        - "{prefix}{suffix}"
+        - "{prefix} {suffix}"
+
+    uruk_highland:
+      prefixes:
+        - Sky
+        - Far
+        - Stone
+        - Winter
+        - Red
+        - Thunder
+      suffixes:
+        - horn
+        - step
+        - grass
+        - herd
+        - cairn
+        - wind
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+
+    uruk_lowland:
+      prefixes:
+        - Black
+        - War
+        - Iron
+        - Red
+        - Ash
+        - Broken
+      suffixes:
+        - fang
+        - hand
+        - banner
+        - spear
+        - lash
+        - gate
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+
+    duergar:
+      prefixes:
+        - Iron
+        - Ash
+        - Deep
+        - Black
+        - Stone
+        - Ember
+      suffixes:
+        - anvil
+        - vault
+        - chain
+        - seal
+        - deep
+        - oath
+      templates:
+        - "{prefix} {suffix}"
+        - "{prefix}{suffix}"
+
+  inn_names:
+
+    general:
+      adjectives:
+        - Black
+        - Red
+        - White
+        - Golden
+        - Broken
+        - Wandering
+        - Laughing
+        - Weeping
+        - Silent
+        - Crooked
+        - Sleeping
+        - Burning
+
+      nouns:
+        - Stag
+        - Fox
+        - Crow
+        - Lantern
+        - Crown
+        - Sword
+        - Wolf
+        - Gull
+        - Hearth
+        - Bell
+        - Tankard
+        - Pike
+
+      templates:
+        - "The {adjective} {noun}"
+        - "The {noun} and {noun2}"
+        - "The {adjective} {noun} Inn"
+        - "The {adjective} {noun} Tavern"
+
+    fenmir_highlands:
+      adjectives:
+        - Wind
+        - Stone
+        - Heather
+        - High
+        - Cairn
+        - Storm
+      nouns:
+        - Hearth
+        - Stag
+        - Cairn
+        - Ram
+        - Fire
+        - Hound
+      templates:
+        - "The {adjective} {noun}"
+        - "The {adjective} {noun} Hearth"
+
+    fenmir_free_cities:
+      adjectives:
+        - Salt
+        - Lantern
+        - Black
+        - Gull
+        - Red
+        - Drift
+      nouns:
+        - Anchor
+        - Knife
+        - Gull
+        - Lantern
+        - Bride
+        - Crown
+      templates:
+        - "The {adjective} {noun}"
+        - "The {adjective} {noun} Tavern"
+        - "The {noun} and {noun2}"
+
+    pirate_seas:
+      adjectives:
+        - Bloody
+        - Dead
+        - Storm
+        - Ragged
+        - Skull
+        - Black
+      nouns:
+        - Gull
+        - Widow
+        - Anchor
+        - Wake
+        - Reef
+        - Bottle
+      templates:
+        - "The {adjective} {noun}"
+        - "The {adjective} {noun} House"
+
+    caldor:
+      adjectives:
+        - Silver
+        - Marble
+        - Velvet
+        - Golden
+        - Civic
+        - Painted
+      nouns:
+        - Swan
+        - Canal
+        - Crown
+        - Rose
+        - Lantern
+        - Dolphin
+      templates:
+        - "The {adjective} {noun}"
+        - "The {adjective} {noun} House"
+
+    xanthir:
+      adjectives:
+        - Red
+        - Iron
+        - Ember
+        - Vowed
+        - Ash
+        - Burning
+      nouns:
+        - Crown
+        - Pike
+        - Standard
+        - Hearth
+        - Hammer
+        - Bell
+      templates:
+        - "The {adjective} {noun}"
+        - "The {adjective} {noun} Rest"
+
+    gate_ruins:
+      adjectives:
+        - Broken
+        - Pale
+        - Silent
+        - Shattered
+        - Lost
+        - Echoing
+      nouns:
+        - Arch
+        - Ring
+        - Lantern
+        - Threshold
+        - Crown
+        - Bell
+      templates:
+        - "The {adjective} {noun}"
+        - "The {adjective} {noun} Inn"

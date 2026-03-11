@@ -1,0 +1,471 @@
+encounters:
+
+  cirdion:
+    first_impressions:
+      - sea wind carries the sound of crystal rigging singing above the cliffs
+      - a white terrace stands empty except for scattered instruments and one overturned chair
+      - a council quay has been sealed with quiet efficiency and no public explanation
+      - gulls circle above a half-finished vessel whose hull glows faintly at dusk
+
+    subjects:
+      - a shipwright testing a dangerous innovation
+      - rival scholars disputing a pre-cataclysm design
+      - a diplomatic envoy who has seen too much
+      - a civic investigator trying to keep panic contained
+      - a sailor returned from a voyage that should have been impossible
+
+    truths:
+      - an experimental vessel has reacted to damaged Gate principles
+      - a council faction is concealing evidence of a serious failure
+      - an elegant civic project is built on unstable older foundations
+      - something recovered from the sea remembers more than it should
+
+    complications:
+      - public calm matters more to the authorities than transparency
+      - the wrong accusation could ignite conflict between powerful councils
+      - sea light and arcane residue are distorting memory around the site
+      - an outsider faction wants the discovery before it can be contained
+
+    hooks:
+      - discover what truly happened before the council settles on a false explanation
+      - retrieve a dangerous object from a sealed quay without drawing notice
+      - decide whether truth, stability, or mercy matters most
+
+
+  cird:
+    first_impressions:
+      - foreign banners hang motionless despite a constant sea wind
+      - a diplomatic bridge stands empty except for armed attendants pretending not to watch
+      - an open hall without walls has become the center of an unnatural silence
+      - one scholar dock is closed while the others continue as if nothing is wrong
+
+    subjects:
+      - a missing envoy
+      - a scholar harbor master
+      - a civic judge caught between factions
+      - a foreign delegation with divided loyalties
+      - a silent witness who fears the truth
+
+    truths:
+      - a diplomatic incident is being buried beneath ritual courtesy
+      - one of the embassies has smuggled in something forbidden
+      - a long-standing civic courtesy conceals a harsher intelligence apparatus
+      - a disappearance near the docks is tied to an old and private grievance
+
+    complications:
+      - everyone involved has reason to appear calm
+      - a public scandal could damage half the city at once
+      - sea traffic cannot stop, even if danger remains unresolved
+      - a second incident is about to occur somewhere more visible
+
+    hooks:
+      - find the missing figure before protocol turns into bloodshed
+      - expose the truth without breaking the city’s fragile diplomatic balance
+      - choose which faction to trust when all of them are lying politely
+
+
+  almadir:
+    first_impressions:
+      - the path behind the party no longer leads where it should
+      - green bioluminescence pulses in the undergrowth like a slow heartbeat
+      - an entire grove has gone silent except for one distant chime
+      - roots have risen across the trail in patterns too deliberate to be natural
+
+    subjects:
+      - a Galadhrim steward
+      - a wounded beast carrying impossible spores
+      - a lost child or wanderer protected by the forest
+      - a pact-spirit angered by recent trespass
+      - a shadowed intruder moving carefully beneath the canopy
+
+    truths:
+      - the forest is reacting to a broken covenant
+      - something hidden in the roots has begun to wake
+      - the land is protecting someone the locals would rather surrender
+      - a Duathrim influence is testing the edges of the realm
+
+    complications:
+      - the forest itself interferes with direct pursuit
+      - helping one life may harm the wider balance
+      - the safest route shifts every hour
+      - memories surface in the wrong order near the affected grove
+
+    hooks:
+      - restore a damaged pact before the forest turns fully hostile
+      - escort someone through a living landscape that may not permit escape
+      - uncover whether the danger is an intruder, a spirit, or the land itself
+
+
+  ered_engrin:
+    first_impressions:
+      - a deep mechanical rhythm has gone subtly wrong somewhere below
+      - workers move with practiced calm while everyone avoids one sealed passage
+      - heat rises from a stone floor that should be cold
+      - a chain lift hangs motionless over a shaft with no visible bottom
+
+    subjects:
+      - a duergar engineer
+      - a forge-clan guard captain
+      - a junior inspector who knows the readings are false
+      - miners trapped beyond a containment line
+      - a delegation from a rival hold
+
+    truths:
+      - a containment system is failing in small but measurable ways
+      - someone altered the maintenance records to hide a mistake
+      - an old seal was never as stable as the elders claimed
+      - something beneath the hold responds to pressure and attention
+
+    complications:
+      - stopping work would cripple an already strained hold
+      - blame between clans matters almost as much as the danger itself
+      - the safest route passes through an older forbidden chamber
+      - a second, unrelated political dispute is obstructing urgent repairs
+
+    hooks:
+      - reach the failing chamber before ritual engineering gives way
+      - identify the saboteur or coward before the wrong clan takes the blame
+      - choose between sealing the danger, studying it, or evacuating the workers
+
+
+  fenmir_highlands:
+    first_impressions:
+      - wind moves through standing stones with a voice too close to speech
+      - a clan fire burns unattended while armed figures argue nearby
+      - fresh cairns have been raised on a ridge that saw no recent battle
+      - one herd has returned without its keepers
+
+    subjects:
+      - a Fenmir elder
+      - a young oath-breaker
+      - a Highland Uruk poet-warrior
+      - a breath-magic shaman
+      - a clan messenger who arrived too late
+
+    truths:
+      - an old oath between kin groups has finally broken
+      - a sacred site has become dangerous after a storm or disturbance
+      - someone is exploiting ancestral law for present advantage
+      - a disappearance blamed on enemies may have a more intimate cause
+
+    complications:
+      - honor requires forms that delay urgent action
+      - outsiders are useful but distrusted
+      - the wind omens are contradictory and everyone sees what they want
+      - violence may be easier than reconciliation but far more costly later
+
+    hooks:
+      - settle a dispute before it hardens into feud
+      - travel to a sacred height and learn what changed there
+      - decide whether truth matters more than keeping a fragile peace
+
+
+  fenmir_lowlands:
+    first_impressions:
+      - crows gather on a ruined tower before anyone spots the bodies beneath
+      - a road checkpoint has been abandoned in great haste
+      - a village palisade stands closed in the middle of market day
+      - rain has opened old earthworks and exposed things best left buried
+
+    subjects:
+      - a mercenary captain
+      - local farmers under pressure
+      - a petty warlord or would-be protector
+      - grave robbers working an old battlefield
+      - a law-speaker trying to preserve order
+
+    truths:
+      - someone is manufacturing fear to seize land or grain
+      - the dead from an old war are no longer resting cleanly
+      - a local leader is paying one threat to fend off another
+      - the road is unsafe because of politics, not monsters
+
+    complications:
+      - nobody can afford the morally clean option
+      - the nearest reinforcement is too far away to matter
+      - if the truth comes out, the settlement may tear itself apart
+      - multiple guilty parties are also the only ones keeping people alive
+
+    hooks:
+      - reopen a road, bridge, or village gate before scarcity turns violent
+      - find out who profits from the terror in the lowlands
+      - choose whether justice or survival comes first
+
+
+  fenmir_wilds:
+    first_impressions:
+      - an abandoned settlement still shows signs of last night’s fire
+      - strange growth has swallowed fences, wells, and doorways
+      - warning charms hang from trees facing inward rather than out
+      - the only clear road ends at a barricade built in fear
+
+    subjects:
+      - a Gitz scout
+      - a desperate settler holdout
+      - an Uruk path-leader
+      - a smuggler guide
+      - a creature altered by unstable magic
+
+    truths:
+      - the map is wrong because the land itself has shifted
+      - someone has kept the region unstable for profit or protection
+      - a failed colony uncovered something that should have stayed buried
+      - local groups know more about the danger than they are saying
+
+    complications:
+      - every faction wants passage but none want accountability
+      - magical contamination is subtle until it suddenly is not
+      - supplies will not last if the party turns back
+      - the safest guide may also be the least trustworthy
+
+    hooks:
+      - escort survivors out of a settlement that was never meant to last
+      - discover what keeps ruining attempts to tame the basin
+      - broker a deal among groups that would rather let each other fail
+
+
+  fenmir_free_cities:
+    first_impressions:
+      - lantern light gleams on wet docks while two crews pretend not to reach for weapons
+      - a contract board has drawn a crowd and a dangerous silence
+      - a ship is unloading at night under the protection of too many hired blades
+      - someone has painted over one set of harbor marks with another
+
+    subjects:
+      - a privateer captain
+      - an armed contract scribe
+      - a dockside broker
+      - a refugee with valuable information
+      - a crew trying to leave before dawn
+
+    truths:
+      - a legal contract hides an obviously illegal intent
+      - two rival houses want the same cargo but neither wants open war
+      - the city’s famous freedom only protects those who can pay for it
+      - somebody is using the Free Accords to justify murder
+
+    complications:
+      - everyone involved has allies close at hand
+      - the authorities care more about process than morality
+      - a third party is waiting for the confrontation to weaken everyone
+      - if the cargo leaves the city, the problem becomes much larger
+
+    hooks:
+      - interpret or steal a contract before blood settles the issue
+      - get a person, ship, or object safely out of the harbor district
+      - decide whether to uphold the law, break it, or expose its hypocrisy
+
+  gate_ruins:
+    name: Gate Ruins
+    type: shattered_threshold_site
+    culture: velim
+
+    description: >
+      Broken threshold stones and fractured arches mark the remains of an
+      ancient Gate site. Warped geometry, drifting glyph plates, and
+      unstable magical pressure linger where the Alfirin passage damaged
+      reality itself.
+
+    visual_traits:
+      - broken archways of impossible stone
+      - cracked threshold rings half buried in earth
+      - warped light bending through empty space
+      - scattered glyph plates and mechanisms
+      - silent Velim maintenance markers
+
+    mood:
+      - uncanny
+      - unstable
+      - ancient
+      - quietly dangerous
+
+  pirate_seas:
+    first_impressions:
+      - storm clouds gather over a cove where no ship should be anchored
+      - wreckage bumps softly against hidden rocks in an unnatural rhythm
+      - a shore fire answers a signal that no one in the party sent
+      - gulls refuse to fly over one stretch of black water
+
+    subjects:
+      - a wreck crew that survived something impossible
+      - a pirate captain seeking temporary alliance
+      - salvagers racing to claim a dangerous prize
+      - island smugglers
+      - a navigator who has seen the sea change shape
+
+    truths:
+      - the wreck holds more than coin or cargo
+      - someone deliberately lured ships onto the reefs
+      - an old maritime pact is being broken for profit
+      - one hidden route is no longer safe because the sea itself is changing
+
+    complications:
+      - a storm forces quick decisions and bad alliances
+      - every witness wants ownership of the story
+      - the treasure is less dangerous than the map or relic hidden with it
+      - another ship is already on its way to seize what remains
+
+    hooks:
+      - survive the night while deciding who controls the wreck
+      - uncover who laid the trap and who profits from it
+      - escort something valuable through waters that no longer obey memory
+
+
+  sands:
+    first_impressions:
+      - a black glass plain reflects figures that are not actually there
+      - the wind has gone silent around a half-buried ruin
+      - a caravan camp stands intact but empty, as though abandoned mid-breath
+      - something large moves below the ash without breaking the surface
+
+    subjects:
+      - desperate scavengers
+      - a relic caravan
+      - a scholar of Daelgast corruption
+      - restless dead bound to a lost site
+      - a horror moving between ruined landmarks
+
+    truths:
+      - the area is saturated enough to distort direction, memory, or time
+      - the dead are guarding something worse than themselves
+      - the caravan is carrying an item too unstable to transport safely
+      - a false horizon conceals a ruin that should not still exist
+
+    complications:
+      - supplies are already becoming a problem
+      - fear makes people rash and silence makes them imagine worse
+      - the best shelter is also the most dangerous place nearby
+      - more than one faction has come here for the same reason
+
+    hooks:
+      - retrieve something from a ruin before reality twists further
+      - protect a camp through one impossible night in the waste
+      - decide whether knowledge, survival, or containment matters most
+
+
+  lomeanor:
+    first_impressions:
+      - a harbor appears at twilight where the map showed only cliff
+      - veiled lights move behind stone screens with no visible doorways
+      - conversation stops a beat too late when the party enters the hall
+      - the road is empty but the party is unmistakably being observed
+
+    subjects:
+      - a Duathrim officer
+      - a quiet courier carrying dangerous knowledge
+      - a disciplined cell leader
+      - a defector who knows too much
+      - a local guide whose loyalty is impossible to read
+
+    truths:
+      - the settlement is less unified than it appears
+      - a covert operation has crossed into open recklessness
+      - someone is using secrecy to hide private ambition rather than public necessity
+      - a myth about the land is an engineered defense mechanism
+
+    complications:
+      - direct questions close more doors than they open
+      - everyone involved assumes the party is already aligned with someone
+      - truth and manipulation are deliberately braided together
+      - leaving may become harder once the party understands the stakes
+
+    hooks:
+      - identify who is truly in control before acting
+      - extract a person or secret from a place built to keep both
+      - decide whether the greater threat is external invasion or internal rot
+
+
+  xanthir:
+    first_impressions:
+      - red banners crack above a square cleared for judgment
+      - a procession halts because someone important has failed to appear
+      - legionaries hold a district sealed while clergy insist all is orderly
+      - the smell of incense cannot hide the smell of fresh blood
+
+    subjects:
+      - a priest-commander
+      - a condemned dissident
+      - a frightened local official
+      - a soldier beginning to doubt
+      - a secret resistance contact
+
+    truths:
+      - doctrine is being used to hide a political purge
+      - the scheduled sacrifice is not what the public has been told
+      - a commander and priesthood faction are testing each other through human lives
+      - resistance is more organized than the empire suspects
+
+    complications:
+      - public ritual makes secrecy nearly impossible
+      - helping one victim may doom many unseen others
+      - the crowd is both audience and weapon
+      - every delay gives hardliners more leverage
+
+    hooks:
+      - disrupt a rite, rescue a prisoner, or uncover what the rite is really for
+      - expose a split inside the local power structure
+      - decide whether subtle sabotage or open defiance offers the better chance
+
+
+  caldor:
+    first_impressions:
+      - a civic square hums with argument over an invention nobody fully understands
+      - a canal district has been cordoned off beneath a veneer of polite administration
+      - a patron house is hosting guests while quietly searching their baggage
+      - a public monument has become the center of a legal and magical dispute
+
+    subjects:
+      - an inventor or scholar
+      - a merchant patron
+      - a magistrate trying to preserve order
+      - a foreign investor with private goals
+      - laborers caught beneath elite ambition
+
+    truths:
+      - innovation has outrun the law meant to contain it
+      - imperial optimism is covering a coercive project
+      - somebody is using public good as a mask for private extraction
+      - a new discovery threatens a very old and profitable arrangement
+
+    complications:
+      - legal ownership and moral ownership do not match
+      - too many powerful people benefit from ambiguity
+      - the invention may actually work, which makes everything worse
+      - foreign interests are ready to intervene if the city stumbles
+
+    hooks:
+      - decide whether a breakthrough should be protected, stolen, or destroyed
+      - navigate courts, patrons, and workers to learn who is telling the truth
+      - prevent a civic success from becoming a wider harm
+
+
+  caldor_island:
+    first_impressions:
+      - a harbor village acts as though strangers are uncommon but not impossible
+      - a mountain path is marked closed by old custom rather than visible danger
+      - a quiet valley settlement has paused around some recent omen
+      - lake water near a shrine is unnaturally still despite strong wind
+
+    subjects:
+      - a village elder
+      - a fisher or miner with local knowledge
+      - a young person eager to leave the island
+      - a recluse who remembers more than others think
+      - a family keeping a practical secret
+
+    truths:
+      - the community knows more of the wider world than it admits
+      - an old custom protects something real, not merely symbolic
+      - a route, mine, or cove has become unsafe for reasons no one wants to voice
+      - one settlement’s peace depends on another settlement’s hardship
+
+    complications:
+      - local trust matters more than force or cleverness
+      - even obvious urgency must move through custom
+      - outsiders are judged by how they treat ordinary obligations
+      - change is feared partly because it is already arriving
+
+    hooks:
+      - earn the right to learn what the community is hiding
+      - travel to a forbidden or neglected place before local caution becomes loss
+      - decide whether preserving the old order helps or harms the island now

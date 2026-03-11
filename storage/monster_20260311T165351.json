@@ -1,0 +1,51 @@
+{
+  "saved_at": "2026-03-11T16:53:51.567573+00:00",
+  "filename": "monster_20260311T165351.json",
+  "payload": {
+    "environment": "fenmir_wilds"
+  },
+  "result": {
+    "type": "monster",
+    "name": "The Last Creeper",
+    "sections": {
+      "name": "The Last Creeper",
+      "concept": "threshold-distorted creature",
+      "family": "gate twisted",
+      "role": "brute",
+      "environment": "Enclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.",
+      "appearance": "antler-like protrusions, horn or spine growths shaped by unstable magic",
+      "behavior": "drawn to blood, heat, fear, or movement, competes with other predators around scarce resources",
+      "special": "briefly vanishes into shadow, brush, steam, or dust, carries a mild magical instability around it",
+      "style": "painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art"
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 29,
+      "armor": 1,
+      "damage": 6,
+      "movement": "short",
+      "modifications": [
+        "Might defense as one level higher",
+        "Speed defense as one level lower"
+      ],
+      "combat": [
+        "Heavy natural attack inflicts 6 damage",
+        "Can smash light cover, doors, or weak barriers"
+      ],
+      "interaction": [
+        "Driven by hunger, rage, pain, territory, or instinct"
+      ],
+      "loot": [
+        "salvageable hide, horn, fang, gland, or bone plate"
+      ]
+    },
+    "stat_block_text": "The Last Creeper — gate twisted brute\nLevel 7 (target number 21)\nHealth: 29\nArmor: 1\nDamage: 6\nMovement: short\nModifications:\n- Might defense as one level higher\n- Speed defense as one level lower\nCombat:\n- Heavy natural attack inflicts 6 damage\n- Can smash light cover, doors, or weak barriers\nInteraction:\n- Driven by hunger, rage, pain, territory, or instinct\nLoot:\n- salvageable hide, horn, fang, gland, or bone plate",
+    "text": "Monster prompt.\n\nName:\nThe Last Creeper.\n\nConcept:\nthreshold-distorted creature.\n\nFamily:\ngate twisted.\n\nRole:\nbrute.\n\nEnvironment:\nEnclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.\n\nAppearance:\nantler-like protrusions, horn or spine growths shaped by unstable magic.\n\nBehavior:\ndrawn to blood, heat, fear, or movement, competes with other predators around scarce resources.\n\nSpecial:\nbriefly vanishes into shadow, brush, steam, or dust, carries a mild magical instability around it.\n\nSTYLE:\npainted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.\n\n---\n\nThe Last Creeper — gate twisted brute\nLevel 7 (target number 21)\nHealth: 29\nArmor: 1\nDamage: 6\nMovement: short\nModifications:\n- Might defense as one level higher\n- Speed defense as one level lower\nCombat:\n- Heavy natural attack inflicts 6 damage\n- Can smash light cover, doors, or weak barriers\nInteraction:\n- Driven by hunger, rage, pain, territory, or instinct\nLoot:\n- salvageable hide, horn, fang, gland, or bone plate\n",
+    "metadata": {
+      "environment": "fenmir_wilds",
+      "family": "gate_twisted",
+      "role": "brute"
+    }
+  }
+}

@@ -1,0 +1,341 @@
+professions:
+
+  rogue:
+    prompt_type: character_sheet
+    role: rogue
+
+    appearance: >
+      lean athletic build, quick hands, sharp features,
+      alert predatory confidence
+
+    clothing: >
+      fitted leathers, layered travel garments,
+      elegant but practical clothing suited to stealth,
+      deception, and sudden movement
+
+    weapon_options:
+      - slender dueling sword
+      - paired daggers
+      - throwing knives
+      - curved short blade
+      - narrow rapier
+
+    gear_options:
+      - lockpicks and small tools
+      - coin purses and hidden pockets
+      - poison vials
+      - signal tokens
+      - coded documents
+
+    pose_options:
+      - relaxed but dangerous stance
+      - half-turned duelist stance
+      - poised mid-motion as if about to strike
+      - balanced stance with weapon loosely ready
+
+    lighting:
+      - strong directional light with deep shadows
+      - rim lighting emphasizing silhouette
+      - torch or lantern contrast
+
+
+  barbarian:
+    prompt_type: default_npc
+    role: barbarian warrior
+
+    appearance: >
+      powerful muscular physique,
+      battle-hardened expression,
+      scars and ritual markings
+
+    clothing: >
+      layered furs, heavy leather armor,
+      weathered belts and trophies
+
+    weapon_options:
+      - massive two-handed sword
+      - heavy war axe
+      - long spear
+      - broad chopping blade
+
+    gear_options:
+      - bone trophies
+      - hunting tools
+      - ritual charms
+      - rope and survival gear
+
+    pose_options:
+      - grounded warrior stance
+      - weapon planted in the earth
+      - standing watchfully with broad posture
+      - resting but ready for battle
+
+    lighting:
+      - harsh natural daylight
+      - stormy sky lighting
+      - sunset glare
+
+
+  retired_warrior:
+    prompt_type: default_npc
+    role: retired warrior
+
+    appearance: >
+      aged wiry body, weathered skin,
+      faded tattoos, exaggerated facial features,
+      deep-set eyes and hollow cheeks
+
+    clothing: >
+      worn everyday clothing,
+      patched coats, old boots,
+      relics of past campaigns
+
+    weapon_options:
+      - rusted sword
+      - old axe
+      - cane hiding a blade
+      - worn dagger
+
+    gear_options:
+      - corn cob pipe
+      - battered mug or bottle
+      - old medals or charms
+      - campaign relics
+
+    pose_options:
+      - seated watching suspiciously
+      - leaning back in a chair
+      - standing stiffly with old discipline
+      - resting against a wall or porch post
+
+    lighting:
+      - warm evening lantern light
+      - dim tavern firelight
+      - low sunset glow
+
+
+  mage:
+    prompt_type: default_npc
+    role: mage
+
+    appearance: >
+      focused intelligent gaze,
+      controlled magical presence,
+      poised posture of careful study
+
+    clothing: >
+      layered robes, arcane jewelry,
+      embroidered sigils and ritual cloth
+
+    weapon_options:
+      - staff
+      - arcane rod
+      - ritual dagger
+      - spell focus orb
+
+    gear_options:
+      - scrolls
+      - books
+      - talismans
+      - ritual components
+
+    pose_options:
+      - raising one hand as if shaping magic
+      - calm composed stance
+      - studying a glowing object
+      - quietly channeling magical energy
+
+    lighting:
+      - mystical glow
+      - arcane energy illumination
+      - candle-lit study atmosphere
+
+
+  ranger:
+    prompt_type: default_npc
+    role: ranger
+
+    appearance: >
+      keen watchful eyes,
+      agile posture,
+      wilderness-hardened bearing
+
+    clothing: >
+      travel-worn leathers,
+      weatherproof cloaks,
+      practical belts and packs
+
+    weapon_options:
+      - longbow
+      - short hunting bow
+      - spear
+      - hunting blade
+
+    gear_options:
+      - rope and snares
+      - field tools
+      - animal calls
+      - small travel pack
+
+    pose_options:
+      - scanning the horizon
+      - crouched observing tracks
+      - standing alert in wilderness
+      - quietly preparing an arrow
+
+    lighting:
+      - filtered forest light
+      - misty dawn lighting
+      - overcast wilderness light
+
+
+  assassin:
+    prompt_type: default_npc
+    role: assassin
+
+    appearance: >
+      controlled stillness,
+      unreadable expression,
+      lethal economy of movement
+
+    clothing: >
+      dark fitted garments,
+      concealed sheaths,
+      quiet fabrics suited for stealth
+
+    weapon_options:
+      - stiletto blade
+      - paired knives
+      - garrote wire
+      - throwing blades
+
+    gear_options:
+      - poison vials
+      - lock tools
+      - climbing hooks
+      - coded tokens
+
+    pose_options:
+      - poised in shadow
+      - ready to strike
+      - silent watch from darkness
+      - balanced stalking posture
+
+    lighting:
+      - sharp shadow contrast
+      - moonlight
+      - dim interior lighting
+
+
+  poet_warrior:
+    prompt_type: default_npc
+    role: poet warrior
+
+    appearance: >
+      immense but thoughtful presence,
+      calm reflective gaze,
+      strength tempered by memory
+
+    clothing: >
+      nomadic garments,
+      symbolic adornments,
+      carved tokens of journeys
+
+    weapon_options:
+      - long spear
+      - curved blade
+      - travel staff
+      - side sword
+
+    gear_options:
+      - carved charms
+      - song tokens
+      - travel bundles
+      - memory talismans
+
+    pose_options:
+      - reflective upright stance
+      - weapon resting nearby
+      - calm readiness
+      - listening to distant wind
+
+    lighting:
+      - cold mountain light
+      - dawn horizon light
+      - windswept sky lighting
+
+
+  conqueror:
+    prompt_type: default_npc
+    role: conqueror
+
+    appearance: >
+      dominant scarred presence,
+      commanding gaze,
+      disciplined posture
+
+    clothing: >
+      heavy armor,
+      war trophies,
+      rank insignia
+
+    weapon_options:
+      - heavy war blade
+      - mace
+      - battle axe
+      - command staff
+
+    gear_options:
+      - banners
+      - war trophies
+      - command seals
+      - tactical maps
+
+    pose_options:
+      - commanding stance
+      - inspecting battlefield
+      - weapon displayed as authority
+      - standing with overwhelming presence
+
+    lighting:
+      - harsh warlight
+      - battlefield smoke lighting
+      - burning sky light
+
+
+  forge_guard:
+    prompt_type: default_npc
+    role: forge guard
+
+    appearance: >
+      stoic protective presence,
+      disciplined posture,
+      heat-scarred armor
+
+    clothing: >
+      plated armor,
+      forge leathers,
+      heavy protective gear
+
+    weapon_options:
+      - forge hammer
+      - polearm
+      - heavy shield
+      - iron axe
+
+    gear_options:
+      - key rings
+      - forge tokens
+      - chain locks
+      - heavy gauntlets
+
+    pose_options:
+      - guarding a gate
+      - immovable sentinel stance
+      - planted defensive posture
+      - standing beside forge machinery
+
+    lighting:
+      - forge glow
+      - molten metal light
+      - deep underground shadows

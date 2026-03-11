@@ -1,0 +1,23 @@
+{
+  "saved_at": "2026-03-11T16:53:58.023733+00:00",
+  "filename": "inn_20260311T165358.json",
+  "payload": {
+    "environment": "fenmir_wilds"
+  },
+  "result": {
+    "type": "inn",
+    "name": "The Wolf and Pike",
+    "sections": {
+      "name": "The Wolf and Pike",
+      "environment": "Enclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.",
+      "defining_trait": "old local trophies, banners, or carved charms",
+      "current_tension": "someone important is expected before dawn",
+      "atmosphere": "loud and dangerous",
+      "style": "painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration"
+    },
+    "text": "Inn or tavern prompt.\n\nName:\nThe Wolf and Pike.\n\nEnvironment:\nEnclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.\n\nDefining Trait:\nold local trophies, banners, or carved charms.\n\nCurrent Tension:\nsomeone important is expected before dawn.\n\nAtmosphere:\nloud and dangerous.\n\nSTYLE:\npainted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.\n",
+    "metadata": {
+      "environment": "fenmir_wilds"
+    }
+  }
+}

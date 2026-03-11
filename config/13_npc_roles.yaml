@@ -1,0 +1,203 @@
+npc_roles:
+
+  rogue:
+    level_range: [2, 5]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Stealth as one level higher
+      - Speed defense as one level higher
+    combat:
+      - Light blade inflicts {damage} damage
+      - If attacking from surprise, deals +2 damage
+    interaction:
+      - Responsive to leverage, secrets, and bargains
+    loot:
+      - small blade
+      - lock tools
+      - hidden purse
+      - minor cypher or oddity
+
+  barbarian:
+    level_range: [3, 6]
+    health_multiplier: 3
+    armor: 1
+    damage: 5
+    movement: short
+    modifications:
+      - Might defense as one level higher
+      - Intellect defense as one level lower
+    combat:
+      - Heavy melee weapon inflicts {damage} damage
+      - Can break light cover or wooden barriers with brute force
+    interaction:
+      - Responds well to courage, directness, and visible strength
+    loot:
+      - heavy weapon
+      - travel gear
+      - ritual charm
+      - preserved food or survival kit
+
+  retired_warrior:
+    level_range: [2, 4]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Perception as one level higher
+      - Initiative as one level higher
+      - Speed defense as one level lower
+    combat:
+      - Old weapon inflicts {damage} damage
+      - On the first round, acts as if one level higher
+    interaction:
+      - Distrustful at first, but respects competence and honesty
+    loot:
+      - old weapon
+      - pipe or flask
+      - keepsake from an old campaign
+      - hidden coin or useful local information
+
+  mage:
+    level_range: [3, 6]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Knowledge tasks as one level higher
+      - Magical tasks as one level higher
+    combat:
+      - Ranged magical attack inflicts {damage} damage
+      - Can produce a minor magical effect each round
+    interaction:
+      - Curious, cautious, and interested in rare knowledge
+    loot:
+      - arcane focus
+      - notes or scroll
+      - oddity
+      - cypher
+
+  ranger:
+    level_range: [2, 5]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Tracking as one level higher
+      - Perception as one level higher
+    combat:
+      - Bow or spear inflicts {damage} damage
+      - In wilderness terrain, acts as one level higher for initiative
+    interaction:
+      - Quiet but practical, more trusting outdoors than indoors
+    loot:
+      - bow or spear
+      - travel pack
+      - rope or trap kit
+      - useful field oddity
+
+  assassin:
+    level_range: [3, 6]
+    health_multiplier: 2
+    armor: 0
+    damage: 4
+    movement: short
+    modifications:
+      - Stealth as one level higher
+      - Speed defense as one level higher
+      - Poison tasks as one level higher
+    combat:
+      - Hidden blade inflicts {damage} damage
+      - If striking from surprise, deals +3 damage
+    interaction:
+      - Cold, careful, and difficult to read
+    loot:
+      - concealed blade
+      - poison vial
+      - coded token
+      - climbing or infiltration gear
+
+  poet_warrior:
+    level_range: [3, 5]
+    health_multiplier: 3
+    armor: 1
+    damage: 5
+    movement: short
+    modifications:
+      - Intellect defense as one level higher
+      - Social interaction as one level higher when invoking tradition or memory
+    combat:
+      - Spear or curved blade inflicts {damage} damage
+      - Allies who hear their words gain confidence at GM discretion
+    interaction:
+      - Reflective, honorable, and moved by story, memory, or oath
+    loot:
+      - spear or curved blade
+      - carved tokens
+      - travel charm
+      - song-marked keepsake
+
+  conqueror:
+    level_range: [4, 7]
+    health_multiplier: 3
+    armor: 2
+    damage: 6
+    movement: short
+    modifications:
+      - Leadership and intimidation as one level higher
+      - Might defense as one level higher
+    combat:
+      - Heavy war weapon inflicts {damage} damage
+      - Nearby subordinates may act immediately on its command at GM discretion
+    interaction:
+      - Dominant, disciplined, and accustomed to obedience
+    loot:
+      - command insignia
+      - heavy weapon
+      - war map or seal
+      - valuable trophy
+
+  forge_guard:
+    level_range: [3, 6]
+    health_multiplier: 3
+    armor: 2
+    damage: 5
+    movement: short
+    modifications:
+      - Tasks involving holding a line or guarding a passage as one level higher
+      - Might defense as one level higher
+    combat:
+      - Hammer, axe, or polearm inflicts {damage} damage
+      - In confined spaces or at gates, acts as one level higher
+    interaction:
+      - Formal, restrained, and duty-driven
+    loot:
+      - forge key or token
+      - heavy tool or weapon
+      - chain or locking device
+      - heat-resistant gear
+
+  pixie_princess:
+    level_range: [2, 5]
+    health_multiplier: 2
+    armor: 0
+    damage: 3
+    movement: immediate flight
+    modifications:
+      - Speed defense as one level higher
+      - Flight and evasion tasks as one level higher
+    combat:
+      - Tiny weapon or magical strike inflicts {damage} damage
+      - Can fly and reposition freely through small spaces
+    interaction:
+      - Proud, theatrical, and dangerous to underestimate
+    loot:
+      - glittering trinket
+      - tiny enchanted weapon
+      - wing dust pouch
+      - miniature cypher

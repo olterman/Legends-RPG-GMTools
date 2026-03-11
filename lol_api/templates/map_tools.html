@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lands of Legends — Map Tools</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111318;
+      --panel: #1a1f29;
+      --panel-2: #222938;
+      --text: #eceff4;
+      --muted: #aab3c5;
+      --accent: #7aa2ff;
+      --border: #31394a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(180deg, #0f1116, #151923);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    h1 { margin: 0 0 8px; font-size: 2rem; }
+    p { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 16px;
+    }
+    .panel {
+      background: rgba(26,31,41,0.92);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    label {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+    }
+    textarea {
+      min-height: 520px;
+      resize: vertical;
+      white-space: pre-wrap;
+    }
+    .field { margin-bottom: 14px; }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    button {
+      background: var(--accent);
+      color: #081120;
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button.secondary {
+      background: #2f3849;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .status {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+    @media (max-width: 900px) {
+      .grid, .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/">Generator</a>
+      <a href="/map-tools">Map Tools</a>
+    </div>
+
+    <h1>Map Tools</h1>
+    <p>Generate settlements, encounters, cyphers, and inns for a chosen environment.</p>
+
+    <div class="grid">
+      <form id="map-form" class="panel">
+        <div class="field">
+          <label for="type">Tool</label>
+          <select id="type" name="type">
+            <option value="settlement">settlement</option>
+            <option value="encounter">encounter</option>
+            <option value="cypher">cypher</option>
+            <option value="inn">inn</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="environment">Environment</label>
+          <select id="environment" name="environment"></select>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="mood">Mood</label>
+            <input id="mood" name="mood" placeholder="Optional" />
+          </div>
+          <div class="field">
+            <label for="seed">Seed</label>
+            <input id="seed" name="seed" placeholder="Optional" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Generate</button>
+          <button type="button" class="secondary" id="copy-btn">Copy</button>
+          <span class="status" id="status">Loading metadata...</span>
+        </div>
+      </form>
+
+      <div class="panel">
+        <div class="field">
+          <label for="output">Output</label>
+          <textarea id="output" readonly placeholder="Generated content appears here."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const els = {
+      form: document.getElementById('map-form'),
+      type: document.getElementById('type'),
+      environment: document.getElementById('environment'),
+      mood: document.getElementById('mood'),
+      seed: document.getElementById('seed'),
+      output: document.getElementById('output'),
+      status: document.getElementById('status'),
+      copyBtn: document.getElementById('copy-btn')
+    };
+
+    function fillSelect(select, values) {
+      select.innerHTML = '';
+      values.forEach(value => {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = value;
+        select.appendChild(opt);
+      });
+    }
+
+    async function fetchJson(url) {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+      return data;
+    }
+
+    async function loadMeta() {
+      const meta = await fetchJson('/meta');
+      fillSelect(els.environment, meta.environments || []);
+      els.status.textContent = 'Ready.';
+    }
+
+    function buildPayload() {
+      const payload = {
+        environment: els.environment.value,
+        mood: els.mood.value.trim(),
+        seed: els.seed.value.trim()
+      };
+      Object.keys(payload).forEach(key => {
+        if (!payload[key]) delete payload[key];
+      });
+      return payload;
+    }
+
+    async function submitForm(event) {
+      event.preventDefault();
+      const type = els.type.value;
+      const payload = buildPayload();
+
+      els.status.textContent = 'Generating...';
+      els.output.value = '';
+
+      try {
+        const res = await fetch(`/generate/${type}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+
+        els.output.value = data.text || JSON.stringify(data, null, 2);
+        els.status.textContent = data.name ? `Generated: ${data.name}` : 'Generated.';
+      } catch (err) {
+        els.status.textContent = `Error: ${err.message}`;
+      }
+    }
+
+    async function copyOutput() {
+      if (!els.output.value) return;
+      await navigator.clipboard.writeText(els.output.value);
+      els.status.textContent = 'Copied to clipboard.';
+    }
+
+    els.form.addEventListener('submit', submitForm);
+    els.copyBtn.addEventListener('click', copyOutput);
+
+    loadMeta().catch(err => {
+      els.status.textContent = `Error loading metadata: ${err.message}`;
+    });
+  </script>
+</body>
+</html>

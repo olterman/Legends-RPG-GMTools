@@ -1,0 +1,628 @@
+settlements:
+
+  cirdion:
+    settlement_types:
+      - cliffside port
+      - terrace city
+      - scholarly harbor town
+      - shipwright enclave
+      - council settlement
+
+    visual_features:
+      - white stone terraces carved into sea cliffs
+      - airy bridges and stairways open to sea wind
+      - elegant shipyards of crystal and pale timber
+      - civic halls without enclosing walls
+      - sea-light reflected from polished stone surfaces
+      - wind banners and signal pennants over open courts
+
+    landmarks:
+      - a council terrace of white stone overlooking the western sea
+      - a crystalline drydock for enchanted vessels
+      - a tower of charts, tides, and star-maps
+      - an open-air archive of polished tablets and memory scrolls
+      - a wind organ built into the cliff face
+
+    economies:
+      - shipbuilding and navigation craft
+      - magical engineering treated as disciplined science
+      - scholarly exchange and diplomatic hosting
+      - luxury trade in refined materials and instruments
+      - tide-harvests, sea gardens, and precision crafts
+
+    tensions:
+      - a dispute between meritocratic councils over dangerous innovation
+      - quiet unease over old guilt tied to the damaged Gates
+      - pressure to appear open while concealing deeper fractures
+      - conflict between scholars of preservation and scholars of progress
+      - rumors that one shipyard is testing forbidden pre-cataclysm methods
+
+    atmospheres:
+      - serene civic confidence
+      - controlled elegance
+      - calm openness hiding restraint
+      - cultured sophistication touched by old unease
+
+
+  cird:
+    settlement_types:
+      - capital district
+      - diplomatic harbor
+      - terraced metropolis quarter
+      - scholar port
+      - ceremonial civic ward
+
+    visual_features:
+      - layered terraces facing the western sea
+      - docks lined with scholars, emissaries, and shipwrights
+      - open colonnades and sea-wind courtyards
+      - polished avenues of luminous pale stone
+      - banners rippling above broad civic platforms
+
+    landmarks:
+      - the highest sea terrace where councils meet at dusk
+      - a grand shipyard of crystalline scaffolds
+      - a dock of foreign envoys and oath-bound traders
+      - an observatory open to sea wind and starlight
+      - a ceremonial bridge with no railings over a sheer drop
+
+    economies:
+      - diplomacy and arbitration
+      - advanced shipbuilding
+      - learning, records, and legal administration
+      - prestige trade and hosted embassies
+
+    tensions:
+      - foreign delegations pulling the city into quiet rivalries
+      - subtle factional struggle hidden beneath civic courtesy
+      - strain between beauty as function and beauty as propaganda
+      - pressure from outer realms on an overconfident center
+
+    atmospheres:
+      - serene yet watchful
+      - stately but exposed
+      - elegant public life under private tension
+
+
+  almadir:
+    settlement_types:
+      - hidden grove settlement
+      - root-hall village
+      - forest shrine community
+      - canopy hamlet
+      - wandering woodland enclave
+
+    visual_features:
+      - dwellings grown from living wood and woven branches
+      - root bridges over misty ravines
+      - luminous moss and bioluminescent leaves
+      - hidden paths that seem to shift between visits
+      - open halls formed within ancient trees
+
+    landmarks:
+      - a council grove ringed by impossible old trunks
+      - a pool reflecting constellations not seen elsewhere
+      - a root temple grown around a fallen star-stone
+      - a suspended walkway through the upper canopy
+      - a silent shrine marked by living antlers and green fireflies
+
+    economies:
+      - herbal craft and forest medicine
+      - ritual stewardship of wild magic
+      - gathering, hunting, and subtle forest trade
+      - exchange of rare woods, spores, resins, and charms
+
+    tensions:
+      - a path has shifted and stranded part of the community
+      - wild magic is blooming too aggressively around sacred ground
+      - conflict between openness to outsiders and protection of the covenant
+      - a forest spirit or old pact has been disturbed
+      - signs of shadow influence moving beneath the leaves
+
+    atmospheres:
+      - timeless and instinctive
+      - feral elegance
+      - sacred but not gentle
+      - quiet danger under green light
+
+
+  ered_engrin:
+    settlement_types:
+      - forge-hold
+      - mining citadel
+      - basalt gate-town
+      - shaft-city
+      - containment outpost
+
+    visual_features:
+      - vertical stone architecture cut into iron mountains
+      - chain lifts over immense shafts
+      - basalt vaults and obsidian supports
+      - magma channels and furnace vents
+      - austere halls with almost no ornament
+
+    landmarks:
+      - a gate of iron slabs thick as house walls
+      - a ritual engine chamber maintained for generations
+      - a pressure-sealed archive of containment records
+      - a bridge over a red-lit chasm
+      - a forge-temple where oaths are struck into metal
+
+    economies:
+      - mining and ore refinement
+      - engineering, forging, and stonework
+      - maintenance of containment systems
+      - contract manufacture of durable arms and mechanisms
+
+    tensions:
+      - a deep seal is showing signs of strain
+      - rival forge-clans dispute responsibility for an old failure
+      - younger engineers push for risky innovation
+      - supply routes have become unsafe in the upper tunnels
+      - something sealed below is causing instruments to misread
+
+    atmospheres:
+      - severe and burdened
+      - disciplined pressure
+      - endurance over comfort
+      - responsibility heavier than pride
+
+
+  fenmir_highlands:
+    settlement_types:
+      - clan steading
+      - stone-ring village
+      - mountain pass hamlet
+      - herding camp
+      - ancestral shrine settlement
+
+    visual_features:
+      - low stone houses with turf or hide roofs
+      - smoke rising into wind-scoured air
+      - standing stones and clan markers on ridgelines
+      - herds moving through high valleys
+      - prayer ribbons and carved bone charms
+
+    landmarks:
+      - a great stone circle used for oaths and mourning
+      - an ancestor hall blackened by generations of hearth smoke
+      - a ridge shrine where winds are read as omens
+      - a high pass marked by memorial cairns
+      - a communal fire pit ringed by carved clan posts
+
+    economies:
+      - herding, wool, hides, and mountain trade
+      - ritual craft, carved bone, and clan exchange
+      - seasonal grazing and pass tolls
+      - hunting and preservation of scarce resources
+
+    tensions:
+      - an ancestral feud is nearing bloodshed again
+      - a sacred site has been disturbed by outsiders or weather
+      - pressure grows from raiders, taxes, or lowland politics
+      - a disputed omen is splitting the elders
+      - old alliance terms with nearby Uruk are being tested
+
+    atmospheres:
+      - harsh but dignified
+      - spiritual immediacy
+      - proud endurance
+      - communal memory held against the wind
+
+
+  fenmir_lowlands:
+    settlement_types:
+      - fortified village
+      - crossroads market town
+      - ruined keep settlement
+      - palisade farming community
+      - mercenary-protected hamlet
+
+    visual_features:
+      - repaired walls built from older ruins
+      - muddy roads and wagon ruts
+      - patched keeps and half-collapsed towers
+      - fields broken by old warworks
+      - signal fires and watch platforms
+
+    landmarks:
+      - a shattered keep repurposed as a lordless strongpoint
+      - a market square beside a mass grave cairn
+      - a toll bridge rebuilt three times in one generation
+      - a hall of local law hung with weathered oaths
+      - a fortified granary guarded like a temple
+
+    economies:
+      - hard agriculture and livestock
+      - salvage from old battlefields and ruins
+      - caravan tolls and road repair
+      - mercenary service, black market trade, and necessity crafts
+
+    tensions:
+      - food stores are being squeezed by soldiers or bandits
+      - ancestral law conflicts with immediate survival needs
+      - a local strongman is testing how much power he can seize
+      - old battlefield dead are surfacing after rains
+      - rival claimants want the same ruined keep
+
+    atmospheres:
+      - weary pragmatism
+      - constant unease
+      - survival over ideals
+      - civilization held together by habit
+
+
+  fenmir_wilds:
+    settlement_types:
+      - failed colony remnant
+      - hidden stockade
+      - rough pass settlement
+      - wilderness outpost
+      - scavenger camp
+
+    visual_features:
+      - half-abandoned structures reclaimed by growth
+      - rough palisades and lookout scaffolds
+      - strange magical blight or overgrowth
+      - mixed signs of many peoples passing through
+      - improvised repairs on everything
+
+    landmarks:
+      - a broken watchtower overlooking the only safe route
+      - a settlement square built around a burned-out shrine
+      - a buried ruin avoided even by hunters
+      - a stockade gate decorated with warnings and scavenged charms
+      - a deep sink or crack where unstable magic leaks at night
+
+    economies:
+      - salvage, trapping, and opportunistic trade
+      - guiding, smuggling, and risky passage work
+      - scavenging from failed settlements
+      - subsistence hunting and barter
+
+    tensions:
+      - the border of safety has shifted again
+      - a nearby tribe or clan no longer honors old boundaries
+      - unstable magic is killing crops, animals, or memory
+      - a missing caravan may bring retaliation from outside powers
+      - no one agrees whether staying is brave, foolish, or cursed
+
+    atmospheres:
+      - normalized danger
+      - makeshift endurance
+      - frontier instability
+      - stubborn refusal to vanish
+
+
+  fenmir_free_cities:
+    settlement_types:
+      - pirate port
+      - free harbor city
+      - contract market town
+      - dockside ward
+      - walled merchant quarter
+
+    visual_features:
+      - stacked harbor buildings and leaning balconies
+      - colored lanterns over busy night docks
+      - rope bridges, dock cranes, and crowded quays
+      - mixed architecture from a dozen cultures
+      - signs, flags, and contracts posted in public squares
+
+    landmarks:
+      - a harbor court where disputes are settled by the Free Accords
+      - a notorious quay of privateer captains
+      - a contract house with armed scribes
+      - a lantern market that never fully closes
+      - a sea wall covered in old names and broken pacts
+
+    economies:
+      - shipping, contracts, smuggling, and privateering
+      - repair yards, ropeworks, and sailmaking
+      - mercantile brokerage and information trade
+      - taverns, gaming dens, and negotiated protection
+
+    tensions:
+      - rival captains are close to open war in the streets
+      - a foreign power wants the city bound by treaty or fear
+      - contract law is being stretched until it may snap
+      - somebody is sabotaging ships before they leave harbor
+      - refugees and opportunists are changing the balance of neighborhoods
+
+    atmospheres:
+      - lively moral flexibility
+      - dangerous opportunity
+      - crowded cosmopolitan tension
+      - survival by wit, leverage, and paper
+
+  gate_ruins:
+    settlement_types:
+      - threshold research outpost
+      - relic scavenger camp
+      - Velim maintenance enclave
+      - ruin-edge expedition camp
+      - forbidden excavation settlement
+
+    visual_features:
+      - broken gate arches towering above tents and scaffolds
+      - half-buried rings of impossible stone
+      - floating glyph fragments orbiting shattered pillars
+      - unstable geometric structures warped by ancient magic
+      - temporary barricades around glowing threshold mechanisms
+
+    landmarks:
+      - the fractured Gate ring itself
+      - a Velim stabilization shrine of delicate luminous rods
+      - a research tower assembled from salvaged ruins
+      - a containment circle of rune pillars
+      - a collapsed threshold chamber leading underground
+
+    economies:
+      - relic recovery and artifact salvage
+      - scholarly research into Gate mechanics
+      - guarded trade in unstable magical fragments
+      - Velim containment work and repair rituals
+
+    tensions:
+      - scholars argue over whether the Gate should be studied or sealed
+      - scavengers steal dangerous relic fragments
+      - unstable reality distortions are becoming more frequent
+      - Velim custodians demand the site be abandoned
+      - rival powers attempt to control access to the ruin
+
+    atmospheres:
+      - tense curiosity
+      - restrained panic
+      - quiet cosmic danger
+      - obsession with forbidden knowledge
+
+  pirate_seas:
+    settlement_types:
+      - hidden cove haven
+      - reef port
+      - storm island refuge
+      - freebooter anchorage
+      - wreck-town
+
+    visual_features:
+      - ramshackle piers in hidden coves
+      - cliff caves turned into storehouses
+      - sailcloth roofs and salt-stained timbers
+      - shipwreck remains reused as buildings
+      - watchfires on sea stacks and jagged reefs
+
+    landmarks:
+      - a wreck graveyard used as a maze and harbor
+      - a sea cave shrine to luck, storms, or drowned captains
+      - a cliff fortress controlling a narrow strait
+      - a hidden anchorage known only by shifting markers
+      - a black market quay built from salvaged hulls
+
+    economies:
+      - piracy, salvage, and contraband
+      - ship repair and discreet provisioning
+      - navigation services through deadly waters
+      - ransom brokerage and clandestine trade
+
+    tensions:
+      - a storm season has cut off expected supply routes
+      - alliances between captains have turned brittle
+      - a wreck contains something too valuable to keep secret
+      - a city-state or empire is preparing a crackdown
+      - locals argue over whether a haven should stay hidden or grow richer
+
+    atmospheres:
+      - storm-bitten freedom
+      - violence under negotiation
+      - maritime superstition
+      - precarious brotherhood
+
+
+  sands:
+    settlement_types:
+      - ash caravan camp
+      - black-glass outpost
+      - ruin-edge refuge
+      - scavenger enclave
+      - desperate waystation
+
+    visual_features:
+      - tents and walls half-buried in ash
+      - black glass plains reflecting false light
+      - broken ruins emerging from dunes
+      - wind-carved bones and dead banners
+      - watchfires kept low against the emptiness
+
+    landmarks:
+      - a ruin tower visible only at certain distances
+      - a well lined with cracked threshold stone
+      - a field of black glass humming at dusk
+      - a half-buried temple no one dares fully excavate
+      - a cairn road built from warning markers and names
+
+    economies:
+      - salvage, desperate caravan trade, and relic recovery
+      - protection work against horrors and raiders
+      - water control and ration contracts
+      - transport of materials no sane people should move
+
+    tensions:
+      - reality distortion is worsening around camp
+      - the dead are no longer staying buried after sunset
+      - a caravan master is hiding the true destination of a relic cargo
+      - a ruin has opened and too many factions know it
+      - the settlement is one bad storm from vanishing forever
+
+    atmospheres:
+      - existential dread
+      - silence and decay
+      - desperate persistence
+      - uncanny emptiness
+
+
+  lomeanor:
+    settlement_types:
+      - hidden fortress enclave
+      - twilight harbor
+      - black-cliff citadel
+      - shadow court town
+      - covert border settlement
+
+    visual_features:
+      - black stone architecture on cold coasts
+      - shuttered towers and screened walkways
+      - hidden passages built into cliff faces
+      - silver or pale lights under twilight skies
+      - elegant structures designed to conceal more than reveal
+
+    landmarks:
+      - a fortress archive sealed behind shadow-screened halls
+      - a harbor visible only from the correct angle at dusk
+      - a black tower used for discipline and intelligence
+      - a court of veiled balconies and listening chambers
+      - a causeway that appears only under certain moonlight
+
+    economies:
+      - covert trade, intelligence, and selective diplomacy
+      - martial training and arcane discipline
+      - rare crafted goods meant for precise hands
+      - control of hidden routes across dangerous lands
+
+    tensions:
+      - internal factions disagree on control through manipulation versus force
+      - a cell has gone too far and drawn dangerous attention
+      - an external threat risks forcing secrecy into open conflict
+      - somebody has broken the quiet rules of ambition
+      - too many myths about the settlement are suddenly proving true
+
+    atmospheres:
+      - cold restraint
+      - secrecy as architecture
+      - calculated silence
+      - shadowed discipline
+
+
+  xanthir:
+    settlement_types:
+      - temple city
+      - fortress town
+      - legion garrison settlement
+      - sacrifice district
+      - doctrinal border city
+
+    visual_features:
+      - red banners and ironwork everywhere
+      - broad processional roads and disciplined geometry
+      - fortress shrines and military courtyards
+      - braziers, censers, and ritual flame
+      - public spaces built for obedience and spectacle
+
+    landmarks:
+      - a colossal altar-square used for public rite and judgment
+      - a legion barracks integrated into a temple wall
+      - a red tower of doctrine and law
+      - a processional gate where conquered trophies are displayed
+      - a shrine forge that arms both priests and soldiers
+
+    economies:
+      - military supply, taxation, and controlled trade
+      - ritual industries tied to temple authority
+      - ironworking, armory work, and grain requisition
+      - labor organized through doctrine and fear
+
+    tensions:
+      - zealots and pragmatists disagree on how far doctrine should bend
+      - local resistance has become impossible to ignore
+      - sacrifice schedules are demanding too much from the population
+      - a commander is beginning to rival a high priest
+      - border war pressure is turning certainty into paranoia
+
+    atmospheres:
+      - harsh order
+      - ritualized domination
+      - certainty turning cruel
+      - sacred fire over iron discipline
+
+
+  caldor:
+    settlement_types:
+      - canal city
+      - merchant quarter
+      - marble market town
+      - academy city
+      - fleet harbor
+
+    visual_features:
+      - marble facades and canal bridges
+      - tiled roofs and civic monuments
+      - guild banners and public forums
+      - merchant piers and exploratory shipyards
+      - art, law, and commerce sharing the same squares
+
+    landmarks:
+      - a grand canal court where contracts are publicly witnessed
+      - an academy quarter crowded with inventors and patrons
+      - a harbor of exploration fleets and ambitious captains
+      - a plaza dominated by layered civic statuary
+      - a temple district serving a crowded pantheon
+
+    economies:
+      - trade, finance, exploration, and invention
+      - arts patronage and legal administration
+      - luxury goods, shipping, and scholarly services
+      - large-scale civic works and maritime contracts
+
+    tensions:
+      - imperial ambition is straining local optimism
+      - guilds and civic offices are locked in quiet rivalry
+      - exploration profits are not being shared fairly
+      - public ideals are masking uglier colonial pressures
+      - innovation is outpacing law and custom
+
+    atmospheres:
+      - ambitious brilliance
+      - civic confidence
+      - cultured bustle
+      - optimism under pressure
+
+
+  caldor_island:
+    settlement_types:
+      - fishing village
+      - valley hamlet
+      - mountain mining town
+      - isolated rural enclave
+      - sheltered harbor settlement
+
+    visual_features:
+      - quiet coves and weathered docks
+      - mountain paths and terraced fields
+      - simple shrines and long-familiar communal buildings
+      - dense forest edges and misty valleys
+      - practical architecture shaped by isolation
+
+    landmarks:
+      - a harbor chapel facing rough water
+      - a communal hall untouched in form for generations
+      - a mountain mine entrance marked by old family signs
+      - a hidden valley road unknown to most outsiders
+      - a lakeside shrine used for seasonal rites
+
+    economies:
+      - fishing, small trade, farming, and local craft
+      - mining in the uplands and barter between villages
+      - household production and inherited practical knowledge
+      - modest shipping with rare outside contact
+
+    tensions:
+      - outside politics are beginning to reach isolated communities
+      - old custom resists practical change
+      - a road, mine, or harbor route has become unsafe
+      - younger people are drawn outward while elders hold inward
+      - some settlements know more of the wider world than they admit
+
+    atmospheres:
+      - traditional stillness
+      - local familiarity
+      - peaceful isolation
+      - quiet readiness for change

@@ -1,0 +1,561 @@
+================================================================================
+001_character_rogue_lilim_fenmir_free_cities_dangerous_charm
+================================================================================
+Dark fantasy character prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Character:
+Samir of the Third Lantern, male lilim rogue.
+
+Appearance:
+horned or infernal traits, unusual skin tones, expressive eyes, subtle magical aura, lean athletic build, quick hands, sharp features, alert predatory confidence, mood of dangerous charm.
+
+Clothing:
+travelling performer garments, silk layers, jewelry, ritual accessories, fitted leathers, layered travel garments, elegant but practical clothing suited to stealth, deception, and sudden movement.
+
+Weapons / Props:
+curved short blade, coded documents.
+
+Pose:
+balanced stance with weapon loosely ready, mood of dangerous charm.
+
+Environment:
+Independent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.
+
+Lighting:
+strong directional light with deep shadows.
+
+Layout:
+clean full-body presentation with readable equipment and minimal background clutter.
+
+Race Flavor:
+Core truths: Children of rebellion and innovation.; Inherently magical wanderers.; Bound by shared ritual language Darb-Nasr.. Themes: motion, artistic survival, freedom, dangerous inspiration. Tone: mystical, passionate, poetic, unsettling. Visual cues: scale human sized; signature features horned or infernal traits, unusual skin tones, expressive eyes, subtle magical aura. Avoid: portraying them as demonic villains, portraying them as simple tricksters.
+
+STYLE:
+painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.
+
+================================================================================
+002_character_barbarian_human_fenmir_highlands_fenmir_grim_determination
+================================================================================
+Dark fantasy character prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Character:
+Moira Red Heather, female human barbarian warrior, Fenmir.
+
+Appearance:
+expressive faces, weathered mortal features, wind-weathered skin, ritual tattoos, powerful muscular physique, battle-hardened expression, scars and ritual markings, mood of grim determination.
+
+Clothing:
+culturally varied practical garments shaped by climate and profession, highland leathers, clan cloth, carved bone charms, layered furs, heavy leather armor, weathered belts and trophies.
+
+Weapons / Props:
+long spear, rope and survival gear.
+
+Pose:
+weapon planted in the earth, mood of grim determination.
+
+Environment:
+Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.
+
+Lighting:
+stormy sky lighting.
+
+Race Flavor:
+Core truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Variant tone: spiritual proud highlanders. Avoid: portraying humans as weak, portraying humans as secondary to elder races.
+
+STYLE:
+painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.
+
+================================================================================
+003_character_retired_warrior_human_caldor_island_fenmir_tired_suspicion
+================================================================================
+Dark fantasy character prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Character:
+Moira Stoneblood, male human retired warrior, Fenmir.
+
+Appearance:
+expressive faces, weathered mortal features, wind-weathered skin, ritual tattoos, aged wiry body, weathered skin, faded tattoos, exaggerated facial features, deep-set eyes and hollow cheeks, mood of tired suspicion.
+
+Clothing:
+culturally varied practical garments shaped by climate and profession, highland leathers, clan cloth, carved bone charms, worn everyday clothing, patched coats, old boots, relics of past campaigns.
+
+Weapons / Props:
+cane hiding a blade, campaign relics.
+
+Pose:
+leaning back in a chair, mood of tired suspicion.
+
+Environment:
+Large mountainous island with coastal fishing towns, inland valleys, and isolated communities like the Vale. A largely pre-modern region detached from global politics.
+
+Lighting:
+low sunset glow.
+
+Race Flavor:
+Core truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Variant tone: spiritual proud highlanders. Avoid: portraying humans as weak, portraying humans as secondary to elder races.
+
+STYLE:
+painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.
+
+================================================================================
+004_character_poet_warrior_uruk_fenmir_highlands_highland_melancholic_calm
+================================================================================
+Dark fantasy character prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Character:
+Dhorak Bone-Singer, male uruk poet warrior, Highland Uruk.
+
+Appearance:
+protruding lower tusks, powerful build, heavy jaw, immense physical presence, blue skin, weathered philosopher-warrior presence, immense but thoughtful presence, calm reflective gaze, strength tempered by memory, mood of melancholic calm.
+
+Clothing:
+tribal leathers, war gear, symbolic adornment, nomadic layers, herd gear, carved memory tokens, nomadic garments, symbolic adornments, carved tokens of journeys.
+
+Weapons / Props:
+long spear, carved charms.
+
+Pose:
+reflective upright stance, mood of melancholic calm.
+
+Environment:
+Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.
+
+Lighting:
+cold mountain light.
+
+Race Flavor:
+Core truths: Powerful nomadic peoples who arrived suddenly from the east.; Often misunderstood by outsiders.. Themes: strength paired with culture, honor misunderstood, reputation shaped by fear. Tone: physical, proud, intense. Visual cues: scale much larger than humans; signature features protruding lower tusks, powerful build, heavy jaw, immense physical presence. Variant tone: herders poets philosophers. Avoid: reducing them to mindless brutes.
+
+STYLE:
+painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.
+
+================================================================================
+005_character_mage_alfirin_cirdion_sky_children_calm_intellect
+================================================================================
+Dark fantasy character prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Character:
+Elenor of the Hidden Bough, female alfirin mage, Sky Children.
+
+Appearance:
+pointed ears, ageless refined features, elegant posture, inhuman beauty, blue skin, clear luminous eyes, calm noble bearing, focused intelligent gaze, controlled magical presence, poised posture of careful study, mood of calm intellect.
+
+Clothing:
+layered elegant garments, subtle authority, luminous fabrics, refined martial or scholarly attire, sea-silk robes, scholar garments, wind-borne fabrics, coastal ornament, layered robes, arcane jewelry, embroidered sigils and ritual cloth.
+
+Weapons / Props:
+spell focus orb, talismans.
+
+Pose:
+raising one hand as if shaping magic, mood of calm intellect.
+
+Environment:
+Ancient Alfirin coastal realm of white stone cliff-cities, wind-swept terraces, and sky-sea architecture. Advanced shipbuilding, meritocratic councils, immortal scholars, and light-infused structures shape a civilization of calm precision and restrained elegance.
+
+Lighting:
+mystical glow.
+
+Race Flavor:
+Core truths: Immortal beings who fled a shattered world.; Entered this world through damaged Gates after failed negotiation with the Velim.; Their arrival caused lasting damage to reality.. Themes: immortality versus responsibility, curated history, denial of guilt, elegance masking ancient error. Tone: ancient, refined, confident, restrained, quietly burdened. Visual cues: scale human sized or slightly taller; skin palette varies by kindred; signature features pointed ears, ageless refined features, elegant posture, inhuman beauty. Variant tone: open cultured trade-oriented. Avoid: portraying them as purely benevolent, portraying them as flawless stewards.
+
+STYLE:
+painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.
+
+================================================================================
+006_character_assassin_alfirin_lomeanor_duathrim_cold_patience
+================================================================================
+Dark fantasy character prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Character:
+Thyris Seaborn, male alfirin assassin, Duathrim.
+
+Appearance:
+pointed ears, ageless refined features, elegant posture, inhuman beauty, white hair, pale to violet skin, cold watchful gaze, controlled stillness, unreadable expression, lethal economy of movement, mood of cold patience.
+
+Clothing:
+layered elegant garments, subtle authority, luminous fabrics, refined martial or scholarly attire, dark layered robes, hidden blades, shadow-draped fabrics, dark fitted garments, concealed sheaths, quiet fabrics suited for stealth.
+
+Weapons / Props:
+stiletto blade, coded tokens.
+
+Pose:
+balanced stalking posture, mood of cold patience.
+
+Environment:
+Twilight homeland of the Duathrim. Cold black cliffs, hidden fortress enclaves, and silent cities shaped by secrecy, discipline, and subtle manipulation.
+
+Lighting:
+moonlight.
+
+Race Flavor:
+Core truths: Immortal beings who fled a shattered world.; Entered this world through damaged Gates after failed negotiation with the Velim.; Their arrival caused lasting damage to reality.. Themes: immortality versus responsibility, curated history, denial of guilt, elegance masking ancient error. Tone: ancient, refined, confident, restrained, quietly burdened. Visual cues: scale human sized or slightly taller; skin palette varies by kindred; signature features pointed ears, ageless refined features, elegant posture, inhuman beauty. Variant tone: secretive hierarchical manipulators. Avoid: portraying them as purely benevolent, portraying them as flawless stewards.
+
+STYLE:
+painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.
+
+================================================================================
+007_settlement_fenmir_highlands_weathered
+================================================================================
+Dark fantasy settlement prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Settlement Name:
+Rowancairn Stead.
+
+Settlement Type:
+mountain pass hamlet.
+
+Environment:
+Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.
+
+Visual Feature:
+prayer ribbons and carved bone charms.
+
+Landmark:
+a ridge shrine where winds are read as omens.
+
+Economy / Survival Basis:
+seasonal grazing and pass tolls.
+
+Current Tension:
+a sacred site has been disturbed by outsiders or weather.
+
+Atmosphere:
+harsh but dignified, weathered.
+
+Local Inn or Tavern:
+The Cairn Stag.
+
+STYLE:
+painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.
+
+================================================================================
+008_settlement_almadir_watchful
+================================================================================
+Dark fantasy settlement prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Settlement Name:
+Thermyr Hollow.
+
+Settlement Type:
+wandering woodland enclave.
+
+Environment:
+Vast living forest realm of ancient groves and shifting paths. Bioluminescent greens illuminate a civilization bound to nature, instinctive magic, and a covenant with the land.
+
+Visual Feature:
+luminous moss and bioluminescent leaves.
+
+Landmark:
+a silent shrine marked by living antlers and green fireflies.
+
+Economy / Survival Basis:
+ritual stewardship of wild magic.
+
+Current Tension:
+a forest spirit or old pact has been disturbed.
+
+Atmosphere:
+timeless and instinctive, watchful.
+
+Local Inn or Tavern:
+The Wolf and Fox.
+
+STYLE:
+painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.
+
+================================================================================
+009_settlement_fenmir_free_cities_restless
+================================================================================
+Dark fantasy settlement prompt.
+
+Setting:
+Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.
+
+Settlement Name:
+Xul.
+
+Settlement Type:
+pirate port.
+
+Environment:
+Independent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.
+
+Visual Feature:
+stacked harbor buildings and leaning balconies.
+
+Landmark:
+a harbor court where disputes are settled by the Free Accords.
+
+Economy / Survival Basis:
+repair yards, ropeworks, and sailmaking.
+
+Current Tension:
+somebody is sabotaging ships before they leave harbor.
+
+Atmosphere:
+crowded cosmopolitan tension, restless.
+
+Local Inn or Tavern:
+The Gull Bride Tavern.
+
+STYLE:
+painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.
+
+================================================================================
+010_encounter_gate_ruins
+================================================================================
+Encounter seed.
+
+Environment:
+Broken threshold stones, warped geometry, fractured light, abandoned guardian sigils, and the lingering strain of damaged reality.
+
+What the party first notices:
+
+
+Who or what is involved:
+
+
+What is actually happening:
+
+
+Complication:
+
+
+GM Hook:
+
+
+STYLE:
+painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.
+
+================================================================================
+011_encounter_sands
+================================================================================
+Encounter seed.
+
+Environment:
+No-man's-land of ash dunes and black glass plains. Reality bends here under Daelgast saturation. Ruins, restless dead, and wandering horrors stalk a landscape of silence and existential dread.
+
+What the party first notices:
+the wind has gone silent around a half-buried ruin.
+
+Who or what is involved:
+a scholar of Daelgast corruption.
+
+What is actually happening:
+the area is saturated enough to distort direction, memory, or time.
+
+Complication:
+more than one faction has come here for the same reason.
+
+GM Hook:
+decide whether knowledge, survival, or containment matters most.
+
+STYLE:
+painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.
+
+================================================================================
+012_encounter_ered_engrin
+================================================================================
+Encounter seed.
+
+Environment:
+Colossal iron mountains riddled with subterranean forge-holds, basalt halls, and vertical cities. A realm of pressure, endurance, ritual engineering, and ancient containment rites.
+
+What the party first notices:
+a deep mechanical rhythm has gone subtly wrong somewhere below.
+
+Who or what is involved:
+miners trapped beyond a containment line.
+
+What is actually happening:
+an old seal was never as stable as the elders claimed.
+
+Complication:
+a second, unrelated political dispute is obstructing urgent repairs.
+
+GM Hook:
+choose between sealing the danger, studying it, or evacuating the workers.
+
+STYLE:
+painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.
+
+================================================================================
+013_cypher_almadir
+================================================================================
+Cypher.
+
+Name:
+The Green Bloom.
+
+Level:
+3
+
+Manifestation:
+seed-pod charm.
+
+Appearance:
+warm and faintly pulsing.
+
+Effect:
+rapidly grows a temporary wall of plant matter.
+
+Limitation / Depletion:
+works only once per day.
+
+Quirk:
+whispers faint plant-like sounds.
+
+STYLE:
+painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.
+
+================================================================================
+014_cypher_cirdion
+================================================================================
+Cypher.
+
+Name:
+Hollow Crown.
+
+Level:
+3
+
+Manifestation:
+tide-measure rod.
+
+Appearance:
+smooth white alloy warm to the touch.
+
+Effect:
+allows the user to see hidden currents of magic or motion.
+
+Limitation / Depletion:
+loses power at sunrise.
+
+Quirk:
+reflects stars even in daylight.
+
+STYLE:
+painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.
+
+================================================================================
+015_cypher_sands
+================================================================================
+Cypher.
+
+Name:
+The Star Seal.
+
+Level:
+7
+
+Manifestation:
+black glass shard.
+
+Appearance:
+faintly vibrating crystal.
+
+Effect:
+forces hostile creatures to hesitate in dread.
+
+Limitation / Depletion:
+works only in corrupted regions.
+
+Quirk:
+whispers in forgotten languages.
+
+STYLE:
+painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.
+
+================================================================================
+016_inn_fenmir_highlands_storm-battered
+================================================================================
+Inn or tavern prompt.
+
+Name:
+The Wind Hearth Hearth.
+
+Environment:
+Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.
+
+Defining Trait:
+weathered beams and smoke-dark rafters.
+
+Current Tension:
+the innkeeper knows more than is safe.
+
+Atmosphere:
+storm-battered.
+
+STYLE:
+painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.
+
+================================================================================
+017_inn_fenmir_free_cities_rowdy_and_dangerous
+================================================================================
+Inn or tavern prompt.
+
+Name:
+The Crown and Bride.
+
+Environment:
+Independent pirate havens and trade ports governed by the Free Accords. Cosmopolitan docks where contracts matter more than morality and alliances shift with the tides.
+
+Defining Trait:
+suspicious regulars and tired travelers.
+
+Current Tension:
+a regular has gone missing and no one agrees why.
+
+Atmosphere:
+rowdy and dangerous.
+
+STYLE:
+painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.
+
+================================================================================
+018_inn_gate_ruins_uncanny
+================================================================================
+Inn or tavern prompt.
+
+Name:
+The Silent Lantern Inn.
+
+Environment:
+Broken threshold stones, warped geometry, fractured light, abandoned guardian sigils, and the lingering strain of damaged reality.
+
+Defining Trait:
+old local trophies, banners, or carved charms.
+
+Current Tension:
+a locked room upstairs should not be occupied.
+
+Atmosphere:
+uncanny.
+
+STYLE:
+painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.
+

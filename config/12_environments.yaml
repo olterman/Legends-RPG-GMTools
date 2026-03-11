@@ -1,0 +1,351 @@
+environments:
+
+  cirdion:
+    name: Cirdion
+    type: coastal_realm
+    culture: alfirin
+
+    description: >
+      Ancient Alfirin coastal realm of white stone cliff-cities,
+      wind-swept terraces, and sky-sea architecture. Advanced shipbuilding,
+      meritocratic councils, immortal scholars, and light-infused structures
+      shape a civilization of calm precision and restrained elegance.
+
+    visual_traits:
+      - white stone terraces
+      - cliffside cities
+      - wind banners
+      - luminous architecture
+      - crystalline shipyards
+      - sea-light reflections
+
+    mood:
+      - serene
+      - precise
+      - ancient
+      - quietly watchful
+
+
+  cird:
+    name: Cird (Cirth)
+    type: capital_city
+    culture: alfirin
+
+    description: >
+      Terraced capital city above the western sea. Open halls without walls,
+      wind banners, scholarly docks, and crystalline shipyards form a place
+      of diplomacy, beauty through function, and quiet vigilance.
+
+    visual_traits:
+      - tiered sea terraces
+      - open column halls
+      - scholar docks
+      - wind-swept plazas
+      - sea mist drifting through streets
+
+    mood:
+      - elegant
+      - diplomatic
+      - contemplative
+
+
+  almadir:
+    name: Almadir
+    type: forest_realm
+    culture: alfirin_galadhrim
+
+    description: >
+      Vast living forest realm of ancient groves and shifting paths.
+      Bioluminescent greens illuminate a civilization bound to nature,
+      instinctive magic, and a covenant with the land.
+
+    visual_traits:
+      - enormous ancient trees
+      - bioluminescent foliage
+      - root bridges
+      - moss-covered ruins
+      - drifting spores
+      - hidden forest halls
+
+    mood:
+      - mystical
+      - feral elegance
+      - quiet danger
+      - slow timelessness
+
+
+  ered_engrin:
+    name: Ered Engrin
+    type: mountain_range
+    culture: duergar
+
+    description: >
+      Colossal iron mountains riddled with subterranean forge-holds,
+      basalt halls, and vertical cities. A realm of pressure, endurance,
+      ritual engineering, and ancient containment rites.
+
+    visual_traits:
+      - basalt citadels
+      - vertical mountain cities
+      - magma-lit tunnels
+      - colossal iron gates
+      - black stone bridges
+      - endless mine shafts
+
+    mood:
+      - heavy
+      - austere
+      - disciplined
+      - oppressive
+
+
+  gate_ruins:
+    name: Gate Ruins
+    type: shattered_threshold_site
+    culture: ancient
+
+    description: >
+      Broken threshold stones, warped geometry, fractured light,
+      abandoned guardian sigils, and the lingering strain of damaged reality.
+
+    visual_traits:
+      - broken archways
+      - cracked threshold stones
+      - warped light
+      - impossible angles
+      - half-buried mechanisms
+
+    mood:
+      - uncanny
+      - unstable
+      - haunted
+
+
+  fenmir_highlands:
+    name: Fenmir Highlands
+    type: mountain_region
+    culture: fenmir
+
+    description: >
+      Wind-carved mountains where nomadic human clans and Highland Uruk
+      share the land. Stone circles, ritual tattoos, and ancestral memory
+      define a harsh but spiritual landscape.
+
+    visual_traits:
+      - windswept ridges
+      - standing stone circles
+      - clan encampments
+      - grazing herds
+      - smoke drifting across valleys
+
+    mood:
+      - harsh beauty
+      - ancestral
+      - proud
+      - spiritual
+
+
+  fenmir_lowlands:
+    name: Fenmir Lowlands
+    type: war_torn_plains
+    culture: fenmir
+
+    description: >
+      War-scarred plains dotted with ruined keeps, broken roads,
+      fortified villages, and mercenary camps. Civilization persists
+      here through pragmatism and stubborn tradition.
+
+    visual_traits:
+      - ruined towers
+      - broken roads
+      - fortified farmsteads
+      - abandoned battlefields
+      - temporary garrisons
+
+    mood:
+      - tense
+      - weary
+      - pragmatic
+
+
+  fenmir_wilds:
+    name: Fenmir Wilds
+    type: frontier_basin
+    culture: mixed
+
+    description: >
+      Enclosed frontier basin beyond the western pass. A lawless region
+      of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous
+      wilderness where settlements rarely endure.
+
+    visual_traits:
+      - tangled forests
+      - broken valleys
+      - abandoned villages
+      - strange magical growth
+      - rough tribal camps
+
+    mood:
+      - dangerous
+      - unpredictable
+      - frontier survival
+
+
+  fenmir_free_cities:
+    name: Fenmir Free Cities
+    type: coastal_city_states
+    culture: mixed
+
+    description: >
+      Independent pirate havens and trade ports governed by the Free
+      Accords. Cosmopolitan docks where contracts matter more than
+      morality and alliances shift with the tides.
+
+    visual_traits:
+      - crowded harbors
+      - lantern-lit docks
+      - merchant banners
+      - pirate ships
+      - layered market streets
+
+    mood:
+      - chaotic
+      - opportunistic
+      - lively
+
+
+  pirate_seas:
+    name: Pirate Seas
+    type: ocean_region
+    culture: mixed
+
+    description: >
+      Storm-lashed waters between Caldor Island, the Island of Lights,
+      and the Dragon's Teeth islands. Hidden coves, shipwreck graveyards,
+      and shifting alliances define this dangerous maritime frontier.
+
+    visual_traits:
+      - storm-dark waves
+      - shattered reefs
+      - pirate fleets
+      - drifting wreckage
+      - fog-shrouded islands
+
+    mood:
+      - treacherous
+      - adventurous
+      - lawless
+
+
+  sands:
+    name: The Sands
+    type: wasteland
+    culture: unknown
+
+    description: >
+      No-man's-land of ash dunes and black glass plains. Reality bends
+      here under Daelgast saturation. Ruins, restless dead, and wandering
+      horrors stalk a landscape of silence and existential dread.
+
+    visual_traits:
+      - black glass deserts
+      - twisted ruins
+      - warped horizons
+      - ash storms
+      - skeletal structures
+
+    mood:
+      - surreal
+      - horrifying
+      - desolate
+
+
+  lomeanor:
+    name: Lomêanor
+    type: shadow_land
+    culture: alfirin_duathrim
+
+    description: >
+      Twilight homeland of the Duathrim. Cold black cliffs, hidden
+      fortress enclaves, and silent cities shaped by secrecy,
+      discipline, and subtle manipulation.
+
+    visual_traits:
+      - black coastal cliffs
+      - hidden fortress cities
+      - shadow-lit towers
+      - misty harbors
+
+    mood:
+      - secretive
+      - cold
+      - calculated
+
+
+  xanthir:
+    name: Xanthir
+    type: theocratic_empire
+    culture: human_xanthir
+
+    description: >
+      Militant theocratic empire defined by red banners, iron discipline,
+      ritual sacrifice, and expansionist certainty. Doctrine shapes every
+      aspect of life and war.
+
+    visual_traits:
+      - massive temple citadels
+      - red banners
+      - legion formations
+      - sacrificial altars
+      - fortress cities
+
+    mood:
+      - severe
+      - oppressive
+      - fanatical
+
+
+  caldor:
+    name: Caldor
+    type: empire
+    culture: human_caldoran
+
+    description: >
+      Renaissance human empire of marble cities, canals, exploration
+      fleets, and civic ambition. Trade, art, and law intertwine in a
+      culture of confident expansion.
+
+    visual_traits:
+      - marble plazas
+      - canal cities
+      - merchant ships
+      - ornate academies
+      - public monuments
+
+    mood:
+      - vibrant
+      - ambitious
+      - intellectual
+
+
+  caldor_island:
+    name: Caldor Island
+    type: island_realm
+    culture: human
+
+    description: >
+      Large mountainous island with coastal fishing towns, inland
+      valleys, and isolated communities like the Vale. A largely
+      pre-modern region detached from global politics.
+
+    visual_traits:
+      - fishing harbors
+      - mountain valleys
+      - quiet farming villages
+      - misty forests
+      - rugged coastlines
+
+    mood:
+      - peaceful
+      - isolated
+      - traditional

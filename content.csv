@@ -1,0 +1,19 @@
+type,gender,profession,race,environment,variant,mood,seed
+character,male,rogue,lilim,fenmir_free_cities,,dangerous charm,101
+character,female,barbarian,human,fenmir_highlands,fenmir,grim determination,102
+character,male,retired_warrior,human,caldor_island,fenmir,tired suspicion,103
+character,male,poet_warrior,uruk,fenmir_highlands,highland,melancholic calm,104
+character,female,mage,alfirin,cirdion,sky_children,calm intellect,105
+character,male,assassin,alfirin,lomeanor,duathrim,cold patience,106
+settlement,,,,fenmir_highlands,,weathered,201
+settlement,,,,almadir,,watchful,202
+settlement,,,,fenmir_free_cities,,restless,203
+encounter,,,,gate_ruins,,,301
+encounter,,,,sands,,,302
+encounter,,,,ered_engrin,,,303
+cypher,,,,almadir,,,401
+cypher,,,,cirdion,,,402
+cypher,,,,sands,,,403
+inn,,,,fenmir_highlands,,storm-battered,601
+inn,,,,fenmir_free_cities,,rowdy and dangerous,602
+inn,,,,gate_ruins,,uncanny,603

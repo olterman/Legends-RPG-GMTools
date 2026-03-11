@@ -161,6 +161,83 @@
       line-height: 1.5;
     }
 
+    .cypher-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(122,162,255,0.08), rgba(255,212,121,0.03)),
+        var(--panel-2);
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    }
+
+    .cypher-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .cypher-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .cypher-badge {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      padding: 6px 10px;
+      min-width: 72px;
+      text-align: center;
+    }
+
+    .cypher-badge .k {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.1;
+    }
+
+    .cypher-badge .v {
+      display: block;
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+
+    .cypher-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .cypher-field {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .cypher-field .label {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .cypher-field .value {
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -481,7 +558,7 @@
           <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
         </div>
       `;
-
+    
       const renderList = (label, items) => {
         if (!items || !items.length) return "";
         return `
@@ -506,24 +583,81 @@
       `;
     }
 
+    function renderCypherCard(result) {
+      const sections = result.sections || {};
+
+      return `
+        <div class="output-card">
+          <h3>Cypher Card</h3>
+          <div class="output-row">
+            <div class="output-label">Name</div>
+            <div class="output-value">${escapeHtml(result.name || sections.name || "Unnamed Cypher")}</div>
+          </div>
+          ${sections.level ? `
+          <div class="output-row">
+            <div class="output-label">Level</div>
+            <div class="output-value">${escapeHtml(sections.level)}</div>
+          </div>` : ""}
+          ${sections.manifestation ? `
+          <div class="output-row">
+            <div class="output-label">Manifestation</div>
+            <div class="output-value">${escapeHtml(sections.manifestation)}</div>
+          </div>` : ""}
+          ${sections.appearance ? `
+          <div class="output-row">
+            <div class="output-label">Appearance</div>
+            <div class="output-value">${escapeHtml(sections.appearance)}</div>
+          </div>` : ""}
+          ${sections.effect ? `
+          <div class="output-row">
+            <div class="output-label">Effect</div>
+            <div class="output-value">${escapeHtml(sections.effect)}</div>
+          </div>` : ""}
+          ${sections.limitation ? `
+          <div class="output-row">
+            <div class="output-label">Limitation / Depletion</div>
+            <div class="output-value">${escapeHtml(sections.limitation)}</div>
+          </div>` : ""}
+          ${sections.quirk ? `
+          <div class="output-row">
+            <div class="output-label">Quirk</div>
+            <div class="output-value">${escapeHtml(sections.quirk)}</div>
+          </div>` : ""}
+        </div>
+      `;
+    }
+
     function renderResult(data) {
       let html = "";
 
-      if (data.name) {
-        html += `
+      if (data.type === "cypher") {
+        html += renderCypherCard(data);
+      } else {
+        if (data.name) {
+          html += `
+            <div class="output-card">
+              <h3>Name</h3>
+              <div class="output-value">${escapeHtml(data.name)}</div>
+            </div>
+          `;
+        }
+
+        if (data.sections) {
+          html += renderSectionsCard("Generated Content", data.sections);
+        }
+
+        if (data.stat_block) {
+          html += renderStatBlockCard(data.stat_block);
+        }
+      }
+
+      if (!html && data.text) {
+        html = `
           <div class="output-card">
-            <h3>Name</h3>
-            <div class="output-value">${escapeHtml(data.name)}</div>
+            <h3>Generated Output</h3>
+            <div class="output-value">${escapeHtml(data.text)}</div>
           </div>
         `;
-      }
-
-      if (data.sections) {
-        html += renderSectionsCard("Generated Content", data.sections);
-      }
-
-      if (data.stat_block) {
-        html += renderStatBlockCard(data.stat_block);
       }
 
       if (!html) {

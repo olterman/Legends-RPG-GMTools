@@ -1,0 +1,27 @@
+{
+  "saved_at": "2026-03-11T21:15:23.814091+00:00",
+  "filename": "cypher_20260311T211523.json",
+  "payload": {
+    "environment": "sands"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Thorn Mirror",
+    "level": 6,
+    "sections": {
+      "name": "Thorn Mirror",
+      "level": "6",
+      "manifestation": "black glass shard",
+      "appearance": "faintly vibrating crystal",
+      "effect": "forces hostile creatures to hesitate in dread",
+      "limitation": "drains vitality from the user",
+      "quirk": "distorts reflections",
+      "style": "painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration"
+    },
+    "text": "Cypher.\n\nName:\nThorn Mirror.\n\nLevel:\n6\n\nManifestation:\nblack glass shard.\n\nAppearance:\nfaintly vibrating crystal.\n\nEffect:\nforces hostile creatures to hesitate in dread.\n\nLimitation / Depletion:\ndrains vitality from the user.\n\nQuirk:\ndistorts reflections.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
+    "metadata": {
+      "environment": "sands",
+      "level": 6
+    }
+  }
+}

@@ -196,6 +196,84 @@
       word-break: break-word;
     }
 
+    .cypher-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(122,162,255,0.08), rgba(255,212,121,0.03)),
+        var(--panel-2);
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    }
+
+    .cypher-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .cypher-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .cypher-badge {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      padding: 6px 10px;
+      min-width: 72px;
+      text-align: center;
+    }
+
+    .cypher-badge .k {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.1;
+    }
+
+    .cypher-badge .v {
+      display: block;
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+
+    .cypher-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .cypher-field {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .cypher-field .label {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .cypher-field .value {
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+
+
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -244,7 +322,7 @@
   <div class="wrap">
     <div class="nav">
       <a href="/">Generator</a>
-      <a href="/map-tools">Map Tools</a>
+      <a href="/map_tools">Map Tools</a>
       <a href="/library">Library</a>
     </div>
 
@@ -307,7 +385,7 @@
     </div>
   </div>
 
-  <script>
+<script>
   const state = {
     meta: null,
     selectedFilename: null
@@ -407,6 +485,7 @@
         <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
       </div>
     `;
+    
 
     const renderList = (label, items) => {
       if (!Array.isArray(items) || !items.length) return "";
@@ -430,7 +509,45 @@
         ${renderList("Loot", statBlock.loot)}
       </div>
     `;
+  
   }
+
+  function renderCypherCard(data) {
+    const sections = data.sections || {};
+    const level = sections.level || data.level || "";
+    const name = data.name || sections.name || "Unnamed Cypher";
+
+    const field = (label, value) => {
+      if (!value) return "";
+      return `
+        <div class="cypher-field">
+          <div class="label">${escapeHtml(label)}</div>
+          <div class="value">${escapeHtml(value)}</div>
+        </div>
+      `;
+    };
+
+    return `
+      <div class="cypher-card">
+        <div class="cypher-header">
+          <div class="cypher-title">${escapeHtml(name)}</div>
+          <div class="cypher-badge">
+            <span class="k">LEVEL</span>
+            <span class="v">${escapeHtml(level)}</span>
+          </div>
+        </div>
+
+        <div class="cypher-grid">
+          ${field("Manifestation", sections.manifestation)}
+          ${field("Appearance", sections.appearance)}
+          ${field("Effect", sections.effect)}
+          ${field("Limitation / Depletion", sections.limitation)}
+          ${field("Quirk", sections.quirk)}
+        </div>
+      </div>
+    `;
+  }
+
 
   function renderViewer(record) {
     const result = record.result || {};
@@ -480,7 +597,9 @@
       </div>
     `;
 
-    if (result.sections) {
+    if (result.type === "cypher") {
+      html += renderCypherCard(result);
+    } else if (result.sections) {
       html += renderSectionsCard("Generated Content", result.sections);
     }
 
@@ -533,24 +652,32 @@
 
     els.results.innerHTML = items.map(item => {
       const meta = item.metadata || {};
-      const subtitle = [
-        meta.environment ? `environment: ${meta.environment}` : null,
-        meta.race ? `race: ${meta.race}` : null,
-        meta.profession ? `profession: ${meta.profession}` : null,
-        meta.role ? `role: ${meta.role}` : null,
-        meta.family ? `family: ${meta.family}` : null,
-      ].filter(Boolean).join(" • ");
+      const sections = item.sections || {};
+
+      const lines = [];
+
+      if (meta.environment) lines.push(`environment: ${meta.environment}`);
+      if (meta.race) lines.push(`race: ${meta.race}`);
+      if (meta.profession) lines.push(`profession: ${meta.profession}`);
+      if (meta.role) lines.push(`role: ${meta.role}`);
+      if (meta.family) lines.push(`family: ${meta.family}`);
+
+      // Cypher level support
+      if (item.type === "cypher") {
+        const level = meta.level || sections.level;
+        if (level) lines.push(`level: ${level}`);
+      }
+
+      if (item.saved_at) lines.push(`saved: ${item.saved_at}`);
 
       return `
         <div class="result-card" data-filename="${escapeHtml(item.filename)}">
           <div class="result-top">
-            <div>
-              <div class="result-name">${escapeHtml(item.name || "Unnamed")}</div>
-              <div class="small" style="margin-top:4px;">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
-            </div>
+            <div class="result-name">${escapeHtml(item.name || item.filename)}</div>
+            <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
           </div>
-          ${subtitle ? `<div class="result-meta">${escapeHtml(subtitle)}</div>` : ""}
-          <div class="small" style="margin-top:8px;">${escapeHtml(item.saved_at || "")}</div>
+          <div class="result-meta">${escapeHtml(lines.join("\n"))}</div>
+          <div class="small" style="margin-top:8px;">${escapeHtml(item.filename)}</div>
         </div>
       `;
     }).join("");

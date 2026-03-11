@@ -715,7 +715,10 @@ def generate_cypher(payload: dict[str, Any], config: dict[str, Any], rng: random
         "level": level,
         "sections": sections_dict,
         "text": "\n".join(text_sections).strip() + "\n",
-        "metadata": {"environment": environment_key},
+        "metadata": {
+            "environment": environment_key,
+            "level": level
+        },
     }
 
 

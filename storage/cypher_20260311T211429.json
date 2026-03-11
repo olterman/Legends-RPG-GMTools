@@ -1,0 +1,27 @@
+{
+  "saved_at": "2026-03-11T21:14:29.855902+00:00",
+  "filename": "cypher_20260311T211429.json",
+  "payload": {
+    "environment": "ered_engrin"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "The Furnace Gear",
+    "level": 7,
+    "sections": {
+      "name": "The Furnace Gear",
+      "level": "7",
+      "manifestation": "mechanical lock token",
+      "appearance": "dense and heavy for its size",
+      "effect": "stabilizes a collapsing structure briefly",
+      "limitation": "functions only underground",
+      "quirk": "hums near large metal structures",
+      "style": "painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration"
+    },
+    "text": "Cypher.\n\nName:\nThe Furnace Gear.\n\nLevel:\n7\n\nManifestation:\nmechanical lock token.\n\nAppearance:\ndense and heavy for its size.\n\nEffect:\nstabilizes a collapsing structure briefly.\n\nLimitation / Depletion:\nfunctions only underground.\n\nQuirk:\nhums near large metal structures.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
+    "metadata": {
+      "environment": "ered_engrin",
+      "level": 7
+    }
+  }
+}

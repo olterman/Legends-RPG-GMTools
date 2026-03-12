@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/The Sands.md",
   "excerpt": "_The Nameless Expanse_",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -23,5 +24,13 @@
   "prompt_counts": {
     "lore": 1,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "The Sands",
+  "location_type": "city"
 }

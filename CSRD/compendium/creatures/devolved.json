@@ -17,5 +17,10 @@
   "interaction": "Devolved speak when they must, punctuating their statements with growls and barks. Their understanding seems limited to what they can immediately perceive, and they have a difficult time with abstract concepts.",
   "use": "An expedition to a ruined conglomerate research facility uncovers a cyst of devolved that live within its sheltering bunkers.",
   "loot": "For every three or so devolved, one is likely to carry a cypher.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

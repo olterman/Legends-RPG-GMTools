@@ -17,5 +17,11 @@
   "interaction": "While gargoyles can be conscripted and tricked into guarding, they’re much more likely to throw themselves into the job if someone takes the time to earn their loyalty. They are not always the smartest, but they are very “grumpy sunshine” and often quite funny.",
   "use": "Gargoyles work best when used to defend something. PCs can end up at odds with a gargoyle who thinks (incorrectly or correctly) that their beloved building is in danger, or have to find a gargoyle that for some reason has gone missing from their customary perch. Gargoyle Names: All gargoyles have a name, even those that may not have left their dormancy for the first time. However, few will tell someone their real name, as they have a healthy fear of that knowledge being used for ill. Instead, they offer up a nickname, usually something similar, at least until they learn to trust someone fully.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

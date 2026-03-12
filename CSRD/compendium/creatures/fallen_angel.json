@@ -17,5 +17,10 @@
   "interaction": "By day, fallen angels are not automatically hostile, and they can be negotiated and reasoned with. They can seem truly angelic, though they are often confused and forgetful of their origin. But when night descends, fallen angels lose control of their faculties as they swell with rage and power. Unless a character directs a fallen angel toward another creature on which it can vent its wrath, the character becomes the object of the fury.",
   "use": "A star slips down from the sky and lands in the country. The next day, travelers come upon a farm in the area and find everyone dead and burned. A trail of scorched earth leads up into the hills.",
   "loot": "Fallen angels collect cyphers and usually have a few.",
-  "gm_intrusion": "A fallen angel’s successful attack causes the character’s cypher to detonate (if a grenade) or otherwise activate in a less-than-ideal fashion."
+  "gm_intrusion": "A fallen angel’s successful attack causes the character’s cypher to detonate (if a grenade) or otherwise activate in a less-than-ideal fashion.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

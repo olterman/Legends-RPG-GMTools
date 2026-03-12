@@ -27,7 +27,13 @@
       "race": "alfirin",
       "variant": null,
       "profession": "assassin",
-      "environment": "almadir"
+      "environment": "almadir",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

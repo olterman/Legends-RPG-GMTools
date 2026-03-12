@@ -17,5 +17,9 @@
   "interaction": "Most golems can’t speak. Those that can are mournful, and a few have become cruel in their isolation, but at heart, all are lonely. Many are also tired of their stone existence, in which they can move but not really feel, and they wish for some sort of final end.",
   "use": "Powerful sorcerers sometimes create golems and press them into service with yet more spells. These golems prove to be tough bodyguards, but sometimes the futility of such service overcomes a golem and it turns on the sorcerer, breaking free of the binding spells in its rage over being denied the peace of death.",
   "loot": null,
-  "gm_intrusion": "The character hit by the golem is also grabbed and headbutted for 6 additional points of damage. The victim must break or slip free, or else they remain in the golem’s grip."
+  "gm_intrusion": "The character hit by the golem is also grabbed and headbutted for 6 additional points of damage. The victim must break or slip free, or else they remain in the golem’s grip.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

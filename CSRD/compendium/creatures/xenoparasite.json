@@ -17,5 +17,10 @@
   "interaction": "These creatures are built to consume, not negotiate.",
   "use": "Xenoparasites are tough aliens. A colony of them would be a challenge even for PCs normally accustomed to stiff opposition. A single xenoparasite introduced into an inhabited area could turn the entire place into an infested hive within a week. GM (group) intrusion: An NPC shrieks, bursts, and births 1d6 juvenile xenoparasites.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

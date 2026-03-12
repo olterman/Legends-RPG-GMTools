@@ -1,8 +1,14 @@
 from flask import Flask
+import os
 from pathlib import Path
 
 from .api import register_routes
-from .config_loader import load_config_dir
+from .config_loader import (
+    load_config_dir,
+    list_world_ids,
+    infer_default_world_id,
+    list_world_descriptors,
+)
 
 
 def create_app():
@@ -35,8 +41,17 @@ def create_app():
     app.config["LOL_PROMPTS_FILE"] = prompts_file
     app.config["LOL_DOCS_DIR"] = docs_dir
 
-    # load YAML configuration
-    app.config["LOL_CONFIG"] = load_config_dir(config_dir)
+    available_worlds = list_world_ids(config_dir)
+    available_world_descriptors = list_world_descriptors(config_dir)
+    requested_world = os.getenv("LOL_WORLD_ID", "").strip() or None
+    default_world = infer_default_world_id(config_dir)
+    active_world = requested_world or default_world
+
+    # load layered YAML configuration (legacy flat + optional core + optional world)
+    app.config["LOL_CONFIG"] = load_config_dir(config_dir, world_id=active_world)
+    app.config["LOL_WORLD_ID"] = active_world
+    app.config["LOL_AVAILABLE_WORLDS"] = available_worlds
+    app.config["LOL_AVAILABLE_WORLD_DESCRIPTORS"] = available_world_descriptors
 
     register_routes(app)
 

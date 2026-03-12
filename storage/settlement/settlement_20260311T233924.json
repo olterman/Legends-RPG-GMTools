@@ -23,7 +23,13 @@
     },
     "text": "Dark fantasy settlement prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nSettlement Name:\nDeep cove.\n\nSettlement Type:\nisolated rural enclave.\n\nEnvironment:\nLarge mountainous island with coastal fishing towns, inland valleys, and isolated communities like the Vale. A largely pre-modern region detached from global politics.\n\nVisual Feature:\nquiet coves and weathered docks.\n\nLandmark:\na lakeside shrine used for seasonal rites.\n\nEconomy / Survival Basis:\nmining in the uplands and barter between villages.\n\nCurrent Tension:\noutside politics are beginning to reach isolated communities.\n\nAtmosphere:\nquiet readiness for change.\n\nLocal Inn or Tavern:\nThe Broken Hearth Tavern.\n\nSTYLE:\npainted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.\n",
     "metadata": {
-      "environment": "caldor_island"
+      "environment": "caldor_island",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

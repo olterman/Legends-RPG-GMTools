@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Falcon Cloak",
+  "slug": "falcon_cloak",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Cloak made of feathers",
+  "effect": "For ten hours, the wearer becomes a falcon whose level is equal to the artifact level. The falcon can fly a long distance each round, or up to 60 miles (97 km) per hour when traveling overland.",
+  "depletion": "1 in 1d100 Most magic items that turn a character into a different creature make it difficult to use any of the character’s special abilities (other than skills) in that form.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

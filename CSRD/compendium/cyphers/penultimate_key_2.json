@@ -1,0 +1,16 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Penultimate Key",
+  "slug": "penultimate_key_2",
+  "category": "Fantasy Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Locks or unlocks any one door, portal, chest, or other lockable item of the cypher’s level or lower. The targeted item must have a keyhole for the cypher to work. Legends speak of the Ultimate Key, which can open any lock, even those sealed by a god.",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
+}

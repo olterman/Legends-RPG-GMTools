@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": null,
   "effect": "Provides an additional asset for any one task using a tool, even if that means exceeding the normal limit of two assets.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

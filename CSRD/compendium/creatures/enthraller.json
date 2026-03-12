@@ -17,5 +17,10 @@
   "interaction": "An enthraller can communicate telepathically with characters within short range. It tries to mentally dominate whoever it runs across and will negotiate only with characters who are strong enough to harm it. Even if an enthraller makes a deal, it eventually reneges if it senses any advantage for doing so because it implicitly believes that other creatures are cattle.",
   "use": "A spacecraft (or perhaps an escape pod) crash lands. Inside, a hurt enthraller lies in suspended animation. Investigators are unlikely to realize the enthraller’s nature beforehand, but they certainly learn if they wake the alien.",
   "loot": "Enthrallers wear light armor suited for their forms. They might have one or two cyphers and, rarely, an artifact that boosts their already-fearsome mental capabilities.",
-  "gm_intrusion": "The enthraller’s intrusion into the character’s mind stirs up forgotten memories. The character must deal with the contents of these memories and perhaps why they were repressed."
+  "gm_intrusion": "The enthraller’s intrusion into the character’s mind stirs up forgotten memories. The character must deal with the contents of these memories and perhaps why they were repressed.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

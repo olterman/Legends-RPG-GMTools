@@ -17,5 +17,10 @@
   "interaction": "Paladins have big personalities and strongly believe in their purpose and goals. They have no tolerance for evil acts and are unwilling to look the other way when their allies want to bend the rules or take advantage of a “grey area.” However, they are not fools and won’t throw away their lives for nothing.",
   "use": "A paladin lays claim to a foe the characters are seeking or have captured. An old paladin is looking for one last villain to smite.",
   "loot": "In addition to their weapons and armor, paladins might have one or two cyphers. More experienced ones might be lucky enough to have an artifact (usually a weapon or armor).",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

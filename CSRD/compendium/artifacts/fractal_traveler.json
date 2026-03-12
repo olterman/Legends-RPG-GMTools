@@ -1,0 +1,15 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fractal Traveler",
+  "slug": "fractal_traveler",
+  "category": null,
+  "level": "9",
+  "form": "Arch of metal big enough to walk through",
+  "effect": "Anyone who steps through it goes to a predetermined point in the past or future (a minimum of fifty years in either direction), which can be anywhere on the planet.",
+  "depletion": "1 in 1d20",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
+}

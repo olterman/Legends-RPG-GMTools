@@ -17,5 +17,9 @@
   "interaction": "Beast comes across as a kind truth teller, someone “just asking questions,” but it doesn’t take long for perceptive people to realize he’s a consummate, continual gaslighter, always working to manipulate others.",
   "use": "A sniper on the ridge tries to pick the PCs off as they pass across a bridge. Behind the sniper stands a man in white.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

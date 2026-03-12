@@ -17,5 +17,10 @@
   "interaction": "Shining ones can manipulate their environment to communicate with other species, using sound, light, puffs of odiferous complex chemicals in place of words, and so on. If approached with respect, they freely exchange information with others, seeking to grow their knowledge and that of those they meet.",
   "use": "A shining one is sharing knowledge to a warlike xenophobic species that could allow them to rapidly advance their ability to consolidate power. Something must be done before it’s too late.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

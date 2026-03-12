@@ -17,5 +17,10 @@
   "interaction": "In spite of their ferocious aspect and war-machine heritage, wharn interceptors do not destroy every spacecraft (and void-adapted creature) they come across, or even most. Indeed, sometimes a wharn may attempt to initiate communication via various machine channels. But what comes across are usually nonsense sounds and tones, and sometimes mathematical formulas.",
   "use": "The PCs, attempting to enter an abandoned space station or spacecraft, are distracted when a wharn attempts to destroy the very same object.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

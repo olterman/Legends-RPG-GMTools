@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ring Of Invisibility",
+  "slug": "ring_of_invisibility_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Gold band inscribed with characters that are revealed only if ring is heated",
+  "effect": "The wearer of the ring becomes invisible for one minute. While invisible, the wearer is specialized in stealth and Speed defense tasks. The effect ends if they attack or spend points from a Pool for any reason.",
+  "depletion": "1 in 1d20",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

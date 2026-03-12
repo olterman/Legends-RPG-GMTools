@@ -17,5 +17,10 @@
   "interaction": "Interaction is difficult for those not authorized to communicate with a wardroid.",
   "use": "Wardroids are often deployed in groups of two or three to guard a vault or the entrance to a spacecraft, or to track down intruders aboard a space station.",
   "loot": "The remains of a wardroid can yield one or two cyphers to someone adept at salvage.",
-  "gm_intrusion": "When defeated, the wardroid detonates, inflicting 8 points of damage on all creatures within immediate range."
+  "gm_intrusion": "When defeated, the wardroid detonates, inflicting 8 points of damage on all creatures within immediate range.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

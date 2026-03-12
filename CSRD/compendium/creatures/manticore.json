@@ -17,5 +17,10 @@
   "interaction": "Manticores can make trumpet-like noises that resemble speech, but this seems to be a trick to lure prey. Most of them are not intelligent enough to know how to speak human languages.",
   "use": "Weird musical noises resembling speech are heard from the nearby hills. People have been disappearing in fields and on the road, with only bloodstains on the ground suggesting that they were harmed.",
   "loot": "A manticore’s stomach might contain a piece of treasure or a cypher from a recent meal, and its lair may have one or two small objects it was unable to digest.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tunneling Gauntlets",
+  "slug": "tunneling_gauntlets_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "Oversized pair of metallic gauntlets with broad nails",
+  "effect": "When activated, for one hour the gauntlets let the wearer burrow up to an immediate distance each round. They can burrow through most soils and even some stone, but only through material whose level is lower than the artifact level. Burrowing leaves behind a tunnel with a diameter of 5 feet (1.5 m) that remains stable for several hours. After that, the tunnel is subject to collapse.",
+  "depletion": "1 in 1d20",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

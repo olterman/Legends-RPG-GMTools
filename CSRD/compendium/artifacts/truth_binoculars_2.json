@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Truth Binoculars",
+  "slug": "truth_binoculars_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Pair of binoculars with a large runic symbol on them",
+  "effect": "Not only do these make it easy to see things far away, but looking through them also allows the viewer to see through illusions and see things that are normally invisible, assuming the effect has a level lower than that of the binoculars.",
+  "depletion": "1–2 in 1d100 (check each use) To craft items that are both technological and magical, either you need to make the device first and then enchant it, or you need to enchant it as it is made. Either way, the skills for making the device and for making it magical are likely very different. TECHNOLOGY THAT INTERACTS WITH MAGIC In a world with scientists and engineers faced with the presence of real magic, some of them would develop ways to interact and cope with it. Technological devices that are not magical but deal with magic could include: Magic detector (expensive): This simple white badge glows purple in the presence of magic. Once it detects something magical, it does not function again. Mystical hazard suit (very expensive): This full-body protective suit is cumbersome and clumsy, not unlike a hazmat suit. However, all of the wearer’s tasks to resist magical effects are eased. If the wearer takes even 1 point of physical damage, the suit rips and no longer functions until it is repaired and resealed. Spellscrambler (very expensive): Essentially a sonic grenade, this device produces a variety of strange electromagnetic signals—some audible and very loud, some not—on a number of frequencies. The mental processes needed to cast a spell are impossible to achieve for one round within a short distance of the device. Like any grenade, it can be used only once. MAGIC THAT INTERACTS WITH TECHNOLOGY In a world where magic and technology coexist, wizards will have spells and effects that protect them from shotgun blasts as well as sword blades, and radiation as well as fire or frost. Consider, for example, these effects as cyphers:",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/Lomêanor.md",
   "excerpt": "_The Land of Shadow Beyond the Sands_",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -25,5 +26,13 @@
   "prompt_counts": {
     "lore": 1,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "Lomêanor",
+  "location_type": "city"
 }

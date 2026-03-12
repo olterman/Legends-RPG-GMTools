@@ -24,6 +24,8 @@
         <option value="settlement">settlement</option>
         <option value="encounter">encounter</option>
         <option value="cypher">cypher</option>
+        <option value="artifact">artifact</option>
+        <option value="attack">attack</option>
         <option value="inn">inn</option>
         <option value="creature">creature</option>
         <option value="character_type">character_type</option>
@@ -36,10 +38,21 @@
     </div>
 
     <div class="field">
-      <label for="filter-environment">Environment</label>
+      <label for="filter-setting">Setting</label>
+      <select id="filter-setting">
+        <option value="">All</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="filter-environment">Area</label>
       <select id="filter-environment">
         <option value="">All</option>
       </select>
+    </div>
+    <div class="field">
+      <label for="filter-location">Location</label>
+      <input id="filter-location" placeholder="e.g. Freeport, Cird, gate ruins" />
     </div>
 
     <div class="field">
@@ -59,11 +72,20 @@
     <div class="actions">
       <button id="search-btn" type="button">Search</button>
       <button id="reset-btn" type="button" class="secondary">Reset</button>
+      <button id="trash-toggle-btn" type="button" class="secondary">Trash Bin</button>
     </div>
 
     <div class="status" id="status">Loading filters...</div>
 
     <div class="results" id="results"></div>
+    <div class="output-card hidden" id="trash-panel">
+      <div class="actions" style="margin-bottom:8px;">
+        <strong>Trash Bin</strong>
+        <button id="trash-refresh-btn" type="button" class="secondary result-action">Refresh</button>
+      </div>
+      <div class="small" id="trash-status">Trash is hidden.</div>
+      <div class="results" id="trash-results"></div>
+    </div>
   </div>
 
   <div class="panel">
@@ -82,31 +104,6 @@
 </div>
 {% endblock %}
 
-{% block head_extra %}
-<style>
-  .source-badge {
-    display: inline-block;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 4px 8px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-top: 4px;
-    background: rgba(255,255,255,0.04);
-  }
-
-  .source-storage {
-    color: var(--accent-2);
-  }
-
-  .source-compendium {
-    color: var(--accent);
-  }
-</style>
-{% endblock %}
-
 {% block scripts %}
 <script>
   const state = {
@@ -117,11 +114,18 @@
   const els = {
     q: document.getElementById('filter-q'),
     type: document.getElementById('filter-type'),
+    setting: document.getElementById('filter-setting'),
     environment: document.getElementById('filter-environment'),
+    location: document.getElementById('filter-location'),
     race: document.getElementById('filter-race'),
     profession: document.getElementById('filter-profession'),
     searchBtn: document.getElementById('search-btn'),
     resetBtn: document.getElementById('reset-btn'),
+    trashToggleBtn: document.getElementById('trash-toggle-btn'),
+    trashPanel: document.getElementById('trash-panel'),
+    trashRefreshBtn: document.getElementById('trash-refresh-btn'),
+    trashStatus: document.getElementById('trash-status'),
+    trashResults: document.getElementById('trash-results'),
     results: document.getElementById('results'),
     viewer: document.getElementById('viewer'),
     status: document.getElementById('status')
@@ -161,6 +165,8 @@
       npc: "NPC",
       monster: "Monster",
       cypher: "Cypher",
+      artifact: "Artifact",
+      attack: "Attack",
       inn: "Inn",
       encounter: "Encounter",
       settlement: "Settlement",
@@ -179,19 +185,357 @@
 
   function sourceLabel(value) {
     const labels = {
-      storage: "Saved",
-      compendium: "Compendium"
+      storage: "House",
+      compendium: "CSRD"
     };
     return labels[value] || titleCase(value || "source");
   }
 
-  async function fetchJson(url) {
-    const res = await fetch(url);
+  function sourceBadgeClass(value) {
+    return value === "compendium" ? "source-csrd" : "source-house";
+  }
+
+  function compactText(value, limit = 280) {
+    const text = String(value ?? "").replace(/\s+/g, " ").trim();
+    if (!text) return "";
+    return text.length > limit ? `${text.slice(0, limit - 1).trim()}…` : text;
+  }
+
+  function pickDescription(item) {
+    const raw = item.raw || {};
+    const sections = raw.sections || {};
+    const metadata = raw.metadata || {};
+    const sheet = raw.sheet || {};
+    return compactText(
+      item.description ||
+      raw.description ||
+      metadata.description ||
+      sections.description ||
+      sections.summary ||
+      sections.effect ||
+      sections.use ||
+      raw.excerpt ||
+      sheet.notes ||
+      item.subtitle ||
+      ""
+    );
+  }
+
+  function scrollToPageTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function fetchJson(url, init = undefined) {
+    const res = await fetch(url, init);
     const data = await res.json();
     if (!res.ok) {
       throw new Error(data.error || `Request failed: ${res.status}`);
     }
     return data;
+  }
+
+  function normalizeImageRefs(raw) {
+    if (!Array.isArray(raw)) return [];
+    const out = [];
+    raw.forEach(value => {
+      let text = String(value || "").trim().replaceAll("\\", "/");
+      if (text.startsWith("/images/")) text = text.slice("/images/".length);
+      if (text.startsWith("images/")) text = text.slice("images/".length);
+      text = text.replace(/^\/+/, "");
+      if (text && !out.includes(text)) out.push(text);
+    });
+    return out;
+  }
+
+  function imageUrl(ref) {
+    const clean = normalizeImageRefs([ref])[0];
+    return clean ? `/images/${clean}` : "";
+  }
+
+  function renderImageCollage(images) {
+    const refs = normalizeImageRefs(images).slice(0, 4);
+    if (!refs.length) return "";
+    const klass = refs.length === 1 ? "card-image-collage one" : "card-image-collage";
+    return `<div class="${klass}">${refs.map(ref => `<img src="${escapeHtml(imageUrl(ref))}" data-image-popup="1" data-fullsrc="${escapeHtml(imageUrl(ref))}" alt="${escapeHtml(ref)}" loading="lazy" />`).join("")}</div>`;
+  }
+
+  async function resizeImageForWeb(file, { maxWidth = 1600, maxHeight = 1600, quality = 0.86 } = {}) {
+    if (!(file instanceof File) || !String(file.type || "").startsWith("image/")) {
+      return file;
+    }
+    const dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.onerror = () => reject(reader.error || new Error("failed to read file"));
+      reader.readAsDataURL(file);
+    });
+    const img = await new Promise((resolve, reject) => {
+      const element = new Image();
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("failed to decode image"));
+      element.src = dataUrl;
+    });
+    const scale = Math.min(maxWidth / img.width, maxHeight / img.height, 1);
+    const width = Math.max(1, Math.round(img.width * scale));
+    const height = Math.max(1, Math.round(img.height * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(img, 0, 0, width, height);
+    const outType = String(file.type || "").toLowerCase().includes("png") ? "image/png" : "image/jpeg";
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, outType, quality));
+    if (!blob) return file;
+    const baseName = (file.name || "upload").replace(/\.[^.]+$/, "");
+    const ext = outType === "image/png" ? ".png" : ".jpg";
+    return new File([blob], `${baseName}${ext}`, { type: outType });
+  }
+
+  async function uploadAndAttachFromPicker({ target, id, defaultMeta = null }) {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    const picked = await new Promise(resolve => {
+      input.addEventListener("change", () => resolve(input.files?.[0] || null), { once: true });
+      input.click();
+    });
+    if (!picked) return false;
+
+    const resized = await resizeImageForWeb(picked);
+    const form = new FormData();
+    form.append("file", resized);
+    if (defaultMeta && defaultMeta.friendlyName) {
+      form.append("friendly_name", defaultMeta.friendlyName);
+    }
+    if (defaultMeta && Array.isArray(defaultMeta.tags) && defaultMeta.tags.length) {
+      form.append("tags", defaultMeta.tags.join(","));
+    }
+    const uploaded = await fetchJson("/media/images/upload", { method: "POST", body: form });
+    await fetchJson("/media/images/attach", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ target, id, image: uploaded.path }),
+    });
+    els.status.textContent = `Uploaded and attached ${uploaded.name || uploaded.path}.`;
+    return true;
+  }
+
+  async function quickUploadStorageResultImage(filename) {
+    const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
+    const result = (record && typeof record.result === "object" && record.result) ? record.result : {};
+    const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const defaultMeta = deriveDefaultImageMeta({
+      name: result.name || filename,
+      metadata,
+    });
+    const attached = await uploadAndAttachFromPicker({
+      target: "storage",
+      id: filename,
+      defaultMeta,
+    });
+    if (attached) {
+      await search();
+    }
+  }
+
+  function deriveDefaultImageMeta(context) {
+    const meta = (context && typeof context.metadata === "object" && context.metadata) ? context.metadata : {};
+    const name = String((context && context.name) || "").trim();
+    const tags = [];
+    const push = (value) => {
+      const token = String(value || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+      if (token && !tags.includes(token)) tags.push(token);
+    };
+    push(meta.area || meta.environment || "");
+    (Array.isArray(meta.settings) ? meta.settings : [meta.setting]).forEach(push);
+    if (window.lolSettingContext && typeof window.lolSettingContext.getWorldSetting === "function") {
+      const world = window.lolSettingContext.getWorldSetting() || "";
+      push(world);
+    }
+    return { friendlyName: name, tags };
+  }
+
+  async function wireImageManager({ mountId, target, id, initialImages = [], defaultMeta = null, onImagesChanged = null }) {
+    const mount = document.getElementById(mountId);
+    if (!mount) return;
+    let images = normalizeImageRefs(initialImages);
+    let available = [];
+
+    const post = (url, body) => fetchJson(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+
+    async function refreshAvailable() {
+      const data = await fetchJson('/media/images');
+      available = Array.isArray(data.items) ? data.items : [];
+    }
+
+    function imageMeta(ref) {
+      const found = available.find(item => String(item.path || "") === String(ref || ""));
+      return {
+        friendly_name: String(found?.friendly_name || ""),
+        tags: Array.isArray(found?.tags) ? found.tags.join(", ") : "",
+        notes: String(found?.notes || ""),
+      };
+    }
+
+    function render() {
+      mount.innerHTML = `
+        <div class="image-manager">
+          <div class="small">Images (${images.length})</div>
+          <div class="row" style="margin-top:8px;">
+            <div class="field">
+              <label for="${mountId}-upload">Upload Image</label>
+              <input id="${mountId}-upload" type="file" accept="image/*" />
+            </div>
+            <div class="field">
+              <label>&nbsp;</label>
+              <button id="${mountId}-upload-btn" type="button" class="result-action">Upload + Attach</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="${mountId}-existing">Attach Existing</label>
+              <select id="${mountId}-existing">
+                <option value="">Select image...</option>
+                ${available.map(item => `<option value="${escapeHtml(item.path || "")}">${escapeHtml(item.friendly_name || item.path || "")}</option>`).join("")}
+              </select>
+            </div>
+            <div class="field">
+              <label>&nbsp;</label>
+              <button id="${mountId}-attach-btn" type="button" class="secondary result-action">Attach Existing</button>
+            </div>
+          </div>
+          <div class="image-manager-grid">
+            ${images.map(ref => `
+              ${(() => {
+                const meta = imageMeta(ref);
+                return `
+              <div class="image-manager-item">
+                <img src="${escapeHtml(imageUrl(ref))}" data-image-popup="1" data-fullsrc="${escapeHtml(imageUrl(ref))}" alt="${escapeHtml(ref)}" loading="lazy" />
+                <span class="small">${escapeHtml(ref)}</span>
+                <div class="field">
+                  <label>Friendly</label>
+                  <input data-img-meta="friendly_name" data-img-ref="${escapeHtml(ref)}" value="${escapeHtml(meta.friendly_name)}" />
+                </div>
+                <div class="field">
+                  <label>Tags</label>
+                  <input data-img-meta="tags" data-img-ref="${escapeHtml(ref)}" value="${escapeHtml(meta.tags)}" />
+                </div>
+                <div class="field">
+                  <label>Notes</label>
+                  <textarea rows="2" data-img-meta="notes" data-img-ref="${escapeHtml(ref)}">${escapeHtml(meta.notes)}</textarea>
+                </div>
+                <div class="actions">
+                  <button type="button" class="result-action" data-img-action="save-meta" data-img-ref="${escapeHtml(ref)}">Save Meta</button>
+                  <button type="button" class="secondary result-action" data-img-action="remove" data-img-ref="${escapeHtml(ref)}">Remove</button>
+                  <button type="button" class="result-action danger" data-img-action="delete" data-img-ref="${escapeHtml(ref)}">Delete</button>
+                </div>
+              </div>
+                `;
+              })()}
+            `).join("")}
+          </div>
+        </div>
+      `;
+
+      const uploadBtn = document.getElementById(`${mountId}-upload-btn`);
+      const uploadInput = document.getElementById(`${mountId}-upload`);
+      const attachBtn = document.getElementById(`${mountId}-attach-btn`);
+      const existingSel = document.getElementById(`${mountId}-existing`);
+
+      uploadBtn?.addEventListener('click', async () => {
+        const file = uploadInput?.files?.[0];
+        if (!file) {
+          els.status.textContent = "Choose an image file first.";
+          return;
+        }
+        try {
+          const resized = await resizeImageForWeb(file);
+          const form = new FormData();
+          form.append("file", resized);
+          if (defaultMeta && defaultMeta.friendlyName) {
+            form.append("friendly_name", defaultMeta.friendlyName);
+          }
+          if (defaultMeta && Array.isArray(defaultMeta.tags) && defaultMeta.tags.length) {
+            form.append("tags", defaultMeta.tags.join(","));
+          }
+          const uploaded = await fetchJson('/media/images/upload', { method: 'POST', body: form });
+          const res = await post('/media/images/attach', { target, id, image: uploaded.path });
+          images = normalizeImageRefs(res.images || []);
+          if (onImagesChanged) onImagesChanged(images);
+          await refreshAvailable();
+          render();
+          els.status.textContent = `Uploaded and attached ${uploaded.name || uploaded.path}.`;
+        } catch (err) {
+          els.status.textContent = `Image upload failed: ${err.message}`;
+        }
+      });
+
+      attachBtn?.addEventListener('click', async () => {
+        const selected = String(existingSel?.value || "").trim();
+        if (!selected) return;
+        try {
+          const res = await post('/media/images/attach', { target, id, image: selected });
+          images = normalizeImageRefs(res.images || []);
+          if (onImagesChanged) onImagesChanged(images);
+          render();
+          els.status.textContent = `Attached ${selected}.`;
+        } catch (err) {
+          els.status.textContent = `Attach failed: ${err.message}`;
+        }
+      });
+
+      mount.querySelectorAll('button[data-img-action]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const action = btn.getAttribute('data-img-action');
+          const ref = btn.getAttribute('data-img-ref');
+          if (!ref) return;
+          try {
+            if (action === "save-meta") {
+              let friendlyName = "";
+              let tagsRaw = "";
+              let notes = "";
+              mount.querySelectorAll('[data-img-meta]').forEach(el => {
+                if (el.getAttribute('data-img-ref') !== ref) return;
+                const key = el.getAttribute('data-img-meta');
+                if (key === 'friendly_name') friendlyName = String(el.value || "");
+                if (key === 'tags') tagsRaw = String(el.value || "");
+                if (key === 'notes') notes = String(el.value || "");
+              });
+              await post('/media/images/meta', {
+                image: ref,
+                friendly_name: friendlyName,
+                tags: tagsRaw.split(",").map(x => x.trim()).filter(Boolean),
+                notes,
+              });
+              await refreshAvailable();
+              els.status.textContent = `Saved metadata for ${ref}.`;
+            } else if (action === "remove") {
+              const res = await post('/media/images/unattach', { target, id, image: ref });
+              images = normalizeImageRefs(res.images || []);
+              els.status.textContent = `Unattached ${ref}.`;
+            } else {
+              if (!window.confirm(`Delete image file ${ref}?`)) return;
+              const res = await post('/media/images/delete', { target, id, image: ref });
+              images = normalizeImageRefs(res.images || []);
+              await refreshAvailable();
+              els.status.textContent = `Deleted ${ref}.`;
+            }
+            if (onImagesChanged) onImagesChanged(images);
+            render();
+          } catch (err) {
+            els.status.textContent = `Image action failed: ${err.message}`;
+          }
+        });
+      });
+    }
+
+    await refreshAvailable();
+    render();
   }
 
   function renderOutputRow(label, value) {
@@ -279,7 +623,10 @@
   function renderCypherCard(data) {
     const sections = data.sections || {};
     const level = sections.level || data.level || (data.metadata && data.metadata.level) || "";
-    const name = data.name || sections.name || data.title || "Unnamed Cypher";
+    const isArtifact = data.type === "artifact";
+    const name = data.name || sections.name || data.title || (isArtifact ? "Unnamed Artifact" : "Unnamed Cypher");
+    const limitLabel = isArtifact ? "Depletion" : "Limitation";
+    const limitValue = sections.depletion || sections.limitation || data.depletion;
 
     const field = (label, value) => {
       if (!value) return "";
@@ -307,7 +654,7 @@
           ${field("Form", data.form)}
           ${field("Appearance", sections.appearance)}
           ${field("Effect", sections.effect || data.effect)}
-          ${field("Limitation / Depletion", sections.limitation || data.depletion)}
+          ${field(limitLabel, limitValue)}
           ${field("Quirk", sections.quirk)}
         </div>
       </div>
@@ -383,7 +730,7 @@
         ${statGrid}
         ${renderOutputRow("Description", item.description)}
         ${renderOutputRow("Motive", item.motive)}
-        ${renderOutputRow("Environment", item.environment)}
+        ${renderOutputRow("Area", item.area || item.environment)}
         ${renderOutputRow("Modifications", item.modifications)}
         ${renderOutputRow("Combat", item.combat)}
         ${renderOutputRow("Interaction", item.interaction)}
@@ -532,6 +879,7 @@
 
   function renderCharacterSheetViewCard(record) {
     const sheet = normalizeSheet(record.result?.sheet || {});
+    const images = normalizeImageRefs(record.result?.metadata?.images || []);
     const links = [
       sheet.type ? `<a href="${searchHref('character_type', sheet.type)}" target="_blank" rel="noopener">${escapeHtml(sheet.type)}</a>` : '',
       sheet.flavor ? `<a href="${searchHref('flavor', sheet.flavor)}" target="_blank" rel="noopener">${escapeHtml(sheet.flavor)}</a>` : '',
@@ -559,7 +907,8 @@
       'None used';
 
     return `
-      <div class="cypher-card">
+      <div class="cypher-card ${images.length ? "has-corner-images" : ""}">
+        ${renderImageCollage(images)}
         <div class="output-row">
           <div class="output-label">Saved Character Sheet</div>
           <div class="output-value">${escapeHtml(record.filename || '')}</div>
@@ -598,6 +947,14 @@
   function renderStorageRecord(record) {
     const result = record.result || {};
     const metadata = result.metadata || {};
+    const settingsText = Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "";
+    const areaText = metadata.area || metadata.environment || "";
+    const csrdBacklink = metadata.compendium_backlink || (
+      metadata.compendium_type && metadata.compendium_slug
+        ? `/compendium/${encodeURIComponent(metadata.compendium_type)}/${encodeURIComponent(metadata.compendium_slug)}`
+        : ""
+    );
+    const images = normalizeImageRefs(metadata.images);
     if (result.type === "character_sheet" && result.sheet) {
       els.viewer.innerHTML = renderCharacterSheetViewCard(record);
       return;
@@ -686,7 +1043,7 @@
       </div>
     `;
 
-    if (item.type === "cypher") {
+    if (item.type === "cypher" || item.type === "artifact") {
       html += renderCypherCard(item);
     } else if (item.type === "creature") {
       html += renderCompendiumCreatureCard(item);
@@ -725,23 +1082,62 @@
     }
 
     els.results.innerHTML = items.map(item => {
-      const badgeClass = item.source === "compendium" ? "source-compendium" : "source-storage";
+      const badgeClass = sourceBadgeClass(item.source);
+      const isStorage = item.source === "storage";
+      const filename = isStorage ? (item.slug || "") : "";
+      const raw = item.raw || {};
+      const images = normalizeImageRefs(
+        isStorage
+          ? ((raw.metadata && raw.metadata.images) || [])
+          : (raw.images || [])
+      );
+      const description = pickDescription(item);
+      const cardClassBase = images.length ? "result-card card-with-images" : "result-card";
+      const cardClass = isStorage ? `${cardClassBase} with-corner-actions` : cardClassBase;
 
       return `
-        <div class="result-card"
+        <div class="${cardClass}"
              data-source="${escapeHtml(item.source)}"
              data-url="${escapeHtml(item.url)}"
              data-type="${escapeHtml(item.type || '')}"
-             data-slug="${escapeHtml(item.slug || '')}">
+             data-slug="${escapeHtml(item.slug || '')}"
+             data-filename="${escapeHtml(filename)}">
           <div class="result-top">
             <div>
-              <div class="result-name">${escapeHtml(item.title || item.slug || "Unnamed")}</div>
+              <div class="result-heading">${escapeHtml(item.title || item.slug || "Unnamed")} - ${escapeHtml(typeLabel(item.type || "unknown"))}</div>
               <div class="source-badge ${badgeClass}">${escapeHtml(sourceLabel(item.source))}</div>
             </div>
-            <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+          </div>
+          <div class="result-description ${images.length ? "with-image" : ""}">
+            ${images.length ? renderImageCollage(images) : ""}
+            ${escapeHtml(description || "No description yet.")}
           </div>
           ${item.subtitle ? `<div class="result-meta">${escapeHtml(item.subtitle)}</div>` : ""}
           <div class="small" style="margin-top:8px;">${escapeHtml(item.url || "")}</div>
+          ${isStorage ? `<div class="result-corner-actions">
+            <button type="button" class="icon-btn"
+                    data-action="upload-image"
+                    data-filename="${escapeHtml(filename)}"
+                    title="Upload and attach image"
+                    aria-label="Upload and attach image">
+              &#128247;
+            </button>
+            <button type="button" class="icon-btn"
+                    data-action="edit"
+                    data-filename="${escapeHtml(filename)}"
+                    title="Edit"
+                    aria-label="Edit"
+                    >
+              &#9998;
+            </button>
+            <button type="button" class="icon-btn danger"
+                    data-action="delete"
+                    data-filename="${escapeHtml(filename)}"
+                    title="Move to trash"
+                    aria-label="Move to trash">
+              &#128465;
+            </button>
+          </div>` : ""}
         </div>
       `;
     }).join("");
@@ -768,7 +1164,9 @@
 
     if (els.q.value.trim()) params.set('q', els.q.value.trim());
     if (els.type.value) params.set('type', els.type.value);
-    if (els.environment.value) params.set('environment', els.environment.value);
+    if (els.setting.value) params.set('setting', els.setting.value);
+    if (els.environment.value) params.set('area', els.environment.value);
+    if (els.location.value.trim()) params.set('location', els.location.value.trim());
     if (els.race.value) params.set('race', els.race.value);
     if (els.profession.value) params.set('profession', els.profession.value);
 
@@ -780,7 +1178,8 @@
     const meta = await fetchJson('/meta');
     state.meta = meta;
 
-    fillSelect(els.environment, meta.environments || [], true);
+    fillSelect(els.setting, meta.settings || [], true);
+    fillSelect(els.environment, meta.areas || meta.environments || [], true);
     fillSelect(els.race, meta.races || [], true);
     fillSelect(els.profession, meta.professions || [], true);
     els.status.textContent = 'Ready.';
@@ -811,12 +1210,15 @@
     }
 
     els.status.textContent = `Loaded ${url}.`;
+    scrollToPageTop();
   }
 
   function resetFilters() {
     els.q.value = '';
     els.type.value = '';
+    els.setting.value = '';
     els.environment.value = '';
+    els.location.value = '';
     els.race.value = '';
     els.profession.value = '';
     search();
@@ -826,19 +1228,36 @@
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q') || '';
     const type = params.get('type') || '';
-    const environment = params.get('environment') || '';
+    const setting = params.get('setting') || '';
+    const environment = params.get('area') || params.get('environment') || '';
+    const location = params.get('location') || '';
     const race = params.get('race') || '';
     const profession = params.get('profession') || '';
 
     if (q) els.q.value = q;
     if (type) els.type.value = type;
+    if (setting) els.setting.value = setting;
     if (environment) els.environment.value = environment;
+    if (location) els.location.value = location;
     if (race) els.race.value = race;
     if (profession) els.profession.value = profession;
   }
 
   els.searchBtn.addEventListener('click', search);
   els.resetBtn.addEventListener('click', resetFilters);
+  els.trashToggleBtn.addEventListener('click', () => {
+    const hidden = els.trashPanel.classList.toggle('hidden');
+    if (!hidden) {
+      loadTrash().catch(err => {
+        els.trashStatus.textContent = `Error: ${err.message}`;
+      });
+    }
+  });
+  els.trashRefreshBtn.addEventListener('click', () => {
+    loadTrash().catch(err => {
+      els.trashStatus.textContent = `Error: ${err.message}`;
+    });
+  });
   els.q.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();

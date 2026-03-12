@@ -1,0 +1,17 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Frozen Timepiece",
+  "slug": "frozen_timepiece_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Creates or transforms into a pocketwatch that seems to be made of ice. Upon activation of the cypher, the user can take normal actions, but everything and everyone around them is frozen in time. The user cannot affect anything else, but they can move through the world and take actions that affect themselves or their own belongings (bandage a wound, repair a broken item, and so on). The effect lasts for one round per cypher level. And here’s an example artifact:",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

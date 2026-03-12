@@ -17,5 +17,11 @@
   "interaction": "Transitional vampires are utterly devoted to their master.",
   "use": "Transitional vampires lie in the intersection of foe and victim. A loved one or trusted companion who has been turned into a transitional vampire will try to betray, defeat, and kill the PCs, but the characters are motivated to save them rather than destroy them.",
   "loot": null,
-  "gm_intrusion": "The character struck by the vampire is caught fast in its powerful grip. If the character doesn’t escape immediately, the vampire bites them automatically. VAMPIRE, TRANSITIONAL 3 (9) When humans are “visited upon” (bitten) by a vampire, they might be killed, or they might be left alive to begin a slow transformation into a creature of the night. If victims are bitten three times, they become a vampire forever under the control of the one that bit them. From the time of the first bite until their complete transformation after the third bite, they are transitional vampires. Ways to return transitional vampires to normal include using special ancient rituals or destroying the vampire that bit them in the first place. Transitional vampires usually serve as guardians, consorts, or spies for their masters."
+  "gm_intrusion": "The character struck by the vampire is caught fast in its powerful grip. If the character doesn’t escape immediately, the vampire bites them automatically. VAMPIRE, TRANSITIONAL 3 (9) When humans are “visited upon” (bitten) by a vampire, they might be killed, or they might be left alive to begin a slow transformation into a creature of the night. If victims are bitten three times, they become a vampire forever under the control of the one that bit them. From the time of the first bite until their complete transformation after the third bite, they are transitional vampires. Ways to return transitional vampires to normal include using special ancient rituals or destroying the vampire that bit them in the first place. Transitional vampires usually serve as guardians, consorts, or spies for their masters.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

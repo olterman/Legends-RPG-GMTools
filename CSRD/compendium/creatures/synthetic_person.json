@@ -17,5 +17,10 @@
   "interaction": "Synthetic people that pretend to be (or think that they are) human interact like normal people. But an enraged one or one that’s been programmed to kill is unreasoning and fights to the end.",
   "use": "A group of refugees who need help turn out to include (or be entirely made up of) synthetic people. Whether or not any of them harbor programs that require that they kill humans is entirely up to the GM.",
   "loot": "One or two manifest cyphers could be salvaged from a synth’s inactive form.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

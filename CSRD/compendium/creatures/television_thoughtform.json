@@ -17,5 +17,9 @@
   "interaction": "A thoughtform that’s ignorant of their true nature acts exactly as their fictional self would. An aware thoughtform develops their own personality over time, which might be similar to their fictional persona or radically different as a rebellion against how they were “forced” to act.",
   "use": "Thoughtforms create quirky, interesting, and misleading encounters where PCs and NPCs mistake them for cosplayers, famous actors, people experiencing delusions (about a fictional city or a “hologram program”), or odd local residents (such as a hard-boiled detective or a high-school sports hero or bully). They sometimes know secret information about the media they’re from.",
   "loot": "Although a dead thoughtform and their equipment slowly fades away into nothingness, sometimes they leave behind an interesting cypher.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

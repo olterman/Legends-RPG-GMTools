@@ -17,7 +17,13 @@
       "flavor": null,
       "descriptor": null,
       "focus": null,
-      "tier": null
+      "tier": null,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

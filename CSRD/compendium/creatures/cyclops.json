@@ -17,5 +17,9 @@
   "interaction": "Cyclopes know the language of the lands they inhabit, but they are notoriously dim and easily fooled. A cyclops thinks about its belly first and foremost and doesn’t pay much attention to what it stuffs in its mouth.",
   "use": "A cyclops has been rampaging across the countryside, and warriors sent to deal with it have been vanquished. PCs who investigate learn that the cyclops has been robbed and is trying to find the stolen item.",
   "loot": "Most cyclopes carry sacks filled with things they find interesting or plan to eat. Aside from the rubbish, a typical sack contains 1d100 coins of the realm and a couple of cyphers.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dragontongue Weapon",
+  "slug": "dragontongue_weapon",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Weapon that roars with red flame when activated, trailing a stream of black smoke",
+  "effect": "This weapon functions as a normal weapon of its type. If the wielder uses it to attack a foe, upon a successful hit, the wielder decides whether to activate the flame. Upon activation, the weapon lashes the target with fire, inflicting additional points of damage equal to the artifact level. The effect lasts for one minute after each activation.",
+  "depletion": "1 in 1d100",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

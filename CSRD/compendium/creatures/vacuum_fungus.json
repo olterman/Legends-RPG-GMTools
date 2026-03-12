@@ -17,5 +17,10 @@
   "interaction": "No real interaction with vacuum fungus is possible.",
   "use": "Scientists are incredibly excited to discover that the strange ooze they’ve noticed staining the exterior of their research domes is actually a variety of fungal life. They will likely become less excited when they discover the large growths secretly growing in the cavity beneath the floor of their research dome in a little-used storage closet.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

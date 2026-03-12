@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Image Browser — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Image Browser</h1>
+<p>Search uploaded and existing image assets, then edit friendly name, tags, and notes.</p>
+
+<div class="panel">
+  <div class="row">
+    <div class="field">
+      <label for="image-q">Search</label>
+      <input id="image-q" placeholder="name, path, tag, notes" />
+    </div>
+    <div class="field">
+      <label for="image-tag">Tag</label>
+      <input id="image-tag" placeholder="e.g. fenmir_highlands" />
+    </div>
+  </div>
+  <div class="actions">
+    <button id="image-search-btn" type="button">Search</button>
+    <button id="image-reset-btn" type="button" class="secondary">Reset</button>
+  </div>
+  <div class="status" id="image-status">Loading images...</div>
+  <div class="results" id="image-results"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    q: document.getElementById('image-q'),
+    tag: document.getElementById('image-tag'),
+    searchBtn: document.getElementById('image-search-btn'),
+    resetBtn: document.getElementById('image-reset-btn'),
+    status: document.getElementById('image-status'),
+    results: document.getElementById('image-results'),
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  async function fetchJson(url, init = undefined) {
+    const res = await fetch(url, init);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
+  }
+
+  function buildUrl() {
+    const params = new URLSearchParams();
+    if (els.q.value.trim()) params.set("q", els.q.value.trim());
+    if (els.tag.value.trim()) params.set("tag", els.tag.value.trim());
+    const qs = params.toString();
+    return qs ? `/media/images?${qs}` : "/media/images";
+  }
+
+  function renderItems(items) {
+    if (!items.length) {
+      els.results.innerHTML = `<div class="output-card"><div class="output-value">No images found.</div></div>`;
+      return;
+    }
+    els.results.innerHTML = items.map(item => {
+      const tags = Array.isArray(item.tags) ? item.tags.join(", ") : "";
+      return `
+        <div class="output-card">
+          <div class="row">
+            <div style="max-width:220px;">
+              <img src="${escapeHtml(item.url || "")}" data-image-popup="1" data-fullsrc="${escapeHtml(item.url || "")}" alt="${escapeHtml(item.path || "")}" style="width:100%;max-width:220px;height:140px;object-fit:cover;border:1px solid var(--border);border-radius:10px;" loading="lazy" />
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div class="field">
+                <label>Path</label>
+                <input value="${escapeHtml(item.path || "")}" disabled />
+              </div>
+              <div class="field">
+                <label for="friendly-${escapeHtml(item.path || "").replace(/[^a-zA-Z0-9_-]/g, "_")}">Friendly Name</label>
+                <input data-meta="friendly_name" data-path="${escapeHtml(item.path || "")}" value="${escapeHtml(item.friendly_name || "")}" />
+              </div>
+              <div class="field">
+                <label>Tags (comma-separated)</label>
+                <input data-meta="tags" data-path="${escapeHtml(item.path || "")}" value="${escapeHtml(tags)}" />
+              </div>
+              <div class="field">
+                <label>Notes</label>
+                <textarea data-meta="notes" data-path="${escapeHtml(item.path || "")}" rows="3">${escapeHtml(item.notes || "")}</textarea>
+              </div>
+              <div class="actions">
+                <button type="button" class="result-action" data-action="save-meta" data-path="${escapeHtml(item.path || "")}">Save Metadata</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    els.results.querySelectorAll('button[data-action="save-meta"]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const path = btn.getAttribute('data-path');
+        if (!path) return;
+        const fieldValues = {};
+        els.results.querySelectorAll('[data-meta]').forEach(el => {
+          if (el.getAttribute('data-path') !== path) return;
+          fieldValues[el.getAttribute('data-meta')] = el.value;
+        });
+        try {
+          await fetchJson('/media/images/meta', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              image: path,
+              friendly_name: fieldValues.friendly_name || "",
+              tags: String(fieldValues.tags || "").split(",").map(x => x.trim()).filter(Boolean),
+              notes: fieldValues.notes || "",
+            }),
+          });
+          els.status.textContent = `Saved metadata for ${path}.`;
+        } catch (err) {
+          els.status.textContent = `Save failed: ${err.message}`;
+        }
+      });
+    });
+  }
+
+  async function search() {
+    els.status.textContent = "Searching images...";
+    const data = await fetchJson(buildUrl());
+    renderItems(data.items || []);
+    els.status.textContent = `Found ${data.count ?? 0} image(s).`;
+  }
+
+  function reset() {
+    els.q.value = "";
+    els.tag.value = "";
+    search();
+  }
+
+  els.searchBtn.addEventListener('click', search);
+  els.resetBtn.addEventListener('click', reset);
+  els.q.addEventListener('keydown', (e) => { if (e.key === "Enter") search(); });
+  els.tag.addEventListener('keydown', (e) => { if (e.key === "Enter") search(); });
+
+  search().catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

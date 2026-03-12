@@ -17,5 +17,10 @@
   "interaction": "Morose and gruff, Magnetar would rather be alone, but every so often, it goes on a rampage, hoping that a display will draw out whoever or whatever made it the way it is. Magnetar constantly feels the drag of emotional loss, but it doesn’t know why (it doesn’t realize that the feeling comes from the loss of its twin).",
   "use": "Doctor Dread has put a bounty on Magnetar’s head because she wants to study the advanced technology woven through its body. The bounty amount is outrageous, but then again, so is Magnetar.",
   "loot": null,
-  "gm_intrusion": "On a failed Might defense roll, all of the character’s loose metallic items (including weapons) are stripped from them and become stuck to a nearby metallic buttress."
+  "gm_intrusion": "On a failed Might defense roll, all of the character’s loose metallic items (including weapons) are stripped from them and become stuck to a nearby metallic buttress.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

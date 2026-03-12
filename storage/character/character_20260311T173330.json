@@ -28,7 +28,13 @@
       "race": "lilim",
       "variant": null,
       "profession": "poet_warrior",
-      "environment": "fenmir_free_cities"
+      "environment": "fenmir_free_cities",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

@@ -17,5 +17,9 @@
   "interaction": "A friendly and charming cannibal may remain so indefinitely, unless they decide a PC is perfect for dinner.",
   "use": "Characters looking for a place to sleep, hide, or stay for the night are invited in by one or more cannibals. A group of raiders the PCs must negotiate with are also revealed to be cannibals.",
   "loot": "A cannibal has currency equivalent to an expensive item. Cannibal Severing Bite Effects D6 Effects 1 End of nose 2 Little finger 3 Chunk from forearm 4 Chunk from leg 5 Ear; target’s perception task that rely on hearing are hindered until target adapts 6 Throat; target descends on step on damage track each round until ally succeeds on a difficulty 5 healing task FOUR HOURSEMEN OF THE APOCALYPSE",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

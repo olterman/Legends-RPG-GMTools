@@ -7,5 +7,9 @@
   "level": "1d6 + 2",
   "form": "Vial or syringe of red fluid",
   "effect": "Strips someone of all superpowers (including abilities granted by magic, psionics, mutation, or science) for twenty-four hours. The target retains only skills and abilities that are mundane, as agreed by the GM and player.",
-  "depletion": "Automatic"
+  "depletion": "Automatic",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T14:08:11.566001+00:00",
+  "filename": "ability/ability_20260312T140811.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Aurora",
+    "ability_name": "Scan"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Scan",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Scan'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Aurora",
+      "missing_from_compendium": true,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  }
+}

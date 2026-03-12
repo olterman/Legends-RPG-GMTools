@@ -17,5 +17,9 @@
   "interaction": "Giant rats stubbornly pursue prey, but they flee if that prey proves to be too strong.",
   "use": "A contact of the PCs dies of plague before they can deliver an important message. The PCs will have to backtrack the contact’s movements to discover what they wanted to say, which leads to a giant rat colony.",
   "loot": null,
-  "gm_intrusion": "A swarm of twelve ordinary rats—each level 1, but acting like a level 3 swarm—is summoned by the high-pitched squeaking of a giant rat."
+  "gm_intrusion": "A swarm of twelve ordinary rats—each level 1, but acting like a level 3 swarm—is summoned by the high-pitched squeaking of a giant rat.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

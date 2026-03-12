@@ -17,5 +17,10 @@
   "interaction": "Vulture spirits are clever and shy. They can speak human languages but revert to bird sounds such as screeching, clicking, and trilling when stressed. Though they forage for pain to consume alone, they prefer to live in large groups.",
   "use": "Vulture spirits are good for creating eerie encounters about sickness and pain, especially if the player characters mistake the spirit as the cause of the trouble rather than incidental to it.",
   "loot": "A vulture spirit’s pockets are full of feathers, altogether which function as a curative cypher.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

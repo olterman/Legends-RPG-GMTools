@@ -45,7 +45,13 @@
     "metadata": {
       "environment": "fenmir_wilds",
       "family": "gate_twisted",
-      "role": "brute"
+      "role": "brute",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

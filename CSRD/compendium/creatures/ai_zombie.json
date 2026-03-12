@@ -17,5 +17,11 @@
   "interaction": "AI zombies often serve some distant AI and may sometimes speak with its voice. But if cut off from its intelligence source, the zombie itself becomes a food seeking monster, more likely to eat someone than to represent an artificial mind.",
   "use": "The characters are asked to salvage supplies from an abandoned airplane hangar—abandoned, that is, except for lingering AI zombies.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

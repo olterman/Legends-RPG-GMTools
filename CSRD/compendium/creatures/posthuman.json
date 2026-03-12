@@ -17,5 +17,10 @@
   "interaction": "Posthumans are so physically and mentally powerful that they are almost godlike to unmodified people, and either ignore, care for, or pity them. Knowing what a posthuman actually wants is hard to pin down because their motivations are complex and many-layered.",
   "use": "A rogue posthuman is researching a method whereby they might portal into the “quantum” realm of dark energy underlying the known universe of normal matter. Despite the revealed risk of antagonistic post-singularity AIs roaming that realm escaping, the posthuman continues their work.",
   "loot": "The body of a posthuman is riddled with unrecognizable technologies fused seamlessly with residual organic material—or at least material that grows like organic material used to. Amid this, it might be possible to salvage a few manifest cyphers and an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

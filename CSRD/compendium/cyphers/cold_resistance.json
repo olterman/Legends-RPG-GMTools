@@ -3,9 +3,15 @@
   "source": "Cypher System Reference Document 2025-08-22",
   "title": "Cold Resistance",
   "slug": "cold_resistance",
-  "category": "Fantasy Cyphers",
+  "category": "Dark Magic And Occult Cyphers",
   "level": "1d6 + 3",
   "form": null,
   "effect": "The user gains Armor against cold damage equal to the cypher’s level for one hour.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

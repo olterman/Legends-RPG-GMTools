@@ -17,5 +17,10 @@
   "interaction": "When they take the echo of their former shape, tombdrifts can communicate in rasping voices, and may choose to negotiate with other creatures instead of draining their life. Tombdrifts may want their remains properly buried, or something else. Some tombdrifts don’t care or don’t remember their lives and simply wish to feed.",
   "use": "A sandstorm blew through the town’s cemetery with enough force to rip graves out of the ground. Now, some drifts of sand left in the storm’s wake have started moving.",
   "loot": "A tombdrift, which contains the remains of the individual who seeded it (maybe just a few eroded bones), might also have some of their belongings, such as a box with a few remaining alchemical rounds.",
-  "gm_intrusion": "The character is pulled into the dune and is crushed and suffocated for 5 points of ambient damage each round until they can escape with a Might-based roll as their action."
+  "gm_intrusion": "The character is pulled into the dune and is crushed and suffocated for 5 points of ambient damage each round until they can escape with a Might-based roll as their action.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

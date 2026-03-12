@@ -17,5 +17,9 @@
   "interaction": "A killing white light is too alien for interaction and may not be intelligent in a way humans can understand.",
   "use": "An inactive killing white light (which looks something like an albino lump of volcanic glass) is sometimes mistaken for a cypher whose properties can’t quite be identified—until the creature becomes active, at which point its true nature is revealed.",
   "loot": null,
-  "gm_intrusion": "Normally resistant to interaction, a killing white light uses its blazing nimbus to burn an alien glyph of uncertain meaning in the character’s flesh before the creature fades like a light bulb switched off."
+  "gm_intrusion": "Normally resistant to interaction, a killing white light uses its blazing nimbus to burn an alien glyph of uncertain meaning in the character’s flesh before the creature fades like a light bulb switched off.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

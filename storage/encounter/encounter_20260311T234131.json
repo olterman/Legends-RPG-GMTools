@@ -23,7 +23,13 @@
       "subject": "a pirate captain seeking temporary alliance",
       "truth": "one hidden route is no longer safe because the sea itself is changing",
       "complication": "every witness wants ownership of the story",
-      "hook": "uncover who laid the trap and who profits from it"
+      "hook": "uncover who laid the trap and who profits from it",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

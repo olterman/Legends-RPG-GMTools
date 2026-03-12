@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": "Ring carved with sigils appropriate to its granted skill",
   "effect": "This ring grants its wearer knowledge of a specific skill, such as climbing, jumping, history, or persuasion. This grants the wearer training in that skill (or in two skills if the artifact is level 5 or higher).",
-  "depletion": "—"
+  "depletion": "—",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

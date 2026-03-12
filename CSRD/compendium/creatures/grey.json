@@ -17,5 +17,10 @@
   "interaction": "Greys are curious about the places they visit but reluctant to move or act in the open. Secretive and mysterious, they prefer to observe creatures from afar and, on occasion, pick them up for closer inspection. Someone who offers a grey true knowledge might be treated as an equal rather than a lab animal.",
   "use": "The PCs are called to investigate a series of disappearances of animals and people. One by one, the abductees return, usually in odd places, and always bearing physical markings that suggest they were subjected to invasive procedures. To protect others from a similar fate, the PCs must catch the abductors in the act.",
   "loot": "A grey has one or two cyphers and might have a memory eraser that works as described under Combat (depletion roll of 1–2 on a 1d10).",
-  "gm_intrusion": "A grey’s ray emitter suffers a terrible mishap and explodes. The device kills the grey and destroys its body completely. For the next day, creatures that come within a short distance of where the grey died take 4 points of ambient damage from the psychic radiation each round they remain there."
+  "gm_intrusion": "A grey’s ray emitter suffers a terrible mishap and explodes. The device kills the grey and destroys its body completely. For the next day, creatures that come within a short distance of where the grey died take 4 points of ambient damage from the psychic radiation each round they remain there.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

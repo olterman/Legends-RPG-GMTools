@@ -17,5 +17,10 @@
   "interaction": "Faeries are mercurial creatures, but except for the malicious ones, they can be negotiated with, especially if offered sweets, wine, or other gifts. However, faerie attention spans are limited, so even one that means well could end up leaving the PCs in the lurch at just the wrong moment.",
   "use": "The dancing light in the distance, leading curious PCs deeper and deeper into the dark woods, is a faerie. And the destination could be a wicked witch or other unpleasant location.",
   "loot": "The tiny pouches that faeries carry are stuffed with forest bric-a-brac, but some of those pouches are ten times larger on the inside and might hold a handful of shiny coins or a cypher.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

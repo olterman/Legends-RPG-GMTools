@@ -7,5 +7,11 @@
   "level": "1d6 + 2",
   "form": null,
   "effect": "This cypher boosts an ability that affects a single target at short range or farther. The range decreases to immediate, but the ability affects all targets within immediate range.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

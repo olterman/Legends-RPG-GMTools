@@ -17,5 +17,10 @@
   "interaction": "Sapient trees are generally unfriendly and indignant toward animal life. They are fearful and assume that any creature not native to their forest is a threat. They are likely to attack first rather than speak, although they can speak eloquently, if sometimes slowly.",
   "use": "These trees populate magic forests. They can be used to surprise characters with an attack from an unexpected direction.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

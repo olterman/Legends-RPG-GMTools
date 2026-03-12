@@ -21,7 +21,13 @@
     "text": "Cypher.\n\nName:\nThorn Mirror.\n\nLevel:\n6\n\nManifestation:\nblack glass shard.\n\nAppearance:\nfaintly vibrating crystal.\n\nEffect:\nforces hostile creatures to hesitate in dread.\n\nLimitation / Depletion:\ndrains vitality from the user.\n\nQuirk:\ndistorts reflections.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
     "metadata": {
       "environment": "sands",
-      "level": 6
+      "level": 6,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

@@ -8,3 +8,4 @@ generated/
 .git/
 .gitignore
 logseq/
+.env.deploy

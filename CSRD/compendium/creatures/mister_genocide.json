@@ -17,5 +17,10 @@
   "interaction": "Certifiably insane, Mister Genocide likes to kill people. He may negotiate for a while, but if there is not enough gain to be had, he might kill everyone with a breath just for the fun of watching them suffocate and turn green.",
   "use": "Gang warfare between two criminal organizations is shooting up downtown, and many innocent bystanders caught in the crossfire end up bullet-ridden or poisoned (with green skin). Someone needs to put a stop to Mister Genocide.",
   "loot": "The supervillain carries currency equivalent to 1d6 expensive items, a cypher or two, and a variety of poisoned knives, needles, and vials.",
-  "gm_intrusion": "A character affected by the poison must make a second Might defense roll or fall unconscious from shock. Unconsciousness lasts for up to a minute, or until the victim is jostled awake."
+  "gm_intrusion": "A character affected by the poison must make a second Might defense roll or fall unconscious from shock. Unconsciousness lasts for up to a minute, or until the victim is jostled awake.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

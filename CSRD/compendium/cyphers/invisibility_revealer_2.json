@@ -1,0 +1,17 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Invisibility Revealer",
+  "slug": "invisibility_revealer_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": "Device containing a liquid or silvery powder",
+  "effect": "Sprays its contents up to a long distance, revealing all invisible creatures within short range of the targeted point for one round per cypher level. Affected invisible creatures remain visible if they move outside the area, and those outside the area become visible if they enter the area.",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

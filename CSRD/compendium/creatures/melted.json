@@ -17,5 +17,9 @@
   "interaction": "A few of the melted gain moments of clarity, but all are burdened with anguish stemming from their fused state. They unleash their full fury on whoever and whatever they catch among the ruins, but they seem particularly bent on finding and absorbing scientists.",
   "use": "A group of the melted seek out a surviving scientific installation and attempt to consume everyone nearby.",
   "loot": "One out of three melted may carry a manifest cypher (in the form of before times military tech), such as an armor reinforcer or a sonic detonation. Transdimensional Energy Enhancement D6 Effect 1 Enhanced strength: Attacks inflict 6 points of damage (instead of 4) 2 Healing factor: Regains 2 health each round 3 Bite: In addition to their claw attacks, makes a bit attack each round that inflicts 6 points of damage 4 Gravitic repulsion: Flies a long distance each round 5 Dimensional instability: Teleports up to a long distance before or after each attack 6 Transdimensional blast: About once each hour, emits transdimensional energy filling an adjacent short area; all creatures in the area take 6 points of ambient damage on a failed Might defense roll, as parts of them temporarily fuse with other affect creatures, or creatures in alternate dimensions",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,10 @@
   "interaction": "Most witches are deceptive and conniving, though a few work against the stereotype. All witches are willing to negotiate, though the devious ones usually do so in bad faith.",
   "use": "The PCs need an old book to continue their investigation. Word is that the old woman who lives on the edge of the woods has the only copy.",
   "loot": "A witch usually has an artifact or two on their person, possibly including a flying broom (which has a depletion roll of 1 in 1d10).",
-  "gm_intrusion": "After a character succeeds on a defense roll against one of the witch’s ongoing curse effects, the witch immediately tosses a hexbolt at them. If the character is hit, the ongoing curse effect also continues."
+  "gm_intrusion": "After a character succeeds on a defense roll against one of the witch’s ongoing curse effects, the witch immediately tosses a hexbolt at them. If the character is hit, the ongoing curse effect also continues.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

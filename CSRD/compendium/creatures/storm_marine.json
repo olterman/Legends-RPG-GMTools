@@ -17,5 +17,10 @@
   "interaction": "A storm marine might negotiate, but getting one to act against their mission is difficult.",
   "use": "A fireteam of storm marines are sent to eliminate the PCs or someone the PCs know on suspicion of being radical elements that need to be dealt with.",
   "loot": "Though bio-locked to each storm marine, someone who succeeds on a difficulty 8 Intellect task to reprogram the suit could gain a battlesuit of their own, minus the drones (which fly off or detonate).",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

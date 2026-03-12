@@ -17,5 +17,10 @@
   "interaction": "Evil, cruel, and malevolent, devils are more than happy to talk, especially to those already caught and being readied for torture. Devils serve yet more powerful devils out of fear. If they find someone or something they fear more, they readily betray their master and become obsequious and cringing, though further betrayal is always on the table.",
   "use": "A spate of violent murders grips a city in fear—a devil has escaped into the world of mortals without a leash. It spends nights hunting anyone it spots from its perches atop the city’s holy places.",
   "loot": null,
-  "gm_intrusion": "A devil anticipates the character’s melee attack and brings its wing down “just so” on the attacker’s weapon. If the character fails a Speed defense roll, the weapon breaks. Either way, the attack fails to hit the devil."
+  "gm_intrusion": "A devil anticipates the character’s melee attack and brings its wing down “just so” on the attacker’s weapon. If the character fails a Speed defense roll, the weapon breaks. Either way, the attack fails to hit the devil.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

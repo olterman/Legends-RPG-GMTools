@@ -17,5 +17,11 @@
   "interaction": "A haunted car doesn’t converse or bargain. It lurks, using engine noises and evocative songs from its radio to intimidate and threaten anyone it wants to kill.",
   "use": "Haunted cars go looking for trouble or to hurt those who harmed them or their driver.",
   "loot": "A haunted car created by magic might have a few strange bits that can be used as magical cyphers. Otherwise, it’s worth whatever cash a chop shop or junkyard will pay for it—assuming that won’t just spread its malice to other vehicles . . .",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

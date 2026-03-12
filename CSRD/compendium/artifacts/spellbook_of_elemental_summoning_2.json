@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spellbook Of Elemental Summoning",
+  "slug": "spellbook_of_elemental_summoning_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "Weighty tome filled with pages of spell runes",
+  "effect": "When the user incants from the spellbook and succeeds at a level 3 Intellect task, they can summon an elemental of one specific kind described in the book (earth, fire, thorn, or some other type). The elemental appears and does the summoner’s bidding for up to one hour, unless it somehow breaks the geas created by the book.",
+  "depletion": "1–3 in 1d20",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

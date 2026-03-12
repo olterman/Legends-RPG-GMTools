@@ -17,5 +17,9 @@
   "interaction": "If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack.",
   "use": "The raider encampment has a new leader, a warlord whose presence doubles raider activity.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

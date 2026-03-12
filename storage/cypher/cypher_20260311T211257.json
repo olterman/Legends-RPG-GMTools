@@ -21,7 +21,13 @@
     "text": "Cypher.\n\nName:\nThe Ember Mirror.\n\nLevel:\n7\n\nManifestation:\nunstable crystal shard.\n\nAppearance:\nfaintly warped by unstable magic.\n\nEffect:\nunleashes a chaotic burst of energy.\n\nLimitation / Depletion:\nattracts unwanted magical attention.\n\nQuirk:\nvibrates when near ruins.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
     "metadata": {
       "environment": "fenmir_wilds",
-      "level": 7
+      "level": 7,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

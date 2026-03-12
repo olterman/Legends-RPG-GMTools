@@ -1,0 +1,17 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bounding Boots",
+  "slug": "bounding_boots_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Pair of dark crystalline spectacles in a dull wooden frame",
+  "effect": "Outside, the wearer can see at night as if it were daylight. Inside, the wearer can see in pitch darkness up to short range (or to long range if the artifact is level 5 or higher).",
+  "depletion": "—",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

@@ -17,5 +17,10 @@
   "interaction": "Fire elementals are barely sapient and usually respond only to those who know spells able to command them. However, there’s a chance (about 10%) that a fire elemental commanded to accomplish a particular task breaks free and instead burns whatever’s around until it exhausts all possible fuel sources.",
   "use": "A rash of fires leads some people to suspect that an arsonist is on the loose, but the truth is worse.",
   "loot": "A dragon’s hoard might contain 2d6 cyphers, hard currency equivalent to 1d6 exorbitant items, and possibly a few artifacts (but a hoard is usually well guarded).",
-  "gm_intrusion": "A character hit by the fire elemental’s attack catches on fire and takes 3 points of damage each round until they use an action patting, rolling, or smothering the flames."
+  "gm_intrusion": "A character hit by the fire elemental’s attack catches on fire and takes 3 points of damage each round until they use an action patting, rolling, or smothering the flames.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

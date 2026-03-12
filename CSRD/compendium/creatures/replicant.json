@@ -17,5 +17,10 @@
   "interaction": "Replicants are designed to look human and, at least during a casual interaction, pass as human. But extended conversation trips up a replicant more often than not. Eventually, a replicant gets something wrong and says inappropriate things or exhibits strange mannerisms.",
   "use": "A contact of one of the characters is secretly a replicant. It has survived longer than expected, and its connection to whatever created it has weakened enough that it has gained some independence and made strong emotional connections to the PC. It knows its time is running out and may turn to the character for help.",
   "loot": null,
-  "gm_intrusion": "The character struck by the replicant is smashed into the wall so hard that the surrounding structure begins to collapse on them."
+  "gm_intrusion": "The character struck by the replicant is smashed into the wall so hard that the surrounding structure begins to collapse on them.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

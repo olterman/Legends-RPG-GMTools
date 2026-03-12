@@ -17,5 +17,9 @@
   "interaction": "Photonomorphs are intelligent and paranoid, but not automatically hostile. They have their own self-serving agendas, which often involve elaborate schemes.",
   "use": "A photonomorph appears, claiming to be a herald of some vastly more powerful cosmic entity or approaching alien vessel.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

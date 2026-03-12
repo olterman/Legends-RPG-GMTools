@@ -17,5 +17,11 @@
   "interaction": "Dread skulls are slightly insane but hellishly smart, which means that sometimes they will negotiate to get what they want.",
   "use": "Soul eaters remember a little bit of the knowledge of every creature’s essence they consume. The PCs need to learn the command word of an artifact they’ve found, but the only one who knew it was consumed by a dread skull.",
   "loot": "Sometimes dread skulls keep treasures as trophies of past victories, consisting of 1d6 cyphers and maybe an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

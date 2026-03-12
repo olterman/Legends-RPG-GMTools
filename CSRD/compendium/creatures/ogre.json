@@ -17,5 +17,9 @@
   "interaction": "Ogres are stupid and cruel. They speak whatever language is most common in the area in which they live, but their vocabulary is extremely limited. They don’t like conversation, even with their own kind. Reasoning with them is difficult at best, but sometimes they can be fooled.",
   "use": "A solitary ogre is an excellent encounter for a group of first-tier characters. A number of ogres, particularly well-equipped and well-trained warriors, make excellent troops or guards in the service of a powerful master. Evil wizards and warlords like to enslave ogres and place them at the forefront of their armies. In these cases, the ogres are typically bribed, ensorcelled, or intimidated by great force.",
   "loot": "Some ogres hoard gold or other valuables in their lairs, but they rarely have use for magic or cyphers.",
-  "gm_intrusion": "The ogre’s mighty blow (whether it strikes a foe or not) hits the ground or the wall, causing major structural damage and a possible collapse, cave-in, or landslide. It might also expose a hidden underground cave or chamber."
+  "gm_intrusion": "The ogre’s mighty blow (whether it strikes a foe or not) hits the ground or the wall, causing major structural damage and a possible collapse, cave-in, or landslide. It might also expose a hidden underground cave or chamber.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

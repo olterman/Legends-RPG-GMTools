@@ -49,6 +49,9 @@
     results: document.getElementById('results'),
     viewer: document.getElementById('viewer'),
   };
+  const state = {
+    items: [],
+  };
 
   function escapeHtml(text) {
     return String(text ?? '')
@@ -59,6 +62,13 @@
 
   async function fetchJson(url) {
     const res = await fetch(url);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
+  }
+
+  async function fetchJsonWithInit(url, init = undefined) {
+    const res = await fetch(url, init);
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
     return data;
@@ -81,6 +91,111 @@
     `;
   }
 
+  function editPrompt(item) {
+    const settingsValue = Array.isArray(item.settings) ? item.settings.join(", ") : (item.setting || "");
+    els.viewer.innerHTML = `
+      <div class="output-card">
+        <h3>Edit Prompt</h3>
+        <div class="field">
+          <label for="prompt-edit-title">Title</label>
+          <input id="prompt-edit-title" value="${escapeHtml(item.title || "")}" />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="prompt-edit-category">Category</label>
+            <select id="prompt-edit-category">
+              <option value="lore" ${item.category === "lore" ? "selected" : ""}>Lore Prompt</option>
+              <option value="art" ${item.category === "art" ? "selected" : ""}>Art Prompt</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="prompt-edit-settings">Settings (comma-separated)</label>
+            <input id="prompt-edit-settings" value="${escapeHtml(settingsValue)}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="prompt-edit-source-title">Source Title</label>
+            <input id="prompt-edit-source-title" value="${escapeHtml(item.source_title || "")}" />
+          </div>
+          <div class="field">
+            <label for="prompt-edit-source-slug">Source Slug</label>
+            <input id="prompt-edit-source-slug" value="${escapeHtml(item.source_slug || "")}" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="prompt-edit-source-path">Source Path</label>
+          <input id="prompt-edit-source-path" value="${escapeHtml(item.source_path || "")}" />
+        </div>
+        <div class="field">
+          <label for="prompt-edit-text">Prompt Text</label>
+          <textarea id="prompt-edit-text" rows="12">${escapeHtml(item.text || "")}</textarea>
+        </div>
+        <div class="actions">
+          <button id="prompt-save-btn" type="button" class="result-action">Save</button>
+          <button id="prompt-cancel-btn" type="button" class="secondary result-action">Cancel</button>
+        </div>
+      </div>
+    `;
+
+    const saveBtn = document.getElementById("prompt-save-btn");
+    const cancelBtn = document.getElementById("prompt-cancel-btn");
+    const titleEl = document.getElementById("prompt-edit-title");
+    const categoryEl = document.getElementById("prompt-edit-category");
+    const settingsEl = document.getElementById("prompt-edit-settings");
+    const sourceTitleEl = document.getElementById("prompt-edit-source-title");
+    const sourceSlugEl = document.getElementById("prompt-edit-source-slug");
+    const sourcePathEl = document.getElementById("prompt-edit-source-path");
+    const textEl = document.getElementById("prompt-edit-text");
+
+    saveBtn?.addEventListener("click", async () => {
+      try {
+        const settings = settingsEl.value.split(",").map(x => x.trim()).filter(Boolean);
+        const next = {
+          ...item,
+          title: titleEl.value.trim() || "Untitled Prompt",
+          category: categoryEl.value || "lore",
+          settings,
+          setting: settings[0] || "",
+          source_title: sourceTitleEl.value.trim(),
+          source_slug: sourceSlugEl.value.trim(),
+          source_path: sourcePathEl.value.trim(),
+          text: textEl.value,
+        };
+        await fetchJsonWithInit("/prompts/update", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: item.id, item: next }),
+        });
+        els.status.textContent = `Saved ${item.id}.`;
+        await search();
+        const updated = state.items.find(x => String(x.id || "") === String(item.id || ""));
+        if (updated) renderPrompt(updated);
+      } catch (err) {
+        els.status.textContent = `Save failed: ${err.message}`;
+      }
+    });
+
+    cancelBtn?.addEventListener("click", () => renderPrompt(item));
+  }
+
+  async function trashPrompt(id) {
+    if (!window.confirm(`Move ${id} to prompt trash?`)) return;
+    await fetchJsonWithInit("/prompts/trash", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    els.status.textContent = `Moved ${id} to prompt trash.`;
+    await search();
+    els.viewer.innerHTML = `
+      <div class="output-card">
+        <h3>Prompt</h3>
+        <div class="output-value">Select a prompt from the left.</div>
+      </div>
+    `;
+  }
+
   function renderResults(items) {
     if (!items.length) {
       els.results.innerHTML = `<div class="output-card"><div class="output-value">No prompts found.</div></div>`;
@@ -88,17 +203,38 @@
     }
 
     els.results.innerHTML = items.map((item, idx) => `
-      <div class="result-card prompt-result" data-idx="${idx}">
+      <div class="result-card prompt-result with-corner-actions" data-idx="${idx}">
         <div class="result-top">
-          <div class="result-name">${escapeHtml(item.title || 'Untitled Prompt')}</div>
-          <div class="result-type">${escapeHtml(String(item.category || '').toUpperCase())}</div>
+          <div>
+            <div class="result-heading">${escapeHtml(item.title || 'Untitled Prompt')} - ${escapeHtml(String(item.category || '').toUpperCase())}</div>
+            <div class="source-badge source-house">House</div>
+          </div>
         </div>
         <div class="result-meta">${escapeHtml(item.source_title || item.source_slug || '')}</div>
+        <div class="result-corner-actions">
+          <button type="button" class="icon-btn" data-action="edit" data-idx="${idx}" title="Edit" aria-label="Edit">&#9998;</button>
+          <button type="button" class="icon-btn danger" data-action="delete" data-idx="${idx}" title="Move to trash" aria-label="Move to trash">&#128465;</button>
+        </div>
       </div>
     `).join("");
 
     document.querySelectorAll('.prompt-result').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', async (event) => {
+        const actionBtn = event.target.closest('button[data-action]');
+        if (actionBtn) {
+          event.preventDefault();
+          event.stopPropagation();
+          const action = actionBtn.getAttribute("data-action");
+          const idx = Number(actionBtn.getAttribute("data-idx"));
+          const item = items[idx];
+          if (!item) return;
+          if (action === "edit") {
+            editPrompt(item);
+          } else if (action === "delete") {
+            await trashPrompt(item.id);
+          }
+          return;
+        }
         const idx = Number(card.getAttribute('data-idx'));
         renderPrompt(items[idx]);
       });
@@ -116,7 +252,8 @@
   async function search() {
     els.status.textContent = "Searching prompts...";
     const data = await fetchJson(buildUrl());
-    renderResults(data.items || []);
+    state.items = Array.isArray(data.items) ? data.items : [];
+    renderResults(state.items);
     els.status.textContent = `Found ${data.count || 0} prompts.`;
   }
 

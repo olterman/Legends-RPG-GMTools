@@ -17,5 +17,10 @@
   "interaction": "Trolls speak their own simple language, but a few know a little bit of a local human language. Most prefer to attack and eat other creatures, but might be bargained with after a successful show of force.",
   "use": "Trolls may be chance encounters in the wilderness for unlucky travelers. Sometimes captured trolls are used by slavers, armies, and powerful wizards as guards and warriors.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

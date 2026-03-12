@@ -7,5 +7,11 @@
   "level": "1d6 + 1",
   "form": null,
   "effect": "The user’s Armor gains an enhancement for twenty-four hours. Roll a d6 to determine the result.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

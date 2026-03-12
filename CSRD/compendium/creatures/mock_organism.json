@@ -17,5 +17,10 @@
   "interaction": "A mock organism is intelligent and can sometimes be swayed by reason. It might be passive, but if disturbed in a place it thought was secure against intrusion, it could grow belligerent and even murderous. Once so roused, a mock organism might still be calmed, but all such attempts are hindered.",
   "use": "A scientist’s ruined lab contains several unexpected surprises, including a mock organism that yet grieves over the loss of its creator.",
   "loot": "A mock organism requires many parts. Salvage from a destroyed mock organism could result in a manifest cypher or two and another item that, with a bit of jury-rigging, works as an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

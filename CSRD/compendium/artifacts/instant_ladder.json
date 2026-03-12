@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Instant Ladder",
+  "slug": "instant_ladder",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Small lightweight metal rod with gem buttons",
+  "effect": "When activated, the rod extends and produces rungs so that it can be used as a ladder up to 28 feet (9 m) long. The ladder can be transformed back into its rod form from either end.",
+  "depletion": "1 in 1d100 A creature unfamiliar with the buttons on an instant ladder needs to spend several rounds figuring out the proper sequence to expand or collapse it.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

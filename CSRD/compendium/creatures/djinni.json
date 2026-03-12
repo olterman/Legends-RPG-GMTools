@@ -17,5 +17,10 @@
   "interaction": "When a djinni interacts with characters, it’s narcissistic, certain in its own immense power, and unlikely to let slights pass. That said, low-tier characters could negotiate with one peacefully because even djinn have needs and desires.",
   "use": "Agents of a foreign power retrieved a magic lamp from an ancient Arabian ruin. The PCs’ job is to determine whether there is reason for alarm.",
   "loot": "Most djinn carry a couple of cyphers, and some have a magic artifact useful in combat.",
-  "gm_intrusion": "When the character is touched by a djinni, instead of taking damage, the character is turned to smoke and fire and sent whirling off in a random direction. They lose their next turn and return to normal almost 300 feet (90 m) from where they started."
+  "gm_intrusion": "When the character is touched by a djinni, instead of taking damage, the character is turned to smoke and fire and sent whirling off in a random direction. They lose their next turn and return to normal almost 300 feet (90 m) from where they started.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

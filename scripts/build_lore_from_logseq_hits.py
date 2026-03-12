@@ -2,8 +2,21 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 from urllib.parse import unquote
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from lol_api.config_loader import load_config_dir
+from lol_api.settings import attach_settings_metadata
+from lol_api.lore import (
+    LORE_ENTRY_SCHEMA_VERSION,
+    LOCATION_CATEGORY_TYPES,
+    LOCATION_CATEGORY_PRIORITY,
+)
 
 
 def slugify(text: str) -> str:
@@ -346,6 +359,7 @@ def split_prompts_from_markdown(
                     "source_slug": source_slug,
                     "source_title": source_title,
                     "source_path": source_path,
+                    "settings": [],
                 }
             )
             next_id += 1
@@ -366,6 +380,10 @@ def build_lore() -> None:
 
     report = json.loads(hits_path.read_text(encoding="utf-8"))
     hits_by_file = report.get("hits_by_file", {}) or {}
+    config = load_config_dir(root / "config")
+    settings_seed = attach_settings_metadata({"metadata": {}}, {}, config).get("metadata", {})
+    lore_settings = settings_seed.get("settings", [])
+    lore_setting = settings_seed.get("setting")
 
     out_dir = root / "lore"
     entries_dir = out_dir / "entries"
@@ -378,6 +396,14 @@ def build_lore() -> None:
         path.unlink()
 
     index_items: list[dict] = []
+    area_map: dict[str, str] = {}
+    for area_key, area_cfg in (config.get("areas", {}) or {}).items():
+        key_norm = slugify(str(area_key))
+        area_map[key_norm] = str(area_key)
+        if isinstance(area_cfg, dict):
+            area_name = str(area_cfg.get("name", "")).strip()
+            if area_name:
+                area_map[slugify(area_name)] = str(area_key)
 
     for source_path, term_entries in sorted(hits_by_file.items()):
         path_obj = root / source_path
@@ -396,14 +422,45 @@ def build_lore() -> None:
             source_path=source_path,
             id_start=prompt_id,
         )
+        for prompt in entry_prompts:
+            prompt["settings"] = lore_settings
+            prompt["setting"] = lore_setting
         prompts.extend(entry_prompts)
         excerpt = first_excerpt(clean_text)
 
         terms = sorted({str(t.get("term", "")).strip() for t in term_entries if str(t.get("term", "")).strip()})
-        categories = sorted({str(t.get("category", "")).strip() for t in term_entries if str(t.get("category", "")).strip()})
+        raw_categories = sorted({
+            str(t.get("category", "")).strip().lower().replace(" ", "_")
+            for t in term_entries if str(t.get("category", "")).strip()
+        })
+        categories = list(raw_categories)
+        location_categories = [c for c in raw_categories if c in LOCATION_CATEGORY_TYPES]
+        if location_categories and "location" not in categories:
+            categories.append("location")
+        categories = sorted(set(categories))
         mentions_total = int(sum(int(t.get("mentions", 0)) for t in term_entries))
 
+        area = ""
+        for hit in term_entries:
+            if str(hit.get("category", "")).strip().lower().replace(" ", "_") != "area":
+                continue
+            term_value = str(hit.get("term", "")).strip()
+            if not term_value:
+                continue
+            area_candidate = area_map.get(slugify(term_value), "")
+            if area_candidate:
+                area = area_candidate
+                break
+
+        location_type = ""
+        for key in LOCATION_CATEGORY_PRIORITY:
+            if key in location_categories:
+                location_type = key
+                break
+        location_name = title if location_categories else ""
+
         entry = {
+            "schema_version": LORE_ENTRY_SCHEMA_VERSION,
             "type": "lore",
             "title": title,
             "slug": slug,
@@ -413,6 +470,12 @@ def build_lore() -> None:
             "categories": categories,
             "terms": terms,
             "mentions_total": mentions_total,
+            "area": area,
+            "environment": area,
+            "location": location_name,
+            "location_type": location_type,
+            "settings": lore_settings,
+            "setting": lore_setting,
             "content_markdown": clean_text,
             "prompt_counts": {
                 "lore": len([p for p in entry_prompts if p["category"] == "lore"]),
@@ -431,6 +494,12 @@ def build_lore() -> None:
             "excerpt": excerpt,
             "categories": categories,
             "mentions_total": mentions_total,
+            "area": area,
+            "environment": area,
+            "location": location_name,
+            "location_type": location_type,
+            "settings": lore_settings,
+            "setting": lore_setting,
         })
 
     index = {

@@ -17,5 +17,10 @@
   "interaction": "Behemoths have a complex communication system among themselves, using their color-changing frills and modulation of the thunder they produce. They think of humans and most other creatures as food.",
   "use": "The sound of fighting spacecraft has repeatedly spooked human colonists on an alien planet, though they have rarely seen destructive beams or actual spacecraft. Worried that that will soon change, the residents ask the PCs to investigate.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

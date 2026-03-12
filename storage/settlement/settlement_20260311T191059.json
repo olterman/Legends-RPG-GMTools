@@ -23,7 +23,13 @@
     },
     "text": "Dark fantasy settlement prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nSettlement Name:\nApplepoint.\n\nSettlement Type:\nmountain mining town.\n\nEnvironment:\nLarge mountainous island with coastal fishing towns, inland valleys, and isolated communities like the Vale. A largely pre-modern region detached from global politics.\n\nVisual Feature:\ndense forest edges and misty valleys.\n\nLandmark:\na communal hall untouched in form for generations.\n\nEconomy / Survival Basis:\nhousehold production and inherited practical knowledge.\n\nCurrent Tension:\nsome settlements know more of the wider world than they admit.\n\nAtmosphere:\nquiet readiness for change.\n\nLocal Inn or Tavern:\nThe Golden Pike.\n\nSTYLE:\npainted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.\n",
     "metadata": {
-      "environment": "caldor_island"
+      "environment": "caldor_island",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

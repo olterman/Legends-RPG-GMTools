@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": null,
   "effect": "All of the user’s tasks involving intelligent deduction—such as playing chess, inferring a connection between clues, solving a mathematical problem, finding a bug in computer code, and so on—are eased by two steps for one hour. In the subsequent hour, the strain hinders the same tasks by two steps.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

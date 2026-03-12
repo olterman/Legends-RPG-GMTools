@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T13:42:12.450194+00:00",
+  "filename": "ability/ability_20260312T134212_20260312T134212.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Alara Windrose",
+    "ability_name": "You’re trained in initiative actions (to determine who goes first in combat)."
+  },
+  "result": {
+    "type": "ability",
+    "name": "You’re trained in initiative actions (to determine who goes first in combat).",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'You’re trained in initiative actions (to determine who goes first in combat).'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Alara Windrose",
+      "missing_from_compendium": true,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  }
+}

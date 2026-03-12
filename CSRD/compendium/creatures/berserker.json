@@ -17,5 +17,9 @@
   "interaction": "Berserkers are the elites of some warrior cultures and enjoy physical competitions such as wrestling, throwing heavy items, and feasting. They dislike weak and cowardly folk, and do not tolerate insults to their strength or honor.",
   "use": "A group of warriors is led by a mighty berserker looking for a challenging fight. A group of berserkers enters town and picks fights with the local toughs.",
   "loot": "In addition to their weapons and light armor, a berserker has one or two moderately priced items. The leader of a group might have a cypher that enhances strength or toughness.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

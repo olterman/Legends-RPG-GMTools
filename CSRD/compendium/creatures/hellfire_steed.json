@@ -17,5 +17,10 @@
   "interaction": "Though usually driven by demonic desire, hellfire steeds are fully sapient and can speak all languages. They may negotiate with someone seeking to use them as a mount, but only in return for a promise of committing atrocities.",
   "use": "Stuck in Hell or a similarly hellish place, characters may have to ask a hellfire steed for a ride out.",
   "loot": "A hellfire steed’s horn is a sought-after alchemist ingredient; a full horn is a very expensive item. GM intrusion: The steed decides it no longer wants the character as a rider and takes back their immunity to fire.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

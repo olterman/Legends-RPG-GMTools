@@ -17,5 +17,9 @@
   "interaction": "Frost jotunns tend to be hostile, but if in a generous mood, they may allow visitors to dine with them or rest in their halls. Once they grant someone hospitality, they are loath to break it unless they are attacked, robbed, or tricked.",
   "use": "A frost jotunn throws a boulder just to be threatening. A clever jotunn offers to share a story in exchange for food and conversation. A clan of jotunns uses the cover of a storm to raid a village.",
   "loot": "Jotunns like fine things, and their homes usually have utensils, plates, weapons, and trophies made of precious materials and decorated with gems. They may have cyphers, and a leader may carry an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

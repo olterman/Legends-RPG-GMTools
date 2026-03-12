@@ -17,5 +17,9 @@
   "interaction": "Water elementals are somewhat intelligent but think very differently from humans, so they often seem distracted and dull. They are generally compliant when summoned with magic, but there is about a 5 percent chance that they break free of the spell and lash out against their summoner.",
   "use": "Offerings left at a sacred pond have gone missing, and the water itself seems threatening. Garbage or dead bodies have polluted a water source, spawning an angry elemental that attacks everyone until the mess is cleaned up.",
   "loot": "The bodies of those previously defeated by thorn elementals dangle from the forest or jungle canopy with all their former possessions. One or two might have a cypher and other tools and treasure. Woody vine: level 4; Armor 1",
-  "gm_intrusion": "The forceof the elemental’s attackknocks over a character,sweeps them a shortdistance away, or both."
+  "gm_intrusion": "The forceof the elemental’s attackknocks over a character,sweeps them a shortdistance away, or both.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

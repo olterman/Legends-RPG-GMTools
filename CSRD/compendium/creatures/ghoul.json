@@ -17,5 +17,10 @@
   "interaction": "Common ghouls can’t be negotiated with, though a rare civilized ghoul is an excellent linguist. These latter are willing to deal in return for the body of someone who was knowledgeable or who kept valuable secrets in life.",
   "use": "If a PC needs a piece of information not otherwise obtainable, a trip down into a ghoul city might be worthwhile, for the creatures are rumored to keep lightless libraries below the earth that store knowledge once known by humans.",
   "loot": "If the PCs defeat a group of civilized ghouls, they might find a cypher and a few sets of black goggles that allow the wearer to look directly at the sun and see it as a pale circle.",
-  "gm_intrusion": "The ghoul spits in the character’s eye, directly introducing the paralytic into the victim’s bloodstream. The victim’s Might defense roll to avoid becoming paralyzed is hindered."
+  "gm_intrusion": "The ghoul spits in the character’s eye, directly introducing the paralytic into the victim’s bloodstream. The victim’s Might defense roll to avoid becoming paralyzed is hindered.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

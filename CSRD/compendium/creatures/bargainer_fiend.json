@@ -17,5 +17,10 @@
   "interaction": "Bargainer fiends serve at the pleasure of their infernal masters, and they know their lives are forfeit if they ever fail. This colors their interactions with clients; they will say anything to accomplish their mission, and their only true loyalty is to the fiend who created and controls them.",
   "use": "A motivational speaker offers to teach clients confidence and charm, with great results. An old sorcerer knows some rare magic for those willing to pay a steep price. A mysterious person has been seen visiting people in the terminal ward of various hospitals.",
   "loot": "A bargainer fiend may have a cypher relating to their duties or as a gift or payment for a client, but most of their material riches are hell-crafted and not safe to carry for long.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

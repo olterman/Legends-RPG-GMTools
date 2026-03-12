@@ -17,5 +17,11 @@
   "interaction": "Speaking with a voice like wind on gravestones, a hollowed ranger may tell of the primary target of their vengeance, deliver a message from a more powerful necrovore, or simply promise to eat the soul of whoever tries negotiating with them.",
   "use": "Characters need to travel a huge distance and are told the quickest way is to use the door shift offered by a hollowed ranger, though doing so will require appeasing the ranger in some way.",
   "loot": "The deathbinder’s pistols have uniquely powerful rounds loaded in them; roll once on the Alchemical Rounds and Slugs table.",
-  "gm_intrusion": "The character drawn through the hollowed ranger’s form to a deathly realm is attacked by a ghost lurking there."
+  "gm_intrusion": "The character drawn through the hollowed ranger’s form to a deathly realm is attacked by a ghost lurking there.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

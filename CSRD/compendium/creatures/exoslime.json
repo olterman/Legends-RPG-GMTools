@@ -17,5 +17,10 @@
   "interaction": "An exoslime prefers to eat a newly-encountered creature, then create a duplicate of it to act as a translator. Of course, a stranger might not understand why the exoslime is trying to eat it.",
   "use": "The sample brought in from the exterior has a weird, mucus-like growth that seems able to slowly eat through most materials.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,10 @@
   "interaction": "Some ghosts are talkative, some don’t know they’re dead, some want help for a task they failed to accomplish in life, and some only rage against the living and want to bring those who yet breathe into the same colorless existence they endure.",
   "use": "A ghost (that at first appears fully human) wants help in eradicating a guild of ghost hunters that has targeted it and a few others haunting an abandoned structure. The ghost promises to tell secrets of the afterlife to any who accept its strange offer.",
   "loot": "A ghost usually doesn’t carry objects, though some might have a keepsake (like an amulet showing the face of a loved one) or an artifact.",
-  "gm_intrusion": "The character must succeed on an Intellect defense roll or be possessed by the ghost until they succeed on an Intellect-based task to push it out. While possessed, the character acts just like the ghost did when it was alive."
+  "gm_intrusion": "The character must succeed on an Intellect defense roll or be possessed by the ghost until they succeed on an Intellect-based task to push it out. While possessed, the character acts just like the ghost did when it was alive.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

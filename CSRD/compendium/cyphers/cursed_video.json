@@ -7,5 +7,11 @@
   "level": "1d6 + 2",
   "form": "DVD, film, thumb drive, or videocassette",
   "effect": "Anyone who watches this disturbing video must make an Intellect defense roll against the level of the artifact or become cursed. A cursed victim becomes haunted by a malevolent spirit and begins to experience strange phenomena, which eventually kills them. The curse can simultaneously affect a number of people equal to the artifact level (which prevents it from starting a curse epidemic by being broadcast or posted online where thousands of people can see it at once). For some cursed videos, a victim can free themselves of the curse by making another person watch the video, thus passing the curse on to a new victim.",
-  "depletion": "—"
+  "depletion": "—",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

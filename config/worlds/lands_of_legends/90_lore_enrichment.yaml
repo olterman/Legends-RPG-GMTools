@@ -1,0 +1,122 @@
+races: {}
+areas:
+  aldamir:
+    name: Aldamir
+    type: region
+    culture: mixed
+    description: _The Jewel of the Tree_
+    visual_traits:
+    - landmarks tied to aldamir
+    - lore-derived terrain cues pending curation
+    - faction traces and local history
+    mood:
+    - mysterious
+    - volatile
+    - adventurous
+  cirth:
+    name: Cirth
+    type: region
+    culture: mixed
+    description: Cird
+    visual_traits:
+    - landmarks tied to cirth
+    - lore-derived terrain cues pending curation
+    - faction traces and local history
+    mood:
+    - mysterious
+    - volatile
+    - adventurous
+settlements:
+  aldamir:
+    settlement_types:
+    - aldamir outpost
+    - aldamir trade camp
+    - aldamir fortified village
+    visual_features:
+    - architecture adapted to aldamir terrain
+    - visible scars from older conflicts
+    - local iconography tied to lore factions
+    landmarks:
+    - a central site linked to aldamir history
+    - a contested route or crossing
+    - a ritual or civic gathering place
+    economies:
+    - survival trade and local craft
+    - resource extraction or waystation services
+    - faction contracts and guarded routes
+    tensions:
+    - conflict between local tradition and outside pressure
+    - scarcity exposing old rivalries
+    - a buried truth resurfacing through recent events
+    atmospheres:
+    - uneasy but resilient
+    - politically tense
+    - ripe for adventure hooks
+  cirth:
+    settlement_types:
+    - cirth outpost
+    - cirth trade camp
+    - cirth fortified village
+    visual_features:
+    - architecture adapted to cirth terrain
+    - visible scars from older conflicts
+    - local iconography tied to lore factions
+    landmarks:
+    - a central site linked to cirth history
+    - a contested route or crossing
+    - a ritual or civic gathering place
+    economies:
+    - survival trade and local craft
+    - resource extraction or waystation services
+    - faction contracts and guarded routes
+    tensions:
+    - conflict between local tradition and outside pressure
+    - scarcity exposing old rivalries
+    - a buried truth resurfacing through recent events
+    atmospheres:
+    - uneasy but resilient
+    - politically tense
+    - ripe for adventure hooks
+encounters:
+  aldamir:
+    first_impressions:
+    - the party arrives as tensions around Aldamir spill into public view
+    - a normal routine is abruptly interrupted by an unresolved incident
+    - locals are watchful and withholding around a recent disturbance
+    subjects:
+    - a local authority under pressure
+    - a messenger or witness carrying partial truth
+    - a faction agent pursuing a private objective
+    truths:
+    - the visible conflict hides a deeper historical cause
+    - someone is steering events to control the narrative
+    - the real stake is who defines Aldamir going forward
+    complications:
+    - every option creates a new obligation with a local faction
+    - time pressure narrows safe choices
+    - an apparent ally is withholding critical context
+    hooks:
+    - stabilize the situation before it escalates into open violence
+    - uncover the hidden motive behind the public crisis
+    - choose which truth to reveal and who pays for it
+  cirth:
+    first_impressions:
+    - the party arrives as tensions around Cirth spill into public view
+    - a normal routine is abruptly interrupted by an unresolved incident
+    - locals are watchful and withholding around a recent disturbance
+    subjects:
+    - a local authority under pressure
+    - a messenger or witness carrying partial truth
+    - a faction agent pursuing a private objective
+    truths:
+    - the visible conflict hides a deeper historical cause
+    - someone is steering events to control the narrative
+    - the real stake is who defines Cirth going forward
+    complications:
+    - every option creates a new obligation with a local faction
+    - time pressure narrows safe choices
+    - an apparent ally is withholding critical context
+    hooks:
+    - stabilize the situation before it escalates into open violence
+    - uncover the hidden motive behind the public crisis
+    - choose which truth to reveal and who pays for it

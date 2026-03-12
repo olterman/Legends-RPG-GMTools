@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Smooth-Stepping Boots",
+  "slug": "smooth_stepping_boots",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "Pair of boots",
+  "effect": "When the boots are activated, for the next hour the wearer can move across rough or difficult terrain at normal speed, walk up walls, and even walk across liquids. In areas of low or no gravity, the wearer can walk along hard surfaces (even vertically or upside down) as if under normal gravity.",
+  "depletion": "1 in 1d100",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

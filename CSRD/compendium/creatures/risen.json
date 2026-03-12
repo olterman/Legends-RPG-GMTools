@@ -17,5 +17,11 @@
   "interaction": "Risen are rarely excitable; even those bent on mayhem are chillingly quiet as they murder and burn. Some risen are open to negotiation and alliances, while others would as soon shoot as talk.",
   "use": "Folks are concerned because someone who looks a lot like Luke Reynolds has taken up farming at the old Reynolds place, even though outlaws killed the whole family.",
   "loot": null,
-  "gm_intrusion": "The character recognizes the risen as someone they personally killed and is dazed with surprise until the end of their next turn, hindering all tasks."
+  "gm_intrusion": "The character recognizes the risen as someone they personally killed and is dazed with surprise until the end of their next turn, hindering all tasks.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

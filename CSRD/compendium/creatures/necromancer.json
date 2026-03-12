@@ -17,5 +17,10 @@
   "interaction": "Necromancers are feared for their nonchalant attitudes toward life, especially the life of normal people (such as peasants and city folk). They will negotiate but usually don’t have the capacity to care about another person’s well-being; they’re sociopathic.",
   "use": "A character has died, and their allies must find a necromancer to help retrieve their spirit. Of course, the necromancer wants something in return for this aid—perhaps an artifact pilfered from whatever underworld or hell the dead character is imprisoned within.",
   "loot": "Necromancers have one or two expensive items, a cypher, and possibly an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

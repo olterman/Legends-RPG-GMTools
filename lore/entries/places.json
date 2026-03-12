@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/Places.md",
   "excerpt": "**Cirdion** — ancient Alfirin coastal realm, white stone cliff-cities, wind-swept terraces, sky and sea aesthetics, advanced shipbuilding, meritocratic councils, immortal scholars, light-infused architecture, calm precision, openness masking deep restraint, hi",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -37,5 +38,13 @@
   "prompt_counts": {
     "lore": 1,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "Places",
+  "location_type": "city"
 }

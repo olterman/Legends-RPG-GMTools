@@ -1,0 +1,17 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Efficacy Boost",
+  "slug": "efficacy_boost_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "This cypher boosts an ability that requires a skill roll. The use of the ability is eased (eased by two steps if the cypher is level 5 or higher).",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

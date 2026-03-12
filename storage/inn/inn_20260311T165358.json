@@ -17,7 +17,13 @@
     },
     "text": "Inn or tavern prompt.\n\nName:\nThe Wolf and Pike.\n\nEnvironment:\nEnclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.\n\nDefining Trait:\nold local trophies, banners, or carved charms.\n\nCurrent Tension:\nsomeone important is expected before dawn.\n\nAtmosphere:\nloud and dangerous.\n\nSTYLE:\npainted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.\n",
     "metadata": {
-      "environment": "fenmir_wilds"
+      "environment": "fenmir_wilds",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

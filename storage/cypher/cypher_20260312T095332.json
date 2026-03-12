@@ -1,0 +1,36 @@
+{
+  "saved_at": "2026-03-12T09:53:32.857579+00:00",
+  "filename": "cypher/cypher_20260312T095332.json",
+  "payload": {
+    "environment": "fenmir_highlands"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "The Ember Needle",
+    "level": 4,
+    "sections": {
+      "name": "The Ember Needle",
+      "level": "4",
+      "manifestation": "clan oath pendant",
+      "appearance": "worn smooth by generations",
+      "effect": "predicts imminent danger in the surrounding terrain",
+      "limitation": "becomes inert after sunset",
+      "quirk": "causes nearby fires to flare brighter",
+      "style": "painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration"
+    },
+    "text": "Cypher.\n\nName:\nThe Ember Needle.\n\nLevel:\n4\n\nManifestation:\nclan oath pendant.\n\nAppearance:\nworn smooth by generations.\n\nEffect:\npredicts imminent danger in the surrounding terrain.\n\nLimitation / Depletion:\nbecomes inert after sunset.\n\nQuirk:\ncauses nearby fires to flare brighter.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
+    "metadata": {
+      "environment": "fenmir_highlands",
+      "level": 4,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "images": [
+        "uploads/artspace-ai-1773321367406_20260312T131631_3d62efb6.png"
+      ]
+    }
+  },
+  "schema_version": "1.0"
+}

@@ -17,5 +17,10 @@
   "interaction": "Gamma worms act like prey driven monsters, but they may have a secret language and purpose (if aliens placed them on Earth to hasten the apocalypse or kill survivors in the post apocalyptic world).",
   "use": "Irradiated and hungry gamma worms emerge from the ruins to hunt fresh meat in outlying communities.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

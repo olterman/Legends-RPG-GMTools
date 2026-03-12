@@ -1,0 +1,182 @@
+{
+  "name": "Chimera",
+  "type": "npc",
+  "img": "modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_chimera.webp",
+  "items": [],
+  "effects": [],
+  "folder": "W0sZosEl1NgPQTgJ",
+  "flags": {},
+  "system": {
+    "version": 4,
+    "basic": {
+      "level": 6,
+      "biography": "<p>Chimeras are unsettling hybrids that combine the features of many different animals, often arranged in odd formations. The fusion of animal forms is the only thing that unifies these creatures&mdash;otherwise, different chimeras often look very different from each other. They include combinations of goat and lion, lizard and bat, dragon and spider, dinosaur and giant insect. A few even display human features, such as an improbably located face or hands instead of claws. Some chimeras can fly. Others slither across the ground.</p>\n<p>A chimera typically has a dominant form to which other animal parts are grafted. The base form must be large enough to support the weight of the extra heads, so lions, bears, and horses are popular as the base form. Chimeras kill even when not hungry and throw their victims&rsquo; remains around a wide area in a wild rage. When not feeding or tormenting prey, a chimera that can fly takes to the air, beating its enormous leather wings to scour the landscape for new prey.</p>\n<p>Motive: Hungers for human flesh</p>\n<p><strong>Environment:</strong> Anywhere, usually alone</p>\n<p><strong>Health:</strong> 21</p>\n<p><strong>Damage Inflicted:</strong> 4 points</p>\n<p><strong>Movement:</strong> Short while on the ground; long while flying (if it can fly)</p>\n<p><strong>Modifications:</strong> Speed defense rolls as level 5 due to size</p>\n<p><strong>Combat:</strong> All chimeras have a number of ways to kill. The exact methods vary, but most can bite, sting, and gore (three attacks) as a single action, either attacking the same opponent or attacking different foes within immediate range of each other. A chimera&rsquo;s sting carries a powerful toxin, and a stung target must succeed on a Might defense roll or take 4 additional points of damage. Chimeras with spikes can project them at up to three targets within long range as a single action.</p>\n<p><strong>Interaction:</strong> Chimeras are a lot like wild animals with rabies. They&rsquo;re confused and violent, and they behave erratically. Savage, ferocious beasts, they hate all other creatures and seize any opportunity to kill.</p>\n<p><strong>Use:</strong> While exploring an island, the PCs find carcasses that have been torn apart, the pieces scattered in all directions. A chimera lairs nearby, and if the characters draw attention to themselves, it hunts them down, too.</p>\n<p><strong>GM intrusion:</strong> The chimera grabs a character it bites and flies off with the victim</p>"
+    },
+    "pools": {
+      "health": {
+        "value": 21,
+        "max": 21
+      }
+    },
+    "combat": {
+      "damage": 4,
+      "armor": 0
+    },
+    "description": "",
+    "notes": "<p>Chimeras are unsettling hybrids that combine the features of many different animals, often arranged in odd formations. The fusion of animal forms is the only thing that unifies these creatures&mdash;otherwise, different chimeras often look very different from each other. They include combinations of goat and lion, lizard and bat, dragon and spider, dinosaur and giant insect. A few even display human features, such as an improbably located face or hands instead of claws. Some chimeras can fly. Others slither across the ground.</p>\n<p>A chimera typically has a dominant form to which other animal parts are grafted. The base form must be large enough to support the weight of the extra heads, so lions, bears, and horses are popular as the base form. Chimeras kill even when not hungry and throw their victims&rsquo; remains around a wide area in a wild rage. When not feeding or tormenting prey, a chimera that can fly takes to the air, beating its enormous leather wings to scour the landscape for new prey.</p>\n<p><strong>Motive:</strong> Hungers for human flesh</p>\n<p><strong>Environment:</strong> Anywhere, usually alone</p>\n<p><strong>Health:</strong> 21</p>\n<p><strong>Damage Inflicted:</strong> 4 points</p>\n<p><strong>Movement:</strong> Short while on the ground; long while flying (if it can fly)</p>\n<p><strong>Modifications:</strong> Speed defense rolls as level 5 due to size</p>\n<p><strong>Combat:</strong> All chimeras have a number of ways to kill. The exact methods vary, but most can bite, sting, and gore (three attacks) as a single action, either attacking the same opponent or attacking different foes within immediate range of each other. A chimera&rsquo;s sting carries a powerful toxin, and a stung target must succeed on a Might defense roll or take 4 additional points of damage. Chimeras with spikes can project them at up to three targets within long range as a single action.</p>\n<p><strong>Interaction:</strong> Chimeras are a lot like wild animals with rabies. They&rsquo;re confused and violent, and they behave erratically. Savage, ferocious beasts, they hate all other creatures and seize any opportunity to kill.</p>\n<p><strong>Use:</strong> While exploring an island, the PCs find carcasses that have been torn apart, the pieces scattered in all directions. A chimera lairs nearby, and if the characters draw attention to themselves, it hunts them down, too.</p>\n<p><strong>GM Intrusion:</strong> The chimera grabs a character it bites and flies off with the victim</p>",
+    "settings": {
+      "general": {
+        "initiativeBonus": 0,
+        "hideArchive": false
+      },
+      "equipment": {
+        "ammo": {
+          "active": false
+        },
+        "attacks": {
+          "active": false
+        },
+        "armor": {
+          "active": false
+        },
+        "cyphers": {
+          "active": false,
+          "label": ""
+        },
+        "artifacts": {
+          "active": false,
+          "label": ""
+        },
+        "oddities": {
+          "active": false,
+          "label": ""
+        },
+        "materials": {
+          "active": false,
+          "label": ""
+        }
+      },
+      "skills": {},
+      "abilities": {}
+    },
+    "teen": {
+      "pools": {},
+      "basic": {},
+      "settings": {}
+    }
+  },
+  "prototypeToken": {
+    "name": "Chimera",
+    "displayName": 50,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false,
+        "type": null
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "attenuation": 0.5,
+      "color": null,
+      "negative": false,
+      "priority": 0
+    },
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "pools.health"
+    },
+    "bar2": {
+      "attribute": "basic.level"
+    },
+    "flags": {},
+    "randomImg": false,
+    "texture": {
+      "src": "modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_chimera.webp",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "appendNumber": false,
+    "prependAdjective": false,
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null
+  },
+  "_stats": {
+    "compendiumSource": "Compendium.cyphersystem-compendium.creatures.Actor.17NSMk419kHRvwoP",
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "lands-of-legend",
+      "uuid": "Actor.4Me0l5mtL8TZNzOY",
+      "coreVersion": "13.351",
+      "systemId": "cyphersystem",
+      "systemVersion": "3.4.3"
+    },
+    "coreVersion": "13.351",
+    "systemId": "cyphersystem",
+    "systemVersion": "3.4.3",
+    "createdTime": 1766429467518,
+    "modifiedTime": 1766429467518,
+    "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

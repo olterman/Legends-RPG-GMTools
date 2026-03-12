@@ -18,13 +18,13 @@ DEFAULT_EXCLUDED_RACE_KEYS = {
 
 def load_candidates(path: Path) -> dict[str, Any]:
     if not path.exists():
-        return {"summary": {}, "races": [], "environments": []}
+        return {"summary": {}, "races": [], "areas": []}
     return json.loads(path.read_text(encoding="utf-8"))
 
 
 def curated_candidates(data: dict[str, Any]) -> dict[str, Any]:
     races = data.get("races", []) or []
-    envs = data.get("environments", []) or []
+    envs = data.get("areas", []) or data.get("environments", []) or []
 
     curated_races = [
         item for item in races
@@ -42,9 +42,10 @@ def curated_candidates(data: dict[str, Any]) -> dict[str, Any]:
     return {
         "summary": data.get("summary", {}),
         "races": curated_races,
-        "environments": curated_envs,
+        "areas": curated_envs,
         "defaults": {
             "race_keys": race_defaults,
+            "area_keys": env_defaults,
             "environment_keys": env_defaults,
         },
         "excluded_race_keys": sorted(DEFAULT_EXCLUDED_RACE_KEYS),
@@ -63,19 +64,19 @@ def load_generated_yaml(path: Path) -> dict[str, Any]:
 def select_yaml_sections(
     generated_doc: dict[str, Any],
     race_keys: list[str],
-    environment_keys: list[str],
+    area_keys: list[str],
 ) -> dict[str, Any]:
     race_keys_set = {k.strip() for k in race_keys if k and str(k).strip()}
-    env_keys_set = {k.strip() for k in environment_keys if k and str(k).strip()}
+    env_keys_set = {k.strip() for k in area_keys if k and str(k).strip()}
 
     races = {
         k: v
         for k, v in (generated_doc.get("races", {}) or {}).items()
         if k in race_keys_set
     }
-    environments = {
+    areas = {
         k: v
-        for k, v in (generated_doc.get("environments", {}) or {}).items()
+        for k, v in ((generated_doc.get("areas", {}) or generated_doc.get("environments", {})) or {}).items()
         if k in env_keys_set
     }
     settlements = {
@@ -91,7 +92,8 @@ def select_yaml_sections(
 
     return {
         "races": races,
-        "environments": environments,
+        "areas": areas,
+        "environments": areas,
         "settlements": settlements,
         "encounters": encounters,
     }

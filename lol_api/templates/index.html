@@ -1,432 +1,287 @@
 {% extends "base.html" %}
 
+{% block title %}Welcome — OLT Cypher System GM-Tools{% endblock %}
+
+{% block head_extra %}
+<style>
+  .welcome-hero {
+    background: linear-gradient(135deg, rgba(176, 183, 201, 0.2), rgba(151,114,255,0.16));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .about-brand {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .about-brand img {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.06);
+    padding: 4px;
+    object-fit: contain;
+  }
+
+  .legal-copy {
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  .legal-copy a {
+    color: var(--accent-2);
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .toc-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel-2);
+    padding: 12px;
+  }
+
+  .toc-card h3 {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .toc-card p {
+    margin: 0 0 8px;
+    font-size: 0.94rem;
+  }
+
+  .toc-card a {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .plugin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+
+  .plugin-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel-2);
+    padding: 12px;
+  }
+
+  .plugin-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .plugin-name {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .plugin-path {
+    font-size: 0.85rem;
+    color: var(--muted);
+    word-break: break-all;
+  }
+
+  .plugin-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .plugin-toggle input {
+    width: auto;
+    transform: scale(1.15);
+  }
+</style>
+{% endblock %}
+
 {% block content %}
+<div class="welcome-hero">
+  <h1>Welcome to OLT Cypher System GM-Tools</h1>
+  <p>This workspace is evolving into a complete GM suite for generation, lore, rules lookup, and campaign management.</p>
+</div>
 
-    <h1>Lands of Legends Generator</h1>
-    <p>Generate characters, NPCs, settlements, encounters, cyphers, and inns.</p>
-
-    <div class="grid">
-      <form id="generator-form" class="panel">
-        <div class="field">
-          <label for="type">Content type</label>
-          <select id="type" name="type">
-            <option value="character">character</option>
-            <option value="npc">npc</option>
-            <option value="monster">monster</option>
-            <option value="settlement">settlement</option>
-            <option value="encounter">encounter</option>
-            <option value="cypher">cypher</option>
-            <option value="inn">inn</option>
-          </select>
-        </div>
-
-        <div id="character-fields">
-          <div class="row">
-            <div class="field">
-              <label for="gender">Gender</label>
-              <select id="gender" name="gender"></select>
-            </div>
-            <div class="field">
-              <label for="profession">Profession</label>
-              <select id="profession" name="profession"></select>
-            </div>
-          </div>
-          <div id="monster-fields" class="hidden">
-            <div class="row">
-              <div class="field">
-                <label for="monster-family">Monster family</label>
-                <select id="monster-family" name="monster-family">
-                  <option value="">Random</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="monster-role">Monster role</label>
-                <select id="monster-role" name="monster-role">
-                  <option value="">Random</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="field">
-              <label for="race">Race</label>
-              <select id="race" name="race"></select>
-            </div>
-            <div class="field">
-              <label for="variant">Variant</label>
-              <select id="variant" name="variant">
-                <option value="">None</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="environment">Environment</label>
-          <select id="environment" name="environment"></select>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label for="mood">Mood</label>
-            <input id="mood" name="mood" placeholder="Optional" />
-          </div>
-          <div class="field">
-            <label for="seed">Seed</label>
-            <input id="seed" name="seed" placeholder="Optional" />
-          </div>
-        </div>
-
-        <div class="actions">
-          <button type="submit">Generate</button>
-          <button type="button" class="secondary" id="copy-btn">Copy result</button>
-          <span class="status" id="status">Loading metadata...</span>
-        </div>
-      </form>
-
-      <div class="panel">
-        <div id="output" class="output-panel"></div>
-      </div>
+<div class="panel" style="margin-bottom:16px;">
+  <h2 style="margin-top:0;">About</h2>
+  <p>
+    The project combines your world-specific content with Cypher System references so you can create characters, locations, encounters, and supporting material faster while keeping everything organized by setting.
+  </p>
+  <p>
+    Current foundation: multi-setting tagging is now active across generated storage and lore content, so data can be filtered into setting/world subsets as the system grows.
+  </p>
+  <div class="about-brand">
+    <img
+      src="/images/CypherLogo/CSOL Logo-Cypher System Compatible-Color with White-Small.png"
+      alt="Cypher System Open License Compatible logo"
+    />
+    <div>
+      <strong>Cypher System Open License Notice</strong>
     </div>
+  </div>
+  <div class="legal-copy">
+    This project uses material from the Cypher System Open License.
+    This product is an independent production and is not affiliated with Monte Cook Games, LLC.
+    It is published under the Cypher System Open License, found at
+    <a href="https://csol.montecookgames.com/license/" target="_blank" rel="noopener">https://csol.montecookgames.com/license/</a>.
+    Cypher System and the Cypher System logo are trademarks of Monte Cook Games, LLC.
+  </div>
+</div>
 
-  <script>
-    const state = {
-      meta: null,
-      races: {},
-      allEnvironments: [],
-      monsterEnvironments: []
-    };
+<div class="panel">
+  <h2 style="margin-top:0;">Table of Contents (Early Draft)</h2>
+  <div class="toc-grid">
+    <div class="toc-card">
+      <h3>Generation</h3>
+      <p>Create characters, NPCs, monsters, settlements, encounters, cyphers, artifacts, and inns.</p>
+      <a href="/generator">Open Generator</a>
+    </div>
+    <div class="toc-card">
+      <h3>Character Studio</h3>
+      <p>Build sheet-ready Cypher characters with type, flavor, descriptor, and focus workflow.</p>
+      <a href="/character-studio">Open Character Studio</a>
+    </div>
+    <div class="toc-card">
+      <h3>Local Library</h3>
+      <p>Browse and filter locally saved generated content.</p>
+      <a href="/library">Open Local Library</a>
+    </div>
+    <div class="toc-card">
+      <h3>Unified Search</h3>
+      <p>Search local content and compendium records from one place.</p>
+      <a href="/search">Open Search</a>
+    </div>
+    <div class="toc-card">
+      <h3>Lore Browser</h3>
+      <p>Read lore entries and navigate your world material by category and setting.</p>
+      <a href="/lore-browser">Open Lore Browser</a>
+    </div>
+    <div class="toc-card">
+      <h3>Prompt Browser</h3>
+      <p>Review extracted lore/art prompt blocks.</p>
+      <a href="/prompt-browser">Open Prompt Browser</a>
+    </div>
+    <div class="toc-card">
+      <h3>CSRD Compendium</h3>
+      <p>Browse parsed Cypher System reference entries.</p>
+      <a href="/compendium-browser">Open Compendium</a>
+    </div>
+    <div class="toc-card">
+      <h3>Config Enrichment</h3>
+      <p>Apply curated config enrichments from lore scans.</p>
+      <a href="/config-enrichment">Open Config Enrichment</a>
+    </div>
+    <div class="toc-card">
+      <h3>Map Tools</h3>
+      <p>Campaign map support tools and utilities.</p>
+      <a href="/map-tools">Open Map Tools</a>
+    </div>
+  </div>
+</div>
 
-    const els = {
-      type: document.getElementById('type'),
-      gender: document.getElementById('gender'),
-      profession: document.getElementById('profession'),
-      race: document.getElementById('race'),
-      variant: document.getElementById('variant'),
-      environment: document.getElementById('environment'),
-      mood: document.getElementById('mood'),
-      seed: document.getElementById('seed'),
-      output: document.getElementById('output'),
-      status: document.getElementById('status'),
-      form: document.getElementById('generator-form'),
-      copyBtn: document.getElementById('copy-btn'),
-      characterFields: document.getElementById('character-fields'),
-      monsterFields: document.getElementById('monster-fields'),
-      monsterFamily: document.getElementById('monster-family'),
-      monsterRole: document.getElementById('monster-role'),
-    };
+<div class="panel" style="margin-top:16px;">
+  <h2 style="margin-top:0;">Plugins</h2>
+  <p style="margin-top:0;">Detected plugin folders under `plugins`/`Plugins`. Toggle to enable or disable integrations.</p>
+  <div id="plugins-status" class="status">Loading plugins...</div>
+  <div id="plugins-grid" class="plugin-grid"></div>
+</div>
+{% endblock %}
 
-    function fillSelect(select, values, includeBlank = false) {
-      select.innerHTML = '';
-      if (includeBlank) {
-        const opt = document.createElement('option');
-        opt.value = '';
-        opt.textContent = 'None';
-        select.appendChild(opt);
+{% block scripts %}
+<script>
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  async function loadPlugins() {
+    const statusEl = document.getElementById('plugins-status');
+    const gridEl = document.getElementById('plugins-grid');
+    try {
+      const response = await fetch('/plugins');
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || `Request failed: ${response.status}`);
       }
-      values.forEach(value => {
-        const opt = document.createElement('option');
-        opt.value = value;
-        opt.textContent = value;
-        select.appendChild(opt);
-      });
-    }
-
-    async function fetchJson(url) {
-      const res = await fetch(url);
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || `Request failed: ${res.status}`);
+      const items = Array.isArray(data.items) ? data.items : [];
+      if (!items.length) {
+        statusEl.textContent = 'No valid plugin folders found.';
+        gridEl.innerHTML = '';
+        return;
       }
-      return data;
-    }
-
-    function updateEnvironmentOptions() {
-      const type = els.type.value;
-      const current = els.environment.value;
-
-      let values = state.allEnvironments;
-      if (type === 'monster') {
-        values = state.monsterEnvironments.length
-          ? state.monsterEnvironments
-          : state.allEnvironments;
-      }
-
-      fillSelect(els.environment, values);
-
-      if (values.includes(current)) {
-        els.environment.value = current;
-      }
-    }
-
-    async function loadBootData() {
-      const [meta, races] = await Promise.all([
-        fetchJson('/meta'),
-        fetchJson('/meta/races')
-      ]);
-
-      state.meta = meta;
-      state.races = races.races || {};
-
-      fillSelect(
-        els.gender,
-        (meta.genders && meta.genders.length
-          ? meta.genders
-          : ['male', 'female', 'nonbinary'])
-      );
-      fillSelect(els.profession, meta.professions || []);
-      fillSelect(els.race, meta.races || []);
-      state.allEnvironments = meta.environments || [];
-      state.monsterEnvironments = meta.monster_environments || [];
-      fillSelect(els.environment, state.allEnvironments);
-      fillSelect(els.monsterFamily, meta.monster_families || [], true);
-      fillSelect(els.monsterRole, meta.monster_roles || [], true);
-      updateVariantOptions();
-      updateVisibleFields();
-      els.status.textContent = 'Ready.';
-    }
-
-    function updateVariantOptions() {
-      const race = els.race.value;
-      const raceData = state.races[race] || {};
-      const variants = Object.keys(raceData.variants || {});
-      fillSelect(els.variant, variants, true);
-    }
-
-    function updateVisibleFields() {
-      const type = els.type.value;
-      const isCharacterLike = type === 'character' || type === 'npc';
-      const isMonster = type === 'monster';
-
-      els.characterFields.classList.toggle('hidden', !isCharacterLike);
-      els.monsterFields.classList.toggle('hidden', !isMonster);
-
-      updateEnvironmentOptions();
-    }
-
-    function buildPayload() {
-      const type = els.type.value;
-      const payload = {
-        environment: els.environment.value,
-        mood: els.mood.value.trim(),
-        seed: els.seed.value.trim()
-      };
-
-      if (type === 'character' || type === 'npc') {
-        payload.gender = els.gender.value;
-        payload.profession = els.profession.value;
-        payload.race = els.race.value;
-        payload.variant = els.variant.value;
-      }
-
-      if (type === 'monster') {
-        payload.family = els.monsterFamily.value;
-        payload.role = els.monsterRole.value;
-      }
-
-      Object.keys(payload).forEach(key => {
-        if (!payload[key]) delete payload[key];
-      });
-
-      return payload;
-    }
-
-    function escapeHtml(text) {
-      return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-    }
-
-    function titleCase(key) {
-      return key
-        .replace(/_/g, " ")
-        .replace(/\b\w/g, c => c.toUpperCase());
-    }
-
-    function renderSectionsCard(title, sections) {
-      const rows = Object.entries(sections || {})
-        .filter(([key, value]) => key !== "style" && value)
-        .map(([key, value]) => `
-          <div class="output-row">
-            <div class="output-label">${escapeHtml(titleCase(key))}</div>
-            <div class="output-value">${escapeHtml(value)}</div>
+      statusEl.textContent = `${items.length} plugin${items.length === 1 ? '' : 's'} detected.`;
+      gridEl.innerHTML = items.map(item => `
+        <div class="plugin-card">
+          <div class="plugin-head">
+            <div class="plugin-name">${escapeHtml(item.name || item.id || 'plugin')}</div>
+            <label class="plugin-toggle">
+              <input type="checkbox" data-plugin-id="${escapeHtml(item.id)}" ${item.enabled ? 'checked' : ''} />
+              <span>${item.enabled ? 'Enabled' : 'Disabled'}</span>
+            </label>
           </div>
-        `)
-        .join("");
-
-      return `
-        <div class="output-card">
-          <h3>${escapeHtml(title)}</h3>
-          ${rows}
+          <div class="plugin-path">${escapeHtml(item.path || '')}</div>
         </div>
-      `;
-    }
+      `).join('');
 
-    function renderStatBlockCard(statBlock) {
-      const top = `
-        <div class="stat-grid">
-          <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(statBlock.level ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(statBlock.target_number ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(statBlock.health ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(statBlock.armor ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(statBlock.damage ?? "")}</div></div>
-          <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
-        </div>
-      `;
-    
-      const renderList = (label, items) => {
-        if (!items || !items.length) return "";
-        return `
-          <div class="output-row" style="margin-top:12px;">
-            <div class="output-label">${escapeHtml(label)}</div>
-            <ul class="output-list">
-              ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
-            </ul>
-          </div>
-        `;
-      };
-
-      return `
-        <div class="output-card">
-          <h3>Cypher NPC Stat Block</h3>
-          ${top}
-          ${renderList("Modifications", statBlock.modifications)}
-          ${renderList("Combat", statBlock.combat)}
-          ${renderList("Interaction", statBlock.interaction)}
-          ${renderList("Loot", statBlock.loot)}
-        </div>
-      `;
-    }
-
-    function renderCypherCard(result) {
-      const sections = result.sections || {};
-
-      return `
-        <div class="output-card">
-          <h3>Cypher Card</h3>
-          <div class="output-row">
-            <div class="output-label">Name</div>
-            <div class="output-value">${escapeHtml(result.name || sections.name || "Unnamed Cypher")}</div>
-          </div>
-          ${sections.level ? `
-          <div class="output-row">
-            <div class="output-label">Level</div>
-            <div class="output-value">${escapeHtml(sections.level)}</div>
-          </div>` : ""}
-          ${sections.manifestation ? `
-          <div class="output-row">
-            <div class="output-label">Manifestation</div>
-            <div class="output-value">${escapeHtml(sections.manifestation)}</div>
-          </div>` : ""}
-          ${sections.appearance ? `
-          <div class="output-row">
-            <div class="output-label">Appearance</div>
-            <div class="output-value">${escapeHtml(sections.appearance)}</div>
-          </div>` : ""}
-          ${sections.effect ? `
-          <div class="output-row">
-            <div class="output-label">Effect</div>
-            <div class="output-value">${escapeHtml(sections.effect)}</div>
-          </div>` : ""}
-          ${sections.limitation ? `
-          <div class="output-row">
-            <div class="output-label">Limitation / Depletion</div>
-            <div class="output-value">${escapeHtml(sections.limitation)}</div>
-          </div>` : ""}
-          ${sections.quirk ? `
-          <div class="output-row">
-            <div class="output-label">Quirk</div>
-            <div class="output-value">${escapeHtml(sections.quirk)}</div>
-          </div>` : ""}
-        </div>
-      `;
-    }
-
-    function renderResult(data) {
-      let html = "";
-
-      if (data.type === "cypher") {
-        html += renderCypherCard(data);
-      } else {
-        if (data.name) {
-          html += `
-            <div class="output-card">
-              <h3>Name</h3>
-              <div class="output-value">${escapeHtml(data.name)}</div>
-            </div>
-          `;
-        }
-
-        if (data.sections) {
-          html += renderSectionsCard("Generated Content", data.sections);
-        }
-
-        if (data.stat_block) {
-          html += renderStatBlockCard(data.stat_block);
-        }
-      }
-
-      if (!html && data.text) {
-        html = `
-          <div class="output-card">
-            <h3>Generated Output</h3>
-            <div class="output-value">${escapeHtml(data.text)}</div>
-          </div>
-        `;
-      }
-
-      if (!html) {
-        html = `
-          <div class="output-card">
-            <h3>Raw Output</h3>
-            <div class="output-value">${escapeHtml(JSON.stringify(data, null, 2))}</div>
-          </div>
-        `;
-      }
-
-      els.output.innerHTML = html;
-    }
-
-    async function submitForm(event) {
-      event.preventDefault();
-      const type = els.type.value;
-      const payload = buildPayload();
-      els.status.textContent = 'Generating...';
-      els.output.innerHTML = '';
-
-      try {
-        const res = await fetch(`/generate/${type}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+      gridEl.querySelectorAll('input[data-plugin-id]').forEach(input => {
+        input.addEventListener('change', async (event) => {
+          const checkbox = event.currentTarget;
+          const pluginId = checkbox.getAttribute('data-plugin-id');
+          const nextEnabled = checkbox.checked;
+          const label = checkbox.parentElement && checkbox.parentElement.querySelector('span');
+          checkbox.disabled = true;
+          if (label) label.textContent = nextEnabled ? 'Enabled' : 'Disabled';
+          try {
+            const res = await fetch('/plugins/toggle', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: pluginId, enabled: nextEnabled }),
+            });
+            const payload = await res.json();
+            if (!res.ok) {
+              throw new Error(payload.error || `Toggle failed: ${res.status}`);
+            }
+          } catch (err) {
+            checkbox.checked = !nextEnabled;
+            if (label) label.textContent = checkbox.checked ? 'Enabled' : 'Disabled';
+            statusEl.textContent = `Plugin update failed: ${err.message}`;
+          } finally {
+            checkbox.disabled = false;
+          }
         });
-
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
-
-        renderResult(data);
-        els.status.textContent = data.name ? `Generated: ${data.name}` : 'Generated.';
-      } catch (err) {
-        els.output.innerHTML = '';
-        els.status.textContent = `Error: ${err.message}`;
-      }
+      });
+    } catch (err) {
+      statusEl.textContent = `Failed to load plugins: ${err.message}`;
+      gridEl.innerHTML = '';
     }
+  }
 
-    async function copyOutput() {
-      const text = els.output.innerText.trim();
-      if (!text) return;
-      await navigator.clipboard.writeText(text);
-      els.status.textContent = 'Copied to clipboard.';
-    }
-
-    els.type.addEventListener('change', updateVisibleFields);
-    els.race.addEventListener('change', updateVariantOptions);
-    els.form.addEventListener('submit', submitForm);
-    els.copyBtn.addEventListener('click', copyOutput);
-
-    loadBootData().catch(err => {
-      els.status.textContent = `Error loading metadata: ${err.message}`;
-    });
-  </script>
-  {% endblock %}
+  loadPlugins();
+</script>
+{% endblock %}

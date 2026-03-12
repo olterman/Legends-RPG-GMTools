@@ -1,0 +1,16 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Undead Ward",
+  "slug": "undead_ward_2",
+  "category": "Fantasy Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "For one hour, the user gains Armor equal to the cypher’s level against damage from skeletons, zombies, ghosts, vampires, and other undead creatures.",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
+}

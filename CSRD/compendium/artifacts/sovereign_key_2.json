@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sovereign Key",
+  "slug": "sovereign_key_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Slender golden key",
+  "effect": "When touched to a lock or the surface of a sealed object (such as a chest, envelope, or urn), the key briefly glows and attempts to open the target. Sealed objects fall open like peeled fruits if their level is equal to or less than the artifact level, and locks open easily if their level is equal to or less than the artifact level.",
+  "depletion": "1 in 1d10",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

@@ -17,5 +17,9 @@
   "interaction": "A worm that walks can communicate telepathically with characters within short range. It negotiates only with those strong enough to harm it; otherwise, it tries to eat whoever it runs across. Even if the worm that walks makes a deal, it eventually reneges if it senses any advantage for doing so.",
   "use": "A worm that walks has been active in a small rural community for weeks, apparently in preparation for something it calls “the Great Hatching.” If that refers to the hatching of more psychic grubs, it could spell trouble for a much larger region.",
   "loot": "A worm that walks might have one or two cyphers, though during combat it will use any devices that could help it in the fight.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

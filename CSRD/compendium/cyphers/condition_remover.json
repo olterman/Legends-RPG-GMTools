@@ -7,5 +7,11 @@
   "level": "1d6 + 3",
   "form": null,
   "effect": "Cures one occurrence of one specific health condition of the cypher level or lower. It does not prevent the possibility of future occurrences of the same condition. Roll a d20 to determine what it cures.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

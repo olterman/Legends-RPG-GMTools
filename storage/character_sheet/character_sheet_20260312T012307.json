@@ -1,5 +1,6 @@
 {
-  "saved_at": "2026-03-12T01:24:30.304401+00:00",
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T13:42:12.450484+00:00",
   "filename": "character_sheet/character_sheet_20260312T012307.json",
   "payload": {},
   "result": {
@@ -84,14 +85,16 @@
         "Magic Training",
         "Shatter"
       ],
+      "chosen_skills": [],
       "equipment": [],
       "notes": "",
+      "pdf_fields": {},
       "generated": null,
       "metadata": {
         "name": "Alara Windrose",
-        "race": "alfirin",
+        "race": "lilim",
         "profession": "poet_warrior",
-        "environment": "pirate_seas",
+        "area": "pirate_seas",
         "character_type": "Adept",
         "flavor": "Combat Flavor",
         "descriptor": "Impulsive",
@@ -101,8 +104,15 @@
       "wizard_completed": true
     },
     "metadata": {
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "pirate_seas",
+      "location": null,
       "environment": "pirate_seas",
-      "race": "alfirin",
+      "race": "lilim",
       "profession": "poet_warrior",
       "character_type": "Adept",
       "flavor": "Combat Flavor",

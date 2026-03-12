@@ -17,5 +17,10 @@
   "interaction": "Some detectives are insufferable know-it-alls. Others have learned that humility is also a useful tool for getting answers from people.",
   "use": "To the PCs, detectives can be obstacles (a detective is on their trail), allies (a detective helps them assemble clues), or both, but the sleuths are rarely a way for the characters to hand off responsibility for accomplishing a hard task.",
   "loot": "Aside from their weapons, most detectives have currency equivalent to a very expensive item and a cypher.",
-  "gm_intrusion": "The detective intuits the character’s next attack and moves perfectly so that an ally of the character takes the attack instead."
+  "gm_intrusion": "The detective intuits the character’s next attack and moves perfectly so that an ally of the character takes the attack instead.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

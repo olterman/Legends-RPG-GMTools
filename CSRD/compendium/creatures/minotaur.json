@@ -17,5 +17,12 @@
   "interaction": "Minotaurs can speak, usually in their own language or another crude humanoid language. However, they typically choose not to speak to weaker creatures (such as humans).",
   "use": "A wandering gang of minotaurs has been stealing livestock from a local village and is ready to start hunting humans. A minotaur gladiator escaped from a secret underground arena and is stalking prey in the city. Something lurks in a corn maze, leaving nothing but bones and bloodstains.",
   "loot": "Minotaurs don’t have much use for coins but keep a few small trophies, such as ivory dice, gems, or simple jewelry. The most powerful minotaur in the tribe may have a cypher or even a mastercraft weapon.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "science_fiction",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

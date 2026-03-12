@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T14:08:11.570678+00:00",
+  "filename": "cypher/cypher_20260312T140811_20260312T140811.json",
+  "payload": {
+    "area": "pirate_seas",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "profession": "",
+    "setting": ""
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Blinking",
+    "level": 2,
+    "sections": {
+      "name": "Blinking",
+      "level": "2",
+      "effect": "<p><strong>Level:</strong> 1d6</p>\n<p><strong>Effect:</strong> For the next day, each time the user is struck hard enough to take damage (but not more than once per round), they teleport an immediate distance in a random direction (not up or down). Since the user is prepared for this effect and their foe is not, the user&rsquo;s defenses are eased for one round after they teleport.</p>"
+    },
+    "metadata": {
+      "source": "foundry_vtt",
+      "origin": "foundry_import",
+      "owner_character_name": "Aurora",
+      "owner_character_filename": "character_sheet/character_sheet_20260312T140811.json",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  }
+}

@@ -17,5 +17,11 @@
   "interaction": "Wraiths communicate by radio. They react to outsiders as dictated by their place in the setting.",
   "use": "A distant space station stops all communication. Investigators are dispatched to find out what happened. Once aboard, they unravel clues that suggest wraiths may have been responsible.",
   "loot": "Some wraiths carry valuable items and equipment.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

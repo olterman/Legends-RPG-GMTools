@@ -17,5 +17,9 @@
   "interaction": "Other than their singing, harpies do not usually speak with other creatures. They are more likely to jeer and screech at people like an angry bird than try to communicate.",
   "use": "A flock of harpies torments a village during its harvest festival, ruining the celebration and some of the food set aside for the winter. Sailors speak of a lonely island where an old, blind king starves because harpies steal or foul any food set out for him.",
   "loot": "A harpy nest may have one or two cyphers or other valuables, but the items will smell disgusting unless carefully washed.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,11 @@
   "interaction": "Liches hate being interrupted and have more important things to do than answer questions from mortal weaklings. A lich may be convinced to teach a character a spell, especially if given a spell, cypher, or artifact in trade.",
   "use": "A lich is planning a ritual to raise an army of skeletons or zombies to attack the kingdom. A lich has made a pact with a demon to unleash a plague in exchange for obscure magical knowledge.",
   "loot": "A lich has 1d6 cyphers and usually an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

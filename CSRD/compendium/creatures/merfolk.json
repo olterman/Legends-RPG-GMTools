@@ -17,5 +17,9 @@
   "interaction": "Merfolk react according to their role in merfolk society—farmer, rancher, guard, explorer, noble, and so on. Some merfolk are more aggressive or hostile and dislike the presence of land-walkers in their territory. Most merfolk are amiable to conversation and trade with people who treat them with fairness and respect.",
   "use": "Merfolk are often seen sunning themselves on a small island off the coast. Merfolk warriors accompanied by trained large fish have been harassing boats and ships that stray too far from the shallows and shores.",
   "loot": "In addition to several small pieces of jewelry, a group of merfolk might have a manifest cypher. A noble or royal merperson usually has a cypher and might have an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

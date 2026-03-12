@@ -1,0 +1,15 @@
+services:
+  legends-gmtools:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: legends-gmtools:latest
+    container_name: legends-gmtools
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-5000}:5000"
+    volumes:
+      - ./storage:/app/storage
+      - ./lore:/app/lore
+      - ./images:/app/images
+      - ./config:/app/config

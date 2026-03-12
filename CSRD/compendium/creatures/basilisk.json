@@ -17,5 +17,9 @@
   "interaction": "Basilisks act like simple animals and respond threateningly if disturbed or provoked. If not hungry, a basilisk avoids conflict and hides in its lair.",
   "use": "A blighted area in a field, briar, or forest suggests that a basilisk has moved into the area. Swarms of snakes enter a village, fleeing an approaching basilisk.",
   "loot": "Basilisk venom is valuable, but it must be stored in a strong, sealed container or the bearer will succumb to the poison. Its blood has alchemical properties relating to transmuting metals.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

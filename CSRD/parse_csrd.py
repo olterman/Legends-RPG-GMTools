@@ -7,11 +7,13 @@ from pathlib import Path
 from typing import Any
 
 from docx import Document
+import yaml
 
 
 BASE_DIR = Path(__file__).resolve().parent
 DOCX_PATH = BASE_DIR / "Cypher-System-Reference-Document-2025-08-22.docx"
 OUT_DIR = BASE_DIR / "compendium"
+SETTINGS_OVERRIDES_PATH = BASE_DIR / "settings_overrides.yaml"
 
 
 CREATURE_FIELD_ORDER = [
@@ -44,6 +46,34 @@ CATEGORY_HEADINGS = {
     "DARK MAGIC AND OCCULT CYPHERS",
     "FANTASY CYPHERS",
     "HORROR CYPHERS",
+}
+
+CATEGORY_SETTING_TAGS = {
+    "ALIEN CYPHERS": ["science_fiction"],
+    "BODY HORROR CYPHERS": ["horror"],
+    "CLASSIC MONSTER CYPHERS": ["fantasy", "horror"],
+    "DARK MAGIC AND OCCULT CYPHERS": ["fantasy", "horror"],
+    "FANTASY CYPHERS": ["fantasy"],
+    "HORROR CYPHERS": ["horror"],
+}
+
+GLOBAL_CSRD_SETTINGS = ["csrd_core"]
+
+SETTING_KEYWORDS = {
+    "fantasy": [
+        "dragon", "demon", "angel", "faerie", "elf", "dwarf", "orc", "goblin",
+        "wizard", "sorcer", "necromancer", "paladin", "lich", "undead", "wyrm",
+        "troll", "minotaur", "satyr", "sphinx", "wyvern", "manticore",
+    ],
+    "science_fiction": [
+        "alien", "android", "robot", "cyber", "nanite", "nanotech", "starship",
+        "space", "posthuman", "synthetic", "machine", "drone", "interstellar",
+        "galactic", "quantum",
+    ],
+    "horror": [
+        "horror", "ghost", "wraith", "zombie", "vampire", "ghoul", "nightmare",
+        "eldritch", "abomination", "curse", "cursed", "haunt", "dread", "terror",
+    ],
 }
 
 
@@ -122,15 +152,24 @@ def parse_field_line(line: str) -> tuple[str, str] | None:
     return key, value
 
 
-def save_json(folder: Path, title: str, data: dict[str, Any]) -> None:
+def save_json(folder: Path, title: str, data: dict[str, Any], *, dedupe_slug: bool = False) -> None:
     folder.mkdir(parents=True, exist_ok=True)
     filename_slug = data.get("slug") or slugify(title)
     normalized_slug = slugify(str(filename_slug))
     if len(normalized_slug) > 110:
         digest = hashlib.sha1(normalized_slug.encode("utf-8")).hexdigest()[:10]
         normalized_slug = f"{normalized_slug[:99]}_{digest}"
-    path = folder / f"{normalized_slug}.json"
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    slug = normalized_slug
+    path = folder / f"{slug}.json"
+    if dedupe_slug:
+        suffix = 2
+        while path.exists():
+            slug = f"{normalized_slug}_{suffix}"
+            path = folder / f"{slug}.json"
+            suffix += 1
+    payload = dict(data)
+    payload["slug"] = slug
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def clear_json_files(folder: Path) -> None:
@@ -220,9 +259,33 @@ def parse_creatures(lines: list[str]) -> list[dict[str, Any]]:
             "loot": fields.get("Loot"),
             "gm_intrusion": fields.get("GM intrusion") or fields.get("GM intrusions"),
         }
+        creature_settings = infer_settings_from_text(
+            " ".join([
+                title,
+                fields.get("Environment") or "",
+                fields.get("Motive") or "",
+                fields.get("Combat") or "",
+                clean(" ".join(description_parts)),
+            ])
+        )
+        creature["settings"] = creature_settings
+        creature["setting"] = creature_settings[0]
         creatures.append(creature)
 
     return creatures
+
+
+def infer_settings_from_text(text: str) -> list[str]:
+    normalized = clean(text).lower()
+    settings = list(GLOBAL_CSRD_SETTINGS)
+    for setting, keywords in SETTING_KEYWORDS.items():
+        if any(re.search(rf"\b{re.escape(keyword)}\w*\b", normalized) for keyword in keywords):
+            settings.append(setting)
+    deduped: list[str] = []
+    for token in settings:
+        if token not in deduped:
+            deduped.append(token)
+    return deduped
 
 
 def parse_cyphers(lines: list[str]) -> list[dict[str, Any]]:
@@ -293,6 +356,10 @@ def parse_cyphers(lines: list[str]) -> list[dict[str, Any]]:
         flush_current()
 
         if "Level" in fields and "Effect" in fields:
+            settings = list(GLOBAL_CSRD_SETTINGS)
+            for token in CATEGORY_SETTING_TAGS.get(str(current_category or "").upper(), []):
+                if token not in settings:
+                    settings.append(token)
             cypher = {
                 "type": "cypher",
                 "source": "Cypher System Reference Document 2025-08-22",
@@ -303,10 +370,128 @@ def parse_cyphers(lines: list[str]) -> list[dict[str, Any]]:
                 "form": fields.get("Form"),
                 "effect": fields.get("Effect"),
                 "depletion": fields.get("Depletion"),
+                "settings": settings,
+                "setting": settings[0],
             }
             cyphers.append(cypher)
 
     return cyphers
+
+
+def cypher_is_artifact(cypher: dict[str, Any]) -> bool:
+    depletion = clean(str(cypher.get("depletion") or ""))
+    if not depletion:
+        return False
+    normalized = depletion.lower()
+    if normalized in {"-", "—", "n/a", "na", "none"}:
+        return False
+    return bool(re.search(r"\d", normalized))
+
+
+def split_cyphers_and_artifacts(cyphers: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    parsed_cyphers: list[dict[str, Any]] = []
+    artifacts: list[dict[str, Any]] = []
+    for item in cyphers:
+        if cypher_is_artifact(item):
+            artifact = dict(item)
+            artifact["type"] = "artifact"
+            artifacts.append(artifact)
+        else:
+            parsed_cyphers.append(item)
+    return parsed_cyphers, artifacts
+
+
+def attach_global_csrd_settings(items: list[dict[str, Any]]) -> None:
+    for item in items:
+        settings = [str(x).strip() for x in (item.get("settings") or []) if str(x).strip()]
+        for token in GLOBAL_CSRD_SETTINGS:
+            if token not in settings:
+                settings.append(token)
+        if settings:
+            item["settings"] = settings
+            item["setting"] = settings[0]
+
+
+def load_settings_overrides(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    return data if isinstance(data, dict) else {}
+
+
+def _override_bucket_name(item_type: str) -> str:
+    if item_type.endswith("y"):
+        return f"{item_type[:-1]}ies"
+    if item_type.endswith("s"):
+        return item_type
+    return f"{item_type}s"
+
+
+def _normalize_settings_list(raw: Any) -> list[str]:
+    values: list[str] = []
+    if isinstance(raw, str):
+        raw_values = [raw]
+    elif isinstance(raw, (list, tuple, set)):
+        raw_values = list(raw)
+    else:
+        raw_values = []
+    for value in raw_values:
+        token = slugify(str(value))
+        if token and token not in values:
+            values.append(token)
+    return values
+
+
+def apply_settings_overrides(
+    items: list[dict[str, Any]],
+    *,
+    item_type: str,
+    overrides: dict[str, Any],
+) -> None:
+    singular_bucket = overrides.get(item_type, {})
+    plural_bucket = overrides.get(_override_bucket_name(item_type), {})
+    candidates = [singular_bucket, plural_bucket]
+
+    for item in items:
+        slug = str(item.get("slug") or "").strip()
+        if not slug:
+            continue
+
+        item_override: dict[str, Any] = {}
+        for bucket in candidates:
+            if isinstance(bucket, dict) and isinstance(bucket.get(slug), dict):
+                item_override = bucket.get(slug) or {}
+                break
+        if not item_override:
+            continue
+
+        settings = _normalize_settings_list(item.get("settings"))
+        if not settings:
+            settings = _normalize_settings_list(item.get("setting"))
+        if not settings:
+            settings = list(GLOBAL_CSRD_SETTINGS)
+
+        replace = item_override.get("replace")
+        if replace is not None:
+            settings = _normalize_settings_list(replace)
+
+        for token in _normalize_settings_list(item_override.get("add")):
+            if token not in settings:
+                settings.append(token)
+
+        remove_set = set(_normalize_settings_list(item_override.get("remove")))
+        settings = [token for token in settings if token not in remove_set]
+
+        if not settings:
+            settings = list(GLOBAL_CSRD_SETTINGS)
+
+        preferred = _normalize_settings_list(item_override.get("setting"))
+        if preferred:
+            chosen = preferred[0]
+            settings = [chosen] + [token for token in settings if token != chosen]
+
+        item["settings"] = settings
+        item["setting"] = settings[0]
 
 
 def is_all_caps_heading(line: str) -> bool:
@@ -984,8 +1169,10 @@ def main() -> None:
         raise FileNotFoundError(f"Missing DOCX: {DOCX_PATH}")
 
     lines = read_docx_paragraphs(DOCX_PATH)
+    overrides = load_settings_overrides(SETTINGS_OVERRIDES_PATH)
 
-    cyphers = parse_cyphers(lines)
+    parsed_cyphers = parse_cyphers(lines)
+    cyphers, artifacts = split_cyphers_and_artifacts(parsed_cyphers)
     creatures = parse_creatures(lines)
     character_types = parse_character_types(lines)
     flavors = parse_flavors(lines)
@@ -994,7 +1181,14 @@ def main() -> None:
     abilities = parse_abilities(lines)
     skills = extract_skills(descriptors, character_types, flavors, foci, abilities)
 
+    attach_global_csrd_settings(cyphers)
+    attach_global_csrd_settings(artifacts)
+    apply_settings_overrides(cyphers, item_type="cypher", overrides=overrides)
+    apply_settings_overrides(artifacts, item_type="artifact", overrides=overrides)
+    apply_settings_overrides(creatures, item_type="creature", overrides=overrides)
+
     cypher_dir = OUT_DIR / "cyphers"
+    artifact_dir = OUT_DIR / "artifacts"
     creature_dir = OUT_DIR / "creatures"
     type_dir = OUT_DIR / "types"
     flavor_dir = OUT_DIR / "flavors"
@@ -1003,11 +1197,14 @@ def main() -> None:
     ability_dir = OUT_DIR / "abilities"
     skill_dir = OUT_DIR / "skills"
 
-    for folder in [cypher_dir, creature_dir, type_dir, flavor_dir, descriptor_dir, focus_dir, ability_dir, skill_dir]:
+    for folder in [cypher_dir, artifact_dir, creature_dir, type_dir, flavor_dir, descriptor_dir, focus_dir, ability_dir, skill_dir]:
         clear_json_files(folder)
 
     for item in cyphers:
-        save_json(cypher_dir, item["title"], item)
+        save_json(cypher_dir, item["title"], item, dedupe_slug=True)
+
+    for item in artifacts:
+        save_json(artifact_dir, item["title"], item, dedupe_slug=True)
 
     for item in creatures:
         save_json(creature_dir, item["title"], item)
@@ -1032,6 +1229,7 @@ def main() -> None:
 
     index = {
         "cyphers": len(cyphers),
+        "artifacts": len(artifacts),
         "creatures": len(creatures),
         "types": len(character_types),
         "flavors": len(flavors),
@@ -1046,6 +1244,7 @@ def main() -> None:
     )
 
     print(f"Parsed {len(cyphers)} cyphers")
+    print(f"Parsed {len(artifacts)} artifacts")
     print(f"Parsed {len(creatures)} creatures")
     print(f"Parsed {len(character_types)} types")
     print(f"Parsed {len(flavors)} flavors")

@@ -17,5 +17,11 @@
   "interaction": "Dire coyotes have a secret language and society, but usually present to outsiders as just particularly dangerous coyotes. However, if they wish, dire coyotes can speak with the voice and memories of any ghost they have personally destroyed.",
   "use": "A sheriff who posted a bounty on dire coyotes has gone missing, and their spouse needs someone to go find them. GM intrusion: The dire coyote takes on the likeness of a ghost of someone the character knew—the ghost is someone the dire coyote has recently destroyed",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

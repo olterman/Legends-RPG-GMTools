@@ -17,5 +17,10 @@
   "interaction": "A witchfox in human form tries to keep up the pretense of being human for as long as possible. Once their true nature is revealed, they’re likely to bargain for what they want (a home, safety, their magical cravings) or attack or flee if negotiations turn against them.",
   "use": "A witchfox is potentially a threat, thief, criminal, rival, informant, or romantic partner, depending on their personal attitude and the reaction of the player characters. They like to trade secrets they know in exchange for safety and companionship.",
   "loot": "A witchfox usually has one or two cyphers and some magical ingredients. Most of their other wealth is actually leaves, twigs, stones, and scrap paper, all covered with illusions.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,9 @@
   "interaction": "A killer clown is all jokes, magic tricks, and juggling, until it decides it’s time to strike.",
   "use": "The creepy circus that just pulled into town is guarded by a killer clown, as late-night investigators soon learn.",
   "loot": "A killer clown might have one or two cyphers in the form of a joy buzzer, cards, and cheap trinkets.",
-  "gm_intrusion": "The clown snatches a weapon, cypher, or other object from the character’s hand as a level 6 attack, and if successful, immediately uses it on the character."
+  "gm_intrusion": "The clown snatches a weapon, cypher, or other object from the character’s hand as a level 6 attack, and if successful, immediately uses it on the character.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

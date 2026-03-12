@@ -1,0 +1,57 @@
+settings:
+  core:
+    - fantasy
+    - modern
+    - modern_magic
+    - cyberpunk
+    - science_fiction
+    - horror
+    - romance
+    - superheroes
+    - post_apocalyptic
+    - fairy_tale
+    - historical
+    - weird_west
+
+  catalog:
+    fantasy:
+      label: Fantasy
+      worlds:
+        - lands_of_legends
+    modern:
+      label: Modern
+      worlds: []
+    modern_magic:
+      label: Modern Magic
+      worlds: []
+    cyberpunk:
+      label: Cyberpunk
+      worlds: []
+    science_fiction:
+      label: Science Fiction
+      worlds: []
+    horror:
+      label: Horror
+      worlds: []
+    romance:
+      label: Romance
+      worlds: []
+    superheroes:
+      label: Superheroes
+      worlds: []
+    post_apocalyptic:
+      label: Post-Apocalyptic
+      worlds: []
+    fairy_tale:
+      label: Fairy Tale
+      worlds: []
+    historical:
+      label: Historical
+      worlds: []
+    weird_west:
+      label: Weird West
+      worlds: []
+
+  defaults:
+    - fantasy
+    - lands_of_legends

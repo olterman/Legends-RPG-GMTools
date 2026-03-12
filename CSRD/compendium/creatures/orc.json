@@ -17,5 +17,10 @@
   "interaction": "Most fey are willing to talk, and those of the Summer Court are especially eager to make deals. However, people who bargain with fey nobles should take care to avoid being tricked.",
   "use": "The characters find a fey noble wounded and in need of aid.",
   "loot": "In addition to fine clothing, fine equipment, and a considerable sum of currency, a prince or princess of summer might carry a few cyphers and even a faerie artifact.",
-  "gm_intrusion": "The character is blinded for up to one minute by a shaft of brilliant sunlight unless they succeed on a Might defense task."
+  "gm_intrusion": "The character is blinded for up to one minute by a shaft of brilliant sunlight unless they succeed on a Might defense task.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

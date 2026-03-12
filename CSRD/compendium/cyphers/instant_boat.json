@@ -3,9 +3,15 @@
   "source": "Cypher System Reference Document 2025-08-22",
   "title": "Instant Boat",
   "slug": "instant_boat",
-  "category": "Fantasy Cyphers",
+  "category": "Dark Magic And Occult Cyphers",
   "level": "1d6 + 2",
   "form": null,
   "effect": "Creates or transforms into a small sailboat that can carry up to eight people. The user or other characters must row, steer, and sail the boat as normal. At cypher level 5 and higher, the boat grants an asset on all tasks relating to its movement, and at cypher level 7 and higher, the boat can move a short distance each round under its own power. The boat lasts for a day, after which it vanishes.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

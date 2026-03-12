@@ -17,5 +17,10 @@
   "interaction": "Fatal malware isn’t really sentient and thus can’t really be negotiated with; some instances could mimic intelligence to draw humans into a trap.",
   "use": "An instance of fatal malware has gotten into a shipmind, which is making the normally trustworthy AI act out in unexpectedly dangerous ways. The shipmind itself doesn’t know it’s infected.",
   "loot": "Most inquisitors carry a couple of manifest cyphers that have offensive and defensive capabilities. MALWARE, FATAL 4 (12) This purely malefic program has aggressive machine learning capabilities, allowing it to accomplish truly innovative and nasty tricks. Fatal malware may have originated as a simple virus or spyware coded for a specific purpose, but corruption and lightning-quick electronic evolution has turned it into something that exists purely to infect orderly electronic systems, spacecraft, space stations, smart weapons, and anything else with an operating system. Infected objects turn against living people. An instance often has the form of the system it’s infected, but occasionally fatal malware physically manifests as a metallic “cancer” of wires and self-assembling circuits hanging like a tumor across a server room, shipmind core, or data center, having perverted the original machine’s self-repair functions. Sometimes 4D printers are also compromised.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

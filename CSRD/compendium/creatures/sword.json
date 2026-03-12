@@ -17,5 +17,9 @@
   "interaction": "Sword is full of swagger, often causing fights with biting insults. However, if she can’t incite a fight, she’s just as happy to start one herself, especially as part of a false flag operation.",
   "use": "A band of raiders, dozens strong, appears on the horizon. Leading them is a woman on a red horse.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

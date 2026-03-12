@@ -17,5 +17,10 @@
   "interaction": "When Anathema is riled up during a fight, it’s difficult to reason with him. However, he is willing to negotiate if someone offers him wealth or convinces him they have valuable secrets for breaking mental blocks. Anathema doesn’t know how he became the way he is, and he wants to recover his missing memories.",
   "use": "The rolling earthquake afflicting the city is actually Anathema fighting a group of newbie superheroes who haven’t figured out that engaging the red mountain will likely cause more deaths than leaving him alone. (The first rule of fighting Anathema is to lead or move him somewhere with a low population density.)",
   "loot": "Anathema doesn’t normally carry wealth or other valuables. In his lair, Anathema typically has three to five expensive items, 1d6 cyphers, and possibly an artifact.",
-  "gm_intrusion": "Anathema’s attack sends the character flying a long distance and potentially into dangerous terrain."
+  "gm_intrusion": "Anathema’s attack sends the character flying a long distance and potentially into dangerous terrain.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

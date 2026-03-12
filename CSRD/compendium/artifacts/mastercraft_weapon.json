@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mastercraft Weapon",
+  "slug": "mastercraft_weapon",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Weapon of exceptional quality",
+  "effect": "This weapon grants its wielder an asset for attack rolls made with it.",
+  "depletion": "— Depending on the game world, mastercraft armor and weapons might be magical, mundanely crafted with exceptional quality, or both. To randomly determine what kind of mastercraft armor or weapon is found, see Chapter 4: Medieval Fantasy Equipment, page 34.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

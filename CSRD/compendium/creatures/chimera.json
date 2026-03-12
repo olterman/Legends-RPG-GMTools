@@ -17,5 +17,10 @@
   "interaction": "Chimeras are a lot like wild animals with rabies. They’re confused and violent, and they behave erratically. Savage, ferocious beasts, they hate all other creatures and seize any opportunity to kill.",
   "use": "While exploring an island, the PCs find carcasses that have been torn apart, the pieces scattered in all directions. A chimera lairs nearby, and if the characters draw attention to themselves, it hunts them down, too.",
   "loot": null,
-  "gm_intrusion": "The chimera grabs a character it bites and flies off with the victim"
+  "gm_intrusion": "The chimera grabs a character it bites and flies off with the victim",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

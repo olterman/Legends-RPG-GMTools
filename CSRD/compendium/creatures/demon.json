@@ -17,5 +17,11 @@
   "interaction": "A demon allows a possessed host to act normally, as long as it doesn’t reveal the demon’s presence. If its presence is known, the demon might negotiate, but only after a tirade of lies and obscenity, and the demon likely betrays any deal reached.",
   "use": "An ally of the PCs has begun acting differently, and not for the good.",
   "loot": null,
-  "gm_intrusion": "The character who attempts an exorcism of a possessed target is successful, but the demon moves directly from the former victim into the exorcist. The new host can make an Intellect-based roll to eject the demon, but only after the first round of possession."
+  "gm_intrusion": "The character who attempts an exorcism of a possessed target is successful, but the demon moves directly from the former victim into the exorcist. The new host can make an Intellect-based roll to eject the demon, but only after the first round of possession.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

@@ -7,5 +7,11 @@
   "level": "1d6 + 3",
   "form": null,
   "effect": "Creates a shimmering energy shield around the user for one hour, during which time they gain +3 to Armor (or +4 to Armor if the cypher is level 5 or higher).",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

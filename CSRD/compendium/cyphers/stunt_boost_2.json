@@ -1,0 +1,17 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Stunt Boost",
+  "slug": "stunt_boost_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "This cypher eases the user’s next difficult, formidable, or impossible power stunt task by four steps (eased by five steps if the cypher is level 7 or higher). It has no effect on power stunts that don’t require a successful power stunt task.",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

@@ -17,5 +17,9 @@
   "interaction": "Vat rejects are usually always enraged, making interaction nearly impossible. However, some may negotiate if offered a reasonable hope of salvation through extreme surgery or other transformation.",
   "use": "A long-missing derelict ship, famous for carrying a load of planet-buster superweapons, is found. However, salvagers discover it to be overrun by vat rejects. No one knows if the rejects plan to use the superweapons, if they have been released by someone else as a distraction, or if they are part of a mutated ship defense system.",
   "loot": null,
-  "gm_intrusion": "The vat reject also has a radioactive sting. On a failed Might defense roll, the character struck by the reject descends one step on the damage track."
+  "gm_intrusion": "The vat reject also has a radioactive sting. On a failed Might defense roll, the character struck by the reject descends one step on the damage track.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

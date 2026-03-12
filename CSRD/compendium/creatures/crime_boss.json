@@ -17,5 +17,10 @@
   "interaction": "Crime bosses are committed to their plans, whatever those might be. Most bosses rely on a lieutenant or trusted thug to interact with people in their place.",
   "use": "A crime boss and their followers execute a heist on a secure location and take hostages when things go south. Someone must go in and talk to the crime boss to defuse the situation.",
   "loot": "A crime boss has currency equivalent to a very expensive item in addition to weapons, medium armor, and miscellaneous gear.",
-  "gm_intrusion": "The crime boss uses a clever trick or cypher to block all incoming attacks in a given round of combat."
+  "gm_intrusion": "The crime boss uses a clever trick or cypher to block all incoming attacks in a given round of combat.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

@@ -7,5 +7,11 @@
   "level": "1d6 + 2",
   "form": null,
   "effect": "Allows the user to project a ray of energy up to very long range that paralyzes the target for one minute. A small number of these devices (5%) induce paralysis that lasts for one hour.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

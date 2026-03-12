@@ -17,5 +17,11 @@
   "interaction": "Frostwalkers are usually made (or form spontaneously) to enact vengeance or to attack a foe, and will do so until they’re destroyed.",
   "use": "When the lake freezes over, monstrous things made of snow slide across the solid surface and begin terrorizing whatever they find. Frostwalkers could be classified as necrovores instead of (or in addition to) cursed beasts, or possibly even as a forgeborn variety. Creature classification isn’t as neat and tidy as some alchemists might wish.",
   "loot": null,
-  "gm_intrusion": "An important piece of the character’s equipment freezes solid, rendering it unusable until it’s thawed."
+  "gm_intrusion": "An important piece of the character’s equipment freezes solid, rendering it unusable until it’s thawed.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

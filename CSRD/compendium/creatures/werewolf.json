@@ -17,5 +17,10 @@
   "interaction": "In human form, werewolves have the goals and aspirations of normal people, and they often don’t recall what they did while transformed or even realize that they suffer the curse of lycanthropy. In half- or full-lupine form, there’s no negotiating with one.",
   "use": "When the moon is full, werewolves hunt",
   "loot": null,
-  "gm_intrusion": "A PC who moves down one step on the damage track due to damage inflicted by a werewolf must succeed on a Might defense roll or be afflicted with the curse of lycanthropy."
+  "gm_intrusion": "A PC who moves down one step on the damage track due to damage inflicted by a werewolf must succeed on a Might defense roll or be afflicted with the curse of lycanthropy.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

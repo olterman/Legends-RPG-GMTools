@@ -17,5 +17,10 @@
   "interaction": "Pharmaceutical sorcerers are compassionate, intelligent, and well-informed. They want to help people, but sometimes are stymied by paperwork, laws, and lack of money.",
   "use": "Pharmaceutical sorcerers are usually support characters using their magic to heal others and prevent harm. Their extensive knowledge of helpful magic, medicinal herbs, and health science makes them useful for diagnosing strange symptoms and ruling out minor afflictions to find the real cause of a problem.",
   "loot": "In addition to standard medicines, handheld medical tools, and herbs and drugs, the sorcerer might have a healing cypher or some interesting payment from a patient. FANTASY NPCs",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

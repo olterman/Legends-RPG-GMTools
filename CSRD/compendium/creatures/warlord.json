@@ -17,5 +17,9 @@
   "interaction": "Warlords have lackeys and lieutenants that interact with outsiders. They prefer to make pronouncements and threats from on high.",
   "use": "The museum, lab, or other important structure the characters wanted to visit to carry out their mission has fallen under the control of a warlord and a dozen or more raiders.",
   "loot": "A warlord may carry an artifact. Unique Warlord Advantage D6 Advantage 1 Rocket launcher (level 7): long‑range weapon inflicts 7 points of damage on targets in an immediate area (depletion: 1–2 in 1d6) 2 Fire thrower (level 7): immediate‑range weapon inflicts 7 points of damage on all targets within immediate range (depletion: 1 in 1d10) 3 Release the beast: Gives the command to “release the beast”; a melted loyal to warlord charges into the fight 4 Force shield (level 5): Static field blocks all incoming attacks against the warlord for one round (depletion: 1–2 in 1d10) 5 Power gauntlet: Warlord’s power gauntlet grabs foe and automatically deals damage from crushing until foe escapes 6 Skystrike: Calls in a “skystrike” from a battered wristband; a round later, a missile launched from a before‑times satellite strikes nearby, inflicting 10 points of damage on all creatures within a short area who fail a Speed defense roll, and 2 points on those who succeed (depletion: automatic)",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

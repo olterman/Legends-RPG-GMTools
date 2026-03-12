@@ -17,5 +17,9 @@
   "interaction": "Flowery language and impeccable manners show a knight’s noble background. Those who negotiate with one in good faith are likely to come away with something of value. However, sometimes a noble knight is corrupt and betrays trusts.",
   "use": "A noble knight has decided that they must guard a bridge against any who would cross it.",
   "loot": "Noble knights carry weapons, heavy armor, and perhaps a cypher or even an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

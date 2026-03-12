@@ -17,5 +17,9 @@
   "interaction": "For all their power, demigods share most human traits and weaknesses. This means it’s possible to negotiate with one, though the consequences for angering a demigod in the process are dire.",
   "use": "A demigod was banned from the higher realm of their birth for unknown reasons. Now they seek to show their worth by undertaking a great quest in the mortal world, and they are looking to assemble a group of mortal comrades (sycophants?) to aid them.",
   "loot": "Demigods might carry an artifact related to some aspect of their domain (such as wind, messages, or death), if they have one, and 1d6 cyphers.",
-  "gm_intrusion": "The divine nature of the demigod allows it to act out of turn, take control of an object (such as an artifact or a cypher) that the PC is about to use against it, and either deactivate the object or turn it against the character."
+  "gm_intrusion": "The divine nature of the demigod allows it to act out of turn, take control of an object (such as an artifact or a cypher) that the PC is about to use against it, and either deactivate the object or turn it against the character.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

@@ -16,10 +16,21 @@
     </div>
 
     <div class="field">
-      <label for="filter-environment">Environment</label>
+      <label for="filter-setting">Setting</label>
+      <select id="filter-setting">
+        <option value="">All</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="filter-environment">Area</label>
       <select id="filter-environment">
         <option value="">All</option>
       </select>
+    </div>
+    <div class="field">
+      <label for="filter-location">Location</label>
+      <input id="filter-location" placeholder="e.g. Freeport, Cird, the gate ruins" />
     </div>
 
     <div class="field">
@@ -44,11 +55,20 @@
     <div class="actions">
       <button id="search-btn" type="button">Search</button>
       <button id="reset-btn" type="button" class="secondary">Reset</button>
+      <button id="trash-toggle-btn" type="button" class="secondary">Trash Bin</button>
     </div>
 
     <div class="status" id="status">Loading filters...</div>
 
     <div class="results" id="results"></div>
+    <div class="output-card hidden" id="trash-panel">
+      <div class="actions" style="margin-bottom:8px;">
+        <strong>Trash Bin</strong>
+        <button id="trash-refresh-btn" type="button" class="secondary result-action">Refresh</button>
+      </div>
+      <div class="small" id="trash-status">Trash is hidden.</div>
+      <div class="results" id="trash-results"></div>
+    </div>
   </div>
 
   <div class="panel">
@@ -76,12 +96,19 @@
 
   const els = {
     type: document.getElementById('filter-type'),
+    setting: document.getElementById('filter-setting'),
     environment: document.getElementById('filter-environment'),
+    location: document.getElementById('filter-location'),
     race: document.getElementById('filter-race'),
     profession: document.getElementById('filter-profession'),
     name: document.getElementById('filter-name'),
     searchBtn: document.getElementById('search-btn'),
     resetBtn: document.getElementById('reset-btn'),
+    trashToggleBtn: document.getElementById('trash-toggle-btn'),
+    trashPanel: document.getElementById('trash-panel'),
+    trashRefreshBtn: document.getElementById('trash-refresh-btn'),
+    trashStatus: document.getElementById('trash-status'),
+    trashResults: document.getElementById('trash-results'),
     results: document.getElementById('results'),
     viewer: document.getElementById('viewer'),
     status: document.getElementById('status')
@@ -121,6 +148,8 @@
       npc: "NPC",
       monster: "Monster",
       cypher: "Cypher",
+      artifact: "Artifact",
+      attack: "Attack",
       inn: "Inn",
       encounter: "Encounter",
       settlement: "Settlement",
@@ -130,13 +159,277 @@
     return labels[value] || titleCase(value || "item");
   }
 
-  async function fetchJson(url) {
-    const res = await fetch(url);
+  async function fetchJson(url, init = undefined) {
+    const res = await fetch(url, init);
     const data = await res.json();
     if (!res.ok) {
       throw new Error(data.error || `Request failed: ${res.status}`);
     }
     return data;
+  }
+
+  function compactText(value, limit = 280) {
+    const text = String(value ?? "").replace(/\s+/g, " ").trim();
+    if (!text) return "";
+    return text.length > limit ? `${text.slice(0, limit - 1).trim()}…` : text;
+  }
+
+  function normalizeImageRefs(raw) {
+    if (!Array.isArray(raw)) return [];
+    const out = [];
+    raw.forEach(value => {
+      let text = String(value || "").trim().replaceAll("\\", "/");
+      if (text.startsWith("/images/")) text = text.slice("/images/".length);
+      if (text.startsWith("images/")) text = text.slice("images/".length);
+      text = text.replace(/^\/+/, "");
+      if (text && !out.includes(text)) out.push(text);
+    });
+    return out;
+  }
+
+  function imageUrl(ref) {
+    const clean = normalizeImageRefs([ref])[0];
+    return clean ? `/images/${clean}` : "";
+  }
+
+  function renderImageCollage(images) {
+    const refs = normalizeImageRefs(images).slice(0, 4);
+    if (!refs.length) return "";
+    const klass = refs.length === 1 ? "card-image-collage one" : "card-image-collage";
+    return `<div class="${klass}">${refs.map(ref => `<img src="${escapeHtml(imageUrl(ref))}" data-image-popup="1" data-fullsrc="${escapeHtml(imageUrl(ref))}" alt="${escapeHtml(ref)}" loading="lazy" />`).join("")}</div>`;
+  }
+
+  async function resizeImageForWeb(file, { maxWidth = 1600, maxHeight = 1600, quality = 0.86 } = {}) {
+    if (!(file instanceof File) || !String(file.type || "").startsWith("image/")) return file;
+    const dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.onerror = () => reject(reader.error || new Error("failed to read file"));
+      reader.readAsDataURL(file);
+    });
+    const img = await new Promise((resolve, reject) => {
+      const el = new Image();
+      el.onload = () => resolve(el);
+      el.onerror = () => reject(new Error("failed to decode image"));
+      el.src = dataUrl;
+    });
+    const scale = Math.min(maxWidth / img.width, maxHeight / img.height, 1);
+    const w = Math.max(1, Math.round(img.width * scale));
+    const h = Math.max(1, Math.round(img.height * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(img, 0, 0, w, h);
+    const outType = String(file.type || "").toLowerCase().includes("png") ? "image/png" : "image/jpeg";
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, outType, quality));
+    if (!blob) return file;
+    const baseName = (file.name || "upload").replace(/\.[^.]+$/, "");
+    const ext = outType === "image/png" ? ".png" : ".jpg";
+    return new File([blob], `${baseName}${ext}`, { type: outType });
+  }
+
+  function deriveDefaultImageMeta(context) {
+    const meta = (context && typeof context.metadata === "object" && context.metadata) ? context.metadata : {};
+    const name = String((context && context.name) || "").trim();
+    const tags = [];
+    const push = (value) => {
+      const token = String(value || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+      if (token && !tags.includes(token)) tags.push(token);
+    };
+    push(meta.area || meta.environment || "");
+    (Array.isArray(meta.settings) ? meta.settings : [meta.setting]).forEach(push);
+    if (window.lolSettingContext && typeof window.lolSettingContext.getWorldSetting === "function") {
+      const world = window.lolSettingContext.getWorldSetting() || "";
+      push(world);
+    }
+    return { friendlyName: name, tags };
+  }
+
+  async function wireImageManager({ mountId, target, id, initialImages = [], defaultMeta = null, onImagesChanged = null }) {
+    const mount = document.getElementById(mountId);
+    if (!mount) return;
+    let images = normalizeImageRefs(initialImages);
+    let available = [];
+    const post = (url, body) => fetchJson(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+
+    async function refreshAvailable() {
+      const data = await fetchJson('/media/images');
+      available = Array.isArray(data.items) ? data.items : [];
+    }
+
+    function imageMeta(ref) {
+      const found = available.find(item => String(item.path || "") === String(ref || ""));
+      return {
+        friendly_name: String(found?.friendly_name || ""),
+        tags: Array.isArray(found?.tags) ? found.tags.join(", ") : "",
+        notes: String(found?.notes || ""),
+      };
+    }
+
+    function render() {
+      mount.innerHTML = `
+        <div class="image-manager">
+          <div class="small">Images (${images.length})</div>
+          <div class="row" style="margin-top:8px;">
+            <div class="field">
+              <label for="${mountId}-upload">Upload Image</label>
+              <input id="${mountId}-upload" type="file" accept="image/*" />
+            </div>
+            <div class="field">
+              <label>&nbsp;</label>
+              <button id="${mountId}-upload-btn" type="button" class="result-action">Upload + Attach</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="${mountId}-existing">Attach Existing</label>
+              <select id="${mountId}-existing">
+                <option value="">Select image...</option>
+                ${available.map(item => `<option value="${escapeHtml(item.path || "")}">${escapeHtml(item.friendly_name || item.path || "")}</option>`).join("")}
+              </select>
+            </div>
+            <div class="field">
+              <label>&nbsp;</label>
+              <button id="${mountId}-attach-btn" type="button" class="secondary result-action">Attach Existing</button>
+            </div>
+          </div>
+          <div class="image-manager-grid">
+            ${images.map(ref => `
+              ${(() => {
+                const meta = imageMeta(ref);
+                return `
+              <div class="image-manager-item">
+                <img src="${escapeHtml(imageUrl(ref))}" data-image-popup="1" data-fullsrc="${escapeHtml(imageUrl(ref))}" alt="${escapeHtml(ref)}" loading="lazy" />
+                <span class="small">${escapeHtml(ref)}</span>
+                <div class="field">
+                  <label>Friendly</label>
+                  <input data-img-meta="friendly_name" data-img-ref="${escapeHtml(ref)}" value="${escapeHtml(meta.friendly_name)}" />
+                </div>
+                <div class="field">
+                  <label>Tags</label>
+                  <input data-img-meta="tags" data-img-ref="${escapeHtml(ref)}" value="${escapeHtml(meta.tags)}" />
+                </div>
+                <div class="field">
+                  <label>Notes</label>
+                  <textarea rows="2" data-img-meta="notes" data-img-ref="${escapeHtml(ref)}">${escapeHtml(meta.notes)}</textarea>
+                </div>
+                <div class="actions">
+                  <button type="button" class="result-action" data-img-action="save-meta" data-img-ref="${escapeHtml(ref)}">Save Meta</button>
+                  <button type="button" class="secondary result-action" data-img-action="remove" data-img-ref="${escapeHtml(ref)}">Remove</button>
+                  <button type="button" class="result-action danger" data-img-action="delete" data-img-ref="${escapeHtml(ref)}">Delete</button>
+                </div>
+              </div>
+                `;
+              })()}
+            `).join("")}
+          </div>
+        </div>
+      `;
+
+      const uploadBtn = document.getElementById(`${mountId}-upload-btn`);
+      const uploadInput = document.getElementById(`${mountId}-upload`);
+      const attachBtn = document.getElementById(`${mountId}-attach-btn`);
+      const existingSel = document.getElementById(`${mountId}-existing`);
+
+      uploadBtn?.addEventListener('click', async () => {
+        const file = uploadInput?.files?.[0];
+        if (!file) {
+          els.status.textContent = "Choose an image file first.";
+          return;
+        }
+        try {
+          const resized = await resizeImageForWeb(file);
+          const form = new FormData();
+          form.append("file", resized);
+          if (defaultMeta && defaultMeta.friendlyName) {
+            form.append("friendly_name", defaultMeta.friendlyName);
+          }
+          if (defaultMeta && Array.isArray(defaultMeta.tags) && defaultMeta.tags.length) {
+            form.append("tags", defaultMeta.tags.join(","));
+          }
+          const uploaded = await fetchJson('/media/images/upload', { method: 'POST', body: form });
+          const res = await post('/media/images/attach', { target, id, image: uploaded.path });
+          images = normalizeImageRefs(res.images || []);
+          if (onImagesChanged) onImagesChanged(images);
+          await refreshAvailable();
+          render();
+          els.status.textContent = `Uploaded and attached ${uploaded.name || uploaded.path}.`;
+        } catch (err) {
+          els.status.textContent = `Image upload failed: ${err.message}`;
+        }
+      });
+
+      attachBtn?.addEventListener('click', async () => {
+        const selected = String(existingSel?.value || "").trim();
+        if (!selected) return;
+        try {
+          const res = await post('/media/images/attach', { target, id, image: selected });
+          images = normalizeImageRefs(res.images || []);
+          if (onImagesChanged) onImagesChanged(images);
+          render();
+          els.status.textContent = `Attached ${selected}.`;
+        } catch (err) {
+          els.status.textContent = `Attach failed: ${err.message}`;
+        }
+      });
+
+      mount.querySelectorAll('button[data-img-action]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const action = btn.getAttribute('data-img-action');
+          const ref = btn.getAttribute('data-img-ref');
+          if (!ref) return;
+          try {
+            if (action === "save-meta") {
+              let friendlyName = "";
+              let tagsRaw = "";
+              let notes = "";
+              mount.querySelectorAll('[data-img-meta]').forEach(el => {
+                if (el.getAttribute('data-img-ref') !== ref) return;
+                const key = el.getAttribute('data-img-meta');
+                if (key === 'friendly_name') friendlyName = String(el.value || "");
+                if (key === 'tags') tagsRaw = String(el.value || "");
+                if (key === 'notes') notes = String(el.value || "");
+              });
+              await post('/media/images/meta', {
+                image: ref,
+                friendly_name: friendlyName,
+                tags: tagsRaw.split(",").map(x => x.trim()).filter(Boolean),
+                notes,
+              });
+              await refreshAvailable();
+              els.status.textContent = `Saved metadata for ${ref}.`;
+            } else if (action === "remove") {
+              const res = await post('/media/images/unattach', { target, id, image: ref });
+              images = normalizeImageRefs(res.images || []);
+              els.status.textContent = `Unattached ${ref}.`;
+            } else {
+              if (!window.confirm(`Delete image file ${ref}?`)) return;
+              const res = await post('/media/images/delete', { target, id, image: ref });
+              images = normalizeImageRefs(res.images || []);
+              await refreshAvailable();
+              els.status.textContent = `Deleted ${ref}.`;
+            }
+            if (onImagesChanged) onImagesChanged(images);
+            render();
+          } catch (err) {
+            els.status.textContent = `Image action failed: ${err.message}`;
+          }
+        });
+      });
+    }
+
+    await refreshAvailable();
+    render();
+  }
+
+  function scrollToPageTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function renderSectionsCard(title, sections) {
@@ -197,7 +490,10 @@
   function renderCypherCard(data) {
     const sections = data.sections || {};
     const level = sections.level || data.level || "";
-    const name = data.name || sections.name || "Unnamed Cypher";
+    const isArtifact = data.type === "artifact";
+    const name = data.name || sections.name || (isArtifact ? "Unnamed Artifact" : "Unnamed Cypher");
+    const limitLabel = isArtifact ? "Depletion" : "Limitation";
+    const limitValue = sections.depletion || sections.limitation || data.depletion;
 
     const field = (label, value) => {
       if (!value) return "";
@@ -223,7 +519,7 @@
           ${field("Manifestation", sections.manifestation)}
           ${field("Appearance", sections.appearance)}
           ${field("Effect", sections.effect)}
-          ${field("Limitation / Depletion", sections.limitation)}
+          ${field(limitLabel, limitValue)}
           ${field("Quirk", sections.quirk)}
         </div>
       </div>
@@ -284,62 +580,86 @@
   function renderViewer(record) {
     const result = record.result || {};
     const metadata = result.metadata || {};
-    let html = `
-      <div class="viewer-header">
-        <div class="eyebrow">Selected Item</div>
-        <div class="title">${escapeHtml(result.name || record.filename || "Unnamed")}</div>
-        <div class="subtitle">${escapeHtml(typeLabel(result.type || "item"))} · ${escapeHtml(record.saved_at || "Unknown save time")}</div>
+    const settingsText = Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "";
+    const areaText = metadata.area || metadata.environment || "";
+    const csrdBacklink = metadata.compendium_backlink || (
+      metadata.compendium_type && metadata.compendium_slug
+        ? `/compendium/${encodeURIComponent(metadata.compendium_type)}/${encodeURIComponent(metadata.compendium_slug)}`
+        : ""
+    );
+    const images = normalizeImageRefs(metadata.images);
+    let html = "";
+
+    html += `
+      <div class="output-card ${images.length ? "has-corner-images" : ""}">
+        ${renderImageCollage(images)}
+        <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+        <div class="output-row">
+          <div class="output-label">Name</div>
+          <div class="output-value">${escapeHtml(result.name || "Unnamed")}</div>
+        </div>
+        <div class="output-row">
+          <div class="output-label">Saved At</div>
+          <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
+        </div>
+        <div class="output-row">
+          <div class="output-label">Filename</div>
+          <div class="output-value">${escapeHtml(record.filename || "")}</div>
+        </div>
+        ${settingsText ? `
+        <div class="output-row">
+          <div class="output-label">Settings</div>
+          <div class="output-value">${escapeHtml(settingsText)}</div>
+        </div>` : ""}
+        ${areaText ? `
+        <div class="output-row">
+          <div class="output-label">Area</div>
+          <div class="output-value">${escapeHtml(areaText)}</div>
+        </div>` : ""}
+        ${metadata.location ? `
+        <div class="output-row">
+          <div class="output-label">Location</div>
+          <div class="output-value">${escapeHtml(metadata.location)}</div>
+        </div>` : ""}
+        ${metadata.race ? `
+        <div class="output-row">
+          <div class="output-label">Race</div>
+          <div class="output-value">${escapeHtml(metadata.race)}</div>
+        </div>` : ""}
+        ${metadata.profession ? `
+        <div class="output-row">
+          <div class="output-label">Profession</div>
+          <div class="output-value">${escapeHtml(metadata.profession)}</div>
+        </div>` : ""}
+        ${metadata.family ? `
+        <div class="output-row">
+          <div class="output-label">Family</div>
+          <div class="output-value">${escapeHtml(metadata.family)}</div>
+        </div>` : ""}
+        ${metadata.role ? `
+        <div class="output-row">
+          <div class="output-label">Role</div>
+          <div class="output-value">${escapeHtml(metadata.role)}</div>
+        </div>` : ""}
       </div>
     `;
-
-    if (result.type === "npc") {
-      html += renderNpcOverviewCard(record, result);
-    } else {
+    if (metadata.from_csrd && csrdBacklink) {
       html += `
         <div class="output-card">
-          <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+          <h3>Source Link</h3>
           <div class="output-row">
-            <div class="output-label">Name</div>
-            <div class="output-value">${escapeHtml(result.name || "Unnamed")}</div>
+            <div class="output-label">From CSRD</div>
+            <div class="output-value">
+              <a href="${escapeHtml(csrdBacklink)}" target="_blank" rel="noopener">
+                ${escapeHtml(metadata.compendium_title || metadata.compendium_slug || "Open CSRD Entry")}
+              </a>
+            </div>
           </div>
-          <div class="output-row">
-            <div class="output-label">Saved At</div>
-            <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
-          </div>
-          <div class="output-row">
-            <div class="output-label">Filename</div>
-            <div class="output-value">${escapeHtml(record.filename || "")}</div>
-          </div>
-          ${metadata.environment ? `
-          <div class="output-row">
-            <div class="output-label">Environment</div>
-            <div class="output-value">${escapeHtml(metadata.environment)}</div>
-          </div>` : ""}
-          ${metadata.race ? `
-          <div class="output-row">
-            <div class="output-label">Race</div>
-            <div class="output-value">${escapeHtml(metadata.race)}</div>
-          </div>` : ""}
-          ${metadata.profession ? `
-          <div class="output-row">
-            <div class="output-label">Profession</div>
-            <div class="output-value">${escapeHtml(metadata.profession)}</div>
-          </div>` : ""}
-          ${metadata.family ? `
-          <div class="output-row">
-            <div class="output-label">Family</div>
-            <div class="output-value">${escapeHtml(metadata.family)}</div>
-          </div>` : ""}
-          ${metadata.role ? `
-          <div class="output-row">
-            <div class="output-label">Role</div>
-            <div class="output-value">${escapeHtml(metadata.role)}</div>
-          </div>` : ""}
         </div>
       `;
     }
 
-    if (result.type === "cypher") {
+    if (result.type === "cypher" || result.type === "artifact") {
       html += renderCypherCard(result);
     }
 
@@ -408,51 +728,393 @@
       const sections = item.sections || {};
       const lines = [];
 
-      if (meta.environment) lines.push(`environment: ${meta.environment}`);
+      if (meta.area || meta.environment) lines.push(`area: ${meta.area || meta.environment}`);
+      if (meta.location) lines.push(`location: ${meta.location}`);
       if (meta.race) lines.push(`race: ${meta.race}`);
       if (meta.profession) lines.push(`profession: ${meta.profession}`);
       if (meta.role) lines.push(`role: ${meta.role}`);
       if (meta.family) lines.push(`family: ${meta.family}`);
+      if (Array.isArray(meta.settings) && meta.settings.length) lines.push(`settings: ${meta.settings.join(", ")}`);
 
-      if (item.type === "cypher") {
+      if (item.type === "cypher" || item.type === "artifact") {
         const level = meta.level || sections.level;
         if (level) lines.push(`level: ${level}`);
       }
 
       if (item.saved_at) lines.push(`saved: ${item.saved_at}`);
 
+      const images = normalizeImageRefs(meta.images);
+      const description = compactText(
+        item.description ||
+        meta.description ||
+        sections.description ||
+        sections.summary ||
+        sections.effect ||
+        sections.use ||
+        ""
+      );
+      const cardClass = images.length ? "result-card card-with-images with-corner-actions" : "result-card with-corner-actions";
+
       return `
-        <div class="result-card" data-filename="${escapeHtml(item.filename)}">
+        <div class="${cardClass}" data-filename="${escapeHtml(item.filename)}">
           <div class="result-top">
-            <div class="result-name">${escapeHtml(item.name || item.filename)}</div>
-            <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+            <div>
+              <div class="result-heading">${escapeHtml(item.name || item.filename)} - ${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+              <div class="source-badge source-house">House</div>
+            </div>
+          </div>
+          <div class="result-description ${images.length ? "with-image" : ""}">
+            ${images.length ? renderImageCollage(images) : ""}
+            ${escapeHtml(description || "No description yet.")}
           </div>
           <div class="result-meta">${escapeHtml(lines.join("\n"))}</div>
           <div class="small" style="margin-top:8px;">${escapeHtml(item.filename)}</div>
+          <div class="result-corner-actions">
+            <button type="button" class="icon-btn"
+                    data-action="edit"
+                    data-filename="${escapeHtml(item.filename)}"
+                    title="Edit"
+                    aria-label="Edit">
+              &#9998;
+            </button>
+            <button type="button" class="icon-btn danger"
+                    data-action="delete"
+                    data-filename="${escapeHtml(item.filename)}"
+                    title="Move to trash"
+                    aria-label="Move to trash">
+              &#128465;
+            </button>
+          </div>
         </div>
       `;
     }).join("");
 
     document.querySelectorAll('.result-card').forEach(card => {
-      card.addEventListener('click', async () => {
-        document.querySelectorAll('.result-card.selected').forEach(el => el.classList.remove('selected'));
-        card.classList.add('selected');
+      card.addEventListener('click', async (event) => {
+        const button = event.target.closest('button[data-action]');
+        if (button) {
+          event.preventDefault();
+          event.stopPropagation();
+          const action = button.getAttribute('data-action');
+          const filename = button.getAttribute('data-filename');
+          if (!filename) return;
+          if (action === 'edit') {
+            await editStorageRecord(filename);
+          } else if (action === 'delete') {
+            await trashStorageRecord(filename);
+          }
+          return;
+        }
         const filename = card.getAttribute('data-filename');
         state.selectedFilename = filename;
         await loadRecord(filename);
       });
+    });
+  }
 
-      if (state.selectedFilename && card.getAttribute('data-filename') === state.selectedFilename) {
-        card.classList.add('selected');
+  async function editStorageRecord(filename) {
+    els.status.textContent = `Loading ${filename} for edit...`;
+    const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
+    const result = (record && typeof record.result === "object" && record.result) ? record.result : {};
+    const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const settingsValue = Array.isArray(metadata.settings) ? metadata.settings.join(", ") : (metadata.setting || "");
+    let currentImages = normalizeImageRefs(metadata.images);
+    els.viewer.innerHTML = `
+      <div class="output-card">
+        <h3>Edit House Record</h3>
+        <div class="small">Structured editor for common fields. Advanced JSON fields are optional.</div>
+        <div class="field" style="margin-top:10px;">
+          <label for="storage-edit-name">Name</label>
+          <input id="storage-edit-name" value="${escapeHtml(result.name || "")}" />
+        </div>
+        <div class="field">
+          <label for="storage-edit-description">Description</label>
+          <textarea id="storage-edit-description" rows="4">${escapeHtml(result.description || metadata.description || "")}</textarea>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-type">Type</label>
+            <input id="storage-edit-type" value="${escapeHtml(result.type || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-settings">Settings (comma-separated)</label>
+            <input id="storage-edit-settings" value="${escapeHtml(settingsValue)}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-area">Area</label>
+            <input id="storage-edit-area" value="${escapeHtml(metadata.area || metadata.environment || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-location">Location</label>
+            <input id="storage-edit-location" value="${escapeHtml(metadata.location || "")}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-race">Race</label>
+            <input id="storage-edit-race" value="${escapeHtml(metadata.race || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-profession">Profession</label>
+            <input id="storage-edit-profession" value="${escapeHtml(metadata.profession || "")}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-family">Family</label>
+            <input id="storage-edit-family" value="${escapeHtml(metadata.family || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-role">Role</label>
+            <input id="storage-edit-role" value="${escapeHtml(metadata.role || "")}" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="storage-edit-text">Text</label>
+          <textarea id="storage-edit-text" rows="6">${escapeHtml(result.text || "")}</textarea>
+        </div>
+        <div class="field">
+          <label for="storage-edit-sections">Sections JSON (optional)</label>
+          <textarea id="storage-edit-sections" rows="8">${escapeHtml(JSON.stringify(result.sections || {}, null, 2))}</textarea>
+          <div class="small" id="storage-edit-sections-hint">Checking JSON...</div>
+        </div>
+        <div class="field">
+          <label for="storage-edit-statblock">Stat Block JSON (optional)</label>
+          <textarea id="storage-edit-statblock" rows="8">${escapeHtml(JSON.stringify(result.stat_block || {}, null, 2))}</textarea>
+          <div class="small" id="storage-edit-statblock-hint">Checking JSON...</div>
+        </div>
+        <div class="field">
+          <label for="storage-edit-payload">Payload JSON (optional)</label>
+          <textarea id="storage-edit-payload" rows="8">${escapeHtml(JSON.stringify(record.payload || {}, null, 2))}</textarea>
+          <div class="small" id="storage-edit-payload-hint">Checking JSON...</div>
+        </div>
+        <div id="storage-image-manager"></div>
+        <div class="actions">
+          <button id="storage-save-btn" type="button" class="result-action">Save</button>
+          <button id="storage-cancel-btn" type="button" class="secondary result-action">Cancel</button>
+        </div>
+      </div>
+    `;
+
+    const saveBtn = document.getElementById('storage-save-btn');
+    const cancelBtn = document.getElementById('storage-cancel-btn');
+    const nameEl = document.getElementById('storage-edit-name');
+    const descriptionEl = document.getElementById('storage-edit-description');
+    const typeEl = document.getElementById('storage-edit-type');
+    const settingsEl = document.getElementById('storage-edit-settings');
+    const areaEl = document.getElementById('storage-edit-area');
+    const locationEl = document.getElementById('storage-edit-location');
+    const raceEl = document.getElementById('storage-edit-race');
+    const professionEl = document.getElementById('storage-edit-profession');
+    const familyEl = document.getElementById('storage-edit-family');
+    const roleEl = document.getElementById('storage-edit-role');
+    const textEl = document.getElementById('storage-edit-text');
+    const sectionsEl = document.getElementById('storage-edit-sections');
+    const statBlockEl = document.getElementById('storage-edit-statblock');
+    const payloadEl = document.getElementById('storage-edit-payload');
+
+    const wireJsonValidation = (textarea, hintEl, label) => {
+      const validate = () => {
+        const raw = String(textarea.value || "").trim();
+        if (!raw) {
+          hintEl.textContent = `${label}: empty (will save as empty object).`;
+          hintEl.style.color = "var(--muted)";
+          return true;
+        }
+        try {
+          JSON.parse(raw);
+          hintEl.textContent = `${label}: valid JSON.`;
+          hintEl.style.color = "#80d39b";
+          return true;
+        } catch (err) {
+          hintEl.textContent = `${label}: invalid JSON (${err.message}).`;
+          hintEl.style.color = "#ff8ea1";
+          return false;
+        }
+      };
+      textarea.addEventListener('input', validate);
+      return validate;
+    };
+    const validateSections = wireJsonValidation(
+      sectionsEl,
+      document.getElementById('storage-edit-sections-hint'),
+      'Sections JSON'
+    );
+    const validateStatBlock = wireJsonValidation(
+      statBlockEl,
+      document.getElementById('storage-edit-statblock-hint'),
+      'Stat Block JSON'
+    );
+    const validatePayload = wireJsonValidation(
+      payloadEl,
+      document.getElementById('storage-edit-payload-hint'),
+      'Payload JSON'
+    );
+    const refreshSaveEnabled = () => {
+      saveBtn.disabled = !(validateSections() && validateStatBlock() && validatePayload());
+    };
+    sectionsEl.addEventListener('input', refreshSaveEnabled);
+    statBlockEl.addEventListener('input', refreshSaveEnabled);
+    payloadEl.addEventListener('input', refreshSaveEnabled);
+    refreshSaveEnabled();
+
+    await wireImageManager({
+      mountId: "storage-image-manager",
+      target: "storage",
+      id: filename,
+      initialImages: currentImages,
+      defaultMeta: deriveDefaultImageMeta({ name: result.name || "", metadata }),
+      onImagesChanged: (nextImages) => {
+        currentImages = normalizeImageRefs(nextImages);
+      },
+    });
+
+    saveBtn.addEventListener('click', async () => {
+      try {
+        if (!validateSections() || !validateStatBlock() || !validatePayload()) {
+          throw new Error("Fix invalid JSON fields before saving.");
+        }
+        const settings = settingsEl.value.split(",").map(x => x.trim()).filter(Boolean);
+        const areaValue = areaEl.value.trim();
+        const sections = sectionsEl.value.trim() ? JSON.parse(sectionsEl.value) : {};
+        const statBlock = statBlockEl.value.trim() ? JSON.parse(statBlockEl.value) : {};
+        const payload = payloadEl.value.trim() ? JSON.parse(payloadEl.value) : {};
+
+        const parsed = {
+          ...record,
+          filename,
+          payload,
+          result: {
+            ...result,
+            type: typeEl.value.trim() || result.type || "item",
+            name: nameEl.value.trim() || "Unnamed",
+            description: descriptionEl.value.trim(),
+            text: textEl.value,
+            sections,
+            stat_block: statBlock,
+            metadata: {
+              ...metadata,
+              description: descriptionEl.value.trim(),
+              settings,
+              setting: settings[0] || "",
+              area: areaValue,
+              environment: areaValue,
+              location: locationEl.value.trim(),
+              race: raceEl.value.trim(),
+              profession: professionEl.value.trim(),
+              family: familyEl.value.trim(),
+              role: roleEl.value.trim(),
+              images: currentImages,
+            },
+          },
+        };
+        await fetchJson('/storage/update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename, record: parsed }),
+        });
+        els.status.textContent = `Saved ${filename}.`;
+        await search();
+      } catch (err) {
+        els.status.textContent = `Save failed: ${err.message}`;
       }
     });
+
+    cancelBtn.addEventListener('click', () => {
+      loadRecord(filename).catch(err => {
+        els.status.textContent = `Error: ${err.message}`;
+      });
+    });
+    els.status.textContent = `Editing ${filename}.`;
+  }
+
+  async function trashStorageRecord(filename) {
+    if (!window.confirm(`Move ${filename} to trash?`)) return;
+    await fetchJson('/storage/trash', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename }),
+    });
+    els.status.textContent = `Moved ${filename} to trash.`;
+    await search();
+    if (!els.trashPanel.classList.contains('hidden')) {
+      await loadTrash();
+    }
+  }
+
+  function renderTrash(items) {
+    if (!items.length) {
+      els.trashResults.innerHTML = `<div class="small">Trash is empty.</div>`;
+      return;
+    }
+
+    els.trashResults.innerHTML = items.map(item => `
+      <div class="result-card">
+        <div class="result-top">
+          <div>
+            <div class="result-name">${escapeHtml(item.name || item.filename || "Unnamed")}</div>
+            <div class="source-badge source-house">House</div>
+          </div>
+          <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+        </div>
+        <div class="small">${escapeHtml(item.filename || "")}</div>
+        <div class="result-actions">
+          <button type="button" class="secondary result-action"
+                  data-trash-action="restore"
+                  data-trash-filename="${escapeHtml(item.filename || "")}">
+            Recover
+          </button>
+          <button type="button" class="result-action danger"
+                  data-trash-action="expunge"
+                  data-trash-filename="${escapeHtml(item.filename || "")}">
+            Expunge
+          </button>
+        </div>
+      </div>
+    `).join("");
+
+    els.trashResults.querySelectorAll('button[data-trash-action]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const action = btn.getAttribute('data-trash-action');
+        const trashFilename = btn.getAttribute('data-trash-filename');
+        if (!trashFilename) return;
+        if (action === 'restore') {
+          await fetchJson('/storage/trash/restore', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: trashFilename }),
+          });
+          els.status.textContent = `Recovered ${trashFilename}.`;
+        } else {
+          if (!window.confirm(`Permanently delete ${trashFilename}?`)) return;
+          await fetchJson('/storage/trash/expunge', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: trashFilename }),
+          });
+          els.status.textContent = `Expunged ${trashFilename}.`;
+        }
+        await loadTrash();
+        await search();
+      });
+    });
+  }
+
+  async function loadTrash() {
+    const data = await fetchJson('/storage/trash');
+    renderTrash(data.items || []);
+    els.trashStatus.textContent = `Trash contains ${data.count ?? 0} item(s).`;
   }
 
   function buildSearchUrl() {
     const params = new URLSearchParams();
 
     if (els.type.value) params.set('type', els.type.value);
-    if (els.environment.value) params.set('environment', els.environment.value);
+    if (els.setting.value) params.set('setting', els.setting.value);
+    if (els.environment.value) params.set('area', els.environment.value);
+    if (els.location.value.trim()) params.set('location', els.location.value.trim());
     if (els.race.value) params.set('race', els.race.value);
     if (els.profession.value) params.set('profession', els.profession.value);
     if (els.name.value.trim()) params.set('name', els.name.value.trim());
@@ -466,7 +1128,8 @@
     state.meta = meta;
 
     fillSelect(els.type, meta.types || [], true);
-    fillSelect(els.environment, meta.environments || [], true);
+    fillSelect(els.setting, meta.settings || [], true);
+    fillSelect(els.environment, meta.areas || meta.environments || [], true);
     fillSelect(els.race, meta.races || [], true);
     fillSelect(els.profession, meta.professions || [], true);
   }
@@ -483,11 +1146,14 @@
     const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
     renderViewer(record);
     els.status.textContent = `Loaded ${filename}.`;
+    scrollToPageTop();
   }
 
   function resetFilters() {
     els.type.value = '';
+    els.setting.value = '';
     els.environment.value = '';
+    els.location.value = '';
     els.race.value = '';
     els.profession.value = '';
     els.name.value = '';
@@ -496,6 +1162,19 @@
 
   els.searchBtn.addEventListener('click', search);
   els.resetBtn.addEventListener('click', resetFilters);
+  els.trashToggleBtn.addEventListener('click', () => {
+    const hidden = els.trashPanel.classList.toggle('hidden');
+    if (!hidden) {
+      loadTrash().catch(err => {
+        els.trashStatus.textContent = `Error: ${err.message}`;
+      });
+    }
+  });
+  els.trashRefreshBtn.addEventListener('click', () => {
+    loadTrash().catch(err => {
+      els.trashStatus.textContent = `Error: ${err.message}`;
+    });
+  });
 
   Promise.all([loadFilters()]).then(() => {
     els.status.textContent = 'Ready.';

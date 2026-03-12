@@ -17,5 +17,9 @@
   "interaction": "Fusion hounds are animals. Creatures immune to radiation sometimes train the hounds to become guardians or hunting dogs, but such creatures are rare.",
   "use": "An NPC delivering something the characters need never made it to the rendezvous. If they backtrack to where the NPC should have come from, the PCs are attacked by a pack of fusion hounds on the road. Clearly, the courier was attacked by the pack as well, and the characters must discover if the NPC is dead or merely injured, and where the package now lies.",
   "loot": null,
-  "gm_intrusion": "The hound flares with energy and the character must succeed on a Might defense task or go blind for ten minutes."
+  "gm_intrusion": "The hound flares with energy and the character must succeed on a Might defense task or go blind for ten minutes.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

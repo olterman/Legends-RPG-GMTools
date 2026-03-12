@@ -7,5 +7,11 @@
   "level": "1d6 + 1",
   "form": null,
   "effect": "The user can observe a location they have visited previously, regardless of how far away it is (even across galaxies). This vision persists for up to ten minutes per cypher level. The character can switch between viewing this location and viewing their current location once per round.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

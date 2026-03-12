@@ -17,5 +17,10 @@
   "interaction": "If communication can be opened up through a cybrid’s haze of pain, it might be possible to temporarily wake the consciousness of the human remnant inside. However, that remnant consciousness might not be happy to discover what it’s become.",
   "use": "A cybrid has appeared in orbit around the station, ship, or moon with a compromised life support system or fragile dome. If it engages, the death toll will be staggering.",
   "loot": "PCs who investigate the inert remains of the creature discover several manifest cyphers.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

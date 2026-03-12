@@ -17,5 +17,9 @@
   "interaction": "Natathim can be sympathetic to humans, partners in space exploration, or consider humans to be bitter foes for having created their species in the first place, depending on the setting.",
   "use": "The PCs find evidence of an illegal gene tailoring experiment, with evidence pointing to research being done somewhere in the Opulence of Outer Planets.",
   "loot": "Some natathim carry valuable items and equipment.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

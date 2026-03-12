@@ -17,5 +17,10 @@
   "interaction": "Someone with an ability to communicate with machines might be able to interact with a swarm. Even then, attempts to influence it are hindered by three steps.",
   "use": "A promising new nanotech “printing” technology was hacked by radical elements.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

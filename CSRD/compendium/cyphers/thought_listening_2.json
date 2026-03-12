@@ -1,0 +1,16 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Thought Listening",
+  "slug": "thought_listening_2",
+  "category": "Fantasy Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "The user can read the surface thoughts of a creature within short range that they can see, even if the target doesn’t want them to. Once the user has established contact, they can read the target’s thoughts for up to one minute per cypher level.",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
+}

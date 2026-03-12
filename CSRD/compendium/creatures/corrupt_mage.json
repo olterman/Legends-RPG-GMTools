@@ -17,5 +17,11 @@
   "interaction": "Corrupt mages generally can’t be trusted and see other creatures as things to experiment on and vivisect. They might negotiate with someone who brings them a rare specimen or spell. Many are mentally disturbed by their research and self-alterations and may fluctuate between calm clarity, obsession, paranoia, and rage.",
   "use": "The strange hybrid monsters emerging from the forest are said to be the creations of a corrupt mage. A corrupt mage in a calm state presents themselves as a neutral or benevolent wizard seeking assistance on a task.",
   "loot": "A corrupt mage has 1d6 cyphers and perhaps a wizardly artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

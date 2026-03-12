@@ -1,0 +1,20 @@
+# Optional manual settings overrides for parsed CSRD entries.
+# Supported buckets: singular or plural (creature/creatures, cypher/cyphers, artifact/artifacts).
+#
+# Per slug, supported keys:
+# - replace: [..]   # Replace inferred settings entirely
+# - add: [..]       # Append settings
+# - remove: [..]    # Remove settings
+# - setting: name   # Force primary setting (moves to first in list)
+#
+# Example:
+# creature:
+#   wraith:
+#     add: [fantasy]
+# artifact:
+#   demon_puzzle:
+#     setting: horror
+
+creature: {}
+cypher: {}
+artifact: {}

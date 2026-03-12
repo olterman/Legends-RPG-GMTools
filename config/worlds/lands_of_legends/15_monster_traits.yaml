@@ -1,0 +1,316 @@
+monster_traits:
+
+  families:
+    beast:
+      concept:
+        - predatory wild creature
+        - territorial apex beast
+        - pack hunter
+        - cave-dwelling scavenger
+        - ancient wilderness predator
+
+    horror:
+      concept:
+        - nightmare-born predator
+        - impossible flesh thing
+        - dread-haunted devourer
+        - reality-warped abomination
+        - ancient fear given shape
+
+    undead:
+      concept:
+        - restless corpse thing
+        - burial-ground revenant
+        - half-preserved death walker
+        - bone-bound remnant
+        - grave-risen predator
+
+    gate_twisted:
+      concept:
+        - threshold-distorted creature
+        - geometry-warped lifeform
+        - relic-tainted organism
+        - reality-strained aberration
+        - thing touched by broken passage
+
+    deep_thing:
+      concept:
+        - subterranean predator
+        - ancient sealed thing
+        - tunnel-haunting crawler
+        - pressure-forged underbeast
+        - deep chamber survivor
+
+    spirit_bound:
+      concept:
+        - land-bound spirit beast
+        - pact-touched guardian
+        - omen creature of the wild
+        - memory-haunted forest being
+        - shrine-bound thing
+
+    daelgast_warped:
+      concept:
+        - daelgast-saturated mutation
+        - ash-blasted horror
+        - black-glass scavenger
+        - wasteland distorter
+        - corruption-fed predator
+
+    drowned:
+      concept:
+        - sea-cursed remnant
+        - drowned raider thing
+        - reef-haunting corpse
+        - brine-fed sea horror
+        - shipwreck-bound dead
+
+    relic_guardian:
+      concept:
+        - ancient site guardian
+        - threshold sentinel
+        - ruin-bound defender
+        - machine-linked protector
+        - oath-bound warding entity
+
+  appearance_traits:
+    general:
+      - horned silhouette
+      - many eyes set irregularly across the head
+      - bone-plated shoulders or spine
+      - elongated limbs with unnatural joints
+      - cracked skin leaking dim light
+      - thorn growths along the back
+      - fungal bloom across hide or flesh
+      - scarred hide patterned like old runes
+      - translucent skin revealing inner organs
+      - barbed tail or whip-like appendage
+      - antler-like protrusions
+      - insect-like mouthparts
+      - lamprey-like jaw
+      - glassy claws
+      - too many teeth
+      - eyeless but unnervingly aware
+      - vestigial wings or membrane fins
+      - heat haze around the body
+      - floating spores, ash, or motes surrounding it
+      - a body shape that does not look fully stable
+
+  behavior_traits:
+    general:
+      - territorial and quick to aggression
+      - patient ambush hunter
+      - tests prey before committing
+      - retreats if badly wounded
+      - driven by hunger more than malice
+      - reacts strongly to light or sound
+      - protects a nest, shrine, or hidden lair
+      - drawn to blood, heat, fear, or movement
+      - circles prey rather than charging directly
+      - seems to remember old routes or rituals
+      - follows patterns that feel almost programmed
+      - suddenly freezes when observed
+      - becomes bold only in favored terrain
+      - attacks the weakest target first
+      - driven by pain, corruption, or ancient command
+
+  special_traits:
+    general:
+      - emits a fear-inducing cry or presence
+      - leaves a trail of corruption, spores, ash, or slime
+      - can cling to walls, ceilings, or sheer surfaces
+      - resists mundane fear or intimidation
+      - moves unnaturally silently for its size
+      - senses prey through vibration, heat, or magical residue
+      - can lunge farther than expected
+      - briefly vanishes into shadow, brush, steam, or dust
+      - has blood, saliva, or residue that is dangerous to touch
+      - regenerates slowly unless struck by the right kind of force
+
+  areas:
+
+    gate_ruins:
+      families:
+        - gate_twisted
+        - relic_guardian
+        - horror
+
+      appearance_traits:
+        - skin or hide split by glowing geometric cracks
+        - broken rune plates embedded in flesh
+        - fragments of floating threshold geometry orbiting the body
+        - body parts that seem misaligned with normal space
+        - multiple outlines visible at once from different angles
+        - pale blue or violet light leaking from wounds
+        - crystal growths resembling shattered gate mechanisms
+
+      behavior_traits:
+        - patrols or circles a fixed ruin boundary
+        - reacts violently to threshold stones being touched
+        - pauses as if listening to voices from elsewhere
+        - attacks those carrying relic fragments first
+        - shifts position unnaturally when not observed directly
+        - seems bound to an ancient route, chamber, or command
+
+      special_traits:
+        - briefly distorts distance around itself
+        - causes reflections or shadows to lag behind movement
+        - emits a pulse that disrupts magic or perception
+        - can pass partway through stone or metal for an instant
+        - bends sight lines, making range hard to judge
+        - causes small time slips or repeated sounds nearby
+
+    sands:
+      families:
+        - daelgast_warped
+        - horror
+        - undead
+
+      appearance_traits:
+        - black-glass claws, teeth, or horn tips
+        - ash-caked body with cracked heat-burned flesh
+        - hollow eye sockets filled with ember light
+        - wind-scoured hide like blasted stone
+        - drifting ash leaking from the mouth or wounds
+        - body warped by impossible heat and corruption
+        - skeletal or half-preserved structure beneath stretched hide
+
+      behavior_traits:
+        - follows caravans from beyond visible range
+        - lies buried beneath ash until prey comes close
+        - becomes active at dusk, stormlight, or silence
+        - circles ruins or wells as though guarding them
+        - attacks when travelers become disoriented
+        - seems more interested in the weak, lost, or dying
+
+      special_traits:
+        - exhales ash, heat, or choking dust
+        - warps direction, distance, or sound nearby
+        - suppresses courage or resolve in close range
+        - leaves behind black residue that attracts worse things
+        - can disappear beneath ash or broken glass terrain
+        - creates mirage-like doubles or false silhouettes
+
+    almadir:
+      families:
+        - beast
+        - spirit_bound
+        - horror
+
+      appearance_traits:
+        - bark-like hide or moss-grown fur
+        - antlers, branch growths, or root tendrils
+        - bioluminescent patterns under skin or along fur
+        - leaf-thin ear frills or membrane fins
+        - eyes like wet amber, green fire, or moonlit sap
+        - fungal bloom across limbs or shoulders
+        - body partially overgrown by living forest matter
+
+      behavior_traits:
+        - stalks from canopy, root-shadow, or thick undergrowth
+        - avoids desecrated ground or broken shrines
+        - protects sacred pools, old groves, or hidden paths
+        - becomes more aggressive when fire or iron is used
+        - watches intruders for a long time before acting
+        - seems guided by pact, memory, or forest will
+
+      special_traits:
+        - can move through undergrowth without sound
+        - briefly entangles targets with roots, vines, or thorns
+        - releases spores, pollen, or dreamlike scent
+        - blends with bark, moss, or green shadow
+        - calls nearby animals or lesser things to its defense
+        - heals or strengthens when in deep living forest
+
+    fenmir_wilds:
+      families:
+        - beast
+        - horror
+        - gate_twisted
+
+      appearance_traits:
+        - scarred and mismatched anatomy from old wounds or mutations
+        - patchy hide, rough fur, or exposed bone
+        - eyes reflecting too brightly in dim light
+        - crude natural camouflage blending with scrub and ruin
+        - horn or spine growths shaped by unstable magic
+        - body marked by old traps, arrows, or scavenged metal
+        - lean survivalist build adapted to broken terrain
+
+      behavior_traits:
+        - follows settlements or roads at the edge of safety
+        - uses abandoned structures as hunting ground
+        - learns from traps, patrols, and human behavior
+        - avoids larger threats while preying on the isolated
+        - becomes bolder near failed or cursed sites
+        - competes with other predators around scarce resources
+
+      special_traits:
+        - can burst from brush, ditch, ruin, or stockade gaps
+        - tracks by scent, fear, blood, or magic leakage
+        - causes livestock, dogs, or mounts to panic
+        - carries a mild magical instability around it
+        - can slip through barriers others think secure
+        - leaves behind spoor that feels wrong or half-faded
+
+    ered_engrin:
+      families:
+        - deep_thing
+        - relic_guardian
+        - horror
+
+      appearance_traits:
+        - black stone-like plates or iron-dark hide
+        - furnace glow from throat, cracks, or eyes
+        - mineral growths fused to bone or shell
+        - immense jaws shaped for crushing
+        - drill-like, hammer-like, or shovel-like limbs
+        - soot-coated body and heat-scarred flesh
+        - unnatural symmetry suggestive of design or shaping
+
+      behavior_traits:
+        - lurks near shafts, seals, vents, or abandoned works
+        - reacts to vibration, hammering, or metal on stone
+        - attacks anything interfering with a route or mechanism
+        - emerges only when pressure, heat, or old locks change
+        - moves with relentless purpose rather than rage
+        - seems tied to sealed chambers or old engineering systems
+
+      special_traits:
+        - can batter through stone, supports, or metalwork
+        - emits heat, sparks, pressure bursts, or crushing force
+        - ignores lesser obstacles while advancing
+        - senses movement through walls or floors
+        - causes machinery to fail, jam, or overreact nearby
+        - becomes harder to stop in tunnels or confined spaces
+
+    pirate_seas:
+      families:
+        - drowned
+        - beast
+        - horror
+
+      appearance_traits:
+        - barnacle-covered flesh or armor-like shell growth
+        - rope, net, hooks, or wreckage tangled into the body
+        - brine-swollen limbs and pale waterlogged skin
+        - eel-like spine, fins, or webbed claws
+        - eyes clouded like dead fish or glowing from deep water
+        - seaweed trailing from joints or wounds
+        - mouth lined with needle teeth or lamprey rings
+
+      behavior_traits:
+        - strikes from surf, fog, wreckage, or below decks
+        - stalks beaches, reefs, or wreck sites after storms
+        - drawn to lantern light, blood in water, or loud sound
+        - attacks isolated swimmers or boarding parties first
+        - lingers near cursed cargo or drowned dead
+        - retreats into water unless cornered or feeding
+
+      special_traits:
+        - drags targets toward water, ledges, or unstable footing
+        - spits brine, slime, or paralytic fluid
+        - moves through flooded or wet terrain as if one level higher
+        - can surface where it should not physically fit
+        - brings cold shock, choking spray, or sea panic
+        - leaves salt rot, slime, or bad luck associations behind

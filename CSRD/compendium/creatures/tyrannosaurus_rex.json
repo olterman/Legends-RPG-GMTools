@@ -17,5 +17,10 @@
   "interaction": "Tyrannosauruses are animals, but they’re clever hunters, too. When they hunt in pairs, they work to keep prey penned between them.",
   "use": "Something is killing big game in a forest preserve. Poachers are suspected at first, but when they are also found dead, it’s clear that something else is to blame.",
   "loot": null,
-  "gm_intrusion": "The tyrannosaurus’s tail swings around and knocks the character tumbling out of short range and possibly into dangerous terrain."
+  "gm_intrusion": "The tyrannosaurus’s tail swings around and knocks the character tumbling out of short range and possibly into dangerous terrain.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

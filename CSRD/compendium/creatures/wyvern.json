@@ -17,5 +17,11 @@
   "interaction": "Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human.",
   "use": "The characters are contacted by an AI sympathetic to biological beings. It wants them to accomplish a task on a moon of Jupiter: assassinate a security officer who the AI calculates as being a nexus of future disaster if he isn’t removed from the equation.",
   "loot": "An AI might have access to 1d6 cyphers and possibly an artifact or two.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

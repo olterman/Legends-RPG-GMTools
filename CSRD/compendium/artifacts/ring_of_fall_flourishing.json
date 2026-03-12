@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ring Of Fall Flourishing",
+  "slug": "ring_of_fall_flourishing",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Gold band inscribed with feather wreath",
+  "effect": "The wearer of the ring can fall any distance safely, landing easily and upright.",
+  "depletion": "1 in 1d100",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

@@ -7,5 +7,11 @@
   "level": "1d6 + 2",
   "form": null,
   "effect": "The user throws this cypher at a target within short range, and it drills into the target for one round, inflicting damage equal to the cypher’s level. If the target is made of metal or wearing metal (such as armor), the attack is eased.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

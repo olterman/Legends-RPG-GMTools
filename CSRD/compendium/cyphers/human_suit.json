@@ -7,5 +7,11 @@
   "level": "1d6 + 4",
   "form": "Grimoire (no reader can long keep the book’s exact form in memory)",
   "effect": "A reader who understands Latin can use this grimoire to accomplish a wide variety of occult operations, all of which risk their sanity. Indeed, one must be a little insane or at least naive to use this tome, given its storied history. That said, the uses a reader can put the Necronomicon to include the following. • Reference. The grimoire eases by three steps any task related to knowledge of Lovecraftian realms, entities, objects, and related subjects. • Spellbook. The grimoire contains a variety of horrifying spells and rituals, which a reader can attempt to cast by incanting from the tome. They range from simple curses and spells to speak to the dead all the way up to death spells and the summoning of Lovecraftian entities. The GM can let the player describe the kind of spell desired, and then decide if it exists in the Necronomicon. If it does, the spell also likely has an unintended side effect, such as infecting a nearby object or friend with a demonic entity, killing a pet, or driving a nearby NPC insane. Each time the reader references the grimoire or casts a spell from it, the disturbing imagery, phrasing, and general evil nature require them to make a difficulty 5 Intellect defense roll. On a failed roll, they take 5 points of Intellect damage, descend one step on the damage track, and take one other action (determined by the GM) motivated by insanity. On a successful roll, they still take 2 points of Intellect damage. There may be damaged copies of the Necronomicon in Greek and a handwritten version that was poorly translated into English and exists only in fragments. Supposedly the original Arabic version was lost or destroyed in a fire.",
-  "depletion": "—"
+  "depletion": "—",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

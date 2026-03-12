@@ -17,5 +17,9 @@
   "interaction": "If approached, a nuppeppo turns to “face” its interlocutor, but it doesn’t respond to questions or orders. However, it may begin to follow its interlocutor from that point forward unless physically prevented—at which point the nuppeppo becomes violent.",
   "use": "The PCs open a grave, a coffin, or a sealed research lab, and several nuppeppos spill out. Unless stopped, the creatures attempt to “adopt” their discoverers.",
   "loot": null,
-  "gm_intrusion": "The character who allowed the nuppeppo to follow them around like a pet (or who has been unable to prevent it) wakes to find that the creature has settled upon them in the night and is using its touch-decay abilities to feed. In fact, the character might already be incapacitated by the time they wake."
+  "gm_intrusion": "The character who allowed the nuppeppo to follow them around like a pet (or who has been unable to prevent it) wakes to find that the creature has settled upon them in the night and is using its touch-decay abilities to feed. In fact, the character might already be incapacitated by the time they wake.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

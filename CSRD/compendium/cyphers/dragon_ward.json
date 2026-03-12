@@ -3,9 +3,15 @@
   "source": "Cypher System Reference Document 2025-08-22",
   "title": "Dragon Ward",
   "slug": "dragon_ward",
-  "category": "Fantasy Cyphers",
+  "category": "Dark Magic And Occult Cyphers",
   "level": "1d6",
   "form": null,
   "effect": "For one hour, the user gains Armor equal to the cypher’s level against damage from dragons, wyverns, and similar magical reptilian creatures. In a typical fantasy campaign, a demon is a supernatural being from another dimension or plane of existence.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

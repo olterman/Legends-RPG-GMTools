@@ -7,11 +7,21 @@
       "source_path": "logseq/pages/Aldamir.md",
       "excerpt": "_The Jewel of the Tree_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 45
+      "mentions_total": 45,
+      "area": "",
+      "environment": "",
+      "location": "Aldamir",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Ancestral Descriptors",
@@ -19,11 +29,21 @@
       "source_path": "logseq/pages/Ancestral Descriptors.md",
       "excerpt": "**You are a Sky-Touched Alfirin**",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 53
+      "mentions_total": 53,
+      "area": "",
+      "environment": "",
+      "location": "Ancestral Descriptors",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Caldor",
@@ -31,11 +51,21 @@
       "source_path": "logseq/pages/Caldor.md",
       "excerpt": "_The Age of Tomorrow_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 21
+      "mentions_total": 21,
+      "area": "",
+      "environment": "",
+      "location": "Caldor",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Cirdion",
@@ -43,11 +73,21 @@
       "source_path": "logseq/pages/Cirdion.md",
       "excerpt": "_The First Alfirin Realm_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 42
+      "mentions_total": 42,
+      "area": "",
+      "environment": "",
+      "location": "Cirdion",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Cirth",
@@ -55,11 +95,21 @@
       "source_path": "logseq/pages/Cirth.md",
       "excerpt": "Cird",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 25
+      "mentions_total": 25,
+      "area": "",
+      "environment": "",
+      "location": "Cirth",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Ered Engrin",
@@ -67,11 +117,21 @@
       "source_path": "logseq/pages/Ered Engrin.md",
       "excerpt": "_The Deepwardens of Ered Engrin_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 37
+      "mentions_total": 37,
+      "area": "",
+      "environment": "",
+      "location": "Ered Engrin",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Fenmir",
@@ -79,11 +139,21 @@
       "source_path": "logseq/pages/Fenmir.md",
       "excerpt": "_The Mortal Heartlands_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 12
+      "mentions_total": 12,
+      "area": "",
+      "environment": "",
+      "location": "Fenmir",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Gods and Powers",
@@ -91,11 +161,21 @@
       "source_path": "logseq/pages/Gods and Powers.md",
       "excerpt": "In the Lands of Legends, the gods are not beings.",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 55
+      "mentions_total": 55,
+      "area": "",
+      "environment": "",
+      "location": "Gods and Powers",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Lomêanor",
@@ -103,11 +183,21 @@
       "source_path": "logseq/pages/Lomêanor.md",
       "excerpt": "_The Land of Shadow Beyond the Sands_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 43
+      "mentions_total": 43,
+      "area": "",
+      "environment": "",
+      "location": "Lomêanor",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Peoples",
@@ -115,11 +205,21 @@
       "source_path": "logseq/pages/Peoples.md",
       "excerpt": "Immortal exiles from a shattered world; entered through damaged Gates after failed negotiation with the Velim; fractured into Sky Children (open, cultured), Forest Folk (Galadhrim, wild stewards), and Nightshades (Duathrim, secretive manipulators).",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 50
+      "mentions_total": 50,
+      "area": "",
+      "environment": "",
+      "location": "Peoples",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Places",
@@ -127,11 +227,21 @@
       "source_path": "logseq/pages/Places.md",
       "excerpt": "**Cirdion** — ancient Alfirin coastal realm, white stone cliff-cities, wind-swept terraces, sky and sea aesthetics, advanced shipbuilding, meritocratic councils, immortal scholars, light-infused architecture, calm precision, openness masking deep restraint, hi",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 64
+      "mentions_total": 64,
+      "area": "",
+      "environment": "",
+      "location": "Places",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Alfirin Tribes",
@@ -139,11 +249,21 @@
       "source_path": "logseq/pages/The Alfirin Tribes.md",
       "excerpt": "The **Alfirin** are the Immortal Ones, the first of the elder peoples to set foot upon the Lands of Legends.",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 36
+      "mentions_total": 36,
+      "area": "",
+      "environment": "",
+      "location": "The Alfirin Tribes",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Daelgast",
@@ -153,7 +273,16 @@
       "categories": [
         "race"
       ],
-      "mentions_total": 20
+      "mentions_total": 20,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Duergar",
@@ -163,7 +292,16 @@
       "categories": [
         "race"
       ],
-      "mentions_total": 24
+      "mentions_total": 24,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Fellic",
@@ -173,7 +311,16 @@
       "categories": [
         "race"
       ],
-      "mentions_total": 76
+      "mentions_total": 76,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Human Tribes",
@@ -181,11 +328,21 @@
       "source_path": "logseq/pages/The Human Tribes.md",
       "excerpt": "Among the elder races, humans are often dismissed as brief sparks—short-lived, impulsive, and fragile. Yet it is precisely this impermanence that has shaped humanity into the most adaptable and unpredictable of all peoples. Where immortals plan in centuries, h",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 23
+      "mentions_total": 23,
+      "area": "",
+      "environment": "",
+      "location": "The Human Tribes",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Lhainîm",
@@ -195,7 +352,16 @@
       "categories": [
         "race"
       ],
-      "mentions_total": 9
+      "mentions_total": 9,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Lilim",
@@ -203,11 +369,21 @@
       "source_path": "logseq/pages/The Lilim.md",
       "excerpt": "No one knows where the **Lilim** came from.",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 32
+      "mentions_total": 32,
+      "area": "",
+      "environment": "",
+      "location": "The Lilim",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Sands",
@@ -215,11 +391,21 @@
       "source_path": "logseq/pages/The Sands.md",
       "excerpt": "_The Nameless Expanse_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 57
+      "mentions_total": 57,
+      "area": "",
+      "environment": "",
+      "location": "The Sands",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Small Folk",
@@ -227,10 +413,19 @@
       "source_path": "logseq/pages/The Small Folk.md",
       "excerpt": "_Those Who Walk Beneath Notice_",
       "categories": [
-        "environment",
+        "area",
         "race"
       ],
-      "mentions_total": 79
+      "mentions_total": 79,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "The Uruk Tribes",
@@ -238,10 +433,19 @@
       "source_path": "logseq/pages/The Uruk Tribes.md",
       "excerpt": "To the common folk of the lowlands and cities, the **Uruk** are little more than monsters given flesh: wild-eyed raiders, feral warbands, and brutal conquerors who respect only strength. Songs and campfire tales rarely grant them history, culture, or reason. I",
       "categories": [
-        "environment",
+        "area",
         "race"
       ],
-      "mentions_total": 22
+      "mentions_total": 22,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Untitled",
@@ -251,7 +455,16 @@
       "categories": [
         "race"
       ],
-      "mentions_total": 8
+      "mentions_total": 8,
+      "area": "",
+      "environment": "",
+      "location": "",
+      "location_type": "",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "World Seed",
@@ -259,11 +472,21 @@
       "source_path": "logseq/pages/World Seed.md",
       "excerpt": "The Lands of Legends is a mythic fantasy world shaped by ancient passage, fracture, and restraint.",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 36
+      "mentions_total": 36,
+      "area": "",
+      "environment": "",
+      "location": "World Seed",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     },
     {
       "title": "Xanthir",
@@ -271,11 +494,21 @@
       "source_path": "logseq/pages/Xanthir.md",
       "excerpt": "_The Red Faith Ascendant_",
       "categories": [
+        "area",
         "city",
-        "environment",
+        "location",
         "race"
       ],
-      "mentions_total": 34
+      "mentions_total": 34,
+      "area": "",
+      "environment": "",
+      "location": "Xanthir",
+      "location_type": "city",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
   ]
 }

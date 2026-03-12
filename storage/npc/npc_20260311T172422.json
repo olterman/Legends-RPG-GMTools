@@ -54,7 +54,20 @@
       "race": "uruk",
       "variant": "lowland",
       "profession": "conqueror",
-      "environment": "fenmir_lowlands"
+      "environment": "fenmir_lowlands",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "fantasy",
+      "images": [
+        "uploads/artspace-ai-1773320821786_20260312T130757_ddae9f71.png"
+      ],
+      "area": "fenmir_lowlands",
+      "location": "",
+      "family": "",
+      "role": ""
     }
-  }
+  },
+  "schema_version": "1.0"
 }

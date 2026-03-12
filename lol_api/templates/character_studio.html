@@ -22,10 +22,21 @@
         <label for="stored-sheet-select">Saved Sheet</label>
         <select id="stored-sheet-select"></select>
       </div>
+      <div class="field" id="foundry-import-field">
+        <label for="foundry-import-file">Import Foundry Actor (JSON)</label>
+        <input id="foundry-import-file" type="file" accept=".json,application/json" />
+      </div>
       <div class="actions">
         <button type="button" class="secondary" id="load-sheet-btn">Load</button>
         <button type="button" class="secondary" id="edit-sheet-btn">Edit</button>
         <button type="button" class="secondary" id="play-sheet-btn">Play</button>
+        <button type="button" class="secondary" id="import-foundry-btn">Import Foundry</button>
+      </div>
+      <div class="actions" style="margin-top:8px;">
+        <button type="button" class="secondary" id="print-btn">Print</button>
+        <button type="button" class="secondary" id="download-pdf-btn">Download PDF</button>
+        <button type="button" class="secondary" id="export-foundry-btn">Export Foundry</button>
+        <button type="button" class="secondary" id="copy-btn">Copy Sheet</button>
       </div>
     </div>
 
@@ -123,7 +134,7 @@
       </div>
 
       <div class="field">
-        <label for="environment">Environment</label>
+        <label for="environment">Area</label>
         <select id="environment"></select>
       </div>
 
@@ -250,10 +261,14 @@
         <textarea id="notes" style="min-height:100px;"></textarea>
       </div>
 
+      <details class="output-card">
+        <summary style="cursor:pointer; font-weight:600;">PDF Fields</summary>
+        <div class="small" style="margin:8px 0;">Every field in the form-fillable sheet can be set here. These values are used for Print and Download PDF.</div>
+        <div id="pdf-fields-editor" class="field"></div>
+      </details>
+
       <div class="actions">
         <button type="button" id="generate-btn">Generate Name + Flavor</button>
-        <button type="button" class="secondary" id="print-btn">Print</button>
-        <button type="button" class="secondary" id="copy-btn">Copy Sheet</button>
       </div>
     </div>
 
@@ -340,7 +355,8 @@
     },
     chosenAbilities: [],
     chosenSkills: [],
-    storedItems: []
+    storedItems: [],
+    pdfTemplateFields: []
   };
 
   const els = {
@@ -363,6 +379,9 @@
     addSkillBtn: document.getElementById('add-skill-btn'),
     chosenSkillsPreview: document.getElementById('chosen-skills-preview'),
     storedSheetSelect: document.getElementById('stored-sheet-select'),
+    foundryImportField: document.getElementById('foundry-import-field'),
+    foundryImportFile: document.getElementById('foundry-import-file'),
+    importFoundryBtn: document.getElementById('import-foundry-btn'),
     loadSheetBtn: document.getElementById('load-sheet-btn'),
     editSheetBtn: document.getElementById('edit-sheet-btn'),
     playSheetBtn: document.getElementById('play-sheet-btn'),
@@ -392,7 +411,10 @@
 
     generateBtn: document.getElementById('generate-btn'),
     printBtn: document.getElementById('print-btn'),
+    downloadPdfBtn: document.getElementById('download-pdf-btn'),
+    exportFoundryBtn: document.getElementById('export-foundry-btn'),
     copyBtn: document.getElementById('copy-btn'),
+    pdfFieldsEditor: document.getElementById('pdf-fields-editor'),
 
     status: document.getElementById('status'),
     viewer: document.getElementById('viewer')
@@ -402,7 +424,9 @@
     return String(text ?? '')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function slugify(value) {
@@ -420,6 +444,146 @@
       if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
       return data;
     });
+  }
+
+  async function pluginEnabled(pluginId) {
+    try {
+      const data = await fetchJson('/plugins');
+      const items = Array.isArray(data.items) ? data.items : [];
+      const plugin = items.find(item => String(item.id || '') === String(pluginId || ''));
+      return Boolean(plugin && plugin.enabled);
+    } catch (err) {
+      return false;
+    }
+  }
+
+  async function applyPluginVisibility() {
+    const foundryOn = await pluginEnabled('foundryVTT');
+    if (els.foundryImportField) {
+      els.foundryImportField.classList.toggle('hidden', !foundryOn);
+    }
+    if (els.importFoundryBtn) {
+      els.importFoundryBtn.classList.toggle('hidden', !foundryOn);
+      els.importFoundryBtn.disabled = !foundryOn;
+    }
+    if (els.exportFoundryBtn) {
+      els.exportFoundryBtn.classList.toggle('hidden', !foundryOn);
+      els.exportFoundryBtn.disabled = !foundryOn;
+    }
+  }
+
+  function collectPdfFieldOverrides() {
+    const values = {};
+    if (!els.pdfFieldsEditor) return values;
+    els.pdfFieldsEditor.querySelectorAll('[data-pdf-field]').forEach(input => {
+      const key = input.getAttribute('data-pdf-field');
+      if (!key) return;
+      const value = String(input.value || '').trim();
+      if (value) values[key] = value;
+    });
+    return values;
+  }
+
+  function applyPdfFieldOverrides(overrides) {
+    if (!els.pdfFieldsEditor || !overrides || typeof overrides !== 'object') return;
+    els.pdfFieldsEditor.querySelectorAll('[data-pdf-field]').forEach(input => {
+      const key = input.getAttribute('data-pdf-field');
+      if (!key) return;
+      input.value = String(overrides[key] || '');
+    });
+  }
+
+  function renderPdfFieldsEditor(fieldNames, overrides = {}) {
+    if (!els.pdfFieldsEditor) return;
+    if (!Array.isArray(fieldNames) || !fieldNames.length) {
+      els.pdfFieldsEditor.innerHTML = '<div class="small">No template field metadata available yet.</div>';
+      return;
+    }
+
+    els.pdfFieldsEditor.innerHTML = `
+      <div class="small" style="margin-bottom:8px;">${fieldNames.length} PDF fields detected.</div>
+      ${fieldNames.map((fieldName, index) => `
+        <label for="pdf-field-${index}">${escapeHtml(fieldName)}</label>
+        <input
+          id="pdf-field-${index}"
+          data-pdf-field="${escapeHtml(fieldName)}"
+          value="${escapeHtml(String(overrides[fieldName] || ''))}"
+          placeholder="Auto-filled from sheet unless overridden"
+          style="margin-bottom:8px;"
+        />
+      `).join('')}
+    `;
+
+    els.pdfFieldsEditor.querySelectorAll('[data-pdf-field]').forEach(input => {
+      input.addEventListener('input', renderSheet);
+      input.addEventListener('change', renderSheet);
+    });
+  }
+
+  async function loadPdfFieldTemplateMetadata() {
+    try {
+      const data = await fetchJson('/character-sheet/pdf-fields');
+      state.pdfTemplateFields = Array.isArray(data.fields) ? data.fields : [];
+      renderPdfFieldsEditor(state.pdfTemplateFields);
+    } catch (err) {
+      state.pdfTemplateFields = [];
+      renderPdfFieldsEditor([]);
+      els.status.textContent = `PDF field metadata unavailable: ${err.message}`;
+    }
+  }
+
+  async function requestFilledPdf(action) {
+    const mode = String(action || 'download').toLowerCase();
+    const useSavedSheet = state.mode !== 'edit' && String(state.currentFilename || '').trim();
+    const computed = useSavedSheet ? null : renderSheet();
+    const body = {
+      action: mode,
+      owner: state.ownerId,
+      filename: state.currentFilename || '',
+    };
+    if (!useSavedSheet) {
+      body.sheet = computed;
+    }
+
+    els.status.textContent = mode === 'print' ? 'Generating printable PDF...' : 'Generating downloadable PDF...';
+
+    const response = await fetch('/character-sheet/pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      let message = `Request failed: ${response.status}`;
+      try {
+        const data = await response.json();
+        message = data.error || data.hint || message;
+      } catch (err) {
+        // keep generic message
+      }
+      throw new Error(message);
+    }
+
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const fallbackName = useSavedSheet ? String(state.currentFilename || 'character_sheet') : 'character_sheet';
+    const safeName = (computed && computed.name ? slugify(computed.name) : slugify(fallbackName)) || 'character_sheet';
+
+    if (mode === 'print') {
+      window.open(blobUrl, '_blank', 'noopener');
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
+      els.status.textContent = 'Printable PDF opened in a new tab.';
+      return;
+    }
+
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = `${safeName}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 10_000);
+    els.status.textContent = `Downloaded ${safeName}.pdf`;
   }
 
   const STUDIO_LAST_SHEET_KEY = 'characterStudio.lastSheetFilename';
@@ -739,7 +903,7 @@
       profession: els.profession.value,
       race: els.race.value,
       variant: els.variant.value,
-      environment: els.environment.value,
+      area: els.environment.value,
       mood: els.mood.value.trim(),
       seed: els.seed.value.trim(),
     };
@@ -845,12 +1009,13 @@
       chosen_skills: chosenSkills,
       equipment: parseList(els.equipment.value),
       notes: els.notes.value.trim(),
+      pdf_fields: collectPdfFieldOverrides(),
       generated: state.generated || null,
       metadata: {
         name,
         race: els.race.value,
         profession: els.profession.value,
-        environment: els.environment.value,
+        area: els.environment.value,
         character_type: typeTitle,
         flavor: flavorTitle,
         descriptor: descriptorTitle,
@@ -1014,6 +1179,62 @@
     `;
   }
 
+  function escapeRegExp(value) {
+    return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function collectSheetKeywordLinks(c) {
+    const pairs = [];
+    if (c.type) pairs.push([c.type, searchHrefForType('character_type', c.type)]);
+    if (c.flavor) pairs.push([c.flavor, searchHrefForType('flavor', c.flavor)]);
+    if (c.descriptor) pairs.push([c.descriptor, searchHrefForType('descriptor', c.descriptor)]);
+    if (c.focus) pairs.push([c.focus, searchHrefForType('focus', c.focus)]);
+
+    (c.chosen_abilities || []).forEach(name => {
+      if (name) pairs.push([name, abilityHref(name)]);
+    });
+    ((c.descriptor_effects && c.descriptor_effects.skills) || []).forEach(name => {
+      if (name) pairs.push([name, abilityHref(name)]);
+    });
+    ((c.descriptor_effects && c.descriptor_effects.inabilities) || []).forEach(name => {
+      if (name) pairs.push([name, searchHrefForType('skill', name)]);
+    });
+    (c.chosen_skills || []).forEach(entry => {
+      if (entry && entry.name) pairs.push([entry.name, searchHrefForType('skill', entry.name)]);
+    });
+
+    const unique = new Map();
+    pairs.forEach(([label, href]) => {
+      const key = String(label || '').trim().toLowerCase();
+      if (!key || unique.has(key)) return;
+      unique.set(key, { label: String(label).trim(), href: String(href) });
+    });
+    return Array.from(unique.values());
+  }
+
+  function renderNotesWithKeywordLinks(text, c) {
+    const raw = String(text || '');
+    if (!raw) return '';
+    const links = collectSheetKeywordLinks(c || {});
+    let rendered = escapeHtml(raw);
+    if (links.length) {
+      const sorted = links
+        .slice()
+        .sort((a, b) => b.label.length - a.label.length)
+        .filter(link => link.label.length >= 3);
+      if (sorted.length) {
+        const byLower = new Map(sorted.map(link => [link.label.toLowerCase(), link.href]));
+        const pattern = new RegExp(sorted.map(link => escapeRegExp(escapeHtml(link.label))).join('|'), 'gi');
+        rendered = rendered.replace(pattern, (match) => {
+          const href = byLower.get(match.toLowerCase());
+          if (!href) return match;
+          return `<a href="${href}" target="_blank" rel="noopener">${match}</a>`;
+        });
+      }
+    }
+    return rendered.replace(/\n/g, '<br>');
+  }
+
   function renderKeyValueCard(title, rows) {
     return `
       <div class="output-card">
@@ -1089,7 +1310,7 @@
       ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
       ${descriptorSkillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${descriptorSkillRows}</ul></div>` : ''}
       ${renderListCard('Equipment', c.equipment)}
-      ${c.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${escapeHtml(c.notes)}</div></div>` : ''}
+      ${c.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${renderNotesWithKeywordLinks(c.notes, c)}</div></div>` : ''}
     `;
   }
 
@@ -1190,7 +1411,7 @@
       ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
       ${descriptorSkillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${descriptorSkillRows}</ul></div>` : ''}
       ${renderListCard('Equipment', sheet.equipment || [])}
-      ${sheet.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${escapeHtml(sheet.notes)}</div></div>` : ''}
+      ${sheet.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${renderNotesWithKeywordLinks(sheet.notes, sheet)}</div></div>` : ''}
     `;
   }
 
@@ -1206,7 +1427,7 @@
       ['Character Sentence', c.sentence],
       ['Descriptor / Type / Focus', [c.descriptor, c.type, c.focus].filter(Boolean).join(' • ')],
       ['Flavor', c.flavor || 'None'],
-      ['Race / Environment', [c.metadata.race, c.metadata.environment].filter(Boolean).join(' • ')],
+      ['Race / Area', [c.metadata.race, c.metadata.area || c.metadata.environment].filter(Boolean).join(' • ')],
     ]);
 
     const stats = `
@@ -1275,7 +1496,7 @@
     const notesCard = c.notes ? `
       <div class="output-card">
         <h3>Notes</h3>
-        <div class="output-value">${escapeHtml(c.notes)}</div>
+        <div class="output-value">${renderNotesWithKeywordLinks(c.notes, c)}</div>
       </div>
     ` : '';
 
@@ -1315,16 +1536,40 @@
       intellectEl.textContent = `${current.pools.current.intellect} / ${current.pools.max.intellect}`;
     }
 
+    let autosaveTimer = null;
+    let autosaveInFlight = false;
+    let autosaveQueued = false;
+
     async function persistPlayState() {
+      if (autosaveInFlight) {
+        autosaveQueued = true;
+        return;
+      }
+      autosaveInFlight = true;
       try {
         await persistSheetToFilename(current, filename);
+        els.status.textContent = `Play autosaved ${filename}.`;
       } catch (err) {
         els.status.textContent = `Play state save failed: ${err.message}`;
+      } finally {
+        autosaveInFlight = false;
+        if (autosaveQueued) {
+          autosaveQueued = false;
+          void persistPlayState();
+        }
       }
     }
 
+    function schedulePlayAutosave() {
+      if (autosaveTimer) clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(() => {
+        autosaveTimer = null;
+        void persistPlayState();
+      }, 500);
+    }
+
     document.querySelectorAll('.play-adjust').forEach(btn => {
-      btn.addEventListener('click', async () => {
+      btn.addEventListener('click', () => {
         const stat = btn.getAttribute('data-stat');
         const delta = Number(btn.getAttribute('data-delta') || 0);
         if (!['might', 'speed', 'intellect'].includes(stat)) return;
@@ -1334,22 +1579,22 @@
         );
         current.pools.current[stat] = next;
         updatePoolView();
-        await persistPlayState();
+        schedulePlayAutosave();
       });
     });
 
     if (damageEl) {
-      damageEl.addEventListener('change', async () => {
+      damageEl.addEventListener('change', () => {
         current.damage_track = damageEl.value;
-        await persistPlayState();
+        schedulePlayAutosave();
       });
     }
 
     function bindRecovery(el, key) {
       if (!el) return;
-      el.addEventListener('change', async () => {
+      el.addEventListener('change', () => {
         current.recovery_rolls_used[key] = Boolean(el.checked);
-        await persistPlayState();
+        schedulePlayAutosave();
       });
     }
     bindRecovery(recAction, 'action');
@@ -1464,6 +1709,77 @@
     els.status.textContent = 'Copied sheet to clipboard.';
   }
 
+  async function importFoundryActor() {
+    const file = els.foundryImportFile && els.foundryImportFile.files ? els.foundryImportFile.files[0] : null;
+    if (!file) {
+      els.status.textContent = 'Choose a Foundry Actor JSON file first.';
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('area', String(els.environment.value || ''));
+    formData.append('environment', String(els.environment.value || ''));
+    formData.append('race', String(els.race.value || ''));
+    formData.append('profession', String(els.profession.value || ''));
+
+    els.status.textContent = `Importing ${file.name}...`;
+    try {
+      const res = await fetch('/character-sheet/import-foundry', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || `Import failed: ${res.status}`);
+      }
+      const savedFile = (data.storage && data.storage.filename) || '';
+      await refreshStoredSheets();
+      if (savedFile && state.storedItems.some(item => item.filename === savedFile)) {
+        els.storedSheetSelect.value = savedFile;
+        await loadStoredSheetIntoViewer();
+      }
+      els.status.textContent = savedFile ? `Imported Foundry actor: ${savedFile}` : 'Imported Foundry actor.';
+    } catch (err) {
+      els.status.textContent = `Foundry import error: ${err.message}`;
+    }
+  }
+
+  async function exportFoundryActor() {
+    const filename = String(els.storedSheetSelect.value || state.currentFilename || '').trim();
+    if (!filename) {
+      els.status.textContent = 'Select a saved item to export first.';
+      return;
+    }
+    els.status.textContent = `Exporting ${filename} to Foundry JSON...`;
+
+    try {
+      const response = await fetch(`/foundry/export?filename=${encodeURIComponent(filename)}`);
+      if (!response.ok) {
+        let message = `Export failed: ${response.status}`;
+        try {
+          const data = await response.json();
+          message = data.error || message;
+        } catch (err) {
+          // keep generic message
+        }
+        throw new Error(message);
+      }
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = '';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+      els.status.textContent = `Exported Foundry JSON for ${filename}.`;
+    } catch (err) {
+      els.status.textContent = `Foundry export error: ${err.message}`;
+    }
+  }
+
   function normalizePoolsForHydration(sheet) {
     const pools = sheet?.pools || {};
     if (pools.max && pools.current) {
@@ -1546,7 +1862,7 @@
       updateVariantOptions();
     }
     if (payload.variant) els.variant.value = payload.variant;
-    if (payload.environment) els.environment.value = payload.environment;
+    if (payload.area || payload.environment) els.environment.value = payload.area || payload.environment;
     if (payload.mood) els.mood.value = payload.mood;
     if (payload.seed) els.seed.value = payload.seed;
 
@@ -1585,6 +1901,7 @@
       els.equipment.value = Array.isArray(sheet.equipment) ? sheet.equipment.join('\n') : '';
       els.damageTrack.value = sheet.damage_track || 'Hale';
       setRecoveryCheckboxes(sheet.recovery_rolls_used || {});
+      applyPdfFieldOverrides(sheet.pdf_fields || {});
 
       const allowed = new Set(allowedTierOneAbilityPool().combined);
       state.chosenAbilities = Array.isArray(sheet.chosen_abilities)
@@ -1746,6 +2063,8 @@
   }
 
   async function loadBootData() {
+    await applyPluginVisibility();
+    await loadPdfFieldTemplateMetadata();
     const [meta, races, typeList, flavorList, descriptorList, focusList, abilityList, skillList] = await Promise.all([
       fetchJson('/meta'),
       fetchJson('/meta/races'),
@@ -1775,7 +2094,7 @@
     fillSelectValues(els.gender, (meta.genders && meta.genders.length ? meta.genders : ['female','male','nonbinary']));
     fillSelectValues(els.profession, meta.professions || []);
     fillSelectValues(els.race, meta.races || []);
-    fillSelectValues(els.environment, meta.environments || []);
+    fillSelectValues(els.environment, meta.areas || meta.environments || []);
     updateVariantOptions();
 
     await refreshSelectedType();
@@ -1838,10 +2157,25 @@
   els.generateBtn.addEventListener('click', generateCharacter);
   els.addSkillBtn.addEventListener('click', addSkillPick);
   els.copyBtn.addEventListener('click', copySheet);
-  els.printBtn.addEventListener('click', () => window.print());
+  els.printBtn.addEventListener('click', async () => {
+    try {
+      await requestFilledPdf('print');
+    } catch (err) {
+      els.status.textContent = `Print failed: ${err.message}`;
+    }
+  });
+  els.downloadPdfBtn.addEventListener('click', async () => {
+    try {
+      await requestFilledPdf('download');
+    } catch (err) {
+      els.status.textContent = `PDF download failed: ${err.message}`;
+    }
+  });
   els.loadSheetBtn.addEventListener('click', loadStoredSheetIntoViewer);
   els.editSheetBtn.addEventListener('click', editStoredSheet);
   els.playSheetBtn.addEventListener('click', playStoredSheet);
+  els.importFoundryBtn.addEventListener('click', importFoundryActor);
+  els.exportFoundryBtn.addEventListener('click', exportFoundryActor);
 
   window.addEventListener('beforeunload', () => {
     if (!state.currentLocked || !state.currentFilename) return;

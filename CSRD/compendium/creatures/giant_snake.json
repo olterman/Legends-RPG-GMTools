@@ -17,5 +17,10 @@
   "interaction": "A giant snake is a predator that regards other creatures as food, though it ignores them when it is already busy digesting a meal.",
   "use": "Characters note something amiss as they glimpse lambent eyes peering from the darkness, glaring as if seeking to pin victims in place with cold terror.",
   "loot": "A giant snake’s droppings or gullet might hold a few cyphers and possibly an artifact that the creature could not digest.",
-  "gm_intrusion": "The snake’s venom affects the character more strongly. Instead of merely inflicting Speed damage, it also paralyzes the character for one minute, though after a couple of rounds, the victim can make another Might defense roll to throw off the effects of the poison early."
+  "gm_intrusion": "The snake’s venom affects the character more strongly. Instead of merely inflicting Speed damage, it also paralyzes the character for one minute, though after a couple of rounds, the victim can make another Might defense roll to throw off the effects of the poison early.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

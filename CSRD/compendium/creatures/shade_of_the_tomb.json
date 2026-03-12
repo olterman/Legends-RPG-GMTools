@@ -17,5 +17,10 @@
   "interaction": "Sinister and conniving, a tomb shade doesn’t speak, but uses its many arms for magical signing, usually only to make threats.",
   "use": "An alchemist wants PCs to collect a cursed book for their library, but whenever someone opens the tome, shadows (a tomb shade) swallow the reader. MODERN MAGIC CREATURES",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

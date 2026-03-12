@@ -17,5 +17,11 @@
   "interaction": "Infovores are fractured, fragmented beings. Characters who can talk to machines might be able to keep one from “spinning up” to become a threat and learn something valuable, but only for a short period.",
   "use": "Among the devices collected from trade, salvage, archeological dig, or some other unique source, one was actually an inactive infovore, quiescent until plugged in or scanned.",
   "loot": "An infovore that has undergone spontaneous disassembly leaves one or two manifest cyphers; however, there’s a chance that one of those cyphers is actually the infovore seed.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

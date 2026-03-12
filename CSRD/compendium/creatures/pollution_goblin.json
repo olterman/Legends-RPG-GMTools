@@ -17,5 +17,10 @@
   "interaction": "Pollution goblins have a rudimentary understanding of whatever human language is dominant in their area. Most conversations with them are about acquiring food and protecting and expanding their territory (which means spreading contaminants over a wider area).",
   "use": "Pollution goblins are an early symptom of a larger and greater problem. By the time a group of them is discovered, the area is already poisoned and will take time and money to contain and clean up.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

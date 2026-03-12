@@ -17,5 +17,10 @@
   "interaction": "Most abominations can speak and have vague memories of the people they were before transforming. However, those memories, motivations, and hopes are usually submerged in a hunger that can never be sated.",
   "use": "Abominations hunt ravaged wastelands and bombed-out spacecraft hulks, lurk in basements where mad scientists have conducted illicit experiments, and haunt the dreams of children who’ve gotten in over their heads.",
   "loot": null,
-  "gm_intrusion": "The abomination isn’t dead; it stands up on the following round at full health."
+  "gm_intrusion": "The abomination isn’t dead; it stands up on the following round at full health.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

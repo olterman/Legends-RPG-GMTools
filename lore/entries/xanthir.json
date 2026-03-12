@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/Xanthir.md",
   "excerpt": "_The Red Faith Ascendant_",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -25,5 +26,13 @@
   "prompt_counts": {
     "lore": 1,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "Xanthir",
+  "location_type": "city"
 }

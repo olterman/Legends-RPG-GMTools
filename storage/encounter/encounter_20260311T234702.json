@@ -23,7 +23,13 @@
       "subject": "a Fenmir elder",
       "truth": "a sacred site has become dangerous after a storm or disturbance",
       "complication": "honor requires forms that delay urgent action",
-      "hook": "settle a dispute before it hardens into feud"
+      "hook": "settle a dispute before it hardens into feud",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

@@ -44,7 +44,13 @@
       "flavor": "Combat Flavor",
       "descriptor": "Rugged",
       "focus": "Abides in Stone",
-      "tier": null
+      "tier": null,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

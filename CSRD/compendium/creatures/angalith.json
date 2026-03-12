@@ -17,5 +17,10 @@
   "interaction": "Angaliths resonate with the worship and faith their component parts once witnessed. Often, that faith was preaching about the welfare of other beings, so they may stop to help those in need. But if they see someone act against the common good, in an angalith’s estimation, that someone is due only hellfire.",
   "use": "Angaliths—like most forgeborn—are tough encounters even for those who are tooled up for a fight. However, they can be assuaged with promises of saintly acts or demonstrations of good works, which could turn an angry angalith found in a demolished church into a temporary ally.",
   "loot": null,
-  "gm_intrusion": "The character sliced by the jagged edge of a stained glass wing begins bleeding for 1 ambient damage each round until someone succeeds on a difficulty 3 healing task to stop the flow."
+  "gm_intrusion": "The character sliced by the jagged edge of a stained glass wing begins bleeding for 1 ambient damage each round until someone succeeds on a difficulty 3 healing task to stop the flow.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

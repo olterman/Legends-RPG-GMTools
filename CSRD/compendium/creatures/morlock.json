@@ -17,5 +17,10 @@
   "interaction": "Morlocks have a simple language of hoots, howls, and growls that communicate basic concepts like food, fire, danger, and cold. If enslaved by a more powerful creature, some of them can manage to learn a few words in that creature’s language.",
   "use": "Town elders warn that the drums and near-human howls on dark nights are signs of morlocks who’ll steal away foolish children. Stacked piles of stones are found in the forest, each surrounded by bare humanoid footprints.",
   "loot": "Morlocks don’t value what they can’t eat, but their lair may have a cypher or two from a recent victim.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,11 @@
   "interaction": "Blackguards enjoy killing righteous paragons of good and are often cruel for the sake of cruelty itself.",
   "use": "A blackguard has united various groups of bandits into a small army. An evil wizard sends her blackguard lieutenant to kill the people interfering with her plans.",
   "loot": "Blackguards usually have treasures equivalent to three or four expensive items, a few useful manifest cyphers, and an artifact weapon or armor.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

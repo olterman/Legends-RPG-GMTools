@@ -6,6 +6,7 @@ from typing import Any
 
 SUPPORTED_COMPENDIUM_TYPES = {
     "cypher",
+    "artifact",
     "creature",
     "character_type",
     "flavor",
@@ -17,6 +18,7 @@ SUPPORTED_COMPENDIUM_TYPES = {
 
 _TYPE_TO_FOLDER = {
     "cypher": "cyphers",
+    "artifact": "artifacts",
     "creature": "creatures",
     "character_type": "types",
     "flavor": "flavors",
@@ -38,6 +40,7 @@ def load_compendium_index(compendium_dir: Path) -> dict[str, Any]:
     if not index_path.exists():
         return {
             "cyphers": 0,
+            "artifacts": 0,
             "creatures": 0,
             "types": 0,
             "flavors": 0,
@@ -65,6 +68,8 @@ def list_compendium_items(compendium_dir: Path, item_type: str) -> list[dict[str
                 "category": data.get("category"),
                 "level": data.get("level"),
                 "environment": data.get("environment"),
+                "settings": data.get("settings"),
+                "setting": data.get("setting"),
                 "summary": data.get("summary"),
                 "cost": data.get("cost"),
                 "alpha_section": data.get("alpha_section"),
@@ -86,9 +91,11 @@ def search_compendium(
     compendium_dir: Path,
     *,
     item_type: str | None = None,
+    setting: str | None = None,
     query: str | None = None,
 ) -> list[dict[str, Any]]:
     query = (query or "").strip().lower()
+    setting = (setting or "").strip().lower()
     if item_type in SUPPORTED_COMPENDIUM_TYPES:
         types = [item_type]
     else:
@@ -123,6 +130,9 @@ def search_compendium(
 
                 if query and query not in haystack:
                     continue
+                item_settings = [str(x).strip().lower() for x in (data.get("settings") or []) if str(x).strip()]
+                if setting and item_settings and setting not in item_settings and "all_settings" not in item_settings:
+                    continue
 
                 results.append({
                     "title": data.get("title"),
@@ -131,6 +141,8 @@ def search_compendium(
                     "category": data.get("category"),
                     "level": data.get("level"),
                     "environment": data.get("environment"),
+                    "settings": data.get("settings"),
+                    "setting": data.get("setting"),
                     "summary": data.get("summary"),
                     "cost": data.get("cost"),
                     "alpha_section": data.get("alpha_section"),
@@ -143,6 +155,9 @@ def search_compendium(
                 str(item.get(k, "")) for k in ["title", "slug", "category", "environment", "level", "type"]
             ).lower()
             if query and query not in haystack:
+                continue
+            item_settings = [str(x).strip().lower() for x in (item.get("settings") or []) if str(x).strip()]
+            if setting and item_settings and setting not in item_settings and "all_settings" not in item_settings:
                 continue
             results.append(item)
 

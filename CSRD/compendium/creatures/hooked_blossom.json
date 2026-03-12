@@ -17,5 +17,10 @@
   "interaction": "Hooked blossoms act much like animal predators, though they are not concerned with self‑preservation.",
   "use": "The scavenging PCs spy a flower‑clad hill in the distance, shining in the sun. Even from here, they can smell the pleasant perfume drifting on the breeze.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

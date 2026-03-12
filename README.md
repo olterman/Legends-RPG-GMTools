@@ -54,21 +54,22 @@ Detailed endpoint and payload docs live here:
 
 ### Config files
 
-Configuration is split across `config/*.yaml` and loaded at startup.
+Configuration is layered and loaded at startup:
 
-- `00_setting.yaml`
-- `01_styles.yaml`
-- `10_races.yaml`
-- `11_professions.yaml`
-- `12_environments.yaml`
-- `13_npc_roles.yaml`
-- `14_monster_roles.yaml`
-- `15_monster_traits.yaml`
-- `16_monster_names.yaml`
-- `20_settlements.yaml`
-- `21_encounters.yaml`
-- `22.cyphers.yaml`
-- `24_names.yaml`
+- Global registry: `config/02_settings.yaml`
+- Core shared: `config/core/*.yaml`
+- Setting shared: `config/settings/<core_setting>/*.yaml`
+- World overrides: `config/worlds/<world_id>/*.yaml`
+
+Current active world examples:
+- `config/core/14_monster_roles.yaml`
+- `config/settings/fantasy/11_professions.yaml`
+- `config/worlds/lands_of_legends/10_races.yaml`
+- `config/worlds/lands_of_legends/12_areas.yaml`
+- `config/worlds/lands_of_legends/20_settlements.yaml`
+- `config/worlds/lands_of_legends/21_encounters.yaml`
+- `config/worlds/lands_of_legends/22_cyphers.yaml`
+- `config/worlds/lands_of_legends/24_names.yaml`
 
 After changing YAML files, call `POST /reload` to apply updates without restart.
 
@@ -82,13 +83,13 @@ PYTHONPATH=. .venv/bin/python scripts/build_lore_config_enrichment.py
 
 Generated artifacts:
 - `docs/lore_config_enrichment_candidates.json` (candidate list + evidence)
-- `docs/lore_config_enrichment.generated.yaml` (draft `races`, `environments`, `settlements`, `encounters`)
+- `docs/lore_config_enrichment.generated.yaml` (draft `races`, `areas`, `settlements`, `encounters`)
 - `docs/AI_CONFIG_ENRICHMENT_PROMPT.md` (prompt template for AI-assisted refinement)
 
 To write draft additions directly into live config loading (review first):
 
 ```bash
-PYTHONPATH=. .venv/bin/python scripts/build_lore_config_enrichment.py --yaml-out config/90_lore_enrichment.yaml
+PYTHONPATH=. .venv/bin/python scripts/build_lore_config_enrichment.py --yaml-out config/worlds/lands_of_legends/90_lore_enrichment.yaml
 ```
 
 Then reload config:
@@ -96,10 +97,6 @@ Then reload config:
 ```bash
 curl -X POST http://localhost:5000/reload
 ```
-
-### Legacy script
-
-[`generate_content.py`](/home/olterman/Projects/Legends-RPG-GMTools/generate_content.py) remains available for CSV-driven text generation, but the primary workflow is the Flask app.
 
 ## Docker
 
@@ -111,6 +108,52 @@ docker build -t legends-gmtools .
 Run:
 ```bash
 docker run --rm -p 5000:5000 legends-gmtools
+```
+
+### Docker Compose (recommended for server deploy)
+```bash
+docker compose up -d --build
+```
+
+This uses `docker-compose.yml` and mounts `storage`, `lore`, `images`, and `config` as persistent host volumes.
+
+## Quick Local-Server Deploy Workflow
+
+### 1. Configure deploy target
+```bash
+cp .env.deploy.example .env.deploy
+```
+Set:
+- `DEPLOY_USER`
+- `DEPLOY_HOST`
+- `DEPLOY_PATH`
+- optional `DEPLOY_PORT` and `APP_PORT`
+
+### 2. Deploy to server (sync + rebuild + restart)
+```bash
+bash scripts/deploy_local_server.sh
+```
+
+## Automatic Image Upload on Version Commits
+
+This repo includes a post-commit hook that uploads `images/` to your server **only when both**:
+- `VERSION` changed in the commit, and
+- files under `images/` changed in the same commit.
+
+### 1. Enable hooks
+```bash
+bash scripts/setup_git_hooks.sh
+chmod +x .githooks/post-commit scripts/upload_images_if_version_bumped.sh scripts/deploy_local_server.sh scripts/setup_git_hooks.sh
+```
+
+### 2. Use it
+- Bump `VERSION`
+- Commit image changes and version bump together
+- Hook uploads `images/` automatically to `${DEPLOY_PATH}/images`
+
+You can also run it manually:
+```bash
+bash scripts/upload_images_if_version_bumped.sh
 ```
 
 ## Project Layout

@@ -17,5 +17,11 @@
   "interaction": "Cambions are bleak, depressed, and misunderstood. Most have turned to evil, but a few can be redeemed.",
   "use": "A great fire is seen burning on the horizon. The next day, travelers come across a burned region with a crater that has destroyed a farmhouse. At the center of the crater is an unconscious human with hornlike growths on its head.",
   "loot": "Powerful cambions sometimes wield artifacts as weapons.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

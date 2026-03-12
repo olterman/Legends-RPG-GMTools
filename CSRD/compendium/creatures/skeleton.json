@@ -17,5 +17,10 @@
   "interaction": "A skeleton usually interacts only by attacking. Unless animated by a sapient spirit able to communicate via magic, skeletons lack the mechanisms for speech. However, they can hear and see the world around them just fine.",
   "use": "Skeletons make ideal units in armies, especially when archery or artillery is required. A formation of four or more skeletons with ranged weapons atop a tower provides a surprisingly robust defense.",
   "loot": "Sometimes the linchpin item required to create a reanimator skeleton is valuable.",
-  "gm_intrusion": "A skeleton destroyed by a melee attack explodes like a grenade. The bone shrapnel inflicts 5 points of damage to every creature in immediate range."
+  "gm_intrusion": "A skeleton destroyed by a melee attack explodes like a grenade. The bone shrapnel inflicts 5 points of damage to every creature in immediate range.",
+  "settings": [
+    "csrd_core",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

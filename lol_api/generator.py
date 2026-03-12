@@ -13,6 +13,13 @@ from .names import (
     generate_templated_name,
 )
 
+DEFAULT_ARTIFACT_DEPLETION_TABLE = [
+    "depletion: 1 in 1d6",
+    "depletion: 1 in 1d10",
+    "depletion: 1 in 1d20",
+    "depletion: 1 in 1d100",
+]
+
 
 def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip())
@@ -157,9 +164,9 @@ def pick_monster_role_config(config: dict[str, Any], role_key: str) -> dict[str,
 
 def pick_monster_environment_traits(config: dict[str, Any], environment_key: str) -> dict[str, Any]:
     monster_traits = config.get("monster_traits", {})
-    environments = monster_traits.get("environments", {})
+    environments = monster_traits.get("areas", {}) or monster_traits.get("environments", {})
     if environment_key not in environments:
-        raise KeyError(f"No monster_traits environment entry for '{environment_key}'")
+        raise KeyError(f"No monster_traits area entry for '{environment_key}'")
     return environments[environment_key]
 
 
@@ -173,7 +180,7 @@ def pick_monster_family_concept(config: dict[str, Any], family_key: str, rng: ra
 
 def pick_monster_name(config: dict[str, Any], environment_key: str, family_key: str, rng: random.Random) -> str:
     monster_names = config.get("monster_names", {})
-    env_section = monster_names.get("environments", {}).get(environment_key)
+    env_section = (monster_names.get("areas", {}) or monster_names.get("environments", {})).get(environment_key)
     family_section = monster_names.get("families", {}).get(family_key)
     generic_section = monster_names.get("generic")
 
@@ -327,7 +334,14 @@ def resolve_race_and_variant(config: dict[str, Any], race_key: str, variant_key:
 
 
 def resolve_environment(config: dict[str, Any], env_key: str) -> dict[str, Any]:
+    areas = config.get("areas", {})
+    if env_key in areas:
+        return areas[env_key]
     return config["environments"][env_key]
+
+
+def payload_area_key(payload: dict[str, Any]) -> str:
+    return str(payload.get("area", "") or payload.get("environment", "")).lower()
 
 
 def resolve_style_text(config: dict[str, Any], style_key: str | None = None) -> str:
@@ -336,20 +350,27 @@ def resolve_style_text(config: dict[str, Any], style_key: str | None = None) -> 
     return clean_text(str(config["styles"][actual_style_key].get("prompt_text", "")))
 
 
+def artifact_depletion_table(config: dict[str, Any]) -> list[str]:
+    cypher_system = (config.get("setting", {}) or {}).get("cypher_system", {}) or {}
+    configured = cypher_system.get("artifact_depletion_table", [])
+    values = [clean_text(str(x)) for x in configured if clean_text(str(x))]
+    return values or DEFAULT_ARTIFACT_DEPLETION_TABLE
+
+
 def generate_character(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
     gender = str(payload.get("gender", "")).lower()
     race_key = str(payload.get("race", "")).lower()
     variant_key = str(payload.get("variant", "")).lower()
     profession_key = str(payload.get("profession", "")).lower()
-    environment_key = str(payload.get("environment", "")).lower()
+    area_key = payload_area_key(payload)
     mood = str(payload.get("mood", "")).strip()
 
-    if not all([gender, race_key, profession_key, environment_key]):
-        raise ValueError("character requires gender, race, profession, and environment")
+    if not all([gender, race_key, profession_key, area_key]):
+        raise ValueError("character requires gender, race, profession, and area")
 
     race_cfg, variant_cfg = resolve_race_and_variant(config, race_key, variant_key)
     profession_cfg = config["professions"][profession_key]
-    environment_cfg = resolve_environment(config, environment_key)
+    environment_cfg = resolve_environment(config, area_key)
 
     char_name = generate_personal_name(config, race_key, variant_key, rng)
     gender_label = get_gender_label(config, gender)
@@ -437,7 +458,8 @@ def generate_character(payload: dict[str, Any], config: dict[str, Any], rng: ran
             "race": race_key,
             "variant": variant_key or None,
             "profession": profession_key,
-            "environment": environment_key,
+            "area": area_key,
+            "environment": area_key,
         },
     }
 
@@ -462,13 +484,13 @@ def generate_npc(payload: dict[str, Any], config: dict[str, Any], rng: random.Ra
     }
 
 def generate_monster(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
-    environment_key = str(payload.get("environment", "")).lower()
+    environment_key = payload_area_key(payload)
     mood = str(payload.get("mood", "")).strip()
     family_key = str(payload.get("family", "")).lower()
     role_key = str(payload.get("role", "")).lower()
 
     if not environment_key:
-        raise ValueError("monster requires environment")
+        raise ValueError("monster requires area")
 
     environment_cfg = resolve_environment(config, environment_key)
     env_traits = pick_monster_environment_traits(config, environment_key)
@@ -550,6 +572,7 @@ def generate_monster(payload: dict[str, Any], config: dict[str, Any], rng: rando
         "stat_block_text": stat_block_text,
         "text": "\n".join(text_sections).strip() + "\n\n---\n\n" + stat_block_text + "\n",
         "metadata": {
+            "area": environment_key,
             "environment": environment_key,
             "family": family_key,
             "role": role_key,
@@ -557,10 +580,10 @@ def generate_monster(payload: dict[str, Any], config: dict[str, Any], rng: rando
     }
 
 def generate_settlement(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
-    environment_key = str(payload.get("environment", "")).lower()
+    environment_key = payload_area_key(payload)
     mood = str(payload.get("mood", "")).strip()
     if not environment_key:
-        raise ValueError("settlement requires environment")
+        raise ValueError("settlement requires area")
 
     environment_cfg = resolve_environment(config, environment_key)
     settlement_cfg = config["settlements"][environment_key]
@@ -617,14 +640,19 @@ def generate_settlement(payload: dict[str, Any], config: dict[str, Any], rng: ra
         "inn_name": inn_name,
         "sections": sections_dict,
         "text": "\n".join(text_sections).strip() + "\n",
-        "metadata": {"environment": environment_key},
+        "metadata": {
+            "area": environment_key,
+            "environment": environment_key,
+            "location": settlement_name,
+            "location_type": "settlement",
+        },
     }
 
 
 def generate_encounter(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
-    environment_key = str(payload.get("environment", "")).lower()
+    environment_key = payload_area_key(payload)
     if not environment_key:
-        raise ValueError("encounter requires environment")
+        raise ValueError("encounter requires area")
 
     environment_cfg = resolve_environment(config, environment_key)
     encounter_cfg = config["encounters"][environment_key]
@@ -665,7 +693,9 @@ def generate_encounter(payload: dict[str, Any], config: dict[str, Any], rng: ran
         "sections": sections_dict,
         "text": "\n".join(text_sections).strip() + "\n",
         "metadata": {
+            "area": environment_key,
             "environment": environment_key,
+            "location": encounter_name,
             "first_impression": first_impression,
             "subject": subject,
             "truth": truth,
@@ -676,9 +706,9 @@ def generate_encounter(payload: dict[str, Any], config: dict[str, Any], rng: ran
 
 
 def generate_cypher(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
-    environment_key = str(payload.get("environment", "")).lower()
+    environment_key = payload_area_key(payload)
     if not environment_key:
-        raise ValueError("cypher requires environment")
+        raise ValueError("cypher requires area")
 
     cypher_cfg = config["cyphers"][environment_key]
 
@@ -686,7 +716,9 @@ def generate_cypher(payload: dict[str, Any], config: dict[str, Any], rng: random
     form = choose_one(cypher_cfg.get("forms", []), rng)
     appearance = choose_one(cypher_cfg.get("appearances", []), rng)
     effect = choose_one(cypher_cfg.get("effects", []), rng)
-    limit = choose_one(cypher_cfg.get("limits", []), rng)
+    limits = [clean_text(str(x)) for x in (cypher_cfg.get("limits", []) or []) if clean_text(str(x))]
+    one_shot_limits = [x for x in limits if "depletion" not in x.lower()]
+    limit = choose_one(one_shot_limits or limits, rng)
     quirk = choose_one(cypher_cfg.get("quirks", []), rng)
     level = rng.randint(1, 6) + 2
     style_text = resolve_style_text(config, "legends_cypher_art")
@@ -724,17 +756,77 @@ def generate_cypher(payload: dict[str, Any], config: dict[str, Any], rng: random
         "sections": sections_dict,
         "text": "\n".join(text_sections).strip() + "\n",
         "metadata": {
+            "area": environment_key,
             "environment": environment_key,
-            "level": level
+            "level": level,
+            "item_class": "one_shot",
+        },
+    }
+
+
+def generate_artifact(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
+    environment_key = payload_area_key(payload)
+    if not environment_key:
+        raise ValueError("artifact requires area")
+
+    cypher_cfg = config["cyphers"][environment_key]
+
+    artifact_name = generate_artifact_name(config, environment_key, rng)
+    form = choose_one(cypher_cfg.get("forms", []), rng)
+    appearance = choose_one(cypher_cfg.get("appearances", []), rng)
+    effect = choose_one(cypher_cfg.get("effects", []), rng)
+    quirk = choose_one(cypher_cfg.get("quirks", []), rng)
+    level = rng.randint(1, 6) + 2
+    depletion = choose_one(artifact_depletion_table(config), rng)
+    style_text = resolve_style_text(config, "legends_cypher_art")
+
+    sections_dict = nonempty_sections(
+        name=artifact_name,
+        level=str(level),
+        manifestation=form,
+        appearance=appearance,
+        effect=effect,
+        depletion=depletion,
+        quirk=quirk,
+        style=style_text,
+    )
+
+    text_sections = ["Artifact."]
+    for label, key in [
+        ("Name", "name"),
+        ("Level", "level"),
+        ("Manifestation", "manifestation"),
+        ("Appearance", "appearance"),
+        ("Effect", "effect"),
+        ("Depletion", "depletion"),
+        ("Quirk", "quirk"),
+        ("STYLE", "style"),
+    ]:
+        if sections_dict.get(key):
+            value = sections_dict[key]
+            text_sections.extend(["", f"{label}:", value if key == "level" else ensure_period(value)])
+
+    return {
+        "type": "artifact",
+        "name": artifact_name,
+        "level": level,
+        "sections": sections_dict,
+        "text": "\n".join(text_sections).strip() + "\n",
+        "metadata": {
+            "area": environment_key,
+            "environment": environment_key,
+            "level": level,
+            "depletion": depletion,
+            "item_class": "persistent",
         },
     }
 
 
 def generate_inn(payload: dict[str, Any], config: dict[str, Any], rng: random.Random) -> dict[str, Any]:
-    environment_key = str(payload.get("environment", "")).lower()
+    environment_key = payload_area_key(payload)
     mood = str(payload.get("mood", "")).strip()
     if not environment_key:
-        raise ValueError("inn requires environment")
+        raise ValueError("inn requires area")
 
     environment_cfg = resolve_environment(config, environment_key)
     inn_name = generate_inn_name(config, environment_key, rng)
@@ -792,5 +884,10 @@ def generate_inn(payload: dict[str, Any], config: dict[str, Any], rng: random.Ra
         "name": inn_name,
         "sections": sections_dict,
         "text": "\n".join(text_sections).strip() + "\n",
-        "metadata": {"environment": environment_key},
+        "metadata": {
+            "area": environment_key,
+            "environment": environment_key,
+            "location": inn_name,
+            "location_type": "inn",
+        },
     }

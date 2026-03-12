@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": null,
   "effect": "For one minute, a user who normally can move a short distance as an action can move a long distance instead.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

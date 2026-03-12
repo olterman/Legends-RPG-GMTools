@@ -1,0 +1,41 @@
+{
+  "saved_at": "2026-03-12T10:45:21.330697+00:00",
+  "filename": "character/character_20260312T104521.json",
+  "payload": {
+    "gender": "female",
+    "race": "human",
+    "profession": "rogue",
+    "area": "fenmir_highlands"
+  },
+  "result": {
+    "type": "character",
+    "name": "Corvin Greymark",
+    "sections": {
+      "setting": "Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.",
+      "character": "Corvin Greymark, female human rogue",
+      "appearance": "expressive faces, weathered mortal features, lean athletic build, quick hands, sharp features, alert predatory confidence",
+      "clothing": "culturally varied practical garments shaped by climate and profession, fitted leathers, layered travel garments, elegant but practical clothing suited to stealth, deception, and sudden movement",
+      "weapons_props": "slender dueling sword, poison vials",
+      "pose": "half-turned duelist stance",
+      "environment": "Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.",
+      "lighting": "strong directional light with deep shadows",
+      "layout": "clean full-body presentation with readable equipment and minimal background clutter",
+      "race_flavor": "Core truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Avoid: portraying humans as weak, portraying humans as secondary to elder races.",
+      "style": "painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration"
+    },
+    "text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nCorvin Greymark, female human rogue.\n\nAppearance:\nexpressive faces, weathered mortal features, lean athletic build, quick hands, sharp features, alert predatory confidence.\n\nClothing:\nculturally varied practical garments shaped by climate and profession, fitted leathers, layered travel garments, elegant but practical clothing suited to stealth, deception, and sudden movement.\n\nWeapons / Props:\nslender dueling sword, poison vials.\n\nPose:\nhalf-turned duelist stance.\n\nEnvironment:\nWind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.\n\nLighting:\nstrong directional light with deep shadows.\n\nLayout:\nclean full-body presentation with readable equipment and minimal background clutter.\n\nRace Flavor:\nCore truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Avoid: portraying humans as weak, portraying humans as secondary to elder races.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n",
+    "metadata": {
+      "race": "human",
+      "variant": null,
+      "profession": "rogue",
+      "area": "fenmir_highlands",
+      "environment": "fenmir_highlands",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  },
+  "schema_version": "1.0"
+}

@@ -17,5 +17,11 @@
   "interaction": "D@emons are persistent and reasonably clever. They can be bargained with or bribed, but they tend to be greedy and would rather hide or pretend to leave than make a deal.",
   "use": "An internet d@emon usually starts out as an innocuous app subtly draining magic, then switches to an active, aggressive mode when discovered or if starved.",
   "loot": "A destroyed internet d@emon’s physical form leaves behind a lace-like fragment of magical energy that functions as a meditation aid cypher.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

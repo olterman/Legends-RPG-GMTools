@@ -6,7 +6,7 @@
   "source_path": "logseq/pages/The Uruk Tribes.md",
   "excerpt": "To the common folk of the lowlands and cities, the **Uruk** are little more than monsters given flesh: wild-eyed raiders, feral warbands, and brutal conquerors who respect only strength. Songs and campfire tales rarely grant them history, culture, or reason. I",
   "categories": [
-    "environment",
+    "area",
     "race"
   ],
   "terms": [
@@ -18,5 +18,11 @@
   "prompt_counts": {
     "lore": 0,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0"
 }

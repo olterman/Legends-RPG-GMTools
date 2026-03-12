@@ -17,5 +17,10 @@
   "interaction": "A hungry haze does not speak or seem to have language. But it is not mindless; it can learn from its experiences and figure out creative solutions to problems.",
   "use": "After a research station on Mercury is abandoned for unspecified issues, salvagers show up looking for easy pickings. But a strange haze seems to hang over the station.",
   "loot": "People (or AI) interested in strange manifestations would probably pay for the remains of a hungry haze in an amount equal to the expensive price category.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

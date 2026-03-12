@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}Trash Bin — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Trash Bin</h1>
+<p>Recover deleted House records or expunge them permanently.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="actions">
+      <button id="refresh-btn" type="button">Refresh</button>
+    </div>
+    <div class="status" id="status">Loading trash...</div>
+    <div class="results" id="results"></div>
+  </div>
+  <div class="panel">
+    <div class="viewer" id="viewer">
+      <div class="output-card">
+        <h3>Trash Viewer</h3>
+        <div class="output-value">Select an item from the left to preview its stored JSON.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    refreshBtn: document.getElementById('refresh-btn'),
+    status: document.getElementById('status'),
+    results: document.getElementById('results'),
+    viewer: document.getElementById('viewer'),
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function typeLabel(value) {
+    const key = String(value || "unknown").replace(/_/g, " ");
+    return key.replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  async function fetchJson(url, init = undefined) {
+    const res = await fetch(url, init);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
+  }
+
+  function renderResults(items) {
+    if (!items.length) {
+      els.results.innerHTML = '<div class="output-card"><div class="output-value">Trash is empty.</div></div>';
+      return;
+    }
+    els.results.innerHTML = items.map(item => `
+      <div class="result-card" data-filename="${escapeHtml(item.filename || '')}">
+        <div class="result-top">
+          <div>
+            <div class="result-name">${escapeHtml(item.name || item.filename || "Unnamed")}</div>
+            <div class="source-badge source-house">House</div>
+          </div>
+          <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+        </div>
+        <div class="small">${escapeHtml(item.filename || "")}</div>
+        <div class="result-actions">
+          <button type="button" class="secondary result-action" data-action="preview" data-filename="${escapeHtml(item.filename || "")}">Preview</button>
+          <button type="button" class="secondary result-action" data-action="restore" data-filename="${escapeHtml(item.filename || "")}">Recover</button>
+          <button type="button" class="result-action danger" data-action="expunge" data-filename="${escapeHtml(item.filename || "")}">Expunge</button>
+        </div>
+      </div>
+    `).join('');
+
+    els.results.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const action = btn.getAttribute('data-action');
+        const filename = btn.getAttribute('data-filename');
+        if (!filename) return;
+        if (action === 'preview') {
+          await preview(filename);
+          return;
+        }
+        if (action === 'restore') {
+          await fetchJson('/storage/trash/restore', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename }),
+          });
+          els.status.textContent = `Recovered ${filename}.`;
+          await loadTrash();
+          return;
+        }
+        if (!window.confirm(`Permanently delete ${filename}?`)) return;
+        await fetchJson('/storage/trash/expunge', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename }),
+        });
+        els.status.textContent = `Expunged ${filename}.`;
+        await loadTrash();
+      });
+    });
+  }
+
+  async function preview(filename) {
+    const data = await fetchJson(`/storage/trash/${encodeURIComponent(filename)}`);
+    els.viewer.innerHTML = `
+      <div class="output-card">
+        <h3>Trashed Record Preview</h3>
+        <div class="output-row">
+          <div class="output-label">Filename</div>
+          <div class="output-value">${escapeHtml(filename)}</div>
+        </div>
+        <div class="output-row">
+          <div class="output-label">JSON</div>
+          <div class="output-value">${escapeHtml(JSON.stringify(data, null, 2))}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  async function loadTrash() {
+    els.status.textContent = 'Loading trash...';
+    const data = await fetchJson('/storage/trash');
+    renderResults(data.items || []);
+    els.status.textContent = `Trash contains ${data.count ?? 0} item(s).`;
+  }
+
+  els.refreshBtn.addEventListener('click', () => {
+    loadTrash().catch(err => {
+      els.status.textContent = `Error: ${err.message}`;
+    });
+  });
+
+  loadTrash().catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

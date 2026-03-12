@@ -17,5 +17,10 @@
   "interaction": "If any kind of radio or similar communication is in use, these creatures can commandeer it and speak through it, learning a new language seemingly over the course of minutes. Redivi will cooperate with reasonable requests and negotiate, especially if there’s a chance they’ll find out something new.",
   "use": "A redivi pod smashes into the side of the spacecraft, and might at first seem like some kind of attack or boarding action of something truly terrible.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

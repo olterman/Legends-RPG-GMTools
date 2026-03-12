@@ -7,5 +7,11 @@
   "level": "1d6 + 2",
   "form": null,
   "effect": "Adds 1 to the user’s Speed Edge for one hour (adds 2 if the cypher is level 5 or higher).",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

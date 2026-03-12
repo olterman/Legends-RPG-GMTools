@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T13:42:12.446079+00:00",
+  "filename": "ability/ability_20260312T134212.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Alara Windrose",
+    "ability_name": "Danger Sense"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Danger Sense",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Danger Sense'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Alara Windrose",
+      "missing_from_compendium": true,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  }
+}

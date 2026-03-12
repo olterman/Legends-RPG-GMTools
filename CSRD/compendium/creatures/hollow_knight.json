@@ -17,5 +17,11 @@
   "interaction": "Hollow knights cannot speak. They obey any orders given to them by their creators.",
   "use": "The necromancer or other magician that binds the spirit to the armor also imbues the armor with specific commands—tasks the knight must carry out until destroyed. Some knights may stand guard at citadels or mansions, keeping a vigil until their armor finally falls apart. Others are more active and may function as the core of a dark wizard’s army.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

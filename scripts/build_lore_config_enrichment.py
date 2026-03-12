@@ -10,6 +10,7 @@ from typing import Any
 from difflib import SequenceMatcher
 
 import yaml
+from lol_api.config_loader import load_config_dir, infer_default_world_id
 
 RACE_HINTS = {
     "race",
@@ -197,7 +198,7 @@ def classify_candidate(name: str, text_blob: str) -> tuple[str, float]:
     if key in race_forced:
         return "race", 0.9
     if key in env_forced:
-        return "environment", 0.9
+        return "area", 0.9
 
     race_score = 0
     env_score = 0
@@ -226,7 +227,7 @@ def classify_candidate(name: str, text_blob: str) -> tuple[str, float]:
         return "race", conf
 
     conf = min(0.95, 0.55 + 0.08 * (env_score - race_score) + 0.02 * env_score)
-    return "environment", conf
+    return "area", conf
 
 
 def choose_evidence(markdown: str, fallback: str) -> str:
@@ -242,7 +243,7 @@ def choose_evidence(markdown: str, fallback: str) -> str:
 
 def build_candidates(config: dict[str, Any], lore_dir: Path) -> dict[str, list[Candidate]]:
     races_existing = existing_terms(config, "races")
-    env_existing = existing_terms(config, "environments")
+    env_existing = existing_terms(config, "areas")
 
     entries_dir = lore_dir / "entries"
     results: dict[str, Candidate] = {}
@@ -279,7 +280,7 @@ def build_candidates(config: dict[str, Any], lore_dir: Path) -> dict[str, list[C
 
             if category == "race" and similar_to_existing(key, races_existing):
                 continue
-            if category == "environment" and similar_to_existing(key, env_existing):
+            if category == "area" and similar_to_existing(key, env_existing):
                 continue
 
             evidence = choose_evidence(markdown, excerpt)
@@ -321,7 +322,7 @@ def build_candidates(config: dict[str, Any], lore_dir: Path) -> dict[str, list[C
 
     races.sort(key=lambda x: (-x.confidence, -x.mentions, x.name.lower()))
     envs.sort(key=lambda x: (-x.confidence, -x.mentions, x.name.lower()))
-    return {"races": races[:40], "environments": envs[:60]}
+    return {"races": races[:40], "areas": envs[:60]}
 
 
 def race_stub(c: Candidate) -> dict[str, Any]:
@@ -434,7 +435,7 @@ def race_stub(c: Candidate) -> dict[str, Any]:
     return {c.key: data}
 
 
-def environment_stub(c: Candidate) -> dict[str, Any]:
+def area_stub(c: Candidate) -> dict[str, Any]:
     return {
         c.key: {
             "name": c.name,
@@ -530,22 +531,8 @@ def merge_snippets(items: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def load_base_config(config_dir: Path) -> dict[str, Any]:
-    merged: dict[str, Any] = {}
-    for path in sorted(config_dir.glob("*.yaml")):
-        name = path.name.lower()
-        if name.startswith("90_lore_enrichment"):
-            continue
-        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-        if not isinstance(data, dict):
-            continue
-        for key, value in data.items():
-            if key in merged and isinstance(merged[key], dict) and isinstance(value, dict):
-                merged[key].update(value)
-            elif key in merged:
-                raise ValueError(f"Duplicate top-level config key '{key}' in {path}")
-            else:
-                merged[key] = value
-    return merged
+    default_world = infer_default_world_id(config_dir)
+    return load_config_dir(config_dir, world_id=default_world)
 
 
 def ai_prompt(candidates_path: Path, output_path: Path) -> None:
@@ -554,14 +541,14 @@ def ai_prompt(candidates_path: Path, output_path: Path) -> None:
 Use `{candidates_path}` as source material.
 
 Goal:
-- Expand `config/10_races.yaml`, `config/12_environments.yaml`, `config/20_settlements.yaml`, and `config/21_encounters.yaml`.
+- Expand `config/worlds/lands_of_legends/10_races.yaml`, `config/worlds/lands_of_legends/12_areas.yaml`, `config/worlds/lands_of_legends/20_settlements.yaml`, and `config/worlds/lands_of_legends/21_encounters.yaml`.
 - Keep compatibility with existing schema.
 - Prioritize high-confidence candidates first.
 
 Rules:
 - Do not change existing keys unless needed for typo fix or aliasing.
 - Keep new keys snake_case and stable.
-- For each added environment, also add matching `settlements` and `encounters` blocks.
+- For each added area, also add matching `settlements` and `encounters` blocks.
 - Write hooks/truths/complications in the same style as existing encounter config.
 - Use evidence lines and source titles to keep additions lore-faithful.
 
@@ -594,12 +581,12 @@ def main() -> None:
     candidates = build_candidates(config, Path(args.lore_dir))
 
     races = candidates["races"]
-    envs = candidates["environments"]
+    envs = candidates["areas"]
 
     output_json = {
         "summary": {
             "race_candidates": len(races),
-            "environment_candidates": len(envs),
+            "area_candidates": len(envs),
             "yaml_min_confidence": args.min_confidence,
             "default_excluded_race_keys": sorted(DEFAULT_EXCLUDED_RACE_KEYS),
         },
@@ -615,7 +602,7 @@ def main() -> None:
             }
             for c in races
         ],
-        "environments": [
+        "areas": [
             {
                 "name": c.name,
                 "key": c.key,
@@ -640,13 +627,13 @@ def main() -> None:
         for c in races
         if c.confidence >= args.min_confidence and c.key not in DEFAULT_EXCLUDED_RACE_KEYS
     ]
-    env_yaml = [environment_stub(c) for c in envs if c.confidence >= args.min_confidence]
+    env_yaml = [area_stub(c) for c in envs if c.confidence >= args.min_confidence]
     settlement_yaml = [settlement_stub(c) for c in envs if c.confidence >= args.min_confidence]
     encounter_yaml = [encounter_stub(c) for c in envs if c.confidence >= args.min_confidence]
 
     yaml_doc = {
         "races": merge_snippets(race_yaml),
-        "environments": merge_snippets(env_yaml),
+        "areas": merge_snippets(env_yaml),
         "settlements": merge_snippets(settlement_yaml),
         "encounters": merge_snippets(encounter_yaml),
     }
@@ -661,7 +648,7 @@ def main() -> None:
     print(f"AI prompt: {args.prompt_out}")
     print(f"Generated config additions: {yaml_path}")
     print(f"Race candidates: {len(races)}")
-    print(f"Environment candidates: {len(envs)}")
+    print(f"Area candidates: {len(envs)}")
 
 
 if __name__ == "__main__":

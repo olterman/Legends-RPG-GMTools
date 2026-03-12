@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T13:55:09.608148+00:00",
+  "filename": "ability/ability_20260312T135509.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Aurora",
+    "ability_name": "Initiative"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Initiative",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Initiative'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Aurora",
+      "missing_from_compendium": true,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  }
+}

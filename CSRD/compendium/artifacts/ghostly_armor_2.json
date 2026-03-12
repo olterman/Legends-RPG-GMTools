@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ghostly Armor",
+  "slug": "ghostly_armor_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 3",
+  "form": "Full suit of light, medium, or heavy armor",
+  "effect": "This armor is carefully crafted and reinforced with magic to be stronger and more protective than typical armor. It is armor according to its type (light, medium, or heavy), but it grants an additional +1 Armor beyond what it would normally provide. For example, chainmail is medium armor (2 Armor), so ghostly chainmail provides 3 Armor. When activated, the armor randomly makes the wearer ghostly and immaterial for ten minutes (or for one hour if the artifact is level 9 or higher), which hinders attacks on the wearer by two steps without hindering any of the character’s abilities. Special multidimensional weapons or attacks (such as abilities meant to harm ghosts) ignore this defense.",
+  "depletion": "1 in 1d10 (for the ghostly defense ability, but after depletion, the suit still functions as normal armor and provides its full Armor value) To randomly determine what kind of ghostly armor is found, see Chapter 4: Medieval Fantasy Equipment, page 34.",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

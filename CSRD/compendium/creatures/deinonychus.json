@@ -17,5 +17,9 @@
   "interaction": "Vicious, cunning, and a little too smart to be classified as simple predators, these creatures are unlikely to negotiate, give quarter, or back off from a fight even if contact could be made.",
   "use": "Some fool decided to build a Cretaceous-themed zoo. The only question is: How long before the dinosaurs get loose and take over the local mall?",
   "loot": null,
-  "gm_intrusion": "The fleeing deinonychus was actually leading the character over a cliff, into a deadfall trap, or into an ambush with more deinonychus."
+  "gm_intrusion": "The fleeing deinonychus was actually leading the character over a cliff, into a deadfall trap, or into an ambush with more deinonychus.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

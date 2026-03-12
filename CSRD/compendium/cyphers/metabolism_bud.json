@@ -7,5 +7,9 @@
   "level": "1d6",
   "form": "Organic pod, almost like a small, hemispherical bit of brain; once grafted to a host, the host’s flesh grows over the pod until it is only a lump",
   "effect": "The pod grafts onto any living host (usually near the brain or spine) and injects chemicals that boost the creature’s metabolism. This permanently raises the host’s Speed Pool maximum by 5 points.",
-  "depletion": "—"
+  "depletion": "—",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

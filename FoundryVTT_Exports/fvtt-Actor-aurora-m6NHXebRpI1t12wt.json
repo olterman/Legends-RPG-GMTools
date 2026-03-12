@@ -1,0 +1,1591 @@
+{
+  "folder": "Nx7dKyKt2ui61M9X",
+  "name": "Aurora",
+  "type": "pc",
+  "img": "tokenizer/pc-images/aurora.Avatar.webp?1773135585896",
+  "system": {
+    "version": 3,
+    "basic": {
+      "descriptor": "Impulsive Pixie",
+      "type": "Trixter (Adept)",
+      "focus": "Uses Wild Magic",
+      "additionalSentence": "",
+      "unmaskedForm": "Mask",
+      "tier": 1,
+      "effort": 1,
+      "xp": 5,
+      "altXp": 0,
+      "advancement": {
+        "stats": false,
+        "effort": false,
+        "edge": false,
+        "skill": false,
+        "other": false
+      },
+      "gmiRange": 1
+    },
+    "pools": {
+      "might": {
+        "value": 9,
+        "max": 9,
+        "edge": 0
+      },
+      "speed": {
+        "value": 14,
+        "max": 14,
+        "edge": 1
+      },
+      "intellect": {
+        "value": 15,
+        "max": 15,
+        "edge": 1
+      },
+      "additional": {
+        "value": 3,
+        "max": 3,
+        "edge": 0
+      }
+    },
+    "combat": {
+      "recoveries": {
+        "roll": "1d6+1",
+        "oneAction": false,
+        "oneAction2": false,
+        "oneAction3": false,
+        "oneAction4": false,
+        "oneAction5": false,
+        "oneAction6": false,
+        "oneAction7": false,
+        "tenMinutes": false,
+        "tenMinutes2": false,
+        "oneHour": false,
+        "tenHours": false
+      },
+      "damageTrack": {
+        "state": "Hale",
+        "applyImpaired": true,
+        "applyDebilitated": true
+      },
+      "stress": {
+        "quantity": 0,
+        "levels": 0,
+        "supernaturalLevels": 0
+      },
+      "armor": {
+        "ratingTotal": 0,
+        "costTotal": 0
+      }
+    },
+    "abilities": {
+      "preparedSpells": 0
+    },
+    "equipment": {
+      "cypherLimit": "5"
+    },
+    "notes": "",
+    "gmNotes": "",
+    "description": "",
+    "settings": {
+      "general": {
+        "gameMode": "Cypher",
+        "rollTwoD20": false,
+        "additionalSentence": {
+          "active": false,
+          "label": ""
+        },
+        "additionalPool": {
+          "active": false,
+          "label": "",
+          "hasEdge": false
+        },
+        "showPrice": "category",
+        "tags": {
+          "active": false,
+          "labelCategory1": "",
+          "labelCategory2": "",
+          "labelCategory3": "",
+          "labelCategory4": ""
+        },
+        "hideArchive": false,
+        "hideEmptyCategories": true,
+        "hideFavoriteButton": false,
+        "customSheetDesign": true,
+        "background": {
+          "image": "foundry",
+          "imagePath": "",
+          "overlayOpacity": 0.75,
+          "icon": "csrd-logo",
+          "iconPath": "",
+          "iconOpacity": 0.5
+        },
+        "logo": {
+          "image": "black",
+          "imagePath": "",
+          "imageOpacity": 1
+        }
+      },
+      "skills": {
+        "sortByRating": true,
+        "labelCategory1": "",
+        "labelCategory2": "",
+        "labelCategory3": "",
+        "labelCategory4": "",
+        "powerShifts": {
+          "active": false,
+          "label": ""
+        }
+      },
+      "combat": {
+        "stress": {
+          "active": false,
+          "label": "",
+          "supernaturalStressActive": true,
+          "supernaturalStressLabel": ""
+        },
+        "additionalStepDamageTrack": {
+          "active": false,
+          "label": ""
+        },
+        "numberOneActionRecoveries": "1",
+        "numberTenMinuteRecoveries": "1",
+        "lastingDamage": {
+          "active": false
+        },
+        "ammo": {
+          "active": false
+        },
+        "armor": {
+          "active": false
+        }
+      },
+      "abilities": {
+        "labelCategory1": "",
+        "labelCategory2": "",
+        "labelCategory3": "",
+        "labelCategory4": "",
+        "labelSpells": ""
+      },
+      "equipment": {
+        "labelCategory1": "",
+        "labelCategory2": "",
+        "labelCategory3": "",
+        "labelCategory4": "",
+        "currency": {
+          "active": true,
+          "hideLabels": false,
+          "numberCategories": "1",
+          "labelCategory1": "",
+          "labelCategory2": "",
+          "labelCategory3": "",
+          "labelCategory4": "",
+          "labelCategory5": "",
+          "labelCategory6": "",
+          "quantity1": 0,
+          "quantity2": 0,
+          "quantity3": 0,
+          "quantity4": 0,
+          "quantity5": 0,
+          "quantity6": 0
+        },
+        "cyphers": {
+          "active": true,
+          "label": "",
+          "sortByType": true
+        },
+        "artifacts": {
+          "active": true,
+          "label": ""
+        },
+        "oddities": {
+          "active": false,
+          "label": ""
+        },
+        "materials": {
+          "active": false,
+          "sortyByLevel": false,
+          "label": "",
+          "displayMode": "price"
+        }
+      }
+    },
+    "teen": {
+      "basic": {
+        "name": "",
+        "img": "icons/svg/mystery-man.svg",
+        "descriptor": ""
+      },
+      "pools": {
+        "might": {
+          "value": 6,
+          "max": 6,
+          "edge": 0
+        },
+        "speed": {
+          "value": 6,
+          "max": 6,
+          "edge": 0
+        },
+        "intellect": {
+          "value": 6,
+          "max": 6,
+          "edge": 0
+        },
+        "additional": {
+          "value": 3,
+          "max": 3
+        }
+      },
+      "combat": {
+        "damageTrack": {
+          "state": "Hale",
+          "applyImpaired": true,
+          "applyDebilitated": true
+        },
+        "armor": {
+          "ratingTotal": 0,
+          "costTotal": 0
+        }
+      },
+      "notes": "",
+      "description": "",
+      "settings": {
+        "general": {
+          "rollTwoD20": false,
+          "additionalPool": {
+            "label": "",
+            "active": false
+          },
+          "customSheetDesign": false,
+          "background": {
+            "image": "foundry",
+            "imagePath": "",
+            "overlayOpacity": 0.75,
+            "icon": "none",
+            "iconPath": "",
+            "iconOpacity": 0.5
+          },
+          "logo": {
+            "image": "black",
+            "imagePath": ""
+          }
+        }
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Aurora",
+    "displayName": 0,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "tokenizer/pc-images/aurora.Token.webp?1773135585896",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": null
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Magical Repertoire",
+      "type": "ability",
+      "img": "systems/cyphersystem/icons/items/ability.svg",
+      "system": {
+        "version": 2,
+        "description": "<p>The number of subtle cyphers you can bear at the same time increases by two. If you spend one hour preparing your magic, you can fill any of your open cypher slots with subtle cyphers chosen randomly by the GM (this hour can be part of a one-hour or ten-hour recovery action if you are awake for the entire time). As part of this preparation process, you may discard any number of subtle cyphers you carry to make room for more subtle cyphers. Enabler.</p>\n<blockquote>\n<p>If a character has Magical Repertoire, the GM should give the PC frequent opportunities to gain new subtle cyphers, whether from preparation or by gaining them automatically as explained in the @UUID[Compendium.cyphersystem-compendium.cypher-journals.k9exUQdtIwtKwqCc.JournalEntryPage.xLSayIO5g61IGlUa#discovering-subtle-cyphers]{Cyphers chapter}.</p>\n</blockquote>",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Ability",
+            "spellTier": "low",
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "cost": "0",
+          "pool": "Pool"
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.abilities.Item.Ub8NGsmH8NZcKguG",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161148098,
+        "modifiedTime": 1773161148098,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "vkSCyp8BWNSlndmM",
+      "_id": "z6lUNfMAypJu9BLX",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Resonance Field",
+      "type": "ability",
+      "img": "systems/cyphersystem/icons/items/ability.svg",
+      "effects": [],
+      "folder": "vkSCyp8BWNSlndmM",
+      "flags": {
+        "core": {}
+      },
+      "system": {
+        "version": 2,
+        "description": "<p>Faint lines in a color you choose form a tracery over your entire body and emit faint light. The effect lasts for one minute. Whenever a creature within immediate range makes an attack against you, the pattern energizes to block the attack. You can make an Intellect defense roll in place of the defense roll you would normally make. If you do so and you get a minor effect, the creature attacking you takes 1 point of damage. If you get a major effect, the creature attacking you takes 4 points of damage. Action to initiate.</p>",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": "0",
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Ability",
+            "spellTier": "low",
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "cost": "1",
+          "pool": "Intellect"
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.abilities.Item.Q8xKsSOvoFWL1ePP",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161187569,
+        "modifiedTime": 1773161187569,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "BEcxHx3DmJAomZbn",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Scan",
+      "type": "ability",
+      "img": "systems/cyphersystem/icons/items/ability.svg",
+      "effects": [],
+      "folder": "vkSCyp8BWNSlndmM",
+      "flags": {
+        "core": {}
+      },
+      "system": {
+        "version": 2,
+        "description": "<p>You scan an area equal in size to a 10-foot (3 m) cube, including all objects or creatures within that area. The area must be within short range. Scanning a creature or object always reveals its level. You also learn whatever facts the GM feels are pertinent about the matter and energy in that area. For example, you might learn that the wooden box contains a device of metal and plastic. You might learn that the glass cylinder is full of poisonous gas, and that its metal stand has an electrical field running through it that connects to a metal mesh in the floor. You might learn that the creature standing before you is a mammal with a small brain. However, this ability doesn&rsquo;t tell you what the information means. Thus, in the first example, you don&rsquo;t know what the metal and plastic device does. In the second, you don&rsquo;t know if stepping on the floor causes the cylinder to release the gas. In the third, you might suspect that the creature is not very intelligent, but scans, like looks, can be deceiving. Many materials and energy fields prevent or resist scanning. Action.</p>",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": 0,
+            "effort1": 0,
+            "effort2": 0,
+            "effort3": 0,
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Ability",
+            "spellTier": "low",
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "cost": "2",
+          "pool": "Intellect"
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.abilities.Item.OPvXaxuRIVXLmkWl",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161221097,
+        "modifiedTime": 1773161221097,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "qq2po0UPnIW8hASC",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Magic Training",
+      "type": "ability",
+      "img": "systems/cyphersystem/icons/items/ability.svg",
+      "effects": [],
+      "folder": "vkSCyp8BWNSlndmM",
+      "flags": {
+        "core": {}
+      },
+      "system": {
+        "version": 2,
+        "description": "<p>You are trained in the basics of magic (including the operation of magic artifacts and cyphers) and can attempt to understand and identify its properties. Enabler.</p>",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": 0,
+            "effort1": 0,
+            "effort2": 0,
+            "effort3": 0,
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Ability",
+            "spellTier": "low",
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "cost": "0",
+          "pool": "Pool"
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.abilities.Item.XQxN55rl0f5HFxEM",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161238154,
+        "modifiedTime": 1773161238154,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "6l61TpqBkVzgydsE",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Shatter",
+      "type": "ability",
+      "img": "systems/cyphersystem/icons/items/ability.svg",
+      "effects": [],
+      "folder": "vkSCyp8BWNSlndmM",
+      "flags": {
+        "core": {}
+      },
+      "system": {
+        "version": 2,
+        "description": "<p>You interrupt the fundamental force holding normal matter together for a moment, causing the detonation of an object you choose within long range. The object must be a small, mundane item composed of homogeneous matter (such as a clay cup, an iron ingot, a stone, and so on). The object explodes in an immediate radius, dealing 1 point of damage to all creatures and objects in the area. If you apply Effort to increase the damage, you deal 2 additional points of damage per level of Effort (instead of 3 points); targets in the area take 1 point of damage even if you fail the attack roll. Action.</p>",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": 0,
+            "effort1": 0,
+            "effort2": 0,
+            "effort3": 0,
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Ability",
+            "spellTier": "low",
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "cost": "2+",
+          "pool": "Intellect"
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.abilities.Item.nptFEdFaUvjDeqAz",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161251053,
+        "modifiedTime": 1773161251053,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "JEJOKtbhxDznWFdM",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Pixie dust",
+      "type": "artifact",
+      "img": "systems/cyphersystem/icons/items/artifact.svg",
+      "system": {
+        "version": 2,
+        "description": "<p><strong>Level:</strong> 1d6</p><p><strong>Form:</strong> Glass bottle filled with glittering light</p><p><strong>Effect:</strong> Shake the glittering light on a living being and it can fly for ten minutes per artifact level. If the being can already fly, shaking the light on them grounds them, taking away their ability to be airborne for the same amount of time.</p><p><strong>Depletion:</strong> 5 in 1d100</p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": "6",
+          "depletion": "5 in [[/r d100]]",
+          "identified": true
+        },
+        "settings": {
+          "general": {
+            "nameUnidentified": ""
+          }
+        }
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.artifacts-fairy-tale.Item.mrKARCxZtkRRf5hy",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161266894,
+        "modifiedTime": 1773162131197,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "NWL38Gjd99dGPYOR",
+      "_id": "pP3h7dmfqvPVMnXb",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Stealth",
+      "type": "skill",
+      "img": "systems/cyphersystem/icons/items/skill.svg",
+      "system": {
+        "version": 2,
+        "description": "",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Speed",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": "0",
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Skill",
+            "initiative": false,
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "rating": "Inability"
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.inabilities.Item.oGzczZIk8XKBDpZo",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773161941880,
+        "modifiedTime": 1773161941880,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "f16dKxTVepfVJdLd",
+      "_id": "3tqh2AGrAsO45hin",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "f16dKxTVepfVJdLd",
+      "name": "Lie or cheat",
+      "type": "skill",
+      "_id": "carOwqkMYpwyHzrs",
+      "img": "systems/cyphersystem/icons/items/skill.svg",
+      "system": {
+        "version": 2,
+        "description": "",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": "0",
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Skill",
+            "initiative": false,
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "rating": "Inability"
+        }
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Item.vnKbP3tetNC1AjhY",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162005854,
+        "modifiedTime": 1773162005854,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Initiative",
+      "type": "skill",
+      "img": "systems/cyphersystem/icons/items/initiative.svg",
+      "effects": [],
+      "folder": "2NzSLl2wqPQba0rS",
+      "flags": {
+        "core": {}
+      },
+      "system": {
+        "version": 2,
+        "description": "",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Speed",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": "0",
+            "damagePerLOE": "3",
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Skill",
+            "initiative": true,
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "rating": "Trained"
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.basic-skills.Item.gbWPNb1uKsRtZWSL",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162027934,
+        "modifiedTime": 1773162027934,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "307yqvFwEo3QU0oV",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Speed defense",
+      "type": "skill",
+      "img": "systems/cyphersystem/icons/macros/defense-speed.svg",
+      "effects": [],
+      "folder": "2NzSLl2wqPQba0rS",
+      "flags": {
+        "core": {}
+      },
+      "system": {
+        "version": 2,
+        "description": "",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Speed",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Skill",
+            "initiative": false,
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "rating": "Trained"
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.basic-skills.Item.FXYWkXG7Iq6Wm1pS",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162054143,
+        "modifiedTime": 1773162054143,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "Yuk34vHvHQuWOVG1",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Patience, willpower, or discipline",
+      "type": "skill",
+      "img": "systems/cyphersystem/icons/items/skill.svg",
+      "system": {
+        "version": 2,
+        "description": "",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Intellect",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": 0,
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "sorting": "Skill",
+            "initiative": false,
+            "unmaskedForm": "Mask"
+          }
+        },
+        "basic": {
+          "rating": "Inability"
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.inabilities.Item.gBUQ2i4VroKkBVQ7",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162086892,
+        "modifiedTime": 1773162086892,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "f16dKxTVepfVJdLd",
+      "_id": "Mk4qxL0MuUZg2R9L",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Giant size",
+      "type": "cypher",
+      "img": "systems/cyphersystem/icons/items/cypher.svg",
+      "system": {
+        "version": 2,
+        "description": "<p><strong>Level:</strong> 1d6</p>\n<p><strong>Effect:</strong> The user grows to about one and a half times their normal size. While at this larger size, they add 4 points to their Might Pool and +2 to their Might Edge, but their Speed defense rolls are hindered.</p>\n<p>They return to their normal size after a minute. When the effect ends, their Might Edge returns to normal, they lose the penalty to Speed defense, and they subtract 4 points from their Might Pool (if this brings the Pool to 0, they subtract the overflow first from their Speed Pool and then, if necessary, from their Intellect Pool).</p>\n<p>If the user is an NPC, the cypher increases their health by 4, eases their Might-based tasks, and hinders their Speed defense. When the effect ends, they lose 4 health and all of the other advantages and penalties from the cypher.</p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": 5,
+          "type": [
+            2,
+            1
+          ],
+          "identified": true
+        },
+        "settings": {
+          "general": {
+            "nameUnidentified": ""
+          }
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.cyphers-fantasy.Item.dHRnupDap3szMwLc",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162176450,
+        "modifiedTime": 1773162243481,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "aPq1GqCA36hGKxuw",
+      "_id": "ldon6rFqxEr3CQqi",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Phase changer",
+      "type": "cypher",
+      "img": "systems/cyphersystem/icons/items/cypher.svg",
+      "effects": [],
+      "folder": "28FvL0eUAyA2GsLw",
+      "flags": {},
+      "system": {
+        "version": 2,
+        "description": "<p><strong>Level:</strong> 1d6 + 1</p>\n<p><strong>Effect:</strong> Puts the user out of phase for one minute (two minutes if the cypher is level 6 or higher). During this time, they can pass through solid objects as though they were entirely insubstantial, like a ghost. They cannot make physical attacks or be physically attacked.</p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": 6,
+          "type": [
+            2,
+            1
+          ],
+          "identified": true
+        },
+        "settings": {
+          "general": {
+            "nameUnidentified": ""
+          }
+        },
+        "rollButton": {
+          "pool": "Pool",
+          "skill": "Practiced",
+          "assets": 0,
+          "effort1": 0,
+          "effort2": 0,
+          "effort3": 0,
+          "stepModifier": "eased",
+          "additionalSteps": 0,
+          "additionalCost": 0,
+          "damage": 0,
+          "damagePerLOE": 3,
+          "teen": "",
+          "bonus": 0
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.cyphers.Item.q94YaFRPnpA4Vbt0",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162237809,
+        "modifiedTime": 1773162247515,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "l69ehj3ZI8FqEzbQ",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Fireproofing",
+      "type": "cypher",
+      "img": "systems/cyphersystem/icons/items/cypher.svg",
+      "effects": [],
+      "folder": "28FvL0eUAyA2GsLw",
+      "flags": {},
+      "system": {
+        "version": 2,
+        "description": "<p><strong>Level:</strong> 1d6 + 4</p>\n<p><strong>Effect:</strong> A nonliving object treated by this cypher has Armor against fire damage equal to the cypher&rsquo;s level for one day.</p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": 7,
+          "type": [
+            2,
+            0
+          ],
+          "identified": true
+        },
+        "settings": {
+          "general": {
+            "nameUnidentified": ""
+          }
+        },
+        "rollButton": {
+          "pool": "Pool",
+          "skill": "Practiced",
+          "assets": 0,
+          "effort1": 0,
+          "effort2": 0,
+          "effort3": 0,
+          "stepModifier": "eased",
+          "additionalSteps": 0,
+          "additionalCost": 0,
+          "damage": 0,
+          "damagePerLOE": 3,
+          "teen": "",
+          "bonus": 0
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.cyphers.Item.oNuUwELrZDJY1mIf",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162268967,
+        "modifiedTime": 1773162338149,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "Dzi3IdG2uSr0Fq0c",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Beast shape",
+      "type": "cypher",
+      "img": "systems/cyphersystem/icons/items/cypher.svg",
+      "system": {
+        "version": 2,
+        "description": "<p><strong>Level:</strong> 1d6</p>\n<p><strong>Effect:</strong> The user transforms into a specific kind of animal, such as a bear, hawk, horse, or wolf (the kind of animal is determined by the cypher&rsquo;s creator). The user gains the animal&rsquo;s type of movement (swimming for a fish, flying for a bird, and so on) and two assets on tasks to pretend to be that animal. The user also gains an asset on one skill appropriate to their animal form (or two skills for cypher level 5 and higher). See the @UUID[Compendium.cyphersystem-compendium.cypher-journals.nnDPf4sPK61ROEV8.JournalEntryPage.cR4ojz7Ueury3HXX#animal-form-minor-abilities]{Animal Form Minor Abilities} table.</p>\n<p>The magic shrinks or enlarges the user to a size more suitable for their animal form, but generally can&rsquo;t make them more than about 50 percent smaller or larger, so the user might become an unusually large bird or a small bear. This doesn&rsquo;t affect the animal&rsquo;s abilities. The user can still use all of their abilities that don&rsquo;t rely specifically on their normal form. For example, an Adept in wolf form can&rsquo;t wield a dagger because wolves don&rsquo;t have hands, but could still use a healing power or mind blast ability.</p>\n<p>After about an hour, the user returns to their normal form.</p>\n<blockquote>\n<p>Depending on the cypher, the user might still be able to speak in a humanoid language, talk in a &ldquo;language&rdquo; of animal noises that other transformed people can understand perfectly, speak with animals of the same kind, or none of the above.</p>\n</blockquote>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": 4,
+          "type": [
+            2,
+            1
+          ],
+          "identified": true
+        },
+        "settings": {
+          "general": {
+            "nameUnidentified": ""
+          }
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.cyphers-fantasy.Item.7JDsaQfcg5oEt3Xn",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162288874,
+        "modifiedTime": 1773162343411,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "aPq1GqCA36hGKxuw",
+      "_id": "zNoYbdMPHHfAeGZz",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Blinking",
+      "type": "cypher",
+      "img": "systems/cyphersystem/icons/items/cypher.svg",
+      "effects": [],
+      "folder": "28FvL0eUAyA2GsLw",
+      "flags": {},
+      "system": {
+        "version": 2,
+        "description": "<p><strong>Level:</strong> 1d6</p>\n<p><strong>Effect:</strong> For the next day, each time the user is struck hard enough to take damage (but not more than once per round), they teleport an immediate distance in a random direction (not up or down). Since the user is prepared for this effect and their foe is not, the user&rsquo;s defenses are eased for one round after they teleport.</p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": 2,
+          "type": [
+            2,
+            1
+          ],
+          "identified": true
+        },
+        "settings": {
+          "general": {
+            "nameUnidentified": ""
+          }
+        },
+        "rollButton": {
+          "pool": "Pool",
+          "skill": "Practiced",
+          "assets": 0,
+          "effort1": 0,
+          "effort2": 0,
+          "effort3": 0,
+          "stepModifier": "eased",
+          "additionalSteps": 0,
+          "additionalCost": 0,
+          "damage": 0,
+          "damagePerLOE": 3,
+          "teen": "",
+          "bonus": 0
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.cyphers.Item.z7B2LxlcLfLMkTFw",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162330832,
+        "modifiedTime": 1773162340906,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "_id": "Zucbji54cOyZsoXg",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "LRdRANtjMdDrcByy",
+      "name": "Scandalous Garment",
+      "type": "equipment",
+      "_id": "H9YzXh4JGgHIVOZu",
+      "img": "systems/cyphersystem/icons/items/equipment.svg",
+      "system": {
+        "version": 2,
+        "description": "<p>A scandalous garment, fit a harlot or exotic dancer. </p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": null,
+          "quantity": 1
+        },
+        "settings": {
+          "general": {
+            "sorting": "Equipment"
+          }
+        }
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Item.EPbAybfkOe9i6quf",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162812222,
+        "modifiedTime": 1773162812222,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Pouch or other small container",
+      "type": "equipment",
+      "img": "systems/cyphersystem/icons/items/equipment.svg",
+      "system": {
+        "version": 2,
+        "description": "",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "level": null,
+          "quantity": 1
+        },
+        "settings": {
+          "general": {
+            "sorting": "Equipment"
+          }
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.cyphersystem-compendium.equipment-fantasy.Item.wdfJMB7hZlXw94vJ",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773162843458,
+        "modifiedTime": 1773162843458,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "folder": "AgpA0aF1IAMa6dSn",
+      "_id": "NBzyaIYUxhh6Qb3L",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "uewmyPyGWan6LGt0",
+      "name": "Safety Needle Bathlet",
+      "type": "equipment",
+      "_id": "RofuuN7cVDnxYOpi",
+      "img": "systems/cyphersystem/icons/items/equipment.svg",
+      "system": {
+        "version": 2,
+        "description": "<p>A two handed Bathlet, sized for a pixie, fashioned out of a safety pin.</p>",
+        "archived": false,
+        "favorite": false,
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "moderate"
+        },
+        "basic": {
+          "level": null,
+          "quantity": 1
+        },
+        "settings": {
+          "general": {
+            "sorting": "Equipment"
+          }
+        }
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Item.5NfTk2tkwFXvgI7I",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773163027154,
+        "modifiedTime": 1773163027154,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "type": "attack",
+      "name": "Safety Pin Bathlet",
+      "_id": "wdm0INzN565ctV90",
+      "img": "systems/cyphersystem/icons/items/attack.svg",
+      "system": {
+        "version": 2,
+        "description": "<p>Alarge safety pin that has been fashioned into a two handed bathlet sized for a pixie. </p>",
+        "archived": false,
+        "favorite": false,
+        "settings": {
+          "rollButton": {
+            "pool": "Pool",
+            "skill": "Practiced",
+            "assets": "0",
+            "effort1": "0",
+            "effort2": "0",
+            "effort3": "0",
+            "freeEffort": "0",
+            "stepModifier": "eased",
+            "additionalSteps": 0,
+            "additionalCost": 0,
+            "damage": 0,
+            "damagePerLOE": 3,
+            "teen": "",
+            "bonus": 0,
+            "macroUuid": "",
+            "macroExecuteAsGM": false
+          },
+          "general": {
+            "unmaskedForm": "Mask"
+          }
+        },
+        "price": {
+          "value": 0,
+          "currency": "",
+          "priceTag": "",
+          "category": "none"
+        },
+        "basic": {
+          "type": "light weapon",
+          "damage": 2,
+          "modifier": "eased",
+          "steps": 1,
+          "range": "immidiate",
+          "notes": "",
+          "skillRating": "Practiced"
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1773172138698,
+        "modifiedTime": 1773172396431,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      },
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [
+    {
+      "name": "New Active Effect",
+      "transfer": false,
+      "img": "icons/svg/aura.svg",
+      "_id": "5AMdNs1njbHT3XKA",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": 0,
+        "combat": null
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "cyphersystem",
+        "systemVersion": "3.4.3",
+        "createdTime": 1766965854263,
+        "modifiedTime": 1766965854263,
+        "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+      }
+    }
+  ],
+  "flags": {
+    "cyphersystem": {
+      "multiRoll": {
+        "active": false,
+        "modifiers": {
+          "effort": 0,
+          "might": {
+            "edge": 0
+          },
+          "speed": {
+            "edge": 0
+          },
+          "intellect": {
+            "edge": 0
+          }
+        }
+      }
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "lands-of-legend",
+      "uuid": "Actor.m6NHXebRpI1t12wt",
+      "coreVersion": "13.351",
+      "systemId": "cyphersystem",
+      "systemVersion": "3.4.3"
+    },
+    "coreVersion": "13.351",
+    "systemId": "cyphersystem",
+    "systemVersion": "3.4.3",
+    "createdTime": 1766965773468,
+    "modifiedTime": 1773172542993,
+    "lastModifiedBy": "aNBN0JCyttLBZ7sC"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

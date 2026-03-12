@@ -17,5 +17,9 @@
   "interaction": "Bitterness consumes gorgons. They lead lonely lives, cut off from everyone they have loved. Negotiating with one would be something of a feat.",
   "use": "A gorgon’s head retains its power to petrify for several days after being cut from the creature. The PCs might brave the gorgon so they can use its head to defeat an even more powerful foe.",
   "loot": "A gorgon typically has a few cyphers and may have an artifact as well.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

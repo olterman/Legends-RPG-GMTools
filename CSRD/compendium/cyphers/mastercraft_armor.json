@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": "Armor of exceptional quality",
   "effect": "This armor grants its wearer an asset for Speed defense rolls.",
-  "depletion": "—"
+  "depletion": "—",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

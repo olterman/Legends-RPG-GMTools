@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{% block title %}Lands of Legends GM-Tools{% endblock %}</title>
+  <title>{% block title %}OLT Cypher System GM-Tools{% endblock %}</title>
+  <link rel="icon" type="image/png" href="/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png" />
+  <link rel="apple-touch-icon" href="/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png" />
   <style>
     :root {
       color-scheme: dark;
@@ -13,8 +15,10 @@
       --text: #eceff4;
       --muted: #aab3c5;
       --accent: #7aa2ff;
-      --accent-2: #ffd479;
+      --accent-2: #9b24db;
       --border: #31394a;
+      --source-csrd: #66a7ff;
+      --source-house: #ff4fe0;
     }
 
     * { box-sizing: border-box; }
@@ -46,15 +50,101 @@
       gap: 10px;
       margin-bottom: 16px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    .nav a {
+    .nav > a,
+    .nav-toggle {
       color: var(--text);
       text-decoration: none;
       padding: 8px 12px;
       border: 1px solid var(--border);
       border-radius: 10px;
       background: rgba(255,255,255,0.03);
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.2;
+    }
+
+    .nav-group {
+      position: relative;
+    }
+
+    .nav-toggle {
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+      gap: 8px;
+    }
+
+    .nav-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .nav-toggle::after {
+      content: "▾";
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      min-width: 220px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel-2);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+      padding: 6px;
+      display: grid;
+      gap: 4px;
+      z-index: 30;
+    }
+
+    .nav-menu a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 0.92rem;
+      background: transparent;
+    }
+
+    .nav-menu a:hover {
+      border-color: var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .nav-context {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      margin-left: auto;
+    }
+
+    .nav-context .k {
+      color: var(--muted);
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .nav-context select {
+      width: auto;
+      min-width: 120px;
+      padding: 7px 9px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: var(--panel-2);
+    }
+
+    .nav-world.hidden {
+      display: none;
     }
 
     .grid {
@@ -154,6 +244,7 @@
       max-width: 100%;
       overflow: hidden;
       transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+      position: relative;
     }
 
     .result-card:hover {
@@ -185,6 +276,15 @@
       word-break: break-word;
     }
 
+    .result-heading {
+      font-weight: 800;
+      color: var(--text);
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-height: 1.35;
+    }
+
     .result-type {
       color: var(--accent);
       font-size: 0.9rem;
@@ -199,6 +299,288 @@
       white-space: pre-wrap;
       overflow-wrap: anywhere;
       word-break: break-word;
+    }
+
+    .result-side {
+      display: grid;
+      gap: 6px;
+      justify-items: end;
+      align-items: start;
+      min-width: 96px;
+      flex-shrink: 0;
+    }
+
+    .card-image-collage {
+      width: 84px;
+      height: 84px;
+      display: grid;
+      gap: 2px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .card-image-collage.one {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .card-image-collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .result-description {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      min-height: 40px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .result-description.with-image {
+      display: block;
+    }
+
+    .result-description.with-image .card-image-collage {
+      float: right;
+      margin: 2px 0 8px 10px;
+      width: 96px;
+      height: 96px;
+    }
+
+    .output-card.has-corner-images {
+      position: relative;
+      padding-right: 130px;
+      min-height: 110px;
+    }
+
+    .cypher-card.has-corner-images {
+      position: relative;
+      padding-right: 130px;
+      min-height: 110px;
+    }
+
+    .output-card .card-image-collage {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 96px;
+      height: 96px;
+    }
+
+    .cypher-card .card-image-collage {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 96px;
+      height: 96px;
+    }
+
+    .image-manager {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(255,255,255,0.02);
+      margin-top: 12px;
+    }
+
+    .image-manager-grid {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      margin-top: 10px;
+    }
+
+    .image-manager-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px;
+      background: var(--panel-2);
+    }
+
+    .image-manager-item img {
+      width: 100%;
+      height: 78px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .image-manager-item .small {
+      margin-top: 4px;
+      display: block;
+      max-height: 2.4em;
+      overflow: hidden;
+    }
+
+    .image-manager-item .actions {
+      margin-top: 6px;
+      gap: 6px;
+    }
+
+    .image-manager-item .result-action {
+      padding: 4px 8px;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 720px) {
+      .card-image-collage {
+        position: static;
+        margin-bottom: 8px;
+      }
+      .result-description.with-image .card-image-collage {
+        float: none;
+        margin: 0 0 8px;
+        width: 100%;
+        height: 120px;
+      }
+      .output-card.has-corner-images {
+        padding-right: 14px;
+      }
+      .output-card .card-image-collage {
+        position: static;
+        width: 100%;
+        height: 120px;
+      }
+      .result-side {
+        width: 100%;
+        justify-items: start;
+      }
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-lightbox.active {
+      display: flex;
+    }
+
+    .image-lightbox-inner {
+      max-width: min(95vw, 1600px);
+      max-height: 90vh;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0d1119;
+      padding: 8px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .image-lightbox img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(90vh - 16px);
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .source-badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .source-csrd {
+      color: var(--source-csrd);
+      border-color: rgba(102, 167, 255, 0.35);
+      background: rgba(102, 167, 255, 0.14);
+    }
+
+    .source-house {
+      color: var(--source-house);
+      border-color: rgba(255, 79, 224, 0.35);
+      background: rgba(255, 79, 224, 0.12);
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .result-corner-actions {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .result-card.with-corner-actions {
+      padding-bottom: 40px;
+    }
+
+    .icon-btn {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent);
+      background: rgba(122, 162, 255, 0.12);
+    }
+
+    .icon-btn.danger {
+      color: #ffd6e6;
+      border-color: #8c3655;
+      background: rgba(140, 54, 85, 0.35);
+    }
+
+    .icon-btn.danger:hover {
+      border-color: #c44f77;
+      background: rgba(140, 54, 85, 0.55);
+    }
+
+    .result-action {
+      width: auto;
+      padding: 6px 10px;
+      font-size: 0.84rem;
+      line-height: 1.2;
+      border-radius: 8px;
+    }
+
+    .result-action.danger {
+      background: #6a243b;
+      color: #ffe4ef;
+      border: 1px solid #8c3655;
     }
 
     .viewer {
@@ -490,11 +872,30 @@
 
     @media (max-width: 900px) {
       .grid, .layout, .row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;}
       }
 
       .npc-overview {
         grid-template-columns: 1fr;
+      .nav-group {
+        width: 100%;
+      }
+
+      .nav-context {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-left: 0;
+      }
+
+      .nav-context select {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .nav-menu {
+        position: static;
+        margin-top: 6px;
+        width: 100%;
       }
 
       .site-footer {
@@ -507,15 +908,40 @@
 <body>
   <div class="wrap">
     <div class="nav">
-      <a href="/">Generator</a>
-      <a href="/map-tools">Map Tools</a>
-      <a href="/character-studio">Character Studio</a>
-      <a href="/library">Local Library</a>
-      <a href="/lore-browser">Lore</a>
-      <a href="/prompt-browser">Prompts</a>
-      <a href="/compendium-browser">CSRD Compendium</a>
-      <a href="/config-enrichment">Config Enrichment</a>
-      <a href="/search">Search</a>
+      <a href="/">Home</a>
+      <details class="nav-group">
+        <summary class="nav-toggle">Generation Tools</summary>
+        <div class="nav-menu">
+          <a href="/generator">Generator</a>
+          <a href="/character-studio">Character Studio</a>
+          <a href="/map-tools">Map Tools</a>
+          <a href="/config-enrichment">Config Enrichment</a>
+        </div>
+      </details>
+      <details class="nav-group">
+        <summary class="nav-toggle">Search & Browse</summary>
+        <div class="nav-menu">
+          <a href="/search">Unified Search</a>
+          <a href="/library">Local Library</a>
+          <a href="/trash">Trash Bin</a>
+          <a href="/lore-browser">Lore Browser</a>
+          <a href="/prompt-browser">Prompt Browser</a>
+          <a href="/image-browser">Image Browser</a>
+          <a href="/compendium-browser">CSRD Compendium</a>
+        </div>
+      </details>
+      <div class="nav-context" aria-label="Global setting filters">
+        <span class="k">Loaded World</span>
+        <select id="nav-active-world">
+          <option value="">Default</option>
+        </select>
+        <span class="k">Setting</span>
+        <select id="nav-core-setting">
+          <option value="all_settings">All Settings</option>
+        </select>
+        <span class="k nav-world hidden" id="nav-world-label">World</span>
+        <select id="nav-world-setting" class="nav-world hidden"></select>
+      </div>
     </div>
 
     {% block content %}{% endblock %}
@@ -538,6 +964,265 @@
       </a>
     </footer>
   </div>
+
+  <div id="global-image-lightbox" class="image-lightbox" aria-hidden="true">
+    <div class="image-lightbox-inner">
+      <img id="global-image-lightbox-img" alt="Full size preview" />
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const CORE_KEY = "lol_core_setting";
+      const WORLD_KEY = "lol_world_setting";
+      const SEARCH_PATHS = new Set([
+        "/storage/search",
+        "/unified-search",
+        "/lore/search",
+        "/prompts/search",
+        "/compendium/search",
+      ]);
+
+      const coreSelect = document.getElementById("nav-core-setting");
+      const activeWorldSelect = document.getElementById("nav-active-world");
+      const worldSelect = document.getElementById("nav-world-setting");
+      const worldLabel = document.getElementById("nav-world-label");
+      if (!coreSelect || !activeWorldSelect || !worldSelect || !worldLabel) return;
+
+      const listeners = [];
+      const state = {
+        core: localStorage.getItem(CORE_KEY) || "all_settings",
+        world: localStorage.getItem(WORLD_KEY) || "",
+        model: { core_options: [{ value: "all_settings", label: "All Settings" }], worlds_by_core: {} },
+      };
+
+      const emit = () => {
+        const snapshot = {
+          core: state.core,
+          world: state.world,
+          effectiveSetting: getEffectiveSetting(),
+        };
+        for (const fn of listeners) fn(snapshot);
+      };
+
+      const getEffectiveSetting = () => {
+        if (!state.core || state.core === "all_settings") return "";
+        if (state.world) return state.world;
+        return state.core;
+      };
+
+      const fillSelect = (el, options, includeBlank = false) => {
+        el.innerHTML = "";
+        if (includeBlank) {
+          const blank = document.createElement("option");
+          blank.value = "";
+          blank.textContent = "All Worlds";
+          el.appendChild(blank);
+        }
+        for (const opt of options || []) {
+          const item = typeof opt === "string" ? { value: opt, label: opt } : opt;
+          const option = document.createElement("option");
+          option.value = item.value;
+          option.textContent = item.label || item.value;
+          el.appendChild(option);
+        }
+      };
+
+      const fillWorldProfileSelect = (worlds, activeWorld) => {
+        activeWorldSelect.innerHTML = "";
+        const defaultOpt = document.createElement("option");
+        defaultOpt.value = "";
+        defaultOpt.textContent = "Default World";
+        activeWorldSelect.appendChild(defaultOpt);
+
+        for (const world of worlds || []) {
+          const option = document.createElement("option");
+          option.value = world.id;
+          option.textContent = world.label || world.id;
+          activeWorldSelect.appendChild(option);
+        }
+        activeWorldSelect.value = activeWorld || "";
+      };
+
+      const updateWorldUI = () => {
+        const worlds = (state.model.worlds_by_core && state.model.worlds_by_core[state.core]) || [];
+        const hasWorlds = state.core !== "all_settings" && worlds.length > 0;
+
+        worldSelect.classList.toggle("hidden", !hasWorlds);
+        worldLabel.classList.toggle("hidden", !hasWorlds);
+
+        if (!hasWorlds) {
+          state.world = "";
+          worldSelect.innerHTML = "";
+          localStorage.removeItem(WORLD_KEY);
+          return;
+        }
+
+        fillSelect(worldSelect, worlds, true);
+        if (worlds.some(w => w.value === state.world)) {
+          worldSelect.value = state.world;
+        } else {
+          state.world = "";
+          worldSelect.value = "";
+        }
+      };
+
+      window.lolSettingContext = {
+        getCoreSetting: () => state.core,
+        getWorldSetting: () => state.world,
+        getEffectiveSetting,
+        onChange: (fn) => {
+          if (typeof fn === "function") listeners.push(fn);
+          return () => {
+            const idx = listeners.indexOf(fn);
+            if (idx >= 0) listeners.splice(idx, 1);
+          };
+        },
+      };
+
+      coreSelect.addEventListener("change", () => {
+        state.core = coreSelect.value || "all_settings";
+        localStorage.setItem(CORE_KEY, state.core);
+        updateWorldUI();
+        emit();
+      });
+
+      activeWorldSelect.addEventListener("change", async () => {
+        const worldId = activeWorldSelect.value || null;
+        try {
+          activeWorldSelect.disabled = true;
+          const res = await fetch("/worlds/select", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ world_id: worldId }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || `World switch failed: ${res.status}`);
+          window.location.reload();
+        } catch (err) {
+          alert(`World switch failed: ${err.message || err}`);
+          activeWorldSelect.disabled = false;
+        }
+      });
+
+      worldSelect.addEventListener("change", () => {
+        state.world = worldSelect.value || "";
+        if (state.world) {
+          localStorage.setItem(WORLD_KEY, state.world);
+        } else {
+          localStorage.removeItem(WORLD_KEY);
+        }
+        emit();
+      });
+
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => {
+        try {
+          let urlObj = null;
+          if (typeof input === "string" || input instanceof URL) {
+            urlObj = new URL(input, window.location.origin);
+          } else if (input instanceof Request) {
+            urlObj = new URL(input.url, window.location.origin);
+          }
+
+          if (urlObj && urlObj.origin === window.location.origin && SEARCH_PATHS.has(urlObj.pathname)) {
+            const effective = getEffectiveSetting();
+            if (effective && !urlObj.searchParams.get("setting")) {
+              urlObj.searchParams.set("setting", effective);
+            }
+            if (input instanceof Request) {
+              input = new Request(urlObj.toString(), input);
+            } else {
+              input = urlObj.toString();
+            }
+          }
+        } catch (_) {
+          // Never block requests if context injection fails.
+        }
+        return originalFetch(input, init);
+      };
+
+      fetch("/meta")
+        .then((res) => res.json())
+        .then(async (meta) => {
+          try {
+            const worldsRes = await fetch("/worlds");
+            const worldsData = await worldsRes.json();
+            if (worldsRes.ok) {
+              fillWorldProfileSelect(worldsData.worlds || [], worldsData.active_world || "");
+            }
+          } catch (_) {
+            fillWorldProfileSelect([], "");
+          }
+
+          const navModel = meta.settings_nav || {};
+          const coreOptions = Array.isArray(navModel.core_options) && navModel.core_options.length
+            ? navModel.core_options
+            : [{ value: "all_settings", label: "All Settings" }];
+          state.model = {
+            core_options: coreOptions,
+            worlds_by_core: navModel.worlds_by_core || {},
+          };
+
+          fillSelect(coreSelect, state.model.core_options, false);
+          if (state.model.core_options.some(x => x.value === state.core)) {
+            coreSelect.value = state.core;
+          } else {
+            state.core = "all_settings";
+            coreSelect.value = "all_settings";
+            localStorage.setItem(CORE_KEY, state.core);
+          }
+          updateWorldUI();
+          emit();
+        })
+        .catch(() => {
+          fillSelect(coreSelect, [{ value: "all_settings", label: "All Settings" }], false);
+          coreSelect.value = "all_settings";
+          state.core = "all_settings";
+          state.world = "";
+          updateWorldUI();
+          emit();
+        });
+    })();
+
+    (() => {
+      const overlay = document.getElementById("global-image-lightbox");
+      const img = document.getElementById("global-image-lightbox-img");
+      if (!overlay || !img) return;
+
+      const close = () => {
+        overlay.classList.remove("active");
+        overlay.setAttribute("aria-hidden", "true");
+        img.removeAttribute("src");
+      };
+
+      document.addEventListener("click", (event) => {
+        const trigger = event.target && event.target.closest
+          ? event.target.closest("[data-image-popup='1']")
+          : null;
+        if (trigger) {
+          event.preventDefault();
+          event.stopPropagation();
+          const src = trigger.getAttribute("data-fullsrc") || trigger.getAttribute("src");
+          if (!src) return;
+          img.setAttribute("src", src);
+          overlay.classList.add("active");
+          overlay.setAttribute("aria-hidden", "false");
+          return;
+        }
+        if (overlay.classList.contains("active")) {
+          const clickedInside = event.target.closest && event.target.closest(".image-lightbox-inner");
+          if (!clickedInside) close();
+        }
+      }, true);
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && overlay.classList.contains("active")) {
+          close();
+        }
+      });
+    })();
+  </script>
 
   {% block scripts %}{% endblock %}
 </body>

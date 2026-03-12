@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Map Tools</h1>
-<p>Generate settlements, encounters, cyphers, and inns for a chosen environment.</p>
+<p>Generate settlements, encounters, cyphers, artifacts, and inns for a chosen area.</p>
 
 <div class="layout">
   <form id="map-form" class="panel">
@@ -14,12 +14,13 @@
         <option value="settlement">settlement</option>
         <option value="encounter">encounter</option>
         <option value="cypher">cypher</option>
+        <option value="artifact">artifact</option>
         <option value="inn">inn</option>
       </select>
     </div>
 
     <div class="field">
-      <label for="environment">Environment</label>
+      <label for="environment">Area</label>
       <select id="environment" name="environment"></select>
     </div>
 
@@ -65,6 +66,7 @@
     status: document.getElementById('status'),
     viewer: document.getElementById('viewer')
   };
+  let artifactDepletionTable = [];
 
   function fillSelect(select, values) {
     select.innerHTML = '';
@@ -128,7 +130,10 @@
   function renderCypherCard(item) {
     const sections = item.sections || {};
     const level = sections.level || item.level || '';
-    const name = item.name || sections.name || 'Unnamed Cypher';
+    const isArtifact = item.type === 'artifact';
+    const name = item.name || sections.name || (isArtifact ? 'Unnamed Artifact' : 'Unnamed Cypher');
+    const limitLabel = isArtifact ? 'Depletion' : 'Limitation';
+    const limitValue = sections.depletion || sections.limitation;
 
     const field = (label, value) => {
       if (!value) return '';
@@ -154,7 +159,7 @@
           ${field('Manifestation', sections.manifestation)}
           ${field('Appearance', sections.appearance)}
           ${field('Effect', sections.effect)}
-          ${field('Limitation / Depletion', sections.limitation)}
+          ${field(limitLabel, limitValue)}
           ${field('Quirk', sections.quirk)}
         </div>
       </div>
@@ -173,7 +178,7 @@
       </div>
     `;
 
-    if (item.type === 'cypher') {
+    if (item.type === 'cypher' || item.type === 'artifact') {
       html += renderCypherCard(item);
     } else if (item.sections) {
       html += renderSectionsCard('Generated Content', item.sections);
@@ -193,7 +198,7 @@
 
   function buildPayload() {
     const payload = {
-      environment: els.environment.value,
+      area: els.environment.value,
       mood: els.mood.value.trim(),
       seed: els.seed.value.trim()
     };
@@ -207,7 +212,10 @@
 
   async function loadMeta() {
     const meta = await fetchJson('/meta');
-    fillSelect(els.environment, meta.environments || []);
+    fillSelect(els.environment, meta.areas || meta.environments || []);
+    artifactDepletionTable = Array.isArray(meta.artifact_depletion_table)
+      ? meta.artifact_depletion_table
+      : [];
     els.status.textContent = 'Ready.';
   }
 
@@ -216,8 +224,11 @@
 
     const type = els.type.value;
     const payload = buildPayload();
-
-    els.status.textContent = 'Generating...';
+    if (type === 'artifact' && artifactDepletionTable.length) {
+      els.status.textContent = `Generating... (depletion table: ${artifactDepletionTable.join(', ')})`;
+    } else {
+      els.status.textContent = 'Generating...';
+    }
     els.viewer.innerHTML = '';
 
     try {

@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T13:55:09.609281+00:00",
+  "filename": "character_sheet/character_sheet_20260312T135509.json",
+  "payload": {
+    "area": "pirate_seas",
+    "environment": "",
+    "location": "",
+    "race": "alfirin",
+    "profession": "poet_warrior",
+    "setting": ""
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Aurora",
+    "sheet": {
+      "name": "Aurora",
+      "sentence": "Aurora is Impulsive Pixie who Uses Wild Magic.",
+      "type": "Trixter (Adept)",
+      "flavor": "",
+      "descriptor": "Impulsive Pixie",
+      "focus": "Uses Wild Magic",
+      "effort": 1,
+      "cypher_limit": 5,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 9,
+          "speed": 14,
+          "intellect": 15
+        },
+        "current": {
+          "might": 9,
+          "speed": 14,
+          "intellect": 15
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 1,
+        "intellect": 1
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Initiative",
+          "Speed defense"
+        ],
+        "inabilities": [
+          "Stealth",
+          "Lie or cheat",
+          "Patience, willpower, or discipline"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Magical Repertoire",
+        "Resonance Field",
+        "Scan",
+        "Magic Training",
+        "Shatter"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Stealth",
+          "level": "inability"
+        },
+        {
+          "name": "Lie or cheat",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "trained"
+        },
+        {
+          "name": "Speed defense",
+          "level": "trained"
+        },
+        {
+          "name": "Patience, willpower, or discipline",
+          "level": "inability"
+        }
+      ],
+      "equipment": [
+        "[Artifact] Pixie dust (L6, depletion 5 in [[/r d100]])",
+        "[Cypher] Giant size (L5)",
+        "[Cypher] Phase changer (L6)",
+        "[Cypher] Fireproofing (L7)",
+        "[Cypher] Beast shape (L4)",
+        "[Cypher] Blinking (L2)",
+        "Scandalous Garment",
+        "Pouch or other small container",
+        "Safety Needle Bathlet",
+        "Safety Pin Bathlet"
+      ],
+      "notes": "Magical Repertoire: The number of subtle cyphers you can bear at the same time increases by two. If you spend one hour preparing your magic, you can fill any of your open cypher slots with subtle cyphers chosen randomly by the GM (this hour can be part of a one-hour or ten-hour recovery action if you are awake for the entire time). As part of this preparation process, you may discard any number of subtle cyphers you carry to make room for more subtle cyphers. Enabler.\n\nIf a character has Magical Repertoire, the GM should give the PC frequent opportunities to gain new subtle cyphers, whether from preparation or by gaining them automatically as explained in the @UUID[Compendium.cyphersystem-compendium.cypher-journals.k9exUQdtIwtKwqCc.JournalEntryPage.xLSayIO5g61IGlUa#discovering-subtle-cyphers]{Cyphers chapter}.\nResonance Field: Faint lines in a color you choose form a tracery over your entire body and emit faint light. The effect lasts for one minute. Whenever a creature within immediate range makes an attack against you, the pattern energizes to block the attack. You can make an Intellect defense roll in place of the defense roll you would normally make. If you do so and you get a minor effect, the creature attacking you takes 1 point of damage. If you get a major effect, the creature attacking you takes 4 points of damage. Action to initiate.\nScan: You scan an area equal in size to a 10-foot (3 m) cube, including all objects or creatures within that area. The area must be within short range. Scanning a creature or object always reveals its level. You also learn whatever facts the GM feels are pertinent about the matter and energy in that area. For example, you might learn that the wooden box contains a device of metal and plastic. You might learn that the glass cylinder is full of poisonous gas, and that its metal stand has an electrical field running through it that connects to a metal mesh in the floor. You might learn that the creature standing before you is a mammal with a small brain. However, this ability doesn’t tell you what the information means. Thus, in the first example, you don’t know what the metal and plastic device does. In the second, you don’t know if stepping on the floor causes the cylinder to release the gas. In the third, you might suspect that the creature is not very intelligent, but scans, like looks, can be deceiving. Many materials and energy fields prevent or resist scanning. Action.\nMagic Training: You are trained in the basics of magic (including the operation of magic artifacts and cyphers) and can attempt to understand and identify its properties. Enabler.\nShatter: You interrupt the fundamental force holding normal matter together for a moment, causing the detonation of an object you choose within long range. The object must be a small, mundane item composed of homogeneous matter (such as a clay cup, an iron ingot, a stone, and so on). The object explodes in an immediate radius, dealing 1 point of damage to all creatures and objects in the area. If you apply Effort to increase the damage, you deal 2 additional points of damage per level of Effort (instead of 3 points); targets in the area take 1 point of damage even if you fail the attack roll. Action.\nSafety Pin Bathlet: Alarge safety pin that has been fashioned into a two handed bathlet sized for a pixie.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Aurora",
+        "race": "alfirin",
+        "profession": "poet_warrior",
+        "area": "pirate_seas",
+        "location": "",
+        "character_type": "Trixter (Adept)",
+        "flavor": "",
+        "descriptor": "Impulsive Pixie",
+        "focus": "Uses Wild Magic",
+        "tier": 1,
+        "xp": 5,
+        "source": "foundry_vtt",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "Actor.m6NHXebRpI1t12wt"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "pirate_seas",
+      "location": "",
+      "environment": "pirate_seas",
+      "race": "alfirin",
+      "profession": "poet_warrior",
+      "character_type": "Trixter (Adept)",
+      "flavor": "",
+      "descriptor": "Impulsive Pixie",
+      "focus": "Uses Wild Magic",
+      "tier": 1,
+      "source": "foundry_vtt",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "Actor.m6NHXebRpI1t12wt"
+    }
+  }
+}

@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": null,
   "effect": "All noncombat tasks involving raw strength—such as breaking down a door, lifting a heavy boulder, forcing open elevator doors, competing in a weightlifting competition, and so on—are eased by two steps for one hour.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

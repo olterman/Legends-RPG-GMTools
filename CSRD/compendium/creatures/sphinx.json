@@ -17,5 +17,11 @@
   "interaction": "Sphinxes are very intelligent and speak several languages (including at least one ancient or obscure language). If their demands are met (such as by answering a riddle or performing a service), they can be quite talkative, if arrogant.",
   "use": "A sphinx guards the main road into the city, killing anyone who fails to answer its riddle. A sphinx approaches, offering secret lore if the characters can direct it to a suitable mate or an abandoned temple it can restore and guard.",
   "loot": "A sphinx usually has one or two cyphers and perhaps a small artifact it can wear and use.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

@@ -29,6 +29,7 @@ Returns generator metadata for UI clients.
 
 Key fields:
 - `types`
+- `settings`
 - `genders`
 - `races`
 - `professions`
@@ -178,6 +179,7 @@ Returns full saved record:
 ### `GET /storage/search`
 Query params (all optional):
 - `type`
+- `setting`
 - `environment`
 - `race`
 - `profession`
@@ -185,7 +187,7 @@ Query params (all optional):
 
 Example:
 ```bash
-curl -s "http://localhost:5000/storage/search?type=npc&environment=fenmir_highlands"
+curl -s "http://localhost:5000/storage/search?type=npc&setting=lands_of_legends&environment=fenmir_highlands"
 ```
 
 ## Compendium Endpoints

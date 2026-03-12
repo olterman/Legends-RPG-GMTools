@@ -17,5 +17,9 @@
   "interaction": "Famine is keen to talk about delicacies of every kind, becoming more animated and descriptive about mouthwatering foods and drinks the hungrier those nearby are.",
   "use": "The characters are trying to help a group of survivors transport much‑needed food stores to their community when someone all in black on a black motorcycle appears on the road ahead.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

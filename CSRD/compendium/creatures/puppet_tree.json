@@ -17,5 +17,9 @@
   "interaction": "Puppet trees are highly intelligent, but malevolent. Even if communication can be opened via telepathy or some other means, the tree will always attempt to double-cross the PCs.",
   "use": "The PCs spy a group of “people” having a picnic under a strange-looking tree in the middle of nowhere.",
   "loot": "Possessions of former victims can be found in the red reeds, usually including a moderate amount of currency and various bits of gear. Devices of victims (if any) are collected by the corpse puppets and cobbled together into a strange machine, its purpose inexplicable.",
-  "gm_intrusion": "Two corpse puppets, unseen in the red reeds, rise and seize a character in an attempt to hold them still for a crystal spike attack. The character must make a difficulty 4 Speed or Might task to shake free."
+  "gm_intrusion": "Two corpse puppets, unseen in the red reeds, rise and seize a character in an attempt to hold them still for a crystal spike attack. The character must make a difficulty 4 Speed or Might task to shake free.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

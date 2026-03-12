@@ -7,5 +7,11 @@
   "level": "1d6 + 3",
   "form": null,
   "effect": "Renders an inanimate object outside the effects of most energy for one minute. This means the object cannot be harmed, moved, or manipulated in any way. It remains in place (even in midair). POWER BOOST CYPHERS These cyphers increase, modify, or improve a character’s existing powers. A burst boost cypher, for example, allows someone with the Bears a Halo of Fire focus to create a blast of fire in all directions, one time. Imagine this as being a fire-using superhero’s ability to “go nova.” Power boost cyphers affect one use of a character’s abilities but do not require an action. Their use is part of the action that they affect. Power boost cyphers are a special type of cypher. In some Cypher System games, they may be inappropriate, and in others, they may be the main (or only) type of cypher available, as determined by the GM. They can be either subtle or manifest.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,11 @@
   "interaction": "Shadows never speak, but they can make rustling noises like a gently moving curtain. If controlled or prevented from attacking, they can communicate with simple pantomimes and seem to understand some pieces of language.",
   "use": "The flickering shadows from a campfire bend strangely and begin to creep toward a nearby character. A person appears to have two shadows just before they feel icy coldness slide along their flesh.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

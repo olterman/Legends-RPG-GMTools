@@ -17,5 +17,11 @@
   "interaction": "Evil priests tend to be knowledgeable, arrogant, and condescending toward heroes and members of rival faiths. They might strike a bargain to save their lives or the life of a valuable minion, or to gain an advantage later on.",
   "use": "An evil priest is converting frightened peasants into followers, and turning those who refuse into zombie slaves. A new religious figure in the city is acting suspiciously, and members of rival faiths have been disappearing or turning up dead.",
   "loot": "Evil priests usually have mundane treasures equivalent to three or four expensive items, a few useful manifest cyphers, and an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

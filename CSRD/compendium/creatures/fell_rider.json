@@ -17,5 +17,10 @@
   "interaction": null,
   "use": null,
   "loot": "A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

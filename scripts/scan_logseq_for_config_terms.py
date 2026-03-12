@@ -42,14 +42,14 @@ def collect_terms(config: dict[str, Any]) -> list[SearchTerm]:
             if race_data.get("name"):
                 terms.append(SearchTerm("race", str(race_data["name"])))
 
-    environments = config.get("environments", {}) or {}
-    for env_key, env_data in environments.items():
-        terms.append(SearchTerm("environment", str(env_key)))
+    areas = config.get("areas", {}) or config.get("environments", {}) or {}
+    for env_key, env_data in areas.items():
+        terms.append(SearchTerm("area", str(env_key)))
         if isinstance(env_data, dict):
             env_name = env_data.get("name")
             env_type = str(env_data.get("type", ""))
             if env_name:
-                terms.append(SearchTerm("environment", str(env_name)))
+                terms.append(SearchTerm("area", str(env_name)))
             if "city" in env_type:
                 terms.append(SearchTerm("city", str(env_key)))
                 if env_name:

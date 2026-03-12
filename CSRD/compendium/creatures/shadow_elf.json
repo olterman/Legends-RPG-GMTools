@@ -17,5 +17,10 @@
   "interaction": "Shadow elves may negotiate and even ally with other creatures for a time. But they do so only until the best opportunity for a betrayal presents itself.",
   "use": "Shadow elves have overrun an outlying keep, and even in broad daylight, the castle is shrouded in darkness and webs of shadow. The treasures said to lie in the keep’s coffers may already be in the hands of the dark fey.",
   "loot": "A shadow elf carries currency equivalent to an expensive item, in addition to weapons, light armor, and a cypher or two. Shadow elf leaders may carry an artifact.",
-  "gm_intrusion": "The shadow elf casts a spell that charms a character on a failed Intellect defense roll. The character fights on the side of the shadow elf for up to one minute, though they can make another Intellect defense roll each round to try to break the influence."
+  "gm_intrusion": "The shadow elf casts a spell that charms a character on a failed Intellect defense roll. The character fights on the side of the shadow elf for up to one minute, though they can make another Intellect defense roll each round to try to break the influence.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

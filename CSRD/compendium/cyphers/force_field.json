@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": null,
   "effect": "For the next day, the user is surrounded by a powerful force field, granting them +1 to Armor (+2 to Armor if the cypher level is 5 or higher). (Some force walls, shields, and cubes are transparent. Others are translucent. A few are opaque.)",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

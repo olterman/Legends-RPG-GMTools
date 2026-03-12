@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Horn Of Thunder",
+  "slug": "horn_of_thunder_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": "Large signal horn banded with metal and carved with runes",
+  "effect": "This massive instrument can barely be held or carried by a single person. When activated, it emits a 50-foot (15 m) wide cone of pure sonic force out to long range. Any creature in that area is knocked prone and stunned for one round, losing its action. Unfixed items the size of a human or smaller are toppled and/or moved at least 5 feet (1.5 m). Larger objects might also be toppled.",
+  "depletion": "1 in 1d10",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

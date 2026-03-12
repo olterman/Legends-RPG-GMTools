@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Alchemist Bag",
+  "slug": "alchemist_bag_2",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Embroidered velvet bag",
+  "effect": "This bag can contain up to one cypher per artifact level, as long as each is no larger than a typical potion bottle or scroll case. These cyphers do not count against a character’s cypher limit.",
+  "depletion": "1 in 1d20 (check each time a cypher is added to the bag)",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

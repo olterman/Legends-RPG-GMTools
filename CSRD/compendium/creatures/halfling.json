@@ -17,5 +17,9 @@
   "interaction": "Halflings enjoy the company of larger folks as long as they aren’t mocked for their size. They’re brave and determined when they need to be, though some might complain about wanting to go home.",
   "use": "A young halfling wants to have some adventures before settling down. The local thieves’ guild is said to employ halflings as lookouts and cutpurses, sometimes disguised as human children.",
   "loot": "In addition to their weapons (and perhaps some light armor) and food, a halfling might have an interesting cypher or two. Most carry several useful moderately priced items, or an expensive item such as an heirloom snuff box or a nice bag of tools.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

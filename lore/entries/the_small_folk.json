@@ -6,7 +6,7 @@
   "source_path": "logseq/pages/The Small Folk.md",
   "excerpt": "_Those Who Walk Beneath Notice_",
   "categories": [
-    "environment",
+    "area",
     "race"
   ],
   "terms": [
@@ -22,5 +22,11 @@
   "prompt_counts": {
     "lore": 0,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0"
 }

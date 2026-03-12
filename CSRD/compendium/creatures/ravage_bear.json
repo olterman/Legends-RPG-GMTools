@@ -17,5 +17,9 @@
   "interaction": "Ravage bears are animals and act like animals.",
   "use": "Ravage bears are likely chance encounters in the wilderness for unlucky travelers.",
   "loot": null,
-  "gm_intrusion": "In its rage, the ravage bear makes an extra attack that does 2 additional points of damage."
+  "gm_intrusion": "In its rage, the ravage bear makes an extra attack that does 2 additional points of damage.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

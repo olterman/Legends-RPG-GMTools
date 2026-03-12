@@ -7,5 +7,11 @@
   "level": "1d6 + 2",
   "form": null,
   "effect": "Cures any disease of the cypher level or lower.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

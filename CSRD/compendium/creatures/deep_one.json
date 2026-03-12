@@ -17,5 +17,9 @@
   "interaction": "Deep ones are a strange mix of utter alienness and the vestiges of lost humanity. They are foul and degenerate creatures by human standards, however. Many still retain the ability to speak human languages, but all speak their own slurred, unearthly tongue. Deep ones spend a great deal of time in the sincere adoration of their gods, Mother Hydra, Father Dagon, and Cthulhu. Their religion demands frequent blood sacrifices.",
   "use": "The PCs wander into a small coastal village where everyone seems standoffish and oddly distant. A few people appear to be sickly and malformed, perhaps from mutation or birth defects. Some of the villagers have squamous skin because they are transforming into deep ones. And, of course, true deep ones hide within the community as well.",
   "loot": "A few deep ones will have a cypher.",
-  "gm_intrusion": "The deep one produces a net and throws it over the character. The only physical action the victim can take is to try to get free, as either a Might-based or a Speed-based action."
+  "gm_intrusion": "The deep one produces a net and throws it over the character. The only physical action the victim can take is to try to get free, as either a Might-based or a Speed-based action.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

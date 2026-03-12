@@ -1,0 +1,16 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Electricity Resistance",
+  "slug": "electricity_resistance_2",
+  "category": "Fantasy Cyphers",
+  "level": "1d6 + 3",
+  "form": null,
+  "effect": "The user gains Armor against electricity damage equal to the cypher’s level for one hour.",
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
+}

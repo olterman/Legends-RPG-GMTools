@@ -17,5 +17,10 @@
   "interaction": "Space rats are slightly more intelligent than their Earth-bound cousins, though true interaction is not possible. On the other hand, sometimes their behavior seems spookily sapient.",
   "use": "Space rats assemble crude nests in out-of-the-way supply closets or in hard-to-reach system interiors, but often enough, end up shorting out weapons or life support. Sometimes, they get into the hold and eat anything edible in the cargo.",
   "loot": "Some percent of valuable equipment stolen on the spacecraft or station finds its way to space rat nests.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

@@ -29,7 +29,13 @@
       "race": "human",
       "variant": null,
       "profession": "rogue",
-      "environment": "fenmir_highlands"
+      "environment": "fenmir_highlands",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

@@ -17,5 +17,10 @@
   "interaction": "Sentinel trees are about as smart as well-trained guard dogs. They can’t speak, but can understand some words and gestures.",
   "use": "A grove of sentinel trees guard a compound that the characters need to break into.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

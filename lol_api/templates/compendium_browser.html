@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Compendium</h1>
-<p>Browse parsed Cypher System creatures, cyphers, character types, flavors, descriptors, foci, abilities, and skills.</p>
+<p>Browse parsed Cypher System creatures, cyphers, artifacts, character types, flavors, descriptors, foci, abilities, and skills.</p>
 
 <div class="layout">
   <div class="panel">
@@ -13,6 +13,7 @@
       <select id="filter-type">
         <option value="">All</option>
         <option value="cypher">cypher</option>
+        <option value="artifact">artifact</option>
         <option value="creature">creature</option>
         <option value="character_type">character_type</option>
         <option value="flavor">flavor</option>
@@ -51,6 +52,9 @@
 
 {% block scripts %}
 <script>
+  const state = {
+    currentItem: null,
+  };
   const els = {
     type: document.getElementById('filter-type'),
     q: document.getElementById('filter-q'),
@@ -77,6 +81,7 @@
   function typeLabel(value) {
     const labels = {
       cypher: "Cypher",
+      artifact: "Artifact",
       creature: "Creature",
       character_type: "Character Type",
       flavor: "Flavor",
@@ -88,13 +93,47 @@
     return labels[value] || titleCase(value || "item");
   }
 
-  async function fetchJson(url) {
-    const res = await fetch(url);
+  async function fetchJson(url, init = undefined) {
+    const res = await fetch(url, init);
     const data = await res.json();
     if (!res.ok) {
       throw new Error(data.error || `Request failed: ${res.status}`);
     }
     return data;
+  }
+
+  function scrollToPageTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function compactText(value, limit = 280) {
+    const text = String(value ?? "").replace(/\s+/g, " ").trim();
+    if (!text) return "";
+    return text.length > limit ? `${text.slice(0, limit - 1).trim()}…` : text;
+  }
+
+  function currentEffectiveSetting() {
+    if (window.lolSettingContext && typeof window.lolSettingContext.getEffectiveSetting === "function") {
+      return String(window.lolSettingContext.getEffectiveSetting() || "").trim();
+    }
+    return "";
+  }
+
+  async function makeLocalVariant(type, slug) {
+    const setting = currentEffectiveSetting();
+    const payload = {
+      type,
+      slug,
+      setting,
+    };
+    els.status.textContent = `Creating local variant for ${type}/${slug}...`;
+    const data = await fetchJson('/compendium/make-local', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const filename = (data.storage && data.storage.filename) ? data.storage.filename : "saved file";
+    els.status.textContent = `Created local variant: ${filename}.`;
   }
 
   function renderOutputRow(label, value) {
@@ -284,6 +323,7 @@
   }
 
   function renderCompendiumEntry(item) {
+    state.currentItem = item;
     let html = `
       <div class="output-card">
         <h3>Entry Info</h3>
@@ -291,10 +331,21 @@
         ${renderOutputRow("Type", typeLabel(item.type))}
         ${renderOutputRow("Slug", item.slug)}
         ${renderOutputRow("Source", item.source)}
+        ${renderOutputRow("Settings", Array.isArray(item.settings) ? item.settings.join(", ") : item.setting)}
+        <div class="source-badge source-csrd">CSRD</div>
+        <div class="actions" style="margin-top:10px;">
+          <button type="button"
+                  class="secondary result-action"
+                  id="make-local-view-btn"
+                  data-type="${escapeHtml(item.type || "")}"
+                  data-slug="${escapeHtml(item.slug || "")}">
+            Make Local Variant
+          </button>
+        </div>
       </div>
     `;
 
-    if (item.type === "cypher") {
+    if (item.type === "cypher" || item.type === "artifact") {
       html += renderCypherCard(item);
     } else if (item.type === "creature") {
       html += renderCreatureCard(item);
@@ -320,6 +371,19 @@
     }
 
     els.viewer.innerHTML = html;
+    const makeBtn = document.getElementById('make-local-view-btn');
+    if (makeBtn) {
+      makeBtn.addEventListener('click', async () => {
+        const type = makeBtn.getAttribute('data-type');
+        const slug = makeBtn.getAttribute('data-slug');
+        if (!type || !slug) return;
+        try {
+          await makeLocalVariant(type, slug);
+        } catch (err) {
+          els.status.textContent = `Error: ${err.message}`;
+        }
+      });
+    }
   }
 
   function renderResults(items) {
@@ -339,21 +403,49 @@
       if (item.level) lines.push(`level: ${item.level}`);
       if (item.cost) lines.push(`cost: ${item.cost}`);
       if (item.alpha_section) lines.push(`section: ${item.alpha_section}`);
+      if (Array.isArray(item.settings) && item.settings.length) lines.push(`settings: ${item.settings.join(", ")}`);
+      const description = compactText(item.description || item.summary || item.effect || item.use || "");
 
       return `
         <div class="result-card" data-type="${escapeHtml(item.type)}" data-slug="${escapeHtml(item.slug)}">
           <div class="result-top">
-            <div class="result-name">${escapeHtml(item.title || item.slug)}</div>
-            <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+            <div>
+              <div class="result-heading">${escapeHtml(item.title || item.slug)} - ${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+              <div class="source-badge source-csrd">CSRD</div>
+            </div>
           </div>
+          <div class="result-description">${escapeHtml(description || "No description yet.")}</div>
           ${lines.length ? `<div class="result-meta">${escapeHtml(lines.join("\n"))}</div>` : ""}
           <div class="small" style="margin-top:8px;">${escapeHtml(item.slug || "")}</div>
+          <div class="result-actions">
+            <button type="button"
+                    class="secondary result-action"
+                    data-action="make-local"
+                    data-type="${escapeHtml(item.type || "")}"
+                    data-slug="${escapeHtml(item.slug || "")}">
+              Make Local Variant
+            </button>
+          </div>
         </div>
       `;
     }).join("");
 
     document.querySelectorAll('.result-card').forEach(card => {
-      card.addEventListener('click', async () => {
+      card.addEventListener('click', async (event) => {
+        const actionBtn = event.target.closest('button[data-action="make-local"]');
+        if (actionBtn) {
+          event.preventDefault();
+          event.stopPropagation();
+          const type = actionBtn.getAttribute('data-type');
+          const slug = actionBtn.getAttribute('data-slug');
+          if (!type || !slug) return;
+          try {
+            await makeLocalVariant(type, slug);
+          } catch (err) {
+            els.status.textContent = `Error: ${err.message}`;
+          }
+          return;
+        }
         const type = card.getAttribute('data-type');
         const slug = card.getAttribute('data-slug');
         await loadEntry(type, slug);
@@ -381,6 +473,7 @@
     const item = await fetchJson(`/compendium/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`);
     renderCompendiumEntry(item);
     els.status.textContent = `Loaded ${slug}.`;
+    scrollToPageTop();
   }
 
   function resetFilters() {

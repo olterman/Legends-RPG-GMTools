@@ -17,5 +17,11 @@
   "interaction": "Doctor Dread is slightly mad, but that’s normally disguised by her amazing brilliance. She is an egomaniac but will negotiate in return for a promise of wealth or biomedical lore she doesn’t already know.",
   "use": "The PCs are called to handle a hostage situation at a party in which many of the city’s wealthy elite are being held captive by Doctor Dread. She promises to let them go once sufficient wealth is paid into her offshore accounts.",
   "loot": "Most of Doctor Dread’s considerable wealth is tied up in online accounts, two or three secret fortresses, and cutting-edge biological research equipment.",
-  "gm_intrusion": "Doctor Dread uses a function built into her robotic armor that is the perfect solution for her current predicament: healing herself, teleporting away, disintegrating a barrier, or whatever is needed."
+  "gm_intrusion": "Doctor Dread uses a function built into her robotic armor that is the perfect solution for her current predicament: healing herself, teleporting away, disintegrating a barrier, or whatever is needed.",
+  "settings": [
+    "csrd_core",
+    "science_fiction",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

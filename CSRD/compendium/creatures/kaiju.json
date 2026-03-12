@@ -17,5 +17,9 @@
   "interaction": "Most PCs can’t directly interact with a kaiju unless they have some special device or association allowing them to get the attention of one of the massive creatures. Doing so could give the characters a chance to trick or lure the beast, or maybe even persuade one kaiju to fight another.",
   "use": "After seeing the devastation caused by a kaiju, the PCs might decide (or be asked) to find a way to stop a projected future appearance by the same creature.",
   "loot": null,
-  "gm_intrusion": "The character gains the direct attention of the kaiju. If the kaiju attacks the character, They are awarded 5 XP, only 1 of which they have to give to a friend."
+  "gm_intrusion": "The character gains the direct attention of the kaiju. If the kaiju attacks the character, They are awarded 5 XP, only 1 of which they have to give to a friend.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

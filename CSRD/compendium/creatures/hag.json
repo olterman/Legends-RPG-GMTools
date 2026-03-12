@@ -17,5 +17,11 @@
   "interaction": "Hags are evil, greedy, hateful, and cruel. They rarely do things for others unless they benefit in some way, and they like to trick fools into dangerous tasks that end up profiting the hag instead of anyone else. If shown proper respect and bribed or paid, a hag can be a valuable source of lore.",
   "use": "The smell of cakes lures children to a mysterious woodland shack. The hag of the swamp is said to kill anyone who enters their territory without carrying a specific gift.",
   "loot": "In addition to coins and jewels, a hag usually has several scrolls or potions and may have an artifact.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

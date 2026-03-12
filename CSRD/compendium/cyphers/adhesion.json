@@ -7,5 +7,11 @@
   "level": "1d6",
   "form": null,
   "effect": "Allows for automatic climbing of any surface, even horizontal ones. Lasts for ten minutes per cypher level.",
-  "depletion": null
+  "depletion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

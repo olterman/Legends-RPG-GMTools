@@ -17,5 +17,11 @@
   "interaction": "Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human.",
   "use": "The PCs’ shelter is overtaken by a storm of grey goo, which answers to an AI operating out of a nearby safehouse.",
   "loot": "An AI may have access to 1d6 cyphers and two or three artifacts.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

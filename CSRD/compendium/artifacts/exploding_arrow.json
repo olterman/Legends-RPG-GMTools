@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Exploding Arrow",
+  "slug": "exploding_arrow",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Thick but flexible-fingered leather gloves",
+  "effect": "The wearer can cling to or climb any surface for up to one hour. Even level 10 climbing tasks become routine while the gloves are activated, but taking any other action while climbing requires a new activation.",
+  "depletion": "1 in 1d20",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

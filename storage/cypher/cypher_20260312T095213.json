@@ -1,0 +1,34 @@
+{
+  "saved_at": "2026-03-12T09:52:13.963692+00:00",
+  "filename": "cypher/cypher_20260312T095213.json",
+  "payload": {
+    "environment": "fenmir_highlands",
+    "mood": "spiritual"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Red Mirror",
+    "level": 7,
+    "sections": {
+      "name": "Red Mirror",
+      "level": "7",
+      "manifestation": "clan oath pendant",
+      "appearance": "faintly warm when held",
+      "effect": "predicts imminent danger in the surrounding terrain",
+      "limitation": "must be used beneath open sky",
+      "quirk": "chills the air briefly",
+      "style": "painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration"
+    },
+    "text": "Cypher.\n\nName:\nRed Mirror.\n\nLevel:\n7\n\nManifestation:\nclan oath pendant.\n\nAppearance:\nfaintly warm when held.\n\nEffect:\npredicts imminent danger in the surrounding terrain.\n\nLimitation / Depletion:\nmust be used beneath open sky.\n\nQuirk:\nchills the air briefly.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
+    "metadata": {
+      "environment": "fenmir_highlands",
+      "level": 7,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  },
+  "schema_version": "1.0"
+}

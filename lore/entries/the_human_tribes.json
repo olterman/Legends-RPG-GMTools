@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/The Human Tribes.md",
   "excerpt": "Among the elder races, humans are often dismissed as brief sparks—short-lived, impulsive, and fragile. Yet it is precisely this impermanence that has shaped humanity into the most adaptable and unpredictable of all peoples. Where immortals plan in centuries, h",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -22,5 +23,13 @@
   "prompt_counts": {
     "lore": 0,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "The Human Tribes",
+  "location_type": "city"
 }

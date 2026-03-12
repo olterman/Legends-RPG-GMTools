@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/Caldor.md",
   "excerpt": "_The Age of Tomorrow_",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -20,5 +21,13 @@
   "prompt_counts": {
     "lore": 1,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "Caldor",
+  "location_type": "city"
 }

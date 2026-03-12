@@ -6,8 +6,9 @@
   "source_path": "logseq/pages/Peoples.md",
   "excerpt": "Immortal exiles from a shattered world; entered through damaged Gates after failed negotiation with the Velim; fractured into Sky Children (open, cultured), Forest Folk (Galadhrim, wild stewards), and Nightshades (Duathrim, secretive manipulators).",
   "categories": [
+    "area",
     "city",
-    "environment",
+    "location",
     "race"
   ],
   "terms": [
@@ -28,5 +29,13 @@
   "prompt_counts": {
     "lore": 9,
     "art": 0
-  }
+  },
+  "settings": [
+    "fantasy",
+    "lands_of_legends"
+  ],
+  "setting": "lands_of_legends",
+  "schema_version": "1.0",
+  "location": "Peoples",
+  "location_type": "city"
 }

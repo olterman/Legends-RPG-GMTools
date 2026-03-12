@@ -17,5 +17,9 @@
   "interaction": "Interacting with a guard typically involves one issue: does the PC want to do something that the guard has been told to prevent? If so, the PC could have a difficult time.",
   "use": "To the PCs, guards can be allies, obstacles, or both. Guards who serve the public good have their own duties and aren’t interested in doing the characters’ work for them.",
   "loot": "A guard has currency equivalent to an inexpensive item in addition to weapons, armor, and basic gear.",
-  "gm_intrusion": "1d6 local citizens intervene on the guard’s behalf, calling for more guards or even fighting the guard’s foes."
+  "gm_intrusion": "1d6 local citizens intervene on the guard’s behalf, calling for more guards or even fighting the guard’s foes.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

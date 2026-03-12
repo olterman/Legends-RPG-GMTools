@@ -17,5 +17,9 @@
   "interaction": "Changelings aren’t inherently untruthful or untrustworthy, but sometimes they can’t help but embellish a fact or take advantage of a situation. They otherwise act like regular people, but spending enough time with them usually reveals an odd quirk or attitude.",
   "use": "An acquaintance is having trouble at home (because their family realized they’re a changeling). Someone suspects a family member is actually a changeling.",
   "loot": "Changelings have the same kinds of personal items that humans do, but they often have a token or other treasured thing that doesn’t quite belong (and might secretly be a cypher or artifact).",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

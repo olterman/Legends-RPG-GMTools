@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cloak Of Finery",
+  "slug": "cloak_of_finery",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "Multilayered cloak of glittering material",
+  "effect": "This cloak is woven of beautiful fibers and set with dazzling gems. It automatically fits itself to its wearer in the most flattering way. When activated, it enhances the wearer’s appearance, voice, tone, and even their grammar, granting an asset to all interaction tasks for the next minute.",
+  "depletion": "1 in 1d20",
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
+}

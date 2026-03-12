@@ -17,5 +17,11 @@
   "interaction": "Many novice hunters are overconfident and condescending. Others (especially the more experienced ones) are paranoid and hardened by battle and the deaths of too many friends. They react positively if given respect.",
   "use": "A couple of rough-looking drifters arrive in a classic car, looking for trouble. Someone who seems to be a meek professor turns out to secretly be a hunter.",
   "loot": "Hunters carry equipment needed for their job, cash, and perhaps an old book (cypher) with an ability relevant to their current prey. Priest: level 2, religious lore and all interaction tasks as level 6 Soldier: level 3, perception as level 4; health 12; Armor 1; attacks inflict 5 damage",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy",
+    "horror"
+  ],
+  "setting": "csrd_core"
 }

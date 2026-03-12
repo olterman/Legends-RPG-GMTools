@@ -17,5 +17,9 @@
   "interaction": "Of all the Four, Plague is the most changeable in outlook, and sometimes is even somewhat sympathetic to humanity’s plight. When she’s in such a mood, persuasive characters could convince Plague to pass them over, though she promises that it’s only a temporary stay of death.",
   "use": "The characters find a before‑times bunker filled with corpses killed by some strange infection, plus a living “human” wearing a black and pale green evening gown.",
   "loot": null,
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

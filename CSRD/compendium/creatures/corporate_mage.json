@@ -17,5 +17,9 @@
   "interaction": "Corporate mages are hard and intimidating. If they can get what they want without using magic, they’ll do so, but they aren’t afraid to make a demonstration of supernatural force when necessary.",
   "use": "Corporate mages do the dirty work of sketchy businesses. They’re not here to make friends, and they know just how far to push someone (especially a powerless person) to get what they want, sometimes by bending (but not quite breaking) the law.",
   "loot": "A corporate mage usually has a cypher that’s helpful for their current assignment, plus the cash equivalent of one or two expensive items.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

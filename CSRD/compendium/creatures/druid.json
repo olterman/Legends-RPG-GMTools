@@ -17,5 +17,10 @@
   "interaction": "Dwarves are proud and hardworking, but they tend to be stubborn, gruff, and unforgiving of offenses to them or their clan. It takes time to gain their trust, but they respect a fair deal, a hard bargain, a sharp axe, and a sturdy hammer.",
   "use": "A stoic old dwarf is looking to go on one more quest before retiring. A clan of dwarves seeks a trade agreement with a human city leader—or redress for an old insult.",
   "loot": "In addition to their weapons and light or medium armor, a dwarf probably has several moderately priced items (such as tools or exploration gear) and perhaps a cypher or two.",
-  "gm_intrusion": null
+  "gm_intrusion": null,
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

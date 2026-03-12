@@ -4,13 +4,13 @@
 
 {% block content %}
 <h1>Config Enrichment</h1>
-<p>Review lore-derived race and environment candidates, then write curated additions to YAML.</p>
+<p>Review lore-derived race and area candidates, then write curated additions to YAML.</p>
 
 <div class="layout">
   <div class="panel">
     <div class="field">
       <label for="output-path">Output YAML Path</label>
-      <input id="output-path" value="config/90_lore_enrichment.yaml" />
+      <input id="output-path" value="config/worlds/lands_of_legends/90_lore_enrichment.yaml" />
     </div>
 
     <div class="actions">
@@ -26,7 +26,7 @@
       <div id="races-list"></div>
     </div>
     <div class="output-card">
-      <h3>Environments</h3>
+      <h3>Areas</h3>
       <div id="envs-list"></div>
     </div>
     <div class="output-card">
@@ -78,9 +78,9 @@
 
   function renderCandidates(data) {
     const raceDefaults = new Set((data.defaults?.race_keys || []).map(String));
-    const envDefaults = new Set((data.defaults?.environment_keys || []).map(String));
+    const envDefaults = new Set((data.defaults?.area_keys || data.defaults?.environment_keys || []).map(String));
     const races = data.races || [];
-    const envs = data.environments || [];
+    const envs = data.areas || data.environments || [];
 
     els.racesList.innerHTML = races.length
       ? races.map(item => candidateItem(item, "race", raceDefaults)).join("")
@@ -88,10 +88,10 @@
 
     els.envsList.innerHTML = envs.length
       ? envs.map(item => candidateItem(item, "env", envDefaults)).join("")
-      : `<div class="output-value">No environment candidates.</div>`;
+      : `<div class="output-value">No area candidates.</div>`;
 
     const excluded = (data.excluded_race_keys || []).join(", ");
-    els.status.textContent = `Loaded ${races.length} race and ${envs.length} environment candidates. Curated race exclusions: ${excluded || "none"}.`;
+    els.status.textContent = `Loaded ${races.length} race and ${envs.length} area candidates. Curated race exclusions: ${excluded || "none"}.`;
   }
 
   function selectedValues(selector) {
@@ -115,14 +115,14 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         race_keys: raceKeys,
-        environment_keys: envKeys,
-        output_path: els.outputPath.value.trim() || "config/90_lore_enrichment.yaml",
+        area_keys: envKeys,
+        output_path: els.outputPath.value.trim() || "config/worlds/lands_of_legends/90_lore_enrichment.yaml",
       }),
     });
     els.result.textContent =
       `Wrote ${data.output_path}\n` +
       `races: ${data.counts.races}\n` +
-      `environments: ${data.counts.environments}\n` +
+      `areas: ${data.counts.areas || data.counts.environments}\n` +
       `settlements: ${data.counts.settlements}\n` +
       `encounters: ${data.counts.encounters}`;
     els.status.textContent = "Selection applied.";

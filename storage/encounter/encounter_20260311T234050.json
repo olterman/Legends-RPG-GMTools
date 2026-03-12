@@ -24,7 +24,13 @@
       "subject": "a clan messenger who arrived too late",
       "truth": "an old oath between kin groups has finally broken",
       "complication": "the wind omens are contradictory and everyone sees what they want",
-      "hook": "travel to a sacred height and learn what changed there"
+      "hook": "travel to a sacred height and learn what changed there",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
     }
-  }
+  },
+  "schema_version": "1.0"
 }

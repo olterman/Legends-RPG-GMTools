@@ -17,5 +17,10 @@
   "interaction": "Chronophages are unswerving in their drive to find prey. Once one marks its target, only killing the creature can sway it from the prey.",
   "use": "When the PCs happen upon a location where the rules of space-time are loose and malleable, or if the PCs trigger a cypher or other device that interferes with time’s regular flow, a clutch of chronophages may soon come calling.",
   "loot": "The skin of a chronophage can be salvaged to create a silvery cloak that reflects its surroundings, but the reflection is one hour behind the present.",
-  "gm_intrusion": "If a chronophage’s prey fails its Speed defense roll, the attack ignores Armor, and the prey must make an Intellect defense roll (difficulty 4) or be phased into the chronophage’s home dimension of time. Victims automatically phase back into reality on their next turn but are displaced by 100 feet (30 m) straight up or to the closest open space. This usually results in a fall that potentially deals 10 points of damage, knocks victims prone, and dazes them, hindering all actions for a round."
+  "gm_intrusion": "If a chronophage’s prey fails its Speed defense roll, the attack ignores Armor, and the prey must make an Intellect defense roll (difficulty 4) or be phased into the chronophage’s home dimension of time. Victims automatically phase back into reality on their next turn but are displaced by 100 feet (30 m) straight up or to the closest open space. This usually results in a fall that potentially deals 10 points of damage, knocks victims prone, and dazes them, hindering all actions for a round.",
+  "settings": [
+    "csrd_core",
+    "science_fiction"
+  ],
+  "setting": "csrd_core"
 }

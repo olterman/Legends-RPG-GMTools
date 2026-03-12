@@ -17,5 +17,9 @@
   "interaction": "On their own, mechanical soldiers act on prior orders. Otherwise, they listen to and obey their creator—and only their creator.",
   "use": "An enterprising bandit has captured and repurposed a number of mechanical soldiers, probably using sound. These soldiers remember nothing of their former duties and work for their new master as high-tech brigands and pirates. The bandit has no idea how to repair them if they are damaged, much less make new soldiers.",
   "loot": "A determined scientist might scavenge the body of one of these automatons to find a cypher.",
-  "gm_intrusion": "The destroyed soldier explodes in a gout of flame, black smoke, and steam, inflicting 6 points of damage to all within immediate range."
+  "gm_intrusion": "The destroyed soldier explodes in a gout of flame, black smoke, and steam, inflicting 6 points of damage to all within immediate range.",
+  "settings": [
+    "csrd_core"
+  ],
+  "setting": "csrd_core"
 }

@@ -17,5 +17,10 @@
   "interaction": "Goblins are lying tricksters but can be cowed into cooperating for short periods.",
   "use": "Thieves and murderers, goblins are foes to all, even rival goblin tribes.",
   "loot": "Aside from weapons, each goblin carries a personal stash, including bones, shiny rocks, sticks, and other bits of worthless trash, plus currency equivalent to an inexpensive item.",
-  "gm_intrusion": "The goblin poisoned its knife. If struck, the character must make a Might defense roll or immediately move one step down the damage track."
+  "gm_intrusion": "The goblin poisoned its knife. If struck, the character must make a Might defense roll or immediately move one step down the damage track.",
+  "settings": [
+    "csrd_core",
+    "fantasy"
+  ],
+  "setting": "csrd_core"
 }

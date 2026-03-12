@@ -68,9 +68,14 @@
 
   <div class="panel">
     <div class="viewer" id="viewer">
+      <div class="viewer-header">
+        <div class="eyebrow">Selection</div>
+        <div class="title">Result Viewer</div>
+        <div class="subtitle">Select a search result to inspect full details and stat blocks.</div>
+      </div>
       <div class="output-card">
-        <h3>Result Viewer</h3>
-        <div class="output-value">Select a result from the left to view it.</div>
+        <h3>No Result Selected</h3>
+        <div class="output-value">Click any result in the left panel to display its full output here.</div>
       </div>
     </div>
   </div>
@@ -105,7 +110,8 @@
 {% block scripts %}
 <script>
   const state = {
-    meta: null
+    meta: null,
+    selectedResultKey: null
   };
 
   const els = {
@@ -304,6 +310,57 @@
           ${field("Limitation / Depletion", sections.limitation || data.depletion)}
           ${field("Quirk", sections.quirk)}
         </div>
+      </div>
+    `;
+  }
+
+  function resolveNpcImage(record, result) {
+    const candidates = [
+      result.image,
+      result.image_url,
+      result.portrait,
+      result.portrait_url,
+      result.metadata?.image,
+      result.metadata?.image_url,
+      result.sections?.image,
+      record.payload?.image,
+      record.payload?.image_url
+    ];
+
+    const imageValue = candidates.find(value => typeof value === 'string' && value.trim());
+    if (!imageValue) return '';
+    if (imageValue.startsWith('http://') || imageValue.startsWith('https://') || imageValue.startsWith('/')) {
+      return imageValue;
+    }
+    return `/images/${encodeURIComponent(imageValue)}`;
+  }
+
+  function renderTagBadges(metadata) {
+    const tags = [];
+    if (metadata.environment) tags.push(`<span class="tag-badge"><span class="k">Area</span>${escapeHtml(metadata.environment)}</span>`);
+    if (metadata.race) tags.push(`<span class="tag-badge"><span class="k">Race</span>${escapeHtml(metadata.race)}</span>`);
+    if (metadata.profession) tags.push(`<span class="tag-badge"><span class="k">Profession</span>${escapeHtml(metadata.profession)}</span>`);
+    if (!tags.length) return '';
+    return `<div class="output-card"><h3>Tags</h3><div class="tag-row">${tags.join('')}</div></div>`;
+  }
+
+  function renderNpcOverviewCard(record, result) {
+    const sections = result.sections || {};
+    const imageSrc = resolveNpcImage(record, result);
+    const imageBlock = imageSrc
+      ? `<div class="npc-image"><img src="${escapeHtml(imageSrc)}" alt="${escapeHtml(result.name || 'NPC portrait')}" loading="lazy" /></div>`
+      : `<div class="npc-image"><div class="small">No NPC image available in this record.</div></div>`;
+
+    return `
+      <div class="npc-overview">
+        <div>
+          <h3>${escapeHtml(result.name || 'Unnamed NPC')}</h3>
+          ${renderOutputRow("Character", sections.character)}
+          ${renderOutputRow("Appearance", sections.appearance)}
+          ${renderOutputRow("Clothing", sections.clothing)}
+          ${renderOutputRow("Weapons & Props", sections.weapons_props)}
+        </div>
+        ${imageBlock}
       </div>
     `;
   }
@@ -545,30 +602,51 @@
       els.viewer.innerHTML = renderCharacterSheetViewCard(record);
       return;
     }
-    let html = "";
-
-    html += `
-      <div class="output-card">
-        <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
-        ${renderOutputRow("Name", result.name || "Unnamed")}
-        ${renderOutputRow("Saved At", record.saved_at)}
-        ${renderOutputRow("Filename", record.filename)}
-        ${renderOutputRow("Environment", metadata.environment)}
-        ${renderOutputRow("Race", metadata.race)}
-        ${renderOutputRow("Profession", metadata.profession)}
-        ${renderOutputRow("Family", metadata.family)}
-        ${renderOutputRow("Role", metadata.role)}
+    let html = `
+      <div class="viewer-header">
+        <div class="eyebrow">Selected Result</div>
+        <div class="title">${escapeHtml(result.name || record.filename || "Unnamed")}</div>
+        <div class="subtitle">${escapeHtml(typeLabel(result.type || "item"))} · Saved Record</div>
       </div>
     `;
 
-    if (result.type === "cypher") {
-      html += renderCypherCard(result);
-    } else if (result.sections) {
-      html += renderSectionsCard("Generated Content", result.sections);
+    if (result.type === "npc") {
+      html += renderNpcOverviewCard(record, result);
+    } else {
+      html += `
+        <div class="output-card">
+          <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+          ${renderOutputRow("Name", result.name || "Unnamed")}
+          ${renderOutputRow("Saved At", record.saved_at)}
+          ${renderOutputRow("Filename", record.filename)}
+          ${renderOutputRow("Environment", metadata.environment)}
+          ${renderOutputRow("Race", metadata.race)}
+          ${renderOutputRow("Profession", metadata.profession)}
+          ${renderOutputRow("Family", metadata.family)}
+          ${renderOutputRow("Role", metadata.role)}
+        </div>
+      `;
     }
 
-    if (result.stat_block) {
-      html += renderStatBlockCard(result.stat_block);
+    if (result.type === "cypher") {
+      html += renderCypherCard(result);
+    }
+
+    if (result.type === "npc") {
+      if (result.stat_block) {
+        html += renderStatBlockCard(result.stat_block);
+      }
+      html += renderTagBadges(metadata);
+      if (result.sections) {
+        html += renderSectionsCard("Generated Content", result.sections);
+      }
+    } else {
+      if (result.sections) {
+        html += renderSectionsCard("Generated Content", result.sections);
+      }
+      if (result.stat_block) {
+        html += renderStatBlockCard(result.stat_block);
+      }
     }
 
     if (record.payload) {
@@ -594,6 +672,11 @@
 
   function renderCompendiumEntry(item) {
     let html = `
+      <div class="viewer-header">
+        <div class="eyebrow">Selected Result</div>
+        <div class="title">${escapeHtml(item.title || item.slug || "Compendium Entry")}</div>
+        <div class="subtitle">${escapeHtml(typeLabel(item.type || "item"))} · Compendium</div>
+      </div>
       <div class="output-card">
         <h3>Entry Info</h3>
         ${renderOutputRow("Title", item.title)}
@@ -665,10 +748,18 @@
 
     document.querySelectorAll('.result-card').forEach(card => {
       card.addEventListener('click', async () => {
+        document.querySelectorAll('.result-card.selected').forEach(el => el.classList.remove('selected'));
+        card.classList.add('selected');
         const source = card.getAttribute('data-source');
         const url = card.getAttribute('data-url');
+        state.selectedResultKey = `${source}:${url}`;
         await loadResult(source, url);
       });
+
+      const key = `${card.getAttribute('data-source')}:${card.getAttribute('data-url')}`;
+      if (state.selectedResultKey && key === state.selectedResultKey) {
+        card.classList.add('selected');
+      }
     });
   }
 

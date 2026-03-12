@@ -53,9 +53,14 @@
 
   <div class="panel">
     <div class="viewer" id="viewer">
+      <div class="viewer-header">
+        <div class="eyebrow">Selection</div>
+        <div class="title">Saved Item Viewer</div>
+        <div class="subtitle">Select an item from the left to view rich details here.</div>
+      </div>
       <div class="output-card">
-        <h3>Saved Item Viewer</h3>
-        <div class="output-value">Select an item from the left to view it.</div>
+        <h3>No Item Selected</h3>
+        <div class="output-value">Pick an item in the Library list to load its generated content, metadata, and stat blocks.</div>
       </div>
     </div>
   </div>
@@ -225,62 +230,134 @@
     `;
   }
 
+  function resolveNpcImage(record, result) {
+    const candidates = [
+      result.image,
+      result.image_url,
+      result.portrait,
+      result.portrait_url,
+      result.metadata?.image,
+      result.metadata?.image_url,
+      result.sections?.image,
+      record.payload?.image,
+      record.payload?.image_url
+    ];
+
+    const imageValue = candidates.find(value => typeof value === 'string' && value.trim());
+    if (!imageValue) return '';
+    if (imageValue.startsWith('http://') || imageValue.startsWith('https://') || imageValue.startsWith('/')) {
+      return imageValue;
+    }
+    return `/images/${encodeURIComponent(imageValue)}`;
+  }
+
+  function renderTagBadges(metadata) {
+    const tags = [];
+    if (metadata.environment) tags.push(`<span class="tag-badge"><span class="k">Area</span>${escapeHtml(metadata.environment)}</span>`);
+    if (metadata.race) tags.push(`<span class="tag-badge"><span class="k">Race</span>${escapeHtml(metadata.race)}</span>`);
+    if (metadata.profession) tags.push(`<span class="tag-badge"><span class="k">Profession</span>${escapeHtml(metadata.profession)}</span>`);
+    if (!tags.length) return '';
+    return `<div class="output-card"><h3>Tags</h3><div class="tag-row">${tags.join('')}</div></div>`;
+  }
+
+  function renderNpcOverviewCard(record, result) {
+    const sections = result.sections || {};
+    const imageSrc = resolveNpcImage(record, result);
+    const imageBlock = imageSrc
+      ? `<div class="npc-image"><img src="${escapeHtml(imageSrc)}" alt="${escapeHtml(result.name || 'NPC portrait')}" loading="lazy" /></div>`
+      : `<div class="npc-image"><div class="small">No NPC image available in this record.</div></div>`;
+
+    return `
+      <div class="npc-overview">
+        <div>
+          <h3>${escapeHtml(result.name || 'Unnamed NPC')}</h3>
+          ${renderOutputRow("Character", sections.character)}
+          ${renderOutputRow("Appearance", sections.appearance)}
+          ${renderOutputRow("Clothing", sections.clothing)}
+          ${renderOutputRow("Weapons & Props", sections.weapons_props)}
+        </div>
+        ${imageBlock}
+      </div>
+    `;
+  }
+
   function renderViewer(record) {
     const result = record.result || {};
     const metadata = result.metadata || {};
-    let html = "";
-
-    html += `
-      <div class="output-card">
-        <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
-        <div class="output-row">
-          <div class="output-label">Name</div>
-          <div class="output-value">${escapeHtml(result.name || "Unnamed")}</div>
-        </div>
-        <div class="output-row">
-          <div class="output-label">Saved At</div>
-          <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
-        </div>
-        <div class="output-row">
-          <div class="output-label">Filename</div>
-          <div class="output-value">${escapeHtml(record.filename || "")}</div>
-        </div>
-        ${metadata.environment ? `
-        <div class="output-row">
-          <div class="output-label">Environment</div>
-          <div class="output-value">${escapeHtml(metadata.environment)}</div>
-        </div>` : ""}
-        ${metadata.race ? `
-        <div class="output-row">
-          <div class="output-label">Race</div>
-          <div class="output-value">${escapeHtml(metadata.race)}</div>
-        </div>` : ""}
-        ${metadata.profession ? `
-        <div class="output-row">
-          <div class="output-label">Profession</div>
-          <div class="output-value">${escapeHtml(metadata.profession)}</div>
-        </div>` : ""}
-        ${metadata.family ? `
-        <div class="output-row">
-          <div class="output-label">Family</div>
-          <div class="output-value">${escapeHtml(metadata.family)}</div>
-        </div>` : ""}
-        ${metadata.role ? `
-        <div class="output-row">
-          <div class="output-label">Role</div>
-          <div class="output-value">${escapeHtml(metadata.role)}</div>
-        </div>` : ""}
+    let html = `
+      <div class="viewer-header">
+        <div class="eyebrow">Selected Item</div>
+        <div class="title">${escapeHtml(result.name || record.filename || "Unnamed")}</div>
+        <div class="subtitle">${escapeHtml(typeLabel(result.type || "item"))} · ${escapeHtml(record.saved_at || "Unknown save time")}</div>
       </div>
     `;
 
-    if (result.type === "cypher") {
-      html += renderCypherCard(result);
-    } else if (result.sections) {
-      html += renderSectionsCard("Generated Content", result.sections);
+    if (result.type === "npc") {
+      html += renderNpcOverviewCard(record, result);
+    } else {
+      html += `
+        <div class="output-card">
+          <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+          <div class="output-row">
+            <div class="output-label">Name</div>
+            <div class="output-value">${escapeHtml(result.name || "Unnamed")}</div>
+          </div>
+          <div class="output-row">
+            <div class="output-label">Saved At</div>
+            <div class="output-value">${escapeHtml(record.saved_at || "")}</div>
+          </div>
+          <div class="output-row">
+            <div class="output-label">Filename</div>
+            <div class="output-value">${escapeHtml(record.filename || "")}</div>
+          </div>
+          ${metadata.environment ? `
+          <div class="output-row">
+            <div class="output-label">Environment</div>
+            <div class="output-value">${escapeHtml(metadata.environment)}</div>
+          </div>` : ""}
+          ${metadata.race ? `
+          <div class="output-row">
+            <div class="output-label">Race</div>
+            <div class="output-value">${escapeHtml(metadata.race)}</div>
+          </div>` : ""}
+          ${metadata.profession ? `
+          <div class="output-row">
+            <div class="output-label">Profession</div>
+            <div class="output-value">${escapeHtml(metadata.profession)}</div>
+          </div>` : ""}
+          ${metadata.family ? `
+          <div class="output-row">
+            <div class="output-label">Family</div>
+            <div class="output-value">${escapeHtml(metadata.family)}</div>
+          </div>` : ""}
+          ${metadata.role ? `
+          <div class="output-row">
+            <div class="output-label">Role</div>
+            <div class="output-value">${escapeHtml(metadata.role)}</div>
+          </div>` : ""}
+        </div>
+      `;
     }
 
-    if (result.stat_block) {
-      html += renderStatBlockCard(result.stat_block);
+    if (result.type === "cypher") {
+      html += renderCypherCard(result);
+    }
+
+    if (result.type === "npc") {
+      if (result.stat_block) {
+        html += renderStatBlockCard(result.stat_block);
+      }
+      html += renderTagBadges(metadata);
+      if (result.sections) {
+        html += renderSectionsCard("Generated Content", result.sections);
+      }
+    } else {
+      if (result.sections) {
+        html += renderSectionsCard("Generated Content", result.sections);
+      }
+      if (result.stat_block) {
+        html += renderStatBlockCard(result.stat_block);
+      }
     }
 
     if (result.storage && result.storage.filename) {
@@ -358,9 +435,16 @@
 
     document.querySelectorAll('.result-card').forEach(card => {
       card.addEventListener('click', async () => {
+        document.querySelectorAll('.result-card.selected').forEach(el => el.classList.remove('selected'));
+        card.classList.add('selected');
         const filename = card.getAttribute('data-filename');
+        state.selectedFilename = filename;
         await loadRecord(filename);
       });
+
+      if (state.selectedFilename && card.getAttribute('data-filename') === state.selectedFilename) {
+        card.classList.add('selected');
+      }
     });
   }
 

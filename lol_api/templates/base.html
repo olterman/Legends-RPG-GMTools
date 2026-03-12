@@ -870,13 +870,20 @@
       padding: 6px 8px;
     }
 
+    .npc-image.npc-image--empty {
+      aspect-ratio: auto;
+      min-height: 120px;
+    }
+
     @media (max-width: 900px) {
       .grid, .layout, .row {
-        grid-template-columns: 1fr;}
+        grid-template-columns: 1fr;
       }
 
       .npc-overview {
         grid-template-columns: 1fr;
+      }
+
       .nav-group {
         width: 100%;
       }

@@ -662,24 +662,27 @@
   }
 
   function resolveNpcImage(record, result) {
+    const metadata = (result && typeof result.metadata === 'object' && result.metadata) ? result.metadata : {};
     const candidates = [
       result.image,
       result.image_url,
       result.portrait,
       result.portrait_url,
-      result.metadata?.image,
-      result.metadata?.image_url,
+      metadata.image,
+      metadata.image_url,
+      ...(Array.isArray(metadata.images) ? metadata.images : []),
       result.sections?.image,
       record.payload?.image,
       record.payload?.image_url
     ];
 
     const imageValue = candidates.find(value => typeof value === 'string' && value.trim());
-    if (!imageValue) return '';
-    if (imageValue.startsWith('http://') || imageValue.startsWith('https://') || imageValue.startsWith('/')) {
-      return imageValue;
+    const normalized = normalizeImageRefs([imageValue])[0] || '';
+    if (!normalized) return '';
+    if (normalized.startsWith('http://') || normalized.startsWith('https://') || normalized.startsWith('/')) {
+      return normalized;
     }
-    return `/images/${encodeURIComponent(imageValue)}`;
+    return imageUrl(normalized);
   }
 
   function renderTagBadges(metadata) {
@@ -696,7 +699,7 @@
     const imageSrc = resolveNpcImage(record, result);
     const imageBlock = imageSrc
       ? `<div class="npc-image"><img src="${escapeHtml(imageSrc)}" alt="${escapeHtml(result.name || 'NPC portrait')}" loading="lazy" /></div>`
-      : `<div class="npc-image"><div class="small">No NPC image available in this record.</div></div>`;
+      : `<div class="npc-image npc-image--empty"><div class="small">No NPC image available in this record.</div></div>`;
 
     return `
       <div class="npc-overview">

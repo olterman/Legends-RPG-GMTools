@@ -1,0 +1,17 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Additional Equipment",
+  "slug": "additional_equipment",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You have a spear and a pair of javelins. Initial Link to the Starting Adventure: From the following list of options, choose how you became involved in the first adventure. 1. The other PCs were lost in your territory and you were sent to escort them out. 2. Something has been attacking your community and you want to find and destroy it. 3. You were exiled from your community and need to prove your worthiness before you can return to it. 4. You or your priest had a vision of you traveling with the other PCs.",
+  "details": [
+    "You have a spear and a pair of javelins.",
+    "Initial Link to the Starting Adventure: From the following list of options, choose how you became involved in the first adventure.",
+    "1. The other PCs were lost in your territory and you were sent to escort them out.",
+    "2. Something has been attacking your community and you want to find and destroy it.",
+    "3. You were exiled from your community and need to prove your worthiness before you can return to it.",
+    "4. You or your priest had a vision of you traveling with the other PCs."
+  ]
+}

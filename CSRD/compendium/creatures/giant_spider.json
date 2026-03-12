@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Giant Spider",
+  "slug": "giant_spider",
+  "level": 3,
+  "target_number": 9,
+  "description": "Giant spiders result most commonly from radioactive accidents, magic, or genetic manipulation. Whatever their origin, they’re terrifying hunters large enough to predate people. The creatures range from the size of a large dog to the size of a large horse.",
+  "motive": "Greed and theft",
+  "environment": "Tunnels and caves, usually in groups of ten or more",
+  "health": "3",
+  "damage_inflicted": "2 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Tasks related to perception, stealth, and setting traps as level 5",
+  "combat": "Goblins attack from the shadows with ambushes and hit-and-run tactics. When they have surprise, they attack as level 4 creatures and deal 2 additional points of damage, and they attempt to draw larger prey into level 5 traps they’ve previously set. They often flee in the face of real danger.",
+  "interaction": "Goblins are lying tricksters but can be cowed into cooperating for short periods.",
+  "use": "Thieves and murderers, goblins are foes to all, even rival goblin tribes.",
+  "loot": "Aside from weapons, each goblin carries a personal stash, including bones, shiny rocks, sticks, and other bits of worthless trash, plus currency equivalent to an inexpensive item.",
+  "gm_intrusion": "The goblin poisoned its knife. If struck, the character must make a Might defense roll or immediately move one step down the damage track."
+}

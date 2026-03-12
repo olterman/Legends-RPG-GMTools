@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Home",
+  "slug": "home",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The PC acquires a full-time residence. This can be an apartment in a city, a cabin in the wilderness, a base in an ancient complex, or whatever fits the situation. It should be a secure place where the PC can leave their belongings and sleep soundly. Several characters could combine their XP and buy a home together. Title or job: The PC is granted a position of importance or authority. It might come with responsibilities, prestige, and rewards, or it might be an honorary title.",
+  "details": [
+    "The PC acquires a full-time residence. This can be an apartment in a city, a cabin in the wilderness, a base in an ancient complex, or whatever fits the situation. It should be a secure place where the PC can leave their belongings and sleep soundly. Several characters could combine their XP and buy a home together.",
+    "Title or job: The PC is granted a position of importance or authority. It might come with responsibilities, prestige, and rewards, or it might be an honorary title."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sturdy",
+  "slug": "sturdy",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+2 to your Might Pool. Skill: You are trained in intimidation Dragonbreath (3 Might points): You breathe out a blast of energy in an immediate area. Choose one type of energy (arcane, cold, fire, thorn, and so on); the blast inflicts 2 points of damage of this kind of energy (ignores Armor) to all creatures or objects within the area. Because this is an area attack, adding Effort to increase your damage works differently than it does for single-target attacks. If you apply a level of Effort to increase the damage, add 2 points of damage for each target, and even if you fail your attack roll, all targets in the area still take 1 point of damage. Action.",
+  "details": [
+    "+2 to your Might Pool. Skill: You are trained in intimidation",
+    "Dragonbreath (3 Might points): You breathe out a blast of energy in an immediate area. Choose one type of energy (arcane, cold, fire, thorn, and so on); the blast inflicts 2 points of damage of this kind of energy (ignores Armor) to all creatures or objects within the area. Because this is an area attack, adding Effort to increase your damage works differently than it does for single-target attacks. If you apply a level of Effort to increase the damage, add 2 points of damage for each target, and even if you fail your attack roll, all targets in the area still take 1 point of damage. Action."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "A Task Aren’t Trained in",
+  "slug": "a_task_aren_t_trained_in",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:task_specialization",
+        "line": "Choose one task (other than attacks or defense) that you are trained in. You become specialized in that task. (You can instead use this ability as Task Training to become trained in a task you aren’t trained in.) Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

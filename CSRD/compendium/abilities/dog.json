@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dog",
+  "slug": "dog",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2, perception as level 3 Dog, guard: level 3, attacks and perception as level 4",
+  "details": [
+    "level 2, perception as level 3",
+    "Dog, guard: level 3, attacks and perception as level 4"
+  ]
+}

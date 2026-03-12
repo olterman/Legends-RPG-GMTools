@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Echolocation",
+  "slug": "echolocation",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You are especially sensitive to sound and vibration, so much so that you can sense your environment within a short distance regardless of your ability to see. Enabler.",
+  "details": [
+    "You are especially sensitive to sound and vibration, so much so that you can sense your environment within a short distance regardless of your ability to see. Enabler."
+  ]
+}

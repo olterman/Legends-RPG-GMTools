@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Silgarho Bullet",
+  "slug": "silgarho_bullet",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Hollow-point bullet",
+  "effect": "Silgarho (sil-gar-o) bullets are custom-made hollow bullets filled with a mixture of powdered silver (sil), garlic (gar), and holy water (ho), and sealed at the top with wax. They are designed to have an extra effect against vampires who have aversions to one or more of these substances. The bullet breaks open when it hits, scattering these materials into the wound. A silgarho bullet inflicts +1 point of damage and hinders the target’s actions for one round (this extra damage and hindered step is for each substance in the bullet that the vampire is averse to). Alternatively, the bullet can be fired against a hard surface such as a wall or floor, creating a cloud of dispersed material an immediate distance across, which lasts for one or two rounds and affects (for one round) any averse vampire who passes through it. Silgarho bullets are safe for vampires to handle—it’s only when broken open that they cause reactions. One advantage of a silgarho bullet over a destructive cypher is that the bullet doesn’t count toward your cypher limit.",
+  "depletion": "Automatic"
+}

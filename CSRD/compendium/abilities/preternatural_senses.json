@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Preternatural Senses",
+  "slug": "preternatural_senses",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "While you are conscious and able to use an action, you cannot be surprised. In addition, you are trained in initiative actions. Enabler.",
+  "details": [
+    "While you are conscious and able to use an action, you cannot be surprised. In addition, you are trained in initiative actions. Enabler."
+  ]
+}

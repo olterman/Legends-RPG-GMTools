@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Two Areas of Knowledge of Choice, or Specialized in One Area of Knowledge of Choice",
+  "slug": "two_areas_of_knowledge_of_choice_or_specialized_in_one_area_of_knowledge_of_choice",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:learned_a_few_things",
+        "line": "You are trained in two areas of knowledge of your choice, or specialized in one area of knowledge of your choice. Enabler."
+      },
+      {
+        "from": "ability:learned_a_few_things",
+        "line": "You are trained in two areas of knowledge of your choice, or specialized in one area of knowledge of your choice. Enabler. Learning the Path (2 Intellect points): You observe or study a creature, object, or location for at least one round. The next time you interact with it (possibly in the following round), a related task (such as persuading the creature, attacking it, or defending from its attack) is eased. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

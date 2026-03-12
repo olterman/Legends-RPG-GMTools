@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hard to Kill",
+  "slug": "hard_to_kill",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "You can choose to reroll any defense task you make but never more than once per round. Enabler.",
+  "details": [
+    "You can choose to reroll any defense task you make but never more than once per round. Enabler."
+  ]
+}

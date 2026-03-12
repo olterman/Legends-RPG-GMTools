@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "SIM AI Use",
+  "slug": "sim_ai_use",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Sim AIs are most commonly associated with shipminds on spacecraft, though they may also control specific research complexes, bases, and other kinds of vehicles and structures. A sim AI provides all the utility of a weak AI (and more), and actually acts like an NPC, an allied one if the AI is the shipmind in a craft that the PCs own. If a sim AI goes off the rails, it’s still just malfunctioning computer code. Usually.",
+  "details": [
+    "Sim AIs are most commonly associated with shipminds on spacecraft, though they may also control specific research complexes, bases, and other kinds of vehicles and structures. A sim AI provides all the utility of a weak AI (and more), and actually acts like an NPC, an allied one if the AI is the shipmind in a craft that the PCs own. If a sim AI goes off the rails, it’s still just malfunctioning computer code. Usually."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Aquatic",
+  "slug": "aquatic",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal either breathes water instead of air or is able to breathe water in addition to breathing air.",
+  "details": [
+    "The animal either breathes water instead of air or is able to breathe water in addition to breathing air."
+  ]
+}

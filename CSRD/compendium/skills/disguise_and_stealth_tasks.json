@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Disguise and Stealth Tasks",
+  "slug": "disguise_and_stealth_tasks",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:hideous",
+        "line": "Skill: You are trained in disguise and stealth tasks."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Reagents",
+  "slug": "reagents",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Bindings, creature to be sacrificed, drum, flute, silver knife, soul object (its level must be at least as high as the creature’s level)",
+  "details": [
+    "Bindings, creature to be sacrificed, drum, flute, silver knife, soul object (its level must be at least as high as the creature’s level)"
+  ]
+}

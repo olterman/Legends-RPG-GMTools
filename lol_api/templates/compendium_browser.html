@@ -1,0 +1,399 @@
+{% extends "base.html" %}
+
+{% block title %}Compendium — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Compendium</h1>
+<p>Browse parsed Cypher System creatures, cyphers, character types, flavors, descriptors, foci, abilities, and skills.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="filter-type">Type</label>
+      <select id="filter-type">
+        <option value="">All</option>
+        <option value="cypher">cypher</option>
+        <option value="creature">creature</option>
+        <option value="character_type">character_type</option>
+        <option value="flavor">flavor</option>
+        <option value="descriptor">descriptor</option>
+        <option value="focus">focus</option>
+        <option value="ability">ability</option>
+        <option value="skill">skill</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="filter-q">Search</label>
+      <input id="filter-q" placeholder="e.g. cyclops or fire" />
+    </div>
+
+    <div class="actions">
+      <button id="search-btn" type="button">Search</button>
+      <button id="reset-btn" type="button" class="secondary">Reset</button>
+    </div>
+
+    <div class="status" id="status">Ready.</div>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="panel">
+    <div class="viewer" id="viewer">
+      <div class="output-card">
+        <h3>Compendium Viewer</h3>
+        <div class="output-value">Select a compendium entry from the left.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    type: document.getElementById('filter-type'),
+    q: document.getElementById('filter-q'),
+    searchBtn: document.getElementById('search-btn'),
+    resetBtn: document.getElementById('reset-btn'),
+    results: document.getElementById('results'),
+    viewer: document.getElementById('viewer'),
+    status: document.getElementById('status')
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function titleCase(key) {
+    return key
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function typeLabel(value) {
+    const labels = {
+      cypher: "Cypher",
+      creature: "Creature",
+      character_type: "Character Type",
+      flavor: "Flavor",
+      descriptor: "Descriptor",
+      focus: "Focus",
+      ability: "Ability",
+      skill: "Skill"
+    };
+    return labels[value] || titleCase(value || "item");
+  }
+
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.error || `Request failed: ${res.status}`);
+    }
+    return data;
+  }
+
+  function renderOutputRow(label, value) {
+    if (!value) return "";
+    return `
+      <div class="output-row">
+        <div class="output-label">${escapeHtml(label)}</div>
+        <div class="output-value">${escapeHtml(value)}</div>
+      </div>
+    `;
+  }
+
+  function formatKeyedText(value) {
+    const escaped = escapeHtml(value ?? "");
+    return escaped.replace(/(^|\n)([A-Za-z][^:\n]{0,48}:)/g, (match, prefix, key) => {
+      return `${prefix}<span class="kv-key">${key}</span>`;
+    });
+  }
+
+  function renderOutputRowHighlighted(label, value) {
+    if (!value) return "";
+    return `
+      <div class="output-row">
+        <div class="output-label">${escapeHtml(label)}</div>
+        <div class="output-value">${formatKeyedText(value)}</div>
+      </div>
+    `;
+  }
+
+  function renderCypherCard(item) {
+    const field = (label, value) => {
+      if (!value) return "";
+      return `
+        <div class="cypher-field">
+          <div class="label">${escapeHtml(label)}</div>
+          <div class="value">${escapeHtml(value)}</div>
+        </div>
+      `;
+    };
+
+    return `
+      <div class="cypher-card">
+        <div class="cypher-header">
+          <div class="cypher-title">${escapeHtml(item.title || "Unnamed Cypher")}</div>
+          <div class="cypher-badge">
+            <span class="k">LEVEL</span>
+            <span class="v">${escapeHtml(item.level || "")}</span>
+          </div>
+        </div>
+
+        <div class="cypher-grid">
+          ${field("Category", item.category)}
+          ${field("Form", item.form)}
+          ${field("Effect", item.effect)}
+          ${field("Depletion", item.depletion)}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCreatureCard(item) {
+    const statGrid = `
+      <div class="stat-grid">
+        <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(item.level ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(item.target_number ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(item.health ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(item.damage_inflicted ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(item.armor ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(item.movement ?? "")}</div></div>
+      </div>
+    `;
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Creature")}</h3>
+        ${statGrid}
+        ${renderOutputRow("Description", item.description)}
+        ${renderOutputRow("Motive", item.motive)}
+        ${renderOutputRow("Environment", item.environment)}
+        ${renderOutputRow("Modifications", item.modifications)}
+        ${renderOutputRow("Combat", item.combat)}
+        ${renderOutputRow("Interaction", item.interaction)}
+        ${renderOutputRow("Use", item.use)}
+        ${renderOutputRow("Loot", item.loot)}
+        ${renderOutputRow("GM Intrusion", item.gm_intrusion)}
+      </div>
+    `;
+  }
+
+  function renderDescriptorCard(item) {
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Descriptor")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${renderOutputRowHighlighted("Details", Array.isArray(item.details) ? item.details.join("\n") : item.text)}
+      </div>
+    `;
+  }
+
+  function renderCharacterTypeCard(item) {
+    const aliasRows = Object.entries(item.aliases || {})
+      .map(([genre, aliases]) => renderOutputRow(genre, Array.isArray(aliases) ? aliases.join(", ") : aliases))
+      .join("");
+
+    const roleRows = Object.entries(item.roles || {})
+      .map(([role, text]) => renderOutputRowHighlighted(role, text))
+      .join("");
+
+    const tiers = item.tier_abilities || {};
+    const tierRows = Object.entries(tiers)
+      .map(([tier, abilities]) => renderOutputRowHighlighted(
+        tier.replace("_", " ").replace(/\b\w/g, c => c.toUpperCase()),
+        Array.isArray(abilities) ? abilities.join("\n") : abilities
+      ))
+      .join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Type")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${aliasRows}
+        ${roleRows}
+        ${renderOutputRow("Stat Pools", item.stat_pools)}
+        ${renderOutputRowHighlighted("Player Intrusions", Array.isArray(item.player_intrusions) ? item.player_intrusions.join("\n") : "")}
+        ${tierRows}
+      </div>
+    `;
+  }
+
+  function renderFlavorCard(item) {
+    const tiers = item.tier_abilities || {};
+    const tierRows = Object.entries(tiers)
+      .map(([tier, abilities]) => renderOutputRowHighlighted(
+        tier.replace("_", " ").replace(/\b\w/g, c => c.toUpperCase()),
+        Array.isArray(abilities) ? abilities.join("\n") : abilities
+      ))
+      .join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Flavor")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${tierRows}
+      </div>
+    `;
+  }
+
+  function renderFocusCard(item) {
+    const tiers = Array.isArray(item.tiers) ? item.tiers.join("\n") : "";
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Focus")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${renderOutputRowHighlighted("Tiers", tiers)}
+        ${renderOutputRowHighlighted("GM Intrusions", item.gm_intrusions)}
+      </div>
+    `;
+  }
+
+  function renderAbilityCard(item) {
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Ability")}</h3>
+        ${renderOutputRow("Cost", item.cost)}
+        ${renderOutputRow("Section", item.alpha_section)}
+        ${renderOutputRowHighlighted("Effect", item.effect)}
+      </div>
+    `;
+  }
+
+  function renderSkillCard(item) {
+    const progression = item.progression || {};
+    const levelKeys = ["inability", "practiced", "trained", "expert"];
+    const levelRows = levelKeys.map(level => {
+      const entries = Array.isArray(progression[level]) ? progression[level] : [];
+      const value = entries.length ? `${entries.length} reference(s)` : "No references";
+      return renderOutputRow(level.charAt(0).toUpperCase() + level.slice(1), value);
+    }).join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Skill")}</h3>
+        ${renderOutputRow("Progression", Array.isArray(item.levels) ? item.levels.join(", ") : "")}
+        ${levelRows}
+      </div>
+    `;
+  }
+
+  function renderCompendiumEntry(item) {
+    let html = `
+      <div class="output-card">
+        <h3>Entry Info</h3>
+        ${renderOutputRow("Title", item.title)}
+        ${renderOutputRow("Type", typeLabel(item.type))}
+        ${renderOutputRow("Slug", item.slug)}
+        ${renderOutputRow("Source", item.source)}
+      </div>
+    `;
+
+    if (item.type === "cypher") {
+      html += renderCypherCard(item);
+    } else if (item.type === "creature") {
+      html += renderCreatureCard(item);
+    } else if (item.type === "character_type") {
+      html += renderCharacterTypeCard(item);
+    } else if (item.type === "flavor") {
+      html += renderFlavorCard(item);
+    } else if (item.type === "descriptor") {
+      html += renderDescriptorCard(item);
+    } else if (item.type === "focus") {
+      html += renderFocusCard(item);
+    } else if (item.type === "ability") {
+      html += renderAbilityCard(item);
+    } else if (item.type === "skill") {
+      html += renderSkillCard(item);
+    } else {
+      html += `
+        <div class="output-card">
+          <h3>Raw Entry</h3>
+          <div class="output-value">${escapeHtml(JSON.stringify(item, null, 2))}</div>
+        </div>
+      `;
+    }
+
+    els.viewer.innerHTML = html;
+  }
+
+  function renderResults(items) {
+    if (!items.length) {
+      els.results.innerHTML = `
+        <div class="output-card">
+          <div class="output-value">No compendium entries found.</div>
+        </div>
+      `;
+      return;
+    }
+
+    els.results.innerHTML = items.map(item => {
+      const lines = [];
+      if (item.category) lines.push(`category: ${item.category}`);
+      if (item.environment) lines.push(`environment: ${item.environment}`);
+      if (item.level) lines.push(`level: ${item.level}`);
+      if (item.cost) lines.push(`cost: ${item.cost}`);
+      if (item.alpha_section) lines.push(`section: ${item.alpha_section}`);
+
+      return `
+        <div class="result-card" data-type="${escapeHtml(item.type)}" data-slug="${escapeHtml(item.slug)}">
+          <div class="result-top">
+            <div class="result-name">${escapeHtml(item.title || item.slug)}</div>
+            <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+          </div>
+          ${lines.length ? `<div class="result-meta">${escapeHtml(lines.join("\n"))}</div>` : ""}
+          <div class="small" style="margin-top:8px;">${escapeHtml(item.slug || "")}</div>
+        </div>
+      `;
+    }).join("");
+
+    document.querySelectorAll('.result-card').forEach(card => {
+      card.addEventListener('click', async () => {
+        const type = card.getAttribute('data-type');
+        const slug = card.getAttribute('data-slug');
+        await loadEntry(type, slug);
+      });
+    });
+  }
+
+  function buildSearchUrl() {
+    const params = new URLSearchParams();
+    if (els.type.value) params.set('type', els.type.value);
+    if (els.q.value.trim()) params.set('q', els.q.value.trim());
+    const qs = params.toString();
+    return qs ? `/compendium/search?${qs}` : `/compendium/search`;
+  }
+
+  async function search() {
+    els.status.textContent = 'Searching...';
+    const data = await fetchJson(buildSearchUrl());
+    renderResults(data.items || []);
+    els.status.textContent = `Found ${data.count ?? 0} item(s).`;
+  }
+
+  async function loadEntry(type, slug) {
+    els.status.textContent = `Loading ${type}/${slug}...`;
+    const item = await fetchJson(`/compendium/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`);
+    renderCompendiumEntry(item);
+    els.status.textContent = `Loaded ${slug}.`;
+  }
+
+  function resetFilters() {
+    els.type.value = '';
+    els.q.value = '';
+    search();
+  }
+
+  els.searchBtn.addEventListener('click', search);
+  els.resetBtn.addEventListener('click', resetFilters);
+
+  search().catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

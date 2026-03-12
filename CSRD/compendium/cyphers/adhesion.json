@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Adhesion",
+  "slug": "adhesion",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Allows for automatic climbing of any surface, even horizontal ones. Lasts for ten minutes per cypher level.",
+  "depletion": null
+}

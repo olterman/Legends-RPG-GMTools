@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Greataxe",
+  "slug": "greataxe",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A larger, heavier version of the battleaxe, sometimes with two opposing blades instead of one.",
+  "details": [
+    "A larger, heavier version of the battleaxe, sometimes with two opposing blades instead of one."
+  ]
+}

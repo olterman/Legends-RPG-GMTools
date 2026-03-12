@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Two of the Following: Climbing, Swimming, Navigation, or Identifying Plants and Creatures",
+  "slug": "two_of_the_following_climbing_swimming_navigation_or_identifying_plants_and_creatures",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:wilderness_life",
+        "line": "You are trained in two of the following: climbing, swimming, navigation, or identifying plants and creatures. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "True Senses",
+  "slug": "true_senses",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "You can see in complete darkness up to 50 feet (15 m) as if it were dim light. You recognize holograms, disguises, optical illusions, sound mimicry, and other such tricks (for all senses) for what they are. Enabler. Trust to Luck (3 Intellect points): Sometimes, you’ve just got to roll the dice and hope things add up in your favor. When you use Trust to Luck, roll a d6. On any even result, the task you’re attempting is eased by two steps. On a roll of 1, the task is hindered. Enabler. Tumbling Moves (5 Speed points): When you use an action to move, Speed defense rolls are eased until the end of your next turn. Enabler.",
+  "details": [
+    "You can see in complete darkness up to 50 feet (15 m) as if it were dim light. You recognize holograms, disguises, optical illusions, sound mimicry, and other such tricks (for all senses) for what they are. Enabler.",
+    "Trust to Luck (3 Intellect points): Sometimes, you’ve just got to roll the dice and hope things add up in your favor. When you use Trust to Luck, roll a d6. On any even result, the task you’re attempting is eased by two steps. On a roll of 1, the task is hindered. Enabler.",
+    "Tumbling Moves (5 Speed points): When you use an action to move, Speed defense rolls are eased until the end of your next turn. Enabler."
+  ]
+}

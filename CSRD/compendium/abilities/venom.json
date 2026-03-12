@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Venom",
+  "slug": "venom",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal is poisonous (usually through a bite), inflicting 1 additional point of damage.",
+  "details": [
+    "The animal is poisonous (usually through a bite), inflicting 1 additional point of damage."
+  ]
+}

@@ -1,0 +1,4339 @@
+{
+  "summary": {
+    "files_scanned": 5430,
+    "files_with_hits": 24,
+    "unique_terms_with_hits": 32
+  },
+  "hits_by_term": {
+    "race:alfirin": {
+      "category": "race",
+      "term": "alfirin",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 12,
+              "text": "- Almadir was founded when a splinter of the Alfirin chose to turn away from stone, council, and harbor."
+            },
+            {
+              "line": 59,
+              "text": "- At Almadir’s heart lie the **Deep Groves**, regions untouched even by Galadhrim feet. These places are older than the Alfirin arrival and respond violently to Daelgast influence."
+            },
+            {
+              "line": 71,
+              "text": "- A living counterbalance to Alfirin hubris"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 6,
+          "examples": [
+            {
+              "line": 2,
+              "text": "- ## Alfirin Cypher Descriptors"
+            },
+            {
+              "line": 5,
+              "text": "- **You are a Sky-Touched Alfirin**"
+            },
+            {
+              "line": 17,
+              "text": "- **You are a Wild-Bound Alfirin**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Caldor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 84,
+              "text": "- A human culture untouched by empire, faith wars, or Alfirin influence"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 6,
+          "examples": [
+            {
+              "line": 4,
+              "text": "- _The First Alfirin Realm_"
+            },
+            {
+              "line": 7,
+              "text": "- **Cirdion** is the oldest Alfirin nation in the Lands of Legends and the first realm established after the arrival from beyond the world. It encompasses the western coasts, high cliffs, sheltered bays, and the surrounding hinterlands claimed by the **Kalaquendi**."
+            },
+            {
+              "line": 8,
+              "text": "- To the Alfirin, Cirdion is not merely a political entity."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- **Cirth** is the oldest standing Alfirin city in the Lands of Legends and the first permanent settlement raised after their arrival from beyond the world."
+            },
+            {
+              "line": 12,
+              "text": "- Cirth was raised where the Alfirin fleet first made landfall after passing through the Gate. Its name, in old Alfirin, means _“Stone That Floats”_—a reference to the city’s terraces and spires that seem to hover above the cliffs when seen from the sea."
+            },
+            {
+              "line": 39,
+              "text": "- Alfirin vessels are grown as much as built—wood shaped through song, sailcloth woven with light, hulls balanced to ride both wave and wind."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 11,
+              "text": "- Duergar oral history claims their people were **called downward** long before the arrival of the Alfirin. Whether by instinct, warning, or fate, they delved into the roots of the world and remained."
+            },
+            {
+              "line": 12,
+              "text": "- Alfirin records suggest the Duergar **sealed themselves away** during the Gatefall, locking ancient passages and stabilizing fractures caused by the crossing."
+            },
+            {
+              "line": 87,
+              "text": "- A counterbalance to Alfirin arrival"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 6,
+          "examples": [
+            {
+              "line": 12,
+              "text": "- ## **The Alfirin Perspective**"
+            },
+            {
+              "line": 13,
+              "text": "- The **Alfirin** do not worship."
+            },
+            {
+              "line": 14,
+              "text": "- To the Alfirin, the universe is governed by **principles**, not divinities. What others call gods are simply large-scale expressions of cosmic mechanics — entropy, continuity, resistance, collapse."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 8,
+              "text": "Alfirin name it with reluctance."
+            },
+            {
+              "line": 30,
+              "text": "- Lomêanor is the homeland of the **Duathrim**, the Shadow Alfirin, though they do not think in terms of dominion or state."
+            },
+            {
+              "line": 103,
+              "text": "- A shadow cast by the Alfirin arrival"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 9,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- ## [[The Alfirin Tribes]]"
+            },
+            {
+              "line": 9,
+              "text": "- Tiny, luminous custodians of Gates and reality; existed before the Alfirin arrival; forced into guardianship after the passage went wrong; neutral, ancient, and quietly essential."
+            },
+            {
+              "line": 19,
+              "text": "- Small, ingenious forest-dwellers of the Fenmir wilds; adaptive survivors with oral histories that predate Alfirin settlement; reject Uruk kinship myths. green skinned (lets not use the word goblin)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 2,
+              "text": "- **Cirdion** — ancient Alfirin coastal realm, white stone cliff-cities, wind-swept terraces, sky and sea aesthetics, advanced shipbuilding, meritocratic councils, immortal scholars, light-infused architecture, calm precision, openness masking deep restraint, high magic as science, pre-cataclysm elegance."
+            },
+            {
+              "line": 5,
+              "text": "- **Cird (Cirth)** — terraced Alfirin capital above the western sea, crystalline shipyards, open halls without walls, wind banners, sea-light reflections, scholarly docks, diplomatic crossroads, serene yet watchful, beauty through function."
+            },
+            {
+              "line": 8,
+              "text": "- **Almadir** — vast living forest realm, ancient groves, shifting paths, bioluminescent greens, feral elegance, nature-bound Alfirin, instinctive magic, non-hierarchical society, covenant with the land, slow time, quiet danger, primal balance."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 27,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Alfirin Tribes"
+            },
+            {
+              "line": 2,
+              "text": "- The **Alfirin** are the Immortal Ones, the first of the elder peoples to set foot upon the Lands of Legends."
+            },
+            {
+              "line": 3,
+              "text": "- # Origins of the Alfirin"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Daelgast.md",
+          "mentions": 11,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- Daelgast is **what came through with the Alfirin**."
+            },
+            {
+              "line": 8,
+              "text": "- When the Alfirin fled their dying world, they did not cross empty distance. Between worlds lies the **interstitial aether**—a realm of unformed resonance, discarded possibility, and unrealized endings."
+            },
+            {
+              "line": 11,
+              "text": "- The Gate that was opened was meant to be **brief**, **narrow**, and **self-closing**. But the Alfirin passage was vast, sustained, and reinforced. In forcing continuity, something else adhered to the crossing."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Duergar.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 43,
+              "text": "- The Alfirin, for ancient memory—though they distrust their detachment"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Fellic.md",
+          "mentions": 7,
+          "examples": [
+            {
+              "line": 2,
+              "text": "- The **Fellic** are an enduring mystery among the peoples of the Lands of Legends. Unlike the great migrations of the Alfirin, the sudden arrivals of other races, or the recorded expansions of humankind, the Fellic have **always been here**."
+            },
+            {
+              "line": 27,
+              "text": "- Though widely assumed to be simple warriors, Dog Fellic possess rich oral traditions, particularly songs and war-chants that encode history, law, and spiritual guidance. Among humans and Alfirin alike, Dog Fellic are respected as steadfast allies—once earned, their loyalty is unbreakable."
+            },
+            {
+              "line": 61,
+              "text": "- They remember a time before the Alfirin arrival, though they speak of it only obliquely. They remember when the Velim attended quiet Gates, and when forests grew without names. They have endured every age by knowing when to withdraw and when to step forward."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lhainîm.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 35,
+              "text": "- **The Alfirin** are deeply unsettling to the Lhainîm—too permanent, too bright, too resistant to correction."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lilim.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 3,
+              "text": "- They did not arrive in fleets like the Alfirin, nor march from distant horizons like the Uruk. There are no ruins that mark their first settlements, no ancestral homelands claimed in song or stone. One age they were absent from the world’s memory; the next, they simply **appeared**—already walking the roads, already telling stories, already leaving marks that could not be undone."
+            },
+            {
+              "line": 179,
+              "text": "- **Alfirin seers** note the prophecy predates their exile myths."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 22,
+              "text": "They became what they are after the **Alfirin arrival**."
+            },
+            {
+              "line": 85,
+              "text": "- The visible scar and manifestation of the wound caused by the Alfirin arrival"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Small Folk.md",
+          "mentions": 23,
+          "examples": [
+            {
+              "line": 51,
+              "text": "- Their myths do not agree with Alfirin chronicles."
+            },
+            {
+              "line": 55,
+              "text": "- Gitz oral tradition speaks of a time _before names_, when the land itself was unstable and dangerous in ways no longer remembered. In these stories, the forests were not empty when the Alfirin arrived—but **unfinished**."
+            },
+            {
+              "line": 57,
+              "text": "- The Gitz do not describe the Alfirin as gods or masters."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 16,
+              "text": "- Alfirin: Tall refined humanoids, subtly pointed ears, luminous eyes, slender elegant builds, cool-toned skin, ancient calm, flowing robes or light armor, materials of living wood, light metal, crystal, composed posture."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 5,
+              "text": "Reality was once breached when the immortal Alfirin fled a shattered world, negotiating passage through the Gates guarded by the Velim. The passage failed. The Gates opened imperfectly, scarring existence and allowing Daelgast — a non-sentient cosmic dissonance, a magical cancer from beyond the world — to seep into reality. Daelgast corrupts matter, life, and memory without intent, creating horror"
+            },
+            {
+              "line": 7,
+              "text": "The world is not governed by anthropomorphic gods. Divinity exists as pressures and principles, not persons. The Alfirin do not worship. The Duergar name no gods. The Lilim do not revere Lilith — they are Lilith in motion. The Red God and Lilith are opposing forces of resistance that together hold Daelgast in check, not out of mercy, but necessity."
+            },
+            {
+              "line": 23,
+              "text": "The Alfirin are immortal exiles divided into Sky Children (Kalaquendi, open and cultured), Forest Folk (Galadhrim, feral stewards of living realms), Nightshades (Duathrim, secretive manipulators of shadow and discipline), and the lost Children of the Deep (Falthrim, nomadic whale-herders beneath the waves). Their arrival scarred the world, and the world remembers."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 48,
+              "text": "- **Alfirin:** Officially denounced as false immortals; privately feared"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 128
+    },
+    "race:fellic": {
+      "category": "race",
+      "term": "fellic",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 52,
+              "text": "- **Fellic:** Close allies and kin-spirits"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 16,
+          "examples": [
+            {
+              "line": 158,
+              "text": "- # Fellic Cypher Descriptors"
+            },
+            {
+              "line": 160,
+              "text": "- ## **Cat Fellic**"
+            },
+            {
+              "line": 161,
+              "text": "- **You are a Watchful Fellic**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 63,
+              "text": "- **Fellic:** Recognized as surface-echoes of older patterns"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 343,
+              "text": "- _(Fellic, Galadhrim, Highlanders, Highland Uruk)_"
+            },
+            {
+              "line": 352,
+              "text": "- **Fellic**"
+            },
+            {
+              "line": 353,
+              "text": "The Fellic are _natural conduits_. Their animal forms, seasonal myths, and fluid identities allow the Breath to pass through them almost unconsciously."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 16,
+              "text": "- ## [[The Fellic]]"
+            },
+            {
+              "line": 95,
+              "text": "- # PROMPT HEADER — **FELLIC**"
+            },
+            {
+              "line": 96,
+              "text": "- **Race:** Fellic (The Ever-Watching)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Daelgast.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 169,
+              "text": "- **Fellic** avoid their paths entirely"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Fellic.md",
+          "mentions": 58,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Fellic"
+            },
+            {
+              "line": 2,
+              "text": "- The **Fellic** are an enduring mystery among the peoples of the Lands of Legends. Unlike the great migrations of the Alfirin, the sudden arrivals of other races, or the recorded expansions of humankind, the Fellic have **always been here**."
+            },
+            {
+              "line": 6,
+              "text": "- For most of history, the Fellic remained distant observers—rarely hostile, rarely welcoming, moving through forests, plains, and hidden valleys with the same quiet certainty as the seasons. Only in recent ages have Fellic bands begun to engage openly with other peoples, trading, guiding, or occasionally settling near borderlands."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lhainîm.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 15,
+              "text": "- Fellic myths and Velim silences agree on one point:"
+            },
+            {
+              "line": 33,
+              "text": "- **The Fellic** acknowledge them as elders of instinct and memory."
+            },
+            {
+              "line": 41,
+              "text": "- Among Fenmir, Galadhrim, and Fellic alike, an old saying persists:"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 12,
+              "text": "- Fellic: Humanoid animal-aspected beings, natural fur and traits (cat, fox, dog, bear, bull, turtle, bird), minimal natural clothing, expressive posture, wilderness harmony."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 19,
+              "text": "Among the Fellic, Galadhrim shamans, Fenmir highlanders, and Highland Uruk, the Breath manifests as attunement — trance, song, ritual movement, blood-memory, and clarity without domination. Among the Lowland Uruk it becomes Gor-Kha, the Red Surge: a violent, communal war-breath that grants terrifying unity at the cost of longevity, stability, and peace."
+            },
+            {
+              "line": 33,
+              "text": "Fellic are ancient beast-aspected peoples — Cat, Fox, Dog, Bear, Bull, Turtle, and Bird — who have always existed in the wild. They act as watchers, elders, warriors, and living memory, guiding shamans of the Galadhrim, Fenmir highlanders, and Highland Uruk through the Breath of the World."
+            },
+            {
+              "line": 101,
+              "text": "- **Fellic:** Ancient beast-aspected observers of the wild; Cat, Fox, Dog, Bear aspects."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 50,
+              "text": "- **Fellic:** Ignored unless they interfere"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 97
+    },
+    "race:velim": {
+      "category": "race",
+      "term": "velim",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 53,
+              "text": "- **Velim:** Honored as watchers of balance"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 274,
+              "text": "- ## **Velim**"
+            },
+            {
+              "line": 275,
+              "text": "- **You are a Gate-Bound Velim**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 62,
+              "text": "- **Velim:** Closely watched, sometimes aided"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 188,
+              "text": "- The Velim watch silently."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 7,
+          "examples": [
+            {
+              "line": 7,
+              "text": "- Immortal exiles from a shattered world; entered through damaged Gates after failed negotiation with the Velim; fractured into Sky Children (open, cultured), Forest Folk (Galadhrim, wild stewards), and Nightshades (Duathrim, secretive manipulators)."
+            },
+            {
+              "line": 8,
+              "text": "- ## [[The Small Folk]] - Velim"
+            },
+            {
+              "line": 17,
+              "text": "- Ancient beast-aspected peoples who have always lived in the wild; observers and balancers tied to Galadhrim and Velim; divided into Cat (watchers), Fox (weavers), Dog (guardians), Bear (elders), bull (keepers of the land) and turtle (time guardians), mallard (keepers of trade and commerce friends of humans)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 105,
+              "text": "- Whispered among sailors and Velim alike:"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Daelgast.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 9,
+              "text": "- The Velim knew this place."
+            },
+            {
+              "line": 66,
+              "text": "- ## The Velim Position"
+            },
+            {
+              "line": 67,
+              "text": "- The Velim do not speak of Daelgast as evil."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Fellic.md",
+          "mentions": 11,
+          "examples": [
+            {
+              "line": 7,
+              "text": "- Despite this, they have always maintained close ties with two ancient powers: the **Galadhrim**, whom they regard as kindred spirits of the living wild, and the **Velim**, whom they recognize as wardens of deeper, unseen thresholds."
+            },
+            {
+              "line": 22,
+              "text": "- They are the most likely Fellic to integrate with other races, traveling in caravans, serving as diplomats, or embedding themselves within settlements as merchants, entertainers, or advisors. Velim myths suggest the Fox Fellic are unusually sensitive to weakened thresholds, often appearing where reality is thin or change is imminent."
+            },
+            {
+              "line": 33,
+              "text": "- The Galadhrim treat Bear Fellic elders as near equals, and Velim traditions acknowledge them as anchors—beings whose sheer presence stabilizes regions where the wild and the real strain against one another."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lhainîm.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- Before the shaping of forests and rivers, before names were given to beasts or stones, before even the Velim attended the thresholds, the Lhainîm were already present—woven into the land itself."
+            },
+            {
+              "line": 15,
+              "text": "- Fellic myths and Velim silences agree on one point:"
+            },
+            {
+              "line": 34,
+              "text": "- **The Velim** tolerate them, recognizing their role predates gates and thresholds."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Small Folk.md",
+          "mentions": 25,
+          "examples": [
+            {
+              "line": 30,
+              "text": "- ## The Velim"
+            },
+            {
+              "line": 32,
+              "text": "- The **Velim** are the most enigmatic of the Small Folk, and perhaps of all peoples."
+            },
+            {
+              "line": 33,
+              "text": "- They are tiny beings of **pure or near-pure magical essence**, often appearing as luminous, translucent, or softly glowing forms barely anchored to physical reality. The Velim are not born in any conventional sense, nor do they age as mortals understand it."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 15,
+              "text": "- Velim: Tiny luminous humanoids, semi-translucent light-forms, simplified features, hovering or light-footed, glowing motes, subtle spatial distortion, ancient neutral presence."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 5,
+              "text": "Reality was once breached when the immortal Alfirin fled a shattered world, negotiating passage through the Gates guarded by the Velim. The passage failed. The Gates opened imperfectly, scarring existence and allowing Daelgast — a non-sentient cosmic dissonance, a magical cancer from beyond the world — to seep into reality. Daelgast corrupts matter, life, and memory without intent, creating horror"
+            },
+            {
+              "line": 31,
+              "text": "The Small Folk predate most histories. Velim are tiny luminous custodians of Gates and reality itself; Gitz are clever forest survivors with oral traditions older than empires; Vaettyr are subterranean tinkerfolk maintaining ancient machines that stabilize magic. Lhainîm — pixies, pucks, redcaps, and willows — are bound to the land as servants of elder rhythms."
+            },
+            {
+              "line": 93,
+              "text": "- The **Alfirin** are immortal exiles who entered this world through Gates after a failed negotiation with the **Velim**, damaging reality."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 51,
+              "text": "- **Velim:** Declared abominations when encountered"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 67
+    },
+    "race:uruk": {
+      "category": "race",
+      "term": "uruk",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 7,
+          "examples": [
+            {
+              "line": 56,
+              "text": "- ## Uruk Cypher Descriptors"
+            },
+            {
+              "line": 58,
+              "text": "- ## **Highland Uruk**"
+            },
+            {
+              "line": 59,
+              "text": "- **You are a Highland-Born Uruk**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 16,
+              "text": "- The Highlanders coexist with the **Highland Uruk** in an uneasy but enduring balance of respect. Territory is fluid, honor is personal, and violence is restrained by custom rather than treaty."
+            },
+            {
+              "line": 22,
+              "text": "- Repeated Uruk incursions shattered centralized rule here. What remains are:"
+            },
+            {
+              "line": 37,
+              "text": "- Lowland Uruk tribes"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 11,
+          "examples": [
+            {
+              "line": 332,
+              "text": "- _(Old Fenmir term: **Anáil** · Galadhrim: **Súlennaeth** · Uruk: **Gor-Kha**)_"
+            },
+            {
+              "line": 343,
+              "text": "- _(Fellic, Galadhrim, Highlanders, Highland Uruk)_"
+            },
+            {
+              "line": 368,
+              "text": "- **Highland Uruk**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 12,
+              "text": "- ## [[The Uruk Tribes]]"
+            },
+            {
+              "line": 13,
+              "text": "- Powerful, nomadic and tribal warriors who arrived suddenly from the east; Highland Uruk are philosophical herders and poets; Lowland Uruk are militant conquerors, shaping their feared reputation. (orc-like lets not use the word orc) larger than human. brotruding lower tusks, highland uruk blue skinned, lowland uruk green skinned."
+            },
+            {
+              "line": 19,
+              "text": "- Small, ingenious forest-dwellers of the Fenmir wilds; adaptive survivors with oral histories that predate Alfirin settlement; reject Uruk kinship myths. green skinned (lets not use the word goblin)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 14,
+              "text": "- **Fenmir Highlands** — wind-carved mountains, nomadic human clans, stone circles, ritual tattoos, ancestral memory, shamanic breath-magic, coexistence with Highland Uruk, harsh beauty, honor culture, spiritual immediacy, survival through tradition."
+            },
+            {
+              "line": 20,
+              "text": "- **Fenmir Wilds** — enclosed frontier basin, single western pass, lawless terrain, roaming Uruk tribes, Gitz clans, untamed ecology, unstable magic, shifting borders, danger normalized, settlement failure zone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Duergar.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 44,
+              "text": "- The Uruk, for raw strength, but consider them dangerously uncontrolled"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 40,
+              "text": "- The **Lowland Fenmir** once thrived in fertile plains and riverlands, but were nearly annihilated during devastating Uruk incursions. Entire bloodlines vanished, cities burned, and the survivors scattered."
+            },
+            {
+              "line": 48,
+              "text": "- When Uruk incursions swept through the lowlands, entire Fenmir clans were destroyed. The survivors fled toward the coasts, where necessity forced adaptation. These refugees founded the **Free Cities**—independent coastal city-states bound by mutual defense, trade, and a shared memory of near-annihilation."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lilim.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 3,
+              "text": "- They did not arrive in fleets like the Alfirin, nor march from distant horizons like the Uruk. There are no ruins that mark their first settlements, no ancestral homelands claimed in song or stone. One age they were absent from the world’s memory; the next, they simply **appeared**—already walking the roads, already telling stories, already leaving marks that could not be undone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Small Folk.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 9,
+              "text": "- Though often mistaken for feral scavengers or degenerate Uruk kin, the Gitz possess **keen intellects, sophisticated tribal cultures, and remarkable ingenuity**. Their societies are organized around extended clans, each defined by specialized skills: trap-making, herbal alchemy, animal handling, stealth warfare, or cunning diplomacy."
+            },
+            {
+              "line": 15,
+              "text": "- Their resemblance to the Uruk is a source of persistent rumor and prejudice. While some scholars speculate on a distant, ancient connection, the Gitz themselves reject such claims fiercely. To them, survival through wit is a mark of superiority over brute strength."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Uruk Tribes.md",
+          "mentions": 21,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Uruk Tribes"
+            },
+            {
+              "line": 2,
+              "text": "- To the common folk of the lowlands and cities, the **Uruk** are little more than monsters given flesh: wild-eyed raiders, feral warbands, and brutal conquerors who respect only strength. Songs and campfire tales rarely grant them history, culture, or reason. In these stories, the Uruk simply _appeared_—riding out of the eastern horizons in a tide of iron, tusks, and blood."
+            },
+            {
+              "line": 4,
+              "text": "- What is known even to Uruk shamans is fragmentary. There are no written chronicles of their earliest days, only oral histories carried in war chants, funeral laments, and the long poems recited beneath open skies. These speak of an eastern homeland now lost, of vast migrations driven by hunger, prophecy, or some forgotten calamity. Whether they fled a greater enemy or followed a vision granted b"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 14,
+              "text": "- Uruk: Large powerfully built humanoids, thick musculature, pronounced lower tusks, broad faces, skin from pale blue-white to deep green, tribal clothing, grounded dominant stance."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 19,
+              "text": "Among the Fellic, Galadhrim shamans, Fenmir highlanders, and Highland Uruk, the Breath manifests as attunement — trance, song, ritual movement, blood-memory, and clarity without domination. Among the Lowland Uruk it becomes Gor-Kha, the Red Surge: a violent, communal war-breath that grants terrifying unity at the cost of longevity, stability, and peace."
+            },
+            {
+              "line": 27,
+              "text": "Uruk arrived suddenly from the east. Highland Uruk are philosophical herders and poets living in wary coexistence with Fenmir clans. Lowland Uruk are militant conquerors whose war-cultures draw power from Gor-Kha rather than malice, burning faster than they can endure."
+            },
+            {
+              "line": 33,
+              "text": "Fellic are ancient beast-aspected peoples — Cat, Fox, Dog, Bear, Bull, Turtle, and Bird — who have always existed in the wild. They act as watchers, elders, warriors, and living memory, guiding shamans of the Galadhrim, Fenmir highlanders, and Highland Uruk through the Breath of the World."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 64
+    },
+    "race:duergar": {
+      "category": "race",
+      "term": "duergar",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 317,
+              "text": "- # Duergar & Lilim Cypher Descriptors"
+            },
+            {
+              "line": 319,
+              "text": "- ## **Duergar**"
+            },
+            {
+              "line": 320,
+              "text": "- **You are a Forge-Bound Duergar**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 17,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **Ered Engrin  & The Duergar**"
+            },
+            {
+              "line": 5,
+              "text": "- The **Duergar** dwell beneath the **Ered Engrin**, the Iron Mountains that sever the southern forests of Almadir from the lands beyond. They are not conquerors, nor recluses by fear, but **keepers of depth**—a people shaped by pressure, silence, and endurance."
+            },
+            {
+              "line": 6,
+              "text": "- Where others see the mountains as a barrier, the Duergar know them as a **burden that must be borne**."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 7,
+          "examples": [
+            {
+              "line": 18,
+              "text": "- ## **The Duergar Understanding**"
+            },
+            {
+              "line": 19,
+              "text": "- The **Duergar** have no names for gods."
+            },
+            {
+              "line": 26,
+              "text": "- Their rites do not praise or beseech — they **stabilize**. If there are gods, the Duergar consider them irrelevant to the task of holding the world together."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 22,
+              "text": "- ## [[The Duergar]]"
+            },
+            {
+              "line": 133,
+              "text": "- # PROMPT HEADER — **DUERGAR**"
+            },
+            {
+              "line": 134,
+              "text": "- **Race:** Duergar (Stonebound Clans)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 10,
+              "text": "- ## **Ered Engrin (Duergar Mountains)**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Duergar.md",
+          "mentions": 20,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Duergar"
+            },
+            {
+              "line": 3,
+              "text": "- No one remembers the first city the Duergar built on the surface."
+            },
+            {
+              "line": 4,
+              "text": "- This is not because it was destroyed, but because the Duergar themselves **abandoned memory of it**. Among their people, forgetting can be an act of survival."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 54,
+              "text": "- Even Duath operatives and Duergar scouts avoid prolonged exposure."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 9,
+              "text": "- Duergar: Stocky dense humanoids, stone- or ash-toned skin, severe faces, heavy utilitarian armor, dark metals and stone, subterranean forge or cavern setting."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 7,
+              "text": "The world is not governed by anthropomorphic gods. Divinity exists as pressures and principles, not persons. The Alfirin do not worship. The Duergar name no gods. The Lilim do not revere Lilith — they are Lilith in motion. The Red God and Lilith are opposing forces of resistance that together hold Daelgast in check, not out of mercy, but necessity."
+            },
+            {
+              "line": 104,
+              "text": "- **Duergar:** Deep-dwelling, insular forge-clans of stone and shadow."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 57
+    },
+    "race:lilim": {
+      "category": "race",
+      "term": "lilim",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 317,
+              "text": "- # Duergar & Lilim Cypher Descriptors"
+            },
+            {
+              "line": 336,
+              "text": "- ## **Lilim**"
+            },
+            {
+              "line": 337,
+              "text": "- **You are a Wandering Lilim**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 6,
+          "examples": [
+            {
+              "line": 29,
+              "text": "- ## **Lilith and the Lilim**"
+            },
+            {
+              "line": 32,
+              "text": "- She is the force of rebellion against stasis, of change against collapse, of becoming against erasure. The **Lilim** do not worship Lilith — they are _expressions_ of her principle."
+            },
+            {
+              "line": 34,
+              "text": "- When Lilim speak of Lilith, they do so poetically, knowing that language fails. Lilith is not a mother -She is a direction, she is unfolding."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 14,
+              "text": "- ## [[The Lilim]]"
+            },
+            {
+              "line": 82,
+              "text": "- # PROMPT HEADER — **LILIM**"
+            },
+            {
+              "line": 83,
+              "text": "- **Race:** Lilim (The Wandering Flame)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Duergar.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 45,
+              "text": "- They deeply distrust the Lilim."
+            },
+            {
+              "line": 46,
+              "text": "Not because the Lilim are dangerous—but because they **do not stay**. To the Duergar, motion without anchor is the enemy of meaning."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lilim.md",
+          "mentions": 27,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Lilim"
+            },
+            {
+              "line": 2,
+              "text": "- No one knows where the **Lilim** came from."
+            },
+            {
+              "line": 7,
+              "text": "- The Lilim are feared first and foremost for how they look. Horns, tails, burning or opalescent eyes, skin touched by unnatural hues—features that echo ancient nightmares and half-remembered demons. To fearful minds, appearance is proof enough. They are branded corrupters, tempters, harbingers of disorder."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 13,
+              "text": "- Lilim: Graceful humanoids with infernal or alien traits, horns or unusual eyes, expressive movement, ritual adornments, flowing eclectic clothing, subtle magical glow, intense emotional presence."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 7,
+              "text": "The world is not governed by anthropomorphic gods. Divinity exists as pressures and principles, not persons. The Alfirin do not worship. The Duergar name no gods. The Lilim do not revere Lilith — they are Lilith in motion. The Red God and Lilith are opposing forces of resistance that together hold Daelgast in check, not out of mercy, but necessity."
+            },
+            {
+              "line": 29,
+              "text": "The Lilim are wandering cosmic beings of rebellion, innovation, and art — inherently magical travelers bound by inner calling and shared ritual language (Darb-Naṣr). They have no lands, no rulers, and no fixed morality, only motion."
+            },
+            {
+              "line": 100,
+              "text": "- **Lilim:** Wandering cosmic artists and rebels; ritual language (Darb-Naṣr); no homeland or state."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 49,
+              "text": "- **Lilim:** Hunted relentlessly as symbols of rebellion and blasphemy"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 48
+    },
+    "city:xanthir": {
+      "category": "city",
+      "term": "xanthir",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 51,
+              "text": "- **Xanthir:** Open hostility; fire and faith are anathema"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 102,
+              "text": "- ## **Xanthir**"
+            },
+            {
+              "line": 103,
+              "text": "- **You are a Xanthir Zealot**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Caldor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- Where Xanthir looks backward to divine absolutes, Caldor looks forward."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 49,
+              "text": "- **Xanthir:** Formally engaged, privately distrusted"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 47,
+              "text": "- **Xanthir:** Diplomatic contact only; relations tense"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 61,
+              "text": "- **Xanthir:** Wary tolerance; fire and doctrine are unstable forces"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 52,
+              "text": "- ## **The Xanthir Heresy**"
+            },
+            {
+              "line": 53,
+              "text": "- The **Xanthir Theocracy** is not evil because of what it worships."
+            },
+            {
+              "line": 55,
+              "text": "- Xanthir doctrine personifies the Red God, weaponizing a force of resistance into a mandate for conquest, purity, and annihilation. They believe obedience strengthens the Red God."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 64,
+              "text": "- **Xanthir** hunts shadows that never bleed"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 10,
+              "text": "- ## [[The Human Tribes]] (Fenmir, Caldorans, Xanthir, Free Cities)"
+            },
+            {
+              "line": 11,
+              "text": "- Mortal, adaptable, and diverse; Fenmir are proud, spiritual highlanders and freebooting lowlanders; Caldorans build trade empires; Xanthir follow a militant theocracy; scattered tribes survive in wetlands and sands."
+            },
+            {
+              "line": 59,
+              "text": "- **Xanthir:** Militant theocracy devoted to the Red God"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 34,
+              "text": "- ## **Xanthir**"
+            },
+            {
+              "line": 35,
+              "text": "- **Xanthir** — militant theocratic empire, fire and iron aesthetics, red banners, disciplined legions, ritualized sacrifice, harsh order, doctrine over mercy, resistance-as-virtue twisted into domination, expansionist certainty, holy war culture."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 16,
+              "text": "- ## The Xanthir"
+            },
+            {
+              "line": 17,
+              "text": "- Far to the south lies the harsh dominion of the **Xanthir**, a militarized theocracy devoted wholly to **The Red God**. Their lands are hemmed in by wild frontiers—jungles, deserts, and monster-haunted ruins—which they interpret as divine trials rather than obstacles."
+            },
+            {
+              "line": 18,
+              "text": "- Xanthir society is built upon absolute faith and rigid discipline. Every citizen is a servant of the god-state, and every action—war, labor, prayer—is considered a form of worship. The priesthood and military are inseparable; generals are clerics, and temples double as fortresses."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lilim.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 178,
+              "text": "- **Xanthir inquisitors** claim the text induces heretical dreams."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 25,
+              "text": "Humans are mortal and adaptive. Fenmir highlanders are spiritual nomads bound by ancestral law; Fenmir lowlanders became freebooters and survivors along lawless coasts; Caldorans build renaissance trade empires with layered theology; Xanthir form a brutal theocracy devoted to the Red God as absolute resistance, walking a dangerous line between martyrdom and affirmation; scattered tribes endure in "
+            },
+            {
+              "line": 98,
+              "text": "- **Humans:** Fenmir (highlanders & free cities), Caldorans (trade empire), Xanthir (militant theocracy), scattered tribes in wetlands & sands."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 12,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Dominion of Xanthir"
+            },
+            {
+              "line": 5,
+              "text": "- **Xanthir** is a militant theocracy carved from wilderness, blood, and belief. It occupies the southern reaches of the known lands, pressed between the **Xanthir Wilds**, treacherous coasts, and hostile neighbors who fear its doctrine more than its armies."
+            },
+            {
+              "line": 6,
+              "text": "- To outsiders, Xanthir is a nation of zealots."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 44
+    },
+    "environment:xanthir": {
+      "category": "environment",
+      "term": "xanthir",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 51,
+              "text": "- **Xanthir:** Open hostility; fire and faith are anathema"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 102,
+              "text": "- ## **Xanthir**"
+            },
+            {
+              "line": 103,
+              "text": "- **You are a Xanthir Zealot**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Caldor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- Where Xanthir looks backward to divine absolutes, Caldor looks forward."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 49,
+              "text": "- **Xanthir:** Formally engaged, privately distrusted"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 47,
+              "text": "- **Xanthir:** Diplomatic contact only; relations tense"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 61,
+              "text": "- **Xanthir:** Wary tolerance; fire and doctrine are unstable forces"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Gods and Powers.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 52,
+              "text": "- ## **The Xanthir Heresy**"
+            },
+            {
+              "line": 53,
+              "text": "- The **Xanthir Theocracy** is not evil because of what it worships."
+            },
+            {
+              "line": 55,
+              "text": "- Xanthir doctrine personifies the Red God, weaponizing a force of resistance into a mandate for conquest, purity, and annihilation. They believe obedience strengthens the Red God."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 64,
+              "text": "- **Xanthir** hunts shadows that never bleed"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 10,
+              "text": "- ## [[The Human Tribes]] (Fenmir, Caldorans, Xanthir, Free Cities)"
+            },
+            {
+              "line": 11,
+              "text": "- Mortal, adaptable, and diverse; Fenmir are proud, spiritual highlanders and freebooting lowlanders; Caldorans build trade empires; Xanthir follow a militant theocracy; scattered tribes survive in wetlands and sands."
+            },
+            {
+              "line": 59,
+              "text": "- **Xanthir:** Militant theocracy devoted to the Red God"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 34,
+              "text": "- ## **Xanthir**"
+            },
+            {
+              "line": 35,
+              "text": "- **Xanthir** — militant theocratic empire, fire and iron aesthetics, red banners, disciplined legions, ritualized sacrifice, harsh order, doctrine over mercy, resistance-as-virtue twisted into domination, expansionist certainty, holy war culture."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 8,
+          "examples": [
+            {
+              "line": 16,
+              "text": "- ## The Xanthir"
+            },
+            {
+              "line": 17,
+              "text": "- Far to the south lies the harsh dominion of the **Xanthir**, a militarized theocracy devoted wholly to **The Red God**. Their lands are hemmed in by wild frontiers—jungles, deserts, and monster-haunted ruins—which they interpret as divine trials rather than obstacles."
+            },
+            {
+              "line": 18,
+              "text": "- Xanthir society is built upon absolute faith and rigid discipline. Every citizen is a servant of the god-state, and every action—war, labor, prayer—is considered a form of worship. The priesthood and military are inseparable; generals are clerics, and temples double as fortresses."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Lilim.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 178,
+              "text": "- **Xanthir inquisitors** claim the text induces heretical dreams."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 25,
+              "text": "Humans are mortal and adaptive. Fenmir highlanders are spiritual nomads bound by ancestral law; Fenmir lowlanders became freebooters and survivors along lawless coasts; Caldorans build renaissance trade empires with layered theology; Xanthir form a brutal theocracy devoted to the Red God as absolute resistance, walking a dangerous line between martyrdom and affirmation; scattered tribes endure in "
+            },
+            {
+              "line": 98,
+              "text": "- **Humans:** Fenmir (highlanders & free cities), Caldorans (trade empire), Xanthir (militant theocracy), scattered tribes in wetlands & sands."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 12,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Dominion of Xanthir"
+            },
+            {
+              "line": 5,
+              "text": "- **Xanthir** is a militant theocracy carved from wilderness, blood, and belief. It occupies the southern reaches of the known lands, pressed between the **Xanthir Wilds**, treacherous coasts, and hostile neighbors who fear its doctrine more than its armies."
+            },
+            {
+              "line": 6,
+              "text": "- To outsiders, Xanthir is a nation of zealots."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 44
+    },
+    "city:sands": {
+      "category": "city",
+      "term": "sands",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 141,
+              "text": "- _(Wetlands, Sands, and Border Settlements)_"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 2,
+              "text": "- _The Land of Shadow Beyond the Sands_"
+            },
+            {
+              "line": 5,
+              "text": "- Beyond the northern reaches of the **Fenmir Sands**, where dunes give way to black stone and the coast bends westward into cold, lightless waters, lies **Lomêanor**."
+            },
+            {
+              "line": 11,
+              "text": "- ## The Passage Through the Sands"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 11,
+              "text": "- Mortal, adaptable, and diverse; Fenmir are proud, spiritual highlanders and freebooting lowlanders; Caldorans build trade empires; Xanthir follow a militant theocracy; scattered tribes survive in wetlands and sands."
+            },
+            {
+              "line": 60,
+              "text": "- **Scattered Tribes:** Survivors in wetlands and sands"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 28,
+              "text": "- ## **The Sands**"
+            },
+            {
+              "line": 29,
+              "text": "- **The Sands** — no-man’s-land wasteland, ash dunes and black glass plains, reality distortion, Daelgast saturation, roaming horrors (Gorothim), restless dead (Gurthim), vanished ruins, false horizons, existential dread, silence and decay."
+            },
+            {
+              "line": 32,
+              "text": "- **Lomêanor** — shadowed northern land beyond the sands, twilight coastlines, cold black cliffs, hidden fortress-enclaves, secretive Alfirin, arcane-martial discipline, cellular society, manipulation over rule, silence as power, myth made geography."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 120,
+              "text": "- For centuries they were believed lost—until whispered reports began to circulate of the **[[Nightshades]]**: flawless assassins who struck without warning, left no trace, and vanished into darkness. These rumors proved true. The Duathrim had survived, and thrived, in the frozen lands beyond **[[The Sands]]**, establishing their hidden dominion in **[[Lomêanor]]**, the _Land of Shadow_."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 57,
+              "text": "- Far to the north and east, along the shifting dunes and blasted plateaus known as **The Sands**, small human tribes cling to existence against impossible odds. Some are descendants of ancient caravan cities swallowed by desert. Others claim lineage from peoples who fled cataclysms long forgotten. Life here is harsh and often short, and customs tend toward fatalism, ancestor reverence, and ruthle"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 17,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **The Sands**"
+            },
+            {
+              "line": 5,
+              "text": "- North of the Fenmir Lowlands and east of Lomêanor lies **The Sands**—a vast, shifting wasteland avoided by all sane peoples."
+            },
+            {
+              "line": 9,
+              "text": "- To cross the Sands is to accept that the world may not recognize you on the other side."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 25,
+              "text": "Humans are mortal and adaptive. Fenmir highlanders are spiritual nomads bound by ancestral law; Fenmir lowlanders became freebooters and survivors along lawless coasts; Caldorans build renaissance trade empires with layered theology; Xanthir form a brutal theocracy devoted to the Red God as absolute resistance, walking a dangerous line between martyrdom and affirmation; scattered tribes endure in "
+            },
+            {
+              "line": 98,
+              "text": "- **Humans:** Fenmir (highlanders & free cities), Caldorans (trade empire), Xanthir (militant theocracy), scattered tribes in wetlands & sands."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 31,
+              "text": "- **Southern Sands** — harsh frontier zones where faith is tested against heat, hunger, and isolation"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 33
+    },
+    "environment:sands": {
+      "category": "environment",
+      "term": "sands",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 141,
+              "text": "- _(Wetlands, Sands, and Border Settlements)_"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 2,
+              "text": "- _The Land of Shadow Beyond the Sands_"
+            },
+            {
+              "line": 5,
+              "text": "- Beyond the northern reaches of the **Fenmir Sands**, where dunes give way to black stone and the coast bends westward into cold, lightless waters, lies **Lomêanor**."
+            },
+            {
+              "line": 11,
+              "text": "- ## The Passage Through the Sands"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 11,
+              "text": "- Mortal, adaptable, and diverse; Fenmir are proud, spiritual highlanders and freebooting lowlanders; Caldorans build trade empires; Xanthir follow a militant theocracy; scattered tribes survive in wetlands and sands."
+            },
+            {
+              "line": 60,
+              "text": "- **Scattered Tribes:** Survivors in wetlands and sands"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 28,
+              "text": "- ## **The Sands**"
+            },
+            {
+              "line": 29,
+              "text": "- **The Sands** — no-man’s-land wasteland, ash dunes and black glass plains, reality distortion, Daelgast saturation, roaming horrors (Gorothim), restless dead (Gurthim), vanished ruins, false horizons, existential dread, silence and decay."
+            },
+            {
+              "line": 32,
+              "text": "- **Lomêanor** — shadowed northern land beyond the sands, twilight coastlines, cold black cliffs, hidden fortress-enclaves, secretive Alfirin, arcane-martial discipline, cellular society, manipulation over rule, silence as power, myth made geography."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 120,
+              "text": "- For centuries they were believed lost—until whispered reports began to circulate of the **[[Nightshades]]**: flawless assassins who struck without warning, left no trace, and vanished into darkness. These rumors proved true. The Duathrim had survived, and thrived, in the frozen lands beyond **[[The Sands]]**, establishing their hidden dominion in **[[Lomêanor]]**, the _Land of Shadow_."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 57,
+              "text": "- Far to the north and east, along the shifting dunes and blasted plateaus known as **The Sands**, small human tribes cling to existence against impossible odds. Some are descendants of ancient caravan cities swallowed by desert. Others claim lineage from peoples who fled cataclysms long forgotten. Life here is harsh and often short, and customs tend toward fatalism, ancestor reverence, and ruthle"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 17,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **The Sands**"
+            },
+            {
+              "line": 5,
+              "text": "- North of the Fenmir Lowlands and east of Lomêanor lies **The Sands**—a vast, shifting wasteland avoided by all sane peoples."
+            },
+            {
+              "line": 9,
+              "text": "- To cross the Sands is to accept that the world may not recognize you on the other side."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 25,
+              "text": "Humans are mortal and adaptive. Fenmir highlanders are spiritual nomads bound by ancestral law; Fenmir lowlanders became freebooters and survivors along lawless coasts; Caldorans build renaissance trade empires with layered theology; Xanthir form a brutal theocracy devoted to the Red God as absolute resistance, walking a dangerous line between martyrdom and affirmation; scattered tribes endure in "
+            },
+            {
+              "line": 98,
+              "text": "- **Humans:** Fenmir (highlanders & free cities), Caldorans (trade empire), Xanthir (militant theocracy), scattered tribes in wetlands & sands."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 31,
+              "text": "- **Southern Sands** — harsh frontier zones where faith is tested against heat, hunger, and isolation"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 33
+    },
+    "city:cirdion": {
+      "category": "city",
+      "term": "cirdion",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- South of Cirdion, where the white cliffs give way to rolling green and deepening shadow, lies **Almadir**—the vast forest-realm of the **Galadhrim**, the Tree People."
+            },
+            {
+              "line": 13,
+              "text": "- Where the Kalaquendi of Cirdion sought understanding through exchange, the Galadhrim sought it through **belonging**."
+            },
+            {
+              "line": 46,
+              "text": "- This has brought them into conflict with Caldorite loggers, Fenmir settlers, and occasionally even Cirdion envoys."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 10,
+          "examples": [
+            {
+              "line": 3,
+              "text": "- # **Cirdion**"
+            },
+            {
+              "line": 7,
+              "text": "- **Cirdion** is the oldest Alfirin nation in the Lands of Legends and the first realm established after the arrival from beyond the world. It encompasses the western coasts, high cliffs, sheltered bays, and the surrounding hinterlands claimed by the **Kalaquendi**."
+            },
+            {
+              "line": 8,
+              "text": "- To the Alfirin, Cirdion is not merely a political entity."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 7,
+          "examples": [
+            {
+              "line": 18,
+              "text": "- Cirdion is built in layered terraces rising from the harbor to the high councils above."
+            },
+            {
+              "line": 24,
+              "text": "- Cirdion does not expect attack from the horizon."
+            },
+            {
+              "line": 27,
+              "text": "- Cirdion is governed by the **High Council of Winds**, a meritocratic body drawn from scholars, navigators, artisans, and envoys."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 59,
+              "text": "- **Cirdion:** Distant trade, carefully regulated"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 62,
+              "text": "- **Cirdion** denies its influence publicly"
+            },
+            {
+              "line": 101,
+              "text": "- A philosophical counterweight to Cirdion"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- ## **Cirdion (Kalaquendi Realm)**"
+            },
+            {
+              "line": 2,
+              "text": "- **Cirdion** — ancient Alfirin coastal realm, white stone cliff-cities, wind-swept terraces, sky and sea aesthetics, advanced shipbuilding, meritocratic councils, immortal scholars, light-infused architecture, calm precision, openness masking deep restraint, high magic as science, pre-cataclysm elegance."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 26
+    },
+    "environment:The Sands": {
+      "category": "environment",
+      "term": "The Sands",
+      "files": [
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 2,
+              "text": "- _The Land of Shadow Beyond the Sands_"
+            },
+            {
+              "line": 11,
+              "text": "- ## The Passage Through the Sands"
+            },
+            {
+              "line": 12,
+              "text": "- The Sands north of Fenmir are not merely desert—they are **eroded memory**, scoured by unnatural winds and buried ruins. Caravans vanish. Compasses fail. The horizon lies."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 28,
+              "text": "- ## **The Sands**"
+            },
+            {
+              "line": 29,
+              "text": "- **The Sands** — no-man’s-land wasteland, ash dunes and black glass plains, reality distortion, Daelgast saturation, roaming horrors (Gorothim), restless dead (Gurthim), vanished ruins, false horizons, existential dread, silence and decay."
+            },
+            {
+              "line": 32,
+              "text": "- **Lomêanor** — shadowed northern land beyond the sands, twilight coastlines, cold black cliffs, hidden fortress-enclaves, secretive Alfirin, arcane-martial discipline, cellular society, manipulation over rule, silence as power, myth made geography."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 120,
+              "text": "- For centuries they were believed lost—until whispered reports began to circulate of the **[[Nightshades]]**: flawless assassins who struck without warning, left no trace, and vanished into darkness. These rumors proved true. The Duathrim had survived, and thrived, in the frozen lands beyond **[[The Sands]]**, establishing their hidden dominion in **[[Lomêanor]]**, the _Land of Shadow_."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 57,
+              "text": "- Far to the north and east, along the shifting dunes and blasted plateaus known as **The Sands**, small human tribes cling to existence against impossible odds. Some are descendants of ancient caravan cities swallowed by desert. Others claim lineage from peoples who fled cataclysms long forgotten. Life here is harsh and often short, and customs tend toward fatalism, ancestor reverence, and ruthle"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 17,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **The Sands**"
+            },
+            {
+              "line": 5,
+              "text": "- North of the Fenmir Lowlands and east of Lomêanor lies **The Sands**—a vast, shifting wasteland avoided by all sane peoples."
+            },
+            {
+              "line": 9,
+              "text": "- To cross the Sands is to accept that the world may not recognize you on the other side."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 26
+    },
+    "environment:cirdion": {
+      "category": "environment",
+      "term": "cirdion",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 4,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- South of Cirdion, where the white cliffs give way to rolling green and deepening shadow, lies **Almadir**—the vast forest-realm of the **Galadhrim**, the Tree People."
+            },
+            {
+              "line": 13,
+              "text": "- Where the Kalaquendi of Cirdion sought understanding through exchange, the Galadhrim sought it through **belonging**."
+            },
+            {
+              "line": 46,
+              "text": "- This has brought them into conflict with Caldorite loggers, Fenmir settlers, and occasionally even Cirdion envoys."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 10,
+          "examples": [
+            {
+              "line": 3,
+              "text": "- # **Cirdion**"
+            },
+            {
+              "line": 7,
+              "text": "- **Cirdion** is the oldest Alfirin nation in the Lands of Legends and the first realm established after the arrival from beyond the world. It encompasses the western coasts, high cliffs, sheltered bays, and the surrounding hinterlands claimed by the **Kalaquendi**."
+            },
+            {
+              "line": 8,
+              "text": "- To the Alfirin, Cirdion is not merely a political entity."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 7,
+          "examples": [
+            {
+              "line": 18,
+              "text": "- Cirdion is built in layered terraces rising from the harbor to the high councils above."
+            },
+            {
+              "line": 24,
+              "text": "- Cirdion does not expect attack from the horizon."
+            },
+            {
+              "line": 27,
+              "text": "- Cirdion is governed by the **High Council of Winds**, a meritocratic body drawn from scholars, navigators, artisans, and envoys."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 59,
+              "text": "- **Cirdion:** Distant trade, carefully regulated"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 62,
+              "text": "- **Cirdion** denies its influence publicly"
+            },
+            {
+              "line": 101,
+              "text": "- A philosophical counterweight to Cirdion"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- ## **Cirdion (Kalaquendi Realm)**"
+            },
+            {
+              "line": 2,
+              "text": "- **Cirdion** — ancient Alfirin coastal realm, white stone cliff-cities, wind-swept terraces, sky and sea aesthetics, advanced shipbuilding, meritocratic councils, immortal scholars, light-infused architecture, calm precision, openness masking deep restraint, high magic as science, pre-cataclysm elegance."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 26
+    },
+    "race:gitz": {
+      "category": "race",
+      "term": "gitz",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 250,
+              "text": "- ## **Gitz**"
+            },
+            {
+              "line": 251,
+              "text": "- **You are a Cunning Gitz**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 38,
+              "text": "- Gitz clans"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 18,
+              "text": "- ## [[The Small Folk]] - Gitz"
+            },
+            {
+              "line": 111,
+              "text": "- # PROMPT HEADER — **GITZ**"
+            },
+            {
+              "line": 112,
+              "text": "- **Race:** Gitz (The Small Survivors)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 20,
+              "text": "- **Fenmir Wilds** — enclosed frontier basin, single western pass, lawless terrain, roaming Uruk tribes, Gitz clans, untamed ecology, unstable magic, shifting borders, danger normalized, settlement failure zone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Small Folk.md",
+          "mentions": 14,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- ## The Gitz"
+            },
+            {
+              "line": 8,
+              "text": "- The **Gitz** are a nimble, sharp-witted people who dwell primarily in the **Fenmir wilds**, favoring dense forests, rugged hills, and tangled borderlands where larger civilizations struggle to maintain control."
+            },
+            {
+              "line": 9,
+              "text": "- Though often mistaken for feral scavengers or degenerate Uruk kin, the Gitz possess **keen intellects, sophisticated tribal cultures, and remarkable ingenuity**. Their societies are organized around extended clans, each defined by specialized skills: trap-making, herbal alchemy, animal handling, stealth warfare, or cunning diplomacy."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 11,
+              "text": "- Gitz: Small agile humanoids, wiry builds, sharp features, bright eyes, scavenged clothing and tools, clever wary expressions, forest-dwelling survivors."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 31,
+              "text": "The Small Folk predate most histories. Velim are tiny luminous custodians of Gates and reality itself; Gitz are clever forest survivors with oral traditions older than empires; Vaettyr are subterranean tinkerfolk maintaining ancient machines that stabilize magic. Lhainîm — pixies, pucks, redcaps, and willows — are bound to the land as servants of elder rhythms."
+            },
+            {
+              "line": 102,
+              "text": "- **Gitz:** Small, clever forest folk with pre-Alfirin oral histories."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 24
+    },
+    "city:caldor": {
+      "category": "city",
+      "term": "caldor",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 50,
+              "text": "- **Caldor:** Distrusted; progress is seen as a slow violence"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 91,
+              "text": "- **You are a Caldor-Bred Human**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Caldor.md",
+          "mentions": 9,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Caldor Dominion"
+            },
+            {
+              "line": 5,
+              "text": "- **Caldor** is the most ambitious human power of the age—an expanding mercantile empire built on innovation, trade, and the belief that the world can be understood, improved, and mastered."
+            },
+            {
+              "line": 6,
+              "text": "- Where Xanthir looks backward to divine absolutes, Caldor looks forward."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 47,
+              "text": "- **Caldor:** Encouraged but quietly monitored"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 45,
+              "text": "- **Caldor:** Respected, cautiously encouraged, quietly monitored"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 60,
+              "text": "- **Caldor:** Limited cooperation; surface urgency is often mistrusted"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 58,
+              "text": "- **Caldor Island**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 63,
+              "text": "- **Caldor** suspects but cannot prove"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 26,
+              "text": "- **Pirate Seas** — treacherous waters between Caldor Island, Island of lights, Dragon’s Teeth islands and the bay of skulls where freeport is situated. Storm-lashed straits, hidden coves, shipwreck graveyards, freebooters and privateers, shifting alliances, navigation as survival, legends made and drowned, The free cities hold a tenuous grasp."
+            },
+            {
+              "line": 37,
+              "text": "- ## **Caldor (Human Empire)**"
+            },
+            {
+              "line": 38,
+              "text": "- **Caldor** — renaissance human empire, innovation and trade, marble cities and canals, layered pantheon theology, civic ambition, exploration fleets, political pragmatism, optimism masking imperial pressure, law, commerce, and art intertwined."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- The **Caldorans** are the architects of the greatest human empire the world has yet seen. Their power radiates outward from the city of **Caldor**, a marvel of stone, canals, workshops, and towering academies. From this beating heart, Caldor’s influence spreads through roads, trade routes, and treaties rather than conquest alone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 45,
+              "text": "- **Caldor:** Viewed as decadent heretics masking weakness behind innovation"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 23
+    },
+    "environment:caldor": {
+      "category": "environment",
+      "term": "caldor",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 50,
+              "text": "- **Caldor:** Distrusted; progress is seen as a slow violence"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 91,
+              "text": "- **You are a Caldor-Bred Human**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Caldor.md",
+          "mentions": 9,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # The Caldor Dominion"
+            },
+            {
+              "line": 5,
+              "text": "- **Caldor** is the most ambitious human power of the age—an expanding mercantile empire built on innovation, trade, and the belief that the world can be understood, improved, and mastered."
+            },
+            {
+              "line": 6,
+              "text": "- Where Xanthir looks backward to divine absolutes, Caldor looks forward."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 47,
+              "text": "- **Caldor:** Encouraged but quietly monitored"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 45,
+              "text": "- **Caldor:** Respected, cautiously encouraged, quietly monitored"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 60,
+              "text": "- **Caldor:** Limited cooperation; surface urgency is often mistrusted"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 58,
+              "text": "- **Caldor Island**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 63,
+              "text": "- **Caldor** suspects but cannot prove"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 26,
+              "text": "- **Pirate Seas** — treacherous waters between Caldor Island, Island of lights, Dragon’s Teeth islands and the bay of skulls where freeport is situated. Storm-lashed straits, hidden coves, shipwreck graveyards, freebooters and privateers, shifting alliances, navigation as survival, legends made and drowned, The free cities hold a tenuous grasp."
+            },
+            {
+              "line": 37,
+              "text": "- ## **Caldor (Human Empire)**"
+            },
+            {
+              "line": 38,
+              "text": "- **Caldor** — renaissance human empire, innovation and trade, marble cities and canals, layered pantheon theology, civic ambition, exploration fleets, political pragmatism, optimism masking imperial pressure, law, commerce, and art intertwined."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Human Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 6,
+              "text": "- The **Caldorans** are the architects of the greatest human empire the world has yet seen. Their power radiates outward from the city of **Caldor**, a marvel of stone, canals, workshops, and towering academies. From this beating heart, Caldor’s influence spreads through roads, trade routes, and treaties rather than conquest alone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 45,
+              "text": "- **Caldor:** Viewed as decadent heretics masking weakness behind innovation"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 23
+    },
+    "race:vaettyr": {
+      "category": "race",
+      "term": "vaettyr",
+      "files": [
+        {
+          "path": "logseq/pages/Ancestral Descriptors.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 262,
+              "text": "- ## **Vaettyr**"
+            },
+            {
+              "line": 263,
+              "text": "- **You are a Tinkering Vaettyr**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 20,
+              "text": "- ## [[The Small Folk]] - Vaettyr"
+            },
+            {
+              "line": 122,
+              "text": "- # PROMPT HEADER — **VAETTYR**"
+            },
+            {
+              "line": 123,
+              "text": "- **Race:** Vaettyr (The Quiet Engineers)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Small Folk.md",
+          "mentions": 14,
+          "examples": [
+            {
+              "line": 18,
+              "text": "- ## The Vaettyr"
+            },
+            {
+              "line": 20,
+              "text": "- The **Vaettyr** are a highly intelligent, subterranean people found beneath nearly every major landmass. Rarely encountered in large numbers, they live in **burrows, vaults, and forgotten tunnels**, often directly beneath the feet of those who do not know they exist."
+            },
+            {
+              "line": 21,
+              "text": "- Vaettyr culture revolves around **curiosity, invention, and careful experimentation**. They are master tinkerers, engineers, and alchemists, renowned for their intricate devices, clockworks, and unusual mechanisms that blend practical engineering with esoteric principles."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Untitled.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 10,
+              "text": "- Vaettyr: Short sturdy subterranean humanoids, large hands and eyes, work-worn clothing, goggles and tools, surrounded by ancient machinery and stone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/World Seed.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 31,
+              "text": "The Small Folk predate most histories. Velim are tiny luminous custodians of Gates and reality itself; Gitz are clever forest survivors with oral traditions older than empires; Vaettyr are subterranean tinkerfolk maintaining ancient machines that stabilize magic. Lhainîm — pixies, pucks, redcaps, and willows — are bound to the land as servants of elder rhythms."
+            },
+            {
+              "line": 103,
+              "text": "- **Vaettyr:** Subterranean tinkerfolk maintaining ancient stabilizing machines."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 22
+    },
+    "environment:Lomêanor": {
+      "category": "environment",
+      "term": "Lomêanor",
+      "files": [
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 16,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **Lomêanor**"
+            },
+            {
+              "line": 5,
+              "text": "- Beyond the northern reaches of the **Fenmir Sands**, where dunes give way to black stone and the coast bends westward into cold, lightless waters, lies **Lomêanor**."
+            },
+            {
+              "line": 9,
+              "text": "Lomêanor is a land where the world thins."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 31,
+              "text": "- ## **Lomêanor (Duath Homeland)**"
+            },
+            {
+              "line": 32,
+              "text": "- **Lomêanor** — shadowed northern land beyond the sands, twilight coastlines, cold black cliffs, hidden fortress-enclaves, secretive Alfirin, arcane-martial discipline, cellular society, manipulation over rule, silence as power, myth made geography."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 120,
+              "text": "- For centuries they were believed lost—until whispered reports began to circulate of the **[[Nightshades]]**: flawless assassins who struck without warning, left no trace, and vanished into darkness. These rumors proved true. The Duathrim had survived, and thrived, in the frozen lands beyond **[[The Sands]]**, establishing their hidden dominion in **[[Lomêanor]]**, the _Land of Shadow_."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- North of the Fenmir Lowlands and east of Lomêanor lies **The Sands**—a vast, shifting wasteland avoided by all sane peoples."
+            },
+            {
+              "line": 87,
+              "text": "- A natural buffer between Fenmir and Lomêanor"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 21
+    },
+    "city:almadir": {
+      "category": "city",
+      "term": "almadir",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 14,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **Almadir**"
+            },
+            {
+              "line": 5,
+              "text": "- South of Cirdion, where the white cliffs give way to rolling green and deepening shadow, lies **Almadir**—the vast forest-realm of the **Galadhrim**, the Tree People."
+            },
+            {
+              "line": 6,
+              "text": "- Almadir is not ruled."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- The **Duergar** dwell beneath the **Ered Engrin**, the Iron Mountains that sever the southern forests of Almadir from the lands beyond. They are not conquerors, nor recluses by fear, but **keepers of depth**—a people shaped by pressure, silence, and endurance."
+            },
+            {
+              "line": 50,
+              "text": "- ## Relations with Almadir"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 7,
+              "text": "- ## **Almadir (Galadhrim Forest-Realm)**"
+            },
+            {
+              "line": 8,
+              "text": "- **Almadir** — vast living forest realm, ancient groves, shifting paths, bioluminescent greens, feral elegance, nature-bound Alfirin, instinctive magic, non-hierarchical society, covenant with the land, slow time, quiet danger, primal balance."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 18
+    },
+    "environment:almadir": {
+      "category": "environment",
+      "term": "almadir",
+      "files": [
+        {
+          "path": "logseq/pages/Aldamir.md",
+          "mentions": 14,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **Almadir**"
+            },
+            {
+              "line": 5,
+              "text": "- South of Cirdion, where the white cliffs give way to rolling green and deepening shadow, lies **Almadir**—the vast forest-realm of the **Galadhrim**, the Tree People."
+            },
+            {
+              "line": 6,
+              "text": "- Almadir is not ruled."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- The **Duergar** dwell beneath the **Ered Engrin**, the Iron Mountains that sever the southern forests of Almadir from the lands beyond. They are not conquerors, nor recluses by fear, but **keepers of depth**—a people shaped by pressure, silence, and endurance."
+            },
+            {
+              "line": 50,
+              "text": "- ## Relations with Almadir"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 7,
+              "text": "- ## **Almadir (Galadhrim Forest-Realm)**"
+            },
+            {
+              "line": 8,
+              "text": "- **Almadir** — vast living forest realm, ancient groves, shifting paths, bioluminescent greens, feral elegance, nature-bound Alfirin, instinctive magic, non-hierarchical society, covenant with the land, slow time, quiet danger, primal balance."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 18
+    },
+    "city:cird": {
+      "category": "city",
+      "term": "cird",
+      "files": [
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 17,
+              "text": "- ## The Capital: **Cird** (also **Cirth**)"
+            },
+            {
+              "line": 18,
+              "text": "- The capital city—known as **Cird** in common speech and **Cirth** in formal Kalaquendi pronunciation—is the heart of the realm."
+            },
+            {
+              "line": 19,
+              "text": "- Cird is built upon white stone cliffs overlooking the western sea, arranged in rising terraces that catch light and wind. From a distance, the city appears to float between sea and sky."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- Cird"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 4,
+              "text": "- ## **Cird / Cirth (Capital City)**"
+            },
+            {
+              "line": 5,
+              "text": "- **Cird (Cirth)** — terraced Alfirin capital above the western sea, crystalline shipyards, open halls without walls, wind banners, sea-light reflections, scholarly docks, diplomatic crossroads, serene yet watchful, beauty through function."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 21,
+              "text": "- Their arrival did not pass unnoticed. The skies burned briefly with auroral fire, tides surged, and strange stars appeared for a single night before fading. Where the Alfirin made landfall, the foundations of what would become **[[Cird]]** were laid, its harbors shaped first not by hands, but by resonant aether-song."
+            },
+            {
+              "line": 44,
+              "text": "- The **Sky Children** are the most widely known and commonly encountered of the Alfirin, and to many mortals they are _the_ Alfirin. Calling themselves the **Meneldil**, or _Friends of Heaven_, they settled along the coasts and open plains near Cird, building soaring cities of pale stone, glass, and wind-sculpted spires."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 10
+    },
+    "environment:cird": {
+      "category": "environment",
+      "term": "cird",
+      "files": [
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 17,
+              "text": "- ## The Capital: **Cird** (also **Cirth**)"
+            },
+            {
+              "line": 18,
+              "text": "- The capital city—known as **Cird** in common speech and **Cirth** in formal Kalaquendi pronunciation—is the heart of the realm."
+            },
+            {
+              "line": 19,
+              "text": "- Cird is built upon white stone cliffs overlooking the western sea, arranged in rising terraces that catch light and wind. From a distance, the city appears to float between sea and sky."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- Cird"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 4,
+              "text": "- ## **Cird / Cirth (Capital City)**"
+            },
+            {
+              "line": 5,
+              "text": "- **Cird (Cirth)** — terraced Alfirin capital above the western sea, crystalline shipyards, open halls without walls, wind banners, sea-light reflections, scholarly docks, diplomatic crossroads, serene yet watchful, beauty through function."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Alfirin Tribes.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 21,
+              "text": "- Their arrival did not pass unnoticed. The skies burned briefly with auroral fire, tides surged, and strange stars appeared for a single night before fading. Where the Alfirin made landfall, the foundations of what would become **[[Cird]]** were laid, its harbors shaped first not by hands, but by resonant aether-song."
+            },
+            {
+              "line": 44,
+              "text": "- The **Sky Children** are the most widely known and commonly encountered of the Alfirin, and to many mortals they are _the_ Alfirin. Calling themselves the **Meneldil**, or _Friends of Heaven_, they settled along the coasts and open plains near Cird, building soaring cities of pale stone, glass, and wind-sculpted spires."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 10
+    },
+    "environment:Ered Engrin": {
+      "category": "environment",
+      "term": "Ered Engrin",
+      "files": [
+        {
+          "path": "logseq/pages/Ered Engrin.md",
+          "mentions": 5,
+          "examples": [
+            {
+              "line": 1,
+              "text": "- # **Ered Engrin  & The Duergar**"
+            },
+            {
+              "line": 2,
+              "text": "- _The Deepwardens of Ered Engrin_"
+            },
+            {
+              "line": 5,
+              "text": "- The **Duergar** dwell beneath the **Ered Engrin**, the Iron Mountains that sever the southern forests of Almadir from the lands beyond. They are not conquerors, nor recluses by fear, but **keepers of depth**—a people shaped by pressure, silence, and endurance."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 10,
+              "text": "- ## **Ered Engrin (Duergar Mountains)**"
+            },
+            {
+              "line": 11,
+              "text": "- **Ered Engrin** — colossal iron mountain range, subterranean forge-holds, basalt and obsidian stone, vertical cities, pressure and endurance themes, ancient containment rites, minimal ornamentation, ritual engineering, silence, weight, responsibility over ambition."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 7
+    },
+    "city:Fenmir Free Cities": {
+      "category": "city",
+      "term": "Fenmir Free Cities",
+      "files": [
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 48,
+              "text": "- **Fenmir Free Cities:** Trusted trade partners"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 46,
+              "text": "- **Fenmir Free Cities:** Active trade partners"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 65,
+              "text": "- **Fenmir Free Cities** whisper of Nightshades"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 22,
+              "text": "- ## **Fenmir Free Cities (Freeport, Xul, Kahn)**"
+            },
+            {
+              "line": 23,
+              "text": "- **Fenmir Free Cities** — independent coastal city-states, pirate havens, cosmopolitan docks, privateering culture, mixed races and creeds, Free Accords law, mercantile intrigue, neon-lantern harbors, moral flexibility, survival through contracts."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 46,
+              "text": "- **Fenmir Free Cities:** Useful prey and occasional proxies"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 6
+    },
+    "environment:Fenmir Free Cities": {
+      "category": "environment",
+      "term": "Fenmir Free Cities",
+      "files": [
+        {
+          "path": "logseq/pages/Cirdion.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 48,
+              "text": "- **Fenmir Free Cities:** Trusted trade partners"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Cirth.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 46,
+              "text": "- **Fenmir Free Cities:** Active trade partners"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Lomêanor.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 65,
+              "text": "- **Fenmir Free Cities** whisper of Nightshades"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 22,
+              "text": "- ## **Fenmir Free Cities (Freeport, Xul, Kahn)**"
+            },
+            {
+              "line": 23,
+              "text": "- **Fenmir Free Cities** — independent coastal city-states, pirate havens, cosmopolitan docks, privateering culture, mixed races and creeds, Free Accords law, mercantile intrigue, neon-lantern harbors, moral flexibility, survival through contracts."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Xanthir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 46,
+              "text": "- **Fenmir Free Cities:** Useful prey and occasional proxies"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 6
+    },
+    "environment:Fenmir Highlands": {
+      "category": "environment",
+      "term": "Fenmir Highlands",
+      "files": [
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 10,
+              "text": "- ## The Fenmir Highlands"
+            },
+            {
+              "line": 11,
+              "text": "- Rising west and north, the **Fenmir Highlands** are a land of wind-scoured ridges, stone circles, and long memory. Here dwell the **Fenmir Highlanders**—tall, pale-skinned, often marked with ritual tattoos that tell lineage, oath, and spirit-guidance."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 13,
+              "text": "- ## **The Fenmir Highlands**"
+            },
+            {
+              "line": 14,
+              "text": "- **Fenmir Highlands** — wind-carved mountains, nomadic human clans, stone circles, ritual tattoos, ancestral memory, shamanic breath-magic, coexistence with Highland Uruk, harsh beauty, honor culture, spiritual immediacy, survival through tradition."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Uruk Tribes.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 8,
+              "text": "- High above the cloud line, in the wind-scoured plateaus and deep valleys of the **Fenmir Highlands**, dwell the **Highland Uruk**. To outsiders, their land seems inhospitable—thin air, biting cold, and steep passes that can swallow entire caravans. To the Highland Uruk, it is home, sacred and unyielding."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 5
+    },
+    "environment:Fenmir Wilds": {
+      "category": "environment",
+      "term": "Fenmir Wilds",
+      "files": [
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 30,
+              "text": "- ## The Fenmir Wilds"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Peoples.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 19,
+              "text": "- Small, ingenious forest-dwellers of the Fenmir wilds; adaptive survivors with oral histories that predate Alfirin settlement; reject Uruk kinship myths. green skinned (lets not use the word goblin)"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 19,
+              "text": "- ## **Fenmir Wilds**"
+            },
+            {
+              "line": 20,
+              "text": "- **Fenmir Wilds** — enclosed frontier basin, single western pass, lawless terrain, roaming Uruk tribes, Gitz clans, untamed ecology, unstable magic, shifting borders, danger normalized, settlement failure zone."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Small Folk.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 8,
+              "text": "- The **Gitz** are a nimble, sharp-witted people who dwell primarily in the **Fenmir wilds**, favoring dense forests, rugged hills, and tangled borderlands where larger civilizations struggle to maintain control."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 5
+    },
+    "environment:Caldor Island": {
+      "category": "environment",
+      "term": "Caldor Island",
+      "files": [
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 58,
+              "text": "- **Caldor Island**"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 3,
+          "examples": [
+            {
+              "line": 26,
+              "text": "- **Pirate Seas** — treacherous waters between Caldor Island, Island of lights, Dragon’s Teeth islands and the bay of skulls where freeport is situated. Storm-lashed straits, hidden coves, shipwreck graveyards, freebooters and privateers, shifting alliances, navigation as survival, legends made and drowned, The free cities hold a tenuous grasp."
+            },
+            {
+              "line": 40,
+              "text": "- ## **Caldor Island**"
+            },
+            {
+              "line": 41,
+              "text": "- **Caldor Island** — large mountainous island realm, finshing and trade village, southport. central valleys and untouched wilderness, isolationist rural enclave: The Vale, north west part of the island separated by mountains, mining village (Mountainhome), fishing village (Lakehome), time-stilled culture, pre-modern traditions, unaware of global politics, ideal player starting region"
+            }
+          ]
+        }
+      ],
+      "total_mentions": 4
+    },
+    "environment:Fenmir Lowlands": {
+      "category": "environment",
+      "term": "Fenmir Lowlands",
+      "files": [
+        {
+          "path": "logseq/pages/Fenmir.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 20,
+              "text": "- ## The Fenmir Lowlands"
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 16,
+              "text": "- ## **Fenmir Lowlands**"
+            },
+            {
+              "line": 17,
+              "text": "- **Fenmir Lowlands** — war-scarred plains, ruined keeps, broken roads, contested farmlands, mercenary bands, fortified villages, constant tension, fading civilization, pragmatism over idealism, lingering ancestral law."
+            }
+          ]
+        },
+        {
+          "path": "logseq/pages/The Sands.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- North of the Fenmir Lowlands and east of Lomêanor lies **The Sands**—a vast, shifting wasteland avoided by all sane peoples."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 4
+    },
+    "environment:Pirate Seas": {
+      "category": "environment",
+      "term": "Pirate Seas",
+      "files": [
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 2,
+          "examples": [
+            {
+              "line": 25,
+              "text": "- ## **The Pirate Seas**"
+            },
+            {
+              "line": 26,
+              "text": "- **Pirate Seas** — treacherous waters between Caldor Island, Island of lights, Dragon’s Teeth islands and the bay of skulls where freeport is situated. Storm-lashed straits, hidden coves, shipwreck graveyards, freebooters and privateers, shifting alliances, navigation as survival, legends made and drowned, The free cities hold a tenuous grasp."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 2
+    },
+    "city:Cird (Cirth)": {
+      "category": "city",
+      "term": "Cird (Cirth)",
+      "files": [
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- **Cird (Cirth)** — terraced Alfirin capital above the western sea, crystalline shipyards, open halls without walls, wind banners, sea-light reflections, scholarly docks, diplomatic crossroads, serene yet watchful, beauty through function."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 1
+    },
+    "environment:Cird (Cirth)": {
+      "category": "environment",
+      "term": "Cird (Cirth)",
+      "files": [
+        {
+          "path": "logseq/pages/Places.md",
+          "mentions": 1,
+          "examples": [
+            {
+              "line": 5,
+              "text": "- **Cird (Cirth)** — terraced Alfirin capital above the western sea, crystalline shipyards, open halls without walls, wind banners, sea-light reflections, scholarly docks, diplomatic crossroads, serene yet watchful, beauty through function."
+            }
+          ]
+        }
+      ],
+      "total_mentions": 1
+    }
+  },
+  "hits_by_file": {
+    "logseq/pages/Aldamir.md": [
+      {
+        "category": "city",
+        "term": "almadir",
+        "mentions": 14
+      },
+      {
+        "category": "city",
+        "term": "cirdion",
+        "mentions": 4
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "almadir",
+        "mentions": 14
+      },
+      {
+        "category": "environment",
+        "term": "cirdion",
+        "mentions": 4
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/Ancestral Descriptors.md": [
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 16
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 7
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 6
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 5
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 5
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "vaettyr",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 2
+      }
+    ],
+    "logseq/pages/Caldor.md": [
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 9
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 9
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/Cirdion.md": [
+      {
+        "category": "city",
+        "term": "cirdion",
+        "mentions": 10
+      },
+      {
+        "category": "city",
+        "term": "cird",
+        "mentions": 5
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "cirdion",
+        "mentions": 10
+      },
+      {
+        "category": "environment",
+        "term": "cird",
+        "mentions": 5
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 6
+      }
+    ],
+    "logseq/pages/Cirth.md": [
+      {
+        "category": "city",
+        "term": "cirdion",
+        "mentions": 7
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "cird",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "cirdion",
+        "mentions": 7
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "cird",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 3
+      }
+    ],
+    "logseq/pages/Ered Engrin.md": [
+      {
+        "category": "city",
+        "term": "almadir",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "cirdion",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Ered Engrin",
+        "mentions": 5
+      },
+      {
+        "category": "environment",
+        "term": "almadir",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "cirdion",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 17
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/Fenmir.md": [
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Highlands",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Caldor Island",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Lowlands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Wilds",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 4
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/Gods and Powers.md": [
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 8
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 8
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 11
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 8
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 7
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 6
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 6
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/Lomêanor.md": [
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 5
+      },
+      {
+        "category": "city",
+        "term": "cirdion",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Lomêanor",
+        "mentions": 16
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 5
+      },
+      {
+        "category": "environment",
+        "term": "The Sands",
+        "mentions": 4
+      },
+      {
+        "category": "environment",
+        "term": "cirdion",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 3
+      }
+    ],
+    "logseq/pages/Peoples.md": [
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 3
+      },
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 3
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Wilds",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 9
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 8
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 7
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "vaettyr",
+        "mentions": 3
+      }
+    ],
+    "logseq/pages/Places.md": [
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 5
+      },
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 3
+      },
+      {
+        "category": "city",
+        "term": "almadir",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "cird",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "cirdion",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "Fenmir Free Cities",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "Cird (Cirth)",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 5
+      },
+      {
+        "category": "environment",
+        "term": "Caldor Island",
+        "mentions": 3
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 3
+      },
+      {
+        "category": "environment",
+        "term": "The Sands",
+        "mentions": 3
+      },
+      {
+        "category": "environment",
+        "term": "almadir",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "cird",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "cirdion",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Ered Engrin",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Free Cities",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Highlands",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Lowlands",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Wilds",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Lomêanor",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Pirate Seas",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Cird (Cirth)",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 4
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Alfirin Tribes.md": [
+      {
+        "category": "city",
+        "term": "cird",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "cird",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Lomêanor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "The Sands",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 27
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Daelgast.md": [
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 11
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 8
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Duergar.md": [
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 20
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Fellic.md": [
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 58
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 11
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 7
+      }
+    ],
+    "logseq/pages/The Human Tribes.md": [
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 8
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 8
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "The Sands",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 2
+      }
+    ],
+    "logseq/pages/The Lhainîm.md": [
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 4
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 4
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Lilim.md": [
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 27
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Sands.md": [
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 17
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 17
+      },
+      {
+        "category": "environment",
+        "term": "The Sands",
+        "mentions": 17
+      },
+      {
+        "category": "environment",
+        "term": "Lomêanor",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Lowlands",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/The Small Folk.md": [
+      {
+        "category": "environment",
+        "term": "Fenmir Wilds",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 25
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 23
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 14
+      },
+      {
+        "category": "race",
+        "term": "vaettyr",
+        "mentions": 14
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 2
+      }
+    ],
+    "logseq/pages/The Uruk Tribes.md": [
+      {
+        "category": "environment",
+        "term": "Fenmir Highlands",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 21
+      }
+    ],
+    "logseq/pages/Untitled.md": [
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "vaettyr",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 1
+      }
+    ],
+    "logseq/pages/World Seed.md": [
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 2
+      },
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 2
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 8
+      },
+      {
+        "category": "race",
+        "term": "uruk",
+        "mentions": 4
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 4
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 3
+      },
+      {
+        "category": "race",
+        "term": "duergar",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "gitz",
+        "mentions": 2
+      },
+      {
+        "category": "race",
+        "term": "vaettyr",
+        "mentions": 2
+      }
+    ],
+    "logseq/pages/Xanthir.md": [
+      {
+        "category": "city",
+        "term": "xanthir",
+        "mentions": 12
+      },
+      {
+        "category": "city",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "city",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "xanthir",
+        "mentions": 12
+      },
+      {
+        "category": "environment",
+        "term": "caldor",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "Fenmir Free Cities",
+        "mentions": 1
+      },
+      {
+        "category": "environment",
+        "term": "sands",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "alfirin",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "fellic",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "lilim",
+        "mentions": 1
+      },
+      {
+        "category": "race",
+        "term": "velim",
+        "mentions": 1
+      }
+    ]
+  }
+}

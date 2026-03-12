@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Discerning the Truth, Piercing Disguises, and Recognizing Falsehoods and Other Deceptions",
+  "slug": "discerning_the_truth_piercing_disguises_and_recognizing_falsehoods_and_other_deceptions",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:guarded",
+        "line": "Skill: You are trained in all tasks involving discerning the truth, piercing disguises, and recognizing falsehoods and other deceptions."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

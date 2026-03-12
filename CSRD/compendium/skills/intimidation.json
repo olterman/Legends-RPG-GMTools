@@ -1,0 +1,37 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Intimidation",
+  "slug": "intimidation",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:brash",
+        "line": "Bold: You are trained in all actions that involve overcoming or ignoring the effects of fear or intimidation."
+      },
+      {
+        "from": "descriptor:dishonorable",
+        "line": "Skill: You are trained in intimidation."
+      },
+      {
+        "from": "ability:levity",
+        "line": "Through wit, charm, humor, and grace, you are trained in all social interactions other than those involving coercion or intimidation. During rests, you put friends and comrades at ease so much that they gain +1 to their recovery rolls. Enabler."
+      },
+      {
+        "from": "ability:sturdy",
+        "line": "+2 to your Might Pool. Skill: You are trained in intimidation"
+      },
+      {
+        "from": "ability:sturdy",
+        "line": "+2 to your Might Pool. Skill: You are trained in intimidation Dragonbreath (3 Might points): You breathe out a blast of energy in an immediate area. Choose one type of energy (arcane, cold, fire, thorn, and so on); the blast inflicts 2 points of damage of this kind of energy (ignores Armor) to all creatures or objects within the area. Because this is an area attack, adding Effort to increase your damage works differently than it does for single-target attacks. If you apply a level of Effort to increase the damage, add 2 points of damage for each target, and even if you fail your attack roll, all targets in the area still take 1 point of damage. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

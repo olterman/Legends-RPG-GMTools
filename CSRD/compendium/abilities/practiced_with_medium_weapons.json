@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Practiced With Medium Weapons",
+  "slug": "practiced_with_medium_weapons",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You can use light and medium weapons without penalty. If you wield a heavy weapon, attacks with it are hindered. Enabler.",
+  "details": [
+    "You can use light and medium weapons without penalty. If you wield a heavy weapon, attacks with it are hindered. Enabler."
+  ]
+}

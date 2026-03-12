@@ -1,0 +1,17 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bared Claws",
+  "slug": "bared_claws",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Even unarmed, your claws are light weapons that inflict 4 points of damage. Initial Link to the Starting Adventure: From the following list of options, choose how you became involved in the first adventure. 1. You were curious as to what the other PCs were up to. 2. You needed to get out of town, and the PCs were going in the same direction as you. 3. You are interested in making a profit, and the other PCs seem to have a lead on doing just that. 4. It seemed like a lark.",
+  "details": [
+    "Even unarmed, your claws are light weapons that inflict 4 points of damage.",
+    "Initial Link to the Starting Adventure: From the following list of options, choose how you became involved in the first adventure.",
+    "1. You were curious as to what the other PCs were up to.",
+    "2. You needed to get out of town, and the PCs were going in the same direction as you.",
+    "3. You are interested in making a profit, and the other PCs seem to have a lead on doing just that.",
+    "4. It seemed like a lark."
+  ]
+}

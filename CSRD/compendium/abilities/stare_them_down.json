@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Stare Them Down",
+  "slug": "stare_them_down",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "One doesn’t play games of chicken with other maniac drivers without gaining mental strength. You’re trained in Intellect defense tasks. Enabler. Stasis (3 Intellect points): You surround a foe of your size or smaller with scintillating energy, keeping it from moving or acting for one minute, as if frozen solid. You must be able to see the target, and it must be within short range. While in stasis, the target is impervious to harm, cannot be moved, and is immune to all effects. Action. Stay the Course (5 Intellect points): When your companions are flagging, you can help inspire them with a well-timed word or two. Any ally (except you) within immediate range can make a recovery roll that is not an action and does not count toward their daily limit. Action.",
+  "details": [
+    "One doesn’t play games of chicken with other maniac drivers without gaining mental strength. You’re trained in Intellect defense tasks. Enabler.",
+    "Stasis (3 Intellect points): You surround a foe of your size or smaller with scintillating energy, keeping it from moving or acting for one minute, as if frozen solid. You must be able to see the target, and it must be within short range. While in stasis, the target is impervious to harm, cannot be moved, and is immune to all effects. Action.",
+    "Stay the Course (5 Intellect points): When your companions are flagging, you can help inspire them with a well-timed word or two. Any ally (except you) within immediate range can make a recovery roll that is not an action and does not count toward their daily limit. Action."
+  ]
+}

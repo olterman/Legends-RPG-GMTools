@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Inventor",
+  "slug": "inventor",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "You can create new artifacts in half the time, as if they were two levels lower, by spending half the normal XP. Enabler.",
+  "details": [
+    "You can create new artifacts in half the time, as if they were two levels lower, by spending half the normal XP. Enabler."
+  ]
+}

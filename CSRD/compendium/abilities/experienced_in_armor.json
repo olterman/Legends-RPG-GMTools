@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Experienced in Armor",
+  "slug": "experienced_in_armor",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "The cost reduction from your Practiced in Armor ability improves. You now reduce the Speed cost by 2. Enabler.",
+  "details": [
+    "The cost reduction from your Practiced in Armor ability improves. You now reduce the Speed cost by 2. Enabler."
+  ]
+}

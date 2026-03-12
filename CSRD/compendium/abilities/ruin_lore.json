@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ruin Lore",
+  "slug": "ruin_lore",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "You are trained in scavenging, which means you’re more likely to find useful things, and junk that can potentially be turned into useful things in the ruins of what came before. Enabler. Run and Fight (4 Might points): You can move a short distance and make a melee attack that inflicts 2 additional points of damage. Action.",
+  "details": [
+    "You are trained in scavenging, which means you’re more likely to find useful things, and junk that can potentially be turned into useful things in the ruins of what came before. Enabler.",
+    "Run and Fight (4 Might points): You can move a short distance and make a melee attack that inflicts 2 additional points of damage. Action."
+  ]
+}

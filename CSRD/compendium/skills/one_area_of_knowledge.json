@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One Area of Knowledge",
+  "slug": "one_area_of_knowledge",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:mad",
+        "line": "Skill: You are trained in one area of knowledge (probably something weird or esoteric)."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

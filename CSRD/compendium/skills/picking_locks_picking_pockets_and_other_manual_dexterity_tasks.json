@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Picking Locks, Picking Pockets, and Other Manual Dexterity Tasks",
+  "slug": "picking_locks_picking_pockets_and_other_manual_dexterity_tasks",
+  "progression": {
+    "inability": [
+      {
+        "from": "ability:inability",
+        "line": "Your slightly clawed hands make fine detail work difficult. You have an inability with picking locks, picking pockets, and other manual dexterity tasks (but not crafting)."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

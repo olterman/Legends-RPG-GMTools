@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Photonomorph",
+  "slug": "photonomorph",
+  "level": 6,
+  "target_number": 18,
+  "description": "Hard-light technology, which creates pseudo-matter from modified photons, has made possible all kinds of structures and devices that wouldn’t otherwise exist. One of those, unfortunately, are self-sustaining photonic matter creatures. Sometimes, photonomorphs are enforcers created by much more powerful beings; other times they are the result of some person or AI attempting to ascend into a new state of being. But whatever their origin, photonomorphs are dangerous beings that can create matter from light, granting them an arbitrarily wide swathe of abilities. That includes their own glowing bodies, which they can change with only a little effort. This variability of form, coupled with their vast power, may be why many seem slightly mad.",
+  "motive": "Varies",
+  "environment": "Anywhere, alone or attended by three to five servitors appearing as hovering red spheres",
+  "health": "22",
+  "damage_inflicted": "8 points",
+  "armor": "3",
+  "movement": "Reconstitutes itself anywhere light can reach within long range as part of another action",
+  "modifications": "Knowledge tasks as level 8",
+  "combat": "Photonomorphs draw upon their own light to manifest effects equal to their level. Effects include the ability to attack creatures at long range with laser-like blasts, create glowing walls (or spheres) of force within an area up to 6 m (20 feet) on a side, become invisible, change its appearance, and create simple objects and devices out of hard light that last for about a minute (unless the photonomorph bleeds a few points of its health into the object to make it last until destroyed). A photonomorph regains 2 points of health each round in areas of bright light. It is hindered in all actions if the only source of light is itself or objects it has created.",
+  "interaction": "Photonomorphs are intelligent and paranoid, but not automatically hostile. They have their own self-serving agendas, which often involve elaborate schemes.",
+  "use": "A photonomorph appears, claiming to be a herald of some vastly more powerful cosmic entity or approaching alien vessel.",
+  "loot": null,
+  "gm_intrusion": null
+}

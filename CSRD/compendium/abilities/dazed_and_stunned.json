@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dazed and Stunned",
+  "slug": "dazed_and_stunned",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Characters can be dazed when struck hard on the head, exposed to extremely loud sounds, or affected by a mental attack. When this happens, for the duration of the daze effect (usually one round), all of the character’s tasks are hindered. Similar but more severe attacks can stun characters. Stunned characters lose their turn (but can still defend against attacks normally).",
+  "details": [
+    "Characters can be dazed when struck hard on the head, exposed to extremely loud sounds, or affected by a mental attack. When this happens, for the duration of the daze effect (usually one round), all of the character’s tasks are hindered. Similar but more severe attacks can stun characters. Stunned characters lose their turn (but can still defend against attacks normally)."
+  ]
+}

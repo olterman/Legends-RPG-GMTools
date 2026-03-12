@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Superb Explorer",
+  "slug": "superb_explorer",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are trained in searching, listening, climbing, balancing, and jumping tasks. Enabler.",
+  "details": [
+    "You are trained in searching, listening, climbing, balancing, and jumping tasks. Enabler."
+  ]
+}

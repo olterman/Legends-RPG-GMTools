@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Combat",
+  "slug": "combat",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A zero-point phantom attacks with needlelike leg and tentacle tips. A victim that takes damage must succeed on a Might defense task, or become poisoned, the effect of which is to drop them one step on the damage track. The victim must keep fighting off the poison until they succeed or drop three steps on the damage track; however, those who fall to the third step on the damage track from a phantom’s poison are not dead. They are paralyzed and can’t move for about a minute. If a phantom isn’t otherwise occupied, it can grab a paralyzed victim and phase back into non-existence. Most victims phased away in this fashion are never seen again. Zero-point phantoms can stutter in and out of existence on their turn once every few minutes. When they do, they return with full health.",
+  "details": [
+    "A zero-point phantom attacks with needlelike leg and tentacle tips. A victim that takes damage must succeed on a Might defense task, or become poisoned, the effect of which is to drop them one step on the damage track. The victim must keep fighting off the poison until they succeed or drop three steps on the damage track; however, those who fall to the third step on the damage track from a phantom’s poison are not dead. They are paralyzed and can’t move for about a minute. If a phantom isn’t otherwise occupied, it can grab a paralyzed victim and phase back into non-existence. Most victims phased away in this fashion are never seen again.",
+    "Zero-point phantoms can stutter in and out of existence on their turn once every few minutes. When they do, they return with full health."
+  ]
+}

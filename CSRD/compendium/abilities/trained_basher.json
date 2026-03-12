@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trained Basher",
+  "slug": "trained_basher",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "You are trained in using the stone fists from your Golem Body as a medium weapon. Enabler.",
+  "details": [
+    "You are trained in using the stone fists from your Golem Body as a medium weapon. Enabler."
+  ]
+}

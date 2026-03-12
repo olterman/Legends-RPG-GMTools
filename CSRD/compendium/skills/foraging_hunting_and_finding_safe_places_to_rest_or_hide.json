@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Foraging, Hunting, and Finding Safe Places to Rest or Hide",
+  "slug": "foraging_hunting_and_finding_safe_places_to_rest_or_hide",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:exiled",
+        "line": "Skill: You’re trained in all tasks involving foraging, hunting, and finding safe places to rest or hide."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

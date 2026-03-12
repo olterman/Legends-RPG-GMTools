@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mind for Might",
+  "slug": "mind_for_might",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "When performing a task that would normally require spending points from your Intellect Pool, you can spend points from your Might Pool instead, and vice versa. Enabler. Mind Games (3 Intellect points): You use lies and trickery, mockery, and perhaps even hateful, obscene language against a foe that can understand you. If successful, the foe is stunned for one round and cannot act, and it is dazed in the following round, during which time its tasks are hindered. Action. Mind of a Leader (6 Intellect points): When you develop a course of action to deal with a future situation, you can ask the GM one very general question about what is likely to happen if you carry out the plan, and you will get a simple, brief answer. Action. Mind Reading (2 Intellect points): You can read the surface thoughts of a creature within short range, even if the target doesn’t want you to. You must be able to see your target. Once you have established contact, you can read the target’s thoughts for up to one minute. If you also have the Mind Reading special ability from another source, you can use this ability at long range, and you don’t need to be able to see the target (but you do have to know that the target is within range). Action to initiate.",
+  "details": [
+    "When performing a task that would normally require spending points from your Intellect Pool, you can spend points from your Might Pool instead, and vice versa. Enabler.",
+    "Mind Games (3 Intellect points): You use lies and trickery, mockery, and perhaps even hateful, obscene language against a foe that can understand you. If successful, the foe is stunned for one round and cannot act, and it is dazed in the following round, during which time its tasks are hindered. Action.",
+    "Mind of a Leader (6 Intellect points): When you develop a course of action to deal with a future situation, you can ask the GM one very general question about what is likely to happen if you carry out the plan, and you will get a simple, brief answer. Action.",
+    "Mind Reading (2 Intellect points): You can read the surface thoughts of a creature within short range, even if the target doesn’t want you to. You must be able to see your target. Once you have established contact, you can read the target’s thoughts for up to one minute. If you also have the Mind Reading special ability from another source, you can use this ability at long range, and you don’t need to be able to see the target (but you do have to know that the target is within range). Action to initiate."
+  ]
+}

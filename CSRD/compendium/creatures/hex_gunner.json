@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hex Gunner",
+  "slug": "hex_gunner",
+  "level": 5,
+  "target_number": 15,
+  "description": "Hex gunners weave iron and lead with Hellish sorcery. Gifts from a demon gained during a crossroads deal, a hex gunner’s six-shooters are demonic constructs that grant the equivalent of years of practice and occult study. Their bullets whisper in the chamber, smoking with necromancy, then scream with exultant, hellish fury when fired. Each round is imbued with fragments of souls from those the hex gunner has previously defeated in gunfights. Hex gunners may be pledged to a literal lord of Hell (or some other occult being of damnation and pain, such as a ghost rider). Only if they harvest a certain number of souls during their gunfighting career is their own soul safe from being claimed when their life ends. That value may be visible as a glowing number burning in their eyes.",
+  "motive": "Vengeance (first against their killer, then their killer’s family and friends, then their killer’s species, and so on)",
+  "environment": "Almost anywhere",
+  "health": "18",
+  "damage_inflicted": "4 points",
+  "armor": "2",
+  "movement": "Short",
+  "modifications": "Speed defense as level 6 due to partially non-existent body",
+  "combat": "A hollowed ranger’s long-range entropic bullet—fired from a rifle-shaped hole in reality—deals 4 points of Intellect damage (ignores Armor) as a bit of the target’s reality is blasted away. A hollowed ranger also has the following traits. Necrovore Door: As their action, the ranger shudders as a wraith lord emerges from their body, acting as the ranger wishes for one minute. After one minute, the wraith is drawn back into the ranger, or it just fades. (Other necrovores could instead be called from the deathly realms a hollowed ranger is connected to, but anything level 3 or higher takes two actions to disgorge.) Fall Into Oblivion: On a failed Might defense roll, a living creature starting their turn in immediate range of a hollowed ranger is sucked through the hollowed ranger’s form into the deathly realm beyond. This realm is anathema to life—the affected target immediately takes 4 points of Intellect damage (ignores Armor) from the necrotic energy draining their soul. Affected targets are drained of life each additional round they spend in the deathly realm, but can attempt a Might-based task to pull themselves back to their reality. The hollowed ranger regains 1 point of health each time an affected target’s soul is so drained. Door Shift: A hollowed ranger can instantly transport themself miles away as its action, if they have previously been to or seen the other location.",
+  "interaction": "Speaking with a voice like wind on gravestones, a hollowed ranger may tell of the primary target of their vengeance, deliver a message from a more powerful necrovore, or simply promise to eat the soul of whoever tries negotiating with them.",
+  "use": "Characters need to travel a huge distance and are told the quickest way is to use the door shift offered by a hollowed ranger, though doing so will require appeasing the ranger in some way.",
+  "loot": "The deathbinder’s pistols have uniquely powerful rounds loaded in them; roll once on the Alchemical Rounds and Slugs table.",
+  "gm_intrusion": "The character drawn through the hollowed ranger’s form to a deathly realm is attacked by a ghost lurking there."
+}

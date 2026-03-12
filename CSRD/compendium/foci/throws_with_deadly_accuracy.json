@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Throws With Deadly Accuracy",
+  "slug": "throws_with_deadly_accuracy",
+  "summary": "Everything that leaves your hand goes exactly where you’d like it to go and at the range and speed to make the perfect impact.",
+  "tiers": [
+    "Tier 1: Precision",
+    "Tier 2: Careful Aim",
+    "Tier 3: Quick Throw or Skill With Defense",
+    "Tier 4: Everything Is a Weapon",
+    "Tier 4: Specialized Throwing",
+    "Tier 5: Whirlwind of Throws",
+    "Tier 6: Lethal Damage or Mastery With Defense"
+  ],
+  "gm_intrusions": "Missed attacks strike the wrong target. Ricochets can be dangerous. Improvised weapons break.",
+  "text": "Everything that leaves your hand goes exactly where you’d like it to go and at the range and speed to make the perfect impact.",
+  "details": [
+    "Everything that leaves your hand goes exactly where you’d like it to go and at the range and speed to make the perfect impact."
+  ]
+}

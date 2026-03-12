@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Maul",
+  "slug": "maul",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A larger version of the hammer, such as a sledgehammer.",
+  "details": [
+    "A larger version of the hammer, such as a sledgehammer."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expending a Recovery Roll to Manifest a Psionic Ability",
+  "slug": "expending_a_recovery_roll_to_manifest_a_psionic_ability",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If the character expends a one-action, ten-minute, or one-hour recovery roll as part of the same action to manifest a psionic ability (including paying any Pool costs), they can use the ability as an action.",
+  "details": [
+    "If the character expends a one-action, ten-minute, or one-hour recovery roll as part of the same action to manifest a psionic ability (including paying any Pool costs), they can use the ability as an action."
+  ]
+}

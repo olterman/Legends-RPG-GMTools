@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Water",
+  "slug": "water",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Deep water, in which a character is mostly or entirely submerged, hinders move rolls and reduces round-by-round and long-term movement to one quarter its normal rate. This means that a short move is about 12 feet(4 m), and a long move is about 25 feet (7.5 m). Characters trained in swimming halve their movement only while in deep water.",
+  "details": [
+    "Deep water, in which a character is mostly or entirely submerged, hinders move rolls and reduces round-by-round and long-term movement to one quarter its normal rate. This means that a short move is about 12 feet(4 m), and a long move is about 25 feet (7.5 m). Characters trained in swimming halve their movement only while in deep water."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "High-gravity Maneuvering Negate This Penalty",
+  "slug": "high_gravity_maneuvering_negate_this_penalty",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:high_gravity",
+        "line": "In an environment of high gravity, treat all moving characters as if they were in difficult terrain. Characters trained in high-gravity maneuvering negate this penalty. High gravity reduces long-term movement to a third of its normal rate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Halfling",
+  "slug": "halfling",
+  "level": 3,
+  "target_number": 9,
+  "description": "A halfling is fond of the comforts of home, but adventures and exploration are the fodder of great stories told over tea or dinner, or in a fireside chat. Quick, resourceful, and easy to get along with, halflings fit right in with brave big folk as scouts, burglars, and loyal companions.",
+  "motive": "Defense, comfort",
+  "environment": null,
+  "health": "9",
+  "damage_inflicted": "3 points",
+  "armor": "0 or 1",
+  "movement": "Short",
+  "modifications": "Intellect defense, pleasant social interactions, and stealth as level 4",
+  "combat": "Halflings are remarkably skilled with knives, clubs, slings, and small bows. They prefer not to fight larger creatures head on; instead they stay at range, plan ambushes to quickly overwhelm opponents, or team up with a larger ally so they can attack a foe’s back and legs.",
+  "interaction": "Halflings enjoy the company of larger folks as long as they aren’t mocked for their size. They’re brave and determined when they need to be, though some might complain about wanting to go home.",
+  "use": "A young halfling wants to have some adventures before settling down. The local thieves’ guild is said to employ halflings as lookouts and cutpurses, sometimes disguised as human children.",
+  "loot": "In addition to their weapons (and perhaps some light armor) and food, a halfling might have an interesting cypher or two. Most carry several useful moderately priced items, or an expensive item such as an heirloom snuff box or a nice bag of tools.",
+  "gm_intrusion": null
+}

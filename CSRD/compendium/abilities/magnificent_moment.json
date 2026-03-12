@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Magnificent Moment",
+  "slug": "magnificent_moment",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "If you make an attack or attempt a task with the immediate action you gain by using Seize the Moment, the attack or task is eased. Enabler. Major Illusion (3 Intellect points): You create a complex scene of images within immediate range. The entire scene must fit within a 100-foot (30 m) cube. The images can move, but they can’t leave the area defined by the cube. The illusion includes sound and smell. It lasts for ten minutes and changes as you direct (no concentration is needed). If you move beyond immediate range of the cube, the illusion vanishes. Action to create.",
+  "details": [
+    "If you make an attack or attempt a task with the immediate action you gain by using Seize the Moment, the attack or task is eased. Enabler.",
+    "Major Illusion (3 Intellect points): You create a complex scene of images within immediate range. The entire scene must fit within a 100-foot (30 m) cube. The images can move, but they can’t leave the area defined by the cube. The illusion includes sound and smell. It lasts for ten minutes and changes as you direct (no concentration is needed). If you move beyond immediate range of the cube, the illusion vanishes. Action to create."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flight",
+  "slug": "flight",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The character can fly a short distance each round; each additional shift increases this speed (whether the flight comes from a power shift or a character ability) by one range category (long for two shifts, very long for three shifts).",
+  "details": [
+    "The character can fly a short distance each round; each additional shift increases this speed (whether the flight comes from a power shift or a character ability) by one range category (long for two shifts, very long for three shifts)."
+  ]
+}

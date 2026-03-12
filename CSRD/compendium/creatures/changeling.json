@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Changeling",
+  "slug": "changeling",
+  "level": 3,
+  "target_number": 9,
+  "description": "Fey creatures sometimes kidnap a human child and leave a changeling in its place, tricking the human parents into raising an inhuman creature as their own offspring. The changeling has a foot in two worlds, living as a spy or sleeper agent for the fey, but thoroughly enjoying their life among humans.",
+  "motive": "Serving the fey; finding their place in the world",
+  "environment": null,
+  "health": "9",
+  "damage_inflicted": "3 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Might defense as level 2; deception, disguise, and stealth as level 4",
+  "combat": "Changelings use human weapons. A changeling can use an action to alter their appearance for a minute or so to match that of someone they’ve seen. This is a reasonable likeness, although they may not know their target’s mannerisms, accent, and other nonphysical qualities. Some changelings are vulnerable to iron, taking an extra 1 point of damage from any iron or steel weapon.",
+  "interaction": "Changelings aren’t inherently untruthful or untrustworthy, but sometimes they can’t help but embellish a fact or take advantage of a situation. They otherwise act like regular people, but spending enough time with them usually reveals an odd quirk or attitude.",
+  "use": "An acquaintance is having trouble at home (because their family realized they’re a changeling). Someone suspects a family member is actually a changeling.",
+  "loot": "Changelings have the same kinds of personal items that humans do, but they often have a token or other treasured thing that doesn’t quite belong (and might secretly be a cypher or artifact).",
+  "gm_intrusion": null
+}

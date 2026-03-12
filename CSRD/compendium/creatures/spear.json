@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spear",
+  "slug": "spear",
+  "level": 4,
+  "target_number": 12,
+  "description": "The trap fires a spear, javelin, or other large projectile. (In many ways, this is a scaled-up and more dangerous version of an arrow trap, and the same suggestions for that trap apply to this one.)",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "6 points",
+  "armor": null,
+  "movement": null,
+  "modifications": "Defense and stealth as level 5 (if hidden behind a hole in a wall) GM Intrusion: The impact of the spear knocks the character prone. The spear is barbed, and removing it inflicts 3 points of damage. The spear is attached to a string, cord, or wire, with the other end tied to something dangerous like a falling block or an electrical shock",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

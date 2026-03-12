@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bestiary Knowledge",
+  "slug": "bestiary_knowledge",
+  "cost": null,
+  "alpha_section": "B",
+  "effect": "You are trained in the lore of flesh-eating, nonhumanoid creatures—recognizing them, knowing their weaknesses, and knowing their habits and behaviors. Enabler.",
+  "details": [
+    "You are trained in the lore of flesh-eating, nonhumanoid creatures—recognizing them, knowing their weaknesses, and knowing their habits and behaviors. Enabler."
+  ]
+}

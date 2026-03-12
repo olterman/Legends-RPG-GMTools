@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wilderness Lore",
+  "slug": "wilderness_lore",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You are trained in wilderness navigation and in identifying plants and creatures. Enabler. Will of a Leader (9 Intellect points): You harden your allies’ dedication and capabilities. Each ally within immediate range gains +1 Edge to one stat of their choice for one hour. You also gain this benefit to one stat of your choice. Action.",
+  "details": [
+    "You are trained in wilderness navigation and in identifying plants and creatures. Enabler.",
+    "Will of a Leader (9 Intellect points): You harden your allies’ dedication and capabilities. Each ally within immediate range gains +1 Edge to one stat of their choice for one hour. You also gain this benefit to one stat of your choice. Action."
+  ]
+}

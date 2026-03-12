@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Low Gravity",
+  "slug": "low_gravity",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Weapons that rely on weight, such as all heavy weapons, inflict 2 fewer points of damage (dealing a minimum of 1 point). Short-range weapons can reach to long range, and long-range weapons can reach to very long range. Characters trained in low-gravity maneuvering ignore the damage penalty.",
+  "details": [
+    "Weapons that rely on weight, such as all heavy weapons, inflict 2 fewer points of damage (dealing a minimum of 1 point). Short-range weapons can reach to long range, and long-range weapons can reach to very long range. Characters trained in low-gravity maneuvering ignore the damage penalty."
+  ]
+}

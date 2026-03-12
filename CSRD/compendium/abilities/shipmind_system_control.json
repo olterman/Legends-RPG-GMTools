@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shipmind System Control",
+  "slug": "shipmind_system_control",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Some ships with integrated AIs (shipminds) can control a particular system autonomously, without a PC. When it acts in this fashion, it can only take a single action each round, which means it could attack and move, but not also attempt a complicated engineering or defensive maneuver. A shipmind acts at a level equal to the overall spacecraft. In addition, shipmind actions against an enemy spacecraft are assessed with the same modifiers for targeting as a PC crewing the station.",
+  "details": [
+    "",
+    "Some ships with integrated AIs (shipminds) can control a particular system autonomously, without a PC. When it acts in this fashion, it can only take a single action each round, which means it could attack and move, but not also attempt a complicated engineering or defensive maneuver. A shipmind acts at a level equal to the overall spacecraft. In addition, shipmind actions against an enemy spacecraft are assessed with the same modifiers for targeting as a PC crewing the station."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hard to Hit",
+  "slug": "hard_to_hit",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "You are trained in Speed defense tasks. Enabler.",
+  "details": [
+    "You are trained in Speed defense tasks. Enabler."
+  ]
+}

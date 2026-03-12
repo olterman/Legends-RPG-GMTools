@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Other Effects",
+  "slug": "other_effects",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Other special effects can render a character blind or deaf, unable to stand without falling over, or unable to breathe. Stranger effects might negate gravity for the character (or increase it a hundredfold), transport them to another place, render them out of phase, mutate their physical form, implant false memories or senses, alter the way their brain processes information, or inflame their nerves so they are in constant, excruciating pain. Each special effect must be handled on a case-by-case basis. The GM adjudicates how the character is affected and how the condition can be alleviated (if possible). NPCs and Special Damage The GM always has final say over what special damage will affect an NPC. Human NPCs usually react like characters, but nonhuman creatures might react very differently. For example, a tiny bit of venom is unlikely to hurt a gigantic dragon, and it won’t affect an android or a demon at all. If an NPC is susceptible to an attack that would shift a character down the damage track, using that attack on the NPC usually renders it unconscious or dead. Alternatively, the GM could apply the debilitated condition to the NPC, with the same effect as it would have on a PC.",
+  "details": [
+    "Other special effects can render a character blind or deaf, unable to stand without falling over, or unable to breathe. Stranger effects might negate gravity for the character (or increase it a hundredfold), transport them to another place, render them out of phase, mutate their physical form, implant false memories or senses, alter the way their brain processes information, or inflame their nerves so they are in constant, excruciating pain. Each special effect must be handled on a case-by-case basis. The GM adjudicates how the character is affected and how the condition can be alleviated (if possible).",
+    "NPCs and Special Damage",
+    "The GM always has final say over what special damage will affect an NPC. Human NPCs usually react like characters, but nonhuman creatures might react very differently. For example, a tiny bit of venom is unlikely to hurt a gigantic dragon, and it won’t affect an android or a demon at all.",
+    "If an NPC is susceptible to an attack that would shift a character down the damage track, using that attack on the NPC usually renders it unconscious or dead. Alternatively, the GM could apply the debilitated condition to the NPC, with the same effect as it would have on a PC."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Antimatter Power",
+  "slug": "antimatter_power",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Antimatter particles have opposite charge from their matter counterparts, giving them potentially explosive properties when combined, producing energy an order of magnitude more than a fusion power system. Fuel sources include both antimatter as well as Li2 (an atom with 2 lithium ions), important for controlled matter-antimatter reaction so it can be harnessed for power.",
+  "details": [
+    "Antimatter particles have opposite charge from their matter counterparts, giving them potentially explosive properties when combined, producing energy an order of magnitude more than a fusion power system. Fuel sources include both antimatter as well as Li2 (an atom with 2 lithium ions), important for controlled matter-antimatter reaction so it can be harnessed for power."
+  ]
+}

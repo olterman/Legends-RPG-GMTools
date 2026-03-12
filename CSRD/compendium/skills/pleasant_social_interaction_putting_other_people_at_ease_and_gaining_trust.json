@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pleasant Social Interaction, Putting Other People at Ease, and Gaining Trust",
+  "slug": "pleasant_social_interaction_putting_other_people_at_ease_and_gaining_trust",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:beneficent",
+        "line": "Skill: You’re trained in all tasks related to pleasant social interaction, putting other people at ease, and gaining trust."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

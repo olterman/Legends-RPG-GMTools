@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Quick to Flee",
+  "slug": "quick_to_flee",
+  "cost": null,
+  "alpha_section": "Q",
+  "effect": "You are trained in stealth and movement tasks. Enabler.",
+  "details": [
+    "You are trained in stealth and movement tasks. Enabler."
+  ]
+}

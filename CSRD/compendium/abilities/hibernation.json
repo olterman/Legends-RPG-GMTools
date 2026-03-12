@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hibernation",
+  "slug": "hibernation",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The target falls into hibernation, a coma-like sleep in which their metabolism slows to a crawl. They can go months with no additional food or water and with a fraction of the air they’d normally need. Loud sounds, damage, persistent prodding, and the like wakes someone in hibernation.",
+  "details": [
+    "The target falls into hibernation, a coma-like sleep in which their metabolism slows to a crawl. They can go months with no additional food or water and with a fraction of the air they’d normally need. Loud sounds, damage, persistent prodding, and the like wakes someone in hibernation."
+  ]
+}

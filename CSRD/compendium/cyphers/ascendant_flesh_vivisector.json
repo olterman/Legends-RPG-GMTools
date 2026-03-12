@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ascendant Flesh Vivisector",
+  "slug": "ascendant_flesh_vivisector",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": "Device, injection, or pill",
+  "effect": "If used on a beast of no larger than human size whose level is less than the cypher level, this radically alters the beast’s shape so it resembles a human being. The beast-human still thinks and acts like a beast, but it looks like a human and can perform actions using its human dexterity (such as turning a doorknob or walking upright). This transformation lasts for one day per cypher level, but after an equal amount of time the beast reverts to its normal shape (in the manner described for the ascendant brain vivisector cypher). Additional uses of the cypher tend to have diminishing returns. Using this cypher on a beast whose level is too high might end up temporarily transforming it into a human with bestial features.",
+  "depletion": null
+}

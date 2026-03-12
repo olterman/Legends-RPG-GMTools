@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Difficult Rest",
+  "slug": "difficult_rest",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Quintar subtract 2 from all recovery rolls (minimum 1).",
+  "details": [
+    "Quintar subtract 2 from all recovery rolls (minimum 1)."
+  ]
+}

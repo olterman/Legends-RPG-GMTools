@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fellow Explorer",
+  "slug": "fellow_explorer",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You gain a level 2 follower. One of their modifications must be for tasks related to perception. Enabler. Fetch (3 Intellect points): You cause an object to disappear and reappear in your hands or somewhere else nearby. Choose one object that can fit inside a 5-foot (2 m) cube and that you can see within long range. The object vanishes and appears in your hands or in an open space anywhere you choose within immediate range. Action. Field of Destruction (4 Might points): When you cause an object to descend one or more steps on the object damage track, you gain 1 additional point of Armor for one minute. Enabler. Field of Gravity (4 Intellect points): When you wish it, a field of manipulated gravity around you pulls incoming ranged projectile attacks to the ground. You are immune to such attacks until your turn in the next round. You must be aware of an attack to foil it. This ability does not work on energy attacks. Enabler.",
+  "details": [
+    "You gain a level 2 follower. One of their modifications must be for tasks related to perception. Enabler.",
+    "Fetch (3 Intellect points): You cause an object to disappear and reappear in your hands or somewhere else nearby. Choose one object that can fit inside a 5-foot (2 m) cube and that you can see within long range. The object vanishes and appears in your hands or in an open space anywhere you choose within immediate range. Action.",
+    "Field of Destruction (4 Might points): When you cause an object to descend one or more steps on the object damage track, you gain 1 additional point of Armor for one minute. Enabler.",
+    "Field of Gravity (4 Intellect points): When you wish it, a field of manipulated gravity around you pulls incoming ranged projectile attacks to the ground. You are immune to such attacks until your turn in the next round. You must be aware of an attack to foil it. This ability does not work on energy attacks. Enabler."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ongoing Damage",
+  "slug": "ongoing_damage",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison inflicts damage (Might, Speed, or Intellect) immediately. When a certain amount of time has passed (such as every round or every minute), it inflicts damage again if the creature fails its defense roll. The ongoing damage usually ends on its own (such as after five additional rounds of damage) or after the creature makes a defense roll against it. Usually the ongoing damage is a much smaller amount than the initial damage, such as 1 point every round.",
+  "details": [
+    "The poison inflicts damage (Might, Speed, or Intellect) immediately. When a certain amount of time has passed (such as every round or every minute), it inflicts damage again if the creature fails its defense roll. The ongoing damage usually ends on its own (such as after five additional rounds of damage) or after the creature makes a defense roll against it. Usually the ongoing damage is a much smaller amount than the initial damage, such as 1 point every round."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Versatile Mind",
+  "slug": "versatile_mind",
+  "cost": null,
+  "alpha_section": "V",
+  "effect": "When you make a Speed defense roll, you can use your Intellect in place of your Speed. Enabler.",
+  "details": [
+    "When you make a Speed defense roll, you can use your Intellect in place of your Speed. Enabler."
+  ]
+}

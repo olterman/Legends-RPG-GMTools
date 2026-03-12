@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Evasive Ateroid Piloting",
+  "slug": "evasive_ateroid_piloting",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "During any round a spacecraft moves through a densely packed asteroid or debris field, the pilot (or shipmind) must succeed on a piloting task, whose difficulty is set by the situation. On a failed roll, a collision occurs. Each time a collision occurs, the ship (and possibly its crew) is damaged according to the track laid out below. Collisions are assumed to be major rocks or pieces of debris, or possibly a series of smaller pieces of debris all impacting nearly simultaneously, with one getting through the shielding.",
+  "details": [
+    "During any round a spacecraft moves through a densely packed asteroid or debris field, the pilot (or shipmind) must succeed on a piloting task, whose difficulty is set by the situation. On a failed roll, a collision occurs. Each time a collision occurs, the ship (and possibly its crew) is damaged according to the track laid out below. Collisions are assumed to be major rocks or pieces of debris, or possibly a series of smaller pieces of debris all impacting nearly simultaneously, with one getting through the shielding."
+  ]
+}

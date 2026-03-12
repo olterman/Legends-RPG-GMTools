@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resilient Ice Armor",
+  "slug": "resilient_ice_armor",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "The sheen of ice you generate using your Ice Armor ability gives you an additional +1 to Armor. Enabler.",
+  "details": [
+    "The sheen of ice you generate using your Ice Armor ability gives you an additional +1 to Armor. Enabler."
+  ]
+}

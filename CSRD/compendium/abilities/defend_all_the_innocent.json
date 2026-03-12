@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defend All the Innocent",
+  "slug": "defend_all_the_innocent",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "You protect everyone within immediate range whom you have designated as innocent with your Designation ability. Speed defense rolls made by such creatures gain an asset. Enabler. Defend the Innocent (2 Speed points): For the next ten minutes, if someone you have designated as innocent with the Designation ability stands next to you, that creature shares any defensive advantages that you might have, other than mundane armor. These advantages include the Speed defense from your shield, the Armor offered from a force field, and so on. In addition, Speed defense rolls made by the innocent creature gain an asset. You can protect only one innocent creature at a time. Action to initiate.",
+  "details": [
+    "You protect everyone within immediate range whom you have designated as innocent with your Designation ability. Speed defense rolls made by such creatures gain an asset. Enabler.",
+    "Defend the Innocent (2 Speed points): For the next ten minutes, if someone you have designated as innocent with the Designation ability stands next to you, that creature shares any defensive advantages that you might have, other than mundane armor. These advantages include the Speed defense from your shield, the Armor offered from a force field, and so on. In addition, Speed defense rolls made by the innocent creature gain an asset. You can protect only one innocent creature at a time. Action to initiate."
+  ]
+}

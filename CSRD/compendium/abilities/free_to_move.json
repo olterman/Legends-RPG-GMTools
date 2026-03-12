@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Free to Move",
+  "slug": "free_to_move",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You ignore all movement penalties and adjustments due to terrain or other obstacles. You can fit through any space large enough to fit your head. Tasks involving breaking free of bonds, a creature’s grip, or any similar impediment gain three free levels of Effort. Enabler. Freezing Touch (4 Intellect points): Your hands become so cold that your touch freezes solid a living target of your size or smaller, rendering it immobile for one round. If you have another cold ability activated by touch (such as Frost Touch), you can use it as part of the Freezing Touch attack. Action. Frenzy (1 Intellect point): When you wish, while in combat, you can enter a state of frenzy. While in this state, you can’t use Intellect points, but you gain +1 to your Might Edge and your Speed Edge. This effect lasts as long as you wish, but it ends if no combat is taking place within range of your senses. Enabler.",
+  "details": [
+    "You ignore all movement penalties and adjustments due to terrain or other obstacles. You can fit through any space large enough to fit your head. Tasks involving breaking free of bonds, a creature’s grip, or any similar impediment gain three free levels of Effort. Enabler.",
+    "Freezing Touch (4 Intellect points): Your hands become so cold that your touch freezes solid a living target of your size or smaller, rendering it immobile for one round. If you have another cold ability activated by touch (such as Frost Touch), you can use it as part of the Freezing Touch attack. Action.",
+    "Frenzy (1 Intellect point): When you wish, while in combat, you can enter a state of frenzy. While in this state, you can’t use Intellect points, but you gain +1 to your Might Edge and your Speed Edge. This effect lasts as long as you wish, but it ends if no combat is taking place within range of your senses. Enabler."
+  ]
+}

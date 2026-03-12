@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Relativistic Time Dialation",
+  "slug": "relativistic_time_dialation",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "From a mechanical perspective, spacecraft that survive close encounters with black holes and return to normal space discover that more time has passed than expected, which could range from fairly inconsequential minutes or hours, to far more serious days, months, years, centuries, or more.",
+  "details": [
+    "From a mechanical perspective, spacecraft that survive close encounters with black holes and return to normal space discover that more time has passed than expected, which could range from fairly inconsequential minutes or hours, to far more serious days, months, years, centuries, or more."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Greater Enhanced Might",
+  "slug": "greater_enhanced_might",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "You gain 6 points to your Might Pool. Enabler.",
+  "details": [
+    "You gain 6 points to your Might Pool. Enabler."
+  ]
+}

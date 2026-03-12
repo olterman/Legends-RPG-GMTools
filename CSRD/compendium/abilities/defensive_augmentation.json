@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defensive Augmentation",
+  "slug": "defensive_augmentation",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "By upgrading your nervous and immune systems, you are trained in Might defense and Speed defense tasks. Enabler. Defensive Blinking (4 Intellect points): You enter a heightened reactive state so that when you are struck hard enough to take damage, you teleport an immediate distance in a random direction (not up or down) to help evade the brunt of the attack. Your Speed defense rolls are eased for one minute. Action.",
+  "details": [
+    "By upgrading your nervous and immune systems, you are trained in Might defense and Speed defense tasks. Enabler.",
+    "Defensive Blinking (4 Intellect points): You enter a heightened reactive state so that when you are struck hard enough to take damage, you teleport an immediate distance in a random direction (not up or down) to help evade the brunt of the attack. Your Speed defense rolls are eased for one minute. Action."
+  ]
+}

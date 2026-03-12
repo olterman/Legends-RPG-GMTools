@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Slippery",
+  "slug": "slippery",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are trained in escaping any kind of bond or grasp. Enabler.",
+  "details": [
+    "You are trained in escaping any kind of bond or grasp. Enabler."
+  ]
+}

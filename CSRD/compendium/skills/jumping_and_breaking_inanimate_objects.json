@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Jumping and Breaking Inanimate Objects",
+  "slug": "jumping_and_breaking_inanimate_objects",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "character_type:warrior",
+        "line": "Ray still needs to choose a descriptor and a focus. Looking ahead to the descriptor rules, Ray chooses Strong, which increases his Might Pool to 17. He also becomes trained in jumping and breaking inanimate objects. (If he had chosen jumping as one of his physical skills, the Strong descriptor would have made him specialized in jumping instead of trained.) Being Strong also gives Ray an extra medium or heavy weapon. He chooses a baseball bat that he’ll use in a pinch. He keeps it in the trunk of his car."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

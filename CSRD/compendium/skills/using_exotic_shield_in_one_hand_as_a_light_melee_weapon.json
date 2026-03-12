@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using Exotic Shield in One Hand as a Light Melee Weapon",
+  "slug": "using_exotic_shield_in_one_hand_as_a_light_melee_weapon",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:force_field_shield",
+        "line": "You manifest a small plane of pure force, which takes on a shield-like shape with the barest flicker of a thought. You can dismiss it just as easily. To use the force shield, you must hold it in one of your hands. You are practiced in using your exotic shield in one hand as a light melee weapon; however, if you attack with both your shield and a weapon held in the other hand, both attacks are hindered. When you are unconscious or sleeping, the force field dissipates. Enabler. (A shield, including one produced by a force field, provides an asset to a character’s Speed defense task while it is held in one hand.)"
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

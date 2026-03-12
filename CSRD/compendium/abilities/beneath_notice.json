@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Beneath Notice",
+  "slug": "beneath_notice",
+  "cost": null,
+  "alpha_section": "B",
+  "effect": "Your decreased size makes it difficult to find you. While Shrink is active on you, all stealth tasks you attempt are eased. Enabler.",
+  "details": [
+    "Your decreased size makes it difficult to find you. While Shrink is active on you, all stealth tasks you attempt are eased. Enabler."
+  ]
+}

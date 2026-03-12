@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tower of Will",
+  "slug": "tower_of_will",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "You are trained in Intellect defense tasks and gain +3 points to your Intellect Pool. Enabler.",
+  "details": [
+    "You are trained in Intellect defense tasks and gain +3 points to your Intellect Pool. Enabler."
+  ]
+}

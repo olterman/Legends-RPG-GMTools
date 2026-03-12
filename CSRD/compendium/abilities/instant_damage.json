@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Instant Damage",
+  "slug": "instant_damage",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison inflicts damage (Might, Speed, or Intellect) one time if the creature fails a defense roll.",
+  "details": [
+    "The poison inflicts damage (Might, Speed, or Intellect) one time if the creature fails a defense roll."
+  ]
+}

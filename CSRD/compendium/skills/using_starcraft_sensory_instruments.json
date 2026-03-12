@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using Starcraft Sensory Instruments",
+  "slug": "using_starcraft_sensory_instruments",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:sensing_package",
+        "line": "Sensor Array (3 Intellect points): You are trained in using starcraft sensory instruments. These instruments allow users to answer general questions about a location, such as “How many people are in the mining colony?” or “Where did the other spacecraft crash?” Action."
+      },
+      {
+        "from": "ability:sensing_package",
+        "line": "You can see in dim light and darkness as if it were bright light, and you can see up to a short distance through fog, smoke, and other obscuring phenomena. In addition, if you apply a level of Effort to perception or searching tasks, you get a free level of Effort on that task. Enabler. Sensor (4 Intellect points): You create an immobile, invisible sensor within immediate range that lasts for 24 hours. At any time during that duration, you can concentrate to see, hear, and smell through the sensor, no matter how far you move from it. The sensor doesn’t grant you sensory capabilities beyond the norm. If you also have this ability from another source, it lasts twice as long. Action to create; action to check. Sensor Array (3 Intellect points): You are trained in using starcraft sensory instruments. These instruments allow users to answer general questions about a location, such as “How many people are in the mining colony?” or “Where did the other spacecraft crash?” Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

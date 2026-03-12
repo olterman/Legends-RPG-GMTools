@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Controlled Change",
+  "slug": "controlled_change",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You can try to use your Beast Form ability to change into your beast form on any night you wish (a difficulty 3 Intellect task). Any transformations you make using this power are in addition to the five nights per month that you change involuntarily. Action to change.",
+  "details": [
+    "You can try to use your Beast Form ability to change into your beast form on any night you wish (a difficulty 3 Intellect task). Any transformations you make using this power are in addition to the five nights per month that you change involuntarily. Action to change."
+  ]
+}

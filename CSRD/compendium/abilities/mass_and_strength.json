@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mass and Strength",
+  "slug": "mass_and_strength",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You inflict +1 point of damage with your melee attacks and attacks with thrown weapons.",
+  "details": [
+    "You inflict +1 point of damage with your melee attacks and attacks with thrown weapons."
+  ]
+}

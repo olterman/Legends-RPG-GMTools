@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Quick Block",
+  "slug": "quick_block",
+  "cost": null,
+  "alpha_section": "Q",
+  "effect": "If you use a light or medium weapon, you are trained in Speed defense tasks. Enabler. Quick Death (2 Speed points): You know how to kill quickly. When you hit with a melee or ranged attack, you deal 4 additional points of damage. You can’t make this attack in two consecutive rounds. Action.",
+  "details": [
+    "If you use a light or medium weapon, you are trained in Speed defense tasks. Enabler.",
+    "Quick Death (2 Speed points): You know how to kill quickly. When you hit with a melee or ranged attack, you deal 4 additional points of damage. You can’t make this attack in two consecutive rounds. Action."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Interactions",
+  "slug": "interactions",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:trained_interlocutor",
+        "line": "Through wit, charm, humor, and grace (or sometimes rudeness, threatening posture, and obscenity), you’re better able to talk others into what you want. You are trained in all interactions. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,30 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Scavenges",
+  "slug": "scavenges",
+  "summary": "When not running and hiding, you sift the ruins of civilization for useful remnants to ensure your survival.",
+  "tiers": [
+    "Tier 1: Post-Apocalyptic Survivor",
+    "Tier 1: Ruin Lore",
+    "Tier 2: Junkmonger",
+    "Tier 3: Taking Advantage or Incredible Health",
+    "Tier 4: Know Where to Look",
+    "Tier 5: Recycled Cyphers",
+    "Tier 6: Artifact Scavenger or Reactive Field",
+    "Tier 1: Automatic Glow",
+    "Tier 1: Temporary Light",
+    "Tier 2: Entangling Force",
+    "Tier 3: Harder Light or Sculpt Light",
+    "Tier 4: Greater Enhanced Intellect",
+    "Tier 5: Improved Sculpt Light",
+    "Tier 6: Defensive Field or Flight"
+  ],
+  "gm_intrusions": "A hard light object disappears early. A hard light object cannot affect a certain creature or color.",
+  "text": "When not running and hiding, you sift the ruins of civilization for useful remnants to ensure your survival. SCULPTS HARD LIGHT You create physical objects out of hard light that you can use for offense and defense.",
+  "details": [
+    "When not running and hiding, you sift the ruins of civilization for useful remnants to ensure your survival.",
+    "SCULPTS HARD LIGHT",
+    "You create physical objects out of hard light that you can use for offense and defense."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "saved_at": "2026-03-11T17:24:55.327272+00:00",
+  "filename": "npc/npc_20260311T172455.json",
+  "payload": {
+    "environment": "fenmir_lowlands",
+    "mood": "Gruesome",
+    "gender": "male",
+    "profession": "conqueror",
+    "race": "uruk",
+    "variant": "lowland"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Thorga Bone-Singer",
+    "sections": {
+      "setting": "Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.",
+      "character": "Thorga Bone-Singer, male uruk conqueror, Lowland Uruk",
+      "appearance": "protruding lower tusks, powerful build, heavy jaw, immense physical presence, green skin, scarred martial bearing, dominant scarred presence, commanding gaze, disciplined posture, mood of Gruesome",
+      "clothing": "tribal leathers, war gear, symbolic adornment, disciplined war armor, conquest trophies, heavy armor, war trophies, rank insignia",
+      "weapons_props": "mace, banners",
+      "pose": "commanding stance, mood of Gruesome",
+      "environment": "War-scarred plains dotted with ruined keeps, broken roads, fortified villages, and mercenary camps. Civilization persists here through pragmatism and stubborn tradition.",
+      "lighting": "burning sky light",
+      "race_flavor": "Core truths: Powerful nomadic peoples who arrived suddenly from the east.; Often misunderstood by outsiders.. Themes: strength paired with culture, honor misunderstood, reputation shaped by fear. Tone: physical, proud, intense. Visual cues: scale much larger than humans; signature features protruding lower tusks, powerful build, heavy jaw, immense physical presence. Variant tone: militant conquerors. Avoid: reducing them to mindless brutes.",
+      "style": "painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration"
+    },
+    "prompt_text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nThorga Bone-Singer, male uruk conqueror, Lowland Uruk.\n\nAppearance:\nprotruding lower tusks, powerful build, heavy jaw, immense physical presence, green skin, scarred martial bearing, dominant scarred presence, commanding gaze, disciplined posture, mood of Gruesome.\n\nClothing:\ntribal leathers, war gear, symbolic adornment, disciplined war armor, conquest trophies, heavy armor, war trophies, rank insignia.\n\nWeapons / Props:\nmace, banners.\n\nPose:\ncommanding stance, mood of Gruesome.\n\nEnvironment:\nWar-scarred plains dotted with ruined keeps, broken roads, fortified villages, and mercenary camps. Civilization persists here through pragmatism and stubborn tradition.\n\nLighting:\nburning sky light.\n\nRace Flavor:\nCore truths: Powerful nomadic peoples who arrived suddenly from the east.; Often misunderstood by outsiders.. Themes: strength paired with culture, honor misunderstood, reputation shaped by fear. Tone: physical, proud, intense. Visual cues: scale much larger than humans; signature features protruding lower tusks, powerful build, heavy jaw, immense physical presence. Variant tone: militant conquerors. Avoid: reducing them to mindless brutes.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n",
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 19,
+      "armor": 2,
+      "damage": 6,
+      "movement": "short",
+      "modifications": [
+        "Leadership and intimidation as one level higher",
+        "Might defense as one level higher"
+      ],
+      "combat": [
+        "Heavy war weapon inflicts 6 damage",
+        "Nearby subordinates may act immediately on its command at GM discretion"
+      ],
+      "interaction": [
+        "Dominant, disciplined, and accustomed to obedience"
+      ],
+      "loot": [
+        "valuable trophy",
+        "heavy weapon"
+      ]
+    },
+    "stat_block_text": "Thorga Bone-Singer — conqueror\nLevel 6 (target number 18)\nHealth: 19\nArmor: 2\nDamage: 6\nMovement: short\nModifications:\n- Leadership and intimidation as one level higher\n- Might defense as one level higher\nCombat:\n- Heavy war weapon inflicts 6 damage\n- Nearby subordinates may act immediately on its command at GM discretion\nInteraction:\n- Dominant, disciplined, and accustomed to obedience\nLoot:\n- valuable trophy\n- heavy weapon",
+    "text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nThorga Bone-Singer, male uruk conqueror, Lowland Uruk.\n\nAppearance:\nprotruding lower tusks, powerful build, heavy jaw, immense physical presence, green skin, scarred martial bearing, dominant scarred presence, commanding gaze, disciplined posture, mood of Gruesome.\n\nClothing:\ntribal leathers, war gear, symbolic adornment, disciplined war armor, conquest trophies, heavy armor, war trophies, rank insignia.\n\nWeapons / Props:\nmace, banners.\n\nPose:\ncommanding stance, mood of Gruesome.\n\nEnvironment:\nWar-scarred plains dotted with ruined keeps, broken roads, fortified villages, and mercenary camps. Civilization persists here through pragmatism and stubborn tradition.\n\nLighting:\nburning sky light.\n\nRace Flavor:\nCore truths: Powerful nomadic peoples who arrived suddenly from the east.; Often misunderstood by outsiders.. Themes: strength paired with culture, honor misunderstood, reputation shaped by fear. Tone: physical, proud, intense. Visual cues: scale much larger than humans; signature features protruding lower tusks, powerful build, heavy jaw, immense physical presence. Variant tone: militant conquerors. Avoid: reducing them to mindless brutes.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n\n---\n\nThorga Bone-Singer — conqueror\nLevel 6 (target number 18)\nHealth: 19\nArmor: 2\nDamage: 6\nMovement: short\nModifications:\n- Leadership and intimidation as one level higher\n- Might defense as one level higher\nCombat:\n- Heavy war weapon inflicts 6 damage\n- Nearby subordinates may act immediately on its command at GM discretion\nInteraction:\n- Dominant, disciplined, and accustomed to obedience\nLoot:\n- valuable trophy\n- heavy weapon\n",
+    "metadata": {
+      "race": "uruk",
+      "variant": "lowland",
+      "profession": "conqueror",
+      "environment": "fenmir_lowlands"
+    }
+  }
+}

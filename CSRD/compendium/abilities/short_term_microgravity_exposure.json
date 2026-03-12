@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Short-Term Microgravity Exposure",
+  "slug": "short_term_microgravity_exposure",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "People new to low gravity might get space sickness. Newcomers must succeed on a difficulty 3 Might task or suffer mild nausea for about two to four days, during which time all their tasks are hindered. A few unlucky travelers (usually those who roll a 1 or otherwise face a GM intrusion) are almost completely incapacitated, and find all tasks hindered by three steps.",
+  "details": [
+    "People new to low gravity might get space sickness. Newcomers must succeed on a difficulty 3 Might task or suffer mild nausea for about two to four days, during which time all their tasks are hindered. A few unlucky travelers (usually those who roll a 1 or otherwise face a GM intrusion) are almost completely incapacitated, and find all tasks hindered by three steps."
+  ]
+}

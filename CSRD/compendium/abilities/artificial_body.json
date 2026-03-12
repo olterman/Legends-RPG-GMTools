@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Artificial Body",
+  "slug": "artificial_body",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+3 to your Might Pool and your Speed Pool.",
+  "details": [
+    "+3 to your Might Pool and your Speed Pool."
+  ]
+}

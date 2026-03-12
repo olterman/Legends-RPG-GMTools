@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Prodigy",
+  "slug": "prodigy",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Give up a lower-tier ability to get a higher-tier ability",
+  "details": [
+    "Give up a lower-tier ability to get a higher-tier ability"
+  ]
+}

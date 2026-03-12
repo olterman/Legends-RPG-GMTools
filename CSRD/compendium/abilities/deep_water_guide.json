@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Deep Water Guide",
+  "slug": "deep_water_guide",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "While underwater, any creature you choose that can see you has an asset on swimming tasks. Enabler.",
+  "details": [
+    "While underwater, any creature you choose that can see you has an asset on swimming tasks. Enabler."
+  ]
+}

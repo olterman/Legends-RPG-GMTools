@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Particularly Dense Mist Makes Ranged Attacks Nearly Impossible (treat as Darkness), and Even Melee",
+  "slug": "particularly_dense_mist_makes_ranged_attacks_nearly_impossible_treat_as_darkness_and_even_melee",
+  "progression": {
+    "inability": [
+      {
+        "from": "ability:mist",
+        "line": "A target in mist is similar to one in dim light. Ranged attacks against such targets are hindered. Particularly dense mist makes ranged attacks nearly impossible (treat as darkness), and even melee attacks are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

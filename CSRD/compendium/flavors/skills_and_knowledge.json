@@ -1,0 +1,66 @@
+{
+  "type": "flavor",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Skills And Knowledge Flavor",
+  "slug": "skills_and_knowledge",
+  "summary": "This flavor is for characters in roles that call for more knowledge and more real-world application of talent. It’s less flashy and dramatic than supernatural powers or the ability to hack apart multiple foes, but sometimes expertise or know-how is the real solution to a problem.",
+  "tier_abilities": {
+    "tier_1": [
+      "Interaction Skills",
+      "Investigative Skills",
+      "Knowledge Skills",
+      "Physical Skills",
+      "Travel Skills"
+    ],
+    "tier_2": [
+      "Extra Skill",
+      "Tool Mastery",
+      "Understanding"
+    ],
+    "tier_3": [
+      "Flex Skill",
+      "Improvise"
+    ],
+    "tier_4": [
+      "Multiple Skills",
+      "Quick Wits",
+      "Task Specialization"
+    ],
+    "tier_5": [
+      "Practiced With Medium Weapons",
+      "Read the Signs"
+    ],
+    "tier_6": [
+      "Skill With Attacks",
+      "Skill With Defense"
+    ]
+  },
+  "text": "This flavor is for characters in roles that call for more knowledge and more real-world application of talent. It’s less flashy and dramatic than supernatural powers or the ability to hack apart multiple foes, but sometimes expertise or know-how is the real solution to a problem. A Warrior flavored with skills and knowledge might be a military engineer. An Explorer flavored with skills and knowledge could be a field scientist. A Speaker with this flavor might be a teacher. FIRST-TIER SKILLS AND KNOWLEDGE ABILITIES Interaction Skills Investigative Skills Knowledge Skills Physical Skills Travel Skills SECOND-TIER SKILLS AND KNOWLEDGE ABILITIES Extra Skill Tool Mastery Understanding THIRD-TIER SKILLS ANDKNOWLEDGE ABILITIES Flex Skill Improvise FOURTH-TIER SKILLS AND KNOWLEDGE ABILITIES Multiple Skills Quick Wits Task Specialization FIFTH-TIER SKILLS ANd KNOWLEDGE ABILITIES Practiced With Medium Weapons Read the Signs SIXTH-TIER SKILLS AND KNOWLEDGE ABILITIES Skill With Attacks Skill With Defense",
+  "details": [
+    "This flavor is for characters in roles that call for more knowledge and more real-world application of talent. It’s less flashy and dramatic than supernatural powers or the ability to hack apart multiple foes, but sometimes expertise or know-how is the real solution to a problem.",
+    "A Warrior flavored with skills and knowledge might be a military engineer. An Explorer flavored with skills and knowledge could be a field scientist. A Speaker with this flavor might be a teacher.",
+    "FIRST-TIER SKILLS AND KNOWLEDGE ABILITIES",
+    "Interaction Skills",
+    "Investigative Skills",
+    "Knowledge Skills",
+    "Physical Skills",
+    "Travel Skills",
+    "SECOND-TIER SKILLS AND KNOWLEDGE ABILITIES",
+    "Extra Skill",
+    "Tool Mastery",
+    "Understanding",
+    "THIRD-TIER SKILLS ANDKNOWLEDGE ABILITIES",
+    "Flex Skill",
+    "Improvise",
+    "FOURTH-TIER SKILLS AND KNOWLEDGE ABILITIES",
+    "Multiple Skills",
+    "Quick Wits",
+    "Task Specialization",
+    "FIFTH-TIER SKILLS ANd KNOWLEDGE ABILITIES",
+    "Practiced With Medium Weapons",
+    "Read the Signs",
+    "SIXTH-TIER SKILLS AND KNOWLEDGE ABILITIES",
+    "Skill With Attacks",
+    "Skill With Defense"
+  ]
+}

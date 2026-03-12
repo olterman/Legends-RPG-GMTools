@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wardroid",
+  "slug": "wardroid",
+  "level": 6,
+  "target_number": 18,
+  "description": "When star troopers need heavy support, they sometimes bring in wardroids. These fearsome robots, standing about 8 feet (2 m) tall, are ruthless even by trooper standards and are known to kill innocent bystanders as often as they kill foes. It is said that when wardroids are unleashed, wise troopers fall back and take cover.",
+  "motive": "Maintain control, crush, kill, destroy",
+  "environment": "Anywhere",
+  "health": "30",
+  "damage_inflicted": "8 points",
+  "armor": "3",
+  "movement": "Short; some models can fly a short distance each round",
+  "modifications": "Attacks as level 7",
+  "combat": "A wardroid’s main weapon is a bank of laser blasters that it can use to attack up to three foes standing next to each other as one action. When damaged, a wardroid regains 1 point of health each round. Furthermore, each wardroid has one additional capability:",
+  "interaction": "Interaction is difficult for those not authorized to communicate with a wardroid.",
+  "use": "Wardroids are often deployed in groups of two or three to guard a vault or the entrance to a spacecraft, or to track down intruders aboard a space station.",
+  "loot": "The remains of a wardroid can yield one or two cyphers to someone adept at salvage.",
+  "gm_intrusion": "When defeated, the wardroid detonates, inflicting 8 points of damage on all creatures within immediate range."
+}

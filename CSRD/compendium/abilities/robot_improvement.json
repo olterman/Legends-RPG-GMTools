@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Robot Improvement",
+  "slug": "robot_improvement",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "Your artificial assistant from the Robot Assistant ability increases to level 4. Enabler.",
+  "details": [
+    "Your artificial assistant from the Robot Assistant ability increases to level 4. Enabler."
+  ]
+}

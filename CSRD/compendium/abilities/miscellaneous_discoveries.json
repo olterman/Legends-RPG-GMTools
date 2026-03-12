@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Miscellaneous Discoveries",
+  "slug": "miscellaneous_discoveries",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Various other discoveries might grant 1 XP to each PC involved.",
+  "details": [
+    "Various other discoveries might grant 1 XP to each PC involved."
+  ]
+}

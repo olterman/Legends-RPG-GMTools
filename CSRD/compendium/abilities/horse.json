@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Horse",
+  "slug": "horse",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 3; moves a long distance each round",
+  "details": [
+    "level 3; moves a long distance each round"
+  ]
+}

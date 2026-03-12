@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Other Awards",
+  "slug": "other_awards",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If a character is focused on activities that don’t relate to a character arc or a discovery, as a general rule, a mission should be worth at least 1 XP per game session involved in accomplishing it. For example, saving a family on an isolated farm beset by raiding cultists might be worth 1 XP for each character. Of course, saving the family doesn’t always mean killing the bad guys; it might mean relocating them, parlaying with the cultists, or chasing off the raiders.",
+  "details": [
+    "If a character is focused on activities that don’t relate to a character arc or a discovery, as a general rule, a mission should be worth at least 1 XP per game session involved in accomplishing it. For example, saving a family on an isolated farm beset by raiding cultists might be worth 1 XP for each character. Of course, saving the family doesn’t always mean killing the bad guys; it might mean relocating them, parlaying with the cultists, or chasing off the raiders."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Range Boost",
+  "slug": "range_boost",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "This cypher boosts the range of an ability. Something that affects only you can now affect someone you touch. Any other ability increases its range by one category (touch to immediate, immediate to short, short to long, long to very long, very long to 1,000 feet [300 m], or double for any range longer than very long).",
+  "depletion": null
+}

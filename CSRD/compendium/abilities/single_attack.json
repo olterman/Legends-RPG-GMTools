@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Single Attack",
+  "slug": "single_attack",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Attack rolls and damage (+3 points) for one specific kind of attack, such as pistols, kicks, or Thrust.",
+  "details": [
+    "Attack rolls and damage (+3 points) for one specific kind of attack, such as pistols, kicks, or Thrust."
+  ]
+}

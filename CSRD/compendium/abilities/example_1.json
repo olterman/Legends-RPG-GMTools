@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Example 1",
+  "slug": "example_1",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Through skill and the aid of another character, a fourth-tier PC eases a wall-climbing task from difficulty 2 to difficulty 0. Normally, they would succeed at the task automatically, but the GM intrudes and says “No, a bit of the crumbling wall gives way, so you still have to make a roll.” As with any difficulty 2 task, the target number is 6. The PC attempts the roll as normal and gains 2 XP because the GM intruded. They immediately give one of those XP to another player.",
+  "details": [
+    "Through skill and the aid of another character, a fourth-tier PC eases a wall-climbing task from difficulty 2 to difficulty 0. Normally, they would succeed at the task automatically, but the GM intrudes and says “No, a bit of the crumbling wall gives way, so you still have to make a roll.” As with any difficulty 2 task, the target number is 6. The PC attempts the roll as normal and gains 2 XP because the GM intruded. They immediately give one of those XP to another player."
+  ]
+}

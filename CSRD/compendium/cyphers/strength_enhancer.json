@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Strength Enhancer",
+  "slug": "strength_enhancer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "All noncombat tasks involving raw strength—such as breaking down a door, lifting a heavy boulder, forcing open elevator doors, competing in a weightlifting competition, and so on—are eased by two steps for one hour.",
+  "depletion": null
+}

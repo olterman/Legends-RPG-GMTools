@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resilience",
+  "slug": "resilience",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Might defense rolls and Armor (+1).",
+  "details": [
+    "Might defense rolls and Armor (+1)."
+  ]
+}

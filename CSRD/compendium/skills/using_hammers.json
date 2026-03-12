@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using Hammers",
+  "slug": "using_hammers",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:skill",
+        "line": "You are practiced in using hammers."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

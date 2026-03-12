@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Robot Fleet",
+  "slug": "robot_fleet",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "You build up to four level 2 robot assistants, each no larger than yourself. (They are in addition to the assistant you built at first tier with Robot Assistant, which may have seen a few upgrades since then.) You and the GM must work out the details of these additional robots. If a robot is destroyed, you can build a new one (or repair the old one from its parts) after a week of half-time labor. Instead of this ability, you can select one of the following abilities: Expert Follower, Robot Control, or Robot Upgrade. Enabler.",
+  "details": [
+    "You build up to four level 2 robot assistants, each no larger than yourself. (They are in addition to the assistant you built at first tier with Robot Assistant, which may have seen a few upgrades since then.) You and the GM must work out the details of these additional robots. If a robot is destroyed, you can build a new one (or repair the old one from its parts) after a week of half-time labor. Instead of this ability, you can select one of the following abilities: Expert Follower, Robot Control, or Robot Upgrade. Enabler."
+  ]
+}

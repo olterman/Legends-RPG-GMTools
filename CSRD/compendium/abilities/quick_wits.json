@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Quick Wits",
+  "slug": "quick_wits",
+  "cost": null,
+  "alpha_section": "Q",
+  "effect": "When performing a task that would normally require spending points from your Intellect Pool, you can spend points from your Speed Pool instead. Enabler. Quick Work (3+ Intellect points): One use of any artifact (or one minute of its continuous function) is increased by one level if you use it within the next minute. If you spend 4 additional Intellect points, the use is increased by two levels if you use it within the next minute. Action.",
+  "details": [
+    "When performing a task that would normally require spending points from your Intellect Pool, you can spend points from your Speed Pool instead. Enabler.",
+    "Quick Work (3+ Intellect points): One use of any artifact (or one minute of its continuous function) is increased by one level if you use it within the next minute. If you spend 4 additional Intellect points, the use is increased by two levels if you use it within the next minute. Action."
+  ]
+}

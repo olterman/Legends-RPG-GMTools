@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resilient Duplicate",
+  "slug": "resilient_duplicate",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "Increase the health of any duplicate you create (such as with Duplicate) by 5. Enabler.",
+  "details": [
+    "Increase the health of any duplicate you create (such as with Duplicate) by 5. Enabler."
+  ]
+}

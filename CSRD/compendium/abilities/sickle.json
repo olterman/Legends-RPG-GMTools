@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sickle",
+  "slug": "sickle",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A one-handed hafted weapon with a sharply curved blade, originally used for harvesting crops but adapted for use as a weapon.",
+  "details": [
+    "A one-handed hafted weapon with a sharply curved blade, originally used for harvesting crops but adapted for use as a weapon."
+  ]
+}

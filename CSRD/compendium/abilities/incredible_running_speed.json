@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Incredible Running Speed",
+  "slug": "incredible_running_speed",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "You move much farther than normal in a round. This means as a part of another action, you can move up to a long distance. As an action, you can move up to 200 feet (60 m), or up to 500 feet (150 m) as a Speed-based task with a difficulty of 4. Enabler. Infer Thoughts (4 Intellect points): If you interact with or study a target for at least a round, you can attempt to read its surface thoughts, even if the subject doesn’t want you to. You must be able to see the target. Once you have gained a sense of what it’s thinking—through its body language, its speech, and what it does and doesn’t say—you can continue to infer the target’s surface thoughts for up to one minute as long as you can still see and hear the target. Action to prepare; action to initiate. Inferno Trail (6 Intellect points): For the next minute, you leave a trail of flame in your wake. The trail matches your path and lasts for up to a minute, creating a wall of flame about 6 feet (2 m) high that inflicts 5 points of damage to any creature that passes through it, potentially catching them on fire for an additional 1 point of damage each round (if they are flammable) until they spend a round putting out the fire. Action.",
+  "details": [
+    "You move much farther than normal in a round. This means as a part of another action, you can move up to a long distance. As an action, you can move up to 200 feet (60 m), or up to 500 feet (150 m) as a Speed-based task with a difficulty of 4. Enabler.",
+    "Infer Thoughts (4 Intellect points): If you interact with or study a target for at least a round, you can attempt to read its surface thoughts, even if the subject doesn’t want you to. You must be able to see the target. Once you have gained a sense of what it’s thinking—through its body language, its speech, and what it does and doesn’t say—you can continue to infer the target’s surface thoughts for up to one minute as long as you can still see and hear the target. Action to prepare; action to initiate.",
+    "Inferno Trail (6 Intellect points): For the next minute, you leave a trail of flame in your wake. The trail matches your path and lasts for up to a minute, creating a wall of flame about 6 feet (2 m) high that inflicts 5 points of damage to any creature that passes through it, potentially catching them on fire for an additional 1 point of damage each round (if they are flammable) until they spend a round putting out the fire. Action."
+  ]
+}

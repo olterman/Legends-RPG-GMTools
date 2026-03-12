@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Urban Brownie",
+  "slug": "urban_brownie",
+  "level": 3,
+  "target_number": 9,
+  "description": "While most people are familiar with rural brownies with their wizened, ragged appearance and their penchant for helping with farming tasks, the urban brownie is a very different type of entity. Having adapted to live in cities and decent-sized towns, urban brownies tend to care much more about their appearance and prefer less outdoorsy forms of labor. Most are natty dressers, often altering the clothing of large dolls or young children to create well-heeled outfits for themselves. They prefer to have their own private spaces in people’s homes or businesses, but will inhabit small shelters or niches if they can’t find any other home. Many live in coffee shops, finding the offerings of caffeine and pastries well worth the tasks they perform in thanks (usually cleaning, making elegantly lettered signs, and organizing cupboards). They’re most active in the evenings and overnight, but some choose to acclimate to the rhythm of the city they live in and can be seen during the day. A brownie who feels insulted, disrespected, or unappreciated will quickly become malicious and spread word about whoever treated them so poorly.",
+  "motive": "Consume anguish",
+  "environment": "Anywhere pain and misery can be found",
+  "health": "10",
+  "damage_inflicted": "4 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Intellect defense, perception, and stealth as level 5",
+  "combat": "Vulture spirits are rarely violent; they attack when threatened, to defend chosen allies, or out of desperation. A dying vulture spirit may use their last strength to pounce on a creature they judge to be an easy target, subsequently using the pain they inflict to restore their own health. Vulture spirits gain 1 point of health for every minute spent in physical contact with someone (other than a vulture spirit) experiencing pain or suffering, such as a creature below half its normal health or Pool points, a debilitated PC, or someone with a chronic illness. Recovery rolls made while in contact with a vulture spirit are increased by 3 points. A vulture spirit can use the following magical abilities. Recalling the Worst: Open their mouth and emit a short-distance blast of energy. If the foe fails an Intellect defense roll, they take 4 points of damage and lose their next action as they relive their worst memory. Remote Draining: If a creature within short range is experiencing pain or suffering, the vulture spirit can use their action to drain it from that creature. The spirit gains 1 point of health and the creature’s affliction is alleviated for one round.",
+  "interaction": "Vulture spirits are clever and shy. They can speak human languages but revert to bird sounds such as screeching, clicking, and trilling when stressed. Though they forage for pain to consume alone, they prefer to live in large groups.",
+  "use": "Vulture spirits are good for creating eerie encounters about sickness and pain, especially if the player characters mistake the spirit as the cause of the trouble rather than incidental to it.",
+  "loot": "A vulture spirit’s pockets are full of feathers, altogether which function as a curative cypher.",
+  "gm_intrusion": null
+}

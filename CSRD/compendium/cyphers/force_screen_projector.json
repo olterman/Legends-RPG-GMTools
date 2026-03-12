@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Force Screen Projector",
+  "slug": "force_screen_projector",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 3",
+  "form": null,
+  "effect": "Creates an immobile plane of solid force up to 20 feet by 20 feet (6 m by 6 m) for one hour. The plane conforms to the space available.",
+  "depletion": null
+}

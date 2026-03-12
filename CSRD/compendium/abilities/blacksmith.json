@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Blacksmith",
+  "slug": "blacksmith",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2, metalworking as level 4; health 8",
+  "details": [
+    "level 2, metalworking as level 4; health 8"
+  ]
+}

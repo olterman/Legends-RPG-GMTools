@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fire Adapted",
+  "slug": "fire_adapted",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+2 to Armor against damage from fire only.",
+  "details": [
+    "+2 to Armor against damage from fire only."
+  ]
+}

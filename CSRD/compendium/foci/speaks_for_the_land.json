@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Speaks for the Land",
+  "slug": "speaks_for_the_land",
+  "summary": "Your spiritual connection to nature and the environment grants you mystical abilities.",
+  "tiers": [
+    "Tier 1: Seeds of Fury",
+    "Tier 1: Wilderness Lore",
+    "Tier 2: Grasping Foliage",
+    "Tier 3: Soothe the Savage or Communication",
+    "Tier 4: Moon Shape",
+    "Tier 5: Insect Eruption",
+    "Tier 6: Call the Storm or Earthquake"
+  ],
+  "gm_intrusions": "An injured natural (but dangerous) creature is discovered. Someone’s poaching wildlife for their skins, leaving the carcasses to rot. A tree falls in the forest, one of the last elder trees.",
+  "text": "Your spiritual connection to nature and the environment grants you mystical abilities.",
+  "details": [
+    "Your spiritual connection to nature and the environment grants you mystical abilities."
+  ]
+}

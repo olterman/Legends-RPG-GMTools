@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shepherds the Community",
+  "slug": "shepherds_the_community",
+  "summary": "You keep the place where you live safe from all danger.",
+  "tiers": [
+    "Tier 1: Community Knowledge",
+    "Tier 1: Community Activist",
+    "Tier 2: Skill With Attacks",
+    "Tier 3: Shepherd’s Fury or Skill With Defense",
+    "Tier 4: Greater Enhanced Potential",
+    "Tier 5: Evasion",
+    "Tier 6: Greater Skill With Attacks or Protective Wall"
+  ],
+  "gm_intrusions": "People in the community misunderstand the character’s motives. Rivals try to oust the character.",
+  "text": "You keep the place where you live safe from all danger.",
+  "details": [
+    "You keep the place where you live safe from all danger."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pony",
+  "slug": "pony",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A smaller type of horse, suitable for pulling a cart, carrying smaller loads than a full-sized horse, or serving as a mount for a smaller-than-human creature such as a dwarf or halfling. Riding horse: A horse trained for riding and able to carry a typical adult human. Riding horses tend to panic in combat.",
+  "details": [
+    "A smaller type of horse, suitable for pulling a cart, carrying smaller loads than a full-sized horse, or serving as a mount for a smaller-than-human creature such as a dwarf or halfling.",
+    "Riding horse: A horse trained for riding and able to carry a typical adult human. Riding horses tend to panic in combat."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Greater Enhanced Potential",
+  "slug": "greater_enhanced_potential",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "You gain 6 points to divide among your stat Pools however you wish. Enabler.",
+  "details": [
+    "You gain 6 points to divide among your stat Pools however you wish. Enabler."
+  ]
+}

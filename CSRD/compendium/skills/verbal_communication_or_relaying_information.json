@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Verbal Communication or Relaying Information",
+  "slug": "verbal_communication_or_relaying_information",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:tongue_tied",
+        "line": "Inability: All tasks involving verbal communication or relaying information are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

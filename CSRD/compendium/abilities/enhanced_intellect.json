@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enhanced Intellect",
+  "slug": "enhanced_intellect",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You gain 3 points to your Intellect Pool. Enabler.",
+  "details": [
+    "You gain 3 points to your Intellect Pool. Enabler."
+  ]
+}

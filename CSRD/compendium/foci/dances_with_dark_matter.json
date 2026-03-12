@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dances With Dark Matter",
+  "slug": "dances_with_dark_matter",
+  "summary": "You can manipulate shadow and “dark” matter.",
+  "tiers": [
+    "Tier 1: Ribbons of Dark Matter",
+    "Tier 2: Void Wings",
+    "Tier 3: Dark Matter Shroud or Dark Matter Strike",
+    "Tier 4: Dark Matter Shell",
+    "Tier 5: Windwracked Traveler",
+    "Tier 6: Dark Matter Structure or Embrace the Night"
+  ],
+  "gm_intrusions": "Dark matter skulks away as if possessed by a mind of its own.",
+  "text": "You can manipulate shadow and “dark” matter.",
+  "details": [
+    "You can manipulate shadow and “dark” matter."
+  ]
+}

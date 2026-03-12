@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Twist of Fate",
+  "slug": "twist_of_fate",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "Experience has taught you a lot, including that sometimes luck is something that you have to make for yourself. When you roll a 1, you can reroll. You must use the new result, even if it’s another 1. Enabler. Twisting the Knife (4 Speed points): In a round after successfully striking a foe with a melee weapon, you can opt to automatically deal standard damage to the foe with that same weapon without any modifiers (2 points for a light weapon, 4 points for a medium weapon, or 6 points for a heavy weapon). Action. Two Things at Once (6 Intellect points): The ultimate test: you divide your attention and take two separate actions this round. Enabler.",
+  "details": [
+    "Experience has taught you a lot, including that sometimes luck is something that you have to make for yourself. When you roll a 1, you can reroll. You must use the new result, even if it’s another 1. Enabler.",
+    "Twisting the Knife (4 Speed points): In a round after successfully striking a foe with a melee weapon, you can opt to automatically deal standard damage to the foe with that same weapon without any modifiers (2 points for a light weapon, 4 points for a medium weapon, or 6 points for a heavy weapon). Action.",
+    "Two Things at Once (6 Intellect points): The ultimate test: you divide your attention and take two separate actions this round. Enabler."
+  ]
+}

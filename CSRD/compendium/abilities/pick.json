@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pick",
+  "slug": "pick",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A hafted weapon with a sideways metal spike on the end, similar to a miner’s tool.",
+  "details": [
+    "A hafted weapon with a sideways metal spike on the end, similar to a miner’s tool."
+  ]
+}

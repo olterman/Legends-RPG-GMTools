@@ -1,0 +1,27 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Positive Social Interactions",
+  "slug": "positive_social_interactions",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:perceptive",
+        "line": "Inability: Your confidence comes off as arrogance to people who don’t know you. Any task involving positive social interactions is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skill",
+        "line": "You’re trained in positive social interactions."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "inability",
+    "trained"
+  ],
+  "summary": "inability, trained"
+}

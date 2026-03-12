@@ -1,0 +1,17 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shield",
+  "slug": "shield",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Provides an asset to Speed defense. Shield sizes vary from a small buckler to a large kite shield (in the Cypher System, the difference is mainly flavor, and for game purposes they all grant the wearer the same benefit). * Only against piercing and slashing attacks ** Using a shield provides the wearer with an asset on Speed defense tasks If the GM prefers the simpler method of not tracking whether an attack is bashing, slashing, or stabbing, heavy cloth and padded armor should provide no Armor at all. Shields Shields provide an asset to Speed defense rolls. You must have one free hand to use a shield.",
+  "details": [
+    "Provides an asset to Speed defense. Shield sizes vary from a small buckler to a large kite shield (in the Cypher System, the difference is mainly flavor, and for game purposes they all grant the wearer the same benefit).",
+    "* Only against piercing and slashing attacks",
+    "** Using a shield provides the wearer with an asset on Speed defense tasks",
+    "If the GM prefers the simpler method of not tracking whether an attack is bashing, slashing, or stabbing, heavy cloth and padded armor should provide no Armor at all.",
+    "Shields",
+    "Shields provide an asset to Speed defense rolls. You must have one free hand to use a shield."
+  ]
+}

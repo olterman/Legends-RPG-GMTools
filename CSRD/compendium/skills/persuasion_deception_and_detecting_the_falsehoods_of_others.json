@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Persuasion, Deception, and Detecting the Falsehoods of Others",
+  "slug": "persuasion_deception_and_detecting_the_falsehoods_of_others",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:opening_statement",
+        "line": "You’re trained in tasks related to persuasion, deception, and detecting the falsehoods of others. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

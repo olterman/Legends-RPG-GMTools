@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Forging Swords and Sharpening Blades",
+  "slug": "forging_swords_and_sharpening_blades",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:weapon_crafter",
+        "line": "You are trained in crafting tasks associated with your chosen weapon. For instance, if your weapon is a bow, you are trained in tasks related to crafting bows and fletching arrows; if your weapon is a sword, you are trained in tasks for forging swords and sharpening blades; and so on. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

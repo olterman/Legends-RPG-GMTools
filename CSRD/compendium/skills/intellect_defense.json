@@ -1,0 +1,89 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Intellect Defense",
+  "slug": "intellect_defense",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:chaotic",
+        "line": "Skill: You are trained in Intellect defense actions."
+      },
+      {
+        "from": "descriptor:doomed",
+        "line": "Skill: You are cynical and expect the worst. Thus, you are resistant to mental shocks. You are trained in Intellect defense tasks having to do with losing your sanity or equanimity."
+      },
+      {
+        "from": "descriptor:guarded",
+        "line": "Skill: You are trained in all Intellect defense tasks."
+      },
+      {
+        "from": "descriptor:naive",
+        "line": "Incorruptible: You are trained in Intellect defense tasks and all tasks that involve resisting temptation."
+      },
+      {
+        "from": "descriptor:resilient",
+        "line": "Skill: You are trained in Intellect defense tasks."
+      },
+      {
+        "from": "descriptor:virtuous",
+        "line": "Skill: Your adherence to a strict moral code has hardened your mind against fear, doubt, and outside influence. You are trained in Intellect defense tasks."
+      },
+      {
+        "from": "character_type:speaker",
+        "line": "Mary chooses Resilient for her descriptor and decides that she can probably learn the truth behind some of the strange things that she’s heard about without feeling too much trauma if it’s horrible. Resilient increases her Might Pool to 10 and her Intellect Pool to 16. She’s trained in Might and Intellect defense actions and gains an extra recovery roll each day. At first, Mary is sad that her descriptor gives her an inability in knowledge and puzzle tasks, but then she realizes that the flaw fits her character well—she’s better at getting people to tell her what she needs to know than at figuring out the information herself."
+      },
+      {
+        "from": "ability:closed_mind",
+        "line": "You are trained in Intellect defense tasks and have +2 Armor against damage that selectively targets your Intellect Pool (which normally ignores Armor). Enabler."
+      },
+      {
+        "from": "ability:closed_mind",
+        "line": "You are trained in Intellect defense tasks and have +2 Armor against damage that selectively targets your Intellect Pool (which normally ignores Armor). Enabler. Cloud Personal Memories (3 Intellect points): If you interact with or study a target for at least a round, you gain a sense of how its mind works, which you can use against it in the most blunt fashion possible. You can attempt to confuse it and make it forget what’s just happened. On a success, you erase up to the last five minutes of its memory. Action to prepare; action to initiate. Coaxing Power (2 Intellect points): You boost the power or function of a machine so that it operates at one level higher than normal for one hour. Action to initiate."
+      },
+      {
+        "from": "ability:courageous",
+        "line": "You are trained in Intellect defense tasks and initiative tasks. Enabler."
+      },
+      {
+        "from": "ability:hard_to_distract",
+        "line": "You are trained in Intellect defense tasks. Enabler."
+      },
+      {
+        "from": "ability:just_a_bit_mad",
+        "line": "You are trained in Intellect defense tasks. Enabler."
+      },
+      {
+        "from": "ability:mentally_tough",
+        "line": "Staring into the naked weave of hyperspace, warped space, or a similar effect related to faster-than-light travel is hard on the mind, but you’ve developed resistance. You’re trained in Intellect defense tasks. Enabler."
+      },
+      {
+        "from": "ability:stare_them_down",
+        "line": "One doesn’t play games of chicken with other maniac drivers without gaining mental strength. You’re trained in Intellect defense tasks. Enabler."
+      },
+      {
+        "from": "ability:stare_them_down",
+        "line": "One doesn’t play games of chicken with other maniac drivers without gaining mental strength. You’re trained in Intellect defense tasks. Enabler. Stasis (3 Intellect points): You surround a foe of your size or smaller with scintillating energy, keeping it from moving or acting for one minute, as if frozen solid. You must be able to see the target, and it must be within short range. While in stasis, the target is impervious to harm, cannot be moved, and is immune to all effects. Action. Stay the Course (5 Intellect points): When your companions are flagging, you can help inspire them with a well-timed word or two. Any ally (except you) within immediate range can make a recovery roll that is not an action and does not count toward their daily limit. Action."
+      },
+      {
+        "from": "ability:tower_of_intellect",
+        "line": "You are trained in Intellect defense tasks. If you are already trained, you are specialized in those tasks instead. Enabler."
+      },
+      {
+        "from": "ability:tower_of_will",
+        "line": "You are trained in Intellect defense tasks and gain +3 points to your Intellect Pool. Enabler."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You are trained in Intellect defense."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

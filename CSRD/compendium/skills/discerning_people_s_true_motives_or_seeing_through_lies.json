@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Discerning People’s True Motives or Seeing Through Lies",
+  "slug": "discerning_people_s_true_motives_or_seeing_through_lies",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:honorable",
+        "line": "Skill: You are trained in discerning people’s true motives or seeing through lies."
+      },
+      {
+        "from": "descriptor:virtuous",
+        "line": "Skill: You are trained in discerning people’s true motives or seeing through lies."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

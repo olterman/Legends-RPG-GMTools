@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Computer Programming",
+  "slug": "computer_programming",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You are trained in using (and exploiting) computer software, you know one or more computer languages well enough to write basic programs, and you are fluent in internet protocol. Enabler. Concussion (7 Intellect points): You cause a pulse of concussive force to explode out from a point you choose within long range. The pulse extends up to short range in all directions, dealing 5 points of damage to everything in the area. Even if you fail the attack roll, targets in the area take 1 point of damage. Action. Concussive Blast (2 Intellect points): You release a beam of pure force that smashes into a creature within short range, inflicting 5 points of damage and moving it back an immediate distance. Action.",
+  "details": [
+    "You are trained in using (and exploiting) computer software, you know one or more computer languages well enough to write basic programs, and you are fluent in internet protocol. Enabler.",
+    "Concussion (7 Intellect points): You cause a pulse of concussive force to explode out from a point you choose within long range. The pulse extends up to short range in all directions, dealing 5 points of damage to everything in the area. Even if you fail the attack roll, targets in the area take 1 point of damage. Action.",
+    "Concussive Blast (2 Intellect points): You release a beam of pure force that smashes into a creature within short range, inflicting 5 points of damage and moving it back an immediate distance. Action."
+  ]
+}

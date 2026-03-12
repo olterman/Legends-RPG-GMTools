@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Adroit Cypher Use",
+  "slug": "adroit_cypher_use",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "You can bear four cyphers at a time. Enabler. Advanced Command (7 Intellect points): A target within short range obeys any command you give as long as they can hear and understand you. Further, as long as you continue to do nothing but issue commands (taking no other action), you can give that same target a new command. This effect ends when you stop issuing commands or they are out of short range. Action to initiate. Advantage to Disadvantage (3 Speed points): With a number of quick moves, you make an attack against an armed foe, inflicting damage and disarming them so that their weapon is now in your hands or 10 feet (3 m) away on the ground—your choice. This disarming attack is hindered. Action.",
+  "details": [
+    "You can bear four cyphers at a time. Enabler.",
+    "Advanced Command (7 Intellect points): A target within short range obeys any command you give as long as they can hear and understand you. Further, as long as you continue to do nothing but issue commands (taking no other action), you can give that same target a new command. This effect ends when you stop issuing commands or they are out of short range. Action to initiate.",
+    "Advantage to Disadvantage (3 Speed points): With a number of quick moves, you make an attack against an armed foe, inflicting damage and disarming them so that their weapon is now in your hands or 10 feet (3 m) away on the ground—your choice. This disarming attack is hindered. Action."
+  ]
+}

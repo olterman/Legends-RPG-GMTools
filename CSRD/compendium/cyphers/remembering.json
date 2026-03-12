@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Remembering",
+  "slug": "remembering",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Allows the user to recall any one experience they’ve ever had. The experience can be no longer than one minute per cypher level, but the recall is perfect, so (for example) if they saw someone dial a phone, they will remember the number.",
+  "depletion": null
+}

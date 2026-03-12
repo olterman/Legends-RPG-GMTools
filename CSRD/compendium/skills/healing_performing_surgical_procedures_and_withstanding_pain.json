@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Healing, Performing Surgical Procedures, and Withstanding Pain",
+  "slug": "healing_performing_surgical_procedures_and_withstanding_pain",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:autodoctor",
+        "line": "You are trained in healing, performing surgical procedures, and withstanding pain. You can perform surgeries on yourself, remaining conscious while you do so. Enabler."
+      },
+      {
+        "from": "ability:autodoctor",
+        "line": "You are trained in healing, performing surgical procedures, and withstanding pain. You can perform surgeries on yourself, remaining conscious while you do so. Enabler. Awareness (3 Intellect points): You become hyperaware of your surroundings in order to better locate your target. For ten minutes, you are aware of all living things within long range (including their general position), and by concentrating (another action), you can attempt to learn the general health and power level of any one of them. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

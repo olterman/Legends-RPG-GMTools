@@ -1,0 +1,281 @@
+{
+  "count": 24,
+  "items": [
+    {
+      "title": "Aldamir",
+      "slug": "aldamir",
+      "source_path": "logseq/pages/Aldamir.md",
+      "excerpt": "_The Jewel of the Tree_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 45
+    },
+    {
+      "title": "Ancestral Descriptors",
+      "slug": "ancestral_descriptors",
+      "source_path": "logseq/pages/Ancestral Descriptors.md",
+      "excerpt": "**You are a Sky-Touched Alfirin**",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 53
+    },
+    {
+      "title": "Caldor",
+      "slug": "caldor",
+      "source_path": "logseq/pages/Caldor.md",
+      "excerpt": "_The Age of Tomorrow_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 21
+    },
+    {
+      "title": "Cirdion",
+      "slug": "cirdion",
+      "source_path": "logseq/pages/Cirdion.md",
+      "excerpt": "_The First Alfirin Realm_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 42
+    },
+    {
+      "title": "Cirth",
+      "slug": "cirth",
+      "source_path": "logseq/pages/Cirth.md",
+      "excerpt": "Cird",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 25
+    },
+    {
+      "title": "Ered Engrin",
+      "slug": "ered_engrin",
+      "source_path": "logseq/pages/Ered Engrin.md",
+      "excerpt": "_The Deepwardens of Ered Engrin_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 37
+    },
+    {
+      "title": "Fenmir",
+      "slug": "fenmir",
+      "source_path": "logseq/pages/Fenmir.md",
+      "excerpt": "_The Mortal Heartlands_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 12
+    },
+    {
+      "title": "Gods and Powers",
+      "slug": "gods_and_powers",
+      "source_path": "logseq/pages/Gods and Powers.md",
+      "excerpt": "In the Lands of Legends, the gods are not beings.",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 55
+    },
+    {
+      "title": "Lomêanor",
+      "slug": "lom_anor",
+      "source_path": "logseq/pages/Lomêanor.md",
+      "excerpt": "_The Land of Shadow Beyond the Sands_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 43
+    },
+    {
+      "title": "Peoples",
+      "slug": "peoples",
+      "source_path": "logseq/pages/Peoples.md",
+      "excerpt": "Immortal exiles from a shattered world; entered through damaged Gates after failed negotiation with the Velim; fractured into Sky Children (open, cultured), Forest Folk (Galadhrim, wild stewards), and Nightshades (Duathrim, secretive manipulators).",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 50
+    },
+    {
+      "title": "Places",
+      "slug": "places",
+      "source_path": "logseq/pages/Places.md",
+      "excerpt": "**Cirdion** — ancient Alfirin coastal realm, white stone cliff-cities, wind-swept terraces, sky and sea aesthetics, advanced shipbuilding, meritocratic councils, immortal scholars, light-infused architecture, calm precision, openness masking deep restraint, hi",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 64
+    },
+    {
+      "title": "The Alfirin Tribes",
+      "slug": "the_alfirin_tribes",
+      "source_path": "logseq/pages/The Alfirin Tribes.md",
+      "excerpt": "The **Alfirin** are the Immortal Ones, the first of the elder peoples to set foot upon the Lands of Legends.",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 36
+    },
+    {
+      "title": "The Daelgast",
+      "slug": "the_daelgast",
+      "source_path": "logseq/pages/The Daelgast.md",
+      "excerpt": "_The Horror-Void-Beyond-the-World_",
+      "categories": [
+        "race"
+      ],
+      "mentions_total": 20
+    },
+    {
+      "title": "The Duergar",
+      "slug": "the_duergar",
+      "source_path": "logseq/pages/The Duergar.md",
+      "excerpt": "_The Deepbound, the Stone-Oath Folk_",
+      "categories": [
+        "race"
+      ],
+      "mentions_total": 24
+    },
+    {
+      "title": "The Fellic",
+      "slug": "the_fellic",
+      "source_path": "logseq/pages/The Fellic.md",
+      "excerpt": "The **Fellic** are an enduring mystery among the peoples of the Lands of Legends. Unlike the great migrations of the Alfirin, the sudden arrivals of other races, or the recorded expansions of humankind, the Fellic have **always been here**.",
+      "categories": [
+        "race"
+      ],
+      "mentions_total": 76
+    },
+    {
+      "title": "The Human Tribes",
+      "slug": "the_human_tribes",
+      "source_path": "logseq/pages/The Human Tribes.md",
+      "excerpt": "Among the elder races, humans are often dismissed as brief sparks—short-lived, impulsive, and fragile. Yet it is precisely this impermanence that has shaped humanity into the most adaptable and unpredictable of all peoples. Where immortals plan in centuries, h",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 23
+    },
+    {
+      "title": "The Lhainîm",
+      "slug": "the_lhain_m",
+      "source_path": "logseq/pages/The Lhainîm.md",
+      "excerpt": "_The First Little Ones_",
+      "categories": [
+        "race"
+      ],
+      "mentions_total": 9
+    },
+    {
+      "title": "The Lilim",
+      "slug": "the_lilim",
+      "source_path": "logseq/pages/The Lilim.md",
+      "excerpt": "No one knows where the **Lilim** came from.",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 32
+    },
+    {
+      "title": "The Sands",
+      "slug": "the_sands",
+      "source_path": "logseq/pages/The Sands.md",
+      "excerpt": "_The Nameless Expanse_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 57
+    },
+    {
+      "title": "The Small Folk",
+      "slug": "the_small_folk",
+      "source_path": "logseq/pages/The Small Folk.md",
+      "excerpt": "_Those Who Walk Beneath Notice_",
+      "categories": [
+        "environment",
+        "race"
+      ],
+      "mentions_total": 79
+    },
+    {
+      "title": "The Uruk Tribes",
+      "slug": "the_uruk_tribes",
+      "source_path": "logseq/pages/The Uruk Tribes.md",
+      "excerpt": "To the common folk of the lowlands and cities, the **Uruk** are little more than monsters given flesh: wild-eyed raiders, feral warbands, and brutal conquerors who respect only strength. Songs and campfire tales rarely grant them history, culture, or reason. I",
+      "categories": [
+        "environment",
+        "race"
+      ],
+      "mentions_total": 22
+    },
+    {
+      "title": "Untitled",
+      "slug": "untitled",
+      "source_path": "logseq/pages/Untitled.md",
+      "excerpt": "AI Art",
+      "categories": [
+        "race"
+      ],
+      "mentions_total": 8
+    },
+    {
+      "title": "World Seed",
+      "slug": "world_seed",
+      "source_path": "logseq/pages/World Seed.md",
+      "excerpt": "The Lands of Legends is a mythic fantasy world shaped by ancient passage, fracture, and restraint.",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 36
+    },
+    {
+      "title": "Xanthir",
+      "slug": "xanthir",
+      "source_path": "logseq/pages/Xanthir.md",
+      "excerpt": "_The Red Faith Ascendant_",
+      "categories": [
+        "city",
+        "environment",
+        "race"
+      ],
+      "mentions_total": 34
+    }
+  ]
+}

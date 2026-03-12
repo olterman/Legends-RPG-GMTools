@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Witch",
+  "slug": "witch",
+  "level": 5,
+  "target_number": 15,
+  "description": "They studied the old ways at the dark of the moon. They heard the shuffle of unnamed things through the darkling forest, watched the convection of the bubbles rise in the cauldron, and attended to the mumbled instructions of withered crones and crumbling messages traced on dead leaves. Then one midnight, everything came together. Another witch was born. When witches lose sight of their humanity and use their powers for personal gain without regard for others, they are warped by the power they channel, both mentally and physically. However, they can hide such transformations beneath layers of illusion.",
+  "motive": "Domination of others, knowledge",
+  "environment": "Almost anywhere, usually alone, but sometimes as part of a coven of three to seven witches",
+  "health": "21",
+  "damage_inflicted": "5 points",
+  "armor": null,
+  "movement": "Short; long when flying (on a broomstick)",
+  "modifications": "Deception and disguise as level 7; Speed defense as level 6 due to familiar; knowledge of forests and dark secrets as level 6",
+  "combat": "When attacked, a witch relies on the aid of their familiar to improve their Speed defense. The familiar could be a large black cat, an owl, a big snake, or some other creature. Killing a witch’s familiar is so shocking to a witch that their attacks and Speed defense are hindered for a few days. It’s also a way to ensure that the witch never forgives their foe or grants mercy. (Familiar: level 3; health 9; Armor 1) A witch can use their ritual blade to attack a creature in immediate range, but would much rather use curses, including the ones described below. A witch can’t use the same curse more than once every other round. Charm: Victims within short range who fail an Intellect defense roll are enslaved. Victims turn on their allies or take some other action described by their new master. The curse lasts for one minute, or until the victims succeed on an Intellect defense roll; each time they fail a roll, the next roll is hindered by one additional step. Hexbolt: A victim within long range is attacked with fire, cold, or psychic bolts, as the witch chooses. Psychic bolts deal 3 points of Intellect damage (ignores Armor). Shrivel: A victim within long range and up to two creatures next to the victim must succeed on a Might defense roll or take 3 points of Speed damage (ignores Armor). In each subsequent round, a victim who failed the previous roll must make another Might defense roll with the same outcome on failure. Vitality: The witch regains 11 points of health and gains +3 to Armor for one minute. Multiple uses don’t further improve Armor.",
+  "interaction": "Most witches are deceptive and conniving, though a few work against the stereotype. All witches are willing to negotiate, though the devious ones usually do so in bad faith.",
+  "use": "The PCs need an old book to continue their investigation. Word is that the old woman who lives on the edge of the woods has the only copy.",
+  "loot": "A witch usually has an artifact or two on their person, possibly including a flying broom (which has a depletion roll of 1 in 1d10).",
+  "gm_intrusion": "After a character succeeds on a defense roll against one of the witch’s ongoing curse effects, the witch immediately tosses a hexbolt at them. If the character is hit, the ongoing curse effect also continues."
+}

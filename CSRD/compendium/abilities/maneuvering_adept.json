@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Maneuvering Adept",
+  "slug": "maneuvering_adept",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "If you apply at least one level of Effort to a task involving climbing, jumping, balancing, or some other kind of maneuvering, you get a free level of Effort. Enabler. Mask (5 Intellect points): You transform your body to become someone else. You can change any physical characteristic you wish, including coloration, height, weight, gender, and distinguishing markings. You can also change the appearance of whatever you are wearing or carrying. Your stats, as well as the stats of your items, do not change. You remain in this form for up to a day or until you use an action to resume your normal appearance. Action to initiate.",
+  "details": [
+    "If you apply at least one level of Effort to a task involving climbing, jumping, balancing, or some other kind of maneuvering, you get a free level of Effort. Enabler.",
+    "Mask (5 Intellect points): You transform your body to become someone else. You can change any physical characteristic you wish, including coloration, height, weight, gender, and distinguishing markings. You can also change the appearance of whatever you are wearing or carrying. Your stats, as well as the stats of your items, do not change. You remain in this form for up to a day or until you use an action to resume your normal appearance. Action to initiate."
+  ]
+}

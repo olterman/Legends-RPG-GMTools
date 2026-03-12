@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Underworld Contacts",
+  "slug": "underworld_contacts",
+  "cost": null,
+  "alpha_section": "U",
+  "effect": "You know many people in a variety of communities who engage in illegal activities. These people are not necessarily your friends and might not be trustworthy, but they recognize you as a peer. You and the GM should work out the details of your underworld contacts. Enabler. Undo (5 Intellect points): You turn back time a few seconds, effectively undoing a single creature’s most recent action. That creature can then immediately repeat the same action or try something different. Action.",
+  "details": [
+    "You know many people in a variety of communities who engage in illegal activities. These people are not necessarily your friends and might not be trustworthy, but they recognize you as a peer. You and the GM should work out the details of your underworld contacts. Enabler.",
+    "Undo (5 Intellect points): You turn back time a few seconds, effectively undoing a single creature’s most recent action. That creature can then immediately repeat the same action or try something different. Action."
+  ]
+}

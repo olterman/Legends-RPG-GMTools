@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wolf",
+  "slug": "wolf",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 3, perception as level 4",
+  "details": [
+    "level 3, perception as level 4"
+  ]
+}

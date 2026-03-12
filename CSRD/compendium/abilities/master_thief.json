@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Master Thief",
+  "slug": "master_thief",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You are trained in climbing, escaping from bonds, slipping through narrow places, and other contortionist moves. Enabler.",
+  "details": [
+    "You are trained in climbing, escaping from bonds, slipping through narrow places, and other contortionist moves. Enabler."
+  ]
+}

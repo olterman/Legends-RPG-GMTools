@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One Skill Relating to Current or Past Career, Such as Computers, Journalism, Law, Machinery, or Medicine",
+  "slug": "one_skill_relating_to_current_or_past_career_such_as_computers_journalism_law_machinery_or_medicine",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skill",
+        "line": "You’re trained in one skill relating to your current or past career, such as computers, journalism, law, machinery, or medicine."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

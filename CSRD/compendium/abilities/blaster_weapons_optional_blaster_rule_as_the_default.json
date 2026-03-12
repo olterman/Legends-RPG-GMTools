@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "BLASTER WEAPONS Optional Blaster Rule as the Default",
+  "slug": "blaster_weapons_optional_blaster_rule_as_the_default",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The advantage that blaster weapons have over other projectile and coherent light weapons is their ability to penetrate targets, which renders Armor less effective. This optional rule is presented as the default rule in The Stars Are Fire to demonstrate their superior tech level even over advanced tech weapons.",
+  "details": [
+    "The advantage that blaster weapons have over other projectile and coherent light weapons is their ability to penetrate targets, which renders Armor less effective. This optional rule is presented as the default rule in The Stars Are Fire to demonstrate their superior tech level even over advanced tech weapons."
+  ]
+}

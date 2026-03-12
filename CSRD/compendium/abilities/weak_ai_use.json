@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Weak AI Use",
+  "slug": "weak_ai_use",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Weak AIs are used in real life already, and thus are presumed to be part of settings where contemporary tech predominates. They are convenient in circumstances where one’s hands are full or otherwise engaged, when verbal direction allows one to turn on a light, open a door, adjust the temperature, and so on. Machine learning may allow a weak AI to extend its capabilities in a very limited regime. But a weak AI is not cognizant enough to provide an asset to performing tasks any better.",
+  "details": [
+    "Weak AIs are used in real life already, and thus are presumed to be part of settings where contemporary tech predominates. They are convenient in circumstances where one’s hands are full or otherwise engaged, when verbal direction allows one to turn on a light, open a door, adjust the temperature, and so on. Machine learning may allow a weak AI to extend its capabilities in a very limited regime. But a weak AI is not cognizant enough to provide an asset to performing tasks any better."
+  ]
+}

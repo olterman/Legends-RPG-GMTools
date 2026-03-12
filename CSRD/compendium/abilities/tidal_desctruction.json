@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tidal Desctruction",
+  "slug": "tidal_desctruction",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Mechanically speaking, while a spacecraft feels tidal forces by passing too close to a black hole’s event horizon, all tasks aboard the craft are hindered, Void Rules are in effect, and if a GM intrusion is triggered thereby, the ship sustains major damage and risks coming apart. Meanwhile, PCs in the ship (assuming some sort of fantastic tech-rated gravity nullifier isn’t in use) suffer 1 point of ambient damage each round. A ship near a very large black hole (like Sagittarius A*, the supermassive black hole at the center of the Milky Way Galaxy) can avoid tidal effects because the gravity gradient is so much wider, but still feel relativistic time dilation.",
+  "details": [
+    "Mechanically speaking, while a spacecraft feels tidal forces by passing too close to a black hole’s event horizon, all tasks aboard the craft are hindered, Void Rules are in effect, and if a GM intrusion is triggered thereby, the ship sustains major damage and risks coming apart. Meanwhile, PCs in the ship (assuming some sort of fantastic tech-rated gravity nullifier isn’t in use) suffer 1 point of ambient damage each round.",
+    "A ship near a very large black hole (like Sagittarius A*, the supermassive black hole at the center of the Milky Way Galaxy) can avoid tidal effects because the gravity gradient is so much wider, but still feel relativistic time dilation."
+  ]
+}

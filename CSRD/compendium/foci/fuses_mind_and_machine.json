@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fuses Mind and Machine",
+  "slug": "fuses_mind_and_machine",
+  "summary": "Electronic aids implanted in your brain make you a mental powerhouse.",
+  "tiers": [
+    "Tier 1: Enhanced Intellect",
+    "Tier 1: Knowledge Skills",
+    "Tier 2: Network Tap",
+    "Tier 3: Action Processor or Machine Telepathy",
+    "Tier 4: Greater Enhanced Intellect",
+    "Tier 4: Knowledge Skills",
+    "Tier 5: See the Future",
+    "Tier 6: Machine Enhancement or Mind Surge"
+  ],
+  "gm_intrusions": "Machines malfunction and shut down. Powerful machine intelligences can take control of lesser thinking machines. Some people don’t trust a person who isn’t fully organic.",
+  "text": "Electronic aids implanted in your brain make you a mental powerhouse.",
+  "details": [
+    "Electronic aids implanted in your brain make you a mental powerhouse."
+  ]
+}

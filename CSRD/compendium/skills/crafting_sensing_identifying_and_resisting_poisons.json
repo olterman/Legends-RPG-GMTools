@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Crafting, Sensing, Identifying, and Resisting Poisons",
+  "slug": "crafting_sensing_identifying_and_resisting_poisons",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:poison_crafter",
+        "line": "You are trained in crafting, sensing, identifying, and resisting poisons. Your poison crafting has given you some immunity to poisons; you have +5 Armor that applies specifically to poison damage. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

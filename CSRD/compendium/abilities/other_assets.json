@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Other Assets",
+  "slug": "other_assets",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Death spells, instant-kill abilities, soul manipulation",
+  "details": [
+    "Death spells, instant-kill abilities, soul manipulation"
+  ]
+}

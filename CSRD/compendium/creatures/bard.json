@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bard",
+  "slug": "bard",
+  "level": 3,
+  "target_number": 9,
+  "description": "A bard uses the power of words and music to create magic that inspires and influences others. A typical bard plays a musical instrument and weaves song-spells that rival the magic of wizards and priests, but some use their voices, creating fascinating tales and dramatic speeches.",
+  "motive": "Entertainment, interaction, and novel experiences",
+  "environment": null,
+  "health": "10",
+  "damage_inflicted": "3 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Music, oration, persuasion, stealth, and Speed defense as level 4",
+  "combat": "Bards prefer weapons that rely on speed and agility, like daggers, rapiers, and small bows. Every other round, a bard can create a blast of pure sound that inflicts 3 points of damage (ignores Armor) to one target within short range. A bard knows several spells, such as adding +1 to recovery rolls of nearby creatures, making an indifferent creature friendly (or a hostile one indifferent) for a few minutes, deafening one opponent for hours, easing a physical task by two steps, turning invisible for a minute, or negating sound for a minute.",
+  "interaction": "Bards are personable and easy to talk to, but they have a sharp wit and a sharper tongue when it comes to critics and tyrants. A bard would rather escape from a dangerous situation than fight to the death.",
+  "use": "A bard ally often has useful information about the current situation, drawn from songs and folk tales. In a pinch, they can make do as a scout or spy, especially in an urban setting. An unfriendly bard mocks the characters and turns the will of a crowd against them.",
+  "loot": "In addition to a musical instrument and a nice outfit for performing, bards usually have currency equivalent to a moderately priced item and one or two cyphers.",
+  "gm_intrusion": null
+}

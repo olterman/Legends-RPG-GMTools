@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Invisible Target",
+  "slug": "invisible_target",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If an attacker can use other senses (such as hearing) to get an idea of where the opponent might be, attacks against such targets are hindered by four steps. Otherwise, attacks against an invisible creature fail without the need for a roll unless the player spends 1 XP to “make a lucky shot” or the GM uses GM intrusion. Water Being in shallow water can make it hard to move, but it doesn’t affect combat. Being in deep water can make things difficult, and being underwater entirely can seem as different as being on another world.",
+  "details": [
+    "If an attacker can use other senses (such as hearing) to get an idea of where the opponent might be, attacks against such targets are hindered by four steps. Otherwise, attacks against an invisible creature fail without the need for a roll unless the player spends 1 XP to “make a lucky shot” or the GM uses GM intrusion.",
+    "Water",
+    "Being in shallow water can make it hard to move, but it doesn’t affect combat. Being in deep water can make things difficult, and being underwater entirely can seem as different as being on another world."
+  ]
+}

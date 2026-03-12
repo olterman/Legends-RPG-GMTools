@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Will of Legend",
+  "slug": "will_of_legend",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You are immune to attacks that would captivate, mesmerize, charm, or otherwise influence your mind. Enabler.",
+  "details": [
+    "You are immune to attacks that would captivate, mesmerize, charm, or otherwise influence your mind. Enabler."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Attacks Using That Type of Weapon",
+  "slug": "attacks_using_that_type_of_weapon",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:flex_weapon_skill",
+        "line": "At the beginning of each day, choose one type of attack: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. For the rest of that day, you are trained in attacks using that type of weapon. You can’t use this ability with an attack skill in which you’re already trained to become specialized. Enabler."
+      },
+      {
+        "from": "ability:flex_weapon_skill",
+        "line": "At the beginning of each day, choose one type of attack: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. For the rest of that day, you are trained in attacks using that type of weapon. You can’t use this ability with an attack skill in which you’re already trained to become specialized. Enabler. Flight (4+ Intellect points): You can float and fly through the air for one hour. For each level of Effort applied, you can affect one additional creature of your size or smaller. You must touch the creature to bestow the power of flight. You direct the other creature’s movement, and while flying, it must remain within sight of you or fall. In terms of overland movement, a flying creature moves about 20 miles (32 km) per hour and is not affected by terrain. Action to initiate. Flight Exertion (3 Might or 3 Speed points): You can fly up to a short distance as your movement this round. If all you do is move on your turn, you can fly up to a long distance. Enabler."
+      },
+      {
+        "from": "ability:greater_skill_with_attacks",
+        "line": "Choose one type of attack, even one in which you are already trained: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. You are trained in attacks using that type of weapon. If you’re already trained in that type of attack, you instead are specialized in that type of attack. Enabler."
+      },
+      {
+        "from": "ability:skill_with_attacks",
+        "line": "Choose one type of attack in which you are not already trained: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. You are trained in attacks using that type of weapon. You can select this ability multiple times. Each time you select it, you must choose a different type of attack. Enabler."
+      }
+    ],
+    "expert": [
+      {
+        "from": "ability:mastery_with_attacks",
+        "line": "Choose one type of attack in which you are trained: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. You are specialized in attacks using that type of weapon. Enabler. (If you aren’t trained in an attack, select Skill With Attacks to become trained in that attack.)"
+      }
+    ]
+  },
+  "levels": [
+    "trained",
+    "expert"
+  ],
+  "summary": "trained, expert"
+}

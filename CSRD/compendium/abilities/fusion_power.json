@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fusion Power",
+  "slug": "fusion_power",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Electrical generation by using heat from nuclear fusion reactions, requiring relatively small fuel input for much higher-power output. Fuel sources include helium-3 (abundant on the Moon and other locations in the solar system without an atmosphere).",
+  "details": [
+    "Electrical generation by using heat from nuclear fusion reactions, requiring relatively small fuel input for much higher-power output. Fuel sources include helium-3 (abundant on the Moon and other locations in the solar system without an atmosphere)."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Brigandine",
+  "slug": "brigandine",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Long strips of metal attached to a cloth or leather backing. Often called “splint mail.”",
+  "details": [
+    "Long strips of metal attached to a cloth or leather backing. Often called “splint mail.”"
+  ]
+}

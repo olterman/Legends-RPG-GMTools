@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Burst Boost",
+  "slug": "burst_boost",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "This cypher boosts an ability that affects a single target at short range or farther. The range decreases to immediate, but the ability affects all targets within immediate range.",
+  "depletion": null
+}

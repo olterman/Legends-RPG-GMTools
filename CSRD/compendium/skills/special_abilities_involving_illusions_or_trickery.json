@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Special Abilities Involving Illusions or Trickery",
+  "slug": "special_abilities_involving_illusions_or_trickery",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:stealthy",
+        "line": "Skill: You’re trained in all special abilities involving illusions or trickery."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

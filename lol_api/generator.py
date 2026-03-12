@@ -35,6 +35,14 @@ def nonempty_sections(**kwargs: str) -> dict[str, str]:
     return {k: v for k, v in kwargs.items() if clean_text(v)}
 
 
+def title_from_text(text: str, max_words: int = 6) -> str:
+    cleaned = clean_text(text)
+    if not cleaned:
+        return ""
+    words = cleaned.split()
+    return " ".join(words[:max_words]).title()
+
+
 def deterministic_rng(payload: dict[str, Any], global_seed: str | None = None) -> random.Random:
     explicit_seed = str(payload.get("seed", "")).strip()
 
@@ -626,34 +634,34 @@ def generate_encounter(payload: dict[str, Any], config: dict[str, Any], rng: ran
     truth = choose_one(encounter_cfg.get("truths", []), rng)
     complication = choose_one(encounter_cfg.get("complications", []), rng)
     hook = choose_one(encounter_cfg.get("hooks", []), rng)
-
-    style_text = resolve_style_text(config, "legends_encounter_art")
+    title_base = title_from_text(subject) or title_from_text(first_impression)
+    environment_title = clean_text(environment_key.replace("_", " ")).title()
+    encounter_name = title_base or f"Encounter in {environment_title}"
 
     sections_dict = nonempty_sections(
+        subject=subject,
         environment=clean_text(str(environment_cfg.get("description", ""))),
         first_notice=first_impression,
-        subject=subject,
-        truth=truth,
-        complication=complication,
         hook=hook,
-        style=style_text,
+        complication=complication,
+        truth=truth,
     )
 
     text_sections = ["Encounter seed."]
     for label, key in [
+        ("Subject", "subject"),
         ("Environment", "environment"),
-        ("What the party first notices", "first_notice"),
-        ("Who or what is involved", "subject"),
-        ("What is actually happening", "truth"),
+        ("First Notice", "first_notice"),
+        ("Hook", "hook"),
         ("Complication", "complication"),
-        ("GM Hook", "hook"),
-        ("STYLE", "style"),
+        ("Truth", "truth"),
     ]:
         if sections_dict.get(key):
             text_sections.extend(["", f"{label}:", ensure_period(sections_dict[key])])
 
     return {
         "type": "encounter",
+        "name": encounter_name,
         "sections": sections_dict,
         "text": "\n".join(text_sections).strip() + "\n",
         "metadata": {

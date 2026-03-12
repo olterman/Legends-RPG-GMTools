@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Exiting FTL",
+  "slug": "exiting_ftl",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The same sorts of complications could bedevil a craft exiting FTL as when entering. If so, a piloting roll is required. However, on a failed roll, results include a collision (use the Ship Collision Damage Track provided under the Asteroid Belt/Debris Field space hazard), an inadvertent spray of high-energy particles from abnormal space acting as a particle cannon accidentally aimed at some other craft or space station at the destination location, or creating/falling into a spatial anomaly.",
+  "details": [
+    "The same sorts of complications could bedevil a craft exiting FTL as when entering. If so, a piloting roll is required. However, on a failed roll, results include a collision (use the Ship Collision Damage Track provided under the Asteroid Belt/Debris Field space hazard), an inadvertent spray of high-energy particles from abnormal space acting as a particle cannon accidentally aimed at some other craft or space station at the destination location, or creating/falling into a spatial anomaly."
+  ]
+}

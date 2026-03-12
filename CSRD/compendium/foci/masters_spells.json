@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Masters Spells",
+  "slug": "masters_spells",
+  "summary": "By specializing in spellcasting and keeping a spellbook, you can quickly cast spells of arcing lightning, rolling fire, creeping shadow, and summoning.",
+  "tiers": [
+    "Tier 1: Arcane Flare",
+    "Tier 2: Ray of Confusion",
+    "Tier 3: Fire Bloom or Summon Giant Spider",
+    "Tier 4: Soul Interrogation",
+    "Tier 5: Granite Wall",
+    "Tier 6: Summon Demon or Word of Death"
+  ],
+  "gm_intrusions": "The spell goes wrong. The summoned creature turns on the caster. A rival spellcaster is drawn to the magic use.",
+  "text": "By specializing in spellcasting and keeping a spellbook, you can quickly cast spells of arcing lightning, rolling fire, creeping shadow, and summoning.",
+  "details": [
+    "By specializing in spellcasting and keeping a spellbook, you can quickly cast spells of arcing lightning, rolling fire, creeping shadow, and summoning."
+  ]
+}

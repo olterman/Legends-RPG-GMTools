@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Armor Reinforcer",
+  "slug": "armor_reinforcer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "The user’s Armor gains an enhancement for twenty-four hours. Roll a d6 to determine the result.",
+  "depletion": null
+}

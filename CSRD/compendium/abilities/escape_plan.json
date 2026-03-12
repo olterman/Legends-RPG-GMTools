@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Escape Plan",
+  "slug": "escape_plan",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "When you kill a foe, you can attempt a stealth task to immediately hide from anyone around, assuming that a suitable hiding place is nearby. Enabler. Evanesce (3 Speed points): You step into shadows or behind cover, and everyone who was observing you completely loses track of you. Although you’re not invisible, you can’t be seen until you reveal yourself again by moving out of the shadows or from behind cover (or by making an attack). Action.",
+  "details": [
+    "When you kill a foe, you can attempt a stealth task to immediately hide from anyone around, assuming that a suitable hiding place is nearby. Enabler.",
+    "Evanesce (3 Speed points): You step into shadows or behind cover, and everyone who was observing you completely loses track of you. Although you’re not invisible, you can’t be seen until you reveal yourself again by moving out of the shadows or from behind cover (or by making an attack). Action."
+  ]
+}

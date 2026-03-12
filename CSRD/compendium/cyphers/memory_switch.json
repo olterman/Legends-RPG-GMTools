@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Memory Switch",
+  "slug": "memory_switch",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "The user selects a point within long range, and the minds of all thinking creatures within immediate range of that point are attacked. Victims are dazed and take no action for a round, and they have no memory of the preceding hour.",
+  "depletion": null
+}

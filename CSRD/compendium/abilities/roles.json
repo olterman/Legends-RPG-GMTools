@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Roles",
+  "slug": "roles",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Applying reagents, chanting, prayers, shielding the corpse from hostile entities",
+  "details": [
+    "Applying reagents, chanting, prayers, shielding the corpse from hostile entities"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Broadsword",
+  "slug": "broadsword",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A long-bladed sword, longer than a dagger, heavier than a rapier, but not as large as a greatsword.",
+  "details": [
+    "A long-bladed sword, longer than a dagger, heavier than a rapier, but not as large as a greatsword."
+  ]
+}

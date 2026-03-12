@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Such",
+  "slug": "such",
+  "progression": {
+    "inability": [
+      {
+        "from": "ability:attacker_is_jostled",
+        "line": "Being jostled, such as while standing on a listing ship or a vibrating platform, makes attacking difficult. Such attacks are hindered. Characters trained in balancing or sailing would ignore penalties for being on a ship."
+      },
+      {
+        "from": "ability:attacker_is_jostled",
+        "line": "Being jostled, such as while standing on a listing ship or a vibrating platform, makes attacking difficult. Such attacks are hindered. Characters trained in balancing or sailing would ignore penalties for being on a ship. SPECIAL SITUATION: COMBAT BETWEEN NPCs When an NPC ally of the PCs attacks another NPC, the GM can designate a player to roll and handle it like a PC attacking. Often, the choice is obvious. For example, a character who has a trained attack animal should roll when their pet attacks enemies. If an NPC ally accompanying the party leaps into the fray, that ally’s favorite PC rolls for them. NPCs cannot apply Effort. Of course, it’s perfectly fitting (and easier) to have the NPC ally use the cooperative action rules to aid a PC instead of making direct attacks, or to compare the levels of the two NPCs (higher wins). SPECIAL SITUATION: COMBAT BETWEEN PCs When one PC attacks another PC, the attacking character makes an attack roll, and the other character makes a defense roll, adding any appropriate modifiers. If the attacking PC has a skill, ability, asset, or other effect that would ease the attack if it were made against an NPC, the character adds 3 to the roll for each step reduction (+3 for one step, +6 for two steps, and so on). If the attacker’s final result is higher, the attack hits. If the defender’s result is higher, the attack misses. Damage is resolved normally. The GM mediates all special effects."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

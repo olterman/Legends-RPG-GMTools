@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Perception Tasks",
+  "slug": "perception_tasks",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:intuitive",
+        "line": "Skill: You are trained in perception tasks."
+      },
+      {
+        "from": "descriptor:naive",
+        "line": "Skill: You’re wide-eyed. You are trained in perception tasks."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tasks to Resist Mental",
+  "slug": "tasks_to_resist_mental",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:mad",
+        "line": "Inability: Your mind is quite fragile. Tasks to resist mental attacks are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

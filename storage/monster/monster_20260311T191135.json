@@ -1,0 +1,51 @@
+{
+  "saved_at": "2026-03-11T19:11:35.127740+00:00",
+  "filename": "monster/monster_20260311T191135.json",
+  "payload": {
+    "environment": "fenmir_wilds"
+  },
+  "result": {
+    "type": "monster",
+    "name": "The Broken Hound",
+    "sections": {
+      "name": "The Broken Hound",
+      "concept": "nightmare-born predator",
+      "family": "horror",
+      "role": "stalker",
+      "environment": "Enclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.",
+      "appearance": "antler-like protrusions, lean survivalist build adapted to broken terrain",
+      "behavior": "attacks the weakest target first, learns from traps, patrols, and human behavior",
+      "special": "has blood, saliva, or residue that is dangerous to touch, tracks by scent, fear, blood, or magic leakage",
+      "style": "painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 14,
+      "armor": 0,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [
+        "Stealth as one level higher",
+        "Perception as one level higher"
+      ],
+      "combat": [
+        "Ambush attack inflicts 5 damage",
+        "If attacking from concealment, deals +2 damage"
+      ],
+      "interaction": [
+        "Patient predator behavior, avoids obvious disadvantage"
+      ],
+      "loot": [
+        "pelt, eye cluster, scent gland, shadow organ, or tracking residue"
+      ]
+    },
+    "stat_block_text": "The Broken Hound — horror stalker\nLevel 4 (target number 12)\nHealth: 14\nArmor: 0\nDamage: 5\nMovement: short\nModifications:\n- Stealth as one level higher\n- Perception as one level higher\nCombat:\n- Ambush attack inflicts 5 damage\n- If attacking from concealment, deals +2 damage\nInteraction:\n- Patient predator behavior, avoids obvious disadvantage\nLoot:\n- pelt, eye cluster, scent gland, shadow organ, or tracking residue",
+    "text": "Monster prompt.\n\nName:\nThe Broken Hound.\n\nConcept:\nnightmare-born predator.\n\nFamily:\nhorror.\n\nRole:\nstalker.\n\nEnvironment:\nEnclosed frontier basin beyond the western pass. A lawless region of roaming Uruk tribes, Gitz clans, unstable magic, and dangerous wilderness where settlements rarely endure.\n\nAppearance:\nantler-like protrusions, lean survivalist build adapted to broken terrain.\n\nBehavior:\nattacks the weakest target first, learns from traps, patrols, and human behavior.\n\nSpecial:\nhas blood, saliva, or residue that is dangerous to touch, tracks by scent, fear, blood, or magic leakage.\n\nSTYLE:\npainted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.\n\n---\n\nThe Broken Hound — horror stalker\nLevel 4 (target number 12)\nHealth: 14\nArmor: 0\nDamage: 5\nMovement: short\nModifications:\n- Stealth as one level higher\n- Perception as one level higher\nCombat:\n- Ambush attack inflicts 5 damage\n- If attacking from concealment, deals +2 damage\nInteraction:\n- Patient predator behavior, avoids obvious disadvantage\nLoot:\n- pelt, eye cluster, scent gland, shadow organ, or tracking residue\n",
+    "metadata": {
+      "environment": "fenmir_wilds",
+      "family": "horror",
+      "role": "stalker"
+    }
+  }
+}

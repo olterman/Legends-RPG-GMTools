@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One of the Following: Deception, Stealth, or Disguise",
+  "slug": "one_of_the_following_deception_stealth_or_disguise",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:blameless",
+        "line": "You are trained in one of the following: deception, stealth, or disguise. Enabler."
+      },
+      {
+        "from": "ability:blameless",
+        "line": "You are trained in one of the following: deception, stealth, or disguise. Enabler. Blend In (4 Intellect points): When you blend in, creatures still see you, but they attach no importance to your presence for about a minute. While blending in, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining period of effect by taking an action to focus on seeming innocuous and as if you belong. Action to initiate or reinitiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

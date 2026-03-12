@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Charm, Persuasion, or Etiquette",
+  "slug": "charm_persuasion_or_etiquette",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:learned",
+        "line": "Inability: You have few social graces. Any task involving charm, persuasion, or etiquette is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

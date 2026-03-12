@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Portcullis",
+  "slug": "portcullis",
+  "level": 5,
+  "target_number": 15,
+  "description": "An iron portcullis drops from the ceiling to block access to an area or separate a character from others nearby. If the creature dodging the falling portcullis wants to choose which side of the trap they end up on, the Speed defense roll is hindered. Otherwise, it is even chances what side they end up on. A variant of this trap is a solid wall. A magical variant is a force field.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "5 points GM Intrusion: The portcullis impales the character, trapping them beneath it until it is lifted or destroyed. The portcullis is electrified, inflicting 1 point of damage each time it is touched or attacked with flesh or a metal object. A second portcullis drops nearby, trapping a character in a small area. Murder-holes in the ceiling allow enemies to make ranged attacks on the trapped character.",
+  "armor": null,
+  "movement": null,
+  "modifications": null,
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

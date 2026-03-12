@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Gate Ring",
+  "slug": "gate_ring",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": "Wearable ring of unknown material",
+  "effect": "Creates a full-sized shield that can be used as a regular shield in combat for one character, providing an asset on Speed defense rolls for the duration of that combat, after which it returns to its ring-like form. In addition, the wielder can command the deployed shield to become a functioning star gate that remains open for just one hour, leading to a strange destination (which the wielder is potentially aware of, if they ran sufficient analysis on the ring or otherwise gained information about it before using the function).",
+  "depletion": "Automatic (if gate is formed)"
+}

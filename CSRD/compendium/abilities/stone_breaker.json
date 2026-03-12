@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Stone Breaker",
+  "slug": "stone_breaker",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "Your attacks against objects inflict 4 additional points of damage when you use a melee weapon that you wield in two hands. Enabler.",
+  "details": [
+    "Your attacks against objects inflict 4 additional points of damage when you use a melee weapon that you wield in two hands. Enabler."
+  ]
+}

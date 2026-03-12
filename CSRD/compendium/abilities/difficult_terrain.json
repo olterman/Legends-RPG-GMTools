@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Difficult Terrain",
+  "slug": "difficult_terrain",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Difficult terrain is an area filled with challenging obstacles—water up to waist height, a very steep slope, an especially narrow ledge, slippery ice, a foot or more of snow, a space so small that one must crawl through it, and so on. Difficult terrain hinders move rolls and halves movement on a round-by-round basis. This means that a short move is about 25 feet (8 m), and a long move is about 50 feet (15 m). Difficult terrain reduces long-term movement to a third of its normal rate.",
+  "details": [
+    "Difficult terrain is an area filled with challenging obstacles—water up to waist height, a very steep slope, an especially narrow ledge, slippery ice, a foot or more of snow, a space so small that one must crawl through it, and so on. Difficult terrain hinders move rolls and halves movement on a round-by-round basis. This means that a short move is about 25 feet (8 m), and a long move is about 50 feet (15 m). Difficult terrain reduces long-term movement to a third of its normal rate."
+  ]
+}

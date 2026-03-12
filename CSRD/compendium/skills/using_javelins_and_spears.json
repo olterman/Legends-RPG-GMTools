@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using Javelins and Spears",
+  "slug": "using_javelins_and_spears",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:skill",
+        "line": "You are practiced in using javelins and spears."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

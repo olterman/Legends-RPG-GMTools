@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Carpentry, Plumbing, and Electrical Repair",
+  "slug": "carpentry_plumbing_and_electrical_repair",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:handy",
+        "line": "You work for a living and are trained in tasks related to carpentry, plumbing, and electrical repair. Your knowledge in these realms also gives you an asset to craft entirely new items within your spheres of knowledge and the limits of possibility within the setting. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

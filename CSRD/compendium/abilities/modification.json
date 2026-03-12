@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Modification",
+  "slug": "modification",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Speed defense as level 3 due to size.",
+  "details": [
+    "Speed defense as level 3 due to size."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ray Emitter",
+  "slug": "ray_emitter",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Allows the user to project a ray of energy up to very long range that paralyzes the target for one minute. A small number of these devices (5%) induce paralysis that lasts for one hour.",
+  "depletion": null
+}

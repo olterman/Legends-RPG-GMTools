@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Scent",
+  "slug": "scent",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal has a strong sense of smell, gaining an asset on tracking and dealing with darkness or blindness.",
+  "details": [
+    "The animal has a strong sense of smell, gaining an asset on tracking and dealing with darkness or blindness."
+  ]
+}

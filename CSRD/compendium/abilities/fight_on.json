@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fight On",
+  "slug": "fight_on",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You do not suffer the normal penalties for being impaired on the damage track. If debilitated, instead of suffering the normal penalty of being unable to take most actions, you can continue to act; however, all tasks are hindered. Enabler.",
+  "details": [
+    "You do not suffer the normal penalties for being impaired on the damage track. If debilitated, instead of suffering the normal penalty of being unable to take most actions, you can continue to act; however, all tasks are hindered. Enabler."
+  ]
+}

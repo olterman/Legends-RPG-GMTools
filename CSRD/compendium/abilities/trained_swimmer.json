@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trained Swimmer",
+  "slug": "trained_swimmer",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "While underwater, you are trained in escaping, perception, sneaking, and swimming tasks, as well as in tasks to identify aquatic creatures and geography. Enabler.",
+  "details": [
+    "While underwater, you are trained in escaping, perception, sneaking, and swimming tasks, as well as in tasks to identify aquatic creatures and geography. Enabler."
+  ]
+}

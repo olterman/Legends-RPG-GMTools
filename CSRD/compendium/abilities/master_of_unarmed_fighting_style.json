@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Master of Unarmed Fighting Style",
+  "slug": "master_of_unarmed_fighting_style",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You are specialized in unarmed attacks. If you are already specialized in unarmed attacks, you instead deal 2 additional points of damage with unarmed attacks. Enabler.",
+  "details": [
+    "You are specialized in unarmed attacks. If you are already specialized in unarmed attacks, you instead deal 2 additional points of damage with unarmed attacks. Enabler."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Descends From Nobility",
+  "slug": "descends_from_nobility",
+  "summary": "A descendent of wealth and power, you carry a noble title and the abilities granted by a privileged upbringing.",
+  "tiers": [
+    "Tier 1: Privileged Nobility",
+    "Tier 2: Trained Interlocutor",
+    "Tier 3: Advanced Command or Noble’s Courage",
+    "Tier 4: Expert Follower",
+    "Tier 5: Asserting Your Privilege",
+    "Tier 6: Able Assistance or Mind of a Leader"
+  ],
+  "gm_intrusions": "Debts incurred by a family are owed by the character. A long-lost sibling seeks to disinherit rivals. An assassin finds the character.",
+  "text": "A descendent of wealth and power, you carry a noble title and the abilities granted by a privileged upbringing. Type Swap Option: Retinue",
+  "details": [
+    "A descendent of wealth and power, you carry a noble title and the abilities granted by a privileged upbringing.",
+    "Type Swap Option: Retinue"
+  ]
+}

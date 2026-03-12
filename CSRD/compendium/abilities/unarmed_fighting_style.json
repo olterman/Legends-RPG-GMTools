@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Unarmed Fighting Style",
+  "slug": "unarmed_fighting_style",
+  "cost": null,
+  "alpha_section": "U",
+  "effect": "You are trained in unarmed attacks. Enabler.",
+  "details": [
+    "You are trained in unarmed attacks. Enabler."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Healthy",
+  "slug": "healthy",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Add 1 to the points you regain when you make a recovery roll. Initial Link to the Starting Adventure: From the following list of options, choose how you became involved in the first adventure. 1. You joined the other PCs because they would fail without your strength. 2. You believe this endeavor will earn you a lot of valor. 3. Another PC asked—rightly—for your help. 4. An authority figure told you to do this to show you the value of humility.",
+  "details": [
+    "Add 1 to the points you regain when you make a recovery roll.",
+    "Initial Link to the Starting Adventure:",
+    "From the following list of options, choose how you became involved in the first adventure.",
+    "1. You joined the other PCs because they would fail without your strength.",
+    "2. You believe this endeavor will earn you a lot of valor.",
+    "3. Another PC asked—rightly—for your help.",
+    "4. An authority figure told you to do this to show you the value of humility."
+  ]
+}

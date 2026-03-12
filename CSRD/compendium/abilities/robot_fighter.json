@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Robot Fighter",
+  "slug": "robot_fighter",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "When fighting a robot or intelligent machine, you are trained in attacks and defense. Enabler.",
+  "details": [
+    "When fighting a robot or intelligent machine, you are trained in attacks and defense. Enabler."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Breaking Things",
+  "slug": "breaking_things",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:clumsy",
+        "line": "Skill: You’ve got a certain bull-like quality. You are trained in tasks involving breaking things."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You’re trained in breaking things. Skill: You’re trained in all jumping tasks. Inability: Your destructive reputation or some other reluctance to communicate makes people distrust you. Any task involving social interaction is hindered."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

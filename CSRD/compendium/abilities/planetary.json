@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Planetary",
+  "slug": "planetary",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "On the same planet.",
+  "details": [
+    "On the same planet."
+  ]
+}

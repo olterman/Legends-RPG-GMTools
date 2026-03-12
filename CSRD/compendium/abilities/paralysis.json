@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Paralysis",
+  "slug": "paralysis",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison prevents the creature from taking any physical actions if they fail a defense roll (this might leave them standing in place like a statue, or make them go limp and collapse to the floor). Typical durations are ten minutes, one hour, and ten hours.",
+  "details": [
+    "The poison prevents the creature from taking any physical actions if they fail a defense roll (this might leave them standing in place like a statue, or make them go limp and collapse to the floor). Typical durations are ten minutes, one hour, and ten hours."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Betrayal",
+  "slug": "betrayal",
+  "cost": null,
+  "alpha_section": "B",
+  "effect": "Any time you convince a foe that you are not a threat and then suddenly attack it (without provocation), the attack deals 4 additional points of damage. Enabler. Better Living Through Chemistry (4 Intellect points): You’ve developed drug cocktails specifically designed to work with your own biochemistry. Depending on which one you inject, it makes you smarter, faster, or tougher, but when it wears off, the crash is a doozy, so you use it only in desperate situations. You gain 2 to your Might Edge, Speed Edge, or Intellect Edge for one minute, after which you can’t gain the benefit again for one hour. During this follow-up hour, every time you spend points from a Pool, increase the cost by 1. Action.",
+  "details": [
+    "Any time you convince a foe that you are not a threat and then suddenly attack it (without provocation), the attack deals 4 additional points of damage. Enabler.",
+    "Better Living Through Chemistry (4 Intellect points): You’ve developed drug cocktails specifically designed to work with your own biochemistry. Depending on which one you inject, it makes you smarter, faster, or tougher, but when it wears off, the crash is a doozy, so you use it only in desperate situations. You gain 2 to your Might Edge, Speed Edge, or Intellect Edge for one minute, after which you can’t gain the benefit again for one hour. During this follow-up hour, every time you spend points from a Pool, increase the cost by 1. Action."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Scientist",
+  "slug": "scientist",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2, science-related tasks as level 4",
+  "details": [
+    "level 2, science-related tasks as level 4"
+  ]
+}

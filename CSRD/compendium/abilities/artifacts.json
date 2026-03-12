@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Artifacts",
+  "slug": "artifacts",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When the group gains an artifact, award XP equal to the artifact’s level and divide it among the PCs (minimum 1 XP for each character). Round down if necessary. For example, if four PCs discover a level 5 artifact, they each get 1 XP. Money, standard equipment, and cyphers are not worth XP. (Experience point awards for artifacts should usually apply even if the artifact was given to the PCs rather than found, because often such gifts are the rewards for success.)",
+  "details": [
+    "When the group gains an artifact, award XP equal to the artifact’s level and divide it among the PCs (minimum 1 XP for each character). Round down if necessary. For example, if four PCs discover a level 5 artifact, they each get 1 XP. Money, standard equipment, and cyphers are not worth XP. (Experience point awards for artifacts should usually apply even if the artifact was given to the PCs rather than found, because often such gifts are the rewards for success.)"
+  ]
+}

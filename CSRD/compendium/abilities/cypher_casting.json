@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cypher Casting",
+  "slug": "cypher_casting",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You can cast any of your subtle cyphers on another creature instead of yourself. You must touch the creature to affect it. Enabler.",
+  "details": [
+    "You can cast any of your subtle cyphers on another creature instead of yourself. You must touch the creature to affect it. Enabler."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Action Taken to Escape Danger, Flee from a Dangerous Situation, or Wheedle Way out of Trouble",
+  "slug": "action_taken_to_escape_danger_flee_from_a_dangerous_situation_or_wheedle_way_out_of_trouble",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:craven",
+        "line": "Skill: You’re trained in any action taken to escape danger, flee from a dangerous situation, or wheedle your way out of trouble."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

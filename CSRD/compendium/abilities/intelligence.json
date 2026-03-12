@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Intelligence",
+  "slug": "intelligence",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Intellect defense rolls and all knowledge, science, and crafting tasks.",
+  "details": [
+    "Intellect defense rolls and all knowledge, science, and crafting tasks."
+  ]
+}

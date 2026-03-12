@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Choking",
+  "slug": "choking",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison makes the creature choke and cough if they fail a defense roll. Typical durations are one minute, ten minutes, and one hour. Severe versions of choking poison might make a creature start to suffocate.",
+  "details": [
+    "The poison makes the creature choke and cough if they fail a defense roll. Typical durations are one minute, ten minutes, and one hour. Severe versions of choking poison might make a creature start to suffocate."
+  ]
+}

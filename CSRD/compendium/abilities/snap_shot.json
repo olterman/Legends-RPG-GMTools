@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Snap Shot",
+  "slug": "snap_shot",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You can make two gun attacks as a single action, but the second attack is hindered by two steps. Enabler.",
+  "details": [
+    "You can make two gun attacks as a single action, but the second attack is hindered by two steps. Enabler."
+  ]
+}

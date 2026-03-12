@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Death Bringer",
+  "slug": "death_bringer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "For the next minute, when the user strikes an NPC or creature of the cypher level or lower, they can choose to make a second attack roll. If the second attack roll is a success, the target is killed. If the target is a PC, the character instead moves down one step on the damage track.",
+  "depletion": null
+}

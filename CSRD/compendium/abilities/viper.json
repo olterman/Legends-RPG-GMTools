@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Viper",
+  "slug": "viper",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2; bite inflicts 3 points of Speed damage (ignores Armor)",
+  "details": [
+    "level 2; bite inflicts 3 points of Speed damage (ignores Armor)"
+  ]
+}

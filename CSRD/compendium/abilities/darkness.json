@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Darkness",
+  "slug": "darkness",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Darkness is an area with no illumination at all, such as a moonless night with cloud cover or a room with no lights. Targets in complete darkness are nearly impossible to hit. If an attacker can use other senses (such as hearing) to get an idea of where the opponent might be, attacks against such targets are hindered by four steps. Otherwise, attacks in complete darkness fail without the need for a roll unless the player spends 1 XP to “make a lucky shot” or the GM uses GM intrusion. Attackers trained in low-light spotting ease the task. Attackers specialized in low-light spotting ease the task by two steps. Visibility Similar to illumination, factors that obscure vision affect combat.",
+  "details": [
+    "Darkness is an area with no illumination at all, such as a moonless night with cloud cover or a room with no lights. Targets in complete darkness are nearly impossible to hit. If an attacker can use other senses (such as hearing) to get an idea of where the opponent might be, attacks against such targets are hindered by four steps. Otherwise, attacks in complete darkness fail without the need for a roll unless the player spends 1 XP to “make a lucky shot” or the GM uses GM intrusion. Attackers trained in low-light spotting ease the task. Attackers specialized in low-light spotting ease the task by two steps.",
+    "Visibility",
+    "Similar to illumination, factors that obscure vision affect combat."
+  ]
+}

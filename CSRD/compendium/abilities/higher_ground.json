@@ -1,0 +1,19 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Higher Ground",
+  "slug": "higher_ground",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "In either ranged or melee combat, attacks by an opponent on higher ground are eased. Surprise When a target isn’t aware of an incoming attack, the attacker has an advantage. A ranged sniper in a hidden position, an invisible assailant, or the first salvo in a successful ambush are all eased by two steps. For the attacker to gain this advantage, however, the defender truly must have no idea that the attack is coming. If the defender isn’t sure of the attacker’s location but is still on guard, the attacks are eased by only one step. Range In melee, you can attack a foe who is adjacent to you (next to you) or within reach (immediate range). If you enter into melee with one or more foes, usually you can attack most or all of the combatants, meaning they are next to you, within reach, or within reach if you move slightly or have a long weapon that extends your reach. The majority of ranged attacks have only two ranges: short range and long range (a few have very long range). Short range is generally less than 50 feet (15 m) or so. Long range is generally from 50 feet (15 m) to about 100 feet (30 m). Very long range is generally 100 feet (30 m) to 500 feet (150 m). Greater precision than that isn’t important in the Cypher System. If anything is longer than very long range, the exact range is usually spelled out, such as with an item that can fire a beam 1,000 feet (300 m) or teleport you up to 1 mile (1.5 km) away. Thus, the game has four measurements of distance: immediate, short, long, and very long. These apply to movement as well. A few special cases—point-blank range and extreme range— modify an attack’s chance to successfully hit.",
+  "details": [
+    "In either ranged or melee combat, attacks by an opponent on higher ground are eased.",
+    "Surprise",
+    "When a target isn’t aware of an incoming attack, the attacker has an advantage. A ranged sniper in a hidden position, an invisible assailant, or the first salvo in a successful ambush are all eased by two steps. For the attacker to gain this advantage, however, the defender truly must have no idea that the attack is coming.",
+    "If the defender isn’t sure of the attacker’s location but is still on guard, the attacks are eased by only one step.",
+    "Range",
+    "In melee, you can attack a foe who is adjacent to you (next to you) or within reach (immediate range). If you enter into melee with one or more foes, usually you can attack most or all of the combatants, meaning they are next to you, within reach, or within reach if you move slightly or have a long weapon that extends your reach.",
+    "The majority of ranged attacks have only two ranges: short range and long range (a few have very long range). Short range is generally less than 50 feet (15 m) or so. Long range is generally from 50 feet (15 m) to about 100 feet (30 m). Very long range is generally 100 feet (30 m) to 500 feet (150 m). Greater precision than that isn’t important in the Cypher System. If anything is longer than very long range, the exact range is usually spelled out, such as with an item that can fire a beam 1,000 feet (300 m) or teleport you up to 1 mile (1.5 km) away.",
+    "Thus, the game has four measurements of distance: immediate, short, long, and very long. These apply to movement as well. A few special cases—point-blank range and extreme range— modify an attack’s chance to successfully hit."
+  ]
+}

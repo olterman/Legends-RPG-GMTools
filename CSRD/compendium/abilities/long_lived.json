@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Long-Lived",
+  "slug": "long_lived",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Your natural lifespan (unless tragically cut short) is thousands of years.",
+  "details": [
+    "Your natural lifespan (unless tragically cut short) is thousands of years."
+  ]
+}

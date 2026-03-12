@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "How Others Think",
+  "slug": "how_others_think",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "You have a sense of how people think. You’re trained in one of the following tasks: persuasion, deception, or detecting falsehoods. Enabler.",
+  "details": [
+    "You have a sense of how people think. You’re trained in one of the following tasks: persuasion, deception, or detecting falsehoods. Enabler."
+  ]
+}

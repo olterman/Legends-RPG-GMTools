@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Warp Drive",
+  "slug": "warp_drive",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A warp drive uses enormous power to distort the fabric of space-time to create a bubble surrounding the starship. The bubble moves by compressing space-time in front of it and expanding space-time behind it, moving independently of the rest of the universe to achieve apparent FTL travel. Warp drives can achieve objective speeds of up to 500 times the speed of light at maximum power.",
+  "details": [
+    "A warp drive uses enormous power to distort the fabric of space-time to create a bubble surrounding the starship. The bubble moves by compressing space-time in front of it and expanding space-time behind it, moving independently of the rest of the universe to achieve apparent FTL travel. Warp drives can achieve objective speeds of up to 500 times the speed of light at maximum power."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Once Upon a Dream",
+  "slug": "once_upon_a_dream",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Not long ago, you dreamt of a scenario similar to the one that you find yourself in now. You can’t remember all of the details, but you remember enough to know some of what’s about to take place, and it gives you an additional action to prepare something useful.",
+  "details": [
+    "Not long ago, you dreamt of a scenario similar to the one that you find yourself in now. You can’t remember all of the details, but you remember enough to know some of what’s about to take place, and it gives you an additional action to prepare something useful."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Never Says Die",
+  "slug": "never_says_die",
+  "summary": "You never quit, can shrug off a beating, and always come back for more.",
+  "tiers": [
+    "Tier 1: Improved Recovery",
+    "Tier 1: Push on Through",
+    "Tier 2: Ignore the Pain",
+    "Tier 3: Blood Fever or Hidden Reserves",
+    "Tier 4: Increasing Determination or Outlast the Foe",
+    "Tier 5: Not Dead Yet",
+    "Tier 6: Final Defiance or Ignore Affliction"
+  ],
+  "gm_intrusions": "Sometimes, it’s equipment or weapons that give out.",
+  "text": "You never quit, can shrug off a beating, and always come back for more.",
+  "details": [
+    "You never quit, can shrug off a beating, and always come back for more."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Not Dead Yet",
+  "slug": "not_dead_yet",
+  "cost": null,
+  "alpha_section": "N",
+  "effect": "When you would normally be dead, you instead fall unconscious for one round and then awaken. You immediately gain 1d6 + 6 points to restore your stat Pools, and you are treated as if debilitated until you rest for ten hours. If you die again before you make your ten-hour recovery roll, you are truly dead. If you also have this ability from another source, your healing from this ability increases to 1d6 + 12. Enabler. Nothing but Defend: If you do nothing on your turn but defend, you are specialized in all defense tasks for one round. Action. Nullify Sound (3 Might points): You pulse perfectly misaligned sounds within short range to create a zone of absolute quiet up to an immediate distance across for one minute. All sound is canceled in the zone. Action to initiate.",
+  "details": [
+    "When you would normally be dead, you instead fall unconscious for one round and then awaken. You immediately gain 1d6 + 6 points to restore your stat Pools, and you are treated as if debilitated until you rest for ten hours. If you die again before you make your ten-hour recovery roll, you are truly dead. If you also have this ability from another source, your healing from this ability increases to 1d6 + 12. Enabler.",
+    "Nothing but Defend: If you do nothing on your turn but defend, you are specialized in all defense tasks for one round. Action.",
+    "Nullify Sound (3 Might points): You pulse perfectly misaligned sounds within short range to create a zone of absolute quiet up to an immediate distance across for one minute. All sound is canceled in the zone. Action to initiate."
+  ]
+}

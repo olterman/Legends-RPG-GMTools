@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Machine Vulnerabilities",
+  "slug": "machine_vulnerabilities",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You inflict 3 additional points of damage against robots and animate machines of all kinds. Enabler. Magic Shield (1 Intellect point): You gain +1 to Armor for an hour. Action to initiate.",
+  "details": [
+    "You inflict 3 additional points of damage against robots and animate machines of all kinds. Enabler.",
+    "Magic Shield (1 Intellect point): You gain +1 to Armor for an hour. Action to initiate."
+  ]
+}

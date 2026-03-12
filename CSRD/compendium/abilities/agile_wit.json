@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Agile Wit",
+  "slug": "agile_wit",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "When attempting a Speed task, you instead can roll (and spend points) as if it were an Intellect action. If you apply Effort to this task, you can spend points from your Intellect Pool instead of your Speed Pool (in which case you also use your Intellect Edge instead of your Speed Edge). Enabler. All-Out Con (7 Intellect points): You put everything into it. You add three free levels of Effort to the next task you attempt. You can’t use this ability again until after you’ve taken a ten-hour recovery action. Action. Alleviate (3 Intellect points): You attempt to cancel or cure one malady (such as disease or poison) in one creature. Action. Alley Rat (6 Intellect points): While in a city, you find or create a significant shortcut, secret entrance, or emergency escape route where it looked like none existed. Doing so requires that you succeed on an Intellect action whose difficulty is set by the GM based on the situation. You and the GM should work out the details. Action.",
+  "details": [
+    "When attempting a Speed task, you instead can roll (and spend points) as if it were an Intellect action. If you apply Effort to this task, you can spend points from your Intellect Pool instead of your Speed Pool (in which case you also use your Intellect Edge instead of your Speed Edge). Enabler.",
+    "All-Out Con (7 Intellect points): You put everything into it. You add three free levels of Effort to the next task you attempt. You can’t use this ability again until after you’ve taken a ten-hour recovery action. Action.",
+    "Alleviate (3 Intellect points): You attempt to cancel or cure one malady (such as disease or poison) in one creature. Action.",
+    "Alley Rat (6 Intellect points): While in a city, you find or create a significant shortcut, secret entrance, or emergency escape route where it looked like none existed. Doing so requires that you succeed on an Intellect action whose difficulty is set by the GM based on the situation. You and the GM should work out the details. Action."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Grows to Towering Heights",
+  "slug": "grows_to_towering_heights",
+  "summary": "For brief periods, you can grow larger and, with enough experience, to towering heights.",
+  "tiers": [
+    "Tier 1: Enlarge",
+    "Tier 1: Freakishly Large",
+    "Tier 2: Bigger",
+    "Tier 2: Advantages of Being Big",
+    "Tier 3: Huge or Throw",
+    "Tier 4: Grab",
+    "Tier 5: Gargantuan",
+    "Tier 6: Colossal or Lethal Damage",
+    "Tier 1: Face Morph",
+    "Tier 1: Interaction Skills",
+    "Tier 2: Body Morph",
+    "Tier 2: War Flesh",
+    "Tier 3: Disguise Other or Resilience",
+    "Tier 4: Ageless",
+    "Tier 4: Think Your Way Out",
+    "Tier 5: Memory Becomes Action",
+    "Tier 6: Divide Your Mind or Infer Thoughts"
+  ],
+  "gm_intrusions": "Part of the disguise slips. An NPC thinks the disguised character is someone they know very well.",
+  "text": "For brief periods, you can grow larger and, with enough experience, to towering heights. HAS A THOUSAND FACES You can change your appearance to look like anyone else.",
+  "details": [
+    "For brief periods, you can grow larger and, with enough experience, to towering heights.",
+    "HAS A THOUSAND FACES",
+    "You can change your appearance to look like anyone else."
+  ]
+}

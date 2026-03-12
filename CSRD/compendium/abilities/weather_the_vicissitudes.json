@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Weather the Vicissitudes",
+  "slug": "weather_the_vicissitudes",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "Helping your friends means being able to stand up to everything the world throws at you. You have +1 to Armor. Also, you resist heat, cold, and similar extremes and have an additional +1 to Armor against ambient damage or other damage that would normally ignore Armor. Enabler. Weight of the World (6+ Intellect points): You can increase a target’s weight dramatically. The target is pulled to the ground and can’t move physically under its own power for one minute. The target must be within short range. In addition to the normal options for using Effort, you can choose to use Effort to affect additional creatures (one per level of Effort). Action.",
+  "details": [
+    "Helping your friends means being able to stand up to everything the world throws at you. You have +1 to Armor. Also, you resist heat, cold, and similar extremes and have an additional +1 to Armor against ambient damage or other damage that would normally ignore Armor. Enabler.",
+    "Weight of the World (6+ Intellect points): You can increase a target’s weight dramatically. The target is pulled to the ground and can’t move physically under its own power for one minute. The target must be within short range. In addition to the normal options for using Effort, you can choose to use Effort to affect additional creatures (one per level of Effort). Action."
+  ]
+}

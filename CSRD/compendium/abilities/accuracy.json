@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Accuracy",
+  "slug": "accuracy",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "All attack rolls.",
+  "details": [
+    "All attack rolls."
+  ]
+}

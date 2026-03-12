@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defense Tasks of That Type, or Specialized",
+  "slug": "defense_tasks_of_that_type_or_specialized",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:greater_skill_with_defense",
+        "line": "Choose one type of defense task, even one in which you are already trained: Might, Speed, or Intellect. You are trained in defense tasks of that type, or specialized if you are already trained. You can select this ability up to three times. Each time you select it, you must choose a different type of defense task. Enabler."
+      },
+      {
+        "from": "ability:greater_skill_with_defense",
+        "line": "Choose one type of defense task, even one in which you are already trained: Might, Speed, or Intellect. You are trained in defense tasks of that type, or specialized if you are already trained. You can select this ability up to three times. Each time you select it, you must choose a different type of defense task. Enabler. Group Friendship (4 Intellect points): You convince a sentient creature to regard you (and up to ten creatures that you designate within immediate distance of you) positively, as they would a potential friend. Action. Guide Bolt (4+ Intellect points): When you make an attack with a metallic bolt or metal-tipped arrow on a target within short range, you can improve the attack’s aim and velocity, which grants an asset to the attack and inflicts an additional 2 points of damage. If you apply a level of Effort, you grant the same benefits to a ranged attack made by an ally within immediate range. In any case, you can use this ability only once per round. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

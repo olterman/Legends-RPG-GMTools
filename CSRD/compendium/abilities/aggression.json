@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Aggression",
+  "slug": "aggression",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The target’s aggressive tendencies are increased for one hour, during which time the target attacks almost anything it encounters.",
+  "details": [
+    "The target’s aggressive tendencies are increased for one hour, during which time the target attacks almost anything it encounters."
+  ]
+}

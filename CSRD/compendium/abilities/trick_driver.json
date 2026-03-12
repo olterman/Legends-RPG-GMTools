@@ -1,0 +1,16 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trick Driver",
+  "slug": "trick_driver",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "While driving a car, truck, or motorcycle, your Might Edge, Speed Edge, and Intellect Edge increase by 1. When you make a recovery roll while driving, you recover 5 additional points. When you attempt a driving task or an extreme trick—such as jumping a ravine or other vehicle, spinning in the air, landing safely on another vehicle, and so on—the task is eased. Enabler. Trick Shot (2 Speed points): As part of the same action, you make a ranged attack against two targets that are within immediate range of each other. Make a separate attack roll against each target. The attack rolls are hindered. Action. True Defender (6 Might or Intellect points): This ability functions as the Devoted Defender ability, except the benefit applies to up to three characters you choose. If you choose just one character, you become specialized in the tasks described under the Devoted Defender ability. Action to initiate. True Guardian (2 Might or Intellect points): When you stand guard as your action, allies within immediate range of you gain an asset to their defense tasks. This lasts until the end of your next turn. Enabler. True Necromancy (8+ Intellect points): This ability works like the Necromancy ability except that it creates a level 5 creature. Action to animate.",
+  "details": [
+    "While driving a car, truck, or motorcycle, your Might Edge, Speed Edge, and Intellect Edge increase by 1. When you make a recovery roll while driving, you recover 5 additional points. When you attempt a driving task or an extreme trick—such as jumping a ravine or other vehicle, spinning in the air, landing safely on another vehicle, and so on—the task is eased. Enabler.",
+    "Trick Shot (2 Speed points): As part of the same action, you make a ranged attack against two targets that are within immediate range of each other. Make a separate attack roll against each target. The attack rolls are hindered. Action.",
+    "True Defender (6 Might or Intellect points): This ability functions as the Devoted Defender ability, except the benefit applies to up to three characters you choose. If you choose just one character, you become specialized in the tasks described under the Devoted Defender ability. Action to initiate.",
+    "True Guardian (2 Might or Intellect points): When you stand guard as your action, allies within immediate range of you gain an asset to their defense tasks. This lasts until the end of your next turn. Enabler.",
+    "True Necromancy (8+ Intellect points): This ability works like the Necromancy ability except that it creates a level 5 creature. Action to animate."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Stealth and Initiative Tasks",
+  "slug": "stealth_and_initiative_tasks",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:sneak",
+        "line": "You are trained in stealth and initiative tasks. Enabler."
+      },
+      {
+        "from": "ability:sneak",
+        "line": "You are trained in stealth and initiative tasks. Enabler. Snipe (2 Speed points): If you spend one action aiming, in the next round you can make a precise ranged attack. You have an asset on this attack. If your attack is successful, it inflicts 4 additional points of damage. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

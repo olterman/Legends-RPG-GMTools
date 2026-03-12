@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Take the Attack",
+  "slug": "take_the_attack",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A character can use their action to throw themselves in front of a foe’s successful attack to save a nearby comrade. The attack automatically succeeds against the sacrificial character, and it deals 1 additional point of damage. A character cannot willingly take more than one attack each round in this way.",
+  "details": [
+    "A character can use their action to throw themselves in front of a foe’s successful attack to save a nearby comrade. The attack automatically succeeds against the sacrificial character, and it deals 1 additional point of damage. A character cannot willingly take more than one attack each round in this way."
+  ]
+}

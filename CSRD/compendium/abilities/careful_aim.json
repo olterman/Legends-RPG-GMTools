@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Careful Aim",
+  "slug": "careful_aim",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You are trained in attacks with all weapons that you throw. Enabler.",
+  "details": [
+    "You are trained in attacks with all weapons that you throw. Enabler."
+  ]
+}

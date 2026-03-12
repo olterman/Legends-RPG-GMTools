@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mind-Restricting Wall",
+  "slug": "mind_restricting_wall",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Creates an immobile plane of permeable energy up to 20 feet by 20 feet (6 m by 6 m) for one hour. The plane conforms to the space available. Intelligent creatures passing through the plane fall unconscious for up to one hour, or until slapped awake or damaged.",
+  "depletion": null
+}

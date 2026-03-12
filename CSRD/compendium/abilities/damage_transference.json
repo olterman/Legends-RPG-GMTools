@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Damage Transference",
+  "slug": "damage_transference",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "When you or your duplicate (from the Duplicate ability) would take damage, you can transfer 1 point of damage from one to the other provided that you and your duplicate are within 1 mile (1.5 km) of each other. Enabler. Damn the Guilty (3 Intellect points): You speak words of revelation and judgment to everyone within close range. Those whom you have designated as guilty with your Designation ability take an additional 3 points of damage from any attack they receive from anyone who heard your judgment. This judgment lasts for up to one minute or until they move at least a long distance away from you. Action. Danger Instinct (3 Speed points): If you are attacked by surprise, whether by a creature, a device, or simply an environmental hazard (a tree falling on you), you can move an immediate distance before the attack occurs. If moving prevents the attack, you are safe. If the attack can still potentially affect you—if the attacking creature can move to keep pace, if the attack fills an area too big to escape, etc. —the ability offers no benefit. Enabler. Danger Sense (1 Speed point): Your initiative task is eased. You pay the cost each time the ability is used. Enabler.",
+  "details": [
+    "When you or your duplicate (from the Duplicate ability) would take damage, you can transfer 1 point of damage from one to the other provided that you and your duplicate are within 1 mile (1.5 km) of each other. Enabler.",
+    "Damn the Guilty (3 Intellect points): You speak words of revelation and judgment to everyone within close range. Those whom you have designated as guilty with your Designation ability take an additional 3 points of damage from any attack they receive from anyone who heard your judgment. This judgment lasts for up to one minute or until they move at least a long distance away from you. Action.",
+    "Danger Instinct (3 Speed points): If you are attacked by surprise, whether by a creature, a device, or simply an environmental hazard (a tree falling on you), you can move an immediate distance before the attack occurs. If moving prevents the attack, you are safe. If the attack can still potentially affect you—if the attacking creature can move to keep pace, if the attack fills an area too big to escape, etc. —the ability offers no benefit. Enabler.",
+    "Danger Sense (1 Speed point): Your initiative task is eased. You pay the cost each time the ability is used. Enabler."
+  ]
+}

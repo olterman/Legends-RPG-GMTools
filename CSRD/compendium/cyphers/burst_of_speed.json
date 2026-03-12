@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Burst Of Speed",
+  "slug": "burst_of_speed",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "For one minute, a user who normally can move a short distance as an action can move a long distance instead.",
+  "depletion": null
+}

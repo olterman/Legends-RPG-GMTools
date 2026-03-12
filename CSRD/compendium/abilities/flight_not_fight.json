@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flight Not Fight",
+  "slug": "flight_not_fight",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "If you use your action only to move, all Speed defense tasks are eased. Enabler. Fling (4 Intellect points): You violently launch a creature or object about your size or smaller within short range and send it flying a short distance in any direction. This is an Intellect attack that inflicts 4 points of damage to the object being flung when it lands or strikes a barrier. If you aim the primary target at another creature or object (and succeed on a second attack), the secondary target also takes 4 points of damage. Action.",
+  "details": [
+    "If you use your action only to move, all Speed defense tasks are eased. Enabler.",
+    "Fling (4 Intellect points): You violently launch a creature or object about your size or smaller within short range and send it flying a short distance in any direction. This is an Intellect attack that inflicts 4 points of damage to the object being flung when it lands or strikes a barrier. If you aim the primary target at another creature or object (and succeed on a second attack), the secondary target also takes 4 points of damage. Action."
+  ]
+}

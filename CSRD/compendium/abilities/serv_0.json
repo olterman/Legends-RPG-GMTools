@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Serv-0",
+  "slug": "serv_0",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You build a tiny robot assistant. It is level 1 and cannot take independent actions or leave your immediate area. In truth, it’s more an extension of you than a separate being. It gains a modification in using machines and other technological devices. Enabler.",
+  "details": [
+    "You build a tiny robot assistant. It is level 1 and cannot take independent actions or leave your immediate area. In truth, it’s more an extension of you than a separate being. It gains a modification in using machines and other technological devices. Enabler."
+  ]
+}

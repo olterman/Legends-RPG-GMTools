@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Long Ago, Allowing to Attack All Three as a Single Action",
+  "slug": "long_ago_allowing_to_attack_all_three_as_a_single_action",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "character_type:warrior",
+        "line": "Perfect Setup: You’re fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

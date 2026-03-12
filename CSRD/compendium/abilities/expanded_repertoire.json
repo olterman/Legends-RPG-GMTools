@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expanded Repertoire",
+  "slug": "expanded_repertoire",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "The number of subtle cyphers you can bear at the same time increases by one. Enabler.",
+  "details": [
+    "The number of subtle cyphers you can bear at the same time increases by one. Enabler."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Figuring out How to Solve Problems with Multiple Solutions",
+  "slug": "figuring_out_how_to_solve_problems_with_multiple_solutions",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:there_s_your_problem",
+        "line": "You are trained in tasks related to figuring out how to solve problems with multiple solutions (like the best way to pack a truck, calm an enraged customer, give a cat a shot of insulin, or find a route through the city for maximum speed). Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

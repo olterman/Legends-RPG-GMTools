@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tool Mastery",
+  "slug": "tool_mastery",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "When you have an asset from using a tool, the time required to perform the task is cut in half (minimum one round). Enabler.",
+  "details": [
+    "When you have an asset from using a tool, the time required to perform the task is cut in half (minimum one round). Enabler."
+  ]
+}

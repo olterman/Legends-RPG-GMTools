@@ -1,0 +1,29 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Thunders",
+  "slug": "thunders",
+  "summary": "You emit destructive sound and manipulate soundscapes.",
+  "tiers": [
+    "Tier 1: Thunder Beam",
+    "Tier 2: Sound Conversion Barrier",
+    "Tier 3: Nullify Sound or Echolocation",
+    "Tier 4: Shattering Shout",
+    "Tier 5: Subsonic Rumble",
+    "Tier 5: Amplify Sounds",
+    "Tier 6: Earthquake or Lethal Vibration",
+    "Tier 1: Hover",
+    "Tier 2: Wind Armor",
+    "Tier 3: Bolts of Power or Storm Seed",
+    "Tier 4: Windrider",
+    "Tier 5: Cold Burst",
+    "Tier 6: Control Weather or Wind Chariot"
+  ],
+  "gm_intrusions": "An ally is accidentally struck by a fork of lightning. An unexpected grounding effect inflicts damage. The weather is seeded by a much smaller effect, and a storm grows out of control.",
+  "text": "You emit destructive sound and manipulate soundscapes. TOUCHES THE SKY You can summon storms or break them apart.",
+  "details": [
+    "You emit destructive sound and manipulate soundscapes.",
+    "TOUCHES THE SKY",
+    "You can summon storms or break them apart."
+  ]
+}

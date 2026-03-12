@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spyglass",
+  "slug": "spyglass",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "This device grants an asset on perception tasks to see things at long range or longer.",
+  "details": [
+    "This device grants an asset on perception tasks to see things at long range or longer."
+  ]
+}

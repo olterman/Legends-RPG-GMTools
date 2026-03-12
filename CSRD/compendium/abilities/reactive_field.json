@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Reactive Field",
+  "slug": "reactive_field",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "Thanks to a remarkable enhancement of science, magic, psionics, or something even stranger, you now have a force field that radiates 1 inch (2.5 cm) from your body and provides you with +2 to Armor. In addition, if struck by a melee attack, the field creates a backlash that inflicts 4 points of electricity damage to the attacker. Enabler. Read the Signs (4 Intellect points): You examine an area and learn precise, useful details about the past (if any exist). You can ask the GM up to four questions about the immediate area; each requires its own roll. Action. Reading the Room (3 Intellect points): You gain knowledge about an area by speaking with dead spirits or reading residual energies from the past. You can ask the GM a single, matter-of-fact question about the location and get an answer if you succeed on the Intellect roll. “What killed the cattle in this barn?” is a good example of a simple question. “Why were these cattle killed?” is not an appropriate question because it has more to do with the mindset of the killer than the barn. Simple questions usually have a difficulty of 2, but extremely technical questions or those that involve facts meant to be kept secret can have a much higher difficulty. Action.",
+  "details": [
+    "Thanks to a remarkable enhancement of science, magic, psionics, or something even stranger, you now have a force field that radiates 1 inch (2.5 cm) from your body and provides you with +2 to Armor. In addition, if struck by a melee attack, the field creates a backlash that inflicts 4 points of electricity damage to the attacker. Enabler.",
+    "Read the Signs (4 Intellect points): You examine an area and learn precise, useful details about the past (if any exist). You can ask the GM up to four questions about the immediate area; each requires its own roll. Action.",
+    "Reading the Room (3 Intellect points): You gain knowledge about an area by speaking with dead spirits or reading residual energies from the past. You can ask the GM a single, matter-of-fact question about the location and get an answer if you succeed on the Intellect roll. “What killed the cattle in this barn?” is a good example of a simple question. “Why were these cattle killed?” is not an appropriate question because it has more to do with the mindset of the killer than the barn. Simple questions usually have a difficulty of 2, but extremely technical questions or those that involve facts meant to be kept secret can have a much higher difficulty. Action."
+  ]
+}

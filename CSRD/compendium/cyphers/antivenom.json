@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Antivenom",
+  "slug": "antivenom",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Renders user immune to poisons of the cypher’s level or lower for one hour per cypher level (and ends any such ongoing effects, if any, already in the user’s system).",
+  "depletion": null
+}

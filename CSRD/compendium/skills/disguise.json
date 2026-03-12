@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Disguise",
+  "slug": "disguise",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:disguise",
+        "line": "You are trained in disguise. You can alter your posture, voice, mannerisms, and hair to look like someone else for as long as you keep up the disguise. However, it is extremely difficult to adopt the appearance of a specific individual without a disguise kit at your disposal. Enabler."
+      },
+      {
+        "from": "ability:disguise",
+        "line": "You are trained in disguise. You can alter your posture, voice, mannerisms, and hair to look like someone else for as long as you keep up the disguise. However, it is extremely difficult to adopt the appearance of a specific individual without a disguise kit at your disposal. Enabler. Disguise Other (4+ Intellect points): You apply your shapechanging ability to another creature of your size or smaller, giving them a form that you are able to assume. This lasts for about ten minutes. In addition to the normal options for using Effort, you can choose to use Effort to increase the duration; one level of Effort increases it to an hour, two increases it to a day. A creature can revert to its normal form as an action, but it cannot then change back into the altered form. Action. You probably can’t use Disguise Other to disguise a kind of creature that is very different from you, such as a human disguising a robot, animal, or crystalline alien Disincentivize (1 Intellect point): You hinder all actions attempted by any number of targets within short range who can understand you. You choose which targets are affected. Affected targets’ actions are hindered for one round. Enabler. Disrupting Touch (1+ Might points): You can turn your Phase Sprint into a melee attack by purposefully grazing another creature as you run. When you do, the touch releases a violent blast of energy that inflicts 2 points of damage to the target (ignores Armor). Whether you hit or miss, your movement (and turn) ends immediately, which puts you within immediate distance of your target. If you apply Effort to increase damage rather than to ease the task, you deal 2 additional points of damage per level of Effort (instead of 3 points); the target takes 1 point of damage even if you fail the attack roll. Enabler. Distance Viewing (5 Intellect points): You know that space and distance are illusions. You concentrate to create an invisible, immobile sensor at a location you have previously visited or viewed (at the GM’s discretion, you may have to succeed at an Intellect task if the location is warded). The sensor lasts for one hour. Once it is created, you can concentrate to see, hear, and smell through the sensor. It doesn’t grant you sensory capabilities beyond the norm. Action to create; action to check. Distant Interface (2 Intellect points): You can activate, deactivate, or control a machine at long range as if you were next to it, even if normally you would have to touch or manually operate it. If you have never interacted with the particular machine before, the task is hindered by two steps. To use this ability, you must understand the function of the machine, it must be your size or smaller, and it can’t be connected to another intelligence (or be intelligent itself). Action. Distortion (2 Intellect points): You modify how a willing creature within short range reflects light for one minute. The target rapidly shifts between its normal appearance and a blot of darkness. The target has an asset on Speed defense rolls until the effect wears off. Action to initiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Perception, Cryptography, Deceiving, and Breaking into Computers",
+  "slug": "perception_cryptography_deceiving_and_breaking_into_computers",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:investigate",
+        "line": "You are trained in perception, cryptography, deceiving, and breaking into computers. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Two Tasks of Choosing",
+  "slug": "two_tasks_of_choosing",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:heightened_skills",
+        "line": "You are trained in two tasks of your choosing (other than attacks or defense). If you choose a task you’re already trained in, you instead become specialized in that task. You can’t choose a task you’re already specialized in. Enabler."
+      },
+      {
+        "from": "ability:heightened_skills",
+        "line": "You are trained in two tasks of your choosing (other than attacks or defense). If you choose a task you’re already trained in, you instead become specialized in that task. You can’t choose a task you’re already specialized in. Enabler. Hemorrhage (2+ Might points): You make a powerful and precise strike that inflicts additional damage later. On your next turn, the target of this attack takes an additional 3 points of damage (ignores Armor). The target can prevent this additional damage by making a recovery roll, using any ability that heals it, or using its action to attend to the injury. In addition to the normal options for using Effort, you can choose to use Effort to increase this duration by one round. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

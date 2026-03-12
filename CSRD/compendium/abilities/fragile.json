@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fragile",
+  "slug": "fragile",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When you fail a Might defense roll to avoid damage, you take 1 extra point of damage.",
+  "details": [
+    "When you fail a Might defense roll to avoid damage, you take 1 extra point of damage."
+  ]
+}

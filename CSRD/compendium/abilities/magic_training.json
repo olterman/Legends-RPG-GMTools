@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Magic Training",
+  "slug": "magic_training",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You are trained in the basics of magic (including the operation of magic artifacts and cyphers) and can attempt to understand and identify its properties. Enabler.",
+  "details": [
+    "You are trained in the basics of magic (including the operation of magic artifacts and cyphers) and can attempt to understand and identify its properties. Enabler."
+  ]
+}

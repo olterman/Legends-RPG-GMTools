@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Description",
+  "slug": "description",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "This general description explains what the trap does, how it operates, whether it resets automatically, if it has a limited number of uses, and so on.",
+  "details": [
+    "This general description explains what the trap does, how it operates, whether it resets automatically, if it has a limited number of uses, and so on."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Unexpected Betrayal",
+  "slug": "unexpected_betrayal",
+  "cost": null,
+  "alpha_section": "U",
+  "effect": "Within a round or two of successfully using Enthrall, Fast Talk, or a similar ability on a target within short range, the first attack you make on that target is eased by two steps. Once you use Unexpected Betrayal on a target, using your abilities or attempting simple persuasion on that target is permanently hindered by two steps. Enabler. Unmovable (3 Might points): You avoid being knocked down, pushed back, or moved against your will as long as you are upright and able to take actions. Enabler.",
+  "details": [
+    "Within a round or two of successfully using Enthrall, Fast Talk, or a similar ability on a target within short range, the first attack you make on that target is eased by two steps. Once you use Unexpected Betrayal on a target, using your abilities or attempting simple persuasion on that target is permanently hindered by two steps. Enabler.",
+    "Unmovable (3 Might points): You avoid being knocked down, pushed back, or moved against your will as long as you are upright and able to take actions. Enabler."
+  ]
+}

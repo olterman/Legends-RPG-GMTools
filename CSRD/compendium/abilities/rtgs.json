@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "RTGs",
+  "slug": "rtgs",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When solar panels are not an option, as is often the case for spacecraft that operate far from the sun or on a planetary surface with lots of dust or shadow, RTGs (radioisotope thermoelectric generators) are good long-term power sources for electric power, which can be used for a variety of onboard systems, including powering ion drives. The heart of an RTG is an embedded mass of atomic isotope, such as plutonium-238.",
+  "details": [
+    "When solar panels are not an option, as is often the case for spacecraft that operate far from the sun or on a planetary surface with lots of dust or shadow, RTGs (radioisotope thermoelectric generators) are good long-term power sources for electric power, which can be used for a variety of onboard systems, including powering ion drives. The heart of an RTG is an embedded mass of atomic isotope, such as plutonium-238."
+  ]
+}

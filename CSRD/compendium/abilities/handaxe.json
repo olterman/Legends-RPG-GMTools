@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Handaxe",
+  "slug": "handaxe",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A light, one-handed axe that’s good for melee or throwing. Heavy crossbow: A heavier, more powerful version of a light crossbow. You need two hands to fire or load it. Action to reload. Heavy mace: A larger, two-handed version of a mace.",
+  "details": [
+    "A light, one-handed axe that’s good for melee or throwing.",
+    "Heavy crossbow: A heavier, more powerful version of a light crossbow. You need two hands to fire or load it. Action to reload.",
+    "Heavy mace: A larger, two-handed version of a mace."
+  ]
+}

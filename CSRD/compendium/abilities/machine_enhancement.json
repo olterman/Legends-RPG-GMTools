@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Machine Enhancement",
+  "slug": "machine_enhancement",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "Any time you use Effort on an Intellect action, add one of the following enhancements to the action (your choice): Free level of Effort Automatic minor effect Enabler.",
+  "details": [
+    "Any time you use Effort on an Intellect action, add one of the following enhancements to the action (your choice):",
+    "Free level of Effort",
+    "Automatic minor effect",
+    "Enabler."
+  ]
+}

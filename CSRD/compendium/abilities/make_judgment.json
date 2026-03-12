@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Make Judgment",
+  "slug": "make_judgment",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You are trained in discerning the truth of a situation, seeing through lies, or otherwise overcoming deception. Enabler.",
+  "details": [
+    "You are trained in discerning the truth of a situation, seeing through lies, or otherwise overcoming deception. Enabler."
+  ]
+}

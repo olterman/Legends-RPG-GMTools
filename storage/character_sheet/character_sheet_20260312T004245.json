@@ -1,0 +1,104 @@
+{
+  "saved_at": "2026-03-12T00:42:45.415350+00:00",
+  "filename": "character_sheet/character_sheet_20260312T004245.json",
+  "payload": {
+    "gender": "female",
+    "profession": "poet_warrior",
+    "race": "lilim",
+    "environment": "pirate_seas"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Alara Windrose",
+    "sheet": {
+      "name": "Alara Windrose",
+      "sentence": "Alara Windrose is a Impulsive Adept with Combat flavor who Fights With Panache.",
+      "type": "Adept",
+      "flavor": "Combat Flavor",
+      "descriptor": "Impulsive",
+      "focus": "Fights With Panache",
+      "effort": 1,
+      "cypher_limit": 3,
+      "weapons": "Practiced with light weapons; medium/heavy attacks are hindered.",
+      "pools": {
+        "might": 8,
+        "speed": 12,
+        "intellect": 16
+      },
+      "edges": {
+        "might": 0,
+        "speed": 0,
+        "intellect": 1
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 2,
+          "intellect": 0
+        },
+        "skills": [
+          "You’re trained in initiative actions (to determine who goes first in combat).",
+          "You’re trained in Speed defense actions."
+        ],
+        "inabilities": [
+          "You’ll try anything once, but quickly grow bored after that. Any task that involves patience, willpower, or discipline is hindered."
+        ],
+        "traits": [
+          "Reckless: +2 to your Speed Pool."
+        ],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [
+        "Distortion",
+        "Erase Memories",
+        "Far Step",
+        "Hedge Magic",
+        "Magic Training",
+        "Onslaught",
+        "Push",
+        "Resonance Field",
+        "Scan",
+        "Shatter",
+        "Ward"
+      ],
+      "flavor_tier_1_abilities": [
+        "Danger Sense",
+        "Practiced in Armor",
+        "Practiced With Medium Weapons"
+      ],
+      "focus_tier_1_abilities": [
+        "Attack Flourish"
+      ],
+      "chosen_abilities": [
+        "Far Step",
+        "Magic Training",
+        "Push",
+        "Shatter"
+      ],
+      "equipment": [],
+      "notes": "",
+      "generated": null,
+      "metadata": {
+        "name": "Alara Windrose",
+        "race": "lilim",
+        "profession": "poet_warrior",
+        "environment": "pirate_seas",
+        "character_type": "Adept",
+        "flavor": "Combat Flavor",
+        "descriptor": "Impulsive",
+        "focus": "Fights With Panache",
+        "tier": 1
+      }
+    },
+    "metadata": {
+      "environment": "pirate_seas",
+      "race": "lilim",
+      "profession": "poet_warrior",
+      "character_type": "Adept",
+      "flavor": "Combat Flavor",
+      "descriptor": "Impulsive",
+      "focus": "Fights With Panache",
+      "tier": null
+    }
+  }
+}

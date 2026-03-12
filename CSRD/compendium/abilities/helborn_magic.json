@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Helborn Magic",
+  "slug": "helborn_magic",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You are inherently magical. Choose one low-tier ability from the Abilities chapter. If the GM agrees it is appropriate, you gain that ability as part of your helborn heritage, and can use it like any other type or focus ability.",
+  "details": [
+    "You are inherently magical. Choose one low-tier ability from the Abilities chapter. If the GM agrees it is appropriate, you gain that ability as part of your helborn heritage, and can use it like any other type or focus ability."
+  ]
+}

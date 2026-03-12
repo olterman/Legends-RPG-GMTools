@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Depletion",
+  "slug": "depletion",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "1 in 1d100 (check each day of flying)",
+  "details": [
+    "1 in 1d100 (check each day of flying)"
+  ]
+}

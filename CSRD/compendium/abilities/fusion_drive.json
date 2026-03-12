@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fusion Drive",
+  "slug": "fusion_drive",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Relying on fusion power, a fusion drive is an order of magnitude more efficient than a contemporary ion thruster. A fusion drive does not require the creation of electricity to ionize propellent, but instead directly uses the fusion product as an exhaust to provide thrust.",
+  "details": [
+    "Relying on fusion power, a fusion drive is an order of magnitude more efficient than a contemporary ion thruster. A fusion drive does not require the creation of electricity to ionize propellent, but instead directly uses the fusion product as an exhaust to provide thrust."
+  ]
+}

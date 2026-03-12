@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Greater Controlled Change",
+  "slug": "greater_controlled_change",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "It’s easier to change into and out of the shape granted by your Beast Form ability. Transforming either way is now a difficulty 2 Intellect task. Enabler.",
+  "details": [
+    "It’s easier to change into and out of the shape granted by your Beast Form ability. Transforming either way is now a difficulty 2 Intellect task. Enabler."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ward",
+  "slug": "ward",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You have a shield of energy around you at all times that helps deflect attacks. You gain +1 to Armor. Enabler.",
+  "details": [
+    "You have a shield of energy around you at all times that helps deflect attacks. You gain +1 to Armor. Enabler."
+  ]
+}

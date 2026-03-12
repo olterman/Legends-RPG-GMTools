@@ -1,0 +1,35 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using Fists as Heavy Weapons",
+  "slug": "using_fists_as_heavy_weapons",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:enhanced_speed_edge",
+        "line": "Enlarge (1+ Might point): You trigger an enzymatic reaction that draws additional mass from another dimension, and you (and your clothing or suit) grow larger. You achieve a height of 9 feet (3 m) and stay that way for about a minute. During that time, you add 4 points to your Might Pool, add +1 to Armor, and add +2 to your Might Edge. While you are larger than normal, your Speed defense rolls are hindered, and you are practiced in using your fists as heavy weapons."
+      },
+      {
+        "from": "ability:enhanced_speed_edge",
+        "line": "You gain +1 to your Speed Edge. Enabler. Enlarge (1+ Might point): You trigger an enzymatic reaction that draws additional mass from another dimension, and you (and your clothing or suit) grow larger. You achieve a height of 9 feet (3 m) and stay that way for about a minute. During that time, you add 4 points to your Might Pool, add +1 to Armor, and add +2 to your Might Edge. While you are larger than normal, your Speed defense rolls are hindered, and you are practiced in using your fists as heavy weapons. When the effects of Enlarge end, your Armor and Might Edge return to normal, and you subtract a number of points from your Might Pool equal to the number you gained (if this brings the Pool to 0, subtract the overflow first from your Speed Pool and then, if necessary, from your Intellect Pool). Each additional time you use Enlarge before your next ten-hour recovery roll, you must apply an additional level of Effort. Thus, the second time you use Enlarge, you must apply one level of Effort; the third time you use Enlarge, two levels of Effort; and so on. Action to initiate."
+      }
+    ],
+    "trained": [
+      {
+        "from": "ability:bigger_beast_form",
+        "line": "When you use Beast Form, your beast form grows bigger than before, during which time you achieve a height of 12 feet (4 m). Being so large, your beast form gains the following additional bonuses: +1 to Armor, +5 to your Might Pool, and you are trained in using your fists as heavy weapons (if you weren’t already). However, your Speed defense tasks are hindered. While bigger, you also gain an asset to tasks that are easier for a larger creature to perform, like climbing, intimidating, wading rivers, and so on. Enabler."
+      },
+      {
+        "from": "ability:bigger_beast_form",
+        "line": "When you use Beast Form, your beast form grows bigger than before, during which time you achieve a height of 12 feet (4 m). Being so large, your beast form gains the following additional bonuses: +1 to Armor, +5 to your Might Pool, and you are trained in using your fists as heavy weapons (if you weren’t already). However, your Speed defense tasks are hindered. While bigger, you also gain an asset to tasks that are easier for a larger creature to perform, like climbing, intimidating, wading rivers, and so on. Enabler. Biomorphic Detonation (7+ Might points): You radiate a pulse of biomorphic energy up to a short distance away, but you tune it to disrupt life in an area an immediate distance across. All within the detonation take 5 points of damage that ignores Armor (unless it is Armor provided by a force field effect). If you apply additional Effort to increase the damage, you deal 2 additional points of damage per level of Effort (instead of 3 points); targets in the area take 1 point of damage even if you fail the attack roll. Action. Biomorphic Healing (4+ Might points): You consciously send out a pulse of your biomorphic field (a strange energy your body generates) and focus it on a living creature within short range. The target gains a free and immediate one-action recovery roll. You can’t use this ability again on that creature until after its next ten-hour rest. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "practiced",
+    "trained"
+  ],
+  "summary": "practiced, trained"
+}

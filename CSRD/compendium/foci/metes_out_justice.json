@@ -1,0 +1,23 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Metes Out Justice",
+  "slug": "metes_out_justice",
+  "summary": "You right wrongs, protect the innocent, and punish the guilty.",
+  "tiers": [
+    "Tier 1: Make Judgment",
+    "Tier 1: Designation",
+    "Tier 2: Defend the Innocent",
+    "Tier 2: Improved Designation",
+    "Tier 3: Defend All the Innocent or Punish the Guilty",
+    "Tier 4: Find the Guilty",
+    "Tier 4: Greater Designation",
+    "Tier 5: Punish All the Guilty",
+    "Tier 6: Damn the Guilty or Inspire the Innocent"
+  ],
+  "gm_intrusions": "Guilt or innocence can be complicated. Some people resent the presumption of a self-appointed judge. Passing judgment makes enemies.",
+  "text": "You right wrongs, protect the innocent, and punish the guilty.",
+  "details": [
+    "You right wrongs, protect the innocent, and punish the guilty."
+  ]
+}

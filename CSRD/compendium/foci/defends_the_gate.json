@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defends the Gate",
+  "slug": "defends_the_gate",
+  "summary": "Everyone wants you on their side when it comes to a fight because nothing gets by you.",
+  "tiers": [
+    "Tier 1: Fortified Position",
+    "Tier 1: Rally to Me",
+    "Tier 2: Mind for Might",
+    "Tier 3: Fortification Builder or Divert Attacks",
+    "Tier 4: Greater Enhanced Might",
+    "Tier 5: Reinforcing Field",
+    "Tier 6: Generate Force Field or Stun Attack"
+  ],
+  "gm_intrusions": "A strategically important structure collapses. The enemy attacks from an unexpected direction.",
+  "text": "Everyone wants you on their side when it comes to a fight because nothing gets by you.",
+  "details": [
+    "Everyone wants you on their side when it comes to a fight because nothing gets by you."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tasks Requiring Incredible Focus or Concentration",
+  "slug": "tasks_requiring_incredible_focus_or_concentration",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:strong_willed",
+        "line": "Skill: You’re trained in tasks requiring incredible focus or concentration."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

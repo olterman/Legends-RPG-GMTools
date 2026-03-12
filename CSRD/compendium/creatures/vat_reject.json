@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Vat Reject",
+  "slug": "vat_reject",
+  "level": 3,
+  "target_number": 9,
+  "description": "Vat rejects come into being when clone vats meant to produce clone soldiers or similar mass-produced entities are corrupted. How the carefully controlled process becomes compromised varies, but possibilities include yeast contamination, sunspot activity, nanovirus evolution, or purposeful meddling with control parameters. Unskilled operators experimenting with derelict cloning equipment can also produce a vat of rejects. Vat rejects fear nothing and welcome death, except that their existential rage requires an outlet other than immediate suicide. Their warped forms mean that most are in constant pain, and they somehow understand that this was artificially stamped into them by their creators. Revenge is their only possible redemption.",
+  "motive": "Self-destruction through endless aggression",
+  "environment": "Anywhere in lost and lonely places",
+  "health": "9",
+  "damage_inflicted": "3 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Speed defense as level 4 due to frenzied alacrity",
+  "combat": "Vat rejects charge into battle with berserk speed, hindering defenses against their initial attack. All vat rejects are able to inflict damage directly by cutting, bashing, or biting a victim, depending on their particular morphology. Some also have additional abilities; roll on the table below for each reject.",
+  "interaction": "Vat rejects are usually always enraged, making interaction nearly impossible. However, some may negotiate if offered a reasonable hope of salvation through extreme surgery or other transformation.",
+  "use": "A long-missing derelict ship, famous for carrying a load of planet-buster superweapons, is found. However, salvagers discover it to be overrun by vat rejects. No one knows if the rejects plan to use the superweapons, if they have been released by someone else as a distraction, or if they are part of a mutated ship defense system.",
+  "loot": null,
+  "gm_intrusion": "The vat reject also has a radioactive sting. On a failed Might defense roll, the character struck by the reject descends one step on the damage track."
+}

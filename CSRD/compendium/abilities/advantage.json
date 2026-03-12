@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Advantage",
+  "slug": "advantage",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When you use 1 XP to reroll a d20 for any roll that affects only you, add 3 to the reroll.",
+  "details": [
+    "When you use 1 XP to reroll a d20 for any roll that affects only you, add 3 to the reroll."
+  ]
+}

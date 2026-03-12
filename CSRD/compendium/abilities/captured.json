@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Captured",
+  "slug": "captured",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "An unexpected encounter with a gravity well can also capture a spacecraft in the gravity well’s orbit, forcing the craft to expend additional power to get free (power it may or may not have)",
+  "details": [
+    "An unexpected encounter with a gravity well can also capture a spacecraft in the gravity well’s orbit, forcing the craft to expend additional power to get free (power it may or may not have)"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Poetic License",
+  "slug": "poetic_license",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You are trained in all social interactions, including persuasion, deception, and intimidation. You also know two additional languages. Enabler.",
+  "details": [
+    "You are trained in all social interactions, including persuasion, deception, and intimidation. You also know two additional languages. Enabler."
+  ]
+}

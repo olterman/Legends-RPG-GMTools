@@ -1,0 +1,28 @@
+{
+  "type": "lore",
+  "title": "Fenmir",
+  "slug": "fenmir",
+  "source": "logseq",
+  "source_path": "logseq/pages/Fenmir.md",
+  "excerpt": "_The Mortal Heartlands_",
+  "categories": [
+    "city",
+    "environment",
+    "race"
+  ],
+  "terms": [
+    "Caldor Island",
+    "Fenmir Highlands",
+    "Fenmir Lowlands",
+    "Fenmir Wilds",
+    "caldor",
+    "gitz",
+    "uruk"
+  ],
+  "mentions_total": 12,
+  "content_markdown": "# **The Fenmir Lands**\n_The Mortal Heartlands_\n---\n## Overview\nThe **Fenmir** were once a single people, bound by shared ancestry and the first human settlements of the central lands. That unity is long gone.\nToday, _Fenmir_ no longer names a nation.\nIt names a **condition**.\nTheir lands are fractured into highlands, plains, wilds, coasts, and seas—each shaped by survival rather than sovereignty. What unites them is not law or banner, but memory, mortality, and an unyielding refusal to vanish.\n---\n## The Fenmir Highlands\nRising west and north, the **Fenmir Highlands** are a land of wind-scoured ridges, stone circles, and long memory. Here dwell the **Fenmir Highlanders**—tall, pale-skinned, often marked with ritual tattoos that tell lineage, oath, and spirit-guidance.\nThey are:\n- Nomadic and clan-based\n- Deeply spiritual\n- Fiercely traditional\nThe Highlanders coexist with the **Highland Uruk** in an uneasy but enduring balance of respect. Territory is fluid, honor is personal, and violence is restrained by custom rather than treaty.\nTo the Highlanders, the lowlands are a graveyard.\nTo the lowlands, the Highlands are a myth that still walks.\n---\n## The Fenmir Lowlands\nOnce the cradle of Fenmir civilization, the **Lowlands** are now a scarred expanse of broken fields, abandoned keeps, and half-buried roads.\nRepeated Uruk incursions shattered centralized rule here. What remains are:\n- Fortified villages\n- Wandering warbands\n- Mercenary companies\n- Ruined cities claimed by ghosts and worse\nNo single power holds the plains.\nEvery harvest is a gamble.\n---\n## The Fenmir Wilds\nEncircled by the **Fenmir Mountains**, the Wilds are accessible only through a single western pass. To the east, the land opens into chaos.\nThe Wilds are:\n- Lawless\n- Untamed\n- Fiercely contested\n- They are populated by:\n- Lowland Uruk tribes\n- Gitz clans\n- Scattered human enclaves\n- Things that do not belong on maps\nThe Wilds resist settlement. Roads vanish. Forts fail. Even the Galadhrim watch these lands cautiously.\n---\n## The Free Cities of the Coast\nAlong the western and southern coast lie the **Free Cities**—independent city-states born of exile, survival, and opportunity.\nThe greatest among them:\n- **Freeport**\n- **Xul**\n- **Kahn**\n- These cities are bound not by loyalty, but by the **Free Accords**:\n- Any race may enter\n- Any creed may be practiced\n- No slavery within the walls\n- No war may be waged inside the harbor\nBeyond that, anything is negotiable.\n---\n## The Treacherous Seas\nThe waters between:\n- **Caldor Island**\n- **The Dragon’s Teeth**\n- **The Island of Lights**\n- **The Bay of Skulls**\n…are among the most dangerous in the known world.\nThese seas are:\n- Pirate-infested\n- Poorly charted\n- Prone to sudden storms and strange currents\nPrivateers, freebooters, smugglers, and exiles thrive here. Many Free City fortunes are made—or lost—between these waves.\n---\n## Fenmir Identity\nFenmir culture prizes:\n- Adaptability\n- Personal honor\n- Survival through wit\n- Ancestral memory\nThey are welcoming, suspicious, proud, and pragmatic—often all at once.\nThough fractured, Fenmir shamans and ancestral law are still respected across regions, especially in matters of:\n- Oath-breaking\n- Kin-slaughter\n- Spiritual corruption\nEven pirates know when not to press their luck.\n---\n## Why the Fenmir Matter\nThe Fenmir lands are:\n- A crossroads of races and ideologies\n- A pressure valve for empires\n- A breeding ground for legends\nNo crown rules here.\nWhich means **anyone might rise**.\nOr fall.\n---\n### Perfect Player Starting Region\nThis region supports:\n- Isolated village starts (Highlands or Vale-adjacent)\n- Pirate crews and smugglers\n- Mercenary companies\n- Uruk–human coexistence stories\n- Political intrigue without empires\n- Exploration of Daelgast-tainted ruins\n- -------------",
+  "prompt_counts": {
+    "lore": 1,
+    "art": 0
+  }
+}

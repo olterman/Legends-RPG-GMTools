@@ -1,0 +1,185 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Speed Defense",
+  "slug": "speed_defense",
+  "progression": {
+    "inability": [
+      {
+        "from": "ability:agent_provocateur",
+        "line": "Aggression (2 Might points): You focus on making attacks to such an extent that you leave yourself vulnerable to your opponents. While this ability is active, you gain an asset on your melee attacks, and your Speed defense rolls against melee and ranged attacks are hindered. This effect lasts for as long as you wish, but it ends if no combat is taking place within range of your senses. Enabler."
+      },
+      {
+        "from": "ability:agent_provocateur",
+        "line": "Choose one of the following to be trained in: attacking with a weapon of your choice, demolitions, or sneaking and lockpicking (if you choose this last option, you are trained in both). Enabler. Aggression (2 Might points): You focus on making attacks to such an extent that you leave yourself vulnerable to your opponents. While this ability is active, you gain an asset on your melee attacks, and your Speed defense rolls against melee and ranged attacks are hindered. This effect lasts for as long as you wish, but it ends if no combat is taking place within range of your senses. Enabler."
+      },
+      {
+        "from": "ability:very_long_sprinting",
+        "line": "Vigilance (2 Intellect points): You take a cautious approach to combat, focusing more on protecting yourself than on hurting your opponents. While this ability is active, you gain an asset on Speed defense rolls against melee and ranged attacks, and your melee and ranged attacks are hindered. This effect lasts for as long as you wish, but it ends if no combat is taking place within range of your senses. Action to initiate."
+      },
+      {
+        "from": "ability:very_long_sprinting",
+        "line": "When you use Phase Sprint, you can travel up to a very long distance as your action instead of a long distance. Enabler. Vigilance (2 Intellect points): You take a cautious approach to combat, focusing more on protecting yourself than on hurting your opponents. While this ability is active, you gain an asset on Speed defense rolls against melee and ranged attacks, and your melee and ranged attacks are hindered. This effect lasts for as long as you wish, but it ends if no combat is taking place within range of your senses. Action to initiate. Vigilant (5 Might points): When affected by an attack or effect that would daze or stun you, you are not dazed or stunned. Enabler. Vindictive Performance (5 Intellect points): When you tell a joke, perform a song or poem, draw a picture, relate an anecdote, or otherwise provide entertainment, you can select one individual from the audience who is able to understand you. During your performance, you heap indirect but biting derision on this target. If you succeed, the target doesn’t realize that they’ve become the victim of your performance until you wrap up the entertainment at a moment you choose in a way that strikes home. The target suffers 6 points of Intellect damage (ignores Armor) and loses their next turn. One or more actions to initiate. Void Wings (3 Intellect points): Swirling ribbons of weird matter grasp you and lift you up, allowing you to fly for one round as quickly as you can move. Enabler."
+      }
+    ],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:doomed",
+        "line": "Skill: You are defense minded, so you are trained in Speed defense tasks."
+      },
+      {
+        "from": "descriptor:graceful",
+        "line": "Skill: You’re trained in all Speed defense tasks."
+      },
+      {
+        "from": "descriptor:impulsive",
+        "line": "Skill: You’re trained in Speed defense actions."
+      },
+      {
+        "from": "character_type:warrior",
+        "line": "He wants to use a large combat knife (a medium weapon that inflicts 4 points of damage) and a .357 Magnum (a heavy pistol that inflicts 6 points of damage but requires the use of both hands). Ray decides not to wear armor, as it’s not really appropriate to the setting, so for his first ability, he chooses Trained Without Armor so he eases Speed defense actions. For his second ability, he chooses Combat Prowess so he can inflict extra damage with his big knife."
+      },
+      {
+        "from": "character_type:warrior",
+        "line": "For his focus, Ray chooses Masters Weaponry. This gives him yet another weapon of high quality. He chooses another combat knife and asks the GM if he could use it in his left hand—not to make attacks, but as a shield. This will ease his Speed defense rolls if he has both knives out (the “shield” counts as an asset). The GM agrees. During the game, Ray’s Warrior will be hard to hit—he is trained in Speed defense rolls, and his extra knife eases his defense rolls by another step."
+      },
+      {
+        "from": "character_type:adept",
+        "line": "For her descriptor, Jen chooses Graceful, which adds 2 points to her Speed Pool, bringing it to 13. That descriptor means she is trained in balancing and anything requiring careful movements, physical performing arts, and Speed defense tasks. Perhaps she is a dancer. In fact, she begins to develop a backstory that involves graceful, lithe movements that she incorporates into her spells."
+      },
+      {
+        "from": "ability:defending_weapon",
+        "line": "When using your enchanted weapon, you are trained in Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:defensive_field",
+        "line": "Deflect Attacks (1 Intellect point): Using your mind, you protect yourself from incoming attacks. For the next ten minutes, you are trained in Speed defense tasks. Action to initiate."
+      },
+      {
+        "from": "ability:defensive_field",
+        "line": "Thanks to subdermal implants, a permanent spell, alien modifications, or something similar, you now have a force field that radiates 1 inch (2.5 cm) from your body and provides you with +2 Armor. Enabler. Defensive Phasing (2 Intellect points): You can change your phase so that some attacks pass through you harmlessly. For the next ten minutes, you gain an asset to your Speed defense tasks, but during this time you lose any benefit from armor you wear. Action to initiate. Define Down (4 Intellect points): The natural gravity within an area a short distance across that you are within immediate range of changes directions so that it flows in the direction you determine (up, up and to the south, west, and so on) for a few seconds, then snaps back. Affected targets could be tossed up to 20 feet (6 m) and take a few points of damage. Action. Deflect Attacks (1 Intellect point): Using your mind, you protect yourself from incoming attacks. For the next ten minutes, you are trained in Speed defense tasks. Action to initiate."
+      },
+      {
+        "from": "ability:diamagnetism",
+        "line": "You magnetize any nonmetallic object within short range so that it can be affected by your other magnetic powers. Thus, with Move Metal, you can move any object. With Repel Metal, you are trained in all Speed defense tasks, regardless of whether the incoming attack uses metal. And so on. Enabler."
+      },
+      {
+        "from": "ability:diamagnetism",
+        "line": "You magnetize any nonmetallic object within short range so that it can be affected by your other magnetic powers. Thus, with Move Metal, you can move any object. With Repel Metal, you are trained in all Speed defense tasks, regardless of whether the incoming attack uses metal. And so on. Enabler. Dimensional Squeeze (2+ Intellect points): You cram yourself into a transitional dimension, allowing you to instantaneously appear anywhere you choose within short range if you have a clear and unobstructed path to that location. You can pass through an intervening barrier if it has an open space that you could easily fit your head through—about 1 square foot (30 cm by 30 cm square). In addition to the normal options for using Effort, you can choose to use Effort to pass through a smaller opening in a barrier; each level of Effort used in this way reduces the minimum opening size by one-fourth. You land safely when you use this ability. Action. Transitional dimension: A dimension where distances are shorter compared to those in other dimensions, so travel through it is faster than normal movement. Dirty Fighter (2 Speed points): You distract, blind, annoy, hamper, or otherwise interfere with a foe, hindering their attacks and defenses for one minute. Action. Disable Mechanisms (3 Speed points): With a keen eye and quick moves, you disrupt some functions of a robot or machine and inflict upon it one of the following maladies: All its tasks are hindered for one minute. Its speed is halved. It can take no action for one round. It deals 2 fewer points of damage (minimum 1 point) for one minute. You must touch the robot or machine to disrupt it (if you are making an attack, it inflicts no damage). Action. Disappear (4 Intellect points): You bend light that falls on you so you seem to disappear. You are invisible to other creatures for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to focus on hiding your position. Action to initiate or reinitiate. Disarming Attack (5 Speed points): You attempt a Speed task to disarm a foe as part of your melee attack. If you succeed, your attack inflicts 3 additional points of damage and the target’s weapon is knocked from their grip, landing up to 20 feet (6 m) away. If you fail, you still attempt your normal attack, but you don’t inflict the extra damage or disarm the opponent if you hit. Action. Disarming Strike (3 Speed points): Your attack inflicts 1 point less damage and disarms your foe so that their weapon is now 10 feet (3 m) away on the ground. (If your chosen weapon is a whip, you can instead deposit the disarmed weapon into your hands; if your chosen weapon is a bow or other ranged weapon that fires physical rounds, you can instead “nail” the disarmed weapon to a nearby object or structure. Choosing to do either of these hinders your attack.) Action."
+      },
+      {
+        "from": "ability:dual_defense",
+        "line": "When you wield two weapons, you are trained in Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:dual_defense",
+        "line": "When you wield two weapons, you are trained in Speed defense tasks. Enabler. Dual Distraction (1+ Speed points): When you wield two weapons, your opponent’s next attack is hindered, and if you apply Effort on your next attack against that same foe, you get a free level of Effort on the task. Enabler."
+      },
+      {
+        "from": "ability:hard_to_hit",
+        "line": "You are trained in Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:out_of_harm_s_way",
+        "line": "No matter how careful, an investigator sometimes ends up in a scrap. Knowing how to survive is more than half the battle. You are trained in Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:quick_block",
+        "line": "If you use a light or medium weapon, you are trained in Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:quick_block",
+        "line": "If you use a light or medium weapon, you are trained in Speed defense tasks. Enabler. Quick Death (2 Speed points): You know how to kill quickly. When you hit with a melee or ranged attack, you deal 4 additional points of damage. You can’t make this attack in two consecutive rounds. Action."
+      },
+      {
+        "from": "ability:repel_metal",
+        "line": "By manipulating magnetism, you are trained in Speed defense tasks against any incoming attack that uses metal. Enabler."
+      },
+      {
+        "from": "ability:repel_metal",
+        "line": "By manipulating magnetism, you are trained in Speed defense tasks against any incoming attack that uses metal. Enabler. Reshape (5 Intellect points): You reshape matter within short range in an area no larger than a 5-foot (1.5 m) cube. If you use only one action on this ability, the changes you make are crude at best. If you spend at least ten minutes and succeed at a hindered appropriate crafting task, you can make complex changes to the material. You can’t change the nature of the material, only its shape. Thus, you can make a hole in a wall or floor, or you can seal one up. You can fashion a rudimentary sword from a large piece of iron. You can break or repair a chain. With multiple uses of this ability, you could bring about large changes, making a bridge, a wall, or a similar structure. Action."
+      },
+      {
+        "from": "ability:shield_master",
+        "line": "When you use a shield, in addition to the asset it gives you (easing Speed defense tasks), you can act as if you are trained in Speed defense tasks. However, in any round in which you use this benefit, your attacks are hindered. Enabler."
+      },
+      {
+        "from": "ability:slippery_customer",
+        "line": "When you apply Effort to tasks involving escaping from bonds, fitting in tight spaces, and other contortionist tasks, you get a free level of Effort on the task. Thanks to your experience, you are also trained in Speed defense tasks while wearing light armor or no armor. Enabler."
+      },
+      {
+        "from": "ability:slippery_customer",
+        "line": "When you apply Effort to tasks involving escaping from bonds, fitting in tight spaces, and other contortionist tasks, you get a free level of Effort on the task. Thanks to your experience, you are also trained in Speed defense tasks while wearing light armor or no armor. Enabler. Small Flight (3+ Intellect points): For the next hour, when using Shrink, you can fly through the air. You might accomplish this flight by growing wings from your body, extending wings from your suit, calling a tiny creature to carry you, or “surfing” air currents. When flying, you can move up to a short distance as part of another action or a long distance if all you do on your turn is move. Action to initiate."
+      },
+      {
+        "from": "ability:trained_without_armor",
+        "line": "You are trained in Speed defense tasks when not wearing armor. Enabler."
+      },
+      {
+        "from": "ability:trained_without_armor",
+        "line": "You are trained in Speed defense tasks when not wearing armor. Enabler. Transcend the Script (5 Intellect points): Whether they are lines you wrote, acted, reported on, or otherwise incorporated into your talent, you compose an oratory on the fly that is so wonderful that even you believe it. For each ally who hears it (and you too), a task attempted within the next hour is eased by two steps. Action. Trapfinder (3+ Intellect points): You find any traps (like a floor that would give way beneath you) or mechanical triggers to a trap or defense system that might pose a threat. You can do this without setting them off and in lieu of making a roll to find them. This ability can find traps of level 4 or below. In addition to the normal options for using Effort, you can choose to use Effort to increase the level of traps that can be found by 2, so using two levels of Effort can find all traps of level 8 or below. Action."
+      },
+      {
+        "from": "ability:unarmored_fighter",
+        "line": "While unarmored, you are trained in Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:unarmored_fighter",
+        "line": "While unarmored, you are trained in Speed defense tasks. Enabler. Uncanny Luck (4 Speed points): When you roll for a task and succeed, roll again. If the second number rolled is higher than the first, you get a minor effect. If you roll the same number again, you get a major effect. If you have Uncanny Luck from another source or a similar ability, it’s your choice (no roll required) whether you get a minor effect, a major effect, or a free activation of one of your tier 1–3 focus abilities. Enabler. Understanding (1 Intellect point): You observe or study a creature or object. Your next interaction with that creature or object gains one asset. Action."
+      },
+      {
+        "from": "ability:weapon_defense",
+        "line": "While your chosen weapon is in your hand(s), you are trained in Speed defense rolls. Enabler."
+      }
+    ],
+    "expert": [
+      {
+        "from": "ability:blameless",
+        "line": "Blend In (4 Intellect points): When you blend in, creatures still see you, but they attach no importance to your presence for about a minute. While blending in, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining period of effect by taking an action to focus on seeming innocuous and as if you belong. Action to initiate or reinitiate."
+      },
+      {
+        "from": "ability:blameless",
+        "line": "You are trained in one of the following: deception, stealth, or disguise. Enabler. Blend In (4 Intellect points): When you blend in, creatures still see you, but they attach no importance to your presence for about a minute. While blending in, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining period of effect by taking an action to focus on seeming innocuous and as if you belong. Action to initiate or reinitiate."
+      },
+      {
+        "from": "ability:diamagnetism",
+        "line": "Disappear (4 Intellect points): You bend light that falls on you so you seem to disappear. You are invisible to other creatures for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to focus on hiding your position. Action to initiate or reinitiate."
+      },
+      {
+        "from": "ability:diamagnetism",
+        "line": "You magnetize any nonmetallic object within short range so that it can be affected by your other magnetic powers. Thus, with Move Metal, you can move any object. With Repel Metal, you are trained in all Speed defense tasks, regardless of whether the incoming attack uses metal. And so on. Enabler. Dimensional Squeeze (2+ Intellect points): You cram yourself into a transitional dimension, allowing you to instantaneously appear anywhere you choose within short range if you have a clear and unobstructed path to that location. You can pass through an intervening barrier if it has an open space that you could easily fit your head through—about 1 square foot (30 cm by 30 cm square). In addition to the normal options for using Effort, you can choose to use Effort to pass through a smaller opening in a barrier; each level of Effort used in this way reduces the minimum opening size by one-fourth. You land safely when you use this ability. Action. Transitional dimension: A dimension where distances are shorter compared to those in other dimensions, so travel through it is faster than normal movement. Dirty Fighter (2 Speed points): You distract, blind, annoy, hamper, or otherwise interfere with a foe, hindering their attacks and defenses for one minute. Action. Disable Mechanisms (3 Speed points): With a keen eye and quick moves, you disrupt some functions of a robot or machine and inflict upon it one of the following maladies: All its tasks are hindered for one minute. Its speed is halved. It can take no action for one round. It deals 2 fewer points of damage (minimum 1 point) for one minute. You must touch the robot or machine to disrupt it (if you are making an attack, it inflicts no damage). Action. Disappear (4 Intellect points): You bend light that falls on you so you seem to disappear. You are invisible to other creatures for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to focus on hiding your position. Action to initiate or reinitiate. Disarming Attack (5 Speed points): You attempt a Speed task to disarm a foe as part of your melee attack. If you succeed, your attack inflicts 3 additional points of damage and the target’s weapon is knocked from their grip, landing up to 20 feet (6 m) away. If you fail, you still attempt your normal attack, but you don’t inflict the extra damage or disarm the opponent if you hit. Action. Disarming Strike (3 Speed points): Your attack inflicts 1 point less damage and disarms your foe so that their weapon is now 10 feet (3 m) away on the ground. (If your chosen weapon is a whip, you can instead deposit the disarmed weapon into your hands; if your chosen weapon is a bow or other ranged weapon that fires physical rounds, you can instead “nail” the disarmed weapon to a nearby object or structure. Choosing to do either of these hinders your attack.) Action."
+      },
+      {
+        "from": "ability:golem_body",
+        "line": "You gain +1 to Armor, +1 to your Might Edge, and 5 additional points to your Might Pool. You do not need to eat, drink, or breathe (though you do need rest and sleep). You move more stiffly than a creature of flesh, which means you can never be trained or specialized in Speed defense rolls. Furthermore, you are practiced in using your stone fists as a medium weapon. Enabler."
+      },
+      {
+        "from": "ability:golem_body",
+        "line": "You gain +1 to Armor, +1 to your Might Edge, and 5 additional points to your Might Pool. You do not need to eat, drink, or breathe (though you do need rest and sleep). You move more stiffly than a creature of flesh, which means you can never be trained or specialized in Speed defense rolls. Furthermore, you are practiced in using your stone fists as a medium weapon. Enabler. Golem Grip (3 Might points): Your attack with the stone fists from your Golem Body ability is eased. If you hit, you can grab the target, preventing it from moving on its next turn. While you hold the target, its attacks or attempts to break free are hindered. If the target attempts to break free instead of attacking, you must make a Might-based roll to maintain your grip. If the target fails to break free, you can continue to hold it each round as your subsequent actions, automatically inflicting 4 points of damage each round by squeezing. Enabler."
+      },
+      {
+        "from": "ability:investigator",
+        "line": "Invisibility (4 Intellect points): You become invisible for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to hide your position. If you have another ability that also confers invisibility, using either one allows you to remain invisible for twice as long as the duration specified. Action to initiate or reinitiate."
+      },
+      {
+        "from": "ability:investigator",
+        "line": "To really shine as an investigator, you must engage your mind and body in your deductions. You can spend points from your Might Pool, Speed Pool, or Intellect Pool to apply levels of Effort to any Intellect-based task. Enabler. Invisibility (4 Intellect points): You become invisible for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to hide your position. If you have another ability that also confers invisibility, using either one allows you to remain invisible for twice as long as the duration specified. Action to initiate or reinitiate. Invisible Phasing (4 Might points): You become invisible while using Phase Sprint and during the following round. While invisible, stealth is eased by two steps and Speed defense is eased by two steps (this replaces the asset to Speed defense tasks provided by Phase Sprint). The first attack you make using any Shreds the Walls of the World attack abilities is also eased by two steps; however, if you attack a creature, Invisible Phasing ends immediately instead of lasting for one additional round. If you have the Invisibility ability, you can remain invisible during the entire round, which means that if you use Scratch Existence or Shred Existence, attacking each target along your path is eased by two steps. Enabler."
+      },
+      {
+        "from": "ability:moderate_wish",
+        "line": "Invisible. With a touch, the magic ally bends light that falls on you, so you seem to disappear. You are invisible to other creatures for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to focus on hiding your position. Action to initiate."
+      },
+      {
+        "from": "ability:moderate_wish",
+        "line": "At your request, the magic ally from your Bound Magic Creature ability can spend its action casting a moderate spell on you. Afterward, it must retreat to its bound object to rest for at least one hour. The effects it can produce include the following. Action to initiate. Golden Armor. You gain +3 to Armor for one hour from a translucent sheen of golden light. Golden Fury. A golden light blazes in your eyes. For the next three minutes, if you attack a target, you inflict 5 additional points of damage. Improved Touch of Grace. With the magic ally’s touch, you add 6 points to any stat Pool. If you are not damaged, you add the points to your chosen Pool’s maximum. They remain until you spend them, you lose them to damage, or an hour passes. Invisible. With a touch, the magic ally bends light that falls on you, so you seem to disappear. You are invisible to other creatures for ten minutes. While invisible, you are specialized in stealth and Speed defense tasks. This effect ends if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. If this occurs, you can regain the remaining invisibility effect by taking an action to focus on hiding your position. Action to initiate. Modify Artifact Power (6 Intellect points): You permanently add +1 to the level of an artifact of up to level 5. The difficulty of this task is equal to the modified higher level of the artifact. If the task is failed, the artifact makes a depletion roll and is not advanced in level. Once modified, the artifact can’t be similarly boosted again. Action."
+      }
+    ]
+  },
+  "levels": [
+    "inability",
+    "trained",
+    "expert"
+  ],
+  "summary": "inability, trained, expert"
+}

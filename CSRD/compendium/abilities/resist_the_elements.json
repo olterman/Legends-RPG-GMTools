@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resist the Elements",
+  "slug": "resist_the_elements",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "You resist heat, cold, and similar extremes. You have a special +2 to Armor against ambient damage or other damage that would normally ignore Armor. Enabler.",
+  "details": [
+    "You resist heat, cold, and similar extremes. You have a special +2 to Armor against ambient damage or other damage that would normally ignore Armor. Enabler."
+  ]
+}

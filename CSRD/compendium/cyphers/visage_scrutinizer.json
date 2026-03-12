@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Visage Scrutinizer",
+  "slug": "visage_scrutinizer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Device, crystal, injection, or pill",
+  "effect": "Grants the user a heightened ability to see disguised people and creatures for what they really are. Tasks to see through conventional disguises (makeup, prosthetics, wigs, and so on) are eased by three steps. If the disguise is instead a comprehensive change like a full-body illusion, mental projection, or hologram, the user automatically sees through it if the disguise’s level is lower than the cypher’s level. The cypher lasts for one hour.",
+  "depletion": null
+}

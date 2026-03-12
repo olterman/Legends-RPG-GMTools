@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Finding out Something New, Such as",
+  "slug": "finding_out_something_new_such_as",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:creative",
+        "line": "Skill: To be creative requires that you always be learning. You are trained in any task that involves finding out something new, such as when you’re digging through a library, data bank, news archive, or similar collection of knowledge."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

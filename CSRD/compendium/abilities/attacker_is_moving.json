@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Attacker Is Moving",
+  "slug": "attacker_is_moving",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "An attacker trying to make an attack while moving under their own power (walking, running, swimming, and so on) takes no penalties. Attacks from a moving mount or moving vehicle are hindered; an attacker trained in riding or driving ignores this penalty.",
+  "details": [
+    "An attacker trying to make an attack while moving under their own power (walking, running, swimming, and so on) takes no penalties. Attacks from a moving mount or moving vehicle are hindered; an attacker trained in riding or driving ignores this penalty."
+  ]
+}

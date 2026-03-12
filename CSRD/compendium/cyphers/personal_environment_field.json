@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Personal Environment Field",
+  "slug": "personal_environment_field",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Puts the user out of phase for one minute (two minutes if the cypher is level 6 or higher). During this time, they can pass through solid objects as though they were entirely insubstantial, like a ghost. They cannot make physical attacks or be physically attacked.",
+  "depletion": null
+}

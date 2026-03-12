@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Serv-0 Repair",
+  "slug": "serv_0_repair",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "Your Serv-0 aids you in repairing other devices. It gains a modification in repair. Enabler. Serv-0 Scanner (2 Intellect points): Your Serv-0 gains the Scan ability. Enabler. Serv-0 Spy (3 Intellect points): You can send your Serv-0 up to a long distance away for up to ten minutes and see and hear through it as though its senses were your own. You direct its movement. Action to initiate.",
+  "details": [
+    "Your Serv-0 aids you in repairing other devices. It gains a modification in repair. Enabler.",
+    "Serv-0 Scanner (2 Intellect points): Your Serv-0 gains the Scan ability. Enabler.",
+    "Serv-0 Spy (3 Intellect points): You can send your Serv-0 up to a long distance away for up to ten minutes and see and hear through it as though its senses were your own. You direct its movement. Action to initiate."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expert Pilot",
+  "slug": "expert_pilot",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You are specialized in all tasks related to piloting a starcraft. Enabler.",
+  "details": [
+    "You are specialized in all tasks related to piloting a starcraft. Enabler."
+  ]
+}

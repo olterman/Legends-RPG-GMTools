@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Golem Healing",
+  "slug": "golem_healing",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "Your stone form from the Golem Body ability is more difficult to repair than flesh, which means you are unable to use the first, single-action recovery roll of the day that other PCs have access to. Thus, your first recovery roll on any given day requires ten minutes of rest, the second requires an hour of rest, and the third requires ten hours. Enabler. Golem Stomp (4 Might points): You stomp on the ground with all of your strength, creating a shock wave that attacks all creatures in immediate range. Affected creatures take 3 points of damage and are either pushed out of immediate range or fall down (your choice). Action.",
+  "details": [
+    "Your stone form from the Golem Body ability is more difficult to repair than flesh, which means you are unable to use the first, single-action recovery roll of the day that other PCs have access to. Thus, your first recovery roll on any given day requires ten minutes of rest, the second requires an hour of rest, and the third requires ten hours. Enabler.",
+    "Golem Stomp (4 Might points): You stomp on the ground with all of your strength, creating a shock wave that attacks all creatures in immediate range. Affected creatures take 3 points of damage and are either pushed out of immediate range or fall down (your choice). Action."
+  ]
+}

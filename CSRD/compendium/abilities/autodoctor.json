@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Autodoctor",
+  "slug": "autodoctor",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "You are trained in healing, performing surgical procedures, and withstanding pain. You can perform surgeries on yourself, remaining conscious while you do so. Enabler. Awareness (3 Intellect points): You become hyperaware of your surroundings in order to better locate your target. For ten minutes, you are aware of all living things within long range (including their general position), and by concentrating (another action), you can attempt to learn the general health and power level of any one of them. Action.",
+  "details": [
+    "You are trained in healing, performing surgical procedures, and withstanding pain. You can perform surgeries on yourself, remaining conscious while you do so. Enabler.",
+    "Awareness (3 Intellect points): You become hyperaware of your surroundings in order to better locate your target. For ten minutes, you are aware of all living things within long range (including their general position), and by concentrating (another action), you can attempt to learn the general health and power level of any one of them. Action."
+  ]
+}

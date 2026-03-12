@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Draconic Resistance",
+  "slug": "draconic_resistance",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You gain +2 Armor against the type of energy you create with your dragonbreath.",
+  "details": [
+    "You gain +2 Armor against the type of energy you create with your dragonbreath."
+  ]
+}

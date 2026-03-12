@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Overcharge Device",
+  "slug": "overcharge_device",
+  "cost": null,
+  "alpha_section": "O",
+  "effect": "You infuse 1 point of energy gained from using Absorb Energy or related ability into a device, such as an artifact, raising its effective level on its next use by three (to a maximum of 10). Action.",
+  "details": [
+    "You infuse 1 point of energy gained from using Absorb Energy or related ability into a device, such as an artifact, raising its effective level on its next use by three (to a maximum of 10). Action."
+  ]
+}

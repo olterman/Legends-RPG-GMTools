@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Vacuum Skilled",
+  "slug": "vacuum_skilled",
+  "cost": null,
+  "alpha_section": "V",
+  "effect": "You are trained in two of the following skills: vacuum welding, algae farming, ecosystem design, circuit design, spacecraft maintenance and repair, or some similar skill related to traveling and colonizing planets, moons, and stations located in the solar system. Enabler. Vanish (2 Intellect points): You become invisible for a short amount of time. While invisible, you have an asset on stealth and Speed defense tasks. The invisibility ends at the end of your next turn, or if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. Action. Verbal Misdirection (2+ Intellect points): With fast talk and bewildering words, you can confuse and distract anyone that you’re speaking with, giving you an asset on social interactions with that person for ten minutes. In addition to the normal options for using Effort, you can choose to use Effort to affect additional creatures (one per level of Effort). Enabler.",
+  "details": [
+    "You are trained in two of the following skills: vacuum welding, algae farming, ecosystem design, circuit design, spacecraft maintenance and repair, or some similar skill related to traveling and colonizing planets, moons, and stations located in the solar system. Enabler.",
+    "Vanish (2 Intellect points): You become invisible for a short amount of time. While invisible, you have an asset on stealth and Speed defense tasks. The invisibility ends at the end of your next turn, or if you do something to reveal your presence or position—attacking, using an ability, moving a large object, and so on. Action.",
+    "Verbal Misdirection (2+ Intellect points): With fast talk and bewildering words, you can confuse and distract anyone that you’re speaking with, giving you an asset on social interactions with that person for ten minutes. In addition to the normal options for using Effort, you can choose to use Effort to affect additional creatures (one per level of Effort). Enabler."
+  ]
+}

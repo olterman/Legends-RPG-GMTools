@@ -1,0 +1,39 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wears Power Armor",
+  "slug": "wears_power_armor",
+  "summary": "Tier 1: Powered Armor",
+  "tiers": [
+    "Tier 1: Enhanced Might",
+    "Tier 2: Heads-Up Display",
+    "Tier 3: Fusion Armor or Incredible Health",
+    "Tier 4: Force Blast",
+    "Tier 5: Field-Reinforced Armor",
+    "Tier 6: Masterful Armor Modification (Jet Assisted Flight) or Masterful Armor Modification (Cypher Pod)",
+    "Tier 1: Enchanted Weapon",
+    "Tier 1: Innate Power",
+    "Tier 1: Charge Weapon",
+    "Tier 2: Power Crash",
+    "Tier 3: Rapid Attack or Throw Enchanted Weapon",
+    "Tier 4: Defending Weapon",
+    "Tier 5: Enchanted Movement",
+    "Tier 6: Deadly Strike or Spin Attack",
+    "Tier 1: Vanish",
+    "Tier 2: Entangling Force",
+    "Tier 2: Sharp Senses",
+    "Tier 3: Force Field Barrier or Multi-Vanish",
+    "Tier 4: Invisibility",
+    "Tier 5: Defensive Field",
+    "Tier 6: Concussion or Generate Force Field"
+  ],
+  "gm_intrusions": "Invisibility partially fades, revealing the character’s presence. A force field is pierced by an unusual or unexpected attack.",
+  "text": "Tier 1: Powered Armor WIELDS AN ENCHANTED WEAPON You have a weapon with strange abilities, and your knowledge of its powers has allowed you to create a unique style of combat with it. WIELDS INVISIBLE FORCE You bend light and manipulate beams of force for offense and defense.",
+  "details": [
+    "Tier 1: Powered Armor",
+    "WIELDS AN ENCHANTED WEAPON",
+    "You have a weapon with strange abilities, and your knowledge of its powers has allowed you to create a unique style of combat with it.",
+    "WIELDS INVISIBLE FORCE",
+    "You bend light and manipulate beams of force for offense and defense."
+  ]
+}

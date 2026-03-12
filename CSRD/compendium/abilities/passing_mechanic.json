@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Passing Mechanic",
+  "slug": "passing_mechanic",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You are trained in tasks related to the repair and maintenance of a starcraft. Enabler.",
+  "details": [
+    "You are trained in tasks related to the repair and maintenance of a starcraft. Enabler."
+  ]
+}

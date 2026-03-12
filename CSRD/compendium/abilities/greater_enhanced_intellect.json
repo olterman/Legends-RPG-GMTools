@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Greater Enhanced Intellect",
+  "slug": "greater_enhanced_intellect",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "You gain 6 points to your Intellect Pool. Enabler.",
+  "details": [
+    "You gain 6 points to your Intellect Pool. Enabler."
+  ]
+}

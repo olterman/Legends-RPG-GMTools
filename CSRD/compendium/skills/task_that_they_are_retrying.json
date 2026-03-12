@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Task That They Are Retrying",
+  "slug": "task_that_they_are_retrying",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:friendly_help",
+        "line": "If your friend tries a task and fails, they can try again without spending Effort if you help. You provide this advantage to your friend even if you are not trained in the task that they are retrying. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

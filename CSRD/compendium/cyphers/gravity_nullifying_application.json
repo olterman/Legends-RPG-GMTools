@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Gravity-Nullifying Application",
+  "slug": "gravity_nullifying_application",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "If a nonliving object no larger than a human (two humans if the cypher level is 6 or higher) is coated by this cypher, it floats 1d20 feet in the air permanently and no longer has weight if carried (though it needs to be strapped down).",
+  "depletion": null
+}

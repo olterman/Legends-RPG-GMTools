@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Moving Toward Perfection",
+  "slug": "moving_toward_perfection",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You add 1 to your Might Edge, your Speed Edge, or your Intellect Edge (your choice).",
+  "details": [
+    "You add 1 to your Might Edge, your Speed Edge, or your Intellect Edge (your choice)."
+  ]
+}

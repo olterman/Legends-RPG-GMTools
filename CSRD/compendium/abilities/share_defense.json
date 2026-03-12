@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Share Defense",
+  "slug": "share_defense",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "If your training in a defense task is greater than that of an ally within short range, your advice and insight allow them to substitute your training for that defense task. Enabler.",
+  "details": [
+    "If your training in a defense task is greater than that of an ally within short range, your advice and insight allow them to substitute your training for that defense task. Enabler."
+  ]
+}

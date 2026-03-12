@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Faster Wild Magic",
+  "slug": "faster_wild_magic",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "If you spend ten minutes preparing your magic, you can fill any of your open cypher slots with subtle cyphers chosen randomly by the GM (this time can be part of a ten-minute, one-hour, or ten-hour recovery action if you are awake for the entire time). You can’t use this ability again until after you’ve taken a ten-hour recovery action. You can still use Magical Repertoire to fill your cypher slots. Action to initiate, ten minutes to complete. Fearsome Reputation (3 Intellect points): You and those you travel with have earned a fearsome reputation in some parts. If your foes have heard of you, affected targets within earshot become afraid, and all attacks they make against you are hindered until one or more of them successfully inflicts damage on you or one of your allies, at which time their fear abates. Action. Feat of Strength (1 Might point): Any task that depends on brute force is eased. Examples include smashing down a barred door, tearing open a locked container, lifting or moving a heavy object, or striking someone with a melee weapon. Enabler. Feint (2 Speed points): If you use one action creating a misdirection or diversion, in the next round you can take advantage of your opponent’s lowered defenses. Make a melee attack roll against that opponent. You gain an asset on this attack. If your attack is successful, it inflicts 4 additional points of damage. Action.",
+  "details": [
+    "If you spend ten minutes preparing your magic, you can fill any of your open cypher slots with subtle cyphers chosen randomly by the GM (this time can be part of a ten-minute, one-hour, or ten-hour recovery action if you are awake for the entire time). You can’t use this ability again until after you’ve taken a ten-hour recovery action. You can still use Magical Repertoire to fill your cypher slots. Action to initiate, ten minutes to complete.",
+    "Fearsome Reputation (3 Intellect points): You and those you travel with have earned a fearsome reputation in some parts. If your foes have heard of you, affected targets within earshot become afraid, and all attacks they make against you are hindered until one or more of them successfully inflicts damage on you or one of your allies, at which time their fear abates. Action.",
+    "Feat of Strength (1 Might point): Any task that depends on brute force is eased. Examples include smashing down a barred door, tearing open a locked container, lifting or moving a heavy object, or striking someone with a melee weapon. Enabler.",
+    "Feint (2 Speed points): If you use one action creating a misdirection or diversion, in the next round you can take advantage of your opponent’s lowered defenses. Make a melee attack roll against that opponent. You gain an asset on this attack. If your attack is successful, it inflicts 4 additional points of damage. Action."
+  ]
+}

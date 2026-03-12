@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shadow Box",
+  "slug": "shadow_box",
+  "category": null,
+  "level": "7",
+  "form": "Wooden and black metal box, about 12 inches by 7 inches by 3 inches (30 by 18 by 8 cm), with a hinged lid and a clasp",
+  "effect": "When the box opens, shadows seethe out. These shadows coalesce into a form that best represents a deep fear in the subconscious of the person who opened the box. The opener must make an Intellect defense roll to master the shadow thing, which then acts as a level 7 creature under their control for five rounds before fading away. If the roll fails, the creature attacks the opener and anyone else around. To make matters worse, the opener spends the first round frozen in terror, doing nothing.",
+  "depletion": "1–2 in 1d6"
+}

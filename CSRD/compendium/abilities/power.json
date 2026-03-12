@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Power",
+  "slug": "power",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Effects of one specific character ability, including damage for that ability (+3 points) if appropriate, but not attack rolls with that ability.",
+  "details": [
+    "Effects of one specific character ability, including damage for that ability (+3 points) if appropriate, but not attack rolls with that ability."
+  ]
+}

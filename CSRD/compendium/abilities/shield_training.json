@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shield Training",
+  "slug": "shield_training",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "If you use a shield, Speed defense tasks are eased by two steps instead of one. Enabler. Ship Footing (3 Speed points): For ten minutes, all tasks you attempt while on a spaceship are eased. Action to initiate.",
+  "details": [
+    "If you use a shield, Speed defense tasks are eased by two steps instead of one. Enabler.",
+    "Ship Footing (3 Speed points): For ten minutes, all tasks you attempt while on a spaceship are eased. Action to initiate."
+  ]
+}

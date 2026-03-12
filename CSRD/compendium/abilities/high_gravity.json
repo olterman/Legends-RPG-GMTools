@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "High Gravity",
+  "slug": "high_gravity",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "It’s hard to make effective attacks when the pull of gravity is very strong. Attacks (and all physical actions) made in high gravity are hindered. Ranges in high gravity are reduced by one category (very-long-range weapons reach only to long range, long-range weapons reach only to short range, and short-range weapons reach only to immediate range). Characters trained in high-gravity maneuvering ignore the change in difficulty but not the range decreases.",
+  "details": [
+    "It’s hard to make effective attacks when the pull of gravity is very strong. Attacks (and all physical actions) made in high gravity are hindered. Ranges in high gravity are reduced by one category (very-long-range weapons reach only to long range, long-range weapons reach only to short range, and short-range weapons reach only to immediate range). Characters trained in high-gravity maneuvering ignore the change in difficulty but not the range decreases."
+  ]
+}

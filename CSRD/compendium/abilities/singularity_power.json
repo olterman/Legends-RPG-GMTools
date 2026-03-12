@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Singularity Power",
+  "slug": "singularity_power",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Taps energy from Hawking radiation and rotational energy of a spinning micro-black hole to generate energy an order of magnitude more than nuclear power. Fuel source is a micro-black hole.",
+  "details": [
+    "Taps energy from Hawking radiation and rotational energy of a spinning micro-black hole to generate energy an order of magnitude more than nuclear power. Fuel source is a micro-black hole."
+  ]
+}

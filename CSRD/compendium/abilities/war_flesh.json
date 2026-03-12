@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "War Flesh",
+  "slug": "war_flesh",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You can instantly transform your hands and feet into claws, and your human teeth into fangs, or revert to your normal human appearance. When you make attacks with your claws or fangs, they count as medium weapons instead of light weapons. Enabler.",
+  "details": [
+    "You can instantly transform your hands and feet into claws, and your human teeth into fangs, or revert to your normal human appearance. When you make attacks with your claws or fangs, they count as medium weapons instead of light weapons. Enabler."
+  ]
+}

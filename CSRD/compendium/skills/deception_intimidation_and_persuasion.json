@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Deception, Intimidation, and Persuasion",
+  "slug": "deception_intimidation_and_persuasion",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:cruel",
+        "line": "Skill: You’re trained in tasks related to deception, intimidation, and persuasion when you interact with characters experiencing physical or emotional pain."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

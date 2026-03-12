@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Solving Puzzles and Riddles",
+  "slug": "solving_puzzles_and_riddles",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:jovial",
+        "line": "Skill: You have an advantage in figuring out the punch lines of jokes you’ve never heard before. You are trained in all tasks related to solving puzzles and riddles."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

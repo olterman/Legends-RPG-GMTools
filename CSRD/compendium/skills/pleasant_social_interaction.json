@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pleasant Social Interaction",
+  "slug": "pleasant_social_interaction",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:jovial",
+        "line": "Skill: You’re convivial and set most people at ease with your attitude. You are trained in all tasks related to pleasant social interaction."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

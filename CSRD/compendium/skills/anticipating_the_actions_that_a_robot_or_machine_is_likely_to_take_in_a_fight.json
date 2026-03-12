@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Anticipating the Actions That a Robot or Machine is Likely to Take in a Fight",
+  "slug": "anticipating_the_actions_that_a_robot_or_machine_is_likely_to_take_in_a_fight",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:defense_against_robots",
+        "line": "You have studied your enemy and are trained in anticipating the actions that a robot or machine is likely to take in a fight. Defense tasks you attempt against these foes are eased. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

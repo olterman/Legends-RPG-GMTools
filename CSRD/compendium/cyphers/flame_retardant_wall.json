@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flame-Retardant Wall",
+  "slug": "flame_retardant_wall",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Creates an immobile plane of permeable energy up to 20 feet by 20 feet (6 m by 6 m) for one hour per cypher level. The plane conforms to the space available. Flames passing through the plane are extinguished.",
+  "depletion": null
+}

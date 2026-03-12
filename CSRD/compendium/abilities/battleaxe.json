@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Battleaxe",
+  "slug": "battleaxe",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A wooden pole with a blade on one end.",
+  "details": [
+    "A wooden pole with a blade on one end."
+  ]
+}

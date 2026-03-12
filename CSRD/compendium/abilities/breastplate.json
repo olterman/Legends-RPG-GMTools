@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Breastplate",
+  "slug": "breastplate",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A fitted metal plate or set of plates that protect your torso but not your arms or legs, giving you greater movement than full plate at the cost of some protection.",
+  "details": [
+    "A fitted metal plate or set of plates that protect your torso but not your arms or legs, giving you greater movement than full plate at the cost of some protection."
+  ]
+}

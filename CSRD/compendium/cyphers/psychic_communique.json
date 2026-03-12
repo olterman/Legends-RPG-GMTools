@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Psychic Communique",
+  "slug": "psychic_communique",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Allows the user to project a one-time, one-way telepathic message of up to ten words per cypher level, with an unlimited range, to anyone they know.",
+  "depletion": null
+}

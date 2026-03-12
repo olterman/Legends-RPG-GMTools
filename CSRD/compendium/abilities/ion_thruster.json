@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ion Thruster",
+  "slug": "ion_thruster",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Ion thrusters can use solar panels or RTGs (or both) to expel ions (or cations) to produce thrust over long periods, which allows a spacecraft to build up speed over large periods of time. The bleeding edge of contemporary ion thruster is VASIMR (Variable Specific Impulse Magnetoplasma Rocket), which could drastically reduce travel times around the solar system, if perfected.",
+  "details": [
+    "Ion thrusters can use solar panels or RTGs (or both) to expel ions (or cations) to produce thrust over long periods, which allows a spacecraft to build up speed over large periods of time. The bleeding edge of contemporary ion thruster is VASIMR (Variable Specific Impulse Magnetoplasma Rocket), which could drastically reduce travel times around the solar system, if perfected."
+  ]
+}

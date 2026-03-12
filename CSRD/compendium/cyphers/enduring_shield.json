@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enduring Shield",
+  "slug": "enduring_shield",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": null,
+  "effect": "For the next day, the user has an asset to Speed defense rolls.",
+  "depletion": null
+}

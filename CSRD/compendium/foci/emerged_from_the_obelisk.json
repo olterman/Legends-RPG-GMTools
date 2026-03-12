@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Emerged From the Obelisk",
+  "slug": "emerged_from_the_obelisk",
+  "summary": "Your body, hard as crystal, gives you a suite of unique abilities, gained after an interaction with a floating crystalline obelisk.",
+  "tiers": [
+    "Tier 1: Crystalline Body",
+    "Tier 2: Hover",
+    "Tier 3: Inhabit Crystal or Immovable",
+    "Tier 4: Crystal Lens",
+    "Tier 5: Resonant Frequency",
+    "Tier 6: Resonant Quake or Return to the Obelisk"
+  ],
+  "gm_intrusions": "Cyphers and artifacts react unexpectedly in the character’s hands.",
+  "text": "Your body, hard as crystal, gives you a suite of unique abilities, gained after an interaction with a floating crystalline obelisk.",
+  "details": [
+    "Your body, hard as crystal, gives you a suite of unique abilities, gained after an interaction with a floating crystalline obelisk."
+  ]
+}

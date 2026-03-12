@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Builds Robots",
+  "slug": "builds_robots",
+  "summary": "Your robotic creations do as they are commanded.",
+  "tiers": [
+    "Tier 1: Robot Assistant",
+    "Tier 1: Robot Builder",
+    "Tier 2: Robot Control",
+    "Tier 3: Expert Follower or Skill With Defense",
+    "Tier 4: Robot Upgrade",
+    "Tier 5: Robot Fleet",
+    "Tier 6: Robot Evolution or Robot Upgrade"
+  ],
+  "gm_intrusions": "The robot is hacked, gains a mind of its own, or unexpectedly detonates.",
+  "text": "Your robotic creations do as they are commanded. (The word “robot” is used in this focus, though the robot you create might look very different from one created by someone else, depending on the genre. Steampunk robots, organic robots, or even magical golems are all feasible “robots.”)",
+  "details": [
+    "Your robotic creations do as they are commanded.",
+    "(The word “robot” is used in this focus, though the robot you create might look very different from one created by someone else, depending on the genre. Steampunk robots, organic robots, or even magical golems are all feasible “robots.”)"
+  ]
+}

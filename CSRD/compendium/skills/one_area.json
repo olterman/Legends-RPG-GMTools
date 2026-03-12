@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One Area",
+  "slug": "one_area",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [],
+    "expert": [
+      {
+        "from": "ability:you_studied",
+        "line": "To be able to put two and two together to reach a deduction, you have to know a few things. You are trained in two areas of knowledge of your choosing (as long as they are not physical actions or combat related) or specialized in one area. Enabler."
+      }
+    ]
+  },
+  "levels": [
+    "expert"
+  ],
+  "summary": "expert"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trained Interlocutor",
+  "slug": "trained_interlocutor",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "Through wit, charm, humor, and grace (or sometimes rudeness, threatening posture, and obscenity), you’re better able to talk others into what you want. You are trained in all interactions. Enabler.",
+  "details": [
+    "Through wit, charm, humor, and grace (or sometimes rudeness, threatening posture, and obscenity), you’re better able to talk others into what you want. You are trained in all interactions. Enabler."
+  ]
+}

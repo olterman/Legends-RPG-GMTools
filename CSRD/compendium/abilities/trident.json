@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trident",
+  "slug": "trident",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A three-pronged spear, often used for spear fishing.",
+  "details": [
+    "A three-pronged spear, often used for spear fishing."
+  ]
+}

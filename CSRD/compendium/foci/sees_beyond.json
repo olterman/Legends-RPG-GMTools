@@ -1,0 +1,28 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sees Beyond",
+  "slug": "sees_beyond",
+  "summary": "You have a psychic sense that allows you to see what others cannot.",
+  "tiers": [
+    "Tier 1: See the Unseen",
+    "Tier 2: See Through Matter",
+    "Tier 3: Find the Hidden or Sensor",
+    "Tier 4: Remote Viewing",
+    "Tier 5: See Through Time",
+    "Tier 6: Mental Projection or Total Awareness",
+    "Tier 1: Third Eye",
+    "Tier 2: Open Mind",
+    "Tier 2: Sharp Senses",
+    "Tier 3: Roaming Third Eye or Find the Hidden",
+    "Tier 4: Sensor",
+    "Tier 5: Psychic Passenger",
+    "Tier 6: Mental Projection or Improved Sensor"
+  ],
+  "gm_intrusions": "Reuniting mind and body can sometimes be disorienting and require a character to spend a few moments to get their bearings.",
+  "text": "You have a psychic sense that allows you to see what others cannot. Separates Mind From Body You can project your mind out of your body to see faraway places and learn secrets that would otherwise remain hidden.",
+  "details": [
+    "You have a psychic sense that allows you to see what others cannot.",
+    "Separates Mind From Body You can project your mind out of your body to see faraway places and learn secrets that would otherwise remain hidden."
+  ]
+}

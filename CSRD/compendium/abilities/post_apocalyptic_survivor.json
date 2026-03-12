@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Post-Apocalyptic Survivor",
+  "slug": "post_apocalyptic_survivor",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You are trained in stealth and Might defense tasks. Enabler. Power Strike (3+ Might points): If you successfully attack a target, you knock it prone in addition to inflicting damage. The target must be your size or smaller. You can knock down a target larger than you if you apply a level of Effort to do so (rather than to ease the attack). Enabler. Power Crash (3 Intellect points): You strike your enchanted weapon against the ground (or a similar large surface), creating an explosion of energy that affects an area up to immediate range from that point. (If your enchanted weapon is a ranged weapon, you can instead target a point within close range to be the center of the explosion.) The blast inflicts 2 points of damage to all creatures or objects within the area (except for you). Because this is an area attack, adding Effort to increase your damage works differently than it does for single-target attacks. If you apply a level of Effort to increase the damage, add 2 points of damage for each target, and even if you fail your attack roll, all targets in the area still take 1 point of damage. Action.",
+  "details": [
+    "You are trained in stealth and Might defense tasks. Enabler.",
+    "Power Strike (3+ Might points): If you successfully attack a target, you knock it prone in addition to inflicting damage. The target must be your size or smaller. You can knock down a target larger than you if you apply a level of Effort to do so (rather than to ease the attack). Enabler.",
+    "Power Crash (3 Intellect points): You strike your enchanted weapon against the ground (or a similar large surface), creating an explosion of energy that affects an area up to immediate range from that point. (If your enchanted weapon is a ranged weapon, you can instead target a point within close range to be the center of the explosion.) The blast inflicts 2 points of damage to all creatures or objects within the area (except for you). Because this is an area attack, adding Effort to increase your damage works differently than it does for single-target attacks. If you apply a level of Effort to increase the damage, add 2 points of damage for each target, and even if you fail your attack roll, all targets in the area still take 1 point of damage. Action."
+  ]
+}

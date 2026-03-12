@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Arrow",
+  "slug": "arrow",
+  "level": 4,
+  "target_number": 12,
+  "description": "Fires an arrow or crossbow bolt. The simplest one-use trap of this kind is an actual crossbow (perhaps hidden behind a hole in a wall or door) rigged with a tripwire to pull the trigger; a creature would need to manually reset this trap for it to be a danger again. More complex traps might automatically reload from a supply of bolts so the trap can be triggered multiple times, or fire automatically once triggered until the ammunition is expended. A variant of this trap releases a volley of arrows into the targeted area, affecting multiple creatures or the same creature more than once.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "4 points",
+  "armor": null,
+  "movement": null,
+  "modifications": "Defense and stealth as level 6 (if hidden behind a hole in the wall) GM Intrusion: The arrow is barbed, and removing it inflicts 3 points of damage. The arrow is attached to a string, cord, or wire, with the other end tied to something dangerous like a falling block or an electrical shock.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

@@ -1,0 +1,32 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shreds the Walls of the World",
+  "slug": "shreds_the_walls_of_the_world",
+  "summary": "Speed plus phasing gives you a unique ability to evade danger and simultaneously inflict damage.",
+  "tiers": [
+    "Tier 1: Phase Sprint",
+    "Tier 1: Disrupting Touch",
+    "Tier 2: Scratch Existence",
+    "Tier 3: Invisible Phasing or Walk Through Walls",
+    "Tier 4: Phase Detonation",
+    "Tier 5: Very Long Sprinting",
+    "Tier 6: Shred Existence or Untouchable While Moving",
+    "Tier 1: Shrink",
+    "Tier 1: Beneath Notice",
+    "Tier 2: Smaller",
+    "Tier 2: Advantages of Being Small",
+    "Tier 3: Enlarge or Quick Switch",
+    "Tier 4: Small Flight",
+    "Tier 5: Shrink Others",
+    "Tier 6: Bigger or Tiny"
+  ],
+  "gm_intrusions": "A creature thinks the small character is potential food. The small character gets trapped in a tiny space or under a falling object.",
+  "text": "Speed plus phasing gives you a unique ability to evade danger and simultaneously inflict damage. SHRINKS TO MINUTE SIZE You can shrink down to the size of a bug and, with enough experience, even smaller. A character who Shrinks to Minute Size who chooses to learn abilities like Enlarge will never be quite as big as one who Grows to Towering Heights, but they can enjoy the advantages of being big or small as needed.",
+  "details": [
+    "Speed plus phasing gives you a unique ability to evade danger and simultaneously inflict damage.",
+    "SHRINKS TO MINUTE SIZE",
+    "You can shrink down to the size of a bug and, with enough experience, even smaller.",
+    "A character who Shrinks to Minute Size who chooses to learn abilities like Enlarge will never be quite as big as one who Grows to Towering Heights, but they can enjoy the advantages of being big or small as needed."
+  ]
+}

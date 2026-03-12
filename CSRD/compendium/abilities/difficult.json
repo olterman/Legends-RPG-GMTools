@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Difficult",
+  "slug": "difficult",
+  "cost": "4",
+  "alpha_section": "Z",
+  "effect": "Something within the spirit and general idea of the ability, using a self- only ability on another character, or using a single-target ability in a weakened form on two targets. Examples: Using a self-only ability like Hover to give another creature the power to fly. Using Teleportation to go to another dimension instead of somewhere in the same dimension. Splitting Frost Touch or Onslaught into hindered attacks against two opponents.",
+  "details": [
+    "Something within the spirit and general idea of the ability, using a self- only ability on another character, or using a single-target ability in a weakened form on two targets. Examples: Using a self-only ability like Hover to give another creature the power to fly. Using Teleportation to go to another dimension instead of somewhere in the same dimension. Splitting Frost Touch or Onslaught into hindered attacks against two opponents."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Power Device",
+  "slug": "power_device",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Magically powers one device that can fit within an area a short distance across. The device is now fully powered, charged, or fueled. If the cypher is used on an automobile, for example, the gas tank is full. If used on a flashlight, the battery is fully charged.",
+  "depletion": null
+}

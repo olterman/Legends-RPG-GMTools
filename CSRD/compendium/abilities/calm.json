@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Calm",
+  "slug": "calm",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The target’s aggressive tendencies are tamped down for one hour, during which time the target responds to attacks but never initiates them.",
+  "details": [
+    "The target’s aggressive tendencies are tamped down for one hour, during which time the target responds to attacks but never initiates them."
+  ]
+}

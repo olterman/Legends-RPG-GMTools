@@ -1,0 +1,33 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Slays Monsters",
+  "slug": "slays_monsters",
+  "summary": "You kill monsters.",
+  "tiers": [
+    "Tier 1: Practiced With Swords",
+    "Tier 1: Monster Bane",
+    "Tier 1: Monster Lore",
+    "Tier 2: Will of Legend",
+    "Tier 3: Trained Slayer",
+    "Tier 3: Improved Monster Bane or Misdirect",
+    "Tier 4: Fight On",
+    "Tier 5: Greater Skill With Attacks (swords)",
+    "Tier 6: Murderer or Heroic Monster Bane",
+    "Tier 1: Hover",
+    "Tier 1: Flight Exertion",
+    "Tier 2: Wing Weapons",
+    "Tier 3: Acrobatic Attack or Flying Companion",
+    "Tier 4: Hard to Hit",
+    "Tier 5: Up to Speed",
+    "Tier 6: Hard Target or Defense Master"
+  ],
+  "gm_intrusions": "A wing gets hurt or restrained, causing the character to fall. Flying high makes the character an obvious target for an unexpected foe.",
+  "text": "You kill monsters. (Although wielding a sword in a setting where people usually do not carry such weapons is fine, you can change the Slays Monsters sword-related abilities to use a different weapon, such as a gun with silver bullets.) SOARS ON AMAZING WINGS Many superheroes can fly, and some even have wings. You can use your wings for movement, attacks, and defense.",
+  "details": [
+    "You kill monsters.",
+    "(Although wielding a sword in a setting where people usually do not carry such weapons is fine, you can change the Slays Monsters sword-related abilities to use a different weapon, such as a gun with silver bullets.)",
+    "SOARS ON AMAZING WINGS",
+    "Many superheroes can fly, and some even have wings. You can use your wings for movement, attacks, and defense."
+  ]
+}

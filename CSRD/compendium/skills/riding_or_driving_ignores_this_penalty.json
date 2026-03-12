@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Riding or Driving Ignores This Penalty",
+  "slug": "riding_or_driving_ignores_this_penalty",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:attacker_is_moving",
+        "line": "An attacker trying to make an attack while moving under their own power (walking, running, swimming, and so on) takes no penalties. Attacks from a moving mount or moving vehicle are hindered; an attacker trained in riding or driving ignores this penalty."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

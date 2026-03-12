@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Guild Training",
+  "slug": "guild_training",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "Your type abilities that have durations last twice as long. Your type abilities that have short ranges reach to long range instead. Your type abilities that inflict damage deal 1 additional point of damage. Enabler.",
+  "details": [
+    "Your type abilities that have durations last twice as long. Your type abilities that have short ranges reach to long range instead. Your type abilities that inflict damage deal 1 additional point of damage. Enabler."
+  ]
+}

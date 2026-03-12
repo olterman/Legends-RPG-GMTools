@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Improved Absorb Kinetic Energy",
+  "slug": "improved_absorb_kinetic_energy",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "When you use Absorb Kinetic Energy, instead of being able to absorb 1 point of damage from a physical attack or impact, you can absorb 2 points. You can also store up to 2 points of energy from any source. However, you can still release energy only 1 point at a time. Enabler. Improved Apportation (6 Intellect points): You call a creature of up to level 3, which appears next to you. You can choose a creature that you’ve previously encountered, or (no more than once per day) you can allow the GM to determine the creature randomly. If you call a random creature, it has a 10 percent chance of being a creature of up to level 5. The creature has no memory of anything before being called by you, though it can speak and has the general knowledge a creature of its type should possess. The creature is receptive to communication and helping you (unless shown that it should do otherwise). Action.",
+  "details": [
+    "When you use Absorb Kinetic Energy, instead of being able to absorb 1 point of damage from a physical attack or impact, you can absorb 2 points. You can also store up to 2 points of energy from any source. However, you can still release energy only 1 point at a time. Enabler.",
+    "Improved Apportation (6 Intellect points): You call a creature of up to level 3, which appears next to you. You can choose a creature that you’ve previously encountered, or (no more than once per day) you can allow the GM to determine the creature randomly. If you call a random creature, it has a 10 percent chance of being a creature of up to level 5. The creature has no memory of anything before being called by you, though it can speak and has the general knowledge a creature of its type should possess. The creature is receptive to communication and helping you (unless shown that it should do otherwise). Action."
+  ]
+}

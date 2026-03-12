@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Exceptional Follower",
+  "slug": "exceptional_follower",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When a character gains a follower, there’s a small chance that the follower will be exceptional in some way, a cut above other followers of their kind. The GM determines when an exceptional follower is found, possibly as an additional reward for smart or engaging roleplaying where the PCs impress or otherwise positively interact with one or more NPCs, some of whom may later go on to become one of their followers. An exceptional follower has the same qualities as a regular follower but is 1 level higher.",
+  "details": [
+    "When a character gains a follower, there’s a small chance that the follower will be exceptional in some way, a cut above other followers of their kind. The GM determines when an exceptional follower is found, possibly as an additional reward for smart or engaging roleplaying where the PCs impress or otherwise positively interact with one or more NPCs, some of whom may later go on to become one of their followers. An exceptional follower has the same qualities as a regular follower but is 1 level higher."
+  ]
+}

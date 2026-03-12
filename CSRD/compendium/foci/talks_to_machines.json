@@ -1,0 +1,23 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Talks to Machines",
+  "slug": "talks_to_machines",
+  "summary": "You use your organic brain like a computer, interfacing “wirelessly” with any electronic device. You can control and influence them in ways that others can’t.",
+  "tiers": [
+    "Tier 1: Machine Affinity",
+    "Tier 1: Distant Interface",
+    "Tier 2: Coaxing Power",
+    "Tier 2: Charm Machine",
+    "Tier 3: Intelligent Interface or Command Machine",
+    "Tier 4: Machine Companion",
+    "Tier 4: Robot Fighter",
+    "Tier 5: Information Gathering",
+    "Tier 6: Control Machine or Improved Machine Companion"
+  ],
+  "gm_intrusions": "The machine malfunctions or acts unpredictably.",
+  "text": "You use your organic brain like a computer, interfacing “wirelessly” with any electronic device. You can control and influence them in ways that others can’t.",
+  "details": [
+    "You use your organic brain like a computer, interfacing “wirelessly” with any electronic device. You can control and influence them in ways that others can’t."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One Kind of Knowledge Related to Quirk, Such as Olfactory Science, Mutations, or Hematology",
+  "slug": "one_kind_of_knowledge_related_to_quirk_such_as_olfactory_science_mutations_or_hematology",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skill",
+        "line": "You’re trained in one kind of knowledge related to your quirk, such as olfactory science, mutations, or hematology."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

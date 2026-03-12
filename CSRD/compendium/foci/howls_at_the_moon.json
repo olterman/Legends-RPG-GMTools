@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Howls at the Moon",
+  "slug": "howls_at_the_moon",
+  "summary": "For brief periods, you become a fearsome and powerful creature with control issues.",
+  "tiers": [
+    "Tier 1: Beast Form",
+    "Tier 2: Controlled Change",
+    "Tier 3: Bigger Beast Form or Greater Beast Form",
+    "Tier 4: Greater Controlled Change",
+    "Tier 5: Enhanced Beast Form",
+    "Tier 6: Lethal Damage or Perfect Control"
+  ],
+  "gm_intrusions": "The change happens in an uncontrolled fashion. People are terrified of monsters.",
+  "text": "For brief periods, you become a fearsome and powerful creature with control issues.",
+  "details": [
+    "For brief periods, you become a fearsome and powerful creature with control issues."
+  ]
+}

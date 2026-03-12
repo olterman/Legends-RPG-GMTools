@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Solar Panels",
+  "slug": "solar_panels",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Usually flat panels that convert sunlight to electricity, which can be used for a variety of onboard systems, including powering ion drives.",
+  "details": [
+    "Usually flat panels that convert sunlight to electricity, which can be used for a variety of onboard systems, including powering ion drives."
+  ]
+}

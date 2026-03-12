@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Staff Of Black Iron",
+  "slug": "staff_of_black_iron",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Staff of black iron set with an eye-shaped crystal headpiece",
+  "effect": "The wielder can use an action to gain one of the following effects. Influence: The wielder makes a mental attack on a creature within immediate range by providing a suggestion. An affected target follows any suggestion during its next turn that doesn’t cause direct harm to itself or its allies. Lightning: The wielder discharges a bolt of lightning that attacks all targets along a straight line out to long range, inflicting damage equal to the artifact level. Shield: For one hour, the wielder gains the protective effect of using a normal shield (an asset on their Speed defense rolls). This effect is invisible and doesn’t require them to hold a shield; merely touching the staff is sufficient. The staff can have more than one effect ongoing at a time (such as using the shield ability and blasting someone with lightning), but each requires a separate activation and depletion roll.",
+  "depletion": "1 in 1d100"
+}

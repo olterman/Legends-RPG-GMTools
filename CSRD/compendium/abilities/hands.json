@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hands",
+  "slug": "hands",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal has paws or hands that are nearly as agile as those of a human. Unlike with most animal shapes, the animal’s tasks that require hands are not hindered (although the GM may decide that some tasks requiring human agility, such as playing a flute, are still hindered).",
+  "details": [
+    "The animal has paws or hands that are nearly as agile as those of a human. Unlike with most animal shapes, the animal’s tasks that require hands are not hindered (although the GM may decide that some tasks requiring human agility, such as playing a flute, are still hindered)."
+  ]
+}

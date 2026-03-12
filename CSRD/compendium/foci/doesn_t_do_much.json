@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Doesn’t Do Much",
+  "slug": "doesn_t_do_much",
+  "summary": "You’re a slacker, but you know a little about a lot of things.",
+  "tiers": [
+    "Tier 1: Life Lessons",
+    "Tier 2: Totally Chill",
+    "Tier 3: Skill With Attacks or Improvise",
+    "Tier 4: Life Lessons",
+    "Tier 4: Greater Skill With Defense",
+    "Tier 5: Greater Enhanced Potential",
+    "Tier 6 Drawing on Life’s Experiences or Quick Wits"
+  ],
+  "gm_intrusions": "New situations are confounding and stressful. Past actions (or inactions) come back to haunt the character.",
+  "text": "You’re a slacker, but you know a little about a lot of things.",
+  "details": [
+    "You’re a slacker, but you know a little about a lot of things."
+  ]
+}

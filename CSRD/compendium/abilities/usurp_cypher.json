@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Usurp Cypher",
+  "slug": "usurp_cypher",
+  "cost": null,
+  "alpha_section": "U",
+  "effect": "Choose one cypher that you carry. The cypher must have an effect that is not instantaneous. You destroy the cypher and gain its power, which functions for you continuously. You can choose a cypher when you gain this ability, or you can wait and make the choice later. However, once you usurp a cypher’s power, you cannot later switch to a different cypher—the usurping ability works only once. Action to initiate.",
+  "details": [
+    "Choose one cypher that you carry. The cypher must have an effect that is not instantaneous. You destroy the cypher and gain its power, which functions for you continuously. You can choose a cypher when you gain this ability, or you can wait and make the choice later. However, once you usurp a cypher’s power, you cannot later switch to a different cypher—the usurping ability works only once. Action to initiate."
+  ]
+}

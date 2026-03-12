@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Performs Feats of Strength",
+  "slug": "performs_feats_of_strength",
+  "summary": "A muscled prodigy, you can haul incredible weight, hurl your body through the air, and punch through doors.",
+  "tiers": [
+    "Tier 1: Athlete",
+    "Tier 1: Enhanced Might Edge",
+    "Tier 2: Feat of Strength",
+    "Tier 3: Iron Fist or Throw",
+    "Tier 4: Greater Enhanced Might",
+    "Tier 5: Brute Strike",
+    "Tier 6: Greater Enhanced Might or Jump Attack"
+  ],
+  "gm_intrusions": "It’s easy to break delicate things or hurt someone accidentally.",
+  "text": "A muscled prodigy, you can haul incredible weight, hurl your body through the air, and punch through doors.",
+  "details": [
+    "A muscled prodigy, you can haul incredible weight, hurl your body through the air, and punch through doors."
+  ]
+}

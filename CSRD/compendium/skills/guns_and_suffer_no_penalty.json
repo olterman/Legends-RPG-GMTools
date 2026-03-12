@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Guns and Suffer No Penalty",
+  "slug": "guns_and_suffer_no_penalty",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:practiced_with_guns",
+        "line": "You are practiced with guns and suffer no penalty when using one. Enabler."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Zero Gravity",
+  "slug": "zero_gravity",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "It’s hard to maneuver in an environment without gravity. Attacks (and all physical actions) made in zero gravity are hindered. Short-range weapons can reach to long range, and long-range weapons can reach to very-long range.",
+  "details": [
+    "It’s hard to maneuver in an environment without gravity. Attacks (and all physical actions) made in zero gravity are hindered. Short-range weapons can reach to long range, and long-range weapons can reach to very-long range."
+  ]
+}

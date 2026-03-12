@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Faerie",
+  "slug": "faerie",
+  "level": 3,
+  "target_number": 9,
+  "description": "Faeries are magic creatures of music, mirth, tricks, and taunts. Some might only perform a silly song or follow people for a while, flitting around and asking questions like an annoying young child. Some faeries are crueler and delight in stealing clothing, equipment, or prized objects. And a few are downright malicious and, under the guise of a helpful guide or a pretty light in the distance, lure lost travelers to various dooms.",
+  "motive": "Unpredictable",
+  "environment": "Alone or in a flutter of three to twelve",
+  "health": "12",
+  "damage_inflicted": "4 points",
+  "armor": null,
+  "movement": "Immediate; long when flying",
+  "modifications": "Tasks related to performance and deception as level 5; Speed defense as level 5 due to size and quickness",
+  "combat": "A faerie can hurl damaging magic dust at any target within short range, but sometimes it wields tiny weapons such as bows, spears, or swords. If a faerie is touched or struck by a melee weapon, more magic dust puffs away from the faerie and clouds the attacker, who must make a Speed defense roll or take the same amount of damage they just dealt to the faerie. A faerie can see in the dark, but it can also emit bright light and appear as a glowing humanoid or an illuminated sphere. Faeries regenerate 1 point of health per round while their health is above 0. Some faeries can attempt to use a song or light display to charm others within short range. The target must succeed on an Intellect defense roll or fall into a suggestible state for one hour. During this period, the target can be led by the faerie at their regular movement rate. The target can be brought out of the spell early if they take damage or are heartily slapped and shaken for a round or two, causing the glamour to fade. A faerie can use this power once per minute.",
+  "interaction": "Faeries are mercurial creatures, but except for the malicious ones, they can be negotiated with, especially if offered sweets, wine, or other gifts. However, faerie attention spans are limited, so even one that means well could end up leaving the PCs in the lurch at just the wrong moment.",
+  "use": "The dancing light in the distance, leading curious PCs deeper and deeper into the dark woods, is a faerie. And the destination could be a wicked witch or other unpleasant location.",
+  "loot": "The tiny pouches that faeries carry are stuffed with forest bric-a-brac, but some of those pouches are ten times larger on the inside and might hold a handful of shiny coins or a cypher.",
+  "gm_intrusion": null
+}

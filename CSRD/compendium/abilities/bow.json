@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bow",
+  "slug": "bow",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A bent piece of flexible wood with a taut string connected to each end. It fires arrows. You need two hands to fire it.",
+  "details": [
+    "A bent piece of flexible wood with a taut string connected to each end. It fires arrows. You need two hands to fire it."
+  ]
+}

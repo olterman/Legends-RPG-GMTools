@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Formidable",
+  "slug": "formidable",
+  "cost": "7",
+  "alpha_section": "Z",
+  "effect": "Something similar to the description or intent of the ability, but changing its nature, or having a single-target ability affect an area. Examples: Using Hover to make an opponent crash into the ceiling. Using Shroud of Flame to absorb fire. Using Telepathic to talk to a machine or Machine Telepathy to talk to a living person.",
+  "details": [
+    "Something similar to the description or intent of the ability, but changing its nature, or having a single-target ability affect an area. Examples: Using Hover to make an opponent crash into the ceiling. Using Shroud of Flame to absorb fire. Using Telepathic to talk to a machine or Machine Telepathy to talk to a living person."
+  ]
+}

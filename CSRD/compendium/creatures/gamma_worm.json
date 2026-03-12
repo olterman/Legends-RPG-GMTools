@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Gamma Worm",
+  "slug": "gamma_worm",
+  "level": 6,
+  "target_number": 18,
+  "description": "Gamma worms hide their large forms by burrowing beneath the ground, and when they emerge on the surface, they cloak themselves behind psychic distortion fields. The only clue someone has that they’re being stalked is a smell of cloves over the stale whiff of death. Unfortunately, if someone smells a gamma worm’s distinctive odor, it’s probably already too late. Gamma worms might be the result of military research, radioactive mutation, or aliens or other strange intruders seeking to eradicate human life as part of their terraforming efforts to change Earth to their liking.",
+  "motive": "Hunger for flesh; eliminate humans",
+  "environment": "Almost anywhere",
+  "health": "18",
+  "damage_inflicted": "6 points",
+  "armor": "2 (immune to radiation)",
+  "movement": "Short; short when burrowing",
+  "modifications": "Stealth as level 8 when psychic field active; Speed defense as level 5 due to size; ability to see through tricks as level 4",
+  "combat": "Gamma worms attack twice each round with blades they unfold from their wormlike lengths. Alternatively, about once each hour a gamma worm can unleash a hail of gamma spikes against up to three targets within short range. Targets struck by the spikes take damage and must succeed on a Might defense roll or fall unconscious. Unconscious targets wake up a few rounds later feeling dizzy and slightly sick to their stomach—they’ve developed radiation sickness. Gamma worms can use their action to generate a psychic field that effectively grants them invisibility. The invisibility lasts until they attack or move more than an immediate distance on their turn. Gamma worms are vulnerable to cold; in chilly conditions, their Speed defense is hindered by four steps. In addition, cold attacks ignore their Armor.",
+  "interaction": "Gamma worms act like prey driven monsters, but they may have a secret language and purpose (if aliens placed them on Earth to hasten the apocalypse or kill survivors in the post apocalyptic world).",
+  "use": "Irradiated and hungry gamma worms emerge from the ruins to hunt fresh meat in outlying communities.",
+  "loot": null,
+  "gm_intrusion": null
+}

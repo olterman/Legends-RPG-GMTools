@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sword",
+  "slug": "sword",
+  "level": 6,
+  "target_number": 18,
+  "description": "Sword (also called “War”) is never far from large‑scale conflicts. She glories in battle and warfare, and before the world ended, she was a provocateur, a mercenary, a soldier, and sometimes a general. However, once a war is good and started, she prefers fighting over watching. Then and now, she dresses in red, preferring red military attire and a massive sword—or assault rifle—the color of blood.",
+  "motive": "Hunger for combat; incite war",
+  "environment": "Almost anywhere war is waged and/or with one or more of the Four",
+  "health": "24",
+  "damage_inflicted": "6 points",
+  "armor": "3",
+  "movement": "Short; usually has a red mount or vehicle nearby",
+  "modifications": "Attacks as level 8",
+  "combat": "Sword’s blood colored weapon is either a greatsword or an assault rifle, whatever she needs it to be in the moment. She attacks three times with the sword as her action. With the rifle, she can make one very long range attack (with no hindrance despite the range) or two long range attacks. As part of her attack, she can imbue one bullet each round with an explosive charge. If the attack hits, in addition to normal damage, the target and everyone within immediate range of the target must succeed on a Speed defense roll or take 6 points of damage from shrapnel, or 2 points even with a successful roll. As one of the Four, Sword can see in the dark, regains 1 health each round, and, if killed, reappears within 1d10 days at the next nearest location that previously experienced war.",
+  "interaction": "Sword is full of swagger, often causing fights with biting insults. However, if she can’t incite a fight, she’s just as happy to start one herself, especially as part of a false flag operation.",
+  "use": "A band of raiders, dozens strong, appears on the horizon. Leading them is a woman on a red horse.",
+  "loot": null,
+  "gm_intrusion": null
+}

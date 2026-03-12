@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shell",
+  "slug": "shell",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+1 to Armor.",
+  "details": [
+    "+1 to Armor."
+  ]
+}

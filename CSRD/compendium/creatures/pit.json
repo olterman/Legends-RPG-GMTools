@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pit",
+  "slug": "pit",
+  "level": 4,
+  "target_number": 12,
+  "description": "A trapdoor in the floor opens, dropping the triggering character into a pit. Larger versions of this trap can catch multiple characters at once. The trap can be reset by moving the trapdoor back into its closed position. In outdoor areas, this trap is more likely to be a pit covered in leafy branches (or a tarp) and camouflaged by soil and other debris. A variant of this trap is a bridge over a chasm, river, or other dangerous location that is rigged to collapse when enough weight reaches the middle section.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "1 point of ambient damage per 10 feet fallen (ignores Armor) GM Intrusion: The trapdoor is slippery with oil, hindering attempts to catch the edge and avoid falling. The trapdoor closes after the character falls through, trapping them inside in the darkness. The walls of the pit are greased, hindering attempts to climb out by two steps. A dangerous creature is at the bottom of the pit (or in a room adjacent to it). The pit is filled with poison gas. The trapdoor detaches and falls into the pit, inflicting 1 point of ambient damage per 10 feet it falls. The pit has spikes at the bottom, inflicting an additional 4 points of damage to anyone who falls in.",
+  "armor": null,
+  "movement": null,
+  "modifications": null,
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

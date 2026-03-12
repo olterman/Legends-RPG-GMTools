@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Swimming Halve Their Movement Only While in Deep Water",
+  "slug": "swimming_halve_their_movement_only_while_in_deep_water",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:water",
+        "line": "Deep water, in which a character is mostly or entirely submerged, hinders move rolls and reduces round-by-round and long-term movement to one quarter its normal rate. This means that a short move is about 12 feet(4 m), and a long move is about 25 feet (7.5 m). Characters trained in swimming halve their movement only while in deep water."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Quick Recovery",
+  "slug": "quick_recovery",
+  "cost": null,
+  "alpha_section": "Q",
+  "effect": "Your second recovery roll (usually requiring ten minutes) is only a single action. Enabler. Quick Strike (4 Speed points): You make a melee attack with such speed that it is hard for your foe to defend against, and it knocks them off balance. Your attack is eased by two steps, and the foe, if struck, takes normal damage but is dazed so that their tasks are hindered for the next round. Action.",
+  "details": [
+    "Your second recovery roll (usually requiring ten minutes) is only a single action. Enabler.",
+    "Quick Strike (4 Speed points): You make a melee attack with such speed that it is hard for your foe to defend against, and it knocks them off balance. Your attack is eased by two steps, and the foe, if struck, takes normal damage but is dazed so that their tasks are hindered for the next round. Action."
+  ]
+}

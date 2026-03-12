@@ -1,0 +1,35 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One Area of Knowledge of Choice",
+  "slug": "one_area_of_knowledge_of_choice",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:knowing",
+        "line": "You are trained in one area of knowledge of your choice. Enabler."
+      },
+      {
+        "from": "ability:knowing",
+        "line": "You are trained in one area of knowledge of your choice. Enabler. Knowing the Unknown (6 Intellect points): By accessing the resources appropriate to your character, you can ask the GM one question and get a general answer. The GM assigns a level to the question, so the more obscure the answer, the more difficult the task. Generally, knowledge that you could find by looking somewhere other than your current location is level 1, and obscure knowledge of the past is level 7. Gaining knowledge of the future is impossible. Action."
+      }
+    ],
+    "expert": [
+      {
+        "from": "ability:learned_a_few_things",
+        "line": "You are trained in two areas of knowledge of your choice, or specialized in one area of knowledge of your choice. Enabler."
+      },
+      {
+        "from": "ability:learned_a_few_things",
+        "line": "You are trained in two areas of knowledge of your choice, or specialized in one area of knowledge of your choice. Enabler. Learning the Path (2 Intellect points): You observe or study a creature, object, or location for at least one round. The next time you interact with it (possibly in the following round), a related task (such as persuading the creature, attacking it, or defending from its attack) is eased. Action."
+      }
+    ]
+  },
+  "levels": [
+    "trained",
+    "expert"
+  ],
+  "summary": "trained, expert"
+}

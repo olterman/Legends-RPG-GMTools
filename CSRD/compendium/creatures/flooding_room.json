@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flooding Room",
+  "slug": "flooding_room",
+  "level": 4,
+  "target_number": 12,
+  "description": "Exits to the room close off and the area starts to fill with water. Within a few minutes, the entire room is flooded and creatures in it begin to drown. A variant of this room reduces the air pressure (either by pumping it out through tiny holes or by retracting the floor or ceiling). As the air gets thinner, characters are hindered by one, two, or three steps before falling unconscious and starting to suffocate. (Restoring the air allows the characters to awaken, but doesn’t move them back up the damage track.)",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "None until drowning starts",
+  "armor": null,
+  "movement": null,
+  "modifications": "Defends as level 7 GM Intrusion: Hostile creatures such as piranhas or electric eels are in the water and attack all creatures. The room fills with water faster than expected because the floor and/or ceiling are also moving toward each other.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "This Attack",
+  "slug": "this_attack",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:wing_weapons",
+        "line": "You can use your wings to make melee attacks (even when flying), leaving your hands and feet free. Your wings are medium bashing or bladed weapons (your choice). You are practiced with this attack. Enabler."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

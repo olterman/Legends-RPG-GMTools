@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Nullification Ray",
+  "slug": "nullification_ray",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 3",
+  "form": null,
+  "effect": "The user can immediately end one ongoing effect within long range that is produced by an artifact, cypher, or special ability.",
+  "depletion": null
+}

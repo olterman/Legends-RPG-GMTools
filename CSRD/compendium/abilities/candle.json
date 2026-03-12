@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Candle",
+  "slug": "candle",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A candle burns for one hour and creates dim light in an immediate area. Climbing kit: A set of crampons, pitons, ropes, and tools. Provides an asset on climbing tasks.",
+  "details": [
+    "A candle burns for one hour and creates dim light in an immediate area.",
+    "Climbing kit: A set of crampons, pitons, ropes, and tools. Provides an asset on climbing tasks."
+  ]
+}

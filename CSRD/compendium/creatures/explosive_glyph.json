@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Explosive Glyph",
+  "slug": "explosive_glyph",
+  "level": 4,
+  "target_number": 12,
+  "description": "A magical rune activates when touched or passed over, exploding in an immediate or short area. Typical glyphs inflict acid, cold, electricity, or fire damage, but more unusual versions include ones that inflict holy, shadow, thorn, unholy, or stranger types of magical energy damage. A nonmagical variant of this trap sprays a mist of acid, a jet of electrified salt water, or a gout of burning oil.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "4 points of energy damage (ignores Armor); all creatures in the area take 1 point of damage even if they make their defense roll.",
+  "armor": null,
+  "movement": null,
+  "modifications": "Stealth as level 5 GM Intrusion: The glyph marks the character’s face with a symbol indicating they are a thief. The glyph makes the character run away in fear for one minute. The character is cursed, and all of their actions are hindered until the curse is removed.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Climax",
+  "slug": "climax",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Change. You face the challenge of the former wrong, and either overcome it or fail.",
+  "details": [
+    "Change. You face the challenge of the former wrong, and either overcome it or fail."
+  ]
+}

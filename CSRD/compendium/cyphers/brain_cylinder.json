@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Brain Cylinder",
+  "slug": "brain_cylinder",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Metal cylinder with three exterior ports",
+  "effect": "This device is designed to hold and preserve an intelligent brain, keeping it alive indefinitely. The brain must first be surgically extracted from its natural housing (typically a level 6 surgical task requiring an hour), then placed in the cylinder, saturated with a nutrient bath, and sealed shut. The brain is wired to three ports on the cylinder’s exterior, which can be connected to external machines that allow it to see and hear, as well as speak through a voice synthesizer. The cylinder is immune to vacuum and cold, allowing it to be carried through space without harming its precious contents. The cylinder grants the brain 3 Armor, but the brain is otherwise helpless, unable to perform physical actions, and completely blind and deaf if disconnected from its machines. Deprived of the illusion of physical stimuli, a human brain trapped in a cylinder is likely to go insane after weeks or months.",
+  "depletion": "1 in 1d6 (check each year) Some brain cylinders were created by the mi-go; others are the products of mad scientists or other alien species that want to study humans."
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Magic Lore and Lore of the Underworld",
+  "slug": "magic_lore_and_lore_of_the_underworld",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skill",
+        "line": "You are trained in tasks related to magic lore and lore of the underworld."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

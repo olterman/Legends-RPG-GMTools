@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Attempted Task",
+  "slug": "attempted_task",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [],
+    "expert": [
+      {
+        "from": "descriptor:beneficent",
+        "line": "Helpful: Whenever you help another character, that character gains the benefit as if you were trained even if you are not trained or specialized in the attempted task."
+      }
+    ]
+  },
+  "levels": [
+    "expert"
+  ],
+  "summary": "expert"
+}

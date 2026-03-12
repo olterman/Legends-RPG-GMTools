@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sleep",
+  "slug": "sleep",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison knocks the creature unconscious if they fail a defense roll. Typical durations are ten minutes, one hour, and ten hours. The poison might also make the creature groggy, hindering all actions for an additional amount of time equal to how long the unconsciousness would have lasted (for example, knocking out a creature for an hour and then making them groggy for an hour, even if they’re awakened early).",
+  "details": [
+    "The poison knocks the creature unconscious if they fail a defense roll. Typical durations are ten minutes, one hour, and ten hours. The poison might also make the creature groggy, hindering all actions for an additional amount of time equal to how long the unconsciousness would have lasted (for example, knocking out a creature for an hour and then making them groggy for an hour, even if they’re awakened early)."
+  ]
+}

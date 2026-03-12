@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Creating a Narrative",
+  "slug": "creating_a_narrative",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:creative",
+        "line": "Original: You’re always coming up with something new. You’re trained in any task related to creating a narrative (such as a story, play, or scenario). This includes deception, if the deception involves a narrative you’re able to tell."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

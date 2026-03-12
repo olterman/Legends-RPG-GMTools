@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Natural Charisma",
+  "slug": "natural_charisma",
+  "cost": null,
+  "alpha_section": "N",
+  "effect": "You are trained in all social interactions, whether they involve charm, learning a person’s secrets, or intimidating others. Enabler.",
+  "details": [
+    "You are trained in all social interactions, whether they involve charm, learning a person’s secrets, or intimidating others. Enabler."
+  ]
+}

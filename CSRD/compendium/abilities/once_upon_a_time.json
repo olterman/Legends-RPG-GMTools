@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Once Upon a Time",
+  "slug": "once_upon_a_time",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Someone you played with as a child reappears and helps you in whatever you are doing. They may be alive or dead, but your heart is warmed upon seeing them, for it’s been a long time.",
+  "details": [
+    "Someone you played with as a child reappears and helps you in whatever you are doing. They may be alive or dead, but your heart is warmed upon seeing them, for it’s been a long time."
+  ]
+}

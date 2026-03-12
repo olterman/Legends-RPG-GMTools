@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Storm Marine",
+  "slug": "storm_marine",
+  "level": 4,
+  "target_number": 12,
+  "description": "The storm marine creed is an oft-repeated mantra, “I will never quit, knowing full well that I might die in service to the cause.” Wearing advanced battlesuits, hyped up on a cocktail of experimental military drugs, and able to draw on a suite of cybernetic and network-connected drone guns, few things can stand before a storm marine fireteam. Storm marines usually work for nation-states, conglomerates, and similar entities. They mercilessly conduct their mission, even if that mission is to wipe out a rival. Storm marines that question their orders are quickly dispatched by their fellows.",
+  "motive": "Achieve mission goals",
+  "environment": "Alone in or in fireteams of three, anywhere nation-states or similar entities have a financial or military interest",
+  "health": "15",
+  "damage_inflicted": "6 points",
+  "armor": "4",
+  "movement": "Long; flies a long distance each round",
+  "modifications": "Perception as level 6; attacks as level 5 due to combat targeting neuro-wetware.",
+  "combat": "Thanks to their battlesuit, a storm marine has many options in combat. They can deploy an electrified blade to attack every foe in immediate range as a single action, or use a long-range heavy energy rifle that inflicts 6 points of damage. A storm marine can deploy two level 3 gun drones that fire energy rays at two different targets up to 800 m (2,600 feet) away, inflicting 6 points of damage. If the drones focus on a single target, a successful hit deals 9 points of damage and moves the target one step down the damage track. The drones can attack only once or twice before returning to their cradles in the storm marine’s suit for several rounds to recharge.",
+  "interaction": "A storm marine might negotiate, but getting one to act against their mission is difficult.",
+  "use": "A fireteam of storm marines are sent to eliminate the PCs or someone the PCs know on suspicion of being radical elements that need to be dealt with.",
+  "loot": "Though bio-locked to each storm marine, someone who succeeds on a difficulty 8 Intellect task to reprogram the suit could gain a battlesuit of their own, minus the drones (which fly off or detonate).",
+  "gm_intrusion": null
+}

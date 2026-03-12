@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spending Time to Cast a Spell",
+  "slug": "spending_time_to_cast_a_spell",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If the character takes at least ten minutes chanting, mumbling occult phonemes, concentrating deeply, or otherwise using all their actions, they can cast a low-tier spell (if they also pay any Pool costs). An hour is required to cast mid-tier spells. Ten hours are required to cast a high-tier spell.",
+  "details": [
+    "If the character takes at least ten minutes chanting, mumbling occult phonemes, concentrating deeply, or otherwise using all their actions, they can cast a low-tier spell (if they also pay any Pool costs). An hour is required to cast mid-tier spells. Ten hours are required to cast a high-tier spell."
+  ]
+}

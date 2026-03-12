@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trained Excavator",
+  "slug": "trained_excavator",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "You are trained in perception, climbing, and salvaging tasks. Enabler.",
+  "details": [
+    "You are trained in perception, climbing, and salvaging tasks. Enabler."
+  ]
+}

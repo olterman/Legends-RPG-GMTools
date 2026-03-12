@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using the Tools Required to Shape and Mine Stone",
+  "slug": "using_the_tools_required_to_shape_and_mine_stone",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skill",
+        "line": "You are trained in using the tools required to shape and mine stone."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

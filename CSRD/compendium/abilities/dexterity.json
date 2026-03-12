@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dexterity",
+  "slug": "dexterity",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Movement, acrobatics, initiative, and Speed defense.",
+  "details": [
+    "Movement, acrobatics, initiative, and Speed defense."
+  ]
+}

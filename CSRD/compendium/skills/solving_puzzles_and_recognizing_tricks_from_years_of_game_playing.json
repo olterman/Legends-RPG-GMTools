@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Solving Puzzles and Recognizing Tricks from Years of Game Playing",
+  "slug": "solving_puzzles_and_recognizing_tricks_from_years_of_game_playing",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:resist_tricks",
+        "line": "You’re trained in solving puzzles and recognizing tricks from years of game playing. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

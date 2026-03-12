@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Precise Cut",
+  "slug": "precise_cut",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You inflict 1 additional point of damage with light weapons. Enabler.",
+  "details": [
+    "You inflict 1 additional point of damage with light weapons. Enabler."
+  ]
+}

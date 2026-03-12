@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Life Lessons",
+  "slug": "life_lessons",
+  "cost": null,
+  "alpha_section": "L",
+  "effect": "Choose any two noncombat skills. You are trained in those skills. Enabler.",
+  "details": [
+    "Choose any two noncombat skills. You are trained in those skills. Enabler."
+  ]
+}

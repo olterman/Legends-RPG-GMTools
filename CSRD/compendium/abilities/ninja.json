@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ninja",
+  "slug": "ninja",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 3, stealth as level 6 Robot minion: level 4; Armor 2",
+  "details": [
+    "level 3, stealth as level 6",
+    "Robot minion: level 4; Armor 2"
+  ]
+}

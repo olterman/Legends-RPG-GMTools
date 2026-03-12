@@ -1,0 +1,1864 @@
+{% extends "base.html" %}
+
+{% block title %}Character Studio — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Character Studio</h1>
+<p>Build characters using the CSRD workflow: Type, Flavor, Descriptor, Focus, then finalize.</p>
+
+<div class="layout">
+  <div class="panel">
+    <h3 style="margin-top:0;">Creation Workflow</h3>
+
+    <div class="actions" style="margin-bottom:14px;">
+      <button type="button" class="secondary" id="prev-step">Previous</button>
+      <button type="button" class="secondary" id="next-step">Next</button>
+      <div class="small" id="step-label">Step 1 of 5</div>
+    </div>
+
+    <div class="output-card" style="margin-bottom:14px;">
+      <h3>Stored Characters</h3>
+      <div class="field">
+        <label for="stored-sheet-select">Saved Sheet</label>
+        <select id="stored-sheet-select"></select>
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" id="load-sheet-btn">Load</button>
+        <button type="button" class="secondary" id="edit-sheet-btn">Edit</button>
+        <button type="button" class="secondary" id="play-sheet-btn">Play</button>
+      </div>
+    </div>
+
+    <div id="step-1" class="wizard-step">
+      <h3>Step 1: Select Type</h3>
+      <div class="field">
+        <label for="character-type">Character Type</label>
+        <select id="character-type"></select>
+      </div>
+
+      <div class="field">
+        <label for="edge-profile">Edge Profile</label>
+        <select id="edge-profile"></select>
+      </div>
+
+      <div class="output-card">
+        <h3>Type Pool Bonus Allocation (+6)</h3>
+        <div class="row">
+          <div class="field">
+            <label for="bonus-might">Might Bonus</label>
+            <input id="bonus-might" type="number" min="0" value="0" />
+          </div>
+          <div class="field">
+            <label for="bonus-speed">Speed Bonus</label>
+            <input id="bonus-speed" type="number" min="0" value="0" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="bonus-intellect">Intellect Bonus</label>
+            <input id="bonus-intellect" type="number" min="0" value="0" />
+          </div>
+          <div class="field">
+            <label>Remaining</label>
+            <div class="output-value" id="bonus-remaining">6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="step-2" class="wizard-step hidden">
+      <h3>Step 2: Select Flavor (Optional)</h3>
+      <div class="field">
+        <label for="flavor">Flavor</label>
+        <select id="flavor"></select>
+      </div>
+    </div>
+
+    <div id="step-3" class="wizard-step hidden">
+      <h3>Step 3: Select Descriptor</h3>
+      <div class="field">
+        <label for="descriptor">Descriptor</label>
+        <select id="descriptor"></select>
+      </div>
+    </div>
+
+    <div id="step-4" class="wizard-step hidden">
+      <h3>Step 4: Select Focus</h3>
+      <div class="field">
+        <label for="focus">Focus</label>
+        <select id="focus"></select>
+      </div>
+    </div>
+
+    <div id="step-5" class="wizard-step hidden">
+      <h3>Step 5: Finalize Character</h3>
+
+      <div class="field">
+        <label for="character-name">Character Name</label>
+        <input id="character-name" placeholder="Autofilled by generator or set manually" />
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender"></select>
+        </div>
+        <div class="field">
+          <label for="profession">Profession</label>
+          <select id="profession"></select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="race">Race</label>
+          <select id="race"></select>
+        </div>
+        <div class="field">
+          <label for="variant">Variant</label>
+          <select id="variant">
+            <option value="">None</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="environment">Environment</label>
+        <select id="environment"></select>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="mood">Mood</label>
+          <input id="mood" placeholder="Optional" />
+        </div>
+        <div class="field">
+          <label for="seed">Seed</label>
+          <input id="seed" placeholder="Optional" />
+        </div>
+      </div>
+
+      <div class="output-card">
+        <h3>Tier 1 Ability Picks</h3>
+        <div class="small" style="margin-bottom:8px;">Select the required number of type/flavor abilities.</div>
+        <div class="output-row" style="margin-bottom:10px;">
+          <div class="output-label">Remaining Picks</div>
+          <div class="output-value" id="ability-remaining">0</div>
+        </div>
+        <div id="ability-options"></div>
+        <div class="output-row" style="margin-top:10px;">
+          <div class="output-label">Chosen Abilities</div>
+          <div class="output-value" id="chosen-abilities-preview"></div>
+        </div>
+      </div>
+
+      <div class="output-card">
+        <h3>Skill Picks (Optional)</h3>
+        <div class="row">
+          <div class="field">
+            <label for="skill-pick">Skill</label>
+            <select id="skill-pick"></select>
+          </div>
+          <div class="field">
+            <label for="skill-level">Progression</label>
+            <select id="skill-level">
+              <option value="inability">Inability</option>
+              <option value="practiced">Practiced</option>
+              <option value="trained" selected>Trained</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
+        </div>
+        <div class="actions" style="margin-bottom:10px;">
+          <button type="button" class="secondary" id="add-skill-btn">Add Skill</button>
+        </div>
+        <div class="output-row">
+          <div class="output-label">Chosen Skill Picks</div>
+          <div class="output-value" id="chosen-skills-preview"></div>
+        </div>
+      </div>
+
+      <div class="output-card">
+        <h3>Stat Pools and Tracks</h3>
+        <div class="row">
+          <div class="field">
+            <label for="current-might-pool">Might Pool (Current)</label>
+            <input id="current-might-pool" type="number" min="0" />
+          </div>
+          <div class="field">
+            <label>Might Stat (Max)</label>
+            <div class="output-value" id="max-might-stat">0</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="current-speed-pool">Speed Pool (Current)</label>
+            <input id="current-speed-pool" type="number" min="0" />
+          </div>
+          <div class="field">
+            <label>Speed Stat (Max)</label>
+            <div class="output-value" id="max-speed-stat">0</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="current-intellect-pool">Intellect Pool (Current)</label>
+            <input id="current-intellect-pool" type="number" min="0" />
+          </div>
+          <div class="field">
+            <label>Intellect Stat (Max)</label>
+            <div class="output-value" id="max-intellect-stat">0</div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="damage-track">Damage Track</label>
+          <select id="damage-track">
+            <option value="Hale">Hale</option>
+            <option value="Impaired">Impaired</option>
+            <option value="Debilitated">Debilitated</option>
+            <option value="Dead">Dead</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Recovery Rolls Used</label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+            <input id="recovery-action" type="checkbox" style="width:auto;" />
+            <span>1 Action</span>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+            <input id="recovery-10min" type="checkbox" style="width:auto;" />
+            <span>10 Minutes</span>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+            <input id="recovery-1hr" type="checkbox" style="width:auto;" />
+            <span>1 Hour</span>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:0;">
+            <input id="recovery-10hr" type="checkbox" style="width:auto;" />
+            <span>10 Hours</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="equipment">Equipment (one per line)</label>
+        <textarea id="equipment" style="min-height:100px;"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="notes">Notes</label>
+        <textarea id="notes" style="min-height:100px;"></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="generate-btn">Generate Name + Flavor</button>
+        <button type="button" class="secondary" id="print-btn">Print</button>
+        <button type="button" class="secondary" id="copy-btn">Copy Sheet</button>
+      </div>
+    </div>
+
+    <div class="status" id="status">Loading studio data...</div>
+  </div>
+
+  <div class="panel">
+    <div class="viewer" id="viewer">
+      <div class="output-card">
+        <h3>Character Sheet</h3>
+        <div class="output-value">Select a type to begin.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const TYPE_BASELINES = {
+    warrior: {
+      pools: { might: 10, speed: 10, intellect: 8 },
+      effort: 1,
+      cypher_limit: 2,
+      edge_profiles: [
+        { label: 'Might 1, Speed 0, Intellect 0', might: 1, speed: 0, intellect: 0 },
+        { label: 'Might 0, Speed 1, Intellect 0', might: 0, speed: 1, intellect: 0 }
+      ],
+      weapons: 'Practiced with light, medium, and heavy weapons.'
+    },
+    adept: {
+      pools: { might: 7, speed: 9, intellect: 12 },
+      effort: 1,
+      cypher_limit: 3,
+      edge_profiles: [
+        { label: 'Might 0, Speed 0, Intellect 1', might: 0, speed: 0, intellect: 1 }
+      ],
+      weapons: 'Practiced with light weapons; medium/heavy attacks are hindered.'
+    },
+    explorer: {
+      pools: { might: 10, speed: 9, intellect: 9 },
+      effort: 1,
+      cypher_limit: 2,
+      edge_profiles: [
+        { label: 'Might 1, Speed 0, Intellect 0', might: 1, speed: 0, intellect: 0 }
+      ],
+      weapons: 'Practiced with light/medium weapons; heavy attacks are hindered.'
+    },
+    speaker: {
+      pools: { might: 7, speed: 10, intellect: 11 },
+      effort: 1,
+      cypher_limit: 2,
+      edge_profiles: [
+        { label: 'Might 0, Speed 0, Intellect 1', might: 0, speed: 0, intellect: 1 }
+      ],
+      weapons: 'Practiced with light weapons; medium/heavy attacks are hindered.'
+    }
+  };
+
+  const state = {
+    step: 1,
+    mode: 'edit',
+    ownerId: null,
+    currentFilename: null,
+    currentLocked: false,
+    loadedPayload: {},
+    meta: null,
+    races: {},
+    generated: null,
+    lastPayload: null,
+    lists: {
+      types: [],
+      flavors: [],
+      descriptors: [],
+      foci: [],
+      abilities: [],
+      skills: []
+    },
+    selected: {
+      type: null,
+      flavor: null,
+      descriptor: null,
+      focus: null
+    },
+    chosenAbilities: [],
+    chosenSkills: [],
+    storedItems: []
+  };
+
+  const els = {
+    stepLabel: document.getElementById('step-label'),
+    prevStep: document.getElementById('prev-step'),
+    nextStep: document.getElementById('next-step'),
+
+    type: document.getElementById('character-type'),
+    edgeProfile: document.getElementById('edge-profile'),
+    bonusMight: document.getElementById('bonus-might'),
+    bonusSpeed: document.getElementById('bonus-speed'),
+    bonusIntellect: document.getElementById('bonus-intellect'),
+    bonusRemaining: document.getElementById('bonus-remaining'),
+
+    flavor: document.getElementById('flavor'),
+    descriptor: document.getElementById('descriptor'),
+    focus: document.getElementById('focus'),
+    skillPick: document.getElementById('skill-pick'),
+    skillLevel: document.getElementById('skill-level'),
+    addSkillBtn: document.getElementById('add-skill-btn'),
+    chosenSkillsPreview: document.getElementById('chosen-skills-preview'),
+    storedSheetSelect: document.getElementById('stored-sheet-select'),
+    loadSheetBtn: document.getElementById('load-sheet-btn'),
+    editSheetBtn: document.getElementById('edit-sheet-btn'),
+    playSheetBtn: document.getElementById('play-sheet-btn'),
+
+    characterName: document.getElementById('character-name'),
+    gender: document.getElementById('gender'),
+    profession: document.getElementById('profession'),
+    race: document.getElementById('race'),
+    variant: document.getElementById('variant'),
+    environment: document.getElementById('environment'),
+    mood: document.getElementById('mood'),
+    seed: document.getElementById('seed'),
+    equipment: document.getElementById('equipment'),
+    notes: document.getElementById('notes'),
+    abilityRemaining: document.getElementById('ability-remaining'),
+    currentMightPool: document.getElementById('current-might-pool'),
+    currentSpeedPool: document.getElementById('current-speed-pool'),
+    currentIntellectPool: document.getElementById('current-intellect-pool'),
+    maxMightStat: document.getElementById('max-might-stat'),
+    maxSpeedStat: document.getElementById('max-speed-stat'),
+    maxIntellectStat: document.getElementById('max-intellect-stat'),
+    damageTrack: document.getElementById('damage-track'),
+    recoveryAction: document.getElementById('recovery-action'),
+    recovery10Min: document.getElementById('recovery-10min'),
+    recovery1Hr: document.getElementById('recovery-1hr'),
+    recovery10Hr: document.getElementById('recovery-10hr'),
+
+    generateBtn: document.getElementById('generate-btn'),
+    printBtn: document.getElementById('print-btn'),
+    copyBtn: document.getElementById('copy-btn'),
+
+    status: document.getElementById('status'),
+    viewer: document.getElementById('viewer')
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function slugify(value) {
+    return String(value || '')
+      .toLowerCase()
+      .trim()
+      .replace(/['’]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+
+  function fetchJson(url, options) {
+    return fetch(url, options).then(async res => {
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+      return data;
+    });
+  }
+
+  const STUDIO_LAST_SHEET_KEY = 'characterStudio.lastSheetFilename';
+  const STUDIO_OWNER_KEY = 'characterStudio.ownerId';
+
+  function getOrCreateOwnerId() {
+    const existing = localStorage.getItem(STUDIO_OWNER_KEY);
+    if (existing) return existing;
+    const value = `owner-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    localStorage.setItem(STUDIO_OWNER_KEY, value);
+    return value;
+  }
+
+  function setLastSheetFilename(filename) {
+    if (!filename) return;
+    localStorage.setItem(STUDIO_LAST_SHEET_KEY, filename);
+  }
+
+  function getLastSheetFilename() {
+    return localStorage.getItem(STUDIO_LAST_SHEET_KEY) || '';
+  }
+
+  async function fetchCharacterSheetRecord(filename) {
+    const owner = encodeURIComponent(state.ownerId || '');
+    return fetchJson(`/character-sheet/${encodeURIComponent(filename)}?owner=${owner}`);
+  }
+
+  async function acquireSheetLock(filename, mode) {
+    const result = await fetchJson('/character-sheet/lock', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filename,
+        owner: state.ownerId,
+        mode,
+      })
+    });
+    state.currentFilename = filename;
+    state.currentLocked = true;
+    return result;
+  }
+
+  async function releaseCurrentLock() {
+    if (!state.currentLocked || !state.currentFilename) return;
+    try {
+      await fetchJson('/character-sheet/unlock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          filename: state.currentFilename,
+          owner: state.ownerId,
+        })
+      });
+    } catch (err) {
+      // Ignore unlock errors on mode changes; lock expiry/owner mismatch is non-fatal here.
+    } finally {
+      state.currentLocked = false;
+    }
+  }
+
+  function fillSelectFromItems(select, items, includeBlank = false, blankLabel = 'None') {
+    select.innerHTML = '';
+    if (includeBlank) {
+      const blank = document.createElement('option');
+      blank.value = '';
+      blank.textContent = blankLabel;
+      select.appendChild(blank);
+    }
+
+    items.forEach(item => {
+      const opt = document.createElement('option');
+      opt.value = item.slug;
+      opt.textContent = item.title;
+      select.appendChild(opt);
+    });
+  }
+
+  function fillSelectValues(select, values, includeBlank = false, blankLabel = 'None') {
+    select.innerHTML = '';
+    if (includeBlank) {
+      const blank = document.createElement('option');
+      blank.value = '';
+      blank.textContent = blankLabel;
+      select.appendChild(blank);
+    }
+
+    values.forEach(value => {
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = value;
+      select.appendChild(opt);
+    });
+  }
+
+  function findSlugByTitle(items, title) {
+    const target = String(title || '').trim().toLowerCase();
+    if (!target) return '';
+    const match = (items || []).find(item => String(item.title || '').trim().toLowerCase() === target);
+    return match ? match.slug : '';
+  }
+
+  function resolveAbilitySlug(name) {
+    const target = String(name || '').trim().toLowerCase();
+    if (!target) return null;
+    const items = state.lists.abilities || [];
+    const exact = items.find(item => String(item.title || '').trim().toLowerCase() === target);
+    if (exact) return exact.slug;
+
+    const withoutParen = target.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (withoutParen && withoutParen !== target) {
+      const exactNoParen = items.find(item => String(item.title || '').trim().toLowerCase() === withoutParen);
+      if (exactNoParen) return exactNoParen.slug;
+    }
+
+    const startsWith = items.find(item => String(item.title || '').trim().toLowerCase().startsWith(target + ' '));
+    if (startsWith) return startsWith.slug;
+
+    return null;
+  }
+
+  function abilityHref(name) {
+    const q = encodeURIComponent(String(name || '').trim());
+    return `/search?q=${q}&type=ability`;
+  }
+
+  function searchHrefForType(itemType, name) {
+    const q = encodeURIComponent(String(name || '').trim());
+    return `/search?q=${q}&type=${encodeURIComponent(itemType)}`;
+  }
+
+  function parseList(value) {
+    return String(value || '')
+      .split('\n')
+      .map(line => line.trim())
+      .filter(Boolean);
+  }
+
+  function uniqueSorted(items) {
+    return Array.from(new Set((items || []).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+  }
+
+  function renderChosenSkillsPreview() {
+    if (!els.chosenSkillsPreview) return;
+    if (!state.chosenSkills.length) {
+      els.chosenSkillsPreview.textContent = 'No manual skill picks yet.';
+      return;
+    }
+
+    els.chosenSkillsPreview.innerHTML = state.chosenSkills.map((entry, index) => `
+      <div style="display:flex; gap:10px; align-items:center; margin-bottom:6px;">
+        <span><strong>${escapeHtml(entry.name)}</strong> <span class="small">(${escapeHtml(entry.level)})</span></span>
+        <button type="button" class="secondary remove-skill-btn" data-index="${index}" style="width:auto; padding:4px 8px;">Remove</button>
+      </div>
+    `).join('');
+
+    els.chosenSkillsPreview.querySelectorAll('.remove-skill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-index'));
+        if (!Number.isFinite(idx) || idx < 0 || idx >= state.chosenSkills.length) return;
+        state.chosenSkills.splice(idx, 1);
+        renderSheet();
+      });
+    });
+  }
+
+  function descriptorEffects(descriptor) {
+    const effects = {
+      pool: { might: 0, speed: 0, intellect: 0 },
+      skills: [],
+      inabilities: [],
+      traits: [],
+      equipment: []
+    };
+
+    if (!descriptor || !Array.isArray(descriptor.details)) return effects;
+
+    const poolRe = /([+-]\d+)\s+to your\s+(Might|Speed|Intellect)\s+Pool/i;
+
+    descriptor.details.forEach(line => {
+      const text = String(line || '').trim();
+      if (!text) return;
+
+      const m = text.match(poolRe);
+      if (m) {
+        const delta = Number(m[1]);
+        const key = m[2].toLowerCase();
+        effects.pool[key] += delta;
+      }
+
+      if (text.startsWith('Skill:')) {
+        effects.skills.push(text.replace(/^Skill:\s*/, ''));
+        return;
+      }
+      if (text.startsWith('Inability:')) {
+        effects.inabilities.push(text.replace(/^Inability:\s*/, ''));
+        return;
+      }
+      if (text.startsWith('Additional Equipment:')) {
+        effects.equipment.push(text.replace(/^Additional Equipment:\s*/, ''));
+        return;
+      }
+      if (text.startsWith('Initial Link')) return;
+      if (/^\d+\./.test(text)) return;
+      if (text.startsWith('You gain the following')) return;
+      if (text.includes(':')) {
+        effects.traits.push(text);
+      }
+    });
+
+    return effects;
+  }
+
+  function focusTierOneAbilities(focus) {
+    if (!focus || !Array.isArray(focus.tiers)) return [];
+    return focus.tiers
+      .filter(line => line.startsWith('Tier 1:'))
+      .map(line => line.replace(/^Tier 1:\s*/, '').trim())
+      .filter(Boolean);
+  }
+
+  function typeTierOnePickCount(typeObj) {
+    if (!typeObj || !Array.isArray(typeObj.details)) return 4;
+    for (const line of typeObj.details) {
+      const m = String(line).match(/Special Abilities:\s*Choose\s+(\w+)/i);
+      if (!m) continue;
+      const word = m[1].toLowerCase();
+      const map = { one: 1, two: 2, three: 3, four: 4, five: 5 };
+      if (map[word]) return map[word];
+      const asNum = Number(word);
+      if (Number.isFinite(asNum) && asNum > 0) return asNum;
+    }
+    return 4;
+  }
+
+  function updateStepUI() {
+    const inWizardMode = state.mode === 'edit';
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById(`step-${i}`);
+      if (!el) continue;
+      el.classList.toggle('hidden', !inWizardMode || i !== state.step);
+    }
+
+    if (!inWizardMode) {
+      els.stepLabel.textContent = state.mode === 'play' ? 'Play Mode' : 'View Mode';
+      els.prevStep.classList.add('hidden');
+      els.nextStep.classList.add('hidden');
+      els.prevStep.disabled = true;
+      els.nextStep.disabled = true;
+      return;
+    }
+
+    els.stepLabel.textContent = `Step ${state.step} of 5`;
+    els.prevStep.classList.remove('hidden');
+    els.nextStep.classList.remove('hidden');
+    els.prevStep.disabled = state.step === 1;
+    els.nextStep.disabled = false;
+    els.nextStep.textContent = state.step === 5 ? 'Save' : 'Next';
+    els.nextStep.classList.toggle('secondary', state.step !== 5);
+  }
+
+  function setStep(nextStep) {
+    state.mode = 'edit';
+    state.step = Math.max(1, Math.min(5, nextStep));
+    updateStepUI();
+  }
+
+  function selectedTypeBaseline() {
+    const typeSlug = els.type.value || '';
+    return TYPE_BASELINES[typeSlug] || TYPE_BASELINES.warrior;
+  }
+
+  function updateEdgeProfiles() {
+    const baseline = selectedTypeBaseline();
+    els.edgeProfile.innerHTML = '';
+    (baseline.edge_profiles || []).forEach((profile, index) => {
+      const opt = document.createElement('option');
+      opt.value = String(index);
+      opt.textContent = profile.label;
+      els.edgeProfile.appendChild(opt);
+    });
+  }
+
+  function clampBonusInputs() {
+    const values = [els.bonusMight, els.bonusSpeed, els.bonusIntellect].map(el => Math.max(0, Number(el.value || 0)));
+    let total = values[0] + values[1] + values[2];
+
+    if (total > 6) {
+      // Clamp last edited field by reducing overflow from it first.
+      const active = document.activeElement;
+      const idx = [els.bonusMight, els.bonusSpeed, els.bonusIntellect].indexOf(active);
+      if (idx >= 0) {
+        values[idx] = Math.max(0, values[idx] - (total - 6));
+      }
+      total = values[0] + values[1] + values[2];
+      if (total > 6) {
+        // Fallback hard clamp.
+        let overflow = total - 6;
+        for (let i = 2; i >= 0 && overflow > 0; i--) {
+          const take = Math.min(values[i], overflow);
+          values[i] -= take;
+          overflow -= take;
+        }
+      }
+    }
+
+    els.bonusMight.value = values[0];
+    els.bonusSpeed.value = values[1];
+    els.bonusIntellect.value = values[2];
+
+    const remaining = 6 - (values[0] + values[1] + values[2]);
+    els.bonusRemaining.textContent = String(remaining);
+  }
+
+  function buildGenerationPayload() {
+    const payload = {
+      gender: els.gender.value,
+      profession: els.profession.value,
+      race: els.race.value,
+      variant: els.variant.value,
+      environment: els.environment.value,
+      mood: els.mood.value.trim(),
+      seed: els.seed.value.trim(),
+    };
+
+    Object.keys(payload).forEach(key => {
+      if (!payload[key]) delete payload[key];
+    });
+
+    return payload;
+  }
+
+  function buildComputedCharacter() {
+    const type = state.selected.type;
+    const flavor = state.selected.flavor;
+    const descriptor = state.selected.descriptor;
+    const focus = state.selected.focus;
+
+    const baseline = selectedTypeBaseline();
+    const edgeIdx = Number(els.edgeProfile.value || 0);
+    const edgeProfile = (baseline.edge_profiles || [])[edgeIdx] || baseline.edge_profiles[0];
+
+    const descriptorFx = descriptorEffects(descriptor);
+
+    const maxPools = {
+      might: baseline.pools.might + Number(els.bonusMight.value || 0) + descriptorFx.pool.might,
+      speed: baseline.pools.speed + Number(els.bonusSpeed.value || 0) + descriptorFx.pool.speed,
+      intellect: baseline.pools.intellect + Number(els.bonusIntellect.value || 0) + descriptorFx.pool.intellect,
+    };
+
+    const poolInputPairs = [
+      ['might', els.currentMightPool],
+      ['speed', els.currentSpeedPool],
+      ['intellect', els.currentIntellectPool],
+    ];
+    const currentPools = {};
+    poolInputPairs.forEach(([key, input]) => {
+      const max = maxPools[key];
+      const raw = String(input.value || '').trim();
+      const parsed = raw === '' ? max : Math.max(0, Number(raw));
+      const clamped = Math.min(max, parsed);
+      currentPools[key] = clamped;
+      input.value = String(clamped);
+    });
+
+    if (els.maxMightStat) els.maxMightStat.textContent = String(maxPools.might);
+    if (els.maxSpeedStat) els.maxSpeedStat.textContent = String(maxPools.speed);
+    if (els.maxIntellectStat) els.maxIntellectStat.textContent = String(maxPools.intellect);
+
+    const edges = {
+      might: edgeProfile.might,
+      speed: edgeProfile.speed,
+      intellect: edgeProfile.intellect,
+    };
+
+    const focusTier1 = focusTierOneAbilities(focus);
+    const typeTier1 = (type?.tier_abilities?.tier_1 || []);
+    const flavorTier1 = (flavor?.tier_abilities?.tier_1 || []);
+
+    const chosenAbilities = [...state.chosenAbilities];
+    const chosenSkills = [...state.chosenSkills];
+
+    const name = els.characterName.value.trim() || state.generated?.name || 'Unnamed Character';
+    const typeTitle = type?.title || '';
+    const descriptorTitle = descriptor?.title || '';
+    const focusTitle = focus?.title || '';
+    const flavorTitle = flavor?.title || '';
+
+    let flavorPhrase = '';
+    if (flavorTitle) {
+      const base = flavorTitle.replace(/\s+flavor$/i, '');
+      flavorPhrase = ` with ${base} flavor`;
+    }
+
+    const sentence = `${name} is a ${descriptorTitle || 'Unknown'} ${typeTitle || 'Type'}${flavorPhrase} who ${focusTitle || 'has no focus yet'}.`;
+
+    return {
+      name,
+      sentence,
+      type: typeTitle,
+      flavor: flavorTitle,
+      descriptor: descriptorTitle,
+      focus: focusTitle,
+      effort: baseline.effort,
+      cypher_limit: baseline.cypher_limit,
+      weapons: baseline.weapons,
+      pools: {
+        max: maxPools,
+        current: currentPools,
+      },
+      edges,
+      damage_track: els.damageTrack.value || 'Hale',
+      recovery_rolls_used: {
+        action: Boolean(els.recoveryAction.checked),
+        ten_minutes: Boolean(els.recovery10Min.checked),
+        one_hour: Boolean(els.recovery1Hr.checked),
+        ten_hours: Boolean(els.recovery10Hr.checked),
+      },
+      descriptor_effects: descriptorFx,
+      type_tier_1_abilities: typeTier1,
+      flavor_tier_1_abilities: flavorTier1,
+      focus_tier_1_abilities: focusTier1,
+      chosen_abilities: chosenAbilities,
+      chosen_skills: chosenSkills,
+      equipment: parseList(els.equipment.value),
+      notes: els.notes.value.trim(),
+      generated: state.generated || null,
+      metadata: {
+        name,
+        race: els.race.value,
+        profession: els.profession.value,
+        environment: els.environment.value,
+        character_type: typeTitle,
+        flavor: flavorTitle,
+        descriptor: descriptorTitle,
+        focus: focusTitle,
+        tier: 1,
+      }
+    };
+  }
+
+  function allowedTierOneAbilityPool() {
+    const typePool = state.selected.type?.tier_abilities?.tier_1 || [];
+    const flavorPool = state.selected.flavor?.tier_abilities?.tier_1 || [];
+    return {
+      typePool: uniqueSorted(typePool),
+      flavorPool: uniqueSorted(flavorPool),
+      combined: uniqueSorted([...(typePool || []), ...(flavorPool || [])]),
+    };
+  }
+
+  function renderTierOneAbilitySelector() {
+    const container = document.getElementById('ability-options');
+    const chosenEl = document.getElementById('chosen-abilities-preview');
+    if (!container || !chosenEl) return;
+
+    const { typePool, flavorPool, combined } = allowedTierOneAbilityPool();
+    const hasFlavor = Boolean(state.selected.flavor);
+    const required = typeTierOnePickCount(state.selected.type);
+    const chosen = state.chosenAbilities.length;
+    const remaining = Math.max(0, required - chosen);
+
+    if (els.abilityRemaining) {
+      els.abilityRemaining.textContent = `${remaining} remaining (${chosen}/${required} chosen)`;
+    }
+
+    if (!combined.length) {
+      container.innerHTML = `<div class="output-value">Select a type (and optional flavor) to load tier-1 options.</div>`;
+      chosenEl.textContent = '';
+      return;
+    }
+
+    container.innerHTML = combined.map(name => {
+      const checked = state.chosenAbilities.includes(name) ? 'checked' : '';
+      const source = flavorPool.includes(name) ? 'Flavor' : 'Type';
+      return `
+        <label style="display:flex; gap:8px; align-items:flex-start; margin-bottom:6px;">
+          <input type="checkbox" class="ability-check" value="${escapeHtml(name)}" ${checked} />
+          <span><strong>${escapeHtml(name)}</strong> <span class="small">(${escapeHtml(source)})</span></span>
+        </label>
+      `;
+    }).join('');
+
+    container.querySelectorAll('.ability-check').forEach(input => {
+      input.addEventListener('change', (event) => {
+        const name = event.target.value;
+        const max = typeTierOnePickCount(state.selected.type);
+        const next = new Set(state.chosenAbilities);
+
+        if (event.target.checked) {
+          if (next.size >= max) {
+            event.target.checked = false;
+            els.status.textContent = `You can only pick ${max} tier-1 type/flavor abilities.`;
+            return;
+          }
+          next.add(name);
+        } else {
+          next.delete(name);
+        }
+
+        state.chosenAbilities = Array.from(next).sort((a, b) => a.localeCompare(b));
+        renderSheet();
+      });
+    });
+
+    chosenEl.textContent = state.chosenAbilities.join(', ');
+    if (!hasFlavor) {
+      const msg = document.createElement('div');
+      msg.className = 'small';
+      msg.style.marginTop = '8px';
+      msg.textContent = 'Tip: select a flavor in Step 2 to add additional tier-1 options.';
+      container.appendChild(msg);
+    }
+  }
+
+  function addSkillPick() {
+    const slug = els.skillPick.value;
+    if (!slug) {
+      els.status.textContent = 'Select a skill first.';
+      return;
+    }
+    const item = (state.lists.skills || []).find(s => s.slug === slug);
+    if (!item) {
+      els.status.textContent = 'Selected skill could not be found.';
+      return;
+    }
+    const level = String(els.skillLevel.value || 'trained').toLowerCase();
+    const name = item.title;
+
+    const exists = state.chosenSkills.some(s => s.name === name && s.level === level);
+    if (exists) {
+      els.status.textContent = 'That skill pick already exists.';
+      return;
+    }
+
+    state.chosenSkills.push({ name, level });
+    state.chosenSkills.sort((a, b) => a.name.localeCompare(b.name) || a.level.localeCompare(b.level));
+    renderSheet();
+  }
+
+  function creationValidation(computed) {
+    const errors = [];
+    const remaining = Number(els.bonusRemaining.textContent || 0);
+    if (remaining !== 0) {
+      errors.push(`Allocate all +6 type pool bonus points (remaining: ${remaining}).`);
+    }
+
+    if (!state.selected.type) errors.push('Select a character type.');
+    if (!state.selected.descriptor) errors.push('Select a descriptor.');
+    if (!state.selected.focus) errors.push('Select a focus.');
+
+    const required = typeTierOnePickCount(state.selected.type);
+    const actual = computed.chosen_abilities.length;
+    if (actual !== required) {
+      errors.push(`Pick exactly ${required} tier-1 type/flavor abilities (currently ${actual}).`);
+    }
+
+    const allowed = new Set(allowedTierOneAbilityPool().combined);
+    const invalid = computed.chosen_abilities.filter(a => !allowed.has(a));
+    if (invalid.length) {
+      errors.push(`Invalid abilities selected: ${invalid.join(', ')}.`);
+    }
+
+    return errors;
+  }
+
+  function renderListCard(title, items) {
+    if (!items || !items.length) return '';
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(title)}</h3>
+        <ul class="output-list">
+          ${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderLinkedListCard(title, items, type) {
+    if (!items || !items.length) return '';
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(title)}</h3>
+        <ul class="output-list">
+          ${items.map(item => {
+            const href = type === 'ability'
+              ? abilityHref(item)
+              : `/compendium/${encodeURIComponent(type)}/${encodeURIComponent(slugify(item))}`;
+            return `<li><a href="${href}" target="_blank" rel="noopener">${escapeHtml(item)}</a></li>`;
+          }).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderKeyValueCard(title, rows) {
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(title)}</h3>
+        ${rows.map(([k,v]) => `
+          <div class="output-row">
+            <div class="output-label">${escapeHtml(k)}</div>
+            <div class="output-value">${escapeHtml(v)}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderSavedOutput(c, savedFilename) {
+    const recovery = c.recovery_rolls_used || {
+      action: false,
+      ten_minutes: false,
+      one_hour: false,
+      ten_hours: false,
+    };
+    const links = [
+      c.type ? `<a href="${searchHrefForType('character_type', c.type)}" target="_blank" rel="noopener">${escapeHtml(c.type)}</a>` : '',
+      c.flavor ? `<a href="${searchHrefForType('flavor', c.flavor)}" target="_blank" rel="noopener">${escapeHtml(c.flavor)}</a>` : '',
+      c.descriptor ? `<a href="${searchHrefForType('descriptor', c.descriptor)}" target="_blank" rel="noopener">${escapeHtml(c.descriptor)}</a>` : '',
+      c.focus ? `<a href="${searchHrefForType('focus', c.focus)}" target="_blank" rel="noopener">${escapeHtml(c.focus)}</a>` : '',
+    ].filter(Boolean);
+
+    const abilityRows = (c.chosen_abilities || []).map(name => {
+      return `<li><a href="${abilityHref(name)}" target="_blank" rel="noopener">${escapeHtml(name)}</a></li>`;
+    }).join('');
+
+    const descriptorSkillRows = (c.descriptor_effects.skills || []).map(name => {
+      return `<li><a href="${abilityHref(name)}" target="_blank" rel="noopener">${escapeHtml(name)}</a></li>`;
+    }).join('');
+    const pickedSkillRows = (c.chosen_skills || []).map(entry => {
+      const href = searchHrefForType('skill', entry.name);
+      return `<li><a href="${href}" target="_blank" rel="noopener">${escapeHtml(entry.level)}: ${escapeHtml(entry.name)}</a></li>`;
+    }).join('');
+
+    return `
+      <div class="cypher-card">
+        <div class="output-row">
+          <div class="output-label">Saved Character Sheet</div>
+          <div class="output-value">${escapeHtml(savedFilename || 'Stored')}</div>
+        </div>
+        <h3>${escapeHtml(c.name)}</h3>
+        <div class="output-value">${escapeHtml(c.sentence)}</div>
+        <div class="small" style="margin-top:8px;">${links.join(' • ') || 'No compendium links available yet.'}</div>
+      </div>
+      <div class="output-card">
+        <h3>Pools, Stats, and Track</h3>
+        <div class="stat-grid">
+          <div class="stat-chip"><div class="k">Might Stat (Max)</div><div class="v">${escapeHtml(c.pools.max.might)}</div></div>
+          <div class="stat-chip"><div class="k">Might Pool (Current)</div><div class="v">${escapeHtml(c.pools.current.might)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Stat (Max)</div><div class="v">${escapeHtml(c.pools.max.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Pool (Current)</div><div class="v">${escapeHtml(c.pools.current.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Stat (Max)</div><div class="v">${escapeHtml(c.pools.max.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Pool (Current)</div><div class="v">${escapeHtml(c.pools.current.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Might Edge</div><div class="v">${escapeHtml(c.edges.might)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Edge</div><div class="v">${escapeHtml(c.edges.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Edge</div><div class="v">${escapeHtml(c.edges.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Damage Track</div><div class="v">${escapeHtml(c.damage_track)}</div></div>
+        </div>
+        <div class="output-row" style="margin-top:10px;">
+          <div class="output-label">Recovery Rolls Used</div>
+          <div class="output-value">
+            ${recovery.action ? '1 Action' : ''}${recovery.ten_minutes ? (recovery.action ? ', 10 Minutes' : '10 Minutes') : ''}${recovery.one_hour ? ((recovery.action || recovery.ten_minutes) ? ', 1 Hour' : '1 Hour') : ''}${recovery.ten_hours ? ((recovery.action || recovery.ten_minutes || recovery.one_hour) ? ', 10 Hours' : '10 Hours') : ''}${!recovery.action && !recovery.ten_minutes && !recovery.one_hour && !recovery.ten_hours ? 'None used' : ''}
+          </div>
+        </div>
+      </div>
+      ${abilityRows ? `<div class="output-card"><h3>Abilities</h3><ul class="output-list">${abilityRows}</ul></div>` : ''}
+      ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
+      ${descriptorSkillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${descriptorSkillRows}</ul></div>` : ''}
+      ${renderListCard('Equipment', c.equipment)}
+      ${c.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${escapeHtml(c.notes)}</div></div>` : ''}
+    `;
+  }
+
+  function renderPlayOutput(c, savedFilename) {
+    const sheet = {
+      ...c,
+      recovery_rolls_used: c.recovery_rolls_used || {
+        action: false,
+        ten_minutes: false,
+        one_hour: false,
+        ten_hours: false,
+      }
+    };
+    const title = sheet.name || savedFilename || 'Character';
+    const sentence = sheet.sentence || '';
+    const typeLink = c.type ? `<a href="${searchHrefForType('character_type', c.type)}" target="_blank" rel="noopener">${escapeHtml(c.type)}</a>` : '';
+    const descriptorLink = c.descriptor ? `<a href="${searchHrefForType('descriptor', c.descriptor)}" target="_blank" rel="noopener">${escapeHtml(c.descriptor)}</a>` : '';
+    const focusLink = c.focus ? `<a href="${searchHrefForType('focus', c.focus)}" target="_blank" rel="noopener">${escapeHtml(c.focus)}</a>` : '';
+    const identityLinks = [descriptorLink, typeLink, focusLink].filter(Boolean).join(' • ');
+    const abilityRows = (sheet.chosen_abilities || []).map(name => {
+      return `<li><a href="${abilityHref(name)}" target="_blank" rel="noopener">${escapeHtml(name)}</a></li>`;
+    }).join('');
+    const descriptorSkillRows = ((sheet.descriptor_effects && sheet.descriptor_effects.skills) || []).map(name => {
+      return `<li><a href="${abilityHref(name)}" target="_blank" rel="noopener">${escapeHtml(name)}</a></li>`;
+    }).join('');
+    const pickedSkillRows = (sheet.chosen_skills || []).map(entry => {
+      const href = searchHrefForType('skill', entry.name);
+      return `<li><a href="${href}" target="_blank" rel="noopener">${escapeHtml(entry.level)}: ${escapeHtml(entry.name)}</a></li>`;
+    }).join('');
+
+    return `
+      <div class="cypher-card">
+        <h3>${escapeHtml(title)}</h3>
+        ${sentence ? `<div class="output-value">${escapeHtml(sentence)}</div>` : ''}
+        ${identityLinks ? `<div class="small" style="margin-top:8px;">${identityLinks}</div>` : ''}
+        <div class="small">${escapeHtml(savedFilename || '')}</div>
+      </div>
+      <div class="output-card">
+        <h3>Play Controls</h3>
+        <div class="row">
+          <div class="field">
+            <label>Might Pool</label>
+            <div class="actions">
+              <button type="button" class="secondary play-adjust" data-stat="might" data-delta="-1" style="width:auto;">-</button>
+              <div class="output-value" id="play-might">${escapeHtml(sheet.pools.current.might)} / ${escapeHtml(sheet.pools.max.might)}</div>
+              <button type="button" class="secondary play-adjust" data-stat="might" data-delta="1" style="width:auto;">+</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Speed Pool</label>
+            <div class="actions">
+              <button type="button" class="secondary play-adjust" data-stat="speed" data-delta="-1" style="width:auto;">-</button>
+              <div class="output-value" id="play-speed">${escapeHtml(sheet.pools.current.speed)} / ${escapeHtml(sheet.pools.max.speed)}</div>
+              <button type="button" class="secondary play-adjust" data-stat="speed" data-delta="1" style="width:auto;">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label>Intellect Pool</label>
+            <div class="actions">
+              <button type="button" class="secondary play-adjust" data-stat="intellect" data-delta="-1" style="width:auto;">-</button>
+              <div class="output-value" id="play-intellect">${escapeHtml(sheet.pools.current.intellect)} / ${escapeHtml(sheet.pools.max.intellect)}</div>
+              <button type="button" class="secondary play-adjust" data-stat="intellect" data-delta="1" style="width:auto;">+</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="play-damage-track">Damage Track</label>
+            <select id="play-damage-track">
+              <option value="Hale" ${sheet.damage_track === 'Hale' ? 'selected' : ''}>Hale</option>
+              <option value="Impaired" ${sheet.damage_track === 'Impaired' ? 'selected' : ''}>Impaired</option>
+              <option value="Debilitated" ${sheet.damage_track === 'Debilitated' ? 'selected' : ''}>Debilitated</option>
+              <option value="Dead" ${sheet.damage_track === 'Dead' ? 'selected' : ''}>Dead</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Recovery Rolls Used</label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+            <input id="play-recovery-action" type="checkbox" style="width:auto;" ${sheet.recovery_rolls_used.action ? 'checked' : ''} />
+            <span>1 Action</span>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+            <input id="play-recovery-10min" type="checkbox" style="width:auto;" ${sheet.recovery_rolls_used.ten_minutes ? 'checked' : ''} />
+            <span>10 Minutes</span>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+            <input id="play-recovery-1hr" type="checkbox" style="width:auto;" ${sheet.recovery_rolls_used.one_hour ? 'checked' : ''} />
+            <span>1 Hour</span>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:0;">
+            <input id="play-recovery-10hr" type="checkbox" style="width:auto;" ${sheet.recovery_rolls_used.ten_hours ? 'checked' : ''} />
+            <span>10 Hours</span>
+          </label>
+        </div>
+      </div>
+      ${abilityRows ? `<div class="output-card"><h3>Abilities</h3><ul class="output-list">${abilityRows}</ul></div>` : ''}
+      ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
+      ${descriptorSkillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${descriptorSkillRows}</ul></div>` : ''}
+      ${renderListCard('Equipment', sheet.equipment || [])}
+      ${sheet.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${escapeHtml(sheet.notes)}</div></div>` : ''}
+    `;
+  }
+
+  function renderSheet() {
+    clampBonusInputs();
+    renderTierOneAbilitySelector();
+    renderChosenSkillsPreview();
+    const c = buildComputedCharacter();
+    const errors = creationValidation(c);
+
+    const identity = renderKeyValueCard('Character Identity', [
+      ['Name', c.name],
+      ['Character Sentence', c.sentence],
+      ['Descriptor / Type / Focus', [c.descriptor, c.type, c.focus].filter(Boolean).join(' • ')],
+      ['Flavor', c.flavor || 'None'],
+      ['Race / Environment', [c.metadata.race, c.metadata.environment].filter(Boolean).join(' • ')],
+    ]);
+
+    const stats = `
+      <div class="output-card">
+        <h3>Tier 1 Stats</h3>
+        <div class="stat-grid">
+          <div class="stat-chip"><div class="k">Effort</div><div class="v">${escapeHtml(c.effort)}</div></div>
+          <div class="stat-chip"><div class="k">Cypher Limit</div><div class="v">${escapeHtml(c.cypher_limit)}</div></div>
+          <div class="stat-chip"><div class="k">Might Stat (Max)</div><div class="v">${escapeHtml(c.pools.max.might)}</div></div>
+          <div class="stat-chip"><div class="k">Might Pool (Current)</div><div class="v">${escapeHtml(c.pools.current.might)}</div></div>
+          <div class="stat-chip"><div class="k">Might Edge</div><div class="v">${escapeHtml(c.edges.might)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Stat (Max)</div><div class="v">${escapeHtml(c.pools.max.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Pool (Current)</div><div class="v">${escapeHtml(c.pools.current.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Edge</div><div class="v">${escapeHtml(c.edges.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Stat (Max)</div><div class="v">${escapeHtml(c.pools.max.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Pool (Current)</div><div class="v">${escapeHtml(c.pools.current.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Edge</div><div class="v">${escapeHtml(c.edges.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Damage Track</div><div class="v">${escapeHtml(c.damage_track)}</div></div>
+        </div>
+        <div class="output-row" style="margin-top:10px;">
+          <div class="output-label">Recovery Rolls Used</div>
+          <div class="output-value">
+            ${c.recovery_rolls_used.action ? '1 Action' : ''}${c.recovery_rolls_used.ten_minutes ? (c.recovery_rolls_used.action ? ', 10 Minutes' : '10 Minutes') : ''}${c.recovery_rolls_used.one_hour ? ((c.recovery_rolls_used.action || c.recovery_rolls_used.ten_minutes) ? ', 1 Hour' : '1 Hour') : ''}${c.recovery_rolls_used.ten_hours ? ((c.recovery_rolls_used.action || c.recovery_rolls_used.ten_minutes || c.recovery_rolls_used.one_hour) ? ', 10 Hours' : '10 Hours') : ''}${!c.recovery_rolls_used.action && !c.recovery_rolls_used.ten_minutes && !c.recovery_rolls_used.one_hour && !c.recovery_rolls_used.ten_hours ? 'None used' : ''}
+          </div>
+        </div>
+        <div class="output-row" style="margin-top:10px;">
+          <div class="output-label">Weapon Proficiency</div>
+          <div class="output-value">${escapeHtml(c.weapons)}</div>
+        </div>
+      </div>
+    `;
+
+    const descriptorSummary = renderListCard('Descriptor Skills', c.descriptor_effects.skills)
+      + renderListCard('Descriptor Inabilities', c.descriptor_effects.inabilities)
+      + renderListCard('Descriptor Traits', c.descriptor_effects.traits)
+      + renderListCard('Descriptor Extra Equipment', c.descriptor_effects.equipment);
+
+    const tierAbilityCards = [
+      renderListCard('Focus Tier 1 Abilities', c.focus_tier_1_abilities),
+      renderLinkedListCard('Chosen Abilities', c.chosen_abilities, 'ability'),
+      renderListCard('Chosen Skill Picks', (c.chosen_skills || []).map(s => `${s.level}: ${s.name}`)),
+      renderListCard('Equipment', c.equipment),
+    ].join('');
+
+    const validationCard = errors.length ? `
+      <div class="output-card">
+        <h3>Validation</h3>
+        <ul class="output-list">
+          ${errors.map(err => `<li>${escapeHtml(err)}</li>`).join('')}
+        </ul>
+      </div>
+    ` : `
+      <div class="output-card">
+        <h3>Validation</h3>
+        <div class="output-value">Character creation checks passed.</div>
+      </div>
+    `;
+
+    const generatedCard = c.generated?.sections ? `
+      <div class="output-card">
+        <h3>Generated Flavor Text</h3>
+        <div class="output-value">${escapeHtml(c.generated.text || '')}</div>
+      </div>
+    ` : '';
+
+    const notesCard = c.notes ? `
+      <div class="output-card">
+        <h3>Notes</h3>
+        <div class="output-value">${escapeHtml(c.notes)}</div>
+      </div>
+    ` : '';
+
+    els.viewer.innerHTML = [identity, stats, validationCard, descriptorSummary, tierAbilityCards, generatedCard, notesCard].join('');
+    return c;
+  }
+
+  async function persistSheetToFilename(sheet, filename) {
+    const body = {
+      payload: state.loadedPayload || state.lastPayload || buildGenerationPayload(),
+      sheet,
+      filename,
+      owner: state.ownerId,
+    };
+    await fetchJson('/character-sheet/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+  }
+
+  function wirePlayMode(sheet, filename) {
+    if (!filename) return;
+    const current = JSON.parse(JSON.stringify(sheet));
+    const mightEl = document.getElementById('play-might');
+    const speedEl = document.getElementById('play-speed');
+    const intellectEl = document.getElementById('play-intellect');
+    const damageEl = document.getElementById('play-damage-track');
+    const recAction = document.getElementById('play-recovery-action');
+    const rec10 = document.getElementById('play-recovery-10min');
+    const rec1h = document.getElementById('play-recovery-1hr');
+    const rec10h = document.getElementById('play-recovery-10hr');
+
+    function updatePoolView() {
+      mightEl.textContent = `${current.pools.current.might} / ${current.pools.max.might}`;
+      speedEl.textContent = `${current.pools.current.speed} / ${current.pools.max.speed}`;
+      intellectEl.textContent = `${current.pools.current.intellect} / ${current.pools.max.intellect}`;
+    }
+
+    async function persistPlayState() {
+      try {
+        await persistSheetToFilename(current, filename);
+      } catch (err) {
+        els.status.textContent = `Play state save failed: ${err.message}`;
+      }
+    }
+
+    document.querySelectorAll('.play-adjust').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const stat = btn.getAttribute('data-stat');
+        const delta = Number(btn.getAttribute('data-delta') || 0);
+        if (!['might', 'speed', 'intellect'].includes(stat)) return;
+        const next = Math.min(
+          current.pools.max[stat],
+          Math.max(0, Number(current.pools.current[stat] || 0) + delta)
+        );
+        current.pools.current[stat] = next;
+        updatePoolView();
+        await persistPlayState();
+      });
+    });
+
+    if (damageEl) {
+      damageEl.addEventListener('change', async () => {
+        current.damage_track = damageEl.value;
+        await persistPlayState();
+      });
+    }
+
+    function bindRecovery(el, key) {
+      if (!el) return;
+      el.addEventListener('change', async () => {
+        current.recovery_rolls_used[key] = Boolean(el.checked);
+        await persistPlayState();
+      });
+    }
+    bindRecovery(recAction, 'action');
+    bindRecovery(rec10, 'ten_minutes');
+    bindRecovery(rec1h, 'one_hour');
+    bindRecovery(rec10h, 'ten_hours');
+
+    updatePoolView();
+  }
+
+  function updateVariantOptions() {
+    const race = els.race.value;
+    const raceData = state.races[race] || {};
+    const variants = Object.keys(raceData.variants || {});
+    fillSelectValues(els.variant, variants, true, 'None');
+  }
+
+  async function fetchSelectedCompendium(type, slug) {
+    if (!slug) return null;
+    return fetchJson(`/compendium/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`);
+  }
+
+  async function refreshSelectedType() {
+    state.selected.type = await fetchSelectedCompendium('character_type', els.type.value);
+    updateEdgeProfiles();
+    state.chosenAbilities = [];
+    renderSheet();
+  }
+
+  async function refreshSelectedFlavor() {
+    state.selected.flavor = await fetchSelectedCompendium('flavor', els.flavor.value);
+    // If flavor changes, keep only abilities still valid in the new combined pool.
+    const allowed = new Set(allowedTierOneAbilityPool().combined);
+    state.chosenAbilities = state.chosenAbilities.filter(a => allowed.has(a));
+    renderSheet();
+  }
+
+  async function refreshSelectedDescriptor() {
+    state.selected.descriptor = await fetchSelectedCompendium('descriptor', els.descriptor.value);
+    renderSheet();
+  }
+
+  async function refreshSelectedFocus() {
+    state.selected.focus = await fetchSelectedCompendium('focus', els.focus.value);
+    renderSheet();
+  }
+
+  async function generateCharacter() {
+    const payload = buildGenerationPayload();
+    state.lastPayload = payload;
+    els.status.textContent = 'Generating name and flavor text...';
+
+    try {
+      const result = await fetchJson('/generate/character', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      state.generated = result;
+      if (!els.characterName.value.trim()) {
+        els.characterName.value = result.name || '';
+      }
+      renderSheet();
+      els.status.textContent = result.name ? `Generated: ${result.name}` : 'Generated.';
+    } catch (err) {
+      els.status.textContent = `Error: ${err.message}`;
+    }
+  }
+
+  async function saveSheet() {
+    const computed = renderSheet();
+    const errors = creationValidation(computed);
+    if (errors.length) {
+      els.status.textContent = `Cannot save yet: ${errors[0]}`;
+      return;
+    }
+
+    try {
+      els.status.textContent = 'Saving sheet...';
+      const filename = state.currentFilename || '';
+      const result = await fetchJson('/character-sheet/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          payload: state.loadedPayload || state.lastPayload || buildGenerationPayload(),
+          sheet: computed,
+          filename,
+          owner: state.ownerId,
+        })
+      });
+      const savedFile = (result.storage && result.storage.filename) || 'character sheet';
+      els.status.textContent = `Saved: ${savedFile}`;
+      els.viewer.innerHTML = renderSavedOutput(computed, savedFile);
+      setLastSheetFilename(savedFile);
+      state.currentFilename = savedFile;
+      state.mode = 'view';
+      await releaseCurrentLock();
+      updateStepUI();
+      await refreshStoredSheets();
+      if (savedFile && state.storedItems.some(item => item.filename === savedFile)) {
+        els.storedSheetSelect.value = savedFile;
+      }
+    } catch (err) {
+      els.status.textContent = `Error: ${err.message}`;
+    }
+  }
+
+  async function copySheet() {
+    const text = els.viewer.innerText.trim();
+    if (!text) return;
+    await navigator.clipboard.writeText(text);
+    els.status.textContent = 'Copied sheet to clipboard.';
+  }
+
+  function normalizePoolsForHydration(sheet) {
+    const pools = sheet?.pools || {};
+    if (pools.max && pools.current) {
+      return {
+        max: {
+          might: Number(pools.max.might || 0),
+          speed: Number(pools.max.speed || 0),
+          intellect: Number(pools.max.intellect || 0),
+        },
+        current: {
+          might: Number(pools.current.might || 0),
+          speed: Number(pools.current.speed || 0),
+          intellect: Number(pools.current.intellect || 0),
+        },
+      };
+    }
+
+    // Backward compatibility with older flat pool shape.
+    return {
+      max: {
+        might: Number(pools.might || 0),
+        speed: Number(pools.speed || 0),
+        intellect: Number(pools.intellect || 0),
+      },
+      current: {
+        might: Number(pools.might || 0),
+        speed: Number(pools.speed || 0),
+        intellect: Number(pools.intellect || 0),
+      },
+    };
+  }
+
+  function setBonusAllocationFromTargetMax(targetMax) {
+    const baseline = selectedTypeBaseline();
+    const descriptorFx = descriptorEffects(state.selected.descriptor);
+    let bonuses = {
+      might: Math.max(0, Number(targetMax.might || 0) - (baseline.pools.might + descriptorFx.pool.might)),
+      speed: Math.max(0, Number(targetMax.speed || 0) - (baseline.pools.speed + descriptorFx.pool.speed)),
+      intellect: Math.max(0, Number(targetMax.intellect || 0) - (baseline.pools.intellect + descriptorFx.pool.intellect)),
+    };
+
+    let total = bonuses.might + bonuses.speed + bonuses.intellect;
+    if (total > 6) {
+      let overflow = total - 6;
+      const keys = ['intellect', 'speed', 'might'];
+      for (const key of keys) {
+        if (overflow <= 0) break;
+        const take = Math.min(bonuses[key], overflow);
+        bonuses[key] -= take;
+        overflow -= take;
+      }
+    } else if (total < 6) {
+      bonuses.might += (6 - total);
+    }
+
+    els.bonusMight.value = String(bonuses.might);
+    els.bonusSpeed.value = String(bonuses.speed);
+    els.bonusIntellect.value = String(bonuses.intellect);
+    clampBonusInputs();
+  }
+
+  function setRecoveryCheckboxes(recovery) {
+    const r = recovery || {};
+    els.recoveryAction.checked = Boolean(r.action);
+    els.recovery10Min.checked = Boolean(r.ten_minutes);
+    els.recovery1Hr.checked = Boolean(r.one_hour);
+    els.recovery10Hr.checked = Boolean(r.ten_hours);
+  }
+
+  async function hydrateEditorFromRecord(record, filename) {
+    const result = record?.result || {};
+    const payload = record?.payload || {};
+    state.loadedPayload = payload;
+    state.currentFilename = filename || null;
+
+    if (payload.gender) els.gender.value = payload.gender;
+    if (payload.profession) els.profession.value = payload.profession;
+    if (payload.race) {
+      els.race.value = payload.race;
+      updateVariantOptions();
+    }
+    if (payload.variant) els.variant.value = payload.variant;
+    if (payload.environment) els.environment.value = payload.environment;
+    if (payload.mood) els.mood.value = payload.mood;
+    if (payload.seed) els.seed.value = payload.seed;
+
+    const sheet = result?.sheet || null;
+    if (sheet && typeof sheet === 'object') {
+      const typeSlug = findSlugByTitle(state.lists.types, sheet.type);
+      const flavorSlug = findSlugByTitle(state.lists.flavors, sheet.flavor);
+      const descriptorSlug = findSlugByTitle(state.lists.descriptors, sheet.descriptor);
+      const focusSlug = findSlugByTitle(state.lists.foci, sheet.focus);
+
+      if (typeSlug) {
+        els.type.value = typeSlug;
+        await refreshSelectedType();
+      }
+      if (flavorSlug || !sheet.flavor) {
+        els.flavor.value = flavorSlug || '';
+        await refreshSelectedFlavor();
+      }
+      if (descriptorSlug) {
+        els.descriptor.value = descriptorSlug;
+        await refreshSelectedDescriptor();
+      }
+      if (focusSlug) {
+        els.focus.value = focusSlug;
+        await refreshSelectedFocus();
+      }
+
+      const normalizedPools = normalizePoolsForHydration(sheet);
+      setBonusAllocationFromTargetMax(normalizedPools.max);
+      els.currentMightPool.value = String(normalizedPools.current.might);
+      els.currentSpeedPool.value = String(normalizedPools.current.speed);
+      els.currentIntellectPool.value = String(normalizedPools.current.intellect);
+
+      els.characterName.value = sheet.name || result.name || '';
+      els.notes.value = sheet.notes || '';
+      els.equipment.value = Array.isArray(sheet.equipment) ? sheet.equipment.join('\n') : '';
+      els.damageTrack.value = sheet.damage_track || 'Hale';
+      setRecoveryCheckboxes(sheet.recovery_rolls_used || {});
+
+      const allowed = new Set(allowedTierOneAbilityPool().combined);
+      state.chosenAbilities = Array.isArray(sheet.chosen_abilities)
+        ? sheet.chosen_abilities.filter(a => allowed.has(a))
+        : [];
+      state.chosenSkills = Array.isArray(sheet.chosen_skills)
+        ? sheet.chosen_skills
+            .filter(s => s && s.name)
+            .map(s => ({ name: String(s.name), level: String(s.level || 'trained').toLowerCase() }))
+        : [];
+      state.generated = sheet.generated || null;
+      renderSheet();
+      return;
+    }
+
+    // Legacy generated characters without sheet structure: hydrate basic identity only.
+    els.characterName.value = result?.name || '';
+    state.chosenSkills = [];
+    state.generated = result?.sections ? result : null;
+    renderSheet();
+  }
+
+  async function refreshStoredSheets() {
+    const data = await fetchJson('/storage');
+    const items = (data.items || []).filter(item => {
+      const t = String(item.type || '').toLowerCase();
+      return t === 'character_sheet' || t === 'character';
+    });
+    state.storedItems = items;
+
+    els.storedSheetSelect.innerHTML = '';
+    if (!items.length) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = 'No saved characters found';
+      els.storedSheetSelect.appendChild(opt);
+      els.loadSheetBtn.disabled = true;
+      els.editSheetBtn.disabled = true;
+      els.playSheetBtn.disabled = true;
+      return;
+    }
+
+    items.forEach(item => {
+      const opt = document.createElement('option');
+      opt.value = item.filename;
+      const name = item.name || item.filename;
+      const typeLabel = item.type === 'character_sheet' ? 'sheet' : 'legacy';
+      opt.textContent = `${name} (${typeLabel})`;
+      els.storedSheetSelect.appendChild(opt);
+    });
+    els.loadSheetBtn.disabled = false;
+    els.editSheetBtn.disabled = false;
+    els.playSheetBtn.disabled = false;
+  }
+
+  async function loadStoredSheetIntoViewer() {
+    const filename = els.storedSheetSelect.value;
+    if (!filename) return;
+    els.status.textContent = `Loading ${filename}...`;
+    try {
+      await releaseCurrentLock();
+      const record = await fetchCharacterSheetRecord(filename);
+      const result = record?.result || {};
+      if (result.type === 'character_sheet' && result.sheet) {
+        const normalized = {
+          ...result.sheet,
+          pools: normalizePoolsForHydration(result.sheet),
+          chosen_skills: Array.isArray(result.sheet.chosen_skills) ? result.sheet.chosen_skills : [],
+          recovery_rolls_used: result.sheet.recovery_rolls_used || {
+            action: false,
+            ten_minutes: false,
+            one_hour: false,
+            ten_hours: false,
+          },
+        };
+        els.viewer.innerHTML = renderSavedOutput(normalized, filename);
+        setLastSheetFilename(filename);
+        state.currentFilename = filename;
+        state.loadedPayload = record?.payload || {};
+        state.mode = 'view';
+        updateStepUI();
+        els.status.textContent = `Loaded ${filename}.`;
+        return;
+      }
+
+      // Fallback for legacy generated character payloads.
+      const generatedText = result.text || '';
+      els.viewer.innerHTML = `
+        <div class="output-card">
+          <h3>${escapeHtml(result.name || filename)}</h3>
+          <div class="output-value">${escapeHtml(generatedText || 'No character sheet data in this record.')}</div>
+        </div>
+      `;
+      setLastSheetFilename(filename);
+      state.currentFilename = filename;
+      state.loadedPayload = record?.payload || {};
+      state.mode = 'view';
+      updateStepUI();
+      els.status.textContent = `Loaded legacy character ${filename}.`;
+    } catch (err) {
+      els.status.textContent = `Error loading ${filename}: ${err.message}`;
+    }
+  }
+
+  async function editStoredSheet() {
+    const filename = els.storedSheetSelect.value;
+    if (!filename) return;
+    els.status.textContent = `Editing ${filename}...`;
+    try {
+      await releaseCurrentLock();
+      await acquireSheetLock(filename, 'edit');
+      const record = await fetchCharacterSheetRecord(filename);
+      await hydrateEditorFromRecord(record, filename);
+      setLastSheetFilename(filename);
+      state.mode = 'edit';
+      setStep(5);
+      els.status.textContent = `Loaded ${filename} into editor.`;
+    } catch (err) {
+      state.currentLocked = false;
+      els.status.textContent = `Error editing ${filename}: ${err.message}`;
+    }
+  }
+
+  async function playStoredSheet() {
+    const filename = els.storedSheetSelect.value;
+    if (!filename) return;
+    els.status.textContent = `Entering play mode for ${filename}...`;
+    try {
+      await releaseCurrentLock();
+      await acquireSheetLock(filename, 'play');
+      const record = await fetchCharacterSheetRecord(filename);
+      const result = record?.result || {};
+      if (result.type !== 'character_sheet' || !result.sheet) {
+        throw new Error('Play mode requires a saved character sheet.');
+      }
+      const normalized = {
+        ...result.sheet,
+        pools: normalizePoolsForHydration(result.sheet),
+        chosen_skills: Array.isArray(result.sheet.chosen_skills) ? result.sheet.chosen_skills : [],
+        recovery_rolls_used: result.sheet.recovery_rolls_used || {
+          action: false,
+          ten_minutes: false,
+          one_hour: false,
+          ten_hours: false,
+        },
+      };
+      state.loadedPayload = record?.payload || {};
+      state.currentFilename = filename;
+      setLastSheetFilename(filename);
+      els.viewer.innerHTML = renderPlayOutput(normalized, filename);
+      wirePlayMode(normalized, filename);
+      state.mode = 'play';
+      updateStepUI();
+      els.status.textContent = `Play mode active for ${filename}.`;
+    } catch (err) {
+      state.currentLocked = false;
+      els.status.textContent = `Error entering play mode for ${filename}: ${err.message}`;
+    }
+  }
+
+  async function loadBootData() {
+    const [meta, races, typeList, flavorList, descriptorList, focusList, abilityList, skillList] = await Promise.all([
+      fetchJson('/meta'),
+      fetchJson('/meta/races'),
+      fetchJson('/compendium/character_type'),
+      fetchJson('/compendium/flavor'),
+      fetchJson('/compendium/descriptor'),
+      fetchJson('/compendium/focus'),
+      fetchJson('/compendium/ability'),
+      fetchJson('/compendium/skill'),
+    ]);
+
+    state.meta = meta;
+    state.races = races.races || {};
+    state.lists.types = (typeList.items || []).slice().sort((a,b) => a.title.localeCompare(b.title));
+    state.lists.flavors = (flavorList.items || []).slice().sort((a,b) => a.title.localeCompare(b.title));
+    state.lists.descriptors = (descriptorList.items || []).slice().sort((a,b) => a.title.localeCompare(b.title));
+    state.lists.foci = (focusList.items || []).slice().sort((a,b) => a.title.localeCompare(b.title));
+    state.lists.abilities = (abilityList.items || []).slice();
+    state.lists.skills = (skillList.items || []).slice().sort((a,b) => a.title.localeCompare(b.title));
+
+    fillSelectFromItems(els.type, state.lists.types);
+    fillSelectFromItems(els.flavor, state.lists.flavors, true, 'No flavor');
+    fillSelectFromItems(els.descriptor, state.lists.descriptors);
+    fillSelectFromItems(els.focus, state.lists.foci);
+    fillSelectFromItems(els.skillPick, state.lists.skills, true, 'Select skill');
+
+    fillSelectValues(els.gender, (meta.genders && meta.genders.length ? meta.genders : ['female','male','nonbinary']));
+    fillSelectValues(els.profession, meta.professions || []);
+    fillSelectValues(els.race, meta.races || []);
+    fillSelectValues(els.environment, meta.environments || []);
+    updateVariantOptions();
+
+    await refreshSelectedType();
+    await refreshSelectedFlavor();
+    await refreshSelectedDescriptor();
+    await refreshSelectedFocus();
+    await refreshStoredSheets();
+
+    const lastFilename = getLastSheetFilename();
+    if (lastFilename && state.storedItems.some(item => item.filename === lastFilename)) {
+      els.storedSheetSelect.value = lastFilename;
+      try {
+        const record = await fetchCharacterSheetRecord(lastFilename);
+        const sheet = record?.result?.sheet || {};
+        const isCompleted = Boolean(sheet.wizard_completed);
+        if (isCompleted) {
+          await loadStoredSheetIntoViewer();
+        }
+      } catch (err) {
+        // Auto-resume is best-effort; keep editor available on failure.
+      }
+    }
+
+    updateStepUI();
+    if (state.mode === 'edit') {
+      renderSheet();
+    }
+    els.status.textContent = 'Ready.';
+  }
+
+  // Event wiring
+  els.prevStep.addEventListener('click', () => setStep(state.step - 1));
+  els.nextStep.addEventListener('click', () => {
+    if (state.step === 5) {
+      saveSheet();
+      return;
+    }
+    setStep(state.step + 1);
+  });
+
+  els.type.addEventListener('change', refreshSelectedType);
+  els.edgeProfile.addEventListener('change', renderSheet);
+  els.flavor.addEventListener('change', refreshSelectedFlavor);
+  els.descriptor.addEventListener('change', refreshSelectedDescriptor);
+  els.focus.addEventListener('change', refreshSelectedFocus);
+
+  [els.bonusMight, els.bonusSpeed, els.bonusIntellect, els.characterName, els.equipment, els.notes,
+   els.gender, els.profession, els.environment, els.mood, els.seed, els.variant,
+   els.currentMightPool, els.currentSpeedPool, els.currentIntellectPool, els.damageTrack,
+   els.recoveryAction, els.recovery10Min, els.recovery1Hr, els.recovery10Hr].forEach(el => {
+    el.addEventListener('input', renderSheet);
+    el.addEventListener('change', renderSheet);
+  });
+
+  els.race.addEventListener('change', () => {
+    updateVariantOptions();
+    renderSheet();
+  });
+
+  els.generateBtn.addEventListener('click', generateCharacter);
+  els.addSkillBtn.addEventListener('click', addSkillPick);
+  els.copyBtn.addEventListener('click', copySheet);
+  els.printBtn.addEventListener('click', () => window.print());
+  els.loadSheetBtn.addEventListener('click', loadStoredSheetIntoViewer);
+  els.editSheetBtn.addEventListener('click', editStoredSheet);
+  els.playSheetBtn.addEventListener('click', playStoredSheet);
+
+  window.addEventListener('beforeunload', () => {
+    if (!state.currentLocked || !state.currentFilename) return;
+    const payload = JSON.stringify({
+      filename: state.currentFilename,
+      owner: state.ownerId,
+    });
+    try {
+      navigator.sendBeacon('/character-sheet/unlock', new Blob([payload], { type: 'application/json' }));
+    } catch (err) {
+      // Best-effort cleanup.
+    }
+  });
+
+  state.ownerId = getOrCreateOwnerId();
+  loadBootData().catch(err => {
+    els.status.textContent = `Error loading studio data: ${err.message}`;
+  });
+</script>
+{% endblock %}

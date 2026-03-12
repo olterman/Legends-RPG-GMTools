@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flesh of Stone",
+  "slug": "flesh_of_stone",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You have +1 to Armor if you do not wear physical armor. Enabler.",
+  "details": [
+    "You have +1 to Armor if you do not wear physical armor. Enabler."
+  ]
+}

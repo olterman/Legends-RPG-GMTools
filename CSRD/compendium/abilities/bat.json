@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bat",
+  "slug": "bat",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 1",
+  "details": [
+    "level 1"
+  ]
+}

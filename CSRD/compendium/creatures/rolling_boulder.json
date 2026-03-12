@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rolling Boulder",
+  "slug": "rolling_boulder",
+  "level": 6,
+  "target_number": 12,
+  "description": "A large boulder, wheel, or barrel rolls into the area, crushing anything in its path. Depending on the configuration of the area, the boulder might follow a specific path, ricochet erratically, break open pit traps, or get stuck somewhere. A variant is a large iron weight on a chain that swings from the ceiling. The weight swings back and forth several times, giving it multiple chances to hit the characters, but decreasing its damage with each swing until it stops and becomes an obstacle.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "6 points",
+  "armor": null,
+  "movement": null,
+  "modifications": "Defends as level 7 GM Intrusion: The boulder crashes through a door or wall, giving other dangerous creatures access to the character’s location. The boulder blocks the way out. The boulder carries a character along with it for some distance. The boulder is hollow and full of burning oil, leaving a fiery trail behind it. The boulder is hollow and contains undead skeletons, which jump out as it moves and attack nearby creatures.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

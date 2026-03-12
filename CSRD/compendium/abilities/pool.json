@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pool",
+  "slug": "pool",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Might or Intellect",
+  "details": [
+    "Might or Intellect"
+  ]
+}

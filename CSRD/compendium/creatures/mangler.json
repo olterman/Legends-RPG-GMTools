@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mangler",
+  "slug": "mangler",
+  "level": 3,
+  "target_number": 9,
+  "description": "A small hole in the wall extends sharp blades or weights when a creature reaches into it, mangling their hand and hindering all actions requiring that hand by one or two steps. A floor variant is a small trapdoor over a closed compartment, which mangles the character’s foot when they step on the trapdoor, reducing their movement speed by half. Another variant is a needle trap attached to a small peephole or spyhole in a door or wall. The trap springs when the character touches the area around the hole (even a slight touch with their face as they look is sufficient), inflicting lasting damage to the character’s eye and partially blinding them. A gentler variant traps the character’s limb in glue instead of inflicting damage. The character’s extremity might be glued to the hole, or they may be able to pull free but have a glue pot stuck on their hand or foot.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "3 points, plus lasting damage",
+  "armor": null,
+  "movement": null,
+  "modifications": "Stealth as level 4 GM Intrusion: The trap has hooks, holding the character in place and inflicting damage when they try to escape if they fail a Speed defense roll. The glue attracts a swarm of fire ants or wasps. The glue is also a slow-acting acid or poison.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

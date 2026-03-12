@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "That Action for One Round",
+  "slug": "that_action_for_one_round",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:advantages_of_being_small",
+        "line": "Advice From a Friend (1 Intellect point): You know your friend’s strengths and weaknesses, and how to motivate them to succeed. When you give an ally a suggestion involving their next action, the character is trained in that action for one round. Action."
+      },
+      {
+        "from": "ability:advantages_of_being_small",
+        "line": "You’ve learned how to leverage your strength and accuracy in proportion to your size. Your damage is no longer halved when using Shrink, and climbing and jumping tasks are eased. Enabler. Advice From a Friend (1 Intellect point): You know your friend’s strengths and weaknesses, and how to motivate them to succeed. When you give an ally a suggestion involving their next action, the character is trained in that action for one round. Action. Again and Again (8 Speed points): You can take an additional action in a round in which you have already acted. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

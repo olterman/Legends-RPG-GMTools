@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Totally Chill",
+  "slug": "totally_chill",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "Your ten-minute recovery roll takes you only one round. Enabler.",
+  "details": [
+    "Your ten-minute recovery roll takes you only one round. Enabler."
+  ]
+}

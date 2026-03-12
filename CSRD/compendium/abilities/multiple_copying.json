@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Multiple Copying",
+  "slug": "multiple_copying",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "When you use Copy Power, you can copy two of the creature’s abilities at the same time. In addition to the normal options for using Effort with Copy Power, you can apply levels of Effort to copy additional abilities, each level of Effort copying an additional ability beyond the initial two (three for one level of Effort, four for two levels, and so on). Enabler. Multiple Quarry (6 Intellect points): This ability functions like the Quarry ability except that you can select up to three creatures as quarry. You must be able to see all three creatures when you initiate this ability. If you have Hunter’s Drive, it applies to all three creatures. Action to initiate.",
+  "details": [
+    "When you use Copy Power, you can copy two of the creature’s abilities at the same time. In addition to the normal options for using Effort with Copy Power, you can apply levels of Effort to copy additional abilities, each level of Effort copying an additional ability beyond the initial two (three for one level of Effort, four for two levels, and so on). Enabler.",
+    "Multiple Quarry (6 Intellect points): This ability functions like the Quarry ability except that you can select up to three creatures as quarry. You must be able to see all three creatures when you initiate this ability. If you have Hunter’s Drive, it applies to all three creatures. Action to initiate."
+  ]
+}

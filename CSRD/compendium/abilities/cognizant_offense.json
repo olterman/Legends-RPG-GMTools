@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cognizant Offense",
+  "slug": "cognizant_offense",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "During combat, your brain shifts into a sort of battle mode where all potential attacks you could make are plotted on vector graphs in your mind’s eye, which always provides the best option. Your attacks are eased. Enabler. Cold Burst (5+ Intellect points): You emit a burst of cold in all directions, up to short range. All within the burst (except you) take 5 points of damage. If you apply Effort to increase the damage rather than to ease the task, you deal 2 additional points of damage per level of Effort (instead of 3 points); targets in the area take 1 point of damage even if you fail the attack roll. Action.",
+  "details": [
+    "During combat, your brain shifts into a sort of battle mode where all potential attacks you could make are plotted on vector graphs in your mind’s eye, which always provides the best option. Your attacks are eased. Enabler.",
+    "Cold Burst (5+ Intellect points): You emit a burst of cold in all directions, up to short range. All within the burst (except you) take 5 points of damage. If you apply Effort to increase the damage rather than to ease the task, you deal 2 additional points of damage per level of Effort (instead of 3 points); targets in the area take 1 point of damage even if you fail the attack roll. Action."
+  ]
+}

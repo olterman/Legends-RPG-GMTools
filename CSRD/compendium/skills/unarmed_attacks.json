@@ -1,0 +1,27 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Unarmed Attacks",
+  "slug": "unarmed_attacks",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:unarmed_fighting_style",
+        "line": "You are trained in unarmed attacks. Enabler."
+      }
+    ],
+    "expert": [
+      {
+        "from": "ability:master_of_unarmed_fighting_style",
+        "line": "You are specialized in unarmed attacks. If you are already specialized in unarmed attacks, you instead deal 2 additional points of damage with unarmed attacks. Enabler."
+      }
+    ]
+  },
+  "levels": [
+    "trained",
+    "expert"
+  ],
+  "summary": "trained, expert"
+}

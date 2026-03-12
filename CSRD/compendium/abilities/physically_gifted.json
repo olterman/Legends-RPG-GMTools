@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Physically Gifted",
+  "slug": "physically_gifted",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "Any time you spend points from your Might Pool or Speed Pool on an action for any reason, if you roll a 1 on the associated die, you reroll, always taking the second result (even if it’s another 1). Enabler. Pierce (1 Speed point): This is a well-aimed, penetrating ranged attack. You make an attack and inflict 1 additional point of damage if your weapon has a sharp point. Action.",
+  "details": [
+    "Any time you spend points from your Might Pool or Speed Pool on an action for any reason, if you roll a 1 on the associated die, you reroll, always taking the second result (even if it’s another 1). Enabler.",
+    "Pierce (1 Speed point): This is a well-aimed, penetrating ranged attack. You make an attack and inflict 1 additional point of damage if your weapon has a sharp point. Action."
+  ]
+}

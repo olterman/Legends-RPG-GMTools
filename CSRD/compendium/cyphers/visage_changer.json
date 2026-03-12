@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Visage Changer",
+  "slug": "visage_changer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Changes the appearance of one human-sized creature, providing an asset to disguise tasks (easing them by two steps if the cypher is level 5 or higher). The change takes ten minutes to apply and lasts for twenty-four hours.",
+  "depletion": null
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wild Insight",
+  "slug": "wild_insight",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You gain a momentary perfect understanding of the flow of magic around you at this moment. When preparing your magic, choose one specific subtle cypher and make a magical lore skill roll against level 6. If you succeed, you gain that subtle cypher (the cypher’s level is 6); if you fail, you get a random subtle cypher. If you aren’t sure what specific subtle cypher you want, you can ask for a broad category such as “healing,” “movement,” or “skill”; this eases the magical lore task, and if you succeed, the GM chooses a random cypher that fits that category. You can’t use this ability again until after you’ve taken a ten-hour recovery action. Enabler. Wild Vitality (4 Intellect points): You attune with the life force of a natural creature (your size or bigger) within long range that you can see. This is a level 2 Intellect task. If you succeed, the creature is not harmed, but through resonance with its wild vitality, you gain several benefits for up to one minute: an asset to all your Might-based tasks (including attacks and defenses), +2 to your Might Edge and Speed Edge, and 2 additional points of damage on all successful melee attacks. Action to initiate.",
+  "details": [
+    "You gain a momentary perfect understanding of the flow of magic around you at this moment. When preparing your magic, choose one specific subtle cypher and make a magical lore skill roll against level 6. If you succeed, you gain that subtle cypher (the cypher’s level is 6); if you fail, you get a random subtle cypher. If you aren’t sure what specific subtle cypher you want, you can ask for a broad category such as “healing,” “movement,” or “skill”; this eases the magical lore task, and if you succeed, the GM chooses a random cypher that fits that category. You can’t use this ability again until after you’ve taken a ten-hour recovery action. Enabler.",
+    "Wild Vitality (4 Intellect points): You attune with the life force of a natural creature (your size or bigger) within long range that you can see. This is a level 2 Intellect task. If you succeed, the creature is not harmed, but through resonance with its wild vitality, you gain several benefits for up to one minute: an asset to all your Might-based tasks (including attacks and defenses), +2 to your Might Edge and Speed Edge, and 2 additional points of damage on all successful melee attacks. Action to initiate."
+  ]
+}

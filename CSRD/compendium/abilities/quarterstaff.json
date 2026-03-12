@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Quarterstaff",
+  "slug": "quarterstaff",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A wooden pole about 4 to 5 feet (1.2 to 1.5 m) long.",
+  "details": [
+    "A wooden pole about 4 to 5 feet (1.2 to 1.5 m) long."
+  ]
+}

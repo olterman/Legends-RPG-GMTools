@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "That Ability, Easing the Task of Using It",
+  "slug": "that_ability_easing_the_task_of_using_it",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skills",
+        "line": "Choose one skill other than attacks or defense, such as climbing, jumping, persuading, sneaking, or history. You become trained in that skill. You can also choose to be knowledgeable in a certain area of study, such as history or geology. You can even choose a skill based on your character’s special abilities. For example, if your character can make an Intellect roll to blast an enemy with mental force, you can become trained in that ability, easing the task of using it."
+      },
+      {
+        "from": "ability:skills",
+        "line": "Choose one skill other than attacks or defense, such as climbing, jumping, persuading, sneaking, or history. You become trained in that skill. You can also choose to be knowledgeable in a certain area of study, such as history or geology. You can even choose a skill based on your character’s special abilities. For example, if your character can make an Intellect roll to blast an enemy with mental force, you can become trained in that ability, easing the task of using it. If you choose a skill that you are already trained in, you become specialized in that skill, easing the task by two steps instead of one. If you choose a skill that you have an inability in, the training and the inability cancel each other out (you aren’t eased or hindered in that task). For example, if you have an inability in perception, becoming trained in that cancels out the inability. (Once you’re specialized in a skill, you can’t improve your training in that skill further (you can ease a task by up to two steps with training). You can still make that task easier with assets and a few rare abilities that don’t count as an asset or training.)"
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

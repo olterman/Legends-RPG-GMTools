@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Vampire",
+  "slug": "vampire",
+  "level": 6,
+  "target_number": 18,
+  "description": "Vampires are undead creatures, risen from the grave to drink blood. Their very nature and essence are evil and anti-life, even as they revel in their own endless existence. Most vampires are vain, arrogant, sadistic, lustful, and domineering. Their powers allow them to manipulate others, and they frequently toy with their prey before feeding. Vampires come out only at night, as the sun’s rays will destroy them. The bite of a vampire over three nights (in which it exchanges a bit of its own blood) ensures that the victim will rise as a vampire under the thrall of the one that killed it. While vampires are careful not to create too many of their kind (which amount to competition), each thrall conveys a bit more supernatural power to a vampire.",
+  "motive": "Thirsts for blood",
+  "environment": "Anywhere, usually solitary but sometimes in groups of two or three",
+  "health": "12",
+  "damage_inflicted": "4 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Climb and stealth as level 4",
+  "combat": "Transitional vampires can maintain a human existence during the day without any of a vampire’s powers or weaknesses. However, they have a disdain for garlic and the sun. At night they take on all the characteristics of a vampire, and if confronted by any of the traditional vampiric weaknesses (a wooden stake, a cross, and so on), they flee unless their master is present.",
+  "interaction": "Transitional vampires are utterly devoted to their master.",
+  "use": "Transitional vampires lie in the intersection of foe and victim. A loved one or trusted companion who has been turned into a transitional vampire will try to betray, defeat, and kill the PCs, but the characters are motivated to save them rather than destroy them.",
+  "loot": null,
+  "gm_intrusion": "The character struck by the vampire is caught fast in its powerful grip. If the character doesn’t escape immediately, the vampire bites them automatically. VAMPIRE, TRANSITIONAL 3 (9) When humans are “visited upon” (bitten) by a vampire, they might be killed, or they might be left alive to begin a slow transformation into a creature of the night. If victims are bitten three times, they become a vampire forever under the control of the one that bit them. From the time of the first bite until their complete transformation after the third bite, they are transitional vampires. Ways to return transitional vampires to normal include using special ancient rituals or destroying the vampire that bit them in the first place. Transitional vampires usually serve as guardians, consorts, or spies for their masters."
+}

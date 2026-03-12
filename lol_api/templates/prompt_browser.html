@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}Prompt Browser — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Prompt Browser</h1>
+<p>Browse extracted prompts split into lore prompts and art prompts.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="filter-q">Search Prompt Text</label>
+      <input id="filter-q" placeholder="e.g. aldamir, duergar, lighting" />
+    </div>
+    <div class="field">
+      <label for="filter-category">Category</label>
+      <select id="filter-category">
+        <option value="">All</option>
+        <option value="lore">Lore Prompt</option>
+        <option value="art">Art Prompt</option>
+      </select>
+    </div>
+    <div class="actions">
+      <button id="search-btn" type="button">Search</button>
+      <button id="reset-btn" type="button" class="secondary">Reset</button>
+    </div>
+    <div class="status" id="status">Loading prompts...</div>
+    <div class="results" id="results"></div>
+  </div>
+  <div class="panel">
+    <div class="viewer" id="viewer">
+      <div class="output-card">
+        <h3>Prompt</h3>
+        <div class="output-value">Select a prompt from the left.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    q: document.getElementById('filter-q'),
+    category: document.getElementById('filter-category'),
+    searchBtn: document.getElementById('search-btn'),
+    resetBtn: document.getElementById('reset-btn'),
+    status: document.getElementById('status'),
+    results: document.getElementById('results'),
+    viewer: document.getElementById('viewer'),
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
+  }
+
+  function renderPrompt(item) {
+    const loreLink = item?.source_slug
+      ? `/lore-browser?open=${encodeURIComponent(item.source_slug)}`
+      : '#';
+    els.viewer.innerHTML = `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || 'Untitled Prompt')}</h3>
+        <div class="output-row"><div class="output-label">Category</div><div class="output-value">${escapeHtml(item.category || '')}</div></div>
+        <div class="output-row"><div class="output-label">Source</div><div class="output-value"><a href="${escapeHtml(loreLink)}">${escapeHtml(item.source_title || item.source_slug || 'unknown')}</a></div></div>
+      </div>
+      <div class="output-card">
+        <h3>Prompt Text</h3>
+        <div class="output-value">${escapeHtml(item.text || '')}</div>
+      </div>
+    `;
+  }
+
+  function renderResults(items) {
+    if (!items.length) {
+      els.results.innerHTML = `<div class="output-card"><div class="output-value">No prompts found.</div></div>`;
+      return;
+    }
+
+    els.results.innerHTML = items.map((item, idx) => `
+      <div class="result-card prompt-result" data-idx="${idx}">
+        <div class="result-top">
+          <div class="result-name">${escapeHtml(item.title || 'Untitled Prompt')}</div>
+          <div class="result-type">${escapeHtml(String(item.category || '').toUpperCase())}</div>
+        </div>
+        <div class="result-meta">${escapeHtml(item.source_title || item.source_slug || '')}</div>
+      </div>
+    `).join("");
+
+    document.querySelectorAll('.prompt-result').forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = Number(card.getAttribute('data-idx'));
+        renderPrompt(items[idx]);
+      });
+    });
+  }
+
+  function buildUrl() {
+    const params = new URLSearchParams();
+    if (els.q.value.trim()) params.set("q", els.q.value.trim());
+    if (els.category.value) params.set("category", els.category.value);
+    const qs = params.toString();
+    return qs ? `/prompts/search?${qs}` : `/prompts/search`;
+  }
+
+  async function search() {
+    els.status.textContent = "Searching prompts...";
+    const data = await fetchJson(buildUrl());
+    renderResults(data.items || []);
+    els.status.textContent = `Found ${data.count || 0} prompts.`;
+  }
+
+  function reset() {
+    els.q.value = "";
+    els.category.value = "";
+    search();
+  }
+
+  els.searchBtn.addEventListener('click', () => search().catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  }));
+  els.resetBtn.addEventListener('click', () => reset());
+  els.q.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      search().catch(err => { els.status.textContent = `Error: ${err.message}`; });
+    }
+  });
+
+  search().catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Identifying or Assessing Danger, Lies, Quality, Importance, Function, or Power",
+  "slug": "identifying_or_assessing_danger_lies_quality_importance_function_or_power",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:clever",
+        "line": "Skill: You’re trained in all tasks involving identifying or assessing danger, lies, quality, importance, function, or power."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

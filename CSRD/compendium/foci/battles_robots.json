@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Battles Robots",
+  "slug": "battles_robots",
+  "summary": "You excel in battling robots, automatons, and machine entities.",
+  "tiers": [
+    "Tier 1: Machine Vulnerabilities",
+    "Tier 1: Tech Skills",
+    "Tier 2: Defense Against Robots",
+    "Tier 2: Machine Hunting",
+    "Tier 3: Disable Mechanisms or Surprise Attack",
+    "Tier 4: Robot Fighter",
+    "Tier 5: Drain Power",
+    "Tier 6: Deactivate Mechanisms or Lethal Damage"
+  ],
+  "gm_intrusions": "The robot explodes upon defeat. Other robots come after the character for revenge.",
+  "text": "You excel in battling robots, automatons, and machine entities.",
+  "details": [
+    "You excel in battling robots, automatons, and machine entities."
+  ]
+}

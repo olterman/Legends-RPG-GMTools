@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cypher Surge",
+  "slug": "cypher_surge",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "When you use a subtle cypher spell, as part of that action you can expend one other subtle cypher. Instead of the second cypher’s normal effect, you add one free level of Effort to the first cypher spell. Enabler.",
+  "details": [
+    "When you use a subtle cypher spell, as part of that action you can expend one other subtle cypher. Instead of the second cypher’s normal effect, you add one free level of Effort to the first cypher spell. Enabler."
+  ]
+}

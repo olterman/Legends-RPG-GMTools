@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Damage Dealer",
+  "slug": "damage_dealer",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "You inflict an additional 3 points of damage with your chosen weapon. Enabler.",
+  "details": [
+    "You inflict an additional 3 points of damage with your chosen weapon. Enabler."
+  ]
+}

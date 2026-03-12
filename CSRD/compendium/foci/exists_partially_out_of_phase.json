@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Exists Partially Out of Phase",
+  "slug": "exists_partially_out_of_phase",
+  "summary": "A bit translucent, you’re slightly out of phase and can move through solid objects.",
+  "tiers": [
+    "Tier 1: Walk Through Walls",
+    "Tier 2: Defensive Phasing",
+    "Tier 3: Phased Attack or Phase Door",
+    "Tier 4: Ghost",
+    "Tier 5: Untouchable",
+    "Tier 6: Enhanced Phased Attack or Phase Foe"
+  ],
+  "gm_intrusions": "The character is sent phasing into an unexpected dimension. The character becomes lost in a large solid.",
+  "text": "A bit translucent, you’re slightly out of phase and can move through solid objects.",
+  "details": [
+    "A bit translucent, you’re slightly out of phase and can move through solid objects."
+  ]
+}

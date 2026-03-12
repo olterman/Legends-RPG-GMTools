@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Gunner",
+  "slug": "gunner",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "You inflict 1 additional point of damage with guns. Enabler.",
+  "details": [
+    "You inflict 1 additional point of damage with guns. Enabler."
+  ]
+}

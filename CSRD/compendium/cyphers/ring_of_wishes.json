@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ring Of Wishes",
+  "slug": "ring_of_wishes",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": "Plain gold band",
+  "effect": "The user makes a wish, and it is granted, within limits. The level of the effect granted is no greater than the level of the artifact, as determined by the GM, who can modify the effect accordingly. (The larger the wish, the more likely the GM will limit its effect.)",
+  "depletion": "1–3 in 1d6"
+}

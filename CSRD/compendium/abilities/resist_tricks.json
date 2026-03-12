@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resist Tricks",
+  "slug": "resist_tricks",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "You’re trained in solving puzzles and recognizing tricks from years of game playing. Enabler.",
+  "details": [
+    "You’re trained in solving puzzles and recognizing tricks from years of game playing. Enabler."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Controls Beasts",
+  "slug": "controls_beasts",
+  "summary": "Your ability to communicate and lead beasts is uncanny.",
+  "tiers": [
+    "Tier 1: Beast Companion",
+    "Tier 2: Soothe the Savage",
+    "Tier 2: Communication",
+    "Tier 3: Mount or Stronger Together",
+    "Tier 4: Beast Eyes",
+    "Tier 4: Improved Companion",
+    "Tier 5: Beast Call",
+    "Tier 6: As If One Creature or Control the Savage"
+  ],
+  "gm_intrusions": "The community is reluctant to welcome dangerous animals. Out-of-control beasts become a real hazard.",
+  "text": "Your ability to communicate and lead beasts is uncanny.",
+  "details": [
+    "Your ability to communicate and lead beasts is uncanny."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sound Conversion Barrier",
+  "slug": "sound_conversion_barrier",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "Attacks that hit you—especially energy attacks like focused light, heat, radiation, and transdimensional energy—are partially converted to surges of harmless noise similar to the sound of a wave crashing to shore. This ability grants you +1 Armor against all attacks and an additional +2 Armor against energy attacks. Enabler.",
+  "details": [
+    "Attacks that hit you—especially energy attacks like focused light, heat, radiation, and transdimensional energy—are partially converted to surges of harmless noise similar to the sound of a wave crashing to shore. This ability grants you +1 Armor against all attacks and an additional +2 Armor against energy attacks. Enabler."
+  ]
+}

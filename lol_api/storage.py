@@ -14,6 +14,14 @@ def safe_slug(text: str) -> str:
     return text.strip("_") or "unnamed"
 
 
+def storage_subdir_for_result(result: dict[str, Any]) -> str:
+    """
+    Store records by high-level type to keep storage manageable.
+    """
+    item_type = safe_slug(str(result.get("type", "item")))
+    return item_type
+
+
 def effective_seed(payload: dict[str, Any]) -> str:
     seed = str(payload.get("seed", "")).strip()
     if seed:
@@ -50,13 +58,16 @@ def save_generated_result(storage_dir: Path, result: dict[str, Any], payload: di
     storage_dir.mkdir(parents=True, exist_ok=True)
 
     filename = build_storage_filename(result, payload)
-    path = storage_dir / filename
+    subdir = storage_subdir_for_result(result)
+    target_dir = storage_dir / subdir
+    target_dir.mkdir(parents=True, exist_ok=True)
+    path = target_dir / filename
 
     path = ensure_unique_path(path)
 
     record = {
         "saved_at": datetime.now(timezone.utc).isoformat(),
-        "filename": path.name,
+        "filename": str(path.relative_to(storage_dir)).replace("\\", "/"),
         "payload": payload,
         "result": result,
     }
@@ -75,12 +86,15 @@ def list_saved_results(storage_dir: Path) -> list[dict[str, Any]]:
 
     items: list[dict[str, Any]] = []
 
-    for path in sorted(storage_dir.glob("*.json"), reverse=True):
+    for path in sorted(storage_dir.rglob("*.json"), reverse=True):
+        if ".locks" in path.parts:
+            continue
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
+            rel = str(path.relative_to(storage_dir)).replace("\\", "/")
 
             items.append({
-                "filename": path.name,
+                "filename": rel,
                 "saved_at": data.get("saved_at"),
                 "type": data.get("result", {}).get("type"),
                 "name": data.get("result", {}).get("name"),
@@ -88,8 +102,9 @@ def list_saved_results(storage_dir: Path) -> list[dict[str, Any]]:
             })
 
         except Exception:
+            rel = str(path.relative_to(storage_dir)).replace("\\", "/")
             items.append({
-                "filename": path.name,
+                "filename": rel,
                 "saved_at": None,
                 "type": "unknown",
                 "name": None,
@@ -100,7 +115,11 @@ def list_saved_results(storage_dir: Path) -> list[dict[str, Any]]:
 
 
 def load_saved_result(storage_dir: Path, filename: str) -> dict[str, Any]:
-    path = storage_dir / filename
+    path = (storage_dir / filename).resolve()
+    root = storage_dir.resolve()
+
+    if not str(path).startswith(str(root) + "/") and path != root:
+        raise FileNotFoundError(f"No saved result named '{filename}'")
 
     if not path.exists():
         raise FileNotFoundError(f"No saved result named '{filename}'")
@@ -151,4 +170,3 @@ def search_saved_results(
         filtered.append(item)
 
     return filtered
-

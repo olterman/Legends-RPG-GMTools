@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Positive or Pleasant Social Interaction",
+  "slug": "positive_or_pleasant_social_interaction",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:charming",
+        "line": "Skill: You’re trained in all tasks involving positive or pleasant social interaction."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

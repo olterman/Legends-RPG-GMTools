@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Deception or Persuasion",
+  "slug": "deception_or_persuasion",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:guarded",
+        "line": "Inability: Your suspicious nature makes you unlikeable. Any task involving deception or persuasion is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

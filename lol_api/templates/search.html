@@ -1,0 +1,765 @@
+{% extends "base.html" %}
+
+{% block title %}Unified Search — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Unified Search</h1>
+<p>Search saved generated content and the official compendium from one place.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="filter-q">Search</label>
+      <input id="filter-q" placeholder="e.g. cyclops, fire, fenmir, mirror" />
+    </div>
+
+    <div class="field">
+      <label for="filter-type">Type</label>
+      <select id="filter-type">
+        <option value="">All</option>
+        <option value="character">character</option>
+        <option value="character_sheet">character_sheet</option>
+        <option value="npc">npc</option>
+        <option value="monster">monster</option>
+        <option value="settlement">settlement</option>
+        <option value="encounter">encounter</option>
+        <option value="cypher">cypher</option>
+        <option value="inn">inn</option>
+        <option value="creature">creature</option>
+        <option value="character_type">character_type</option>
+        <option value="flavor">flavor</option>
+        <option value="descriptor">descriptor</option>
+        <option value="focus">focus</option>
+        <option value="ability">ability</option>
+        <option value="skill">skill</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="filter-environment">Environment</label>
+      <select id="filter-environment">
+        <option value="">All</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="filter-race">Race</label>
+      <select id="filter-race">
+        <option value="">All</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="filter-profession">Profession</label>
+      <select id="filter-profession">
+        <option value="">All</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button id="search-btn" type="button">Search</button>
+      <button id="reset-btn" type="button" class="secondary">Reset</button>
+    </div>
+
+    <div class="status" id="status">Loading filters...</div>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="panel">
+    <div class="viewer" id="viewer">
+      <div class="output-card">
+        <h3>Result Viewer</h3>
+        <div class="output-value">Select a result from the left to view it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block head_extra %}
+<style>
+  .source-badge {
+    display: inline-block;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .source-storage {
+    color: var(--accent-2);
+  }
+
+  .source-compendium {
+    color: var(--accent);
+  }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const state = {
+    meta: null
+  };
+
+  const els = {
+    q: document.getElementById('filter-q'),
+    type: document.getElementById('filter-type'),
+    environment: document.getElementById('filter-environment'),
+    race: document.getElementById('filter-race'),
+    profession: document.getElementById('filter-profession'),
+    searchBtn: document.getElementById('search-btn'),
+    resetBtn: document.getElementById('reset-btn'),
+    results: document.getElementById('results'),
+    viewer: document.getElementById('viewer'),
+    status: document.getElementById('status')
+  };
+
+  function fillSelect(select, values, includeAll = false) {
+    select.innerHTML = '';
+    if (includeAll) {
+      const all = document.createElement('option');
+      all.value = '';
+      all.textContent = 'All';
+      select.appendChild(all);
+    }
+    values.forEach(value => {
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = value;
+      select.appendChild(opt);
+    });
+  }
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function titleCase(key) {
+    return key
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function typeLabel(value) {
+    const labels = {
+      npc: "NPC",
+      monster: "Monster",
+      cypher: "Cypher",
+      inn: "Inn",
+      encounter: "Encounter",
+      settlement: "Settlement",
+      character: "Character",
+      character_sheet: "Character Sheet",
+      creature: "Creature",
+      character_type: "Character Type",
+      flavor: "Flavor",
+      descriptor: "Descriptor",
+      focus: "Focus",
+      ability: "Ability",
+      skill: "Skill"
+    };
+    return labels[value] || titleCase(value || "item");
+  }
+
+  function sourceLabel(value) {
+    const labels = {
+      storage: "Saved",
+      compendium: "Compendium"
+    };
+    return labels[value] || titleCase(value || "source");
+  }
+
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.error || `Request failed: ${res.status}`);
+    }
+    return data;
+  }
+
+  function renderOutputRow(label, value) {
+    if (!value) return "";
+    return `
+      <div class="output-row">
+        <div class="output-label">${escapeHtml(label)}</div>
+        <div class="output-value">${escapeHtml(value)}</div>
+      </div>
+    `;
+  }
+
+  function formatKeyedText(value) {
+    const escaped = escapeHtml(value ?? "");
+    return escaped.replace(/(^|\n)([A-Za-z][^:\n]{0,48}:)/g, (match, prefix, key) => {
+      return `${prefix}<span class="kv-key">${key}</span>`;
+    });
+  }
+
+  function renderOutputRowHighlighted(label, value) {
+    if (!value) return "";
+    return `
+      <div class="output-row">
+        <div class="output-label">${escapeHtml(label)}</div>
+        <div class="output-value">${formatKeyedText(value)}</div>
+      </div>
+    `;
+  }
+
+  function renderSectionsCard(title, sections) {
+    const rows = Object.entries(sections || {})
+      .filter(([key, value]) => key !== "style" && value)
+      .map(([key, value]) => `
+        <div class="output-row">
+          <div class="output-label">${escapeHtml(titleCase(key))}</div>
+          <div class="output-value">${escapeHtml(value)}</div>
+        </div>
+      `)
+      .join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(title)}</h3>
+        ${rows}
+      </div>
+    `;
+  }
+
+  function renderStatBlockCard(statBlock) {
+    const top = `
+      <div class="stat-grid">
+        <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(statBlock.level ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(statBlock.target_number ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(statBlock.health ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(statBlock.armor ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(statBlock.damage ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
+      </div>
+    `;
+
+    const renderList = (label, items) => {
+      if (!Array.isArray(items) || !items.length) return "";
+      return `
+        <div class="output-row" style="margin-top:12px;">
+          <div class="output-label">${escapeHtml(label)}</div>
+          <ul class="output-list">
+            ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    };
+
+    return `
+      <div class="output-card">
+        <h3>Stat Block</h3>
+        ${top}
+        ${renderList("Modifications", statBlock.modifications)}
+        ${renderList("Combat", statBlock.combat)}
+        ${renderList("Interaction", statBlock.interaction)}
+        ${renderList("Loot", statBlock.loot)}
+      </div>
+    `;
+  }
+
+  function renderCypherCard(data) {
+    const sections = data.sections || {};
+    const level = sections.level || data.level || (data.metadata && data.metadata.level) || "";
+    const name = data.name || sections.name || data.title || "Unnamed Cypher";
+
+    const field = (label, value) => {
+      if (!value) return "";
+      return `
+        <div class="cypher-field">
+          <div class="label">${escapeHtml(label)}</div>
+          <div class="value">${escapeHtml(value)}</div>
+        </div>
+      `;
+    };
+
+    return `
+      <div class="cypher-card">
+        <div class="cypher-header">
+          <div class="cypher-title">${escapeHtml(name)}</div>
+          <div class="cypher-badge">
+            <span class="k">LEVEL</span>
+            <span class="v">${escapeHtml(level)}</span>
+          </div>
+        </div>
+
+        <div class="cypher-grid">
+          ${field("Category", data.category)}
+          ${field("Manifestation", sections.manifestation)}
+          ${field("Form", data.form)}
+          ${field("Appearance", sections.appearance)}
+          ${field("Effect", sections.effect || data.effect)}
+          ${field("Limitation / Depletion", sections.limitation || data.depletion)}
+          ${field("Quirk", sections.quirk)}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCompendiumCreatureCard(item) {
+    const statGrid = `
+      <div class="stat-grid">
+        <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(item.level ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(item.target_number ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(item.health ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(item.damage_inflicted ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(item.armor ?? "")}</div></div>
+        <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(item.movement ?? "")}</div></div>
+      </div>
+    `;
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Creature")}</h3>
+        ${statGrid}
+        ${renderOutputRow("Description", item.description)}
+        ${renderOutputRow("Motive", item.motive)}
+        ${renderOutputRow("Environment", item.environment)}
+        ${renderOutputRow("Modifications", item.modifications)}
+        ${renderOutputRow("Combat", item.combat)}
+        ${renderOutputRow("Interaction", item.interaction)}
+        ${renderOutputRow("Use", item.use)}
+        ${renderOutputRow("Loot", item.loot)}
+        ${renderOutputRow("GM Intrusion", item.gm_intrusion)}
+      </div>
+    `;
+  }
+
+  function renderCompendiumDescriptorCard(item) {
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Descriptor")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${renderOutputRowHighlighted("Details", Array.isArray(item.details) ? item.details.join("\n") : item.text)}
+      </div>
+    `;
+  }
+
+  function renderCompendiumCharacterTypeCard(item) {
+    const aliasRows = Object.entries(item.aliases || {})
+      .map(([genre, aliases]) => renderOutputRow(genre, Array.isArray(aliases) ? aliases.join(", ") : aliases))
+      .join("");
+
+    const roleRows = Object.entries(item.roles || {})
+      .map(([role, text]) => renderOutputRowHighlighted(role, text))
+      .join("");
+
+    const tierRows = Object.entries(item.tier_abilities || {})
+      .map(([tier, abilities]) => renderOutputRowHighlighted(
+        tier.replace("_", " ").replace(/\b\w/g, c => c.toUpperCase()),
+        Array.isArray(abilities) ? abilities.join("\n") : abilities
+      ))
+      .join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Type")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${aliasRows}
+        ${roleRows}
+        ${renderOutputRow("Stat Pools", item.stat_pools)}
+        ${renderOutputRowHighlighted("Player Intrusions", Array.isArray(item.player_intrusions) ? item.player_intrusions.join("\n") : "")}
+        ${tierRows}
+      </div>
+    `;
+  }
+
+  function renderCompendiumFlavorCard(item) {
+    const tierRows = Object.entries(item.tier_abilities || {})
+      .map(([tier, abilities]) => renderOutputRowHighlighted(
+        tier.replace("_", " ").replace(/\b\w/g, c => c.toUpperCase()),
+        Array.isArray(abilities) ? abilities.join("\n") : abilities
+      ))
+      .join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Flavor")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${tierRows}
+      </div>
+    `;
+  }
+
+  function renderCompendiumFocusCard(item) {
+    const tiers = Array.isArray(item.tiers) ? item.tiers.join("\n") : "";
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Focus")}</h3>
+        ${renderOutputRow("Summary", item.summary)}
+        ${renderOutputRowHighlighted("Tiers", tiers)}
+        ${renderOutputRowHighlighted("GM Intrusions", item.gm_intrusions)}
+      </div>
+    `;
+  }
+
+  function renderCompendiumAbilityCard(item) {
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Ability")}</h3>
+        ${renderOutputRow("Cost", item.cost)}
+        ${renderOutputRow("Section", item.alpha_section)}
+        ${renderOutputRowHighlighted("Effect", item.effect)}
+      </div>
+    `;
+  }
+
+  function renderCompendiumSkillCard(item) {
+    const progression = item.progression || {};
+    const levelKeys = ["inability", "practiced", "trained", "expert"];
+    const levelRows = levelKeys.map(level => {
+      const entries = Array.isArray(progression[level]) ? progression[level] : [];
+      const value = entries.length ? `${entries.length} reference(s)` : "No references";
+      return renderOutputRow(level.charAt(0).toUpperCase() + level.slice(1), value);
+    }).join("");
+
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(item.title || "Unnamed Skill")}</h3>
+        ${renderOutputRow("Progression", Array.isArray(item.levels) ? item.levels.join(", ") : "")}
+        ${levelRows}
+      </div>
+    `;
+  }
+
+  function searchHref(itemType, name) {
+    const params = new URLSearchParams();
+    if (name) params.set('q', name);
+    if (itemType) params.set('type', itemType);
+    return `/search?${params.toString()}`;
+  }
+
+  function normalizeSheet(sheet) {
+    const pools = sheet && sheet.pools ? sheet.pools : {};
+    const max = pools.max || {
+      might: Number(pools.might || 0),
+      speed: Number(pools.speed || 0),
+      intellect: Number(pools.intellect || 0),
+    };
+    const current = pools.current || {
+      might: Number(max.might || 0),
+      speed: Number(max.speed || 0),
+      intellect: Number(max.intellect || 0),
+    };
+    const recovery = sheet && sheet.recovery_rolls_used ? sheet.recovery_rolls_used : {
+      action: false,
+      ten_minutes: false,
+      one_hour: false,
+      ten_hours: false,
+    };
+
+    return {
+      ...sheet,
+      pools: { max, current },
+      recovery_rolls_used: recovery,
+      chosen_abilities: Array.isArray(sheet?.chosen_abilities) ? sheet.chosen_abilities : [],
+      chosen_skills: Array.isArray(sheet?.chosen_skills) ? sheet.chosen_skills : [],
+      equipment: Array.isArray(sheet?.equipment) ? sheet.equipment : [],
+      descriptor_effects: sheet?.descriptor_effects || { skills: [] },
+      damage_track: sheet?.damage_track || "Hale",
+    };
+  }
+
+  function renderCharacterSheetViewCard(record) {
+    const sheet = normalizeSheet(record.result?.sheet || {});
+    const links = [
+      sheet.type ? `<a href="${searchHref('character_type', sheet.type)}" target="_blank" rel="noopener">${escapeHtml(sheet.type)}</a>` : '',
+      sheet.flavor ? `<a href="${searchHref('flavor', sheet.flavor)}" target="_blank" rel="noopener">${escapeHtml(sheet.flavor)}</a>` : '',
+      sheet.descriptor ? `<a href="${searchHref('descriptor', sheet.descriptor)}" target="_blank" rel="noopener">${escapeHtml(sheet.descriptor)}</a>` : '',
+      sheet.focus ? `<a href="${searchHref('focus', sheet.focus)}" target="_blank" rel="noopener">${escapeHtml(sheet.focus)}</a>` : '',
+    ].filter(Boolean).join(' • ');
+
+    const abilityRows = (sheet.chosen_abilities || []).map(name =>
+      `<li><a href="${searchHref('ability', name)}" target="_blank" rel="noopener">${escapeHtml(name)}</a></li>`
+    ).join('');
+
+    const skillRows = ((sheet.descriptor_effects && sheet.descriptor_effects.skills) || []).map(name =>
+      `<li><a href="${searchHref('ability', name)}" target="_blank" rel="noopener">${escapeHtml(name)}</a></li>`
+    ).join('');
+    const pickedSkillRows = (sheet.chosen_skills || []).map(entry =>
+      `<li><a href="${searchHref('skill', entry.name)}" target="_blank" rel="noopener">${escapeHtml(entry.level)}: ${escapeHtml(entry.name)}</a></li>`
+    ).join('');
+
+    const recovery = sheet.recovery_rolls_used;
+    const recoveryText =
+      `${recovery.action ? '1 Action' : ''}` +
+      `${recovery.ten_minutes ? (recovery.action ? ', 10 Minutes' : '10 Minutes') : ''}` +
+      `${recovery.one_hour ? ((recovery.action || recovery.ten_minutes) ? ', 1 Hour' : '1 Hour') : ''}` +
+      `${recovery.ten_hours ? ((recovery.action || recovery.ten_minutes || recovery.one_hour) ? ', 10 Hours' : '10 Hours') : ''}` ||
+      'None used';
+
+    return `
+      <div class="cypher-card">
+        <div class="output-row">
+          <div class="output-label">Saved Character Sheet</div>
+          <div class="output-value">${escapeHtml(record.filename || '')}</div>
+        </div>
+        <h3>${escapeHtml(sheet.name || record.result?.name || 'Unnamed Character')}</h3>
+        <div class="output-value">${escapeHtml(sheet.sentence || '')}</div>
+        <div class="small" style="margin-top:8px;">${links || 'No compendium links available yet.'}</div>
+      </div>
+      <div class="output-card">
+        <h3>Pools, Stats, and Track</h3>
+        <div class="stat-grid">
+          <div class="stat-chip"><div class="k">Might Stat (Max)</div><div class="v">${escapeHtml(sheet.pools.max.might)}</div></div>
+          <div class="stat-chip"><div class="k">Might Pool (Current)</div><div class="v">${escapeHtml(sheet.pools.current.might)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Stat (Max)</div><div class="v">${escapeHtml(sheet.pools.max.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Speed Pool (Current)</div><div class="v">${escapeHtml(sheet.pools.current.speed)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Stat (Max)</div><div class="v">${escapeHtml(sheet.pools.max.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Pool (Current)</div><div class="v">${escapeHtml(sheet.pools.current.intellect)}</div></div>
+          <div class="stat-chip"><div class="k">Might Edge</div><div class="v">${escapeHtml(sheet.edges?.might ?? '')}</div></div>
+          <div class="stat-chip"><div class="k">Speed Edge</div><div class="v">${escapeHtml(sheet.edges?.speed ?? '')}</div></div>
+          <div class="stat-chip"><div class="k">Intellect Edge</div><div class="v">${escapeHtml(sheet.edges?.intellect ?? '')}</div></div>
+          <div class="stat-chip"><div class="k">Damage Track</div><div class="v">${escapeHtml(sheet.damage_track)}</div></div>
+        </div>
+        <div class="output-row" style="margin-top:10px;">
+          <div class="output-label">Recovery Rolls Used</div>
+          <div class="output-value">${escapeHtml(recoveryText)}</div>
+        </div>
+      </div>
+      ${abilityRows ? `<div class="output-card"><h3>Abilities</h3><ul class="output-list">${abilityRows}</ul></div>` : ''}
+      ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
+      ${skillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${skillRows}</ul></div>` : ''}
+      ${sheet.equipment.length ? `<div class="output-card"><h3>Equipment</h3><ul class="output-list">${sheet.equipment.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div>` : ''}
+      ${sheet.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${escapeHtml(sheet.notes)}</div></div>` : ''}
+    `;
+  }
+
+  function renderStorageRecord(record) {
+    const result = record.result || {};
+    const metadata = result.metadata || {};
+    if (result.type === "character_sheet" && result.sheet) {
+      els.viewer.innerHTML = renderCharacterSheetViewCard(record);
+      return;
+    }
+    let html = "";
+
+    html += `
+      <div class="output-card">
+        <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+        ${renderOutputRow("Name", result.name || "Unnamed")}
+        ${renderOutputRow("Saved At", record.saved_at)}
+        ${renderOutputRow("Filename", record.filename)}
+        ${renderOutputRow("Environment", metadata.environment)}
+        ${renderOutputRow("Race", metadata.race)}
+        ${renderOutputRow("Profession", metadata.profession)}
+        ${renderOutputRow("Family", metadata.family)}
+        ${renderOutputRow("Role", metadata.role)}
+      </div>
+    `;
+
+    if (result.type === "cypher") {
+      html += renderCypherCard(result);
+    } else if (result.sections) {
+      html += renderSectionsCard("Generated Content", result.sections);
+    }
+
+    if (result.stat_block) {
+      html += renderStatBlockCard(result.stat_block);
+    }
+
+    if (record.payload) {
+      html += `
+        <div class="output-card">
+          <h3>Original Payload</h3>
+          <div class="output-value">${escapeHtml(JSON.stringify(record.payload, null, 2))}</div>
+        </div>
+      `;
+    }
+
+    if (!result.sections && !result.stat_block && result.text) {
+      html += `
+        <div class="output-card">
+          <h3>Raw Text</h3>
+          <div class="output-value">${escapeHtml(result.text)}</div>
+        </div>
+      `;
+    }
+
+    els.viewer.innerHTML = html;
+  }
+
+  function renderCompendiumEntry(item) {
+    let html = `
+      <div class="output-card">
+        <h3>Entry Info</h3>
+        ${renderOutputRow("Title", item.title)}
+        ${renderOutputRow("Type", typeLabel(item.type))}
+        ${renderOutputRow("Slug", item.slug)}
+        ${renderOutputRow("Source", item.source)}
+      </div>
+    `;
+
+    if (item.type === "cypher") {
+      html += renderCypherCard(item);
+    } else if (item.type === "creature") {
+      html += renderCompendiumCreatureCard(item);
+    } else if (item.type === "character_type") {
+      html += renderCompendiumCharacterTypeCard(item);
+    } else if (item.type === "flavor") {
+      html += renderCompendiumFlavorCard(item);
+    } else if (item.type === "descriptor") {
+      html += renderCompendiumDescriptorCard(item);
+    } else if (item.type === "focus") {
+      html += renderCompendiumFocusCard(item);
+    } else if (item.type === "ability") {
+      html += renderCompendiumAbilityCard(item);
+    } else if (item.type === "skill") {
+      html += renderCompendiumSkillCard(item);
+    } else {
+      html += `
+        <div class="output-card">
+          <h3>Raw Entry</h3>
+          <div class="output-value">${escapeHtml(JSON.stringify(item, null, 2))}</div>
+        </div>
+      `;
+    }
+
+    els.viewer.innerHTML = html;
+  }
+
+  function renderResults(items) {
+    if (!items.length) {
+      els.results.innerHTML = `
+        <div class="output-card">
+          <div class="output-value">No results found.</div>
+        </div>
+      `;
+      return;
+    }
+
+    els.results.innerHTML = items.map(item => {
+      const badgeClass = item.source === "compendium" ? "source-compendium" : "source-storage";
+
+      return `
+        <div class="result-card"
+             data-source="${escapeHtml(item.source)}"
+             data-url="${escapeHtml(item.url)}"
+             data-type="${escapeHtml(item.type || '')}"
+             data-slug="${escapeHtml(item.slug || '')}">
+          <div class="result-top">
+            <div>
+              <div class="result-name">${escapeHtml(item.title || item.slug || "Unnamed")}</div>
+              <div class="source-badge ${badgeClass}">${escapeHtml(sourceLabel(item.source))}</div>
+            </div>
+            <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+          </div>
+          ${item.subtitle ? `<div class="result-meta">${escapeHtml(item.subtitle)}</div>` : ""}
+          <div class="small" style="margin-top:8px;">${escapeHtml(item.url || "")}</div>
+        </div>
+      `;
+    }).join("");
+
+    document.querySelectorAll('.result-card').forEach(card => {
+      card.addEventListener('click', async () => {
+        const source = card.getAttribute('data-source');
+        const url = card.getAttribute('data-url');
+        await loadResult(source, url);
+      });
+    });
+  }
+
+  function buildSearchUrl() {
+    const params = new URLSearchParams();
+
+    if (els.q.value.trim()) params.set('q', els.q.value.trim());
+    if (els.type.value) params.set('type', els.type.value);
+    if (els.environment.value) params.set('environment', els.environment.value);
+    if (els.race.value) params.set('race', els.race.value);
+    if (els.profession.value) params.set('profession', els.profession.value);
+
+    const qs = params.toString();
+    return qs ? `/unified-search?${qs}` : `/unified-search`;
+  }
+
+  async function loadFilters() {
+    const meta = await fetchJson('/meta');
+    state.meta = meta;
+
+    fillSelect(els.environment, meta.environments || [], true);
+    fillSelect(els.race, meta.races || [], true);
+    fillSelect(els.profession, meta.professions || [], true);
+    els.status.textContent = 'Ready.';
+  }
+
+  async function search() {
+    els.status.textContent = 'Searching...';
+    const data = await fetchJson(buildSearchUrl());
+    renderResults(data.items || []);
+    els.status.textContent = `Found ${data.count ?? 0} item(s).`;
+  }
+
+  async function loadResult(source, url) {
+    els.status.textContent = `Loading ${url}...`;
+    const data = await fetchJson(url);
+
+    if (source === "storage") {
+      renderStorageRecord(data);
+    } else if (source === "compendium") {
+      renderCompendiumEntry(data);
+    } else {
+      els.viewer.innerHTML = `
+        <div class="output-card">
+          <h3>Raw Result</h3>
+          <div class="output-value">${escapeHtml(JSON.stringify(data, null, 2))}</div>
+        </div>
+      `;
+    }
+
+    els.status.textContent = `Loaded ${url}.`;
+  }
+
+  function resetFilters() {
+    els.q.value = '';
+    els.type.value = '';
+    els.environment.value = '';
+    els.race.value = '';
+    els.profession.value = '';
+    search();
+  }
+
+  function applyUrlFilters() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q') || '';
+    const type = params.get('type') || '';
+    const environment = params.get('environment') || '';
+    const race = params.get('race') || '';
+    const profession = params.get('profession') || '';
+
+    if (q) els.q.value = q;
+    if (type) els.type.value = type;
+    if (environment) els.environment.value = environment;
+    if (race) els.race.value = race;
+    if (profession) els.profession.value = profession;
+  }
+
+  els.searchBtn.addEventListener('click', search);
+  els.resetBtn.addEventListener('click', resetFilters);
+  els.q.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      search();
+    }
+  });
+
+  Promise.all([loadFilters()]).then(() => {
+    applyUrlFilters();
+    return search();
+  }).catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Military Exoskeleton",
+  "slug": "military_exoskeleton",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "Articulated metal struts with deformable padding and straps for custom fit to a human frame",
+  "effect": "For one hour per use (when the exoskeleton is powered on), the wearer has +1 to their Speed Edge and +1 to their Might Edge.",
+  "depletion": "1 in 1d10"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bibbidi-bobbidi-boo",
+  "slug": "bibbidi_bobbidi_boo",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A little sprinkle of magic from your fairy godmother is all you need to achieve a goal, retry a task, or be better at something you’re attempting to do.",
+  "details": [
+    "A little sprinkle of magic from your fairy godmother is all you need to achieve a goal, retry a task, or be better at something you’re attempting to do."
+  ]
+}

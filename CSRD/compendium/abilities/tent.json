@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tent",
+  "slug": "tent",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "This has enough room for two humans or three smaller people.",
+  "details": [
+    "This has enough room for two humans or three smaller people."
+  ]
+}

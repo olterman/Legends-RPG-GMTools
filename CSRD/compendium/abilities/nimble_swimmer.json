@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Nimble Swimmer",
+  "slug": "nimble_swimmer",
+  "cost": null,
+  "alpha_section": "N",
+  "effect": "You are trained in all defense actions while underwater. Enabler.",
+  "details": [
+    "You are trained in all defense actions while underwater. Enabler."
+  ]
+}

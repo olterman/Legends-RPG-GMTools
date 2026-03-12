@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Freakishly Large",
+  "slug": "freakishly_large",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "Your increased size intimidates most people. While you enjoy the effects of Enlarge, all intimidation tasks you attempt are eased. Enabler.",
+  "details": [
+    "Your increased size intimidates most people. While you enjoy the effects of Enlarge, all intimidation tasks you attempt are eased. Enabler."
+  ]
+}

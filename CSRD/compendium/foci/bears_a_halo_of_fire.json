@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bears a Halo of Fire",
+  "slug": "bears_a_halo_of_fire",
+  "summary": "You can sheath your body in flames, which protects you and harms your foes.",
+  "tiers": [
+    "Tier 1: Shroud of Flame",
+    "Tier 2: Hurl Flame",
+    "Tier 3: Wings of Fire or Fiery Hand of Doom",
+    "Tier 4: Flameblade",
+    "Tier 5: Fire Tendrils",
+    "Tier 6: Fire Servant or Inferno Trail"
+  ],
+  "gm_intrusions": "Fire burns flammable material. Fire spreads out of control. Primitive creatures fear fire and often attack what they fear.",
+  "text": "You can sheath your body in flames, which protects you and harms your foes.",
+  "details": [
+    "You can sheath your body in flames, which protects you and harms your foes."
+  ]
+}

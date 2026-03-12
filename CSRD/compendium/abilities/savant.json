@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Savant",
+  "slug": "savant",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Two specific skills (other than attacks, defenses, or a special ability), such as history, perception, or persuasion.",
+  "details": [
+    "Two specific skills (other than attacks, defenses, or a special ability), such as history, perception, or persuasion."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using a Recovery Roll to Cast a Spell",
+  "slug": "using_a_recovery_roll_to_cast_a_spell",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If the character uses a one-action, ten-minute, or one-hour recovery roll as part of the same action to cast the spell (including paying any Pool costs), they can use the ability as an action. This represents a significant mental and physical drain on the character, because the normal benefit of recovering points in a Pool is not gained.",
+  "details": [
+    "If the character uses a one-action, ten-minute, or one-hour recovery roll as part of the same action to cast the spell (including paying any Pool costs), they can use the ability as an action. This represents a significant mental and physical drain on the character, because the normal benefit of recovering points in a Pool is not gained."
+  ]
+}

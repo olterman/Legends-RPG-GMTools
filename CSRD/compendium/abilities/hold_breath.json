@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hold Breath",
+  "slug": "hold_breath",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "You can hold your breath for up to five minutes. Enabler.",
+  "details": [
+    "You can hold your breath for up to five minutes. Enabler."
+  ]
+}

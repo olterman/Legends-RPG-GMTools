@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Snake Pit",
+  "slug": "snake_pit",
+  "level": 4,
+  "target_number": 12,
+  "description": "The trap drops the character into a pit full of snakes or drops a large number of snakes on the character. The snakes immediately attack the character and perhaps others in the area.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "As per the swarm of snakes GM Intrusion: The snake poison is especially potent, moving the character one step down the damage track if they fail a Might defense roll. The snakes constrict the character, hindering their actions until the snakes are defeated.",
+  "armor": null,
+  "movement": null,
+  "modifications": null,
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

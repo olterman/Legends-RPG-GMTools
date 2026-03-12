@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Movement",
+  "slug": "movement",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Short; short when climbing",
+  "details": [
+    "Short; short when climbing"
+  ]
+}

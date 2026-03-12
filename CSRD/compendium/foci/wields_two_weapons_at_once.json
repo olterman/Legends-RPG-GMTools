@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wields Two Weapons at Once",
+  "slug": "wields_two_weapons_at_once",
+  "summary": "You bear steel with both hands, ready to take on any foe.",
+  "tiers": [
+    "Tier 1: Dual Light Wield",
+    "Tier 2: Double Strike",
+    "Tier 2: Infiltrator",
+    "Tier 3: Dual Medium Wield or Precise Cut",
+    "Tier 4: Dual Defense",
+    "Tier 5: Dual Distraction",
+    "Tier 6: Disarming Attack or Spin Attack"
+  ],
+  "gm_intrusions": "A blade snaps in two or a weapon flies loose from its bearer’s grip.",
+  "text": "You bear steel with both hands, ready to take on any foe.",
+  "details": [
+    "You bear steel with both hands, ready to take on any foe."
+  ]
+}

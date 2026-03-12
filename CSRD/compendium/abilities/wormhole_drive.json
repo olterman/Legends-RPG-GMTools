@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wormhole Drive",
+  "slug": "wormhole_drive",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A wormhole drive uses enormous power to open a shortcut between two locations in space-time and travel between those points in a matter of seconds. Most wormhole drives rely on regions of space where wormholes can be formed, or on previously established networks of wormhole tunnels that the wormhole drive accesses. Which means that while travel between two points might be almost instantaneous, travel to and from wormhole-viable locations could greatly increase travel times. Likewise, wormholes can normally only bridge locations up to 200 or so light-years at a time (which means it would take about 500 jumps to cross the Milky Way galaxy from end to end).",
+  "details": [
+    "A wormhole drive uses enormous power to open a shortcut between two locations in space-time and travel between those points in a matter of seconds. Most wormhole drives rely on regions of space where wormholes can be formed, or on previously established networks of wormhole tunnels that the wormhole drive accesses. Which means that while travel between two points might be almost instantaneous, travel to and from wormhole-viable locations could greatly increase travel times. Likewise, wormholes can normally only bridge locations up to 200 or so light-years at a time (which means it would take about 500 jumps to cross the Milky Way galaxy from end to end)."
+  ]
+}

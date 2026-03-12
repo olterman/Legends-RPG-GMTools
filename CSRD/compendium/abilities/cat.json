@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cat",
+  "slug": "cat",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 1, Speed defense as level 3",
+  "details": [
+    "level 1, Speed defense as level 3"
+  ]
+}

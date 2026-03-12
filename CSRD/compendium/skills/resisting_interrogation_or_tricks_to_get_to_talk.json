@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resisting Interrogation or Tricks to Get to Talk",
+  "slug": "resisting_interrogation_or_tricks_to_get_to_talk",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:mysterious",
+        "line": "Skill: You are trained in resisting interrogation or tricks to get you to talk."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

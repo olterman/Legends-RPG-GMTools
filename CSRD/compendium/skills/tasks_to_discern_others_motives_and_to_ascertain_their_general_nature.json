@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tasks to Discern Others’ Motives and to Ascertain Their General Nature",
+  "slug": "tasks_to_discern_others_motives_and_to_ascertain_their_general_nature",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:insight",
+        "line": "You are trained in tasks to discern others’ motives and to ascertain their general nature. You have a knack for sensing whether or not someone is truly innocent. Enabler."
+      },
+      {
+        "from": "ability:insight",
+        "line": "You are trained in tasks to discern others’ motives and to ascertain their general nature. You have a knack for sensing whether or not someone is truly innocent. Enabler. Inspiration (6 Intellect points): You speak words of encouragement and inspiration. All allies within short range who can hear you immediately gain a recovery roll, gain an immediate free action, and have an asset for that free action. The recovery roll does not count as one of their normal recovery rolls. Action. Inspire Action (4 Intellect points): If one ally can see and easily understand you, you can instruct that ally to take an action. If the ally chooses to take that exact action, they can do so as an additional action immediately. Doing so doesn’t interfere with the ally taking a normal action on their turn. Action. Inspire Aggression (2 Intellect points): Your words twist the mind of a character within short range who is able to understand you, unlocking their more primitive instincts. As a result, they gain an asset on their Might-based attack rolls for one minute. Action to initiate. Inspire Coordinated Actions (9 Intellect points): If your allies can see and easily understand you, you can instruct each of them to take one specific action (the same action for all of them). If any of them choose to take that exact action, they can do so as an additional action immediately. This doesn’t interfere with them taking their normal actions on their turns. Action. Inspire the Innocent (3 Intellect points): You speak words of encouragement and inspiration to everyone within immediate range whom you have designated as innocent with your Designation ability. They immediately gain a free recovery roll. One person you choose can gain an immediate free action instead of a free recovery roll. If you also have the Inspiration ability, the target who gains a free action also gains an asset on it. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

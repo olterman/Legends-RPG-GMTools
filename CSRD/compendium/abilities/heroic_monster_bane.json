@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Heroic Monster Bane",
+  "slug": "heroic_monster_bane",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "When you inflict damage to creatures more than twice as large or massive as you, you inflict 3 additional points of damage. Enabler.",
+  "details": [
+    "When you inflict damage to creatures more than twice as large or massive as you, you inflict 3 additional points of damage. Enabler."
+  ]
+}

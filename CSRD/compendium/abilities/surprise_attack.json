@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Surprise Attack",
+  "slug": "surprise_attack",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "If attacking from a hidden vantage, with surprise, or before your opponent has acted, you get an asset on the attack. On a successful hit, you inflict 2 additional points of damage. Enabler. Swim (1+ Intellect points): You can swim like a fish through water and similar liquid for one hour. For each level of Effort applied, you can extend the duration by one hour. You swim about 10 miles (16 km) per hour, and you are not affected by currents in the water. Action to initiate. Swipe (1 Speed point): This is a quick, agile melee attack. Your attack inflicts 1 less point of damage than normal but dazes your target for one round, during which time all tasks it performs are hindered. Action.",
+  "details": [
+    "If attacking from a hidden vantage, with surprise, or before your opponent has acted, you get an asset on the attack. On a successful hit, you inflict 2 additional points of damage. Enabler.",
+    "Swim (1+ Intellect points): You can swim like a fish through water and similar liquid for one hour. For each level of Effort applied, you can extend the duration by one hour. You swim about 10 miles (16 km) per hour, and you are not affected by currents in the water. Action to initiate.",
+    "Swipe (1 Speed point): This is a quick, agile melee attack. Your attack inflicts 1 less point of damage than normal but dazes your target for one round, during which time all tasks it performs are hindered. Action."
+  ]
+}

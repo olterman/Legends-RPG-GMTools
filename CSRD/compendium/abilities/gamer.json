@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Gamer",
+  "slug": "gamer",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "Pick any one style of game such as real-time strategy games, games of chance in the style of poker, roleplaying games, and so on. You can apply an asset to a task related to playing that style of game once between each recovery roll. Enabler.",
+  "details": [
+    "Pick any one style of game such as real-time strategy games, games of chance in the style of poker, roleplaying games, and so on. You can apply an asset to a task related to playing that style of game once between each recovery roll. Enabler."
+  ]
+}

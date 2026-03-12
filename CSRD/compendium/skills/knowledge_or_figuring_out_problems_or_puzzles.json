@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Knowledge or Figuring out Problems or Puzzles",
+  "slug": "knowledge_or_figuring_out_problems_or_puzzles",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:resilient",
+        "line": "Inability: You have a lot of willpower and mental fortitude, but you’re not necessarily smart. Any task involving knowledge or figuring out problems or puzzles is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

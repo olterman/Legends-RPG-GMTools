@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mastercraft Armor",
+  "slug": "mastercraft_armor",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Armor of exceptional quality",
+  "effect": "This armor grants its wearer an asset for Speed defense rolls.",
+  "depletion": "—"
+}

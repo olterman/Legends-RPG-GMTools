@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Perfect Memory",
+  "slug": "perfect_memory",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Allows the user to mentally record everything they see for thirty seconds per cypher level and store the recording permanently in their long-term memory. This cypher is useful for watching someone pick a specific lock, enter a complex code, or do something else that happens quickly.",
+  "depletion": null
+}

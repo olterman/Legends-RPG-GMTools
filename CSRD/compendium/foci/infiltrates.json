@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Infiltrates",
+  "slug": "infiltrates",
+  "summary": "Subtlety, guile, and stealth allow you to get in where others can’t.",
+  "tiers": [
+    "Tier 1: Stealth Skills",
+    "Tier 1: Sense Attitudes",
+    "Tier 2: Impersonate",
+    "Tier 2: Flight Not Fight",
+    "Tier 3: Awareness or Skill With Attacks",
+    "Tier 4: Invisibility",
+    "Tier 5: Evasion",
+    "Tier 6: Brainwashing or Spring Away"
+  ],
+  "gm_intrusions": "Spies are treated harshly when caught. Allies disavow infiltrators who get caught. Some secrets are better left unknown.",
+  "text": "Subtlety, guile, and stealth allow you to get in where others can’t.",
+  "details": [
+    "Subtlety, guile, and stealth allow you to get in where others can’t."
+  ]
+}

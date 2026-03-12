@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Speed Boost",
+  "slug": "speed_boost",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Adds 1 to the user’s Speed Edge for one hour (adds 2 if the cypher is level 5 or higher).",
+  "depletion": null
+}

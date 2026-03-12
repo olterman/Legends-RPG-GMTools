@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flying Companion",
+  "slug": "flying_companion",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You gain a level 3 companion creature that can fly at the same speed as you; depending on other aspects of your character, this might be a trained bird, a machine drone, or a helpful strange creature such as a familiar. This creature accompanies you and acts as you direct. As a level 3 companion, it has a target number of 9 and 9 health, and it inflicts 3 points of damage. If it’s killed or destroyed, it takes you one month to find or create a suitable replacement. Enabler. Foil Danger (2 Intellect points): You negate one source of potential danger related to one creature or object that you are aware of within immediate distance for one round. This could be a weapon or device held by someone, a trap triggered by a pressure plate, or a creature’s natural ability (something special, innate, and dangerous, like a dragon’s fiery breath or a giant cobra’s venom). You can also try to foil a foe‘s mundane action (such as an attack with a weapon or claw), so that the action isn‘t made this round. Make your roll against the level of the attack, danger, or creature. Action.",
+  "details": [
+    "You gain a level 3 companion creature that can fly at the same speed as you; depending on other aspects of your character, this might be a trained bird, a machine drone, or a helpful strange creature such as a familiar. This creature accompanies you and acts as you direct. As a level 3 companion, it has a target number of 9 and 9 health, and it inflicts 3 points of damage. If it’s killed or destroyed, it takes you one month to find or create a suitable replacement. Enabler.",
+    "Foil Danger (2 Intellect points): You negate one source of potential danger related to one creature or object that you are aware of within immediate distance for one round. This could be a weapon or device held by someone, a trap triggered by a pressure plate, or a creature’s natural ability (something special, innate, and dangerous, like a dragon’s fiery breath or a giant cobra’s venom). You can also try to foil a foe‘s mundane action (such as an attack with a weapon or claw), so that the action isn‘t made this round. Make your roll against the level of the attack, danger, or creature. Action."
+  ]
+}

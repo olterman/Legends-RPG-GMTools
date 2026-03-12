@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Lost in the Chaos",
+  "slug": "lost_in_the_chaos",
+  "cost": null,
+  "alpha_section": "L",
+  "effect": "When faced with several foes at once, you have developed tactics for using their numbers against them. When two or more foes attack you at once in melee, you play one off the other. Speed defense rolls or attack rolls (your choice) against them are eased. Enabler. Lunge (2 Might points): This ability requires you to extend yourself for a powerful stab or smash. The awkward lunge hinders the attack roll. If your attack is successful, it inflicts 4 additional points of damage. Action.",
+  "details": [
+    "When faced with several foes at once, you have developed tactics for using their numbers against them. When two or more foes attack you at once in melee, you play one off the other. Speed defense rolls or attack rolls (your choice) against them are eased. Enabler.",
+    "Lunge (2 Might points): This ability requires you to extend yourself for a powerful stab or smash. The awkward lunge hinders the attack roll. If your attack is successful, it inflicts 4 additional points of damage. Action."
+  ]
+}

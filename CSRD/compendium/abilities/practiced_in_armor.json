@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Practiced in Armor",
+  "slug": "practiced_in_armor",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler.",
+  "details": [
+    "You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler."
+  ]
+}

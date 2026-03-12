@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fighting That Creature",
+  "slug": "fighting_that_creature",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:dual_wards",
+        "line": "Duel to the Death (5 Speed points): Choose a target (a single individual creature that you can see). You are trained in all tasks involving fighting that creature. When you successfully attack that target, you inflict +5 damage, or +7 damage if the creature is engaging someone else instead of you. You can duel only one creature at a time. A duel lasts up to one minute, or until you break it off. Action to initiate."
+      },
+      {
+        "from": "ability:dual_wards",
+        "line": "You can have two wards from Devoted Defender at a time. Choosing a second ward can be its own action, or you can choose two wards with one action (and only pay the cost once for doing so). The wards must remain within an immediate distance of each other. Benefits provided by Devoted Defender apply to both your wards. If your wards separate, you choose which retains the benefit. If they come back together, both regain the benefit immediately. Enabler. Duel to the Death (5 Speed points): Choose a target (a single individual creature that you can see). You are trained in all tasks involving fighting that creature. When you successfully attack that target, you inflict +5 damage, or +7 damage if the creature is engaging someone else instead of you. You can duel only one creature at a time. A duel lasts up to one minute, or until you break it off. Action to initiate. Duplicate (2 Might points): You cause a duplicate of yourself to appear at any point you can see within short range. The duplicate has no clothing or possessions when it appears. The duplicate is a level 2 NPC with 6 health. The duplicate obeys your commands and does as you direct it. The duplicate remains until you dismiss it using an action or until it is killed. When the duplicate disappears, it leaves behind anything it was wearing or carrying. If the duplicate disappears because it was killed, you take 4 points of damage that ignore Armor, and you lose your next action. Action to initiate. Dust to Dust (7 Intellect points): You disintegrate one object that is smaller than you and whose level is less than or equal to your tier. You must touch the object to affect it. If the GM feels it appropriate to the circumstances, you can disintegrate a portion of an object (the total volume of which is smaller than you) rather than the entire thing. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

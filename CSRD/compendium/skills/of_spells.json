@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Of Spells",
+  "slug": "of_spells",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:magical_training",
+        "line": "You are trained in all of your spells. As a result, you ease any task involved in the use of your spells. Enabler."
+      },
+      {
+        "from": "ability:magical_training",
+        "line": "You are trained in all of your spells. As a result, you ease any task involved in the use of your spells. Enabler. Magnetic Field (4 Intellect points): When you wish it, a field of magnetism around you pulls incoming, ranged, metallic projectile attacks (such as arrows, bullets, a thrown metal knife, and so on) to the ground. You are immune to such attacks for one round. You must be aware of an attack to foil it. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

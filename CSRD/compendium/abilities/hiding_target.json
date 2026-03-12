@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hiding Target",
+  "slug": "hiding_target",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A target in dense foliage, behind a screen, or crawling amid the rubble in a ruin is hard to hit because they’re hard to see. Ranged attacks against such targets are hindered.",
+  "details": [
+    "A target in dense foliage, behind a screen, or crawling amid the rubble in a ruin is hard to hit because they’re hard to see. Ranged attacks against such targets are hindered."
+  ]
+}

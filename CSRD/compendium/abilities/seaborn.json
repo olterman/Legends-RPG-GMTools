@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Seaborn",
+  "slug": "seaborn",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You can breathe underwater in pressures of up to 100 atmospheres indefinitely, up to triple that for about an hour. You have an asset to all tasks performed in water. Add +1 to your Speed Edge. Enabler.",
+  "details": [
+    "You can breathe underwater in pressures of up to 100 atmospheres indefinitely, up to triple that for about an hour. You have an asset to all tasks performed in water. Add +1 to your Speed Edge. Enabler."
+  ]
+}

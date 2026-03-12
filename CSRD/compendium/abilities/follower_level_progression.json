@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Follower Level Progression",
+  "slug": "follower_level_progression",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A follower increases in level by 1 each time a PC advances two tiers after gaining that follower. When the follower gains a level, the PC also chooses the task that the follower gains a modification for.",
+  "details": [
+    "A follower increases in level by 1 each time a PC advances two tiers after gaining that follower. When the follower gains a level, the PC also chooses the task that the follower gains a modification for."
+  ]
+}

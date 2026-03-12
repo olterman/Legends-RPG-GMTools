@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Versatile",
+  "slug": "versatile",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You get 4 additional points to divide among your stat Pools.",
+  "details": [
+    "You get 4 additional points to divide among your stat Pools."
+  ]
+}

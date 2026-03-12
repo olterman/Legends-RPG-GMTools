@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Confusion",
+  "slug": "confusion",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The controlled creature doesn’t understand why they’re doing things they normally wouldn’t do, but they aren’t aware of any outside influence on their thoughts and actions. Once the control is over, the creature may admit that they don’t know why they did those things, or come up with an explanation justifying (to themselves and others) their reasons for those actions.",
+  "details": [
+    "The controlled creature doesn’t understand why they’re doing things they normally wouldn’t do, but they aren’t aware of any outside influence on their thoughts and actions. Once the control is over, the creature may admit that they don’t know why they did those things, or come up with an explanation justifying (to themselves and others) their reasons for those actions."
+  ]
+}

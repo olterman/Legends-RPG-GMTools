@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Net",
+  "slug": "net",
+  "level": 3,
+  "target_number": 9,
+  "description": "A net suspended above the character drops and constricts (and perhaps lifts the character off the ground). Large net traps can affect multiple creatures at once. This kind of trap usually requires a creature to manually reset it. A variant of this trap is a snare made of sturdy cord or wire.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "Entanglement (trapped character cannot move until they use an action to make a Might or Speed defense roll to break or escape the net)",
+  "armor": null,
+  "movement": null,
+  "modifications": "Attacks as level 5, defends as level 2 GM Intrusion: The net is barbed, inflicting 1 point of damage each round that the trapped character tries to move. The net is the nesting place for biting insects, which swarm and attack the trapped character and all nearby creatures each round.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

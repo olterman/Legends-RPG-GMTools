@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Damage Inflicted",
+  "slug": "damage_inflicted",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "4 points",
+  "details": [
+    "4 points"
+  ]
+}

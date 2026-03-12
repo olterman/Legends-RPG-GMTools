@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Merchant",
+  "slug": "merchant",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2, haggling and assessment tasks as level 3",
+  "details": [
+    "level 2, haggling and assessment tasks as level 3"
+  ]
+}

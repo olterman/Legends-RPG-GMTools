@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Radiation Spike",
+  "slug": "radiation_spike",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": null,
+  "effect": "Delivers a powerful burst of radiation that disrupts the tissue of any creature touched, inflicting damage equal to the cypher’s level.",
+  "depletion": null
+}

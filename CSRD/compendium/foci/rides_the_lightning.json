@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rides the Lightning",
+  "slug": "rides_the_lightning",
+  "summary": "You create and discharge electrical power.",
+  "tiers": [
+    "Tier 1: Shock",
+    "Tier 1: Charge",
+    "Tier 2: Bolt Rider",
+    "Tier 3: Electric Armor or Drain Charge",
+    "Tier 4: Bolts of Power",
+    "Tier 5: Electrical Flight",
+    "Tier 6: Flash Across the Miles or Wall of Lightning"
+  ],
+  "gm_intrusions": "Targets other than those intended are shocked. Objects explode.",
+  "text": "You create and discharge electrical power.",
+  "details": [
+    "You create and discharge electrical power."
+  ]
+}

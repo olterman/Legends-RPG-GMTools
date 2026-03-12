@@ -1,0 +1,24 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Drives Like A Maniac",
+  "slug": "drives_like_a_maniac",
+  "summary": "Whether balancing on two wheels, jumping another vehicle, or driving head-on toward an oncoming enemy car, you don’t think about the risks when you’re behind the wheel.",
+  "tiers": [
+    "Tier 1: Driver",
+    "Tier 1: Driving on the Edge",
+    "Tier 2: Car Surfer",
+    "Tier 2: Stare Them Down",
+    "Tier 3: Expert Driver or Enhanced Speed Edge",
+    "Tier 4: Sharp-Eyed",
+    "Tier 4: Enhanced Speed",
+    "Tier 5: Something in the Road",
+    "Tier 6: Trick Driver or Lethal Damage"
+  ],
+  "gm_intrusions": "The engine develops a knock. The bridge on the road ahead is out. The windshield shatters. Someone unexpectedly runs in front of the vehicle.",
+  "text": "Whether balancing on two wheels, jumping another vehicle, or driving head-on toward an oncoming enemy car, you don’t think about the risks when you’re behind the wheel. (Someone who Drives Like a Maniac needs access to a vehicle.)",
+  "details": [
+    "Whether balancing on two wheels, jumping another vehicle, or driving head-on toward an oncoming enemy car, you don’t think about the risks when you’re behind the wheel.",
+    "(Someone who Drives Like a Maniac needs access to a vehicle.)"
+  ]
+}

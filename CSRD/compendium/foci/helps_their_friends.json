@@ -1,0 +1,23 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Helps Their Friends",
+  "slug": "helps_their_friends",
+  "summary": "You love your friends and help them out of any difficulty, no matter what.",
+  "tiers": [
+    "Tier 1: Friendly Help",
+    "Tier 1: Courageous",
+    "Tier 2: Weather the Vicissitudes",
+    "Tier 3: Buddy System or Skill With Attacks",
+    "Tier 4: In Harm’s Way",
+    "Tier 4: Enhanced Physique",
+    "Tier 5: Inspire Action",
+    "Tier 6: Deep Consideration or Skill With Defense"
+  ],
+  "gm_intrusions": "Others sometimes have ulterior motives. The law takes an undue interest. Even when everything goes right, repercussions follow.",
+  "text": "You love your friends and help them out of any difficulty, no matter what. Type Swap Option: Advice From a Friend",
+  "details": [
+    "You love your friends and help them out of any difficulty, no matter what.",
+    "Type Swap Option: Advice From a Friend"
+  ]
+}

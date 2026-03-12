@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Highgravity Maneuvering Ignore the Change in Difficulty But Not the Range Decreases",
+  "slug": "highgravity_maneuvering_ignore_the_change_in_difficulty_but_not_the_range_decreases",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:high_gravity",
+        "line": "All physical tasks are hindered. Ranges in high gravity are reduced by one category (very long-range weapons reach only to long range, long-range weapons reach only to short range, and short-range weapons reach only to immediate range). Those trained in highgravity maneuvering ignore the change in difficulty but not the range decreases."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

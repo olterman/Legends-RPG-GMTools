@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cambion",
+  "slug": "cambion",
+  "level": 5,
+  "target_number": 15,
+  "description": "Fine ebony scales cover a cambion’s perfectly athletic figure. Two reddish horns grow from its brow, and the tips of fangs emerge from between its dusky lips. Its eyes, absent iris and pupil, are the color of driven snow. Cambions are cursed creatures, born of mortal and demonic parentage, and are also sometimes called helborn. Most cambions give in to what everyone expects of them, and embrace evil.",
+  "motive": "Defense, conquest, revenge on a world that’s rejected them",
+  "environment": "Anywhere, often hiding in plain sight",
+  "health": "25",
+  "damage_inflicted": "6 points",
+  "armor": "1",
+  "movement": "Short",
+  "modifications": "Disguise as level 7",
+  "combat": "Cambions sometimes wield heavy weapons in combat, especially if they come across an artifact that can enhance their attacks. Some cambions develop their natural and magical abilities to become powerful sorcerers, but most can call up hellish energy merely by willing it at least once per day, as follows. Finger of Torture: A ruby ray lances out from the cambion’s finger to strike an enemy prone with torturous pain on a failed Might defense task. The target automatically takes 6 points of damage each round until they can escape the effect with an Intellect task. Soulfire Blast: An explosion of soul-rending black and crimson fire explodes around up to three targets standing next to each other within short range, inflicting 4 points of damage and stunning the targets so that they lose their next action on a failed Speed defense task.",
+  "interaction": "Cambions are bleak, depressed, and misunderstood. Most have turned to evil, but a few can be redeemed.",
+  "use": "A great fire is seen burning on the horizon. The next day, travelers come across a burned region with a crater that has destroyed a farmhouse. At the center of the crater is an unconscious human with hornlike growths on its head.",
+  "loot": "Powerful cambions sometimes wield artifacts as weapons.",
+  "gm_intrusion": null
+}

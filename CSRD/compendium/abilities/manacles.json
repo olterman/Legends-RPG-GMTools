@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Manacles",
+  "slug": "manacles",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Metal or heavy wooden restraints that hold an enemy’s wrists or ankles in place and are secured with a pin. A common set of manacles is level 5.",
+  "details": [
+    "Metal or heavy wooden restraints that hold an enemy’s wrists or ankles in place and are secured with a pin. A common set of manacles is level 5."
+  ]
+}

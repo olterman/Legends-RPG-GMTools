@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Weapon Master",
+  "slug": "weapon_master",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You inflict an additional 1 point of damage with your chosen weapon. Enabler.",
+  "details": [
+    "You inflict an additional 1 point of damage with your chosen weapon. Enabler."
+  ]
+}

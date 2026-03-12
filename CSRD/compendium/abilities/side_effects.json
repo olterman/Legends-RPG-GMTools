@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Side Effects",
+  "slug": "side_effects",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Creature rages or escapes, damage, dying curse, haunting",
+  "details": [
+    "Creature rages or escapes, damage, dying curse, haunting"
+  ]
+}

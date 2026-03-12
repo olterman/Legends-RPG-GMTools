@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Armor",
+  "slug": "armor",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "5",
+  "details": [
+    "5"
+  ]
+}

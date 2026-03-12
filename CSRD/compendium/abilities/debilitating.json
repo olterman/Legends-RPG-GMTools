@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Debilitating",
+  "slug": "debilitating",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison hinders all of the creature’s actions by one or two steps if they fail a defense roll. (Some poisons may affect only certain kinds of actions, such as Speed defense rolls or Might-based tasks.) Typical durations are ten minutes, one hour, and ten hours.",
+  "details": [
+    "The poison hinders all of the creature’s actions by one or two steps if they fail a defense roll. (Some poisons may affect only certain kinds of actions, such as Speed defense rolls or Might-based tasks.) Typical durations are ten minutes, one hour, and ten hours."
+  ]
+}

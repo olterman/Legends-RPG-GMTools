@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enveloping Shield",
+  "slug": "enveloping_shield",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "Your Force Field Shield ability produces an envelope of force that enfolds you while you are holding the shield, granting you +1 to Armor. Enabler. Erase Memories (3 Intellect points): You reach into the mind of a creature within immediate range and make an Intellect roll. On a success, you erase up to the last five minutes of its memory. Action. Escape (2 Speed points): You slip your restraints, squeeze through the bars, break the grip of a creature holding you, pull free from sucking quicksand, or otherwise get loose from whatever is holding you in place. Action.",
+  "details": [
+    "Your Force Field Shield ability produces an envelope of force that enfolds you while you are holding the shield, granting you +1 to Armor. Enabler.",
+    "Erase Memories (3 Intellect points): You reach into the mind of a creature within immediate range and make an Intellect roll. On a success, you erase up to the last five minutes of its memory. Action.",
+    "Escape (2 Speed points): You slip your restraints, squeeze through the bars, break the grip of a creature holding you, pull free from sucking quicksand, or otherwise get loose from whatever is holding you in place. Action."
+  ]
+}

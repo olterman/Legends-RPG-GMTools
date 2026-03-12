@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mind Stabilizer",
+  "slug": "mind_stabilizer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "The user gains +5 to Armor against Intellect damage.",
+  "depletion": null
+}

@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Employs Magnetism",
+  "slug": "employs_magnetism",
+  "summary": "You command metal and the power of magnetism.",
+  "tiers": [
+    "Tier 1: Move Metal",
+    "Tier 2: Repel Metal",
+    "Tier 3: Destroy Metal or Guide Bolt",
+    "Tier 4: Magnetic Field",
+    "Tier 5: Command Metal",
+    "Tier 6: Diamagnetism or Iron Punch"
+  ],
+  "gm_intrusions": "The metal twists, bends, or produces shrapnel. A lapse in concentration might cause something to slip or drop at just the wrong time.",
+  "text": "You command metal and the power of magnetism.",
+  "details": [
+    "You command metal and the power of magnetism."
+  ]
+}

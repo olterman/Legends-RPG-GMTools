@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flies Faster Than a Bullet",
+  "slug": "flies_faster_than_a_bullet",
+  "summary": "You can fly, and you’re superstrong, hard to hurt, and fast too. Is there anything you can’t do?",
+  "tiers": [
+    "Tier 1: Hover",
+    "Tier 2: Greater Enhanced Potential",
+    "Tier 3: Hidden Reserves or See Through Matter",
+    "Tier 4: Blink of an Eye",
+    "Tier 4: Up to Speed",
+    "Tier 5: Not Dead Yet",
+    "Tier 6: Burning Light or Ignore Affliction"
+  ],
+  "gm_intrusions": "A nemesis finds the character. A strange material is found to nullify the character’s abilities.",
+  "text": "You can fly, and you’re superstrong, hard to hurt, and fast too. Is there anything you can’t do?",
+  "details": [
+    "You can fly, and you’re superstrong, hard to hurt, and fast too. Is there anything you can’t do?"
+  ]
+}

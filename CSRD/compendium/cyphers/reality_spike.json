@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Reality Spike",
+  "slug": "reality_spike",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": null,
+  "effect": "Once activated, the cypher does not move—ever—even if activated in midair. A Might action will dislodge it, but then it is ruined.",
+  "depletion": null
+}

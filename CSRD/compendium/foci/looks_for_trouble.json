@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Looks for Trouble",
+  "slug": "looks_for_trouble",
+  "summary": "You’re a scrapper and love a good fight.",
+  "tiers": [
+    "Tier 1: Fists of Fury",
+    "Tier 1: Wound Tender",
+    "Tier 2: Protector",
+    "Tier 2: Straightforward",
+    "Tier 3: Skill With Attacks or Greater Enhanced Potential",
+    "Tier 4: Knock Out",
+    "Tier 5: Mastery With Attacks",
+    "Tier 6: Greater Enhanced Might or Lethal Damage"
+  ],
+  "gm_intrusions": "Weapons break or fly from even the strongest grip. Brawlers trip and fall. Even the battlefield can work against you with things falling or collapsing.",
+  "text": "You’re a scrapper and love a good fight.",
+  "details": [
+    "You’re a scrapper and love a good fight."
+  ]
+}

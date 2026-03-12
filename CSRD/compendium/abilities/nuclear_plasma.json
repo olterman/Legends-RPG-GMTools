@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Nuclear Plasma",
+  "slug": "nuclear_plasma",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Essentially, nuclear plasma drives are just very advanced ion thrusters, the promised “perfected” version. These are great, unless the setting has fusion drives, in which case nuclear plasma drives may seem quaint.",
+  "details": [
+    "Essentially, nuclear plasma drives are just very advanced ion thrusters, the promised “perfected” version. These are great, unless the setting has fusion drives, in which case nuclear plasma drives may seem quaint."
+  ]
+}

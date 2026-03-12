@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Master Entertainer",
+  "slug": "master_entertainer",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "Your Inspiring Ease ability works more effectively, easing your friends’ tasks by two steps rather than one step. Enabler.",
+  "details": [
+    "Your Inspiring Ease ability works more effectively, easing your friends’ tasks by two steps rather than one step. Enabler."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Interstellar",
+  "slug": "interstellar",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Within the same galaxy.",
+  "details": [
+    "Within the same galaxy."
+  ]
+}

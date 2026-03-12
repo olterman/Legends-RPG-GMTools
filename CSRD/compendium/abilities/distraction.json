@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Distraction",
+  "slug": "distraction",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When a character uses their turn to distract a foe, that foe’s attacks are hindered for one round. Multiple characters distracting a foe have no greater effect than a single character doing so—a foe is either distracted or not. A distraction might be yelling a challenge, firing a warning shot, or a similar activity that doesn’t harm the foe.",
+  "details": [
+    "When a character uses their turn to distract a foe, that foe’s attacks are hindered for one round. Multiple characters distracting a foe have no greater effect than a single character doing so—a foe is either distracted or not. A distraction might be yelling a challenge, firing a warning shot, or a similar activity that doesn’t harm the foe."
+  ]
+}

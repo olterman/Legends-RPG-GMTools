@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Zero-Point Generator",
+  "slug": "zero_point_generator",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Vacuum energy is created by normal fluctuation in the quantum field of normal space-time. This zero-point radiation of the vacuum provides arbitrary (possibly limitless) amounts of energy with no fuel other than the initial resources required to build the generator.",
+  "details": [
+    "Vacuum energy is created by normal fluctuation in the quantum field of normal space-time. This zero-point radiation of the vacuum provides arbitrary (possibly limitless) amounts of energy with no fuel other than the initial resources required to build the generator."
+  ]
+}

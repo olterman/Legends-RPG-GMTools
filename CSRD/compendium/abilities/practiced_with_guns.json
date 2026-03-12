@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Practiced With Guns",
+  "slug": "practiced_with_guns",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You are practiced with guns and suffer no penalty when using one. Enabler.",
+  "details": [
+    "You are practiced with guns and suffer no penalty when using one. Enabler."
+  ]
+}

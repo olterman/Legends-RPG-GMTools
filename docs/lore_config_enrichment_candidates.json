@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "race_candidates": 6,
+    "environment_candidates": 2,
+    "yaml_min_confidence": 0.72,
+    "default_excluded_race_keys": [
+      "alfirin_tribes",
+      "daelgast",
+      "human_tribes",
+      "small_folk",
+      "uruk_tribes"
+    ]
+  },
+  "races": [
+    {
+      "name": "Alfirin Tribes",
+      "key": "alfirin_tribes",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "The Alfirin Tribes"
+      ],
+      "source_paths": [
+        "logseq/pages/The Alfirin Tribes.md"
+      ],
+      "evidence": "The **Alfirin** are the Immortal Ones, the first of the elder peoples to set foot upon the Lands of Legends."
+    },
+    {
+      "name": "Daelgast",
+      "key": "daelgast",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "The Daelgast"
+      ],
+      "source_paths": [
+        "logseq/pages/The Daelgast.md"
+      ],
+      "evidence": "_The Horror-Void-Beyond-the-World_"
+    },
+    {
+      "name": "Human Tribes",
+      "key": "human_tribes",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "The Human Tribes"
+      ],
+      "source_paths": [
+        "logseq/pages/The Human Tribes.md"
+      ],
+      "evidence": "Among the elder races, humans are often dismissed as brief sparks—short-lived, impulsive, and fragile. Yet it is precisely this impermanence that has shaped humanity into the most adaptable and unpredictable of all peoples. Where immortals plan in centuries, h"
+    },
+    {
+      "name": "Lhainîm",
+      "key": "lhainim",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "The Lhainîm"
+      ],
+      "source_paths": [
+        "logseq/pages/The Lhainîm.md"
+      ],
+      "evidence": "_The First Little Ones_"
+    },
+    {
+      "name": "Small Folk",
+      "key": "small_folk",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "The Small Folk"
+      ],
+      "source_paths": [
+        "logseq/pages/The Small Folk.md"
+      ],
+      "evidence": "_Those Who Walk Beneath Notice_"
+    },
+    {
+      "name": "Uruk Tribes",
+      "key": "uruk_tribes",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "The Uruk Tribes"
+      ],
+      "source_paths": [
+        "logseq/pages/The Uruk Tribes.md"
+      ],
+      "evidence": "To the common folk of the lowlands and cities, the **Uruk** are little more than monsters given flesh: wild-eyed raiders, feral warbands, and brutal conquerors who respect only strength. Songs and campfire tales rarely grant them history, culture, or reason. I"
+    }
+  ],
+  "environments": [
+    {
+      "name": "Aldamir",
+      "key": "aldamir",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "Aldamir"
+      ],
+      "source_paths": [
+        "logseq/pages/Aldamir.md"
+      ],
+      "evidence": "_The Jewel of the Tree_"
+    },
+    {
+      "name": "Cirth",
+      "key": "cirth",
+      "confidence": 0.9,
+      "mentions": 5,
+      "source_titles": [
+        "Cirth"
+      ],
+      "source_paths": [
+        "logseq/pages/Cirth.md"
+      ],
+      "evidence": "Cird"
+    }
+  ]
+}

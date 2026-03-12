@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Just a Bit Mad",
+  "slug": "just_a_bit_mad",
+  "cost": null,
+  "alpha_section": "J",
+  "effect": "You are trained in Intellect defense tasks. Enabler.",
+  "details": [
+    "You are trained in Intellect defense tasks. Enabler."
+  ]
+}

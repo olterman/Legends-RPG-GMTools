@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Angel Of The Apocalypse",
+  "slug": "angel_of_the_apocalypse",
+  "level": 7,
+  "target_number": 21,
+  "description": "If the End Times causes civilization to fall, biblical threats multiply across the land, including one or more angels of the apocalypse. They are every bit as terrifying as the Four Horsemen because they’re charged with bringing about the end of the world. They have little room for pity or the plights of individuals; they have nations to topple and the forces of Hell to oppose. Angels of the apocalypse radiate a halo of golden white light. Their 10 foot (3.5 m) tall forms—caparisoned for war—are somewhat humanoid, though each has one or more sets of wings. Apocalypse angels also wield an implement that seems to be equal parts trumpet and sword, which they can sound to bring about terrible events, or swing to slay those who oppose them.",
+  "motive": "Varies",
+  "environment": "Almost anywhere",
+  "health": "23",
+  "damage_inflicted": "6 points",
+  "armor": "2",
+  "movement": "None, or instantly to any networked machine able to host them",
+  "modifications": "Speed defense as level 5 due to size; perception and detecting falsehoods as level 8",
+  "combat": "An electrical discharge—or in some cases precisely pulsed sequences of lights, each designed for a specific creature to see—can affect all targets within short range of the AI (or the AI’s local “terminal”), inflicting damage from electricity (or Intellect damage, which ignores Armor). An AI may attempt to install an instance of themself in the wetware (the brain) of humans and any other nearby sapient creatures. Anyone within immediate range of a video screen playing carefully crafted symbols and sounds who fails an Intellect defense roll is stunned, losing their next turn as they stare in rapt attention. If they fail a subsequent defense roll, they come under the control of the AI instance for one minute, or until they succeed on an Intellect defense roll on their turn. A PC under AI control might stand and do nothing, fall mysteriously unconscious, or take an action to advance the AI’s goals. AIs can control other lower level computer systems and sometimes even nanobots. Some targets of AI instance installation never recover, becoming AI zombies. Besides AI zombies, an AI may also rely on guardians (such as mechanical soldiers or CRAZRs made to their own design). Unless the PCs can track a given AI to their original computing core, damage to one may just be damage done to a terminal. Thus, even if an AI is seemingly destroyed, they might exist as another instance somewhere else. However, over time, alternate instances may collect different data and thus develop different memories and motivations. Some AIs continue to improve themselves by modifying their own code. These AIs are level 8 threats with 27 health, and they can create cyphers and artifacts, which they often deploy in combat.",
+  "interaction": "Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human.",
+  "use": "The PCs’ shelter is overtaken by a storm of grey goo, which answers to an AI operating out of a nearby safehouse.",
+  "loot": "An AI may have access to 1d6 cyphers and two or three artifacts.",
+  "gm_intrusion": null
+}

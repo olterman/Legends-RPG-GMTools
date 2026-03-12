@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hyperdrive",
+  "slug": "hyperdrive",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Similar to warp drive in some ways, but pushes the ship into a different realm of existence, often called hyperspace, where laws of physics differ significantly and many more dimensions are accessible, allowing a ship to greatly surpass the speed of light before returning to normal space. Hyperdrives can achieve objective speeds of up to 1000 times the speed of light at maximum power.",
+  "details": [
+    "Similar to warp drive in some ways, but pushes the ship into a different realm of existence, often called hyperspace, where laws of physics differ significantly and many more dimensions are accessible, allowing a ship to greatly surpass the speed of light before returning to normal space. Hyperdrives can achieve objective speeds of up to 1000 times the speed of light at maximum power."
+  ]
+}

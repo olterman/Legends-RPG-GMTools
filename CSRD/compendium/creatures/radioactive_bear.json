@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Radioactive Bear",
+  "slug": "radioactive_bear",
+  "level": 7,
+  "target_number": 21,
+  "description": "Exposure to radiation and other mutagens—or possibly the malign design of some before times military lab or inscrutable AI instance—transformed an already large and aggressive bear into something truly horrific. Standing well over 20 feet (6 m) tall, radioactive bears are drawn to radioactive areas, which empower and sustain them, though not completely. Which is why sometimes they head into uncontaminated areas to hunt large game. They especially prefer people.",
+  "motive": "Raid and kill for what they want",
+  "environment": "Groups of four to six roaming the ruins",
+  "health": "35",
+  "damage_inflicted": "7 points",
+  "armor": "1 (immune to radiation)",
+  "movement": "Short",
+  "modifications": "Speed defense as level 4 due to size; perception as level 8",
+  "combat": "Creatures within immediate range of a radioactive bear are irradiated on a failed Might defense task, hindering their tasks on their next turn. The bear attacks twice each round with its claws, or bites once. If its bite attack succeeds against a target suffering from radiation sickness, the bear regains 5 points of health. On a target’s failed Might defense roll, the bear holds the target in its jaws, hindering their tasks until they can escape. If the bear begins its turn with a target held in its jaws, the bear automatically deals bite damage as its action. As an action, the bear can cough forth a radioactive cloud once every few hours (and again if the bear is killed), targeting everything within immediate range. Targets that fail a Might defense roll take damage from the radiation. If the radioactive bear is the result of military or AI design rather than a natural mutation, it may also have a mechanism capable of firing a long range laser at distant targets, deployed from a harness fused to the creature’s flesh. In areas of dangerous radiation, the radioactive bear regains 2 points of health each round.",
+  "interaction": "If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack.",
+  "use": "The raider encampment has a new leader, a warlord whose presence doubles raider activity.",
+  "loot": null,
+  "gm_intrusion": null
+}

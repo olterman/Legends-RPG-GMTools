@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Climbing, Jumping, Running, and Swimming",
+  "slug": "climbing_jumping_running_and_swimming",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:rugged",
+        "line": "Skill: You’re trained in all tasks involving climbing, jumping, running, and swimming."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

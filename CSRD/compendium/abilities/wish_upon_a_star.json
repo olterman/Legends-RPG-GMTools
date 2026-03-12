@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wish Upon a Star",
+  "slug": "wish_upon_a_star",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Long ago, you helped part of a dying star return to its rightful place in the sky. It keeps an eye on you and, in a moment when it feels like all hope is lost, it sends a little magic or light to aid you.",
+  "details": [
+    "Long ago, you helped part of a dying star return to its rightful place in the sky. It keeps an eye on you and, in a moment when it feels like all hope is lost, it sends a little magic or light to aid you."
+  ]
+}

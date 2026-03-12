@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Heavy Weapons",
+  "slug": "heavy_weapons",
+  "progression": {
+    "inability": [
+      {
+        "from": "character_type:explorer",
+        "line": "Weapons: You can use light and medium weapons without penalty. You have an inability with heavy weapons; your attacks with heavy weapons are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

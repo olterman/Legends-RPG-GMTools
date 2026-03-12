@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Crushing Wall",
+  "slug": "crushing_wall",
+  "level": 6,
+  "target_number": 18,
+  "description": "A section of a wall falls over onto the targeted character. This is usually a one-use trap (although a similar trap could be built in its place). A variant of this trap is a deadfall, where something heavy (such as a log, huge stone block, or cart full of rocks) falls from a higher position onto the character. Sometimes the falling block is made to exactly fit a trapped corridor so that triggering the trap makes the area impassible. A less lethal variant drops a large amount of sand or dirt, inflicting 3 points of ambient damage (ignores Armor). Another variant releases oil (perhaps burning) or marbles, inflicting 3 points of ambient damage and making the area difficult terrain.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "6 points (ignores Armor) GM Intrusion: The fallen wall blocks access to an exit. The wall debris buries the character, who is trapped until they can dig free. Another trap, hazard, or threat is behind the fallen wall (such as arrow traps or a room full of zombies) and can now reach the characters.",
+  "armor": null,
+  "movement": null,
+  "modifications": null,
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

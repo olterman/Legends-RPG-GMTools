@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wildcard Powers",
+  "slug": "wildcard_powers",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You have a gift with using copied powers in unusual ways. Whenever you try a power stunt and use a level of Effort on the special roll to modify the ability, you get a free level of Effort on that roll. Enabler. Wilderness Awareness (4 Intellect points): Your connection to the natural world extends to a degree that some would call supernatural. While in the wilderness, you can extend your senses up to a mile in any direction and ask the GM a very simple, general question about that area, such as “Where is the orc camp?” or “Is my friend Deithan still alive?” If the answer you seek is not in the area, you receive no information. Action. Wilderness Encouragement (3 Intellect points): While in the wilderness, or when talking about your time in the wilderness, your stirring words of encouragement grant a target within short range that can understand you 1d6 points to one Pool. You can’t use this ability on the same creature again until they’ve made a recovery roll. Action.",
+  "details": [
+    "You have a gift with using copied powers in unusual ways. Whenever you try a power stunt and use a level of Effort on the special roll to modify the ability, you get a free level of Effort on that roll. Enabler.",
+    "Wilderness Awareness (4 Intellect points): Your connection to the natural world extends to a degree that some would call supernatural. While in the wilderness, you can extend your senses up to a mile in any direction and ask the GM a very simple, general question about that area, such as “Where is the orc camp?” or “Is my friend Deithan still alive?” If the answer you seek is not in the area, you receive no information. Action.",
+    "Wilderness Encouragement (3 Intellect points): While in the wilderness, or when talking about your time in the wilderness, your stirring words of encouragement grant a target within short range that can understand you 1d6 points to one Pool. You can’t use this ability on the same creature again until they’ve made a recovery roll. Action."
+  ]
+}

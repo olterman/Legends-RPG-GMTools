@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Limited Recovery",
+  "slug": "limited_recovery",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Resting restores points only to your Intellect Pool, not to your Might Pool or your Speed Pool.",
+  "details": [
+    "Resting restores points only to your Intellect Pool, not to your Might Pool or your Speed Pool."
+  ]
+}

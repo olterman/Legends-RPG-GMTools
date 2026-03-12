@@ -1,0 +1,31 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Balance",
+  "slug": "balance",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:swift",
+        "line": "Inability: You’re fast but not necessarily graceful. Any task involving balance is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:sea_legs",
+        "line": "You have gotten used to rough seas and unexpected surges. You are trained in balance. Any movement task that would be hindered by a pitching deck, moving through rigging, and so on is a routine task for you. Enabler."
+      },
+      {
+        "from": "ability:sea_legs",
+        "line": "You have gotten used to rough seas and unexpected surges. You are trained in balance. Any movement task that would be hindered by a pitching deck, moving through rigging, and so on is a routine task for you. Enabler. See History (4 Intellect points): You touch an object, read the subtle echoes of its existence through time, ask the GM a question about the object’s past, and get a general answer. The answers are often in the form of brief images or sensations rather than specific answers in a language you know. The GM assigns a level to the question, so the more obscure the answer, the more difficult the task. » Generally, knowledge that you could find by looking somewhere other than your current location is level 1, and obscure knowledge of the past is level 7. After you use this ability, you have an asset on identifying the object. Action. (“Obscure” is a relative term—a sage might not know how a vampire acquired a specific artifact, but someone using See History on that artifact would have an easy time sensing that event.) See the Future (6 Intellect points): Based on all the variables you perceive, you can predict the next few minutes. This has the following effects: For the next ten minutes, your defense rolls gain an asset. You have a sort of danger sense. For the next ten minutes, you gain an asset in seeing through deceptions and attempts to betray you, as well as avoiding traps and ambushes. You know what people are probably thinking and what they will say before they say it. For the next ten minutes, you gain an asset to tasks involving interaction and deception. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "inability",
+    "trained"
+  ],
+  "summary": "inability, trained"
+}

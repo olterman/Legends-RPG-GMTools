@@ -1,0 +1,23 @@
+{
+  "saved_at": "2026-03-12T00:36:30.754537+00:00",
+  "filename": "character_sheet/character_sheet_20260312T003630.json",
+  "payload": {},
+  "result": {
+    "type": "character_sheet",
+    "name": "Legal Test",
+    "sheet": {
+      "name": "Legal Test",
+      "metadata": {}
+    },
+    "metadata": {
+      "environment": null,
+      "race": null,
+      "profession": null,
+      "character_type": null,
+      "flavor": null,
+      "descriptor": null,
+      "focus": null,
+      "tier": null
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ship Damage",
+  "slug": "ship_damage",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The ship suffers minor or major damage, requiring repair and perhaps even replacement of parts. This damage is as serious as you require for the purposes of creating an interesting story.",
+  "details": [
+    "The ship suffers minor or major damage, requiring repair and perhaps even replacement of parts. This damage is as serious as you require for the purposes of creating an interesting story."
+  ]
+}

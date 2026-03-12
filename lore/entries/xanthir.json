@@ -1,0 +1,29 @@
+{
+  "type": "lore",
+  "title": "Xanthir",
+  "slug": "xanthir",
+  "source": "logseq",
+  "source_path": "logseq/pages/Xanthir.md",
+  "excerpt": "_The Red Faith Ascendant_",
+  "categories": [
+    "city",
+    "environment",
+    "race"
+  ],
+  "terms": [
+    "Fenmir Free Cities",
+    "alfirin",
+    "caldor",
+    "fellic",
+    "lilim",
+    "sands",
+    "velim",
+    "xanthir"
+  ],
+  "mentions_total": 34,
+  "content_markdown": "# The Dominion of Xanthir\n_The Red Faith Ascendant_\n---\n## Overview\n**Xanthir** is a militant theocracy carved from wilderness, blood, and belief. It occupies the southern reaches of the known lands, pressed between the **Xanthir Wilds**, treacherous coasts, and hostile neighbors who fear its doctrine more than its armies.\nTo outsiders, Xanthir is a nation of zealots.\nTo its people, it is the **last ordered truth in a faithless world**.\n---\n## Faith and Authority\nXanthir is ruled in the name of **The Red God**, a deity of sacrifice, conquest, and divine trial. The God does not promise mercy—only _meaning through struggle_.\nAuthority flows downward from the **Crimson Synod**, a council of high-priests and war-judges who interpret doctrine, declare crusades, and sanction purges. Civil and military power are inseparable; every official is also an initiate of the faith.\nLaw is scripture.\nDoubt is treason.\n---\n## Society and Culture\nXanthiri culture prizes:\n- Discipline over compassion\n- Obedience over debate\n- Strength over inheritance\n- Every citizen is ranked within the faith:\n- **Initiates** (common laborers and soldiers)\n- **Bloodbound** (veterans, officers, and ritual specialists)\n- **Consecrated** (priests, judges, and commanders)\nChildren are tested early. Those who fail are not exiled—but repurposed into labor battalions, frontier wards, or sacrificial orders.\nArt exists only as ritual. Music is martial. Architecture is angular, monumental, and stained with ochre stone.\n---\n## Geography and Borders\nXanthir’s heartland lies along the **southern coast**, anchored by fortified cities and sacred harbors. Inland, the land fractures into:\n- **The Xanthir Wilds** — untamed, monster-haunted territories used as proving grounds\n- **Marshlands and deltas** — home to scattered human settlements and semi-tolerated tributaries\n- **Southern Sands** — harsh frontier zones where faith is tested against heat, hunger, and isolation\nXanthir does not fully control its territory.\nIt **endures** it.\n---\n## Military Doctrine\nXanthir armies are not raised — they are **consecrated**.\nEvery soldier undergoes ritual binding to the Red God before battle. Cowardice is heresy. Retreat is permitted only as sanctioned martyrdom.\nTheir forces favor:\n- Heavy infantry\n- Fanatical shock troops\n- War-priests who chant liturgies mid-battle\nMercenaries are never trusted. Allies are never equals.\n---\n## Relations with Other Peoples\n**Caldor:** Viewed as decadent heretics masking weakness behind innovation\n**Fenmir Free Cities:** Useful prey and occasional proxies\n**Highland Fenmir:** Respected but targeted for forced conversion\n**Alfirin:** Officially denounced as false immortals; privately feared\n**Lilim:** Hunted relentlessly as symbols of rebellion and blasphemy\n**Fellic:** Ignored unless they interfere\n**Velim:** Declared abominations when encountered\n---\n## Theological Tension\nDespite its rigid dogma, Xanthir is **not unified**.\nCompeting interpretations of the Red God’s will fracture the Synod:\n- Some believe conquest must expand endlessly\n- Others preach purification and inward discipline\n- A forbidden sect whispers that Daelgast is the _final trial_\nThe Red Faith does not tolerate schism.\nBut schism grows regardless.\n---\n## A Saying of Xanthir\n> _“Blood remembers what words forget.”_\n\n---\n## Why Xanthir Matters Now\nXanthir stands at a crossroads:\n- Hemmed in by enemies\n- Surrounded by wild lands\n- Haunted by forbidden truths\nIf it fractures, the south will burn.\nIf it unifies, the world will.",
+  "prompt_counts": {
+    "lore": 1,
+    "art": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tasks Associated with Tracking, Spotting, or Otherwise Finding Robots and Animate Machines",
+  "slug": "tasks_associated_with_tracking_spotting_or_otherwise_finding_robots_and_animate_machines",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:machine_hunting",
+        "line": "You are trained in tasks associated with tracking, spotting, or otherwise finding robots and animate machines. You are also trained in all stealth tasks. Enabler."
+      },
+      {
+        "from": "ability:machine_hunting",
+        "line": "You are trained in tasks associated with tracking, spotting, or otherwise finding robots and animate machines. You are also trained in all stealth tasks. Enabler. Machine Interface (2 Intellect points): For one minute you gain an asset on tasks to discern the level, function, and activation of technological devices that you touch. Enabler. Machine Telepathy (3 Intellect points): You can read the surface thoughts of a machine within short range, even if the machine doesn’t want you to. You must be able to see the machine. Once you have established contact, you can read the target’s thoughts for up to one minute. If you or the target move out of range, the connection is broken. If you have the Mind Reading ability, when you apply Effort to Machine Telepathy, you gain a free level of Effort. Action to initiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

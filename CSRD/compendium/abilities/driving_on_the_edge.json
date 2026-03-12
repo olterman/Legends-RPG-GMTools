@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Driving on the Edge",
+  "slug": "driving_on_the_edge",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "You can make an attack with a light or medium ranged weapon and attempt a driving task as a single action. Enabler.",
+  "details": [
+    "You can make an attack with a light or medium ranged weapon and attempt a driving task as a single action. Enabler."
+  ]
+}

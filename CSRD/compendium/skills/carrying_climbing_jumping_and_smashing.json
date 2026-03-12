@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Carrying, Climbing, Jumping, and Smashing",
+  "slug": "carrying_climbing_jumping_and_smashing",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:athlete",
+        "line": "You are trained in carrying, climbing, jumping, and smashing. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

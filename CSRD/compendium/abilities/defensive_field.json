@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defensive Field",
+  "slug": "defensive_field",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "Thanks to subdermal implants, a permanent spell, alien modifications, or something similar, you now have a force field that radiates 1 inch (2.5 cm) from your body and provides you with +2 Armor. Enabler. Defensive Phasing (2 Intellect points): You can change your phase so that some attacks pass through you harmlessly. For the next ten minutes, you gain an asset to your Speed defense tasks, but during this time you lose any benefit from armor you wear. Action to initiate. Define Down (4 Intellect points): The natural gravity within an area a short distance across that you are within immediate range of changes directions so that it flows in the direction you determine (up, up and to the south, west, and so on) for a few seconds, then snaps back. Affected targets could be tossed up to 20 feet (6 m) and take a few points of damage. Action. Deflect Attacks (1 Intellect point): Using your mind, you protect yourself from incoming attacks. For the next ten minutes, you are trained in Speed defense tasks. Action to initiate.",
+  "details": [
+    "Thanks to subdermal implants, a permanent spell, alien modifications, or something similar, you now have a force field that radiates 1 inch (2.5 cm) from your body and provides you with +2 Armor. Enabler.",
+    "Defensive Phasing (2 Intellect points): You can change your phase so that some attacks pass through you harmlessly. For the next ten minutes, you gain an asset to your Speed defense tasks, but during this time you lose any benefit from armor you wear. Action to initiate.",
+    "Define Down (4 Intellect points): The natural gravity within an area a short distance across that you are within immediate range of changes directions so that it flows in the direction you determine (up, up and to the south, west, and so on) for a few seconds, then snaps back. Affected targets could be tossed up to 20 feet (6 m) and take a few points of damage. Action.",
+    "Deflect Attacks (1 Intellect point): Using your mind, you protect yourself from incoming attacks. For the next ten minutes, you are trained in Speed defense tasks. Action to initiate."
+  ]
+}

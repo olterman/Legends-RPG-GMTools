@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Orrupted Canopic Jar",
+  "slug": "orrupted_canopic_jar",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "Jar made of clay or carved stone",
+  "effect": "Breaking open the jar (which destroys the preserved organs inside) permanently grants the user an asset (two assets if the cypher level is 6 or higher) on all attacks and defenses against mummies within short range.",
+  "depletion": null
+}

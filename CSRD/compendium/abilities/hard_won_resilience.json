@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hard-Won Resilience",
+  "slug": "hard_won_resilience",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "In your explorations of dark places, you’ve been exposed to all sorts of terrible things and are developing a general resistance. You gain +1 to Armor and are trained in Might defense tasks. Enabler.",
+  "details": [
+    "In your explorations of dark places, you’ve been exposed to all sorts of terrible things and are developing a general resistance. You gain +1 to Armor and are trained in Might defense tasks. Enabler."
+  ]
+}

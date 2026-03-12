@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Identifying or Understanding the Supernatural",
+  "slug": "identifying_or_understanding_the_supernatural",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:mystical",
+        "line": "Skill: You’re trained in all actions involving identifying or understanding the supernatural."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

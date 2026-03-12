@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Special Situation",
+  "slug": "special_situation",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A Chase When a PC is chasing an NPC or vice versa, the player should attempt a Speed action, with the difficulty based on the NPC’s level. If the PC succeeds at the roll, they catch the NPC (if chasing), or they get away (if chased). In terms of the story, this one-roll mechanic can be the result of a long chase over many rounds. Alternatively, if the GM wants to play out a long chase, the character can make many rolls (perhaps one per level of the NPC) to finish the pursuit successfully. For every failure, the PC must make another success, and if they ever have more failures than successes, the PC fails to catch the NPC (if chasing) or is caught (if chased). As with combat, the GM is encouraged to describe the results of these rolls with flavor. A success might mean the PC has rounded a corner and gained some distance. A failure might mean that a basket of fruit topples over in front of them, slowing them down. Vehicle chases are handled similarly.",
+  "details": [
+    "A Chase",
+    "When a PC is chasing an NPC or vice versa, the player should attempt a Speed action, with the difficulty based on the NPC’s level. If the PC succeeds at the roll, they catch the NPC (if chasing), or they get away (if chased). In terms of the story, this one-roll mechanic can be the result of a long chase over many rounds.",
+    "Alternatively, if the GM wants to play out a long chase, the character can make many rolls (perhaps one per level of the NPC) to finish the pursuit successfully. For every failure, the PC must make another success, and if they ever have more failures than successes, the PC fails to catch the NPC (if chasing) or is caught (if chased). As with combat, the GM is encouraged to describe the results of these rolls with flavor. A success might mean the PC has rounded a corner and gained some distance. A failure might mean that a basket of fruit topples over in front of them, slowing them down. Vehicle chases are handled similarly."
+  ]
+}

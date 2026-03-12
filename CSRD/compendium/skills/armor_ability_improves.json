@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Armor Ability Improves",
+  "slug": "armor_ability_improves",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:experienced_in_armor",
+        "line": "The cost reduction from your Practiced in Armor ability improves. You now reduce the Speed cost by 2. Enabler."
+      },
+      {
+        "from": "ability:mastery_in_armor",
+        "line": "The cost reduction from your Practiced in Armor ability improves. You now reduce the Speed Effort cost for wearing armor to 0. Enabler."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

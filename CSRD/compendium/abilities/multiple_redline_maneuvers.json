@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Multiple Redline Maneuvers",
+  "slug": "multiple_redline_maneuvers",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Only one PC needs to spend 1 XP to unlock redline maneuvers for themselves and for any other PCs aboard the same spacecraft for the duration of a single encounter. Multiple redline attempts during the same round by two or more PCs additively increase the GM intrusion range for that round. So, a PC attempting to redline who takes their turn after previous redline attempts that round faces a GM intrusion range that’s already inflated, and which will inflate more when they redline. (PCs who do not redline during a particular round don’t have to worry about the increasing GM intrusion range for their action.) Thus, while PCs do not need to pre-announce their intention to redline at the beginning of each round, coordinating wouldn’t be a bad idea. Whichever PC redlines last in a round where redline maneuvers were already attempted could face a fairly significant GM intrusion range. If Void Rules are also being used and have triggered, redline maneuvers are even more dangerous.",
+  "details": [
+    "Only one PC needs to spend 1 XP to unlock redline maneuvers for themselves and for any other PCs aboard the same spacecraft for the duration of a single encounter. Multiple redline attempts during the same round by two or more PCs additively increase the GM intrusion range for that round. So, a PC attempting to redline who takes their turn after previous redline attempts that round faces a GM intrusion range that’s already inflated, and which will inflate more when they redline. (PCs who do not redline during a particular round don’t have to worry about the increasing GM intrusion range for their action.)",
+    "Thus, while PCs do not need to pre-announce their intention to redline at the beginning of each round, coordinating wouldn’t be a bad idea. Whichever PC redlines last in a round where redline maneuvers were already attempted could face a fairly significant GM intrusion range.",
+    "If Void Rules are also being used and have triggered, redline maneuvers are even more dangerous."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Exists in Two Places at Once",
+  "slug": "exists_in_two_places_at_once",
+  "summary": "You exist in two places at once.",
+  "tiers": [
+    "Tier 1: Duplicate",
+    "Tier 2: Share Senses",
+    "Tier 3: Superior Duplicate or Resilient Duplicate",
+    "Tier 4: Damage Transference",
+    "Tier 5: Coordinated Effort",
+    "Tier 6: Multiplicity or Resilient Duplicate"
+  ],
+  "gm_intrusions": "Perceiving the world from two different places disorients the character, causing momentary vertigo, nausea, or confusion.",
+  "text": "You exist in two places at once.",
+  "details": [
+    "You exist in two places at once."
+  ]
+}

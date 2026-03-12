@@ -1,0 +1,29 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Medium Weapons",
+  "slug": "medium_weapons",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "character_type:speaker",
+        "line": "Practiced With Medium Weapons"
+      },
+      {
+        "from": "flavor:combat",
+        "line": "Practiced With Medium Weapons"
+      },
+      {
+        "from": "flavor:skills_and_knowledge",
+        "line": "Practiced With Medium Weapons"
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

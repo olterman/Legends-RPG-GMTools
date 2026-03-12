@@ -1,0 +1,45 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Persuasion",
+  "slug": "persuasion",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:community_activist",
+        "line": "When speaking to others in a community you have a strong connection to, you are trained in persuasion and intimidation tasks about topics that directly relate to the community. Enabler."
+      },
+      {
+        "from": "ability:community_activist",
+        "line": "When speaking to others in a community you have a strong connection to, you are trained in persuasion and intimidation tasks about topics that directly relate to the community. Enabler. Community Knowledge (2 Intellect points): If you’ve invested yourself in a community and have spent at least a few months living there, you can learn things about it through a variety of methods. Sometimes contacts slip the information to you. Other times, you’re able to draw conclusions simply by what you can see and hear. When you use this ability, you can ask the GM one question about the community and get a very short answer. Action."
+      },
+      {
+        "from": "ability:how_others_think",
+        "line": "You have a sense of how people think. You’re trained in one of the following tasks: persuasion, deception, or detecting falsehoods. Enabler."
+      },
+      {
+        "from": "ability:no_one_knows_better",
+        "line": "You are trained in two of the following skills: persuasion, deception, intimidation, research, knowledge in one area, or seeing through deception. If you choose a skill in which you’re already trained, you become specialized in that skill instead. Enabler."
+      },
+      {
+        "from": "ability:no_one_knows_better",
+        "line": "You are trained in two of the following skills: persuasion, deception, intimidation, research, knowledge in one area, or seeing through deception. If you choose a skill in which you’re already trained, you become specialized in that skill instead. Enabler. Noble’s Courage (3+ Intellect points): Your noble lineage teaches that courage is necessary to do things that are difficult, tedious, or dangerous. When your mind would be negatively affected by an effect of up to level 4, whether something as overt as a psychic command or illness or something as subtle as fear or even boredom, your courage neutralizes the effect for up to a minute or, if you’re actively being attacked, until the next attack. For each level of Effort applied, you can increase the level of the effect you can neutralize by 1. Enabler."
+      },
+      {
+        "from": "ability:privileged_nobility",
+        "line": "You are adept at claiming the rewards that a noble background can generate. When recognized, you can be seated at any eating establishment no matter how full, get a room in an inn even if that means others are turned out, be let into any court or other structure where laws are decided or nobility rules, be invited to any gala, and get a seat at a private function of any sort. In addition, you are trained in persuasion. Enabler."
+      },
+      {
+        "from": "ability:privileged_nobility",
+        "line": "You are adept at claiming the rewards that a noble background can generate. When recognized, you can be seated at any eating establishment no matter how full, get a room in an inn even if that means others are turned out, be let into any court or other structure where laws are decided or nobility rules, be invited to any gala, and get a seat at a private function of any sort. In addition, you are trained in persuasion. Enabler. Projection (4 Intellect points): You project an image of yourself to any location you have seen or previously visited. Distance does not matter as long as the location is on the same world as you. The projection copies your appearance, movements, and any sounds you make for the next ten minutes. Anyone present at the location can see and hear you as if you were there. However, you do not perceive through your projection. Action to initiate. Protective Wall (6+ Might points): When engaging in combat that directly relates to defending a community you are associated with, you can attack up to five different foes as a single action as long as they are all within immediate range. If you hit an attacker, they are pushed back an immediate distance. All of the attacks have to be the same sort of attack (melee or ranged). Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Anything that modifies your attack or damage applies to all of these attacks. In addition to the normal options for using Effort, you can choose to use Effort to increase the number of foes you can attack with this ability, one additional foe per level of Effort. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

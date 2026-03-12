@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Jupiterborn",
+  "slug": "jupiterborn",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You can withstand high-gravity planets and high acceleration (up to 15 G) indefinitely. For periods of up to an hour, you can withstand double that. Add +1 to your Might Edge. Enabler.",
+  "details": [
+    "You can withstand high-gravity planets and high acceleration (up to 15 G) indefinitely. For periods of up to an hour, you can withstand double that. Add +1 to your Might Edge. Enabler."
+  ]
+}

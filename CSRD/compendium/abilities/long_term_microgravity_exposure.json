@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Long-Term Microgravity Exposure",
+  "slug": "long_term_microgravity_exposure",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Long-term exposure to microgravity environments without medical interventions degrades health. How long one spends in such conditions is directly relevant. The GM may assign long-term penalties to PCs if the situation warrants it, though the use of advanced space medicine, proper exercise, and recommended steroids and other hormones can avoid these complications.",
+  "details": [
+    "Long-term exposure to microgravity environments without medical interventions degrades health. How long one spends in such conditions is directly relevant. The GM may assign long-term penalties to PCs if the situation warrants it, though the use of advanced space medicine, proper exercise, and recommended steroids and other hormones can avoid these complications."
+  ]
+}

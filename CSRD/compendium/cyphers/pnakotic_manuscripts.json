@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pnakotic Manuscripts",
+  "slug": "pnakotic_manuscripts",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Tome with stony plates binding a sheaf of parchment",
+  "effect": "When a user reads aloud from the manuscripts, they can create either of the following effects, both of which put them at risk: • Contact the mind of a powerful godlike being. The user must make a difficulty 5 Intellect defense roll. On a failed roll, they take 5 points of Intellect damage, descend one step on the damage track, and take one other action (determined by the GM) motivated by insane panic. On a successful roll, they take 2 points of Intellect damage and learn the answer to one question, no matter the scope, from the mind contacted. • Close a portal to a Lovecraftian planet or dimension. This requires reciting a chant from the book and might require an object that somehow relates to the portal (such as a piece of a creature from the destination). The user must make a difficulty 5 Intellect defense roll each round they chant from the manuscript. On a failed roll, they take 4 points of Intellect damage. On a successful roll, they take 2 points of Intellect damage and make progress toward closing the portal. A typical portal requires ten successes to close it. Another person can take over the chant if the previous person stops, but the first Intellect defense roll for their chanting is hindered.",
+  "depletion": "—"
+}

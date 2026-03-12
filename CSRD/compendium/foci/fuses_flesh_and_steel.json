@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fuses Flesh and Steel",
+  "slug": "fuses_flesh_and_steel",
+  "summary": "Your body is part machine.",
+  "tiers": [
+    "Tier 1: Enhanced Body",
+    "Tier 2: Interface",
+    "Tier 3: Sensing Package or Weaponization",
+    "Tier 4: Fusion",
+    "Tier 5: Deep Reserves",
+    "Tier 6: Mind Surge or Ultra Enhancement"
+  ],
+  "gm_intrusions": "People in most societies are afraid of someone who is revealed to have mechanical parts.",
+  "text": "Your body is part machine.",
+  "details": [
+    "Your body is part machine."
+  ]
+}

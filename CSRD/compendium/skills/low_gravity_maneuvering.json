@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Low-gravity Maneuvering",
+  "slug": "low_gravity_maneuvering",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:low_gravity",
+        "line": "Weapons that rely on weight, such as all heavy weapons, inflict 2 fewer points of damage (dealing a minimum of 1 point) unless user is trained in low-gravity maneuvering. Short-range weapons can reach to long range, and long-range weapons can reach to very long range."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

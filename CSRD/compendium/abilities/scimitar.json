@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Scimitar",
+  "slug": "scimitar",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A medium-length sword with a strongly curved blade.",
+  "details": [
+    "A medium-length sword with a strongly curved blade."
+  ]
+}

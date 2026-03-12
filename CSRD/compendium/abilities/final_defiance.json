@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Final Defiance",
+  "slug": "final_defiance",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "When you would normally be dead, you instead remain conscious and active for one more round plus one additional round each time you succeed on a difficulty 5 Might task. During these rounds, you are debilitated. If you do not receive healing or otherwise gain points in a Pool during your final round(s) of activity, you are subject to the effects of Not Dead Yet. Enabler. Find an Opening (1 Intellect point): You use trickery to find an opening in your foe’s defenses. If you succeed on a Speed roll against one creature within immediate range, your next attack against that creature before the end of the next round is eased. Action.",
+  "details": [
+    "When you would normally be dead, you instead remain conscious and active for one more round plus one additional round each time you succeed on a difficulty 5 Might task. During these rounds, you are debilitated. If you do not receive healing or otherwise gain points in a Pool during your final round(s) of activity, you are subject to the effects of Not Dead Yet. Enabler.",
+    "Find an Opening (1 Intellect point): You use trickery to find an opening in your foe’s defenses. If you succeed on a Speed roll against one creature within immediate range, your next attack against that creature before the end of the next round is eased. Action."
+  ]
+}

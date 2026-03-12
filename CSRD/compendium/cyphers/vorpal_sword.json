@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Vorpal Sword",
+  "slug": "vorpal_sword",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": "White oak wand",
+  "effect": "This wand produces a long-range stream of grey spider’s webbing that entangles a target and holds it stuck to nearby surfaces. Entangled victims can’t move or take actions that require movement. Targets whose level is higher than the wand’s level can usually break free within one or two rounds. The entangling web is highly flammable, and if ignited it burns away over the course of one round, but the intense heat inflicts damage equal to the artifact level on whatever was caught within it.",
+  "depletion": "1 in 1d20"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Choosing Instead of Rolling",
+  "slug": "choosing_instead_of_rolling",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Each GM intrusion is keyed to a die result, usually a d6. The die range is not meant to imply you should always randomly generate a GM intrusion. Instead of rolling, choose the conflict that you think will make the story better and more exciting. The option to roll is really only here if you can’t decide (and are facing decision fatigue). Mainly, these GM intrusion tables are provided as a quick way to inspire complications for a given situation.",
+  "details": [
+    "Each GM intrusion is keyed to a die result, usually a d6. The die range is not meant to imply you should always randomly generate a GM intrusion. Instead of rolling, choose the conflict that you think will make the story better and more exciting. The option to roll is really only here if you can’t decide (and are facing decision fatigue). Mainly, these GM intrusion tables are provided as a quick way to inspire complications for a given situation."
+  ]
+}

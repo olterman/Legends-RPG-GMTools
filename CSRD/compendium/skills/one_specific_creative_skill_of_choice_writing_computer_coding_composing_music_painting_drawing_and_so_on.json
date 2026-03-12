@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "One Specific Creative Skill of Choice: Writing, Computer Coding, Composing Music, Painting, Drawing, and So on",
+  "slug": "one_specific_creative_skill_of_choice_writing_computer_coding_composing_music_painting_drawing_and_so_on",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:creative",
+        "line": "Skill: You are naturally inventive. You are trained in one specific creative skill of your choice: writing, computer coding, composing music, painting, drawing, and so on."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

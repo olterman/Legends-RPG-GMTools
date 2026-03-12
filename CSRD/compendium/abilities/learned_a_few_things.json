@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Learned a Few Things",
+  "slug": "learned_a_few_things",
+  "cost": null,
+  "alpha_section": "L",
+  "effect": "You are trained in two areas of knowledge of your choice, or specialized in one area of knowledge of your choice. Enabler. Learning the Path (2 Intellect points): You observe or study a creature, object, or location for at least one round. The next time you interact with it (possibly in the following round), a related task (such as persuading the creature, attacking it, or defending from its attack) is eased. Action.",
+  "details": [
+    "You are trained in two areas of knowledge of your choice, or specialized in one area of knowledge of your choice. Enabler.",
+    "Learning the Path (2 Intellect points): You observe or study a creature, object, or location for at least one round. The next time you interact with it (possibly in the following round), a related task (such as persuading the creature, attacking it, or defending from its attack) is eased. Action."
+  ]
+}

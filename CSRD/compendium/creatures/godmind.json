@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Godmind",
+  "slug": "godmind",
+  "level": 10,
+  "target_number": 30,
+  "description": "Unfathomably powerful post-singularity AIs, godminds are vast, having used the matter of an entire solar system and all its planets to create an immense brain, weave themselves into a nebula, or encode themselves into quantum strings of existence light-years across. When necessary, a godmind forms a nexus of consciousness—an instance—appearing as a disembodied eye of electromagnetic energy, ranging from about the size of a human eye all the way up to the size of a planet.",
+  "motive": "Hungers for flesh",
+  "environment": "Alone or in groups of three to five, usually in areas of strained space-time. Immune to the effects of vacuum.",
+  "health": "12",
+  "damage_inflicted": "5 points",
+  "armor": null,
+  "movement": "Flies an immediate distance each round",
+  "modifications": "Stealth tasks as level 5",
+  "combat": "A hungry haze breaks down the flesh of all living creatures within immediate range, inflicting 5 points of damage. As an insubstantial haze, only attacks that affect an area have a chance to inflict full damage on them; other successful attacks only inflict 1 point of damage, regardless of the amount indicated. If a hungry haze successfully feeds, it gains 1 point of health, even if the increase puts it above its maximum health. If a hungry haze is reduced to zero health, a smooth thumb-sized egg of unknown material is left behind.",
+  "interaction": "A hungry haze does not speak or seem to have language. But it is not mindless; it can learn from its experiences and figure out creative solutions to problems.",
+  "use": "After a research station on Mercury is abandoned for unspecified issues, salvagers show up looking for easy pickings. But a strange haze seems to hang over the station.",
+  "loot": "People (or AI) interested in strange manifestations would probably pay for the remains of a hungry haze in an amount equal to the expensive price category.",
+  "gm_intrusion": null
+}

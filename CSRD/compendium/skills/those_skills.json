@@ -1,0 +1,29 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Those Skills",
+  "slug": "those_skills",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:game_lessons",
+        "line": "You’ve played so many games that you’ve picked up some real knowledge. Choose any two noncombat skills. You are trained in those skills. Enabler."
+      },
+      {
+        "from": "ability:knowledge_is_power",
+        "line": "Choose two noncombat skills in which you are not trained. You are trained in those skills. Enabler."
+      },
+      {
+        "from": "ability:life_lessons",
+        "line": "Choose any two noncombat skills. You are trained in those skills. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pharmaceutical Sorcerer",
+  "slug": "pharmaceutical_sorcerer",
+  "level": 3,
+  "target_number": 9,
+  "description": "A pharmaceutical sorcerer is an apothecary, doctor, dentist, magical healer, counselor, surgeon, and nutritionist all in one. They have devoted themselves to the art and science of healing, using a combination of methods to achieve remarkable success. Some work in drugstores, some have their own specialized businesses, and some administer aid from their homes or a public clinic. They might wear medical scrubs or a white coat over normal clothing. Assistant: level 2, healing as level 3",
+  "motive": "Healing and promoting good health",
+  "environment": null,
+  "health": "9",
+  "damage_inflicted": "3 points",
+  "armor": null,
+  "movement": "Short",
+  "modifications": "Medicine, herbs, and healing as level 5",
+  "combat": "Pharmaceutical sorcerers prefer to avoid combat, but they can attack with short-range nonlethal spells or drugs that inflict 4 points of Might or Intellect damage (ignores Armor). A pharmaceutical sorcerer knows several spells, such as healing a touched creature for 4 health or Pool points, identifying diseases and afflictions, removing or ameliorating afflictions and chronic conditions for a day, or making a patient feel relaxed and safe for a few hours. They’re usually licensed and trained to perform minor medical procedures such as administering vaccines, applying topical medicines, and splinting broken bones. A pharmaceutical sorcerer often has one or more assistants, protégés, or students who help with clients or other aspects of running their health practice. They are generally on good terms with doctors, licensed therapists, nurses, magic-using priests, and other professionals in the health field.",
+  "interaction": "Pharmaceutical sorcerers are compassionate, intelligent, and well-informed. They want to help people, but sometimes are stymied by paperwork, laws, and lack of money.",
+  "use": "Pharmaceutical sorcerers are usually support characters using their magic to heal others and prevent harm. Their extensive knowledge of helpful magic, medicinal herbs, and health science makes them useful for diagnosing strange symptoms and ruling out minor afflictions to find the real cause of a problem.",
+  "loot": "In addition to standard medicines, handheld medical tools, and herbs and drugs, the sorcerer might have a healing cypher or some interesting payment from a patient. FANTASY NPCs",
+  "gm_intrusion": null
+}

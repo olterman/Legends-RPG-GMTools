@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Poison Needle",
+  "slug": "poison_needle",
+  "level": 5,
+  "target_number": 15,
+  "description": "A poisoned needle jabs at a character touching the trapped object (usually a lock or treasure chest) or is fired from a mechanism similar to an arrow trap. It may have a reservoir of poison that allows it to attack several times.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "1 point (plus poison)",
+  "armor": null,
+  "movement": null,
+  "modifications": "Stealth as level 6 GM Intrusion: The trap releases acid into the lock mechanism, making the trapped object impossible to unlock. The trap releases acid into the container, destroying some of the valuables inside. The trap releases a puff of poison gas instead of a poisoned needle, affecting all nearby characters.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

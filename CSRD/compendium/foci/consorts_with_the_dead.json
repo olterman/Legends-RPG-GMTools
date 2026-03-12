@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Consorts With the Dead",
+  "slug": "consorts_with_the_dead",
+  "summary": "The dead answer your questions, and their reanimated corpses serve you.",
+  "tiers": [
+    "Tier 1: Speaker for the Dead",
+    "Tier 2: Necromancy",
+    "Tier 3: Reading the Room or Repair Flesh",
+    "Tier 4: Greater Necromancy",
+    "Tier 5: Terrifying Gaze",
+    "Tier 6: True Necromancy or Word of Death"
+  ],
+  "gm_intrusions": "The character’s necromantic reputation precedes them. A corpse seeks revenge for being reanimated.",
+  "text": "The dead answer your questions, and their reanimated corpses serve you.",
+  "details": [
+    "The dead answer your questions, and their reanimated corpses serve you."
+  ]
+}

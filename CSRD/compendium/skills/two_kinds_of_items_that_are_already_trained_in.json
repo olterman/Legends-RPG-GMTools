@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Two Kinds of Items That Are Already Trained in",
+  "slug": "two_kinds_of_items_that_are_already_trained_in",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [],
+    "expert": [
+      {
+        "from": "ability:master_crafter",
+        "line": "You are trained in the crafting of two kinds of items, or you are specialized in two kinds of items that you are already trained in. Enabler."
+      }
+    ]
+  },
+  "levels": [
+    "expert"
+  ],
+  "summary": "expert"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enviroscanner",
+  "slug": "enviroscanner",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Forearm-mounted computer tablet",
+  "effect": "This multifunction device can receive radio transmissions, automatically map locations the wearer has visited, play various forms of media, keep voice and written records, and provide an asset to any task related to interfacing with other computerized systems or machines. Also, the wearer can scan for specific materials, toxic traces, and life forms within short range.",
+  "depletion": "1 in 1d10 (check per use of scanning function)"
+}

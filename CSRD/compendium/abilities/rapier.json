@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rapier",
+  "slug": "rapier",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A light sword with a thin blade used for stabbing and slashing.",
+  "details": [
+    "A light sword with a thin blade used for stabbing and slashing."
+  ]
+}

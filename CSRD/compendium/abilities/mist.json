@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mist",
+  "slug": "mist",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A target in mist is similar to one in dim light. Ranged attacks against such targets are hindered. Particularly dense mist makes ranged attacks nearly impossible (treat as darkness), and even melee attacks are hindered.",
+  "details": [
+    "A target in mist is similar to one in dim light. Ranged attacks against such targets are hindered. Particularly dense mist makes ranged attacks nearly impossible (treat as darkness), and even melee attacks are hindered."
+  ]
+}

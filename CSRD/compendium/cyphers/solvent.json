@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Solvent",
+  "slug": "solvent",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d10",
+  "form": null,
+  "effect": "Dissolves 1 cubic foot of material each round. After one round per cypher level, the cypher becomes inert.",
+  "depletion": null
+}

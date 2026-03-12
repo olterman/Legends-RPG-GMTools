@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Scale",
+  "slug": "scale",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Mail armor made from overlapping scales or plates attached to a leather or cloth backing. Often called “scale mail.”",
+  "details": [
+    "Mail armor made from overlapping scales or plates attached to a leather or cloth backing. Often called “scale mail.”"
+  ]
+}

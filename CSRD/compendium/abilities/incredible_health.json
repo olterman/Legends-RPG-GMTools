@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Incredible Health",
+  "slug": "incredible_health",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "Thanks to a dip in a magical pool, an injection of artificial antibodies and immune defense nanobots into your bloodstream, exposure to strange radiation, or something else, you are now immune to diseases, viruses, and mutations of any kind. Enabler. Incredible Recovery (6 Might points): You move up one step on the damage track or shake off any unwanted ongoing condition. Action.",
+  "details": [
+    "Thanks to a dip in a magical pool, an injection of artificial antibodies and immune defense nanobots into your bloodstream, exposure to strange radiation, or something else, you are now immune to diseases, viruses, and mutations of any kind. Enabler.",
+    "Incredible Recovery (6 Might points): You move up one step on the damage track or shake off any unwanted ongoing condition. Action."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Taking Advantage",
+  "slug": "taking_advantage",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "When your foe is weakened, dazed, stunned, moved down the damage track, or disadvantaged in some other way, your attacks against that foe are eased beyond any other modifications due to the disadvantage. Enabler. Tall Tale (3 Intellect points): You tell a short anecdote to a foe that can understand you about something you’ve witnessed in your life that’s so over the top yet so convincing that, if you are successful, the foe is dazed for one minute, during which time its tasks are hindered. Action.",
+  "details": [
+    "When your foe is weakened, dazed, stunned, moved down the damage track, or disadvantaged in some other way, your attacks against that foe are eased beyond any other modifications due to the disadvantage. Enabler.",
+    "Tall Tale (3 Intellect points): You tell a short anecdote to a foe that can understand you about something you’ve witnessed in your life that’s so over the top yet so convincing that, if you are successful, the foe is dazed for one minute, during which time its tasks are hindered. Action."
+  ]
+}

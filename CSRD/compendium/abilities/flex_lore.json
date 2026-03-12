@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flex Lore",
+  "slug": "flex_lore",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "After each ten-hour recovery roll when you have access to a high-technology digital reference library (such as one that might be found in a starship or in a learning center), choose one field of knowledge related to a specific planet or some other location. The field might be habitations, customs, governments, characteristics of the main species, important figures, and so on. You’re trained in that field until you use this ability again. You could use this ability with an area of knowledge you’re already trained in to become specialized. Enabler.",
+  "details": [
+    "After each ten-hour recovery roll when you have access to a high-technology digital reference library (such as one that might be found in a starship or in a learning center), choose one field of knowledge related to a specific planet or some other location. The field might be habitations, customs, governments, characteristics of the main species, important figures, and so on. You’re trained in that field until you use this ability again. You could use this ability with an area of knowledge you’re already trained in to become specialized. Enabler."
+  ]
+}

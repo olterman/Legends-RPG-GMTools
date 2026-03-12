@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Prone Target",
+  "slug": "prone_target",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "In melee, a prone target is easier to hit (attacks against them are eased). In ranged combat, a prone target is harder to hit (attacks against them are hindered).",
+  "details": [
+    "In melee, a prone target is easier to hit (attacks against them are eased). In ranged combat, a prone target is harder to hit (attacks against them are hindered)."
+  ]
+}

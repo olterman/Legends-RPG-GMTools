@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rocket",
+  "slug": "rocket",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A rocket engine produces thrust by expelling reaction mass, usually in thundering expanding white clouds from the rocket’s base propulsion nozzle. Most contemporary spacecraft use a mix of several rockets and fuel types. Rockets are the primary constituent of a heavy-lift launch spacecraft.",
+  "details": [
+    "A rocket engine produces thrust by expelling reaction mass, usually in thundering expanding white clouds from the rocket’s base propulsion nozzle. Most contemporary spacecraft use a mix of several rockets and fuel types. Rockets are the primary constituent of a heavy-lift launch spacecraft."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Radiation Sickness",
+  "slug": "radiation_sickness",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When PCs are exposed to intense radiation, they suffer 3 points of ambient radiation damage for each minute the character fails a difficulty 3 Might defense task. If the character fails three such defense rolls during any single period of radiation exposure, they suffer acute radiation sickness, a level 8 disease that drops them one step on the damage track for each day they fail a Might defense roll until they expire.",
+  "details": [
+    "When PCs are exposed to intense radiation, they suffer 3 points of ambient radiation damage for each minute the character fails a difficulty 3 Might defense task. If the character fails three such defense rolls during any single period of radiation exposure, they suffer acute radiation sickness, a level 8 disease that drops them one step on the damage track for each day they fail a Might defense roll until they expire."
+  ]
+}

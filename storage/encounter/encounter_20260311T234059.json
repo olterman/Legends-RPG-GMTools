@@ -1,0 +1,30 @@
+{
+  "saved_at": "2026-03-11T23:40:59.458119+00:00",
+  "filename": "encounter/encounter_20260311T234059.json",
+  "payload": {
+    "environment": "fenmir_highlands",
+    "seed": "enc-name-test"
+  },
+  "result": {
+    "type": "encounter",
+    "name": "A Clan Messenger Who Arrived Too",
+    "sections": {
+      "environment": "Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.",
+      "first_notice": "one herd has returned without its keepers",
+      "subject": "a clan messenger who arrived too late",
+      "truth": "an old oath between kin groups has finally broken",
+      "complication": "the wind omens are contradictory and everyone sees what they want",
+      "hook": "travel to a sacred height and learn what changed there",
+      "style": "painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art"
+    },
+    "text": "Encounter seed.\n\nEnvironment:\nWind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.\n\nWhat the party first notices:\none herd has returned without its keepers.\n\nWho or what is involved:\na clan messenger who arrived too late.\n\nWhat is actually happening:\nan old oath between kin groups has finally broken.\n\nComplication:\nthe wind omens are contradictory and everyone sees what they want.\n\nGM Hook:\ntravel to a sacred height and learn what changed there.\n\nSTYLE:\npainted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.\n",
+    "metadata": {
+      "environment": "fenmir_highlands",
+      "first_impression": "one herd has returned without its keepers",
+      "subject": "a clan messenger who arrived too late",
+      "truth": "an old oath between kin groups has finally broken",
+      "complication": "the wind omens are contradictory and everyone sees what they want",
+      "hook": "travel to a sacred height and learn what changed there"
+    }
+  }
+}

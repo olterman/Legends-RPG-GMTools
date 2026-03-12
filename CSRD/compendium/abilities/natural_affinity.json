@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Natural Affinity",
+  "slug": "natural_affinity",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You gain one of the following abilities: Communication, Eyes Adjusted, or Minor Illusion.",
+  "details": [
+    "You gain one of the following abilities: Communication, Eyes Adjusted, or Minor Illusion."
+  ]
+}

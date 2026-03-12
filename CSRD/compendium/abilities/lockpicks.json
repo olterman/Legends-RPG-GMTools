@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Lockpicks",
+  "slug": "lockpicks",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Also known as thieves’ tools, this set provides everything a skilled person needs to pick locks and disarm traps.",
+  "details": [
+    "Also known as thieves’ tools, this set provides everything a skilled person needs to pick locks and disarm traps."
+  ]
+}

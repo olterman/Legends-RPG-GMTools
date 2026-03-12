@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Remote Viewer",
+  "slug": "remote_viewer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "For one hour per cypher level, the user can see everything going on in the vicinity of the cypher, regardless of the distance between them.",
+  "depletion": null
+}

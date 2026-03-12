@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Something in the Road",
+  "slug": "something_in_the_road",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "When you use a vehicle as a weapon, you inflict 5 additional points of damage. Enabler.",
+  "details": [
+    "When you use a vehicle as a weapon, you inflict 5 additional points of damage. Enabler."
+  ]
+}

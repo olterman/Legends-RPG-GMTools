@@ -1,0 +1,33 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pleasant Social Interactions",
+  "slug": "pleasant_social_interactions",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:appealing",
+        "line": "Skill: You are trained in pleasant social interactions."
+      },
+      {
+        "from": "descriptor:clumsy",
+        "line": "Inelegant: You have a certain lovable charm. You are trained in all pleasant social interactions when you express a lighthearted, self-deprecating manner."
+      },
+      {
+        "from": "descriptor:honorable",
+        "line": "Skill: You are trained in pleasant social interactions."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You are trained in pleasant social interactions."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

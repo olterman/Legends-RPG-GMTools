@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Damaging Objects with the Goal of Breaking, Piercing, or Demolishing Them",
+  "slug": "damaging_objects_with_the_goal_of_breaking_piercing_or_demolishing_them",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:breaker",
+        "line": "You are trained in tasks related to damaging objects with the goal of breaking, piercing, or demolishing them. It is a Might action to damage an object, and on a success, the object moves one step down the object damage track. If the Might roll exceeds the difficulty by two steps, the object instead moves two steps down the object damage track. If the Might roll exceeds the difficulty by four steps, the object moves three steps down the object damage track and is immediately destroyed. Brittle material reduces the effective level of the object, while hard material like wood or stone adds 1 to the effective level or 2 for very hard objects like those made of metal. Enabler."
+      },
+      {
+        "from": "ability:breaker",
+        "line": "You are trained in tasks related to damaging objects with the goal of breaking, piercing, or demolishing them. It is a Might action to damage an object, and on a success, the object moves one step down the object damage track. If the Might roll exceeds the difficulty by two steps, the object instead moves two steps down the object damage track. If the Might roll exceeds the difficulty by four steps, the object moves three steps down the object damage track and is immediately destroyed. Brittle material reduces the effective level of the object, while hard material like wood or stone adds 1 to the effective level or 2 for very hard objects like those made of metal. Enabler. Brute Strike (4 Might points): You deal 4 additional points of damage with all melee attacks until the end of the next round. Enabler. Buddy System (3 Intellect points): Choose one character standing next to you. That character becomes your buddy for ten minutes. You are trained in all tasks involving finding, healing, interacting with, and protecting your buddy. Also, while you stand next to your buddy, both of you have an asset on Speed defense tasks. You can have only one buddy at a time. Action to initiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

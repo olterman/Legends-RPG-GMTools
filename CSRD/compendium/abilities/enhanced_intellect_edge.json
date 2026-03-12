@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enhanced Intellect Edge",
+  "slug": "enhanced_intellect_edge",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You gain +1 to your Intellect Edge. Enabler.",
+  "details": [
+    "You gain +1 to your Intellect Edge. Enabler."
+  ]
+}

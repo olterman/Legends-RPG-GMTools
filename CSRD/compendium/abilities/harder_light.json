@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Harder Light",
+  "slug": "harder_light",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "When you create an object out of hard light, the object is one level higher than normal. Enabler.",
+  "details": [
+    "When you create an object out of hard light, the object is one level higher than normal. Enabler."
+  ]
+}

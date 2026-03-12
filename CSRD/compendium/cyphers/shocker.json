@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Shocker",
+  "slug": "shocker",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": null,
+  "effect": "Delivers a powerful burst of electricity that shocks any creature touched, inflicting damage equal to the cypher’s level.",
+  "depletion": null
+}

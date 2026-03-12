@@ -1,0 +1,27 @@
+{
+  "saved_at": "2026-03-11T21:12:57.926011+00:00",
+  "filename": "cypher/cypher_20260311T211257.json",
+  "payload": {
+    "environment": "fenmir_wilds"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "The Ember Mirror",
+    "level": 7,
+    "sections": {
+      "name": "The Ember Mirror",
+      "level": "7",
+      "manifestation": "unstable crystal shard",
+      "appearance": "faintly warped by unstable magic",
+      "effect": "unleashes a chaotic burst of energy",
+      "limitation": "attracts unwanted magical attention",
+      "quirk": "vibrates when near ruins",
+      "style": "painted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration"
+    },
+    "text": "Cypher.\n\nName:\nThe Ember Mirror.\n\nLevel:\n7\n\nManifestation:\nunstable crystal shard.\n\nAppearance:\nfaintly warped by unstable magic.\n\nEffect:\nunleashes a chaotic burst of energy.\n\nLimitation / Depletion:\nattracts unwanted magical attention.\n\nQuirk:\nvibrates when near ruins.\n\nSTYLE:\npainted british comic object illustration, gritty graphic novel relic art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, strong material rendering, ancient strange object design, dark fantasy cypher illustration.\n",
+    "metadata": {
+      "environment": "fenmir_wilds",
+      "level": 7
+    }
+  }
+}

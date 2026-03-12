@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Initiative, Seeing Underlying Patterns, and Solving Puzzles",
+  "slug": "initiative_seeing_underlying_patterns_and_solving_puzzles",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:quicker_than_most",
+        "line": "Experience has honed your reaction times, because those who act first gain the advantage in most situations. You’re trained in tasks related to initiative, seeing underlying patterns, and solving puzzles. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

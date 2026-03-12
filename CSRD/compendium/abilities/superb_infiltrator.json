@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Superb Infiltrator",
+  "slug": "superb_infiltrator",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are trained in lockpicking and tinkering with devices in an effort to make them work, or at least work for you. Enabler. Superior Duplicate (2 Might points): When you use your Duplicate ability, you can create a superior duplicate instead of a normal duplicate. A superior duplicate is a level 3 NPC with 15 health. Enabler. Surging Confidence (1 Might point): When you use an action to make your first recovery roll of the day, you immediately gain another action. Enabler.",
+  "details": [
+    "You are trained in lockpicking and tinkering with devices in an effort to make them work, or at least work for you. Enabler.",
+    "Superior Duplicate (2 Might points): When you use your Duplicate ability, you can create a superior duplicate instead of a normal duplicate. A superior duplicate is a level 3 NPC with 15 health. Enabler.",
+    "Surging Confidence (1 Might point): When you use an action to make your first recovery roll of the day, you immediately gain another action. Enabler."
+  ]
+}

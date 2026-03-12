@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Slingshot Trajectory",
+  "slug": "slingshot_trajectory",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "An unexpected encounter with a gravity well can sling a spacecraft off on a new and unwanted trajectory on a failed piloting task, the difficulty determined by the situation.",
+  "details": [
+    "An unexpected encounter with a gravity well can sling a spacecraft off on a new and unwanted trajectory on a failed piloting task, the difficulty determined by the situation."
+  ]
+}

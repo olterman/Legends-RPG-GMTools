@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Motive",
+  "slug": "motive",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Hungers for flesh",
+  "details": [
+    "Hungers for flesh"
+  ]
+}

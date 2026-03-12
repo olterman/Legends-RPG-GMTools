@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Past the Event Horizon",
+  "slug": "past_the_event_horizon",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The event horizon is the point of no return, where not even light can escape the clutch of gravity. If a spacecraft falls into a black hole, assuming it is not spaghettified by tidal forces, it is still lost from the universe of its origin. At least, it’s lost assuming no intervention from a fantastic tech-rated post-singularity AI or ancient ultra.",
+  "details": [
+    "The event horizon is the point of no return, where not even light can escape the clutch of gravity. If a spacecraft falls into a black hole, assuming it is not spaghettified by tidal forces, it is still lost from the universe of its origin. At least, it’s lost assuming no intervention from a fantastic tech-rated post-singularity AI or ancient ultra."
+  ]
+}

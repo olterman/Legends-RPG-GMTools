@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Social Interaction, Pleasant or Otherwise",
+  "slug": "social_interaction_pleasant_or_otherwise",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:empathic",
+        "line": "Skill: You’re trained in all tasks involving social interaction, pleasant or otherwise."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

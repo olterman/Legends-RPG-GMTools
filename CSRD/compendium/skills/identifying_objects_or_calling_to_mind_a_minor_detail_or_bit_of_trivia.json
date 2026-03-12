@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Identifying Objects or Calling to Mind a Minor Detail or Bit of Trivia",
+  "slug": "identifying_objects_or_calling_to_mind_a_minor_detail_or_bit_of_trivia",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:perceptive",
+        "line": "Skill: You know a little about everything. You are trained in any task that involves identifying objects or calling to mind a minor detail or bit of trivia."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

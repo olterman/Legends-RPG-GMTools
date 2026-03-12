@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Repair and Maintenance of a Starcraft",
+  "slug": "repair_and_maintenance_of_a_starcraft",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:passing_mechanic",
+        "line": "You are trained in tasks related to the repair and maintenance of a starcraft. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

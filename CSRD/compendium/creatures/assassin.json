@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Assassin",
+  "slug": "assassin",
+  "level": 6,
+  "target_number": 18,
+  "description": "An assassin kills with poison, with high-velocity bullets from a distance, or by arranging for an unfortunate accident. Assassins accept contracts from governments, corporations, crime bosses, and aggrieved former partners, though some assassins pay themselves by tracking criminals anywhere to collect on “dead or alive” bounties.",
+  "motive": "Murder (usually for hire)",
+  "environment": null,
+  "health": "18",
+  "damage_inflicted": "6 points",
+  "armor": "1",
+  "movement": "Short",
+  "modifications": "Stealth and deception tasks as level 8; when attacking from hiding, melee and ranged attacks as level 7",
+  "combat": "An assortment of small weapons are hidden about an assassin’s body. They can also coat their weapons or ammo with a level 6 poison that moves victims who fail a Might defense roll one step down the damage track.",
+  "interaction": "Some assassins have a sort of integrity about their work and can’t be dissuaded from completing their contracts with bribes.",
+  "use": "An assassin is greatly feared by anyone with powerful, wealthy enemies.",
+  "loot": "Aside from their weapons and poisons, most assassins have currency equivalent to a very expensive item and maybe one or two cyphers.",
+  "gm_intrusion": "The character loses their next turn, stunned, after recognizing the assassin to be the same murderer who killed someone important to them in the past."
+}

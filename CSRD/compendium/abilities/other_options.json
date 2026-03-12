@@ -1,0 +1,16 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Other Options",
+  "slug": "other_options",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Players can also spend 4 XP to purchase other special options. Selecting one of these options counts as purchasing one of the four stages necessary to advance to the next tier. The other three need to be from the other categories. The special options are as follows: Reduce the cost for wearing armor. This option lowers the Speed penalty for wearing armor by 1. Add 2 to your recovery rolls. Select another focus ability available to you at tier 3. (You must be tier 3 or higher to do this. Characters advancing beyond tier 6 can use this option to select their other tier 6 focus ability.) Select another character ability from your type, such as a tier 2 Warrior selecting Reload or Crushing Blow.",
+  "details": [
+    "Players can also spend 4 XP to purchase other special options. Selecting one of these options counts as purchasing one of the four stages necessary to advance to the next tier. The other three need to be from the other categories. The special options are as follows:",
+    "Reduce the cost for wearing armor. This option lowers the Speed penalty for wearing armor by 1.",
+    "Add 2 to your recovery rolls.",
+    "Select another focus ability available to you at tier 3. (You must be tier 3 or higher to do this. Characters advancing beyond tier 6 can use this option to select their other tier 6 focus ability.)",
+    "Select another character ability from your type, such as a tier 2 Warrior selecting Reload or Crushing Blow."
+  ]
+}

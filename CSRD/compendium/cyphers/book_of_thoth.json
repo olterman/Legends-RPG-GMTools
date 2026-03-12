@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Book Of Thoth",
+  "slug": "book_of_thoth",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": "Bundle of Ancient Egyptian scrolls",
+  "effect": "This Egyptian funerary text is thought to have been authored by Thoth himself, the wisest of the Egyptian gods. It usually contains several spells, but its greatest power is a ritual that can revive a mummy (whether an inert mummy or an animate undead one) as a living immortal human being. The ritual requires an intact mummy, its canopic jars (or suitable replacements), and a human sacrifice whose level is equal to the target mummy’s level. The ritual takes one hour to perform and costs Might, Speed, and Intellect points equal to the target mummy’s level.",
+  "depletion": "—"
+}

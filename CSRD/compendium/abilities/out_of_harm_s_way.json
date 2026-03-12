@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Out of Harm’s Way",
+  "slug": "out_of_harm_s_way",
+  "cost": null,
+  "alpha_section": "O",
+  "effect": "No matter how careful, an investigator sometimes ends up in a scrap. Knowing how to survive is more than half the battle. You are trained in Speed defense tasks. Enabler.",
+  "details": [
+    "No matter how careful, an investigator sometimes ends up in a scrap. Knowing how to survive is more than half the battle. You are trained in Speed defense tasks. Enabler."
+  ]
+}

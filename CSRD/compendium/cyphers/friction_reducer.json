@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Friction Reducer",
+  "slug": "friction_reducer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Spread across an area up to 10 feet (3 m) square, this makes things extremely slippery. For one hour per cypher level, movement tasks in the area are hindered by three steps.",
+  "depletion": null
+}

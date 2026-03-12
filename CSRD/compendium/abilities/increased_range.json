@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Increased Range",
+  "slug": "increased_range",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Increases the range of one ability or attack. A touch-range ability (such as Shock) increases to short range, a short-range ability increases to long range, and a long-range ability increases to very long range.",
+  "details": [
+    "Increases the range of one ability or attack. A touch-range ability (such as Shock) increases to short range, a short-range ability increases to long range, and a long-range ability increases to very long range."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Post-singularity AI",
+  "slug": "post_singularity_ai",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": ": level 10; see godmind",
+  "details": [
+    ": level 10; see godmind"
+  ]
+}

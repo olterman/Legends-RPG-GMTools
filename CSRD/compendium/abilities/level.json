@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Level",
+  "slug": "level",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "1d6 + 1",
+  "details": [
+    "1d6 + 1"
+  ]
+}

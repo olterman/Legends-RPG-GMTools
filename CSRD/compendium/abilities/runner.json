@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Runner",
+  "slug": "runner",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "Your standard movement increases from short to long. Enabler.",
+  "details": [
+    "Your standard movement increases from short to long. Enabler."
+  ]
+}

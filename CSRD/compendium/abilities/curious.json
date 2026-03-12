@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Curious",
+  "slug": "curious",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You’re always curious about your surroundings, even on a subconscious level. Whenever you use Effort to attempt navigation, perception, or initiative tasks in an area that you’ve only rarely or never visited before, you can apply an additional free level of Effort. Enabler. Cutting Light (2 Intellect points): You emit a thin beam of energized light from your hand. This inflicts 5 points of damage to a single foe in immediate range. The beam is even more effective against immobile, nonliving targets, slicing up to 1 foot (30 cm) of any material that is level 6 or lower. The material can be up to 1 foot thick. Action.",
+  "details": [
+    "You’re always curious about your surroundings, even on a subconscious level. Whenever you use Effort to attempt navigation, perception, or initiative tasks in an area that you’ve only rarely or never visited before, you can apply an additional free level of Effort. Enabler.",
+    "Cutting Light (2 Intellect points): You emit a thin beam of energized light from your hand. This inflicts 5 points of damage to a single foe in immediate range. The beam is even more effective against immobile, nonliving targets, slicing up to 1 foot (30 cm) of any material that is level 6 or lower. The material can be up to 1 foot thick. Action."
+  ]
+}

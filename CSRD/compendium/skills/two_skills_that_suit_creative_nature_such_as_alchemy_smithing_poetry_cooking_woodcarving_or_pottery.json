@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Two Skills That Suit Creative Nature, Such as Alchemy, Smithing, Poetry, Cooking, Woodcarving, or Pottery",
+  "slug": "two_skills_that_suit_creative_nature_such_as_alchemy_smithing_poetry_cooking_woodcarving_or_pottery",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:skill",
+        "line": "You are trained in two skills that suit your creative nature, such as alchemy, smithing, poetry, cooking, woodcarving, or pottery."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

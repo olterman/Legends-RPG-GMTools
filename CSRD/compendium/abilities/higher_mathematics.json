@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Higher Mathematics",
+  "slug": "higher_mathematics",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "You are trained in standard and higher mathematics. Enabler.",
+  "details": [
+    "You are trained in standard and higher mathematics. Enabler."
+  ]
+}

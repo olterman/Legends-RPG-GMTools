@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Physical",
+  "slug": "physical",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:calm",
+        "line": "Inability: You’re just not a fighter. All physical attacks are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

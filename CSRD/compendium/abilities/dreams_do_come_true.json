@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dreams Do Come True",
+  "slug": "dreams_do_come_true",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Something you wished for long ago comes true just at this moment. It might be for a broken weapon to be fixed, an ally to appear, or a bit of knowledge or understanding to arrive in your mind.",
+  "details": [
+    "Something you wished for long ago comes true just at this moment. It might be for a broken weapon to be fixed, an ally to appear, or a bit of knowledge or understanding to arrive in your mind."
+  ]
+}

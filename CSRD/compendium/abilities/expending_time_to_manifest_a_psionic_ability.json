@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expending Time to Manifest a Psionic Ability",
+  "slug": "expending_time_to_manifest_a_psionic_ability",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If the character takes at least ten minutes meditating, concentrating deeply, or otherwise using all their actions, they can manifest a low-tier psionic ability (if they also pay any Pool costs). An hour is required to manifest mid-tier abilities. Ten hours are required to manifest a high-tier ability.",
+  "details": [
+    "If the character takes at least ten minutes meditating, concentrating deeply, or otherwise using all their actions, they can manifest a low-tier psionic ability (if they also pay any Pool costs). An hour is required to manifest mid-tier abilities. Ten hours are required to manifest a high-tier ability."
+  ]
+}

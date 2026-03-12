@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Low-gravity Maneuvering Ignore the Damage Penalty",
+  "slug": "low_gravity_maneuvering_ignore_the_damage_penalty",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:low_gravity",
+        "line": "Weapons that rely on weight, such as all heavy weapons, inflict 2 fewer points of damage (dealing a minimum of 1 point). Short-range weapons can reach to long range, and long-range weapons can reach to very long range. Characters trained in low-gravity maneuvering ignore the damage penalty."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

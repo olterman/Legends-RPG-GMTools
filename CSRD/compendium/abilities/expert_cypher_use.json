@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expert Cypher Use",
+  "slug": "expert_cypher_use",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You can bear three cyphers at a time. Enabler.",
+  "details": [
+    "You can bear three cyphers at a time. Enabler."
+  ]
+}

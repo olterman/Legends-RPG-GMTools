@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Everything Is a Weapon",
+  "slug": "everything_is_a_weapon",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You can take any small object—a coin, a pen, a bottle, a stone, and so on—and throw it with such force and precision that it inflicts damage as a light weapon. Enabler. Exile (5 Intellect points): You send a target that you touch hurtling into another random dimension or universe, where it remains for ten minutes. You have no idea what happens to the target while it’s gone, but at the end of ten minutes, it returns to the precise spot it left. Action.",
+  "details": [
+    "You can take any small object—a coin, a pen, a bottle, a stone, and so on—and throw it with such force and precision that it inflicts damage as a light weapon. Enabler.",
+    "Exile (5 Intellect points): You send a target that you touch hurtling into another random dimension or universe, where it remains for ten minutes. You have no idea what happens to the target while it’s gone, but at the end of ten minutes, it returns to the precise spot it left. Action."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flail",
+  "slug": "flail",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A handle with a chain on one end and a ball or spiked ball at the end of the chain.",
+  "details": [
+    "A handle with a chain on one end and a ball or spiked ball at the end of the chain."
+  ]
+}

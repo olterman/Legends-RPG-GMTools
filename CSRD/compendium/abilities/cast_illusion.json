@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Cast Illusion",
+  "slug": "cast_illusion",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You can increase the range at which you create and maintain your immediate-range illusions (such as from Minor Illusion) to anywhere within short range that you can perceive. Enabler. Castigate (4 Intellect points): You intimidate any opponent within long range who understands speech (even if it is not your language) so much that they lose their next action and all the rest of their actions are hindered for one minute. Each additional time you attempt this ability against the same target, you must apply one more level of Effort than you applied on the previous attempt. Action.",
+  "details": [
+    "You can increase the range at which you create and maintain your immediate-range illusions (such as from Minor Illusion) to anywhere within short range that you can perceive. Enabler.",
+    "Castigate (4 Intellect points): You intimidate any opponent within long range who understands speech (even if it is not your language) so much that they lose their next action and all the rest of their actions are hindered for one minute. Each additional time you attempt this ability against the same target, you must apply one more level of Effort than you applied on the previous attempt. Action."
+  ]
+}

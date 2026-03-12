@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "An Attack, Select Skill with Attacks to Become Trained in That Attack",
+  "slug": "an_attack_select_skill_with_attacks_to_become_trained_in_that_attack",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:mastery_with_attacks",
+        "line": "Choose one type of attack in which you are trained: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. You are specialized in attacks using that type of weapon. Enabler. (If you aren’t trained in an attack, select Skill With Attacks to become trained in that attack.)"
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

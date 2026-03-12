@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pleasant Social Interactions with Adults",
+  "slug": "pleasant_social_interactions_with_adults",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:vulnerable",
+        "line": "Adults look out for you. You are trained in all pleasant social interactions with adults."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

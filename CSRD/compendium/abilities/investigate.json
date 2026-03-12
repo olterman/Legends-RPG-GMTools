@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Investigate",
+  "slug": "investigate",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "You are trained in perception, cryptography, deceiving, and breaking into computers. Enabler.",
+  "details": [
+    "You are trained in perception, cryptography, deceiving, and breaking into computers. Enabler."
+  ]
+}

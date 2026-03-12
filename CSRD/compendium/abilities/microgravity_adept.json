@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Microgravity Adept",
+  "slug": "microgravity_adept",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You ignore all the ill effects of low gravity and no gravity on movement; you are trained in low-gravity maneuvers and zero-gravity maneuvers. (You might still be subject to negative biological effects of long-term exposure, if any.) Enabler.",
+  "details": [
+    "You ignore all the ill effects of low gravity and no gravity on movement; you are trained in low-gravity maneuvers and zero-gravity maneuvers. (You might still be subject to negative biological effects of long-term exposure, if any.) Enabler."
+  ]
+}

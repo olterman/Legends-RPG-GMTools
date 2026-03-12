@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Blindness",
+  "slug": "blindness",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison blinds the creature if they fail a defense roll. Typical durations are one minute, ten minutes, and one hour.",
+  "details": [
+    "The poison blinds the creature if they fail a defense roll. Typical durations are one minute, ten minutes, and one hour."
+  ]
+}

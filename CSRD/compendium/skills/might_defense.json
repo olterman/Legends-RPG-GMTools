@@ -1,0 +1,69 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Might Defense",
+  "slug": "might_defense",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:hardy",
+        "line": "Skill: You are trained in Might defense actions."
+      },
+      {
+        "from": "descriptor:resilient",
+        "line": "Skill: You are trained in Might defense tasks."
+      },
+      {
+        "from": "descriptor:tough",
+        "line": "Skill: You’re trained in Might defense actions."
+      },
+      {
+        "from": "character_type:explorer",
+        "line": "Sam still needs a descriptor and a focus. Looking to the Descriptor chapter, they choose Hardy, which increases their Might Pool to 17. They also heal more quickly and can operate better when injured. They’re trained in Might defense but have an inability with initiative; however, it’s effectively canceled out by their Danger Sense (and vice versa). Sam could go back and select something else instead of Danger Sense, but they like it and decide to keep it. Overall, the descriptor ends up making the character tough but a little slow."
+      },
+      {
+        "from": "ability:defensive_augmentation",
+        "line": "By upgrading your nervous and immune systems, you are trained in Might defense and Speed defense tasks. Enabler."
+      },
+      {
+        "from": "ability:defensive_augmentation",
+        "line": "By upgrading your nervous and immune systems, you are trained in Might defense and Speed defense tasks. Enabler. Defensive Blinking (4 Intellect points): You enter a heightened reactive state so that when you are struck hard enough to take damage, you teleport an immediate distance in a random direction (not up or down) to help evade the brunt of the attack. Your Speed defense rolls are eased for one minute. Action."
+      },
+      {
+        "from": "ability:hard_won_resilience",
+        "line": "In your explorations of dark places, you’ve been exposed to all sorts of terrible things and are developing a general resistance. You gain +1 to Armor and are trained in Might defense tasks. Enabler."
+      },
+      {
+        "from": "ability:hardiness",
+        "line": "You are trained in Might defense tasks. Enabler."
+      },
+      {
+        "from": "ability:post_apocalyptic_survivor",
+        "line": "You are trained in stealth and Might defense tasks. Enabler."
+      },
+      {
+        "from": "ability:post_apocalyptic_survivor",
+        "line": "You are trained in stealth and Might defense tasks. Enabler. Power Strike (3+ Might points): If you successfully attack a target, you knock it prone in addition to inflicting damage. The target must be your size or smaller. You can knock down a target larger than you if you apply a level of Effort to do so (rather than to ease the attack). Enabler. Power Crash (3 Intellect points): You strike your enchanted weapon against the ground (or a similar large surface), creating an explosion of energy that affects an area up to immediate range from that point. (If your enchanted weapon is a ranged weapon, you can instead target a point within close range to be the center of the explosion.) The blast inflicts 2 points of damage to all creatures or objects within the area (except for you). Because this is an area attack, adding Effort to increase your damage works differently than it does for single-target attacks. If you apply a level of Effort to increase the damage, add 2 points of damage for each target, and even if you fail your attack roll, all targets in the area still take 1 point of damage. Action."
+      },
+      {
+        "from": "ability:sturdy",
+        "line": "You are trained in Might defense tasks. Enabler."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You are trained in Might defense rolls."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You’re trained in Might defense tasks."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

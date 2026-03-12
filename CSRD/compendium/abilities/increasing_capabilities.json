@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Increasing Capabilities",
+  "slug": "increasing_capabilities",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You gain 4 new points to add to your stat Pools. You can allocate the points among your Pools however you wish.",
+  "details": [
+    "You gain 4 new points to add to your stat Pools. You can allocate the points among your Pools however you wish."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sharp Senses",
+  "slug": "sharp_senses",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are trained in all tasks involving perception. Enabler.",
+  "details": [
+    "You are trained in all tasks involving perception. Enabler."
+  ]
+}

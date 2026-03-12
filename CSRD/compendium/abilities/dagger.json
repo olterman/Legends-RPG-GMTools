@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dagger",
+  "slug": "dagger",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A very short blade for stabbing or slicing.",
+  "details": [
+    "A very short blade for stabbing or slicing."
+  ]
+}

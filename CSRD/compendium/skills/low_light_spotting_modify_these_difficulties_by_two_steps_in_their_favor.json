@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Low-light Spotting Modify These Difficulties by Two Steps in Their Favor",
+  "slug": "low_light_spotting_modify_these_difficulties_by_two_steps_in_their_favor",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [],
+    "expert": [
+      {
+        "from": "ability:very_dim_light",
+        "line": "Very dim light is approximately the amount of light on a starry night with no visible moon, or the glow provided by a candle or an illuminated control panel. Very dim light allows you to see clearly only within immediate range and perceive vague shapes to short range. Targets in very dim light are harder to hit. Attacks against targets within immediate range are hindered, and attacks against those in short range are hindered by two steps. Attackers trained in low-light spotting modify these difficulties by one step in their favor. Attackers specialized in low-light spotting modify these difficulties by two steps in their favor."
+      }
+    ]
+  },
+  "levels": [
+    "expert"
+  ],
+  "summary": "expert"
+}

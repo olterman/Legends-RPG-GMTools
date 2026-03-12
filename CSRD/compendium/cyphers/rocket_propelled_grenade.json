@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rocket-Propelled Grenade",
+  "slug": "rocket_propelled_grenade",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 3",
+  "form": "Tube with sight and trigger",
+  "effect": "The user can make a long-range attack with a rocket-propelled grenade that inflicts 7 points of damage to the target and every creature and object next to the target.",
+  "depletion": "1 in 1d6"
+}

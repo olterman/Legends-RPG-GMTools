@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Businessperson",
+  "slug": "businessperson",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2, business tasks as level 3",
+  "details": [
+    "level 2, business tasks as level 3"
+  ]
+}

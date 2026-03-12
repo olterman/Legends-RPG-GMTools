@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sim AI",
+  "slug": "sim_ai",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level equal to the ship, station, or installation in which it is installed",
+  "details": [
+    "level equal to the ship, station, or installation in which it is installed"
+  ]
+}

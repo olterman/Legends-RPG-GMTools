@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Climbing) Spends Her Turn Helping Him, Scott’s Task is Eased by Two Steps",
+  "slug": "climbing_spends_her_turn_helping_him_scott_s_task_is_eased_by_two_steps",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:helping",
+        "line": "For example, if Scott is trying to climb a steep incline and Sarah (who is trained in climbing) spends her turn helping him, Scott’s task is eased by two steps."
+      },
+      {
+        "from": "ability:helping",
+        "line": "If you use your action to help someone with a task, you ease the task. If you have an inability in a task, your help has no effect. If you use your action to help someone with a task that you are trained or specialized in, the task is eased by two steps. Help is considered an asset, and someone receiving help usually can’t gain more than two assets on a single task if that help is provided by another character. For example, if Scott is trying to climb a steep incline and Sarah (who is trained in climbing) spends her turn helping him, Scott’s task is eased by two steps. Sometimes you can help by performing a task that complements what another person is attempting. If your complementary action succeeds, you ease the other person’s task. For example, if Scott tries to persuade a ship captain to let him on board, Sarah could try to supplement Scott’s words with a flattering lie about the captain (a deception action), a display of knowledge about the region where the ship is headed (a geography action), or a direct threat to the captain (an intimidation action). If Sarah’s roll is a success, Scott’s persuasion task is eased."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

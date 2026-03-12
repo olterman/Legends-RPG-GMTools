@@ -1,0 +1,207 @@
+{
+  "count": 22,
+  "counts_by_category": {
+    "lore": 21,
+    "art": 1
+  },
+  "items": [
+    {
+      "id": "prompt_0001",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "aldamir",
+      "source_title": "Aldamir",
+      "source_path": "logseq/pages/Aldamir.md"
+    },
+    {
+      "id": "prompt_0002",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "caldor",
+      "source_title": "Caldor",
+      "source_path": "logseq/pages/Caldor.md"
+    },
+    {
+      "id": "prompt_0003",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "cirdion",
+      "source_title": "Cirdion",
+      "source_path": "logseq/pages/Cirdion.md"
+    },
+    {
+      "id": "prompt_0004",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "ered_engrin",
+      "source_title": "Ered Engrin",
+      "source_path": "logseq/pages/Ered Engrin.md"
+    },
+    {
+      "id": "prompt_0005",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "fenmir",
+      "source_title": "Fenmir",
+      "source_path": "logseq/pages/Fenmir.md"
+    },
+    {
+      "id": "prompt_0006",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "gods_and_powers",
+      "source_title": "Gods and Powers",
+      "source_path": "logseq/pages/Gods and Powers.md"
+    },
+    {
+      "id": "prompt_0007",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "lom_anor",
+      "source_title": "Lomêanor",
+      "source_path": "logseq/pages/Lomêanor.md"
+    },
+    {
+      "id": "prompt_0008",
+      "title": "PROMPT HEADER — **ALFIRIN**",
+      "category": "lore",
+      "text": "**Race:** Alfirin (Immortal Exiles)\n**Core Truths:**\nImmortal beings who fled a shattered homeworld; entered this world through Gates after a failed negotiation with the Velim, causing lasting damage to reality.\n**Cultural Divisions:**\n**Sky Children:** Open, cultured, meritocratic, trade-oriented\n**Galadhrim:** Forest-bound stewards of nature and wild magic\n**Duathrim / Nightshades:** Secretive, hierarchical manipulators from the shadows\n**Themes to Emphasize:**\nImmortality vs responsibility, denial of guilt, curated history, elegance masking ancient error\n**Tone:**\nAncient, refined, confident—but with buried tension\n**Avoid:**\nPortraying them as purely benevolent or flawless stewards\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0009",
+      "title": "PROMPT HEADER — **VELIM**",
+      "category": "lore",
+      "text": "**Race:** Velim (Gate Wardens)\n**Core Truths:**\nExisted before the Alfirin arrival; custodians of Gates and thresholds; forced into guardianship after the Alfirin passage damaged reality.\n**Nature:**\nTiny, luminous, non-hierarchical; think in balance, strain, and continuity rather than morality.\n**Themes to Emphasize:**\nMaintenance over prophecy, quiet vigilance, restraint, consequence\n**Tone:**\nSoft, ancient, precise, emotionally distant\n**Avoid:**\nMaking them gods, villains, or emotional manipulators\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0010",
+      "title": "PROMPT HEADER — **HUMANS**",
+      "category": "lore",
+      "text": "**Race:** Humans (The Mortal Peoples)\n**Core Truths:**\nAdaptive, short-lived, endlessly diverse; fill the gaps left by elder races’ stagnation.\n**Major Cultures:**\n**Fenmir:** Spiritual, proud highlanders; freebooting coastal city-states\n**Caldorans:** Trade empire, innovation, renaissance ideals\n**Xanthir:** Militant theocracy devoted to the Red God\n**Scattered Tribes:** Survivors in wetlands and sands\n**Themes to Emphasize:**\nAmbition, resilience, contradiction, cultural friction\n**Tone:**\nGrounded, passionate, volatile\n**Avoid:**\nPortraying humans as weak or narratively secondary\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0011",
+      "title": "PROMPT HEADER — **URUK**",
+      "category": "lore",
+      "text": "**Race:** Uruk (The Strong Peoples)\n**Core Truths:**\nArrived suddenly from the east; physically imposing, tribal, often misunderstood.\n**Cultural Divide:**\n**Highland Uruk:** Nomadic herders, poets, philosophers\n**Lowland Uruk:** Militant conquerors, caste-based societies\n**Themes to Emphasize:**\nStrength paired with culture, honor misunderstood, fear shaping reputation\n**Tone:**\nDirect, physical, proud, intense\n**Avoid:**\nReducing them to mindless brutes\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0012",
+      "title": "PROMPT HEADER — **LILIM**",
+      "category": "lore",
+      "text": "**Race:** Lilim (The Wandering Flame)\n**Core Truths:**\nCosmic children of rebellion, innovation, and progress; inherently magical; no homeland or state.\n**Culture:**\nTravelling performers, philosophers, lovers, fighters; bound by shared ritual language (Darb-Naṣr) and inner calling.\n**Themes to Emphasize:**\nMotion, art as survival, freedom, dangerous inspiration\n**Tone:**\nMystical, passionate, poetic, unsettling\n**Avoid:**\nMaking them demonic villains or simple tricksters\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0013",
+      "title": "PROMPT HEADER — **FELLIC**",
+      "category": "lore",
+      "text": "**Race:** Fellic (The Ever-Watching)\n**Core Truths:**\nHave always existed in the wild; observers rather than conquerors; closely tied to Galadhrim and Velim.\n**Aspects:**\n**Cat:** Watchers, wanderers\n**Fox:** Weavers, diplomats\n**Dog:** Guardians, oath-keepers\n**Bear:** Elders, anchors of memory\n**Themes to Emphasize:**\nInstinctive wisdom, balance, memory, restraint\n**Tone:**\nQuiet, mythic, animal-wise\n**Avoid:**\nMaking them cute, comedic, or primitive\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0014",
+      "title": "PROMPT HEADER — **GITZ**",
+      "category": "lore",
+      "text": "**Race:** Gitz (The Small Survivors)\n**Core Truths:**\nHighly intelligent small folk of the wilds; oral histories predate Alfirin settlement; fiercely independent.\n**Themes to Emphasize:**\nAdaptation, cleverness, survival through obscurity\n**Tone:**\nQuick, wary, pragmatic\n**Avoid:**\nAssociating them with Uruk origins or servitude\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0015",
+      "title": "PROMPT HEADER — **VAETTYR**",
+      "category": "lore",
+      "text": "**Race:** Vaettyr (The Quiet Engineers)\n**Core Truths:**\nSubterranean tinkerfolk awakened by the damage caused during the Alfirin passage; maintain ancient stabilizing machines.\n**Themes to Emphasize:**\nRepair over glory, patience, deep time\n**Tone:**\nMethodical, understated, quietly ominous\n**Avoid:**\nComic tinkerer stereotypes\n---",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0016",
+      "title": "PROMPT HEADER — **DUERGAR**",
+      "category": "lore",
+      "text": "**Race:** Duergar (Stonebound Clans)\n**Core Truths:**\nDeep-dwelling, insular forge-clans; austere, tradition-bound, isolationist.\n**Themes to Emphasize:**\nEndurance, grudges, craftsmanship as identity\n**Tone:**\nHeavy, severe, deliberate\n**Avoid:**\nMaking them universally evil or chaotic\n```ccard\ntype: folder_brief_live\n\t  ```",
+      "source_slug": "peoples",
+      "source_title": "Peoples",
+      "source_path": "logseq/pages/Peoples.md"
+    },
+    {
+      "id": "prompt_0017",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "places",
+      "source_title": "Places",
+      "source_path": "logseq/pages/Places.md"
+    },
+    {
+      "id": "prompt_0018",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "the_sands",
+      "source_title": "The Sands",
+      "source_path": "logseq/pages/The Sands.md"
+    },
+    {
+      "id": "prompt_0019",
+      "title": "Prompt",
+      "category": "lore",
+      "text": "Race/context:",
+      "source_slug": "untitled",
+      "source_title": "Untitled",
+      "source_path": "logseq/pages/Untitled.md"
+    },
+    {
+      "id": "prompt_0020",
+      "title": "Code Prompt (block)",
+      "category": "lore",
+      "text": "- ## checksum",
+      "source_slug": "world_seed",
+      "source_title": "World Seed",
+      "source_path": "logseq/pages/World Seed.md"
+    },
+    {
+      "id": "prompt_0021",
+      "title": "## 🧭 **THE DRIFT TEST**",
+      "category": "art",
+      "text": "Run new content through these questions.\nIf you answer “yes” to more than one red flag, the idea is drifting.\n### **Cosmology Drift**\nDoes this introduce a _named, speaking god_ with clear intent?\nDoes it create a singular ultimate villain with personal motivation?\nDoes it turn Daelgast, Ul-Nha’rath, or the Breath into an actor rather than a condition?\n➡️ If yes: **drift toward heroic fantasy or cosmic melodrama**\n---\n### **Moral Drift**\nDoes this make a culture wholly good or wholly evil?\nDoes it offer easy moral clarity or absolute righteousness?\nDoes it resolve conflict through destiny rather than consequence?\n➡️ If yes: **drift toward simplistic alignment**\n---\n### **Aesthetic Drift**\nDoes this rely on spectacle over implication?\nDoes magic become flashy, repeatable, or standardized?\nDoes it resemble familiar fantasy franchises without friction?\n➡️ If yes: **drift toward generic fantasy**\n---\n### **Power Drift**\nCan this power be safely stockpiled, mastered, or scaled without cost?\nDoes it lack exhaustion, backlash, or erosion?\nDoes it replace cultural identity rather than express it?\n➡️ If yes: **drift toward power fantasy**\n---\n### **Narrative Drift**\nDoes this introduce prophecy, chosen ones, or inevitable outcomes?\nDoes it guarantee victory, salvation, or restoration?\nDoes it eliminate uncertainty or ambiguity?\n➡️ If yes: **drift toward myth closure**\n---\n## 🧪 **GREEN FLAGS (You’re Doing It Right If…)**\nPower requires presence, cost, or loss\nCultures misunderstand the truth differently\nHorror exists without intent\nHope exists without promise\nNothing important resolves cleanly\n---\n## 🔐 **Final Litmus Line**\nAsk this single question:\n> _Does this add pressure, or does it add answers?_\nIf it adds answers, it’s drifting.\nIf it adds pressure, it belongs.\n# PROMPT HEADER — _Lands of Legends_\n**Setting:** Lands of Legends — a mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths.\n**Tone & Style:**\nEpic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity; cultures feel old, layered, and internally consistent.\n## Core World Truths (Do Not Contradict)\nThe **Alfirin** are immortal exiles who entered this world through Gates after a failed negotiation with the **Velim**, damaging reality.\nThe **Velim** are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong.\nHistory is fragmented; myths contradict; no single culture is fully correct.\n## Races (Quick Context)\n**Alfirin:** Immortal; Sky Children (open, cultured), Galadhrim (forest stewards), Duathrim/Nightshades (shadow manipulators).\n**Humans:** Fenmir (highlanders & free cities), Caldorans (trade empire), Xanthir (militant theocracy), scattered tribes in wetlands & sands.\n**Uruk:** Powerful nomadic warriors; Highland Uruk (philosophers, herders), Lowland Uruk (militant conquerors).\n**Lilim:** Wandering cosmic artists and rebels; ritual language (Darb-Naṣr); no homeland or state.\n**Fellic:** Ancient beast-aspected observers of the wild; Cat, Fox, Dog, Bear aspects.\n**Gitz:** Small, clever forest folk with pre-Alfirin oral histories.\n**Vaettyr:** Subterranean tinkerfolk maintaining ancient stabilizing machines.\n**Duergar:** Deep-dwelling, insular forge-clans of stone and shadow.\n---\n## Cultural Themes to Emphasize\nAncient wounds still shaping the present\nSurvival over destiny\nBalance vs permanence\nQuiet guardianship vs visible power\nMyth over absolute truth\n## Prompt Focus\n_(Choose one per prompt)_\nCity\nNation\nFaction\nLandmark\nCulture\nMyth\nNPC\nArtifact\n## Output Guidelines\nAvoid modern language\nNo absolute “good vs evil” framing\nUse sensory detail and cultural texture\nAllow contradictions and unanswered questions\nKeep scale appropriate (local for cities, broad for nations)\n### BEGIN PROMPT:\n_(Insert your specific request here)_",
+      "source_slug": "world_seed",
+      "source_title": "World Seed",
+      "source_path": "logseq/pages/World Seed.md"
+    },
+    {
+      "id": "prompt_0022",
+      "title": "Code Prompt (ccard)",
+      "category": "lore",
+      "text": "type: folder_brief_live",
+      "source_slug": "xanthir",
+      "source_title": "Xanthir",
+      "source_path": "logseq/pages/Xanthir.md"
+    }
+  ]
+}

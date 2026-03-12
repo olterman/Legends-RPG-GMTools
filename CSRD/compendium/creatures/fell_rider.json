@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fell Rider",
+  "slug": "fell_rider",
+  "level": 3,
+  "target_number": 9,
+  "description": "Motorcycle riding raiders keep their “motor wheels” alive through constant tinkering and repair. The two wheeled machines are modified with spears, spikes, lances, and sometimes guns and flamethrowers. Fell riders wear heavy protective garments made from fur, salvaged clothing, and leather from past targets. Goggles protect their eyes, and bones are sewn through their wild, greasy hair as decoration.",
+  "motive": null,
+  "environment": null,
+  "health": "12",
+  "damage_inflicted": "4 points",
+  "armor": "1",
+  "movement": "Short; long while riding motorcycle",
+  "modifications": "Motorcycle repair and modification as level 5; stealth tasks as level 0 due to screaming engines",
+  "combat": "Using pikes, spears, or lances welded to the front of their bike, a fell rider typically makes ride‑by attacks against foes from just outside short range. A fell rider is one with their bike, always moving to engage and disengage. If knocked from their bike (possibly a minor effect), a fell rider’s attacks and Speed defenses are hindered until they regain the seat as their action. Some riders use larger four‑wheeled vehicles with open canopies instead of motorcycles. These fell riders have 2 Armor and can attempt a run‑down attack on up to three targets that are next to each other and not in a vehicle, inflicting 8 points of damage. Struck targets that fail a Might defense roll descend one step on the damage track.",
+  "interaction": null,
+  "use": null,
+  "loot": "A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel.",
+  "gm_intrusion": null
+}

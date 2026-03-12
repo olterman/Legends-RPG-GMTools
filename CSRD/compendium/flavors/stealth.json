@@ -1,0 +1,91 @@
+{
+  "type": "flavor",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Stealth Flavor",
+  "slug": "stealth",
+  "summary": "Characters with the stealth flavor are good at sneaking around, infiltrating places they don’t belong, and deceiving others. They use these abilities in a variety of ways, including combat. An Explorer with stealth flavor might be a thief, while a Warrior with stealth flavor might be an assassin. An Explorer with stealth flavor in a superhero setting might be a crimefighter who stalks the streets at night.",
+  "tier_abilities": {
+    "tier_1": [
+      "Danger Sense",
+      "Goad",
+      "Legerdemain",
+      "Opportunist",
+      "Stealth Skills"
+    ],
+    "tier_2": [
+      "Contortionist",
+      "Find an Opening",
+      "Get Away",
+      "Sense Ambush",
+      "Surprise Attack"
+    ],
+    "tier_3": [
+      "Evanesce",
+      "From the Shadows",
+      "Gambler",
+      "Inner Defense",
+      "Misdirect",
+      "Run and Fight",
+      "Seize the Moment"
+    ],
+    "tier_4": [
+      "Ambusher",
+      "Debilitating Strike",
+      "Outwit",
+      "Preternatural Senses",
+      "Tumbling Moves"
+    ],
+    "tier_5": [
+      "Assassin Strike",
+      "Mask",
+      "Return to Sender",
+      "Uncanny Luck"
+    ],
+    "tier_6": [
+      "Exploit Advantage",
+      "Spring Away",
+      "Thief’s Luck",
+      "Twist of Fate"
+    ]
+  },
+  "text": "Characters with the stealth flavor are good at sneaking around, infiltrating places they don’t belong, and deceiving others. They use these abilities in a variety of ways, including combat. An Explorer with stealth flavor might be a thief, while a Warrior with stealth flavor might be an assassin. An Explorer with stealth flavor in a superhero setting might be a crimefighter who stalks the streets at night. FIRST-TIER STEALTH ABILITIES Danger Sense Goad Legerdemain Opportunist Stealth Skills SECOND-TIER STEALTH ABILITIES Contortionist Find an Opening Get Away Sense Ambush Surprise Attack THIRD-TIER STEALTH ABILITIES Evanesce From the Shadows Gambler Inner Defense Misdirect Run and Fight Seize the Moment FOURTH-TIER STEALTH ABILITIES Ambusher Debilitating Strike Outwit Preternatural Senses Tumbling Moves FIFTH-TIER STEALTH ABILITIES Assassin Strike Mask Return to Sender Uncanny Luck SIXTH-TIER STEALTH ABILITIES Exploit Advantage Spring Away Thief’s Luck Twist of Fate",
+  "details": [
+    "Characters with the stealth flavor are good at sneaking around, infiltrating places they don’t belong, and deceiving others. They use these abilities in a variety of ways, including combat. An Explorer with stealth flavor might be a thief, while a Warrior with stealth flavor might be an assassin. An Explorer with stealth flavor in a superhero setting might be a crimefighter who stalks the streets at night.",
+    "FIRST-TIER STEALTH ABILITIES",
+    "Danger Sense",
+    "Goad",
+    "Legerdemain",
+    "Opportunist",
+    "Stealth Skills",
+    "SECOND-TIER STEALTH ABILITIES",
+    "Contortionist",
+    "Find an Opening",
+    "Get Away",
+    "Sense Ambush",
+    "Surprise Attack",
+    "THIRD-TIER STEALTH ABILITIES",
+    "Evanesce",
+    "From the Shadows",
+    "Gambler",
+    "Inner Defense",
+    "Misdirect",
+    "Run and Fight",
+    "Seize the Moment",
+    "FOURTH-TIER STEALTH ABILITIES",
+    "Ambusher",
+    "Debilitating Strike",
+    "Outwit",
+    "Preternatural Senses",
+    "Tumbling Moves",
+    "FIFTH-TIER STEALTH ABILITIES",
+    "Assassin Strike",
+    "Mask",
+    "Return to Sender",
+    "Uncanny Luck",
+    "SIXTH-TIER STEALTH ABILITIES",
+    "Exploit Advantage",
+    "Spring Away",
+    "Thief’s Luck",
+    "Twist of Fate"
+  ]
+}

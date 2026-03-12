@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spear",
+  "slug": "spear",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A one-handed pole about 3 to 5 feet (1 to 1.5 m) long with a stabbing blade on the end. Throwing dart: A very short, light spear meant to be thrown rather than used in melee.",
+  "details": [
+    "A one-handed pole about 3 to 5 feet (1 to 1.5 m) long with a stabbing blade on the end.",
+    "Throwing dart: A very short, light spear meant to be thrown rather than used in melee."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rages",
+  "slug": "rages",
+  "summary": "When you go berserk, everyone fears you.",
+  "tiers": [
+    "Tier 1: Frenzy",
+    "Tier 2: Greater Enhanced Might",
+    "Tier 2: Movement Skills",
+    "Tier 3: Power Strike or Unarmored Fighter",
+    "Tier 4: Greater Frenzy",
+    "Tier 5: Attack and Attack Again",
+    "Tier 6: Greater Enhanced Potential or Lethal Damage"
+  ],
+  "gm_intrusions": "It’s easy for a berserker to lose control and attack friend as well as foe.",
+  "text": "When you go berserk, everyone fears you.",
+  "details": [
+    "When you go berserk, everyone fears you."
+  ]
+}

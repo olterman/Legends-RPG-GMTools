@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Tower of Intellect",
+  "slug": "tower_of_intellect",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "You are trained in Intellect defense tasks. If you are already trained, you are specialized in those tasks instead. Enabler.",
+  "details": [
+    "You are trained in Intellect defense tasks. If you are already trained, you are specialized in those tasks instead. Enabler."
+  ]
+}

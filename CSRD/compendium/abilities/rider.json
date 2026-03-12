@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rider",
+  "slug": "rider",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "You are trained in riding any kind of creature that serves as a mount, such as a noble warhorse. Enabler. Roaming Third Eye (3 Intellect points): When you use your Third Eye ability, you can place the sensor anywhere within long range. In addition, until that ability ends, you can use an action to move the sensor anywhere within short range of its starting position. Enabler.",
+  "details": [
+    "You are trained in riding any kind of creature that serves as a mount, such as a noble warhorse. Enabler.",
+    "Roaming Third Eye (3 Intellect points): When you use your Third Eye ability, you can place the sensor anywhere within long range. In addition, until that ability ends, you can use an action to move the sensor anywhere within short range of its starting position. Enabler."
+  ]
+}

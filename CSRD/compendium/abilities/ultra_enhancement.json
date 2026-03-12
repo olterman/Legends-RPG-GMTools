@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ultra Enhancement",
+  "slug": "ultra_enhancement",
+  "cost": null,
+  "alpha_section": "U",
+  "effect": "You gain +1 to Armor and +5 to each of your three stat Pools. Enabler.",
+  "details": [
+    "You gain +1 to Armor and +5 to each of your three stat Pools. Enabler."
+  ]
+}

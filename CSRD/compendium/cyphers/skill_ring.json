@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Skill Ring",
+  "slug": "skill_ring",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Ring carved with sigils appropriate to its granted skill",
+  "effect": "This ring grants its wearer knowledge of a specific skill, such as climbing, jumping, history, or persuasion. This grants the wearer training in that skill (or in two skills if the artifact is level 5 or higher).",
+  "depletion": "—"
+}

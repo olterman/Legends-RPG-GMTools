@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Range Increase",
+  "slug": "range_increase",
+  "cost": null,
+  "alpha_section": "R",
+  "effect": "Ranges for you increase by one step. Immediate becomes short, short becomes long, long becomes very long, and very long becomes 1,000 feet (300 m). Enabler. Rapid Attack (3 Speed points): Once per round, you can make an additional attack with your chosen weapon. Enabler. Rapid Processing (6 Intellect points): You or a target you touch experiences a higher level of mental and physical reaction time for about a minute. During that period, all Speed tasks (including Speed defense rolls) are eased. In addition, the target can take one extra action at any time before the ability’s duration expires. Action.",
+  "details": [
+    "Ranges for you increase by one step. Immediate becomes short, short becomes long, long becomes very long, and very long becomes 1,000 feet (300 m). Enabler.",
+    "Rapid Attack (3 Speed points): Once per round, you can make an additional attack with your chosen weapon. Enabler.",
+    "Rapid Processing (6 Intellect points): You or a target you touch experiences a higher level of mental and physical reaction time for about a minute. During that period, all Speed tasks (including Speed defense rolls) are eased. In addition, the target can take one extra action at any time before the ability’s duration expires. Action."
+  ]
+}

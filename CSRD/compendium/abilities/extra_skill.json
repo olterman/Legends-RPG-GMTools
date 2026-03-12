@@ -1,0 +1,16 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Extra Skill",
+  "slug": "extra_skill",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You are trained in one skill of your choice (other than attacks or defense) in which you are not already trained. You can select this ability multiple times. Each time you select it, you must choose a different skill. Enabler. Extra Use (3 Intellect points): You attempt to gain an extra use from an artifact without triggering a depletion roll. The difficulty of the task is equal to the level of the artifact. If you crafted the artifact, you gain an asset to the task. On a failure, the depletion roll occurs normally. You could also try to use a manifest cypher without burning it out, but the task is hindered. A failed attempt to gain an additional use from a manifest cypher destroys it before it can produce the desired effect. Action. Extreme Mastery (6 Might or 6 Speed points): When using your chosen weapon, you can reroll any attack roll you wish and take the better of the two results. Enabler. Eye for Detail (2 Intellect points): When you spend five minutes or so thoroughly exploring an area no larger than a short distance in diameter, you can ask the GM one question about the area. The GM must answer you truthfully. You cannot use this more than one time per area per 24 hours. Action to initiate, five minutes to complete. Eye Gouge (2 Speed points): You make an attack against a creature with an eye. The attack is hindered, but if you hit, the creature has trouble seeing for the next hour. During this time, the creature’s tasks that rely on sight (which is most tasks) are hindered. Action.",
+  "details": [
+    "You are trained in one skill of your choice (other than attacks or defense) in which you are not already trained. You can select this ability multiple times. Each time you select it, you must choose a different skill. Enabler.",
+    "Extra Use (3 Intellect points): You attempt to gain an extra use from an artifact without triggering a depletion roll. The difficulty of the task is equal to the level of the artifact. If you crafted the artifact, you gain an asset to the task. On a failure, the depletion roll occurs normally. You could also try to use a manifest cypher without burning it out, but the task is hindered. A failed attempt to gain an additional use from a manifest cypher destroys it before it can produce the desired effect. Action.",
+    "Extreme Mastery (6 Might or 6 Speed points): When using your chosen weapon, you can reroll any attack roll you wish and take the better of the two results. Enabler.",
+    "Eye for Detail (2 Intellect points): When you spend five minutes or so thoroughly exploring an area no larger than a short distance in diameter, you can ask the GM one question about the area. The GM must answer you truthfully. You cannot use this more than one time per area per 24 hours. Action to initiate, five minutes to complete.",
+    "Eye Gouge (2 Speed points): You make an attack against a creature with an eye. The attack is hindered, but if you hit, the creature has trouble seeing for the next hour. During this time, the creature’s tasks that rely on sight (which is most tasks) are hindered. Action."
+  ]
+}

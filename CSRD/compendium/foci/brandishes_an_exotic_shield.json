@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Brandishes an Exotic Shield",
+  "slug": "brandishes_an_exotic_shield",
+  "summary": "You deploy an amazing shield of pure force that provides protection and some offensive options.",
+  "tiers": [
+    "Tier 1: Force Field Shield",
+    "Tier 1: Force Bash",
+    "Tier 2: Enveloping Shield",
+    "Tier 3: Healing Pulse or Throw Force Shield",
+    "Tier 4: Energized Shield",
+    "Tier 5: Force Wall",
+    "Tier 6: Bouncing Shield or Shield Burst"
+  ],
+  "gm_intrusions": "The shield is temporarily lost. A foe temporarily ends up with the shield.",
+  "text": "You deploy an amazing shield of pure force that provides protection and some offensive options.",
+  "details": [
+    "You deploy an amazing shield of pure force that provides protection and some offensive options."
+  ]
+}

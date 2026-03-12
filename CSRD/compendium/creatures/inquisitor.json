@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Inquisitor",
+  "slug": "inquisitor",
+  "level": 4,
+  "target_number": 12,
+  "description": "Inquisitors are aliens who call themselves “inquisitors” when they contact new species. Their preferred method of interaction is to study a given area for its flora and fauna, and attempt to collect a representative sample of any intelligent species they find (such as humans). Collected subjects may be gone for good, but other times they wake with little or no recollection of the experience save for bruises, missing digits or teeth, scabbed-over circular head wounds, and a gap of three or more days in their memory. Instead of arms, inquisitors sprout three sets of three tentacles like those of a squid, each of which branches into a smaller and finer set of manipulator tendrils. They can manipulate complex machines in a way that a regular human could never hope to. In most settings, inquisitors possess a level of technology and advancement well above that enjoyed by humans.",
+  "motive": "Corruption and destruction",
+  "environment": "Any electronic system able to run code can host one or more instances",
+  "health": "18",
+  "damage_inflicted": "5 points",
+  "armor": null,
+  "movement": "As the system it infects",
+  "modifications": "Knowledge tasks related to computers and other electronic systems as level 6",
+  "combat": "An instance of fatal malware that physically touches (or electrically connects with) a powered device of up to level 6 can attempt to seize control of it. It can then use that device to attack living targets. If the controlled system is a computer, smartphone, AR glasses, or some other piece of equipment that doesn’t have any intrinsic movement, the malware attempts to electrocute a user, or if a smart weapon, cause some kind of fatal accident with it. A compromised computer or shipmind voice can dangerously mislead victims. Fatal malware duplicates itself, creating many instances, and those that survive are usually slightly better at avoiding being erased than the previous generations.",
+  "interaction": "Fatal malware isn’t really sentient and thus can’t really be negotiated with; some instances could mimic intelligence to draw humans into a trap.",
+  "use": "An instance of fatal malware has gotten into a shipmind, which is making the normally trustworthy AI act out in unexpectedly dangerous ways. The shipmind itself doesn’t know it’s infected.",
+  "loot": "Most inquisitors carry a couple of manifest cyphers that have offensive and defensive capabilities. MALWARE, FATAL 4 (12) This purely malefic program has aggressive machine learning capabilities, allowing it to accomplish truly innovative and nasty tricks. Fatal malware may have originated as a simple virus or spyware coded for a specific purpose, but corruption and lightning-quick electronic evolution has turned it into something that exists purely to infect orderly electronic systems, spacecraft, space stations, smart weapons, and anything else with an operating system. Infected objects turn against living people. An instance often has the form of the system it’s infected, but occasionally fatal malware physically manifests as a metallic “cancer” of wires and self-assembling circuits hanging like a tumor across a server room, shipmind core, or data center, having perverted the original machine’s self-repair functions. Sometimes 4D printers are also compromised.",
+  "gm_intrusion": null
+}

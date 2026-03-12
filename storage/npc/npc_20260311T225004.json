@@ -1,0 +1,59 @@
+{
+  "saved_at": "2026-03-11T22:50:04.122225+00:00",
+  "filename": "npc/npc_20260311T225004.json",
+  "payload": {
+    "environment": "almadir",
+    "gender": "female",
+    "profession": "barbarian",
+    "race": "human",
+    "variant": "fenmir"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Fenna Red Heather",
+    "sections": {
+      "setting": "Lands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.",
+      "character": "Fenna Red Heather, female human barbarian warrior, Fenmir",
+      "appearance": "expressive faces, weathered mortal features, wind-weathered skin, ritual tattoos, powerful muscular physique, battle-hardened expression, scars and ritual markings",
+      "clothing": "culturally varied practical garments shaped by climate and profession, highland leathers, clan cloth, carved bone charms, layered furs, heavy leather armor, weathered belts and trophies",
+      "weapons_props": "massive two-handed sword, rope and survival gear",
+      "pose": "resting but ready for battle",
+      "environment": "Vast living forest realm of ancient groves and shifting paths. Bioluminescent greens illuminate a civilization bound to nature, instinctive magic, and a covenant with the land.",
+      "lighting": "stormy sky lighting",
+      "race_flavor": "Core truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Variant tone: spiritual proud highlanders. Avoid: portraying humans as weak, portraying humans as secondary to elder races.",
+      "style": "painted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration"
+    },
+    "prompt_text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nFenna Red Heather, female human barbarian warrior, Fenmir.\n\nAppearance:\nexpressive faces, weathered mortal features, wind-weathered skin, ritual tattoos, powerful muscular physique, battle-hardened expression, scars and ritual markings.\n\nClothing:\nculturally varied practical garments shaped by climate and profession, highland leathers, clan cloth, carved bone charms, layered furs, heavy leather armor, weathered belts and trophies.\n\nWeapons / Props:\nmassive two-handed sword, rope and survival gear.\n\nPose:\nresting but ready for battle.\n\nEnvironment:\nVast living forest realm of ancient groves and shifting paths. Bioluminescent greens illuminate a civilization bound to nature, instinctive magic, and a covenant with the land.\n\nLighting:\nstormy sky lighting.\n\nRace Flavor:\nCore truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Variant tone: spiritual proud highlanders. Avoid: portraying humans as weak, portraying humans as secondary to elder races.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n",
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 18,
+      "armor": 1,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [
+        "Might defense as one level higher",
+        "Intellect defense as one level lower"
+      ],
+      "combat": [
+        "Heavy melee weapon inflicts 5 damage",
+        "Can break light cover or wooden barriers with brute force"
+      ],
+      "interaction": [
+        "Responds well to courage, directness, and visible strength"
+      ],
+      "loot": [
+        "ritual charm",
+        "preserved food or survival kit"
+      ]
+    },
+    "stat_block_text": "Fenna Red Heather — barbarian warrior\nLevel 6 (target number 18)\nHealth: 18\nArmor: 1\nDamage: 5\nMovement: short\nModifications:\n- Might defense as one level higher\n- Intellect defense as one level lower\nCombat:\n- Heavy melee weapon inflicts 5 damage\n- Can break light cover or wooden barriers with brute force\nInteraction:\n- Responds well to courage, directness, and visible strength\nLoot:\n- ritual charm\n- preserved food or survival kit",
+    "text": "Dark fantasy character prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nCharacter:\nFenna Red Heather, female human barbarian warrior, Fenmir.\n\nAppearance:\nexpressive faces, weathered mortal features, wind-weathered skin, ritual tattoos, powerful muscular physique, battle-hardened expression, scars and ritual markings.\n\nClothing:\nculturally varied practical garments shaped by climate and profession, highland leathers, clan cloth, carved bone charms, layered furs, heavy leather armor, weathered belts and trophies.\n\nWeapons / Props:\nmassive two-handed sword, rope and survival gear.\n\nPose:\nresting but ready for battle.\n\nEnvironment:\nVast living forest realm of ancient groves and shifting paths. Bioluminescent greens illuminate a civilization bound to nature, instinctive magic, and a covenant with the land.\n\nLighting:\nstormy sky lighting.\n\nRace Flavor:\nCore truths: Adaptable and short-lived.; Diverse cultures filling the spaces left by elder stagnation.. Themes: ambition, resilience, contradiction, cultural friction. Tone: grounded, passionate, volatile. Visual cues: scale human; skin palette varied; signature features expressive faces, weathered mortal features. Variant tone: spiritual proud highlanders. Avoid: portraying humans as weak, portraying humans as secondary to elder races.\n\nSTYLE:\npainted british comic illustration, gritty graphic novel art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic low-angle perspective, exaggerated anatomy, chaotic layered backgrounds, heavy shadows, glowing highlights, metal textures and worn surfaces, dark fantasy graphic novel illustration.\n\n---\n\nFenna Red Heather — barbarian warrior\nLevel 6 (target number 18)\nHealth: 18\nArmor: 1\nDamage: 5\nMovement: short\nModifications:\n- Might defense as one level higher\n- Intellect defense as one level lower\nCombat:\n- Heavy melee weapon inflicts 5 damage\n- Can break light cover or wooden barriers with brute force\nInteraction:\n- Responds well to courage, directness, and visible strength\nLoot:\n- ritual charm\n- preserved food or survival kit\n",
+    "metadata": {
+      "race": "human",
+      "variant": "fenmir",
+      "profession": "barbarian",
+      "environment": "almadir"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Higher Mathematics",
+  "slug": "higher_mathematics",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [],
+    "expert": [
+      {
+        "from": "ability:further_mathematics",
+        "line": "You are specialized in higher mathematics. If you are already specialized, choose some other sphere of knowledge to become trained in. Enabler."
+      },
+      {
+        "from": "ability:further_mathematics",
+        "line": "You are specialized in higher mathematics. If you are already specialized, choose some other sphere of knowledge to become trained in. Enabler. Fury (3 Might points): For the next minute, all melee attacks you make inflict 2 additional points of damage. Action to initiate."
+      }
+    ]
+  },
+  "levels": [
+    "expert"
+  ],
+  "summary": "expert"
+}

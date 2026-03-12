@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defense Rolls to Resist Mental Effects",
+  "slug": "defense_rolls_to_resist_mental_effects",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:clever",
+        "line": "Skill: You’re trained in defense rolls to resist mental effects."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

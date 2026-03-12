@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Driver",
+  "slug": "driver",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "You are trained in all tasks related to driving a car, truck, or motorcycle, including mechanical repair tasks. Enabler.",
+  "details": [
+    "You are trained in all tasks related to driving a car, truck, or motorcycle, including mechanical repair tasks. Enabler."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Vehicle",
+  "slug": "vehicle",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Technically speaking, spacecraft are also vehicles. Unless it’s important to make a distinction, assume all guidance here regarding “vehicles” also applies to spacecraft.",
+  "details": [
+    "Technically speaking, spacecraft are also vehicles. Unless it’s important to make a distinction, assume all guidance here regarding “vehicles” also applies to spacecraft."
+  ]
+}

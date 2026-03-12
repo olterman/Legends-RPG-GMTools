@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pet",
+  "slug": "pet",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Any PC can potentially gain a pet, though a pet typically doesn’t provide modifications. If a character wants a pet that can do this, they must gain the pet through an an ability or focus that grants followers. On the other hand, a well-cared-for pet grants an asset to a PC’s tasks related to achieving peace of mind, finding comfort, and resisting loneliness.",
+  "details": [
+    "Any PC can potentially gain a pet, though a pet typically doesn’t provide modifications. If a character wants a pet that can do this, they must gain the pet through an an ability or focus that grants followers. On the other hand, a well-cared-for pet grants an asset to a PC’s tasks related to achieving peace of mind, finding comfort, and resisting loneliness."
+  ]
+}

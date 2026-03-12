@@ -1,0 +1,25 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pilots Starcraft",
+  "slug": "pilots_starcraft",
+  "summary": "You’re a crack starship pilot.",
+  "tiers": [
+    "Tier 1: Pilot",
+    "Tier 1: Flex Lore",
+    "Tier 2: Salvage and Comfort",
+    "Tier 2: Mentally Tough",
+    "Tier 3: Expert Pilot",
+    "Tier 3: Ship Footing or Machine Companion",
+    "Tier 4: Sensor Array",
+    "Tier 4: Enhanced Speed",
+    "Tier 5: Like the Back of Your Hand",
+    "Tier 6: Incomparable Pilot",
+    "Tier 6: Remote Control or Skill With Attacks"
+  ],
+  "gm_intrusions": "Starcraft get lost, break down, and are attacked in space. An alien stowaway is found.",
+  "text": "You’re a crack starship pilot.",
+  "details": [
+    "You’re a crack starship pilot."
+  ]
+}

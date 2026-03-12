@@ -1,0 +1,21 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Inability",
+  "slug": "inability",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "People find you unnerving. All tasks relating to pleasant social interaction are hindered. (Other people who are unusual like you aren’t affected by this.) Initial Link to the Starting Adventure: From the following list of options, choose how you became involved in the first adventure. 1. You felt the objective was someone like you, so you got involved. 2. Whether the other PCs realize it or not, their mission has to do with your field of knowledge, so you got involved. 3. As an expert in an unusual kind of knowledge, you were specifically recruited by the other PCs. 4. You believe one of the other PCs may be uncanny or is related to someone who is. If the superhero setting has a specific gene or genes responsible for mutant superpowers, Uncanny characters have that gene (perhaps even multiple copies) and can sense others who have it POWER SHIFTS Power shifts are an optional rule in the Cypher System Rulebook that represent many of the exceptional things that superheroes can do, like throwing cars, blasting through brick walls, leaping onto speeding trains, and cobbling together interdimensional gateway devices in a few hours. A typical superhero PC gets five power shifts. Power shifts are like permanent free levels of Effort that are always active. They don’t count toward a character’s maximum Effort use (nor do they count as skills or assets). They simply ease tasks that fall into specific categories, which include (but are not necessarily limited to) the following.",
+  "details": [
+    "People find you unnerving. All tasks relating to pleasant social interaction are hindered. (Other people who are unusual like you aren’t affected by this.)",
+    "Initial Link to the Starting Adventure:",
+    "From the following list of options, choose how you became involved in the first adventure.",
+    "1. You felt the objective was someone like you, so you got involved.",
+    "2. Whether the other PCs realize it or not, their mission has to do with your field of knowledge, so you got involved.",
+    "3. As an expert in an unusual kind of knowledge, you were specifically recruited by the other PCs.",
+    "4. You believe one of the other PCs may be uncanny or is related to someone who is.",
+    "If the superhero setting has a specific gene or genes responsible for mutant superpowers, Uncanny characters have that gene (perhaps even multiple copies) and can sense others who have it",
+    "POWER SHIFTS Power shifts are an optional rule in the Cypher System Rulebook that represent many of the exceptional things that superheroes can do, like throwing cars, blasting through brick walls, leaping onto speeding trains, and cobbling together interdimensional gateway devices in a few hours.",
+    "A typical superhero PC gets five power shifts. Power shifts are like permanent free levels of Effort that are always active. They don’t count toward a character’s maximum Effort use (nor do they count as skills or assets). They simply ease tasks that fall into specific categories, which include (but are not necessarily limited to) the following."
+  ]
+}

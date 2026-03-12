@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Evasion",
+  "slug": "evasion",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You’re hard to affect when you don’t want to be affected. You are trained in all defense tasks. Enabler.",
+  "details": [
+    "You’re hard to affect when you don’t want to be affected. You are trained in all defense tasks. Enabler."
+  ]
+}

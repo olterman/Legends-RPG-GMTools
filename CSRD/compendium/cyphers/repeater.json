@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Repeater",
+  "slug": "repeater",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "For the next minute, the user’s ranged weapon fires one additional time with ammo fabricated by the cypher. The weapon wielder can aim the free shot at the same target, or at a different target next to the first one.",
+  "depletion": null
+}

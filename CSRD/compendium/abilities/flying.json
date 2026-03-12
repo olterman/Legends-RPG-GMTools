@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Flying",
+  "slug": "flying",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal can fly, which (depending on the type of animal) may be up to a short or long distance on its turn.",
+  "details": [
+    "The animal can fly, which (depending on the type of animal) may be up to a short or long distance on its turn."
+  ]
+}

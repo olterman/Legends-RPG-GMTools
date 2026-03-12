@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using One Bow Variety of Choice",
+  "slug": "using_one_bow_variety_of_choice",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "ability:skill",
+        "line": "You are practiced in using one bow variety of your choice."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

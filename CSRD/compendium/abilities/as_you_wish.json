@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "As You Wish",
+  "slug": "as_you_wish",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You do something that reminds another person or creature in the area of someone they once cared for deeply. They are eager to assist you in whatever you’ve got going on, at least for a few minutes.",
+  "details": [
+    "You do something that reminds another person or creature in the area of someone they once cared for deeply. They are eager to assist you in whatever you’ve got going on, at least for a few minutes."
+  ]
+}

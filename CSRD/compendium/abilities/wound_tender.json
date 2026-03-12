@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wound Tender",
+  "slug": "wound_tender",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You are trained in healing. Enabler.",
+  "details": [
+    "You are trained in healing. Enabler."
+  ]
+}

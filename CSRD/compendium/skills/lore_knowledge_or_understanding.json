@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Lore, Knowledge, or Understanding",
+  "slug": "lore_knowledge_or_understanding",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:charming",
+        "line": "Inability: You were never good at studying or retaining facts. Any task involving lore, knowledge, or understanding is hindered."
+      },
+      {
+        "from": "descriptor:clever",
+        "line": "Inability: You were never good at studying or retaining trivial knowledge. Any task involving lore, knowledge, or understanding is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

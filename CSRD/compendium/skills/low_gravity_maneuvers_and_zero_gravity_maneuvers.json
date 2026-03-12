@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Low-gravity Maneuvers and Zero-gravity Maneuvers",
+  "slug": "low_gravity_maneuvers_and_zero_gravity_maneuvers",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:microgravity_adept",
+        "line": "You ignore all the ill effects of low gravity and no gravity on movement; you are trained in low-gravity maneuvers and zero-gravity maneuvers. (You might still be subject to negative biological effects of long-term exposure, if any.) Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

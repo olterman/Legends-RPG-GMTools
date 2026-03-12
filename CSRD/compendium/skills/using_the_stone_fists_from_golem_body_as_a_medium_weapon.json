@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using the Stone Fists from Golem Body as a Medium Weapon",
+  "slug": "using_the_stone_fists_from_golem_body_as_a_medium_weapon",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:trained_basher",
+        "line": "You are trained in using the stone fists from your Golem Body as a medium weapon. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

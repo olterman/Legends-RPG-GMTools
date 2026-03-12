@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Underwater Melee Combat",
+  "slug": "underwater_melee_combat",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "For nonaquatic creatures, being completely underwater makes attacking very difficult. Attacks with stabbing weapons are hindered, and melee attacks with slashing or bashing weapons are hindered by two steps. Aquatic creatures ignore these penalties.",
+  "details": [
+    "For nonaquatic creatures, being completely underwater makes attacking very difficult. Attacks with stabbing weapons are hindered, and melee attacks with slashing or bashing weapons are hindered by two steps. Aquatic creatures ignore these penalties."
+  ]
+}

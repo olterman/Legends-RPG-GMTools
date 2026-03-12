@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Confidence Artist",
+  "slug": "confidence_artist",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "When you’re hacking into a computer system, running a con, picking a pocket, fooling or tricking a dupe, sneaking something by a guard, and so on, you gain an asset on the task. Enabler. Confounding Banter (4 Intellect points): You spew a stream of nonsense to distract a foe within immediate range. On a successful Intellect roll, your defense roll against the creature’s next attack before the end of the next round is eased. Action. Confuse Enemy (4 Intellect points): Through a clever bit of misdirection involving a flourish of your coat, ducking at just the right moment, or a similar stratagem, you can attempt to redirect a physical melee attack that would otherwise hit you. When you do, the misdirected attack hits another creature you choose within immediate range of both you and the attacking foe. This ability is a difficulty 2 Intellect task. Enabler. Conjuration (7 Intellect points): You produce, as if from thin air, a level 5 creature of a kind you have previously encountered. The creature remains for one minute and then returns home. While present, the creature acts as you direct, but this requires no action on your part. Action.",
+  "details": [
+    "When you’re hacking into a computer system, running a con, picking a pocket, fooling or tricking a dupe, sneaking something by a guard, and so on, you gain an asset on the task. Enabler.",
+    "Confounding Banter (4 Intellect points): You spew a stream of nonsense to distract a foe within immediate range. On a successful Intellect roll, your defense roll against the creature’s next attack before the end of the next round is eased. Action.",
+    "Confuse Enemy (4 Intellect points): Through a clever bit of misdirection involving a flourish of your coat, ducking at just the right moment, or a similar stratagem, you can attempt to redirect a physical melee attack that would otherwise hit you. When you do, the misdirected attack hits another creature you choose within immediate range of both you and the attacking foe. This ability is a difficulty 2 Intellect task. Enabler.",
+    "Conjuration (7 Intellect points): You produce, as if from thin air, a level 5 creature of a kind you have previously encountered. The creature remains for one minute and then returns home. While present, the creature acts as you direct, but this requires no action on your part. Action."
+  ]
+}

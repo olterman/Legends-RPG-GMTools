@@ -1,0 +1,23 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Crafts Unique Objects",
+  "slug": "crafts_unique_objects",
+  "summary": "You’re an inventor of strange and useful objects.",
+  "tiers": [
+    "Tier 1: Crafter",
+    "Tier 1: Master Identifier",
+    "Tier 2: Artifact Tinkerer",
+    "Tier 2: Quick Work",
+    "Tier 3: Master Crafter or Built-In Weaponry",
+    "Tier 4: Cyphersmith",
+    "Tier 5: Innovator",
+    "Tier 6: Inventor or Fusion Armor"
+  ],
+  "gm_intrusions": "The object malfunctions, breaks, or suffers catastrophic or unexpected failure.",
+  "text": "You’re an inventor of strange and useful objects. (Cyphersmith works only in a setting where the cyphers are physical objects. If this isn’t the case, this ability should probably be replaced with something akin to Weird Science Breakthrough from the Conducts Weird Science focus.)",
+  "details": [
+    "You’re an inventor of strange and useful objects.",
+    "(Cyphersmith works only in a setting where the cyphers are physical objects. If this isn’t the case, this ability should probably be replaced with something akin to Weird Science Breakthrough from the Conducts Weird Science focus.)"
+  ]
+}

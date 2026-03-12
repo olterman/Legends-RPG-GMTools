@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Slicing Blade",
+  "slug": "slicing_blade",
+  "level": 5,
+  "target_number": 15,
+  "description": "A thin blade slices out from a gap in the wall, floor, or ceiling. The trap might be designed to sweep the entire area (such as the width of a corridor) or leave a tiny safe space just beyond the blade’s reach so a creature who knows of the trap can get past it. This kind of trap is usually designed to reset automatically after a minute or has a lever nearby that allows a creature to reset it manually.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "5 points",
+  "armor": null,
+  "movement": null,
+  "modifications": "Attacks as level 6 GM Intrusion: The blade is a magical weapon with an additional effect, such as inflicting 3 points of fire damage. The blade is rusted and breaks off when it hits the character, inflicting 1 point of damage (ignores Armor) each round after the initial attack until it is healed.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Specialized Basher",
+  "slug": "specialized_basher",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are specialized in using the stone fists from your Golem Body ability as a medium weapon. Enabler.",
+  "details": [
+    "You are specialized in using the stone fists from your Golem Body ability as a medium weapon. Enabler."
+  ]
+}

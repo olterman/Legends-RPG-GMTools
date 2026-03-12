@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Greatsword",
+  "slug": "greatsword",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A two-handed version of the broadsword.",
+  "details": [
+    "A two-handed version of the broadsword."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "This Task",
+  "slug": "this_task",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:sleuth",
+        "line": "Slice (2 Speed points): This is a quick attack with a bladed or pointed weapon that is hard to defend against. You are trained in this task. If the attack is successful, it deals 1 less point of damage than normal. Action."
+      },
+      {
+        "from": "ability:sleuth",
+        "line": "Finding the clues is the first step in solving a mystery. You are trained in perception. Enabler. Slice (2 Speed points): This is a quick attack with a bladed or pointed weapon that is hard to defend against. You are trained in this task. If the attack is successful, it deals 1 less point of damage than normal. Action. Slip Into Shadow (2+ Intellect points): You attempt to slip away from a selected target and hide from view in a nearby shadow, behind a tree or a furnishing, or in the next room, even if in full view of the target. For each level of Effort applied, you can attempt to affect one additional target, as long as all your targets are next to each other. Action to initiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

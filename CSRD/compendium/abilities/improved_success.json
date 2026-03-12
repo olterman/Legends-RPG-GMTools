@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Improved Success",
+  "slug": "improved_success",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "When you roll a 17 or higher on an attack roll that deals damage, you deal 1 additional point of damage. For instance, if you roll a natural 18, which normally deals 2 extra points of damage, you instead deal 3 extra points. If you roll a natural 20 and choose to deal damage instead of achieve a special major effect, you deal 5 extra points of damage. Enabler. Improvise (3 Intellect points): When you perform a task in which you are not trained, you can improvise to gain an asset on the task. The asset might be a tool you cobble together, a sudden insight into overcoming a problem, or a rush of dumb luck. Enabler. (Improvise can be used on a task a character has an inability in, but instead of gaining an asset, the character just loses the inability penalty.) In Harm’s Way (3 Intellect points): When you put your friends before yourself as your action, you ease all defense tasks for all characters you choose that are adjacent to you. This lasts until the end of your next turn. If one of your friends would be damaged, you can choose to take up to half the number of points of damage they would otherwise take, but only if you’re not already impaired or debilitated. Enabler.",
+  "details": [
+    "When you roll a 17 or higher on an attack roll that deals damage, you deal 1 additional point of damage. For instance, if you roll a natural 18, which normally deals 2 extra points of damage, you instead deal 3 extra points. If you roll a natural 20 and choose to deal damage instead of achieve a special major effect, you deal 5 extra points of damage. Enabler.",
+    "Improvise (3 Intellect points): When you perform a task in which you are not trained, you can improvise to gain an asset on the task. The asset might be a tool you cobble together, a sudden insight into overcoming a problem, or a rush of dumb luck. Enabler. (Improvise can be used on a task a character has an inability in, but instead of gaining an asset, the character just loses the inability penalty.)",
+    "In Harm’s Way (3 Intellect points): When you put your friends before yourself as your action, you ease all defense tasks for all characters you choose that are adjacent to you. This lasts until the end of your next turn. If one of your friends would be damaged, you can choose to take up to half the number of points of damage they would otherwise take, but only if you’re not already impaired or debilitated. Enabler."
+  ]
+}

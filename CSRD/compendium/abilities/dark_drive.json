@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dark Drive",
+  "slug": "dark_drive",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A dark drive (short for “dark matter quantum drive”) uses enormous power to enable point-to-point transitions between other locations in the galaxy (or universe) using previously unrealized entanglement between normal matter and dark matter. However, objective travel time is variable and somewhat arbitrary; sometimes a trip may take minutes, other times days or months. For those aboard, relative travel time seems constant at about four solar hours, no matter the distance traveled, or the objective time noted by external observers.",
+  "details": [
+    "A dark drive (short for “dark matter quantum drive”) uses enormous power to enable point-to-point transitions between other locations in the galaxy (or universe) using previously unrealized entanglement between normal matter and dark matter. However, objective travel time is variable and somewhat arbitrary; sometimes a trip may take minutes, other times days or months. For those aboard, relative travel time seems constant at about four solar hours, no matter the distance traveled, or the objective time noted by external observers."
+  ]
+}

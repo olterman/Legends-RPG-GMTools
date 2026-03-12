@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sense Ambush",
+  "slug": "sense_ambush",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are never surprised by an attack. Enabler.",
+  "details": [
+    "You are never surprised by an attack. Enabler."
+  ]
+}

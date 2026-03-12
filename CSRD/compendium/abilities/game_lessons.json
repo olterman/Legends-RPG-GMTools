@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Game Lessons",
+  "slug": "game_lessons",
+  "cost": null,
+  "alpha_section": "G",
+  "effect": "You’ve played so many games that you’ve picked up some real knowledge. Choose any two noncombat skills. You are trained in those skills. Enabler.",
+  "details": [
+    "You’ve played so many games that you’ve picked up some real knowledge. Choose any two noncombat skills. You are trained in those skills. Enabler."
+  ]
+}

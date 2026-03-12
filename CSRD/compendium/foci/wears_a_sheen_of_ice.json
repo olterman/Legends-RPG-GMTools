@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wears a Sheen of Ice",
+  "slug": "wears_a_sheen_of_ice",
+  "summary": "You command the wintery power of cold and ice.",
+  "tiers": [
+    "Tier 1: Ice Armor",
+    "Tier 2: Frost Touch",
+    "Tier 3: Freezing Touch or Ice Creation",
+    "Tier 4: Resilient Ice Armor",
+    "Tier 5: Cold Burst",
+    "Tier 6: Ice Storm or Winter Gauntlets"
+  ],
+  "gm_intrusions": "Ice makes surfaces slippery. Extreme cold causes objects to crack and break.",
+  "text": "You command the wintery power of cold and ice.",
+  "details": [
+    "You command the wintery power of cold and ice."
+  ]
+}

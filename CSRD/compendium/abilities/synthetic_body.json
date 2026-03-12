@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Synthetic Body",
+  "slug": "synthetic_body",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You have left biology behind and uploaded yourself into a biomechanical form known as a synth. You enjoy the benefits of the spaceborn package and expanded consciousness package, and one posthuman power shift. Enabler.",
+  "details": [
+    "You have left biology behind and uploaded yourself into a biomechanical form known as a synth. You enjoy the benefits of the spaceborn package and expanded consciousness package, and one posthuman power shift. Enabler."
+  ]
+}

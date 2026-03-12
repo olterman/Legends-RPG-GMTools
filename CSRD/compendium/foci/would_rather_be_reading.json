@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Would Rather Be Reading",
+  "slug": "would_rather_be_reading",
+  "summary": "Books are your friends. What’s more important than knowledge? Nothing.",
+  "tiers": [
+    "Tier 1: Knowledge Is Power",
+    "Tier 2: Greater Enhanced Intellect",
+    "Tier 3: Applying Your Knowledge or Flex Skill",
+    "Tier 4: Knowledge Is Power",
+    "Tier 4: Knowing the Unknown",
+    "Tier 5: Greater Enhanced Intellect",
+    "Tier 6: Knowledge Is Power",
+    "Tier 6: Tower of Intellect or Read the Signs"
+  ],
+  "gm_intrusions": "Books burn, get wet, or get lost. Computers break or lose power. Glasses break.",
+  "text": "Books are your friends. What’s more important than knowledge? Nothing.",
+  "details": [
+    "Books are your friends. What’s more important than knowledge? Nothing."
+  ]
+}

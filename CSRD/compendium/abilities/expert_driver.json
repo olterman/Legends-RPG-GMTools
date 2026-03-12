@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expert Driver",
+  "slug": "expert_driver",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You are specialized in all tasks related to driving a car, truck, or motorcycle, including mechanical repair tasks. Enabler.",
+  "details": [
+    "You are specialized in all tasks related to driving a car, truck, or motorcycle, including mechanical repair tasks. Enabler."
+  ]
+}

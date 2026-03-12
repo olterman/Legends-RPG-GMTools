@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Font of Healing",
+  "slug": "font_of_healing",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "With your approval, other creatures can touch you and regain 1d6 points to either their Might Pool or their Speed Pool. This healing costs them 2 Intellect points. A single creature can benefit from this ability only once each day. Enabler.",
+  "details": [
+    "With your approval, other creatures can touch you and regain 1d6 points to either their Might Pool or their Speed Pool. This healing costs them 2 Intellect points. A single creature can benefit from this ability only once each day. Enabler."
+  ]
+}

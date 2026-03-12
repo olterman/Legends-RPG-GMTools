@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Happily Ever After",
+  "slug": "happily_ever_after",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Through the power of your love for another, you use magic to protect someone you care for. They are able to sidestep an attack that would normally do them grave damage. If a player has no XP to spend, they can’t use a player intrusion.",
+  "details": [
+    "Through the power of your love for another, you use magic to protect someone you care for. They are able to sidestep an attack that would normally do them grave damage.",
+    "If a player has no XP to spend, they can’t use a player intrusion."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Perception Task That Involves Sight",
+  "slug": "perception_task_that_involves_sight",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:enlightened",
+        "line": "You are trained in any perception task that involves sight. Enabler."
+      },
+      {
+        "from": "ability:enlightened",
+        "line": "You are trained in any perception task that involves sight. Enabler. Entangling Force (1+ Intellect point): A target within short range is subject to a snare constructed of semi-tangible lines of force for one minute. The force snare is a level 2 construct. A target caught in the force snare cannot move from its position, but it can attack and defend normally. The target can also use its action attempting to break free. You can increase the level of the force snare by 1 per level of Effort applied. Action to initiate. Enthrall (1 Intellect point): While talking, you grab and keep another creature’s attention, even if the creature can’t understand you. For as long as you do nothing but speak (you can’t even move), the other creature takes no actions other than to defend itself, even over multiple rounds. If the creature is attacked, the effect ends. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Marauder",
+  "slug": "marauder",
+  "level": 3,
+  "target_number": 9,
+  "description": "Marauders are raiders who attack with stealth, wrapping themselves in light smothering clothes and targeting survivors after midnight. By day, they act like regular people, part of a survivor community. That’s pretense; when time allows, they torture targets to death and take flesh trophies.",
+  "motive": null,
+  "environment": null,
+  "health": "12",
+  "damage_inflicted": "4 points; see Combat",
+  "armor": null,
+  "movement": "Short; short when climbing",
+  "modifications": "Stealth and deception tasks as level 5",
+  "combat": "Marauders use stealth and the night to position themselves before attacking, hoping to make their initial attack with surprise using bladed weapons. Whether they have surprise or not, if they attack before their target’s first action, their attacks are eased and inflict 6 points of damage. Marauders often dose their bladed weapons with poison, so targets must also make a Might defense roll or take 2 points of Speed damage (ignores Armor) each round for three rounds.",
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

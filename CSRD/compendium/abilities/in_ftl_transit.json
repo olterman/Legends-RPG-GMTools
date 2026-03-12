@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "In FTL Transit",
+  "slug": "in_ftl_transit",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A dark drive failure or some weird instability in a wormhole throat, or some other issue during FTL transit could occur. Usually, these instabilities are not something a pilot can avoid, because they should be presented as a GM intrusion, at which point the PCs can attempt to avoid or deal with the situation. Instability could result in a spacecraft dropping out of FTL only partway to the destination, dropping out in some completely unrecognized part of space, dropping out at the right place but months or years late, or failing to drop out at all and thus continue to move through the abnormal spaces that FTL transit posits. Alternatively, enemy ships—or creatures—might use some sort of fantastic technology to attack a PC’s craft while in FTL transit, which might force the craft back into normal space, or result in a firefight in the abnormal folded space of FTL itself (probably even more dangerous than regular combat, depending on your setting’s version of FTL).",
+  "details": [
+    "A dark drive failure or some weird instability in a wormhole throat, or some other issue during FTL transit could occur. Usually, these instabilities are not something a pilot can avoid, because they should be presented as a GM intrusion, at which point the PCs can attempt to avoid or deal with the situation.",
+    "Instability could result in a spacecraft dropping out of FTL only partway to the destination, dropping out in some completely unrecognized part of space, dropping out at the right place but months or years late, or failing to drop out at all and thus continue to move through the abnormal spaces that FTL transit posits.",
+    "Alternatively, enemy ships—or creatures—might use some sort of fantastic technology to attack a PC’s craft while in FTL transit, which might force the craft back into normal space, or result in a firefight in the abnormal folded space of FTL itself (probably even more dangerous than regular combat, depending on your setting’s version of FTL)."
+  ]
+}

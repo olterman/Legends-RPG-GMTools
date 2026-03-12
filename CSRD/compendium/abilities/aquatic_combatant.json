@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Aquatic Combatant",
+  "slug": "aquatic_combatant",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "You ignore penalties for any action (including fighting) in underwater environments. Enabler. Arc Spray (3 Speed points): If a weapon has the ability to fire rapid shots without reloading (usually called a rapid-fire weapon, such as a crank crossbow), you can fire your weapon at up to three targets (all next to one another) at once. Make a separate attack roll against each target. Each attack is hindered. Action. Arcane Flare (1 Intellect point): You enhance the damage of another attack spell with an extra charge of energy so that it deals 1 additional point of damage. Alternatively, you attack a target within long range by projecting a flare of raw magic that inflicts 4 points of damage. Enabler for enhancement; action for long-range attack. Artifact Scavenger (6 Intellect points + 2 XP): You’ve developed a sixth sense for searching for the most valuable items in the wasteland. If you spend the time required to succeed on two scavenging tasks, you can exchange all the results you would otherwise obtain for a chance to gain an artifact of the GM’s choosing if you succeed on a difficulty 6 Intellect task. You can use this ability at most once per day, and never within the same general area. Action to initiate, several hours to complete.",
+  "details": [
+    "You ignore penalties for any action (including fighting) in underwater environments. Enabler.",
+    "Arc Spray (3 Speed points): If a weapon has the ability to fire rapid shots without reloading (usually called a rapid-fire weapon, such as a crank crossbow), you can fire your weapon at up to three targets (all next to one another) at once. Make a separate attack roll against each target. Each attack is hindered. Action.",
+    "Arcane Flare (1 Intellect point): You enhance the damage of another attack spell with an extra charge of energy so that it deals 1 additional point of damage. Alternatively, you attack a target within long range by projecting a flare of raw magic that inflicts 4 points of damage. Enabler for enhancement; action for long-range attack.",
+    "Artifact Scavenger (6 Intellect points + 2 XP): You’ve developed a sixth sense for searching for the most valuable items in the wasteland. If you spend the time required to succeed on two scavenging tasks, you can exchange all the results you would otherwise obtain for a chance to gain an artifact of the GM’s choosing if you succeed on a difficulty 6 Intellect task. You can use this ability at most once per day, and never within the same general area. Action to initiate, several hours to complete."
+  ]
+}

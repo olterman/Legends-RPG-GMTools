@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hawk",
+  "slug": "hawk",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2; flies a long distance each round",
+  "details": [
+    "level 2; flies a long distance each round"
+  ]
+}

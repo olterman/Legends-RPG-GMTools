@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Psychic Crystal",
+  "slug": "psychic_crystal",
+  "category": null,
+  "level": "1d6 + 4",
+  "form": "Violet crystal the size of a fist",
+  "effect": "The crystal allows the user to transmit their thoughts telepathically at an interstellar distance. Even at that range, communication is instantaneous. Each use allows about a minute’s worth of communication, and the communication is entirely one way (so having two crystals would be handy).",
+  "depletion": "1 in 1d10"
+}

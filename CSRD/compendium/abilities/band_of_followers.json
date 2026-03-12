@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Band of Followers",
+  "slug": "band_of_followers",
+  "cost": null,
+  "alpha_section": "B",
+  "effect": "You gain four level 3 followers. They are not restricted on their modifications. Enabler. Bash (1 Might point): This is a pummeling melee attack. Your attack inflicts 1 less point of damage than normal, but dazes your target for one round, during which time all tasks it performs are hindered. Action.",
+  "details": [
+    "You gain four level 3 followers. They are not restricted on their modifications. Enabler.",
+    "Bash (1 Might point): This is a pummeling melee attack. Your attack inflicts 1 less point of damage than normal, but dazes your target for one round, during which time all tasks it performs are hindered. Action."
+  ]
+}

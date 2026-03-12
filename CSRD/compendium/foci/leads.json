@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Leads",
+  "slug": "leads",
+  "summary": "Your natural leadership capability allows you to command others, including a loyal band of followers.",
+  "tiers": [
+    "Tier 1: Natural Charisma",
+    "Tier 1: Good Advice",
+    "Tier 2: Enhanced Potential",
+    "Tier 2: Basic Follower",
+    "Tier 3: Advanced Command or Expert Follower",
+    "Tier 4: Captivate or Inspire",
+    "Tier 5: Greater Enhanced Potential",
+    "Tier 6: Band of Followers or Mind of a Leader"
+  ],
+  "gm_intrusions": "Followers fail, betray, lie, become corrupted, get kidnapped, or die.",
+  "text": "Your natural leadership capability allows you to command others, including a loyal band of followers.",
+  "details": [
+    "Your natural leadership capability allows you to command others, including a loyal band of followers."
+  ]
+}

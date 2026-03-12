@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Animal Senses and Sensibilities",
+  "slug": "animal_senses_and_sensibilities",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "You are trained in listening and spotting things. In addition, most of the time, the GM should alert you if you’re about to walk into an ambush or a trap that is lower than level 5. Enabler. Answering Attack (3 Speed points): If you are struck in melee, you can make an immediate melee attack against that attacker once per round. The attack is hindered, and you can still take your normal action during the round. Enabler. Anticipate Attack (4 Intellect points): You can sense when and how creatures attacking you will make their attacks. Speed defense rolls are eased for one minute. Action. Anticipation (1 Intellect point): You look ahead to see how your actions might unfold. The first task you perform before the end of the next round gains an asset. Action.",
+  "details": [
+    "You are trained in listening and spotting things. In addition, most of the time, the GM should alert you if you’re about to walk into an ambush or a trap that is lower than level 5. Enabler.",
+    "Answering Attack (3 Speed points): If you are struck in melee, you can make an immediate melee attack against that attacker once per round. The attack is hindered, and you can still take your normal action during the round. Enabler.",
+    "Anticipate Attack (4 Intellect points): You can sense when and how creatures attacking you will make their attacks. Speed defense rolls are eased for one minute. Action.",
+    "Anticipation (1 Intellect point): You look ahead to see how your actions might unfold. The first task you perform before the end of the next round gains an asset. Action."
+  ]
+}

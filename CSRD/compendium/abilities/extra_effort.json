@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Extra Effort",
+  "slug": "extra_effort",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Your Effort score increases by 1.",
+  "details": [
+    "Your Effort score increases by 1."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Bouncing Shield",
+  "slug": "bouncing_shield",
+  "cost": null,
+  "alpha_section": "B",
+  "effect": "When you use Throw Force Shield, instead of dissipating after one attack (whether it hits or misses), it will attack up to two additional targets within short range. Effort or other modifiers applied to the first attack affect all other targets as well. Whether you hit all, some, or none of your targets, the shield dissipates and then reforms in your grasp. (If you choose Bouncing Shield and have previously taken the Throw Force Shield ability, you have the option to exchange that ability for Healing Pulse.) Enabler.",
+  "details": [
+    "When you use Throw Force Shield, instead of dissipating after one attack (whether it hits or misses), it will attack up to two additional targets within short range. Effort or other modifiers applied to the first attack affect all other targets as well. Whether you hit all, some, or none of your targets, the shield dissipates and then reforms in your grasp. (If you choose Bouncing Shield and have previously taken the Throw Force Shield ability, you have the option to exchange that ability for Healing Pulse.) Enabler."
+  ]
+}

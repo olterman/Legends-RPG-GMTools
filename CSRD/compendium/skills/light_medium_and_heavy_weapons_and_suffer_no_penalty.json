@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Light, Medium, and Heavy Weapons and Suffer No Penalty",
+  "slug": "light_medium_and_heavy_weapons_and_suffer_no_penalty",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "character_type:warrior",
+        "line": "Weapons: You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler."
+      },
+      {
+        "from": "ability:practiced_with_all_weapons",
+        "line": "You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler."
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

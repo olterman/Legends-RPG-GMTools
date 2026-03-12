@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Athlete",
+  "slug": "athlete",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "You are trained in carrying, climbing, jumping, and smashing. Enabler.",
+  "details": [
+    "You are trained in carrying, climbing, jumping, and smashing. Enabler."
+  ]
+}

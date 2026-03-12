@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "No Need for Weapons",
+  "slug": "no_need_for_weapons",
+  "cost": null,
+  "alpha_section": "N",
+  "effect": "When you make an unarmed attack (such as a punch or kick), it counts as a medium weapon instead of a light weapon. Enabler.",
+  "details": [
+    "When you make an unarmed attack (such as a punch or kick), it counts as a medium weapon instead of a light weapon. Enabler."
+  ]
+}

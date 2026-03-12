@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mastery With Attacks",
+  "slug": "mastery_with_attacks",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "Choose one type of attack in which you are trained: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. You are specialized in attacks using that type of weapon. Enabler. (If you aren’t trained in an attack, select Skill With Attacks to become trained in that attack.)",
+  "details": [
+    "Choose one type of attack in which you are trained: light bashing, light bladed, light ranged, medium bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy ranged. You are specialized in attacks using that type of weapon. Enabler. (If you aren’t trained in an attack, select Skill With Attacks to become trained in that attack.)"
+  ]
+}

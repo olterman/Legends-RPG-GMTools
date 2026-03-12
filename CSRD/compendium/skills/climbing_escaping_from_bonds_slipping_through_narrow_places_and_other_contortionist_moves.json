@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Climbing, Escaping from Bonds, Slipping Through Narrow Places, and Other Contortionist Moves",
+  "slug": "climbing_escaping_from_bonds_slipping_through_narrow_places_and_other_contortionist_moves",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:master_thief",
+        "line": "You are trained in climbing, escaping from bonds, slipping through narrow places, and other contortionist moves. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

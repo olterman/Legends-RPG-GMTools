@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Crowbar",
+  "slug": "crowbar",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "This bent length of metal grants an asset on tasks to open doors, treasure chests, and similar objects. Disguise kit: Makeup, simple prosthetics, and a wig or two, suitable for disguises for a theatrical production. Provides an asset on disguise tasks. Some parts are reusable, but the kit runs out after about five uses. Healing kit: A collection of bandages, needles, thread, and basic medicines. Provides an asset on healing tasks. Some parts are reusable, but the kit runs out after about five uses.",
+  "details": [
+    "This bent length of metal grants an asset on tasks to open doors, treasure chests, and similar objects.",
+    "Disguise kit: Makeup, simple prosthetics, and a wig or two, suitable for disguises for a theatrical production. Provides an asset on disguise tasks. Some parts are reusable, but the kit runs out after about five uses.",
+    "Healing kit: A collection of bandages, needles, thread, and basic medicines. Provides an asset on healing tasks. Some parts are reusable, but the kit runs out after about five uses."
+  ]
+}

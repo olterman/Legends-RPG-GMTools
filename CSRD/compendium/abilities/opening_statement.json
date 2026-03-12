@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Opening Statement",
+  "slug": "opening_statement",
+  "cost": null,
+  "alpha_section": "O",
+  "effect": "You’re trained in tasks related to persuasion, deception, and detecting the falsehoods of others. Enabler.",
+  "details": [
+    "You’re trained in tasks related to persuasion, deception, and detecting the falsehoods of others. Enabler."
+  ]
+}

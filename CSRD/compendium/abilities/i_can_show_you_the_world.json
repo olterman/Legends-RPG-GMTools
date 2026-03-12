@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "I Can Show You the World",
+  "slug": "i_can_show_you_the_world",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Something or someone in the area shows itself to you, highlighting a route you were looking for, an object you had lost, or an answer to a problem.",
+  "details": [
+    "Something or someone in the area shows itself to you, highlighting a route you were looking for, an object you had lost, or an answer to a problem."
+  ]
+}

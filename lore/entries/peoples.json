@@ -1,0 +1,32 @@
+{
+  "type": "lore",
+  "title": "Peoples",
+  "slug": "peoples",
+  "source": "logseq",
+  "source_path": "logseq/pages/Peoples.md",
+  "excerpt": "Immortal exiles from a shattered world; entered through damaged Gates after failed negotiation with the Velim; fractured into Sky Children (open, cultured), Forest Folk (Galadhrim, wild stewards), and Nightshades (Duathrim, secretive manipulators).",
+  "categories": [
+    "city",
+    "environment",
+    "race"
+  ],
+  "terms": [
+    "Fenmir Wilds",
+    "alfirin",
+    "duergar",
+    "fellic",
+    "gitz",
+    "lilim",
+    "sands",
+    "uruk",
+    "vaettyr",
+    "velim",
+    "xanthir"
+  ],
+  "mentions_total": 50,
+  "content_markdown": "# Peoples Overview\n# Races of the Lands of Legends — Quick Reference\n## [[The Alfirin Tribes]]\nImmortal exiles from a shattered world; entered through damaged Gates after failed negotiation with the Velim; fractured into Sky Children (open, cultured), Forest Folk (Galadhrim, wild stewards), and Nightshades (Duathrim, secretive manipulators).\n## [[The Small Folk]] - Velim\nTiny, luminous custodians of Gates and reality; existed before the Alfirin arrival; forced into guardianship after the passage went wrong; neutral, ancient, and quietly essential.\n## [[The Human Tribes]] (Fenmir, Caldorans, Xanthir, Free Cities)\nMortal, adaptable, and diverse; Fenmir are proud, spiritual highlanders and freebooting lowlanders; Caldorans build trade empires; Xanthir follow a militant theocracy; scattered tribes survive in wetlands and sands.\n## [[The Uruk Tribes]]\nPowerful, nomadic and tribal warriors who arrived suddenly from the east; Highland Uruk are philosophical herders and poets; Lowland Uruk are militant conquerors, shaping their feared reputation. (orc-like lets not use the word orc) larger than human. brotruding lower tusks, highland uruk blue skinned, lowland uruk green skinned.\n## [[The Lilim]]\nCosmic children of rebellion and innovation; inherently magical wandering performers and thinkers; no homeland or state, bound by inner calling and shared ritual language (Darb-Naṣr). As children of lilith they have thiefling traits but lets not use the word thiefling)\n## [[The Fellic]]\nAncient beast-aspected peoples who have always lived in the wild; observers and balancers tied to Galadhrim and Velim; divided into Cat (watchers), Fox (weavers), Dog (guardians), Bear (elders), bull (keepers of the land) and turtle (time guardians), mallard (keepers of trade and commerce friends of humans)\n## [[The Small Folk]] - Gitz\nSmall, ingenious forest-dwellers of the Fenmir wilds; adaptive survivors with oral histories that predate Alfirin settlement; reject Uruk kinship myths. green skinned (lets not use the word goblin)\n## [[The Small Folk]] - Vaettyr\nBrilliant subterranean tinkerfolk; maintain ancient machines that stabilize magic and reality; claim awakening due to damage caused by the Alfirin passage. (gnome-like lets not use the word gnome)\n## [[The Duergar]]\nDeep-dwelling, austere and insular folk of stone and shadow; master miners, engineers, and forge-clans; culturally isolationist with grudging respect for ancient pacts. (Dwarf-like lets not use the word dwarf)",
+  "prompt_counts": {
+    "lore": 9,
+    "art": 0
+  }
+}

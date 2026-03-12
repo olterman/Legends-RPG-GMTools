@@ -1,0 +1,23 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fights Dirty",
+  "slug": "fights_dirty",
+  "summary": "You’ll do anything to win a fight: bite, scratch, kick, trick, and worse.",
+  "tiers": [
+    "Tier 1: Tracker",
+    "Tier 1: Stalker",
+    "Tier 2: Sneak",
+    "Tier 2: Quarry",
+    "Tier 3: Betrayal or Surprise Attack",
+    "Tier 4: Mind Games",
+    "Tier 4: Capable Warrior",
+    "Tier 5: Using the Environment",
+    "Tier 6: Twisting the Knife or Murderer"
+  ],
+  "gm_intrusions": "People look poorly upon those who cheat or fight without honor. Sometimes a dirty trick backfires.",
+  "text": "You’ll do anything to win a fight: bite, scratch, kick, trick, and worse.",
+  "details": [
+    "You’ll do anything to win a fight: bite, scratch, kick, trick, and worse."
+  ]
+}

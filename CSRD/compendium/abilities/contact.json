@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Contact",
+  "slug": "contact",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The character gains a long-term NPC contact of importance—someone who will help them with information, equipment, or physical tasks. The player and GM should work out the details of the relationship.",
+  "details": [
+    "The character gains a long-term NPC contact of importance—someone who will help them with information, equipment, or physical tasks. The player and GM should work out the details of the relationship."
+  ]
+}

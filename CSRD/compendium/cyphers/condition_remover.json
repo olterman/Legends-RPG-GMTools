@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Condition Remover",
+  "slug": "condition_remover",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 3",
+  "form": null,
+  "effect": "Cures one occurrence of one specific health condition of the cypher level or lower. It does not prevent the possibility of future occurrences of the same condition. Roll a d20 to determine what it cures.",
+  "depletion": null
+}

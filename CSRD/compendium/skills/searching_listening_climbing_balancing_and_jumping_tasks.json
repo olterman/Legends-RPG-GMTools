@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Searching, Listening, Climbing, Balancing, and Jumping Tasks",
+  "slug": "searching_listening_climbing_balancing_and_jumping_tasks",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:superb_explorer",
+        "line": "You are trained in searching, listening, climbing, balancing, and jumping tasks. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

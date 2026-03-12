@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Skill",
+  "slug": "skill",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You’re trained in one kind of knowledge related to your quirk, such as olfactory science, mutations, or hematology.",
+  "details": [
+    "You’re trained in one kind of knowledge related to your quirk, such as olfactory science, mutations, or hematology."
+  ]
+}

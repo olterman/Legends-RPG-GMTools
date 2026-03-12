@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Think Your Way Out",
+  "slug": "think_your_way_out",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "When you wish it, you can use points from your Intellect Pool rather than your Might Pool or Speed Pool on any noncombat action. Enabler. Thinking Ahead (variable Intellect points): You produce a remedy that removes a negative condition because you’ve previously spent considerable time thinking ahead and preparing for your current situation. For instance, if another character is poisoned, you produce an antidote, or if they’re blinded, you produce a salve that returns sight (assuming they weren’t blinded because their eyes were destroyed). The Intellect cost for using this ability is equal to the level of effect or creature that caused the negative condition. Action. Third Eye (1 Intellect point): You visualize a place within short range and cast your mind to that place, creating an immobile, invisible sensor for one minute or until you choose to end this ability. While using your third eye, you see through your sensor instead of your eyes using your normal visual abilities. You may perceive the area around your body using your other senses as normal. Action. Throw (2 Might points): When you are using Enlarge and deal damage to a creature of your size or smaller with an unarmed attack, you can choose to throw that creature up to 1d20 feet away from you. The creature lands prone. Enabler.",
+  "details": [
+    "When you wish it, you can use points from your Intellect Pool rather than your Might Pool or Speed Pool on any noncombat action. Enabler.",
+    "Thinking Ahead (variable Intellect points): You produce a remedy that removes a negative condition because you’ve previously spent considerable time thinking ahead and preparing for your current situation. For instance, if another character is poisoned, you produce an antidote, or if they’re blinded, you produce a salve that returns sight (assuming they weren’t blinded because their eyes were destroyed). The Intellect cost for using this ability is equal to the level of effect or creature that caused the negative condition. Action.",
+    "Third Eye (1 Intellect point): You visualize a place within short range and cast your mind to that place, creating an immobile, invisible sensor for one minute or until you choose to end this ability. While using your third eye, you see through your sensor instead of your eyes using your normal visual abilities. You may perceive the area around your body using your other senses as normal. Action.",
+    "Throw (2 Might points): When you are using Enlarge and deal damage to a creature of your size or smaller with an unarmed attack, you can choose to throw that creature up to 1d20 feet away from you. The creature lands prone. Enabler."
+  ]
+}

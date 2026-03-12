@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Gas Bomb",
+  "slug": "gas_bomb",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 2",
+  "form": null,
+  "effect": "Thrown a short distance, this bursts in a poisonous cloud within an immediate area. The cloud lingers for 1d6 rounds unless conditions dictate otherwise. Roll a d100 to determine the effect.",
+  "depletion": null
+}

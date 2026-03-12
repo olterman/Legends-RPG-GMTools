@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hell Mary",
+  "slug": "hell_mary",
+  "level": 5,
+  "target_number": 15,
+  "description": "Say her name thirteen times, but only if you dare. Over the ages, Hell Mary has been rumored to be a ghost, a witch, a demon, and a hoax, and perhaps she has been all of these over time. But now she is none of these and more—over the years of worship and wonder and whispers, she has morphed into something far greater than the sum of her parts. Now she is a demon, built of blood and bone and sustained purely by revenge. Those who wish to call her merely need say her name thirteen times while looking into a mirror (or just three times if the mirror has magic of any kind to it). Those who seek revenge may call upon her for aid, but only if she deems their need worthy. Those who call her on a whim or a dare will shortly find themselves in dire straits. In the mirror, she looks at first like a glare of light, then as a skeleton or dead body, then as a woman with the face of a nightmare—empty eye sockets and a single bloodshot eye in her forehead. Her mouth is full of sharpened teeth, and the claws of her hands are curled and silver-tipped. Her skin and dress are so coated in blood it’s impossible to tell where they end and she begins. As she starts to crawl from the mirror, she moves faster and faster until she pulls herself fully free as a corporeal being. Typically, Hell Mary will not attack creatures that she deems as innocent or unworthy of revenge, unless they provoke her in some way.",
+  "motive": "Hunger for magic",
+  "environment": "Computers, smart devices, and areas with strong wireless internet access",
+  "health": "9",
+  "damage_inflicted": "3 points",
+  "armor": "1",
+  "movement": "Short; travels through the internet at nearly instantaneous speed",
+  "modifications": "Speed defense, perception, and stealth as level 5",
+  "combat": "A d@emon outside of an internet-connected device attacks by siphoning magic from a creature within short range, inflicting 3 points of Intellect damage (ignores Armor). However, usually the d@emon prefers to remain hidden within a computer or smart device, slowly and gently draining magic from a nearby creature without being noticed. When a magic-capable creature uses a ten-minute, one-hour, or ten-hour recovery roll within immediate range of a device with an internet d@emon, subtract 1 from the result of the recovery roll. Over time, the d@emon’s siphoning power strengthens, increasing to 2 or even 3 points taken from every recovery roll. An affected creature can attempt a perception task against the d@emon’s stealth modifier to realize that something is tapping into their magic. If the character discovers which app or device the d@emon is associated with, deleting the app or destroying the device forces the d@emon to either flee through the internet (requiring its action for one to three rounds, depending on local transmission speeds) or immediately manifest in its visible physical form. If manifested, a d@emon attempts to feed on the weakest foe in the area, and once it is sated it leaves the area (breaking off combat if possible) to find a high-speed wireless internet connection so it can transmit itself far away in search of another victim. Once per day, an internet d@emon can create a malware magical app cypher (such as EasyMagic.app), placing it in an app store (physical or online) or sending out a burst of emails with a link to where the app can be downloaded.",
+  "interaction": "D@emons are persistent and reasonably clever. They can be bargained with or bribed, but they tend to be greedy and would rather hide or pretend to leave than make a deal.",
+  "use": "An internet d@emon usually starts out as an innocuous app subtly draining magic, then switches to an active, aggressive mode when discovered or if starved.",
+  "loot": "A destroyed internet d@emon’s physical form leaves behind a lace-like fragment of magical energy that functions as a meditation aid cypher.",
+  "gm_intrusion": null
+}

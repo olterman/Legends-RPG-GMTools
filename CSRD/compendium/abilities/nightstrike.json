@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Nightstrike",
+  "slug": "nightstrike",
+  "cost": null,
+  "alpha_section": "N",
+  "effect": "When you attack a foe in dim light or darkness, you get a free level of Effort on the attack. Enabler.",
+  "details": [
+    "When you attack a foe in dim light or darkness, you get a free level of Effort on the attack. Enabler."
+  ]
+}

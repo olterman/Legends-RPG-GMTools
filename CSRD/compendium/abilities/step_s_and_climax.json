@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Step(s) and Climax",
+  "slug": "step_s_and_climax",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Depends on the friend’s arc. Rewards are the same for you as for the friend.",
+  "details": [
+    "Depends on the friend’s arc. Rewards are the same for you as for the friend."
+  ]
+}

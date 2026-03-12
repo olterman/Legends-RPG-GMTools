@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Intimidating Another Creature",
+  "slug": "intimidating_another_creature",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:perceptive",
+        "line": "Skill: Your skill at making deductions can be imposing. You are trained in any task that involves intimidating another creature."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Damage Track",
+  "slug": "damage_track",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The poison moves the creature down one step on the damage track if they fail a defense roll.",
+  "details": [
+    "The poison moves the creature down one step on the damage track if they fail a defense roll."
+  ]
+}

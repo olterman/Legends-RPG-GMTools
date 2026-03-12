@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Charm, Persuasion, Etiquette, or Deception",
+  "slug": "charm_persuasion_etiquette_or_deception",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:rugged",
+        "line": "Inability: You have no social graces and prefer animals to people. Any task involving charm, persuasion, etiquette, or deception is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

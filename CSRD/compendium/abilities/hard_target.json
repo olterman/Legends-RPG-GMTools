@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hard Target",
+  "slug": "hard_target",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "If you move a short distance or farther on your turn, all Speed defense rolls are eased. Enabler.",
+  "details": [
+    "If you move a short distance or farther on your turn, all Speed defense rolls are eased. Enabler."
+  ]
+}

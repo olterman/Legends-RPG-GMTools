@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Healing",
+  "slug": "healing",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "One extra (one-action) recovery roll per day.",
+  "details": [
+    "One extra (one-action) recovery roll per day."
+  ]
+}

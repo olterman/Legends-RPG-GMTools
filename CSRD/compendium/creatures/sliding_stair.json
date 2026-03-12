@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sliding Stair",
+  "slug": "sliding_stair",
+  "level": 4,
+  "target_number": 12,
+  "description": "A stairway or section of stairs unexpectedly turns into a ramp. Anyone who makes a Speed defense roll can catch hold near where they were standing; otherwise, they slide or tumble to the bottom and take damage. This kind of trap usually resets after a minute or has a manual reset lever at the top or bottom of the stairs.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "1 point of ambient damage per 20 feet slid (ignores Armor) GM Intrusion: The trap releases oil, hindering attempts to climb the ramp or stairs by two steps. Tiny blades stick out between the sections of the ramp, inflicting an additional 3 points of damage. The trap releases a boulder to roll down the stairs after the sliding character, inflicting an additional 3 points of damage.",
+  "armor": null,
+  "movement": null,
+  "modifications": null,
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

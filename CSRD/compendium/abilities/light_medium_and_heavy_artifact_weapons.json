@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Light, Medium, and Heavy Artifact Weapons",
+  "slug": "light_medium_and_heavy_artifact_weapons",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The artifact weapons described in this section are idiosyncratic in that they are not described as light, medium, or heavy. If they were specifically categorized, many characters would find that their training doesn’t match up with a particular designation. With artifact weapons living outside the regular weapon categories, anyone can use an artifact weapon. Alpha Beam Projector",
+  "details": [
+    "The artifact weapons described in this section are idiosyncratic in that they are not described as light, medium, or heavy. If they were specifically categorized, many characters would find that their training doesn’t match up with a particular designation. With artifact weapons living outside the regular weapon categories, anyone can use an artifact weapon.",
+    "Alpha Beam Projector"
+  ]
+}

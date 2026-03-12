@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Vulnerable",
+  "slug": "vulnerable",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Adults look out for you. You are trained in all pleasant social interactions with adults.",
+  "details": [
+    "Adults look out for you. You are trained in all pleasant social interactions with adults."
+  ]
+}

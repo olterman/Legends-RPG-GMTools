@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mastery With Defense",
+  "slug": "mastery_with_defense",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "Choose one type of defense task in which you are trained: Might, Speed, or Intellect. You are specialized in defense tasks of that type. You can select this ability up to three times. Each time you select it, you must choose a different type of defense task. Enabler. Matter Cloud (5 Intellect points): Pebbles, dirt, sand, and debris rise into the air around you to form a swirling cloud. The cloud extends out to immediate range, moves with you, and lasts for one minute. When it ends, all the materials fall to the ground around you. The cloud makes it harder for other creatures to attack you, giving you an asset on Speed defense rolls. In addition, while the cloud is around you, you can use an action to whip the material so that it abrades everything within immediate range, dealing 1 point of damage to each creature and object in the area. Action to initiate.",
+  "details": [
+    "Choose one type of defense task in which you are trained: Might, Speed, or Intellect. You are specialized in defense tasks of that type. You can select this ability up to three times. Each time you select it, you must choose a different type of defense task. Enabler.",
+    "Matter Cloud (5 Intellect points): Pebbles, dirt, sand, and debris rise into the air around you to form a swirling cloud. The cloud extends out to immediate range, moves with you, and lasts for one minute. When it ends, all the materials fall to the ground around you. The cloud makes it harder for other creatures to attack you, giving you an asset on Speed defense rolls. In addition, while the cloud is around you, you can use an action to whip the material so that it abrades everything within immediate range, dealing 1 point of damage to each creature and object in the area. Action to initiate."
+  ]
+}

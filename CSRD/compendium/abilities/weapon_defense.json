@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Weapon Defense",
+  "slug": "weapon_defense",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "While your chosen weapon is in your hand(s), you are trained in Speed defense rolls. Enabler.",
+  "details": [
+    "While your chosen weapon is in your hand(s), you are trained in Speed defense rolls. Enabler."
+  ]
+}

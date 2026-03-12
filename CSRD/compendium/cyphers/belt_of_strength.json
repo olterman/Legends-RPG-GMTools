@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Belt Of Strength",
+  "slug": "belt_of_strength",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Thick leather belt with a metal buckle and rivets",
+  "effect": "The belt enhances the strength and endurance of the wearer. This increases the wearer’s maximum Might Pool by 5 (or by 7 if the artifact is level 6 or higher). If the wearer removes the belt, any excess Might points above their normal maximum Might Pool are lost; if they wear the belt again, the points do not automatically return (they must be restored with recovery rolls, healing magic, or similar effects).",
+  "depletion": "—"
+}

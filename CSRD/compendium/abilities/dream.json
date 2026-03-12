@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Dream",
+  "slug": "dream",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The controlled creature is aware of what’s going on but perceives it in a dreamlike state. They may believe that they’re in control of themselves the entire time, or somewhat aware that they’re not fully in control (similar to being intoxicated by drugs or alcohol or disoriented by an illness). Afterward, the creature might feel strange about the events but may not realize that someone else was controlling them.",
+  "details": [
+    "The controlled creature is aware of what’s going on but perceives it in a dreamlike state. They may believe that they’re in control of themselves the entire time, or somewhat aware that they’re not fully in control (similar to being intoxicated by drugs or alcohol or disoriented by an illness). Afterward, the creature might feel strange about the events but may not realize that someone else was controlling them."
+  ]
+}

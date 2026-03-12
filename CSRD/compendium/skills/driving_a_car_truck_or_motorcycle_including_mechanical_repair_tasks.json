@@ -1,0 +1,27 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Driving a Car, Truck, or Motorcycle, Including Mechanical Repair Tasks",
+  "slug": "driving_a_car_truck_or_motorcycle_including_mechanical_repair_tasks",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:driver",
+        "line": "You are trained in all tasks related to driving a car, truck, or motorcycle, including mechanical repair tasks. Enabler."
+      }
+    ],
+    "expert": [
+      {
+        "from": "ability:expert_driver",
+        "line": "You are specialized in all tasks related to driving a car, truck, or motorcycle, including mechanical repair tasks. Enabler."
+      }
+    ]
+  },
+  "levels": [
+    "trained",
+    "expert"
+  ],
+  "summary": "trained, expert"
+}

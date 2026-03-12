@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Awakens Dreams",
+  "slug": "awakens_dreams",
+  "summary": "You can pull images from dreams and bring them to life in the waking world.",
+  "tiers": [
+    "Tier 1: Dreamcraft",
+    "Tier 1: Oneirochemy",
+    "Tier 2: Dream Thief",
+    "Tier 3: Dream Becomes Reality or Enhanced Intellect",
+    "Tier 4: Daydream",
+    "Tier 5: Nightmare",
+    "Tier 6: Chamber of Dreams or Reactive Field"
+  ],
+  "gm_intrusions": "An unexpected sleepwalking episode puts the character into a dangerous situation. A nightmare breaks free of a dream.",
+  "text": "You can pull images from dreams and bring them to life in the waking world.",
+  "details": [
+    "You can pull images from dreams and bring them to life in the waking world."
+  ]
+}

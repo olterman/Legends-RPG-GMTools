@@ -1,0 +1,21 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Increasing Determination",
+  "slug": "increasing_determination",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "If you fail at a noncombat physical task (pushing open a door or climbing a cliff, for example) and then retry the task, the task is eased. If you fail again, you gain no special benefits. Enabler. Incredible Feat of Science (12 Intellect points): You do something amazing in the lab. This takes parts and materials equivalent to three expensive items. Possible incredible feats include: Reanimate and command a dead body for one hour. Create an engine that runs on perpetual motion. Create a teleportation gate that remains open for one minute. Transmute one substance into another substance. Cure one person with an incurable disease or condition. Create a weapon designed to hurt something that can’t otherwise be hurt. Create a defense designed to protect against something that can’t otherwise be stopped. Action to initiate; a full day of work to complete.",
+  "details": [
+    "If you fail at a noncombat physical task (pushing open a door or climbing a cliff, for example) and then retry the task, the task is eased. If you fail again, you gain no special benefits. Enabler.",
+    "Incredible Feat of Science (12 Intellect points): You do something amazing in the lab. This takes parts and materials equivalent to three expensive items. Possible incredible feats include:",
+    "Reanimate and command a dead body for one hour.",
+    "Create an engine that runs on perpetual motion.",
+    "Create a teleportation gate that remains open for one minute.",
+    "Transmute one substance into another substance.",
+    "Cure one person with an incurable disease or condition.",
+    "Create a weapon designed to hurt something that can’t otherwise be hurt.",
+    "Create a defense designed to protect against something that can’t otherwise be stopped.",
+    "Action to initiate; a full day of work to complete."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wealth",
+  "slug": "wealth",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The PC comes into a considerable amount of wealth, whether it’s a windfall, an inheritance, or a gift. It might be enough to buy a home or a title, but that’s not really the point. The main benefit is that the PC no longer needs to worry about the cost of simple equipment, lodging, food, and so on. This wealth could mean a set amount—perhaps 50,000 dollars (or whatever is appropriate in the setting)—or it could bestow the ability to ignore minor costs, as decided by the player and GM. (GMs and players should work together to make XP awards and expenditures fit the ongoing story. If a PC stays in a location for two months to learn the inhabitants’ unique language, the GM might award the character a few XP, which are then immediately spent to grant them the ability to understand and speak that language.) Character Advancement Progressing to the next tier involves four steps. When a PC has spent 4 XP on each of the steps, they advance to the next tier and gain all the type and focus benefits of that tier. The four steps can be purchased in any order, but each can be purchased only once per tier. In other words, a PC must buy all four steps and advance to the next tier before they can buy the same steps again.",
+  "details": [
+    "The PC comes into a considerable amount of wealth, whether it’s a windfall, an inheritance, or a gift. It might be enough to buy a home or a title, but that’s not really the point. The main benefit is that the PC no longer needs to worry about the cost of simple equipment, lodging, food, and so on. This wealth could mean a set amount—perhaps 50,000 dollars (or whatever is appropriate in the setting)—or it could bestow the ability to ignore minor costs, as decided by the player and GM.",
+    "(GMs and players should work together to make XP awards and expenditures fit the ongoing story. If a PC stays in a location for two months to learn the inhabitants’ unique language, the GM might award the character a few XP, which are then immediately spent to grant them the ability to understand and speak that language.)",
+    "Character Advancement",
+    "Progressing to the next tier involves four steps. When a PC has spent 4 XP on each of the steps, they advance to the next tier and gain all the type and focus benefits of that tier. The four steps can be purchased in any order, but each can be purchased only once per tier. In other words, a PC must buy all four steps and advance to the next tier before they can buy the same steps again."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Using, Repairing, or Crafting Machines",
+  "slug": "using_repairing_or_crafting_machines",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:mechanical",
+        "line": "Skill: You’re trained in all actions involving using, repairing, or crafting machines."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

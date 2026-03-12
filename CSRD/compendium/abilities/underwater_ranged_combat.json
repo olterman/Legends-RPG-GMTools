@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Underwater Ranged Combat",
+  "slug": "underwater_ranged_combat",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "As with melee combat, nonaquatic creatures have problems fighting underwater. Some ranged attacks are impossible underwater—you can’t throw things, fire a bow or crossbow, or use a blowgun. Many firearms also do not work underwater. Attacks with weapons that do work underwater are hindered. Ranges underwater are reduced by one category; very-long-range weapons work only to long range, long-range weapons work only to short range, and short-range weapons work only to immediate range. Moving Targets Moving targets are harder to hit, and moving attackers have a difficult time as well.",
+  "details": [
+    "As with melee combat, nonaquatic creatures have problems fighting underwater. Some ranged attacks are impossible underwater—you can’t throw things, fire a bow or crossbow, or use a blowgun. Many firearms also do not work underwater. Attacks with weapons that do work underwater are hindered. Ranges underwater are reduced by one category; very-long-range weapons work only to long range, long-range weapons work only to short range, and short-range weapons work only to immediate range.",
+    "Moving Targets",
+    "Moving targets are harder to hit, and moving attackers have a difficult time as well."
+  ]
+}

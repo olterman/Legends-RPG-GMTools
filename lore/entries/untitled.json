@@ -1,0 +1,27 @@
+{
+  "type": "lore",
+  "title": "Untitled",
+  "slug": "untitled",
+  "source": "logseq",
+  "source_path": "logseq/pages/Untitled.md",
+  "excerpt": "AI Art",
+  "categories": [
+    "race"
+  ],
+  "terms": [
+    "alfirin",
+    "duergar",
+    "fellic",
+    "gitz",
+    "lilim",
+    "uruk",
+    "vaettyr",
+    "velim"
+  ],
+  "mentions_total": 8,
+  "content_markdown": "AI Art\n**Prompt Syle:**\nPrompt subject:\n**Negative prompt:** photorealism, anime, manga, chibi, flat colors, sketchy lines, heavy outlines, harsh shadows, muddy palette, overexposed lighting, plastic skin, AI artifacts\n**Seed:** 2190460234\n**compact style:** Clean polished illustration, stylized realism, minimal crisp linework, painterly digital color, expressive faces, believable anatomy, soft even lighting, rich balanced saturation, clear material textures, readable silhouettes, modern graphic-novel / tabletop RPG finish\nCompact race:\nDuergar: Stocky dense humanoids, stone- or ash-toned skin, severe faces, heavy utilitarian armor, dark metals and stone, subterranean forge or cavern setting.\nVaettyr: Short sturdy subterranean humanoids, large hands and eyes, work-worn clothing, goggles and tools, surrounded by ancient machinery and stone.\nGitz: Small agile humanoids, wiry builds, sharp features, bright eyes, scavenged clothing and tools, clever wary expressions, forest-dwelling survivors.\nFellic: Humanoid animal-aspected beings, natural fur and traits (cat, fox, dog, bear, bull, turtle, bird), minimal natural clothing, expressive posture, wilderness harmony.\nLilim: Graceful humanoids with infernal or alien traits, horns or unusual eyes, expressive movement, ritual adornments, flowing eclectic clothing, subtle magical glow, intense emotional presence.\nUruk: Large powerfully built humanoids, thick musculature, pronounced lower tusks, broad faces, skin from pale blue-white to deep green, tribal clothing, grounded dominant stance.\nVelim: Tiny luminous humanoids, semi-translucent light-forms, simplified features, hovering or light-footed, glowing motes, subtle spatial distortion, ancient neutral presence.\nAlfirin: Tall refined humanoids, subtly pointed ears, luminous eyes, slender elegant builds, cool-toned skin, ancient calm, flowing robes or light armor, materials of living wood, light metal, crystal, composed posture.\nCompact content:",
+  "prompt_counts": {
+    "lore": 1,
+    "art": 0
+  }
+}

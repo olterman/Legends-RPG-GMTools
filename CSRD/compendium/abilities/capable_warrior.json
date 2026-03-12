@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Capable Warrior",
+  "slug": "capable_warrior",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "Your attacks deal 1 additional point of damage. Enabler.",
+  "details": [
+    "Your attacks deal 1 additional point of damage. Enabler."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wyvern",
+  "slug": "wyvern",
+  "level": 6,
+  "target_number": 18,
+  "description": "Wyverns are aggressive lesser cousins of dragons. Their bodies are about the size of a heavy horse but their wingspan makes them seem much larger. Lacking a dragon’s fiery breath or other magical abilities, wyverns rely on their strong flight and deadly stinger to catch and kill their prey, typically humanoids or large animals. Wyverns have four limbs— two legs used for clumsy walking and two arm-wings used for flight and balance.",
+  "motive": "Varies",
+  "environment": "Almost anywhere",
+  "health": "33",
+  "damage_inflicted": "10",
+  "armor": "2",
+  "movement": "Immediate",
+  "modifications": "Speed defense as level 2, knowledge tasks as level 9",
+  "combat": "An electrical discharge—or in some cases precisely pulsed sequences of lights, each designed for a specific creature to see—can affect all targets within short range of the AI (or the AI’s local terminal), inflicting 10 points of damage from electricity (or 10 points of Intellect damage, which ignores Armor). Some AIs can take an action to absorb matter around them (such as walls, floor, equipment, unresisting living creatures, and so on), regaining 5 points of health. An AI is likely able to deploy cyphers and artifacts in combat and also relies on guardians (such as synthetic people made to its own design) to aid it. Unless a particular AI uses a computer core, damage to an AI may just be damage done to a “terminal,” so even if an AI is seemingly destroyed, it might exist as another instance somewhere else.",
+  "interaction": "Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human.",
+  "use": "The characters are contacted by an AI sympathetic to biological beings. It wants them to accomplish a task on a moon of Jupiter: assassinate a security officer who the AI calculates as being a nexus of future disaster if he isn’t removed from the equation.",
+  "loot": "An AI might have access to 1d6 cyphers and possibly an artifact or two.",
+  "gm_intrusion": null
+}

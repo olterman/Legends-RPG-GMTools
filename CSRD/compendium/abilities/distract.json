@@ -1,0 +1,16 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Distract",
+  "slug": "distract",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "For one round, all of the foe’s tasks are hindered. Knock back: The foe is knocked or forced back a few feet. Most of the time, this doesn’t matter much, but if the fight takes place on a ledge or next to a pit of lava, the effect can be significant. Move past: The character can move a short distance at the end of the attack. This effect is useful to get past a foe guarding a door, for example. Strike a specific body part: The attacker strikes a specific spot on the defender’s body. The GM rules what special effect, if any, results. For example, hitting a creature’s tentacle that is wrapped around an ally might make it easier for the ally to escape. Hitting a foe in the eye might blind it for one round. Hitting a creature in its one vulnerable spot might ignore Armor. Usually, the GM just has the desired minor effect occur. For example, rolling a 19 against a relatively weak foe means it is knocked off the cliff. The effect makes the round more exciting, but the defeat of a minor creature has no significant impact on the story. Other times, the GM might rule that an additional roll is needed to achieve the effect—the special roll only gives the PC the opportunity for a minor effect. This mostly happens when the desired effect is very unlikely, such as pushing a 50-ton battle automaton off a cliff. If the player just wants to deal 3 additional points of damage as the minor effect, no extra roll is needed.",
+  "details": [
+    "For one round, all of the foe’s tasks are hindered.",
+    "Knock back: The foe is knocked or forced back a few feet. Most of the time, this doesn’t matter much, but if the fight takes place on a ledge or next to a pit of lava, the effect can be significant.",
+    "Move past: The character can move a short distance at the end of the attack. This effect is useful to get past a foe guarding a door, for example.",
+    "Strike a specific body part: The attacker strikes a specific spot on the defender’s body. The GM rules what special effect, if any, results. For example, hitting a creature’s tentacle that is wrapped around an ally might make it easier for the ally to escape. Hitting a foe in the eye might blind it for one round. Hitting a creature in its one vulnerable spot might ignore Armor.",
+    "Usually, the GM just has the desired minor effect occur. For example, rolling a 19 against a relatively weak foe means it is knocked off the cliff. The effect makes the round more exciting, but the defeat of a minor creature has no significant impact on the story. Other times, the GM might rule that an additional roll is needed to achieve the effect—the special roll only gives the PC the opportunity for a minor effect. This mostly happens when the desired effect is very unlikely, such as pushing a 50-ton battle automaton off a cliff. If the player just wants to deal 3 additional points of damage as the minor effect, no extra roll is needed."
+  ]
+}

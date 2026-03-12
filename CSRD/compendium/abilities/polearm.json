@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Polearm",
+  "slug": "polearm",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Various kinds of spears, sometimes with hooks or additional blades for special purposes like tripping a foe or pulling an opponent from their mount.",
+  "details": [
+    "Various kinds of spears, sometimes with hooks or additional blades for special purposes like tripping a foe or pulling an opponent from their mount."
+  ]
+}

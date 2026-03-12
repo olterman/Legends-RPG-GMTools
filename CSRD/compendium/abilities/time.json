@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Time",
+  "slug": "time",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "One hour of preparation, one hour of performance Roles: Chanting, playing instruments, bearing the soul object, restraining the creature, slaying the creature",
+  "details": [
+    "One hour of preparation, one hour of performance Roles: Chanting, playing instruments, bearing the soul object, restraining the creature, slaying the creature"
+  ]
+}

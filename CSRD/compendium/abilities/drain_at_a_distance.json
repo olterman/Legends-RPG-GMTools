@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Drain at a Distance",
+  "slug": "drain_at_a_distance",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "Your Drain Machine and Drain Creature abilities work on a target within short range. Enabler.",
+  "details": [
+    "Your Drain Machine and Drain Creature abilities work on a target within short range. Enabler."
+  ]
+}

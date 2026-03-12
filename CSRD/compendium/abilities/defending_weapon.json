@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defending Weapon",
+  "slug": "defending_weapon",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "When using your enchanted weapon, you are trained in Speed defense tasks. Enabler.",
+  "details": [
+    "When using your enchanted weapon, you are trained in Speed defense tasks. Enabler."
+  ]
+}

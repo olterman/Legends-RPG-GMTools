@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sensing Lies and Whether a Person is Likely to (or Already Does) Believe Lies",
+  "slug": "sensing_lies_and_whether_a_person_is_likely_to_or_already_does_believe_lies",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:sense_attitudes",
+        "line": "You are trained in sensing lies and whether a person is likely to (or already does) believe your lies. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

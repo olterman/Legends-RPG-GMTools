@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Deep Water",
+  "slug": "deep_water",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Being in water up to your chest (or the equivalent thereof) hinders your attacks. Aquatic creatures ignore this modifier.",
+  "details": [
+    "Being in water up to your chest (or the equivalent thereof) hinders your attacks. Aquatic creatures ignore this modifier."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sense Attitudes",
+  "slug": "sense_attitudes",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are trained in sensing lies and whether a person is likely to (or already does) believe your lies. Enabler.",
+  "details": [
+    "You are trained in sensing lies and whether a person is likely to (or already does) believe your lies. Enabler."
+  ]
+}

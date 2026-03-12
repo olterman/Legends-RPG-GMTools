@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Follower Assets to Combat and Defense",
+  "slug": "follower_assets_to_combat_and_defense",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A follower cannot grant an asset to a character’s attacks or defense until the follower is level 3 or higher. Even then, the follower can help with attacks and defense only if they have a modification for that kind of task. Some abilities may grant a special exception to this rule. For instance, the Serv-0 Defender ability gives your level 1 Serv-0 follower (a machine companion) a modification for Speed defense.",
+  "details": [
+    "A follower cannot grant an asset to a character’s attacks or defense until the follower is level 3 or higher. Even then, the follower can help with attacks and defense only if they have a modification for that kind of task.",
+    "Some abilities may grant a special exception to this rule. For instance, the Serv-0 Defender ability gives your level 1 Serv-0 follower (a machine companion) a modification for Speed defense."
+  ]
+}

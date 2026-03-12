@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Entering FTL",
+  "slug": "entering_ftl",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Whether engaging warp drive or passing into the mouth of a wormhole gate, complicating factors might require a piloting roll, with the difficulty determined by the situation. On a failed roll, any number of bad outcomes are possible, though the least dramatic is that the craft simply fails to enter FTL and cannot do so until the PCs determine the reason and rectify it.",
+  "details": [
+    "Whether engaging warp drive or passing into the mouth of a wormhole gate, complicating factors might require a piloting roll, with the difficulty determined by the situation. On a failed roll, any number of bad outcomes are possible, though the least dramatic is that the craft simply fails to enter FTL and cannot do so until the PCs determine the reason and rectify it."
+  ]
+}

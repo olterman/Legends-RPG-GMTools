@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Machine Companion",
+  "slug": "machine_companion",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You create a level 3 animate, intelligent machine that accompanies you and acts as you direct. As a level 3 machine companion, it has a target number of 9 and 9 health, and it inflicts 3 points of damage. If it’s destroyed, it takes you one month to create a new one. Enabler. Machine Efficiency (3 Intellect points): You can make a blaster shoot farther, coax more speed from a skycycle, improve the clarity of a camera, jury-rig a light to be brighter, speed up a network connection, and so on. You increase an object’s level by 2 for one minute, or you treat the object as an asset that eases an associated task by two steps for one minute (your choice). Action to initiate.",
+  "details": [
+    "You create a level 3 animate, intelligent machine that accompanies you and acts as you direct. As a level 3 machine companion, it has a target number of 9 and 9 health, and it inflicts 3 points of damage. If it’s destroyed, it takes you one month to create a new one. Enabler.",
+    "Machine Efficiency (3 Intellect points): You can make a blaster shoot farther, coax more speed from a skycycle, improve the clarity of a camera, jury-rig a light to be brighter, speed up a network connection, and so on. You increase an object’s level by 2 for one minute, or you treat the object as an asset that eases an associated task by two steps for one minute (your choice). Action to initiate."
+  ]
+}

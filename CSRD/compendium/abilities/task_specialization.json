@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Task Specialization",
+  "slug": "task_specialization",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "Choose one task (other than attacks or defense) that you are trained in. You become specialized in that task. (You can instead use this ability as Task Training to become trained in a task you aren’t trained in.) Enabler.",
+  "details": [
+    "Choose one task (other than attacks or defense) that you are trained in. You become specialized in that task. (You can instead use this ability as Task Training to become trained in a task you aren’t trained in.) Enabler."
+  ]
+}

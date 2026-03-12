@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Necromantic Wand",
+  "slug": "necromantic_wand",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": "Bone wand carved with runes",
+  "effect": "This wand emits a faint short-range beam of sickly violet light that affects only organic creatures and materials. Living targets hit by the beam move one step down the damage track. Nonliving organic targets are likely destroyed. This device is a rapid-fire weapon and thus can be used with the Spray or Arc Spray abilities that some characters have, but each “round of ammo” used or each additional target selected requires an additional depletion roll.",
+  "depletion": "1 in 1d10"
+}

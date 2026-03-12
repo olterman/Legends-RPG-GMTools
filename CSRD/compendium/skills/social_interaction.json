@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Social Interaction",
+  "slug": "social_interaction",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:exiled",
+        "line": "Inability: Living on your own for as long as you have makes you slow to trust others and awkward in social situations. Any task involving social interaction is hindered."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You’re trained in breaking things. Skill: You’re trained in all jumping tasks. Inability: Your destructive reputation or some other reluctance to communicate makes people distrust you. Any task involving social interaction is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

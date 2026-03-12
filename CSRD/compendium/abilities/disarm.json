@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Disarm",
+  "slug": "disarm",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The foe drops one object that it is holding.",
+  "details": [
+    "The foe drops one object that it is holding."
+  ]
+}

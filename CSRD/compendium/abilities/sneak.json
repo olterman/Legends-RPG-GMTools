@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sneak",
+  "slug": "sneak",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You are trained in stealth and initiative tasks. Enabler. Snipe (2 Speed points): If you spend one action aiming, in the next round you can make a precise ranged attack. You have an asset on this attack. If your attack is successful, it inflicts 4 additional points of damage. Action.",
+  "details": [
+    "You are trained in stealth and initiative tasks. Enabler.",
+    "Snipe (2 Speed points): If you spend one action aiming, in the next round you can make a precise ranged attack. You have an asset on this attack. If your attack is successful, it inflicts 4 additional points of damage. Action."
+  ]
+}

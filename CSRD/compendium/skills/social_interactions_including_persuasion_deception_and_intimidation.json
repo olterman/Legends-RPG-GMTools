@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Social Interactions, Including Persuasion, Deception, and Intimidation",
+  "slug": "social_interactions_including_persuasion_deception_and_intimidation",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:poetic_license",
+        "line": "You are trained in all social interactions, including persuasion, deception, and intimidation. You also know two additional languages. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

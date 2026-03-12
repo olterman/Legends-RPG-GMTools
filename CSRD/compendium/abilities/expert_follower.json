@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Expert Follower",
+  "slug": "expert_follower",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You gain a level 3 follower. They are not restricted on their modifications. You can take this ability multiple times, each time gaining another level 3 follower. Alternatively, you could choose to advance a level 2 follower you already have to level 3 and then gain a new level 2 follower. Enabler.",
+  "details": [
+    "You gain a level 3 follower. They are not restricted on their modifications. You can take this ability multiple times, each time gaining another level 3 follower. Alternatively, you could choose to advance a level 2 follower you already have to level 3 and then gain a new level 2 follower. Enabler."
+  ]
+}

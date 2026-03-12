@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Masters the Swarm",
+  "slug": "masters_the_swarm",
+  "summary": "Insects. Rats. Bats. Even birds. You master one type of small creature that obeys you.",
+  "tiers": [
+    "Tier 1: Influence Swarm",
+    "Tier 2: Control Swarm",
+    "Tier 3: Living Armor or Skill With Attacks",
+    "Tier 4: Call Swarm",
+    "Tier 5: Gain Unusual Companion",
+    "Tier 6: Deadly Swarm or Skill With Defense"
+  ],
+  "gm_intrusions": "A command is misunderstood. Control is erratic or is lost. Bites and stings are not uncommon for masters of the swarm.",
+  "text": "Insects. Rats. Bats. Even birds. You master one type of small creature that obeys you.",
+  "details": [
+    "Insects. Rats. Bats. Even birds. You master one type of small creature that obeys you."
+  ]
+}

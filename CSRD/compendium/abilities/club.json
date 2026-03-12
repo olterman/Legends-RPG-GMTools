@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Club",
+  "slug": "club",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A simple bludgeon, such as a sturdy tree branch, board, or improvised weapon. Crank crossbow: A weapon similar to a light crossbow, but it has a magazine that holds five bolts. You turn a small crank to advance to the next bolt (this is not an action). Action to load an empty magazine with five bolts, action to reload the crossbow with a new magazine. It can be used as a rapid-fire weapon.",
+  "details": [
+    "A simple bludgeon, such as a sturdy tree branch, board, or improvised weapon.",
+    "Crank crossbow: A weapon similar to a light crossbow, but it has a magazine that holds five bolts. You turn a small crank to advance to the next bolt (this is not an action). Action to load an empty magazine with five bolts, action to reload the crossbow with a new magazine. It can be used as a rapid-fire weapon."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enhanced Physique",
+  "slug": "enhanced_physique",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You gain 3 points to divide among your Might and Speed Pools however you wish. Enabler.",
+  "details": [
+    "You gain 3 points to divide among your Might and Speed Pools however you wish. Enabler."
+  ]
+}

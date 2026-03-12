@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Amazing Copying",
+  "slug": "amazing_copying",
+  "cost": null,
+  "alpha_section": "A",
+  "effect": "You can use Copy Power to copy more powerful abilities. In addition to the normal options for using Effort with Copy Power, if you apply two levels of Effort, the GM chooses a high-tier ability that most closely resembles that power (instead of a low-tier ability). Enabler.",
+  "details": [
+    "You can use Copy Power to copy more powerful abilities. In addition to the normal options for using Effort with Copy Power, if you apply two levels of Effort, the GM chooses a high-tier ability that most closely resembles that power (instead of a low-tier ability). Enabler."
+  ]
+}

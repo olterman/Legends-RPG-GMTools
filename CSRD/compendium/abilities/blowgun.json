@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Blowgun",
+  "slug": "blowgun",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A long hollow tube used to shoot darts. You can fire it with one hand, but you need two hands to load it.",
+  "details": [
+    "A long hollow tube used to shoot darts. You can fire it with one hand, but you need two hands to load it."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Running Actions",
+  "slug": "running_actions",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:craven",
+        "line": "Skill: You’re trained in running actions."
+      },
+      {
+        "from": "descriptor:swift",
+        "line": "Skill: You’re trained in running actions."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

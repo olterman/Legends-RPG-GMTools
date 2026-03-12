@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Devious",
+  "slug": "devious",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+2 to your Intellect Pool.",
+  "details": [
+    "+2 to your Intellect Pool."
+  ]
+}

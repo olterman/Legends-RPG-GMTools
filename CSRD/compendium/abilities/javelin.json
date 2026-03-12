@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Javelin",
+  "slug": "javelin",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A light spear that’s designed to be thrown. Light crossbow: A bow with a handle and mechanism for drawing and holding the string. It fires crossbow bolts. You can fire it with one hand. You need two hands to load it. Action to reload. Mace: A wooden handle with a heavy metal head that’s spherical, flanged, or knobbed.",
+  "details": [
+    "A light spear that’s designed to be thrown.",
+    "Light crossbow: A bow with a handle and mechanism for drawing and holding the string. It fires crossbow bolts. You can fire it with one hand. You need two hands to load it. Action to reload. Mace: A wooden handle with a heavy metal head that’s spherical, flanged, or knobbed."
+  ]
+}

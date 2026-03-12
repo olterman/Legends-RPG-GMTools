@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Elf",
+  "slug": "elf",
+  "level": 4,
+  "target_number": 12,
+  "description": "An elf has a very long lifespan and tends to learn and abandon many skills and interests, including combat and magic. Elves are likely to wander in pursuit of something new and interesting, such as finding the tallest tree in the forest, the most beautiful sunset, or the perfect love song.",
+  "motive": "Curiosity",
+  "environment": null,
+  "health": "12",
+  "damage_inflicted": "5 points",
+  "armor": "1",
+  "movement": "Short",
+  "modifications": "Perception, Speed defense, and any two noncombat skills as level 5",
+  "combat": "Elves usually fight with short or medium blades and delicate but deadly bows. Because of their subtle skill and fast reactions, their first attack in any combat inflicts an additional 2 points of damage. A typical elf might know a few minor spells, such as heating or chilling food, creating a bit of moonlight, and cleaning or repairing clothing.",
+  "interaction": "Elves appreciate beauty, grace, and skill, and they don’t respond well to crudeness or bluster, especially from people decades or centuries younger than themselves. They are subtle in their insults but do have a sense of humor.",
+  "use": "A group of young elves arrives in a city, wanting to see firsthand how the short-lived humans do things. An elf is said to have lived in the forest for a thousand years, listening to the secrets whispered by the trees.",
+  "loot": "In addition to their weapons and light armor, an elf carries a few moderately priced (but extremely well-made) curios and mementos, and usually a cypher.",
+  "gm_intrusion": null
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Enhanced Speed",
+  "slug": "enhanced_speed",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You gain 3 points to your Speed Pool. Enabler.",
+  "details": [
+    "You gain 3 points to your Speed Pool. Enabler."
+  ]
+}

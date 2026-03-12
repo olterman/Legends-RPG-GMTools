@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Weak AI",
+  "slug": "weak_ai",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": ": level 1; up to level 7 when it comes to a narrowly specific application of knowledge or skill",
+  "details": [
+    ": level 1; up to level 7 when it comes to a narrowly specific application of knowledge or skill"
+  ]
+}

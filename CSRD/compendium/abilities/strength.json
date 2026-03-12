@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Strength",
+  "slug": "strength",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "All tasks involving strength, including jumping and dealing damage with melee or thrown attacks (+3 points), but not attack rolls. For power shifts that affect tasks, each shift eases the task. Applying two shifts eases the task by two steps, and applying three shifts eases the task by three steps. A character assigns their five power shifts as desired, but most characters should not be allowed to assign more than three to any one category. Once the shifts are assigned, they should not change (however, researching an experimental procedure to change a character’s power shifts could be the culmination of a character arc such as Uncover a Secret).",
+  "details": [
+    "All tasks involving strength, including jumping and dealing damage with melee or thrown attacks (+3 points), but not attack rolls.",
+    "For power shifts that affect tasks, each shift eases the task. Applying two shifts eases the task by two steps, and applying three shifts eases the task by three steps.",
+    "A character assigns their five power shifts as desired, but most characters should not be allowed to assign more than three to any one category. Once the shifts are assigned, they should not change (however, researching an experimental procedure to change a character’s power shifts could be the culmination of a character arc such as Uncover a Secret)."
+  ]
+}

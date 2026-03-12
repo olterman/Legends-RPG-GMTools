@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Disintegration",
+  "slug": "disintegration",
+  "level": 7,
+  "target_number": 21,
+  "description": "A magical ray of eerie energy blasts the character, disrupting their physical matter. Any creature killed by the ray (or any object destroyed by it) turns to dust.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "15 points GM Intrusion: In addition to inflicting damage, the ray moves the character one step down the damage track. Part of the ray splits or ricochets off the character and strikes a second creature, inflicting 10 points of damage.",
+  "armor": null,
+  "movement": null,
+  "modifications": null,
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

@@ -1,0 +1,30 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hunts",
+  "slug": "hunts",
+  "summary": "You are a stalking hunter who excels at bringing down your selected quarry.",
+  "tiers": [
+    "Tier 1: Attack Flourish",
+    "Tier 1: Tracker",
+    "Tier 2: Quarry",
+    "Tier 2: Sneak",
+    "Tier 3: Horde Fighting or Sprint and Grab",
+    "Tier 4: Surprise Attack",
+    "Tier 5: Hunter’s Drive",
+    "Tier 6: Greater Skill With Attacks or Multiple Quarry",
+    "Tier 1: Dimensional Squeeze",
+    "Tier 2: Opportunist",
+    "Tier 3: Defensive Blinking or Teleportation Burst",
+    "Tier 4: Short Teleportation",
+    "Tier 5: Medium Teleportation",
+    "Tier 6: Teleportation or Teleportive Wound"
+  ],
+  "gm_intrusions": "A teleport goes awry, landing the character in a dangerous place. Inertia (such as from falling) continues through the teleport, injuring the character.",
+  "text": "You are a stalking hunter who excels at bringing down your selected quarry. IGNORES PHYSICAL DISTANCE You can teleport from one place to another by briefly passing through a parallel dimension.",
+  "details": [
+    "You are a stalking hunter who excels at bringing down your selected quarry.",
+    "IGNORES PHYSICAL DISTANCE",
+    "You can teleport from one place to another by briefly passing through a parallel dimension."
+  ]
+}

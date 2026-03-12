@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Friendly Help",
+  "slug": "friendly_help",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "If your friend tries a task and fails, they can try again without spending Effort if you help. You provide this advantage to your friend even if you are not trained in the task that they are retrying. Enabler.",
+  "details": [
+    "If your friend tries a task and fails, they can try again without spending Effort if you help. You provide this advantage to your friend even if you are not trained in the task that they are retrying. Enabler."
+  ]
+}

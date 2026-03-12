@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Inner Evil",
+  "slug": "inner_evil",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You sometimes lose control and risk hurting your allies. When you roll a 1, the GM has the option to intrude by indicating that you lose control. Once you’ve lost control, you attack any and every living creature within short range. You can’t spend Intellect points for any reason other than to try to regain control (a difficulty 2 task). After you regain control, you suffer a –1 penalty to all rolls for one hour.",
+  "details": [
+    "You sometimes lose control and risk hurting your allies. When you roll a 1, the GM has the option to intrude by indicating that you lose control. Once you’ve lost control, you attack any and every living creature within short range. You can’t spend Intellect points for any reason other than to try to regain control (a difficulty 2 task). After you regain control, you suffer a –1 penalty to all rolls for one hour."
+  ]
+}

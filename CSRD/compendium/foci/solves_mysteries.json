@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Solves Mysteries",
+  "slug": "solves_mysteries",
+  "summary": "You’re a master of deduction, using evidence to find the answer.",
+  "tiers": [
+    "Tier 1: Investigator",
+    "Tier 1: Sleuth",
+    "Tier 2: Out of Harm’s Way",
+    "Tier 3: You Studied or Skill With Attacks",
+    "Tier 4: Draw Conclusion",
+    "Tier 5: Defuse Situation",
+    "Tier 6: Seize the Initiative or Greater Skill With Defense"
+  ],
+  "gm_intrusions": "Evidence disappears, red herrings confuse, and witnesses lie. Initial research can be faulty.",
+  "text": "You’re a master of deduction, using evidence to find the answer.",
+  "details": [
+    "You’re a master of deduction, using evidence to find the answer."
+  ]
+}

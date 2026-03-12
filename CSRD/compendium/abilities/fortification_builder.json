@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fortification Builder",
+  "slug": "fortification_builder",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "Whenever you attempt a crafting task—or help in the crafting task—to build a wall or other fortification, you ease the crafting difficulty by two steps, to a minimum of difficulty 1. Enabler. Fortified Position (2 Might points): For the next minute, you gain +1 Armor and an asset to your Might defense tasks, as long as you haven’t moved more than an immediate distance since your last turn. Action to initiate. Foul Aura (5+ Intellect points): Your words, gestures, and touch invest an object no larger than yourself with an aura of doom, fear, and doubt for one day. Creatures that can hear and understand you feel an urge to move at least a short distance away from the object. If a creature does not move away, all tasks, attacks, and defenses it attempts while within the aura are hindered. The duration of the aura is extended by one day per level of Effort applied. The aura is temporarily blocked while the object is covered or contained. Action to initiate.",
+  "details": [
+    "Whenever you attempt a crafting task—or help in the crafting task—to build a wall or other fortification, you ease the crafting difficulty by two steps, to a minimum of difficulty 1. Enabler.",
+    "Fortified Position (2 Might points): For the next minute, you gain +1 Armor and an asset to your Might defense tasks, as long as you haven’t moved more than an immediate distance since your last turn. Action to initiate.",
+    "Foul Aura (5+ Intellect points): Your words, gestures, and touch invest an object no larger than yourself with an aura of doom, fear, and doubt for one day. Creatures that can hear and understand you feel an urge to move at least a short distance away from the object. If a creature does not move away, all tasks, attacks, and defenses it attempts while within the aura are hindered. The duration of the aura is extended by one day per level of Effort applied. The aura is temporarily blocked while the object is covered or contained. Action to initiate."
+  ]
+}

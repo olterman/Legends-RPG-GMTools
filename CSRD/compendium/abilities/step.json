@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Step",
+  "slug": "step",
+  "cost": "s",
+  "alpha_section": "Z",
+  "effect": "Progress. This is an active step toward undoing the wrong. It might involve finding something, defeating someone, destroying something, building something, or almost anything else, depending on the circumstances.",
+  "details": [
+    "Progress. This is an active step toward undoing the wrong. It might involve finding something, defeating someone, destroying something, building something, or almost anything else, depending on the circumstances."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "That Task",
+  "slug": "that_task",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:flex_skill",
+        "line": "At the beginning of each day, choose one task (other than attacks or defense) on which you will concentrate. For the rest of that day, you’re trained in that task. You can’t use this ability with a skill in which you’re already trained to become specialized. Enabler."
+      },
+      {
+        "from": "ability:task_training",
+        "line": "Choose one task (other than attacks or defense) that you are not trained or specialized in. You become trained in that task. Enabler."
+      },
+      {
+        "from": "ability:task_training",
+        "line": "Choose one task (other than attacks or defense) that you are not trained or specialized in. You become trained in that task. Enabler. Taunt Foe (4 Might or Intellect points): You can make an attack on a foe as part of drawing an attack (which is not something you can do normally when attempting to draw an attack). In cases where an intelligent or determined foe isn’t drawn to you, you can attempt an Intellect action as part of the attack. If that Intellect action is successful, the foe attacks you. Your defenses against that attack are hindered by one step, instead of being hindered by two steps as normal when drawing an attack. Enabler. Teach Trick (5+ Intellect points): You spend an hour instructing someone on how to perform a type ability that you know. The ability must be no higher than fourth tier. For one hour after you teach them, the student can perform that ability as if it were natural for them. They must pay the Might, Speed, or Intellect cost (if any) to use that ability. The student must be able to understand your instructions. In addition to the normal options for using Effort, you can choose to use Effort to increase how long the student can use the ability or to teach additional students at the same time; each level of Effort used in this way increases the duration by one hour or the number of students by one. One hour to initiate. Action; hour to complete."
+      }
+    ],
+    "expert": [
+      {
+        "from": "descriptor:exiled",
+        "line": "Loner: You gain no benefit when you get help with a task from another character who is trained or specialized in that task."
+      },
+      {
+        "from": "ability:heightened_skills",
+        "line": "You are trained in two tasks of your choosing (other than attacks or defense). If you choose a task you’re already trained in, you instead become specialized in that task. You can’t choose a task you’re already specialized in. Enabler."
+      },
+      {
+        "from": "ability:heightened_skills",
+        "line": "You are trained in two tasks of your choosing (other than attacks or defense). If you choose a task you’re already trained in, you instead become specialized in that task. You can’t choose a task you’re already specialized in. Enabler. Hemorrhage (2+ Might points): You make a powerful and precise strike that inflicts additional damage later. On your next turn, the target of this attack takes an additional 3 points of damage (ignores Armor). The target can prevent this additional damage by making a recovery roll, using any ability that heals it, or using its action to attend to the injury. In addition to the normal options for using Effort, you can choose to use Effort to increase this duration by one round. Action."
+      },
+      {
+        "from": "ability:task_specialization",
+        "line": "Choose one task (other than attacks or defense) that you are trained in. You become specialized in that task. (You can instead use this ability as Task Training to become trained in a task you aren’t trained in.) Enabler."
+      }
+    ]
+  },
+  "levels": [
+    "trained",
+    "expert"
+  ],
+  "summary": "trained, expert"
+}

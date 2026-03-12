@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spacecraft",
+  "slug": "spacecraft",
+  "cost": "and Starship",
+  "alpha_section": "Z",
+  "effect": "When it is important to make a distinction from a simple vehicle restricted to the land, sea, or air of a single planet, the term “spacecraft” is used for vehicles that travel beyond a single planet’s atmosphere. Some spacecraft can operate both in space and as planetary vehicles, as noted in their entries. Additionally, a spacecraft that has FTL capability (as opposed to only interplanetary capability within a single solar system) is referred to as a starship.",
+  "details": [
+    "When it is important to make a distinction from a simple vehicle restricted to the land, sea, or air of a single planet, the term “spacecraft” is used for vehicles that travel beyond a single planet’s atmosphere. Some spacecraft can operate both in space and as planetary vehicles, as noted in their entries. Additionally, a spacecraft that has FTL capability (as opposed to only interplanetary capability within a single solar system) is referred to as a starship."
+  ]
+}

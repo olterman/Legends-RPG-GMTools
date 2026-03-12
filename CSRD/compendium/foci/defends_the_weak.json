@@ -1,0 +1,22 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defends the Weak",
+  "slug": "defends_the_weak",
+  "summary": "You stand up for the helpless, the weak, and the unprotected.",
+  "tiers": [
+    "Tier 1: Courageous",
+    "Tier 1: Warding Shield",
+    "Tier 2: Devoted Defender",
+    "Tier 2: Insight",
+    "Tier 3: Dual Wards or True Guardian",
+    "Tier 4: Combat Challenge",
+    "Tier 5: Willing Sacrifice",
+    "Tier 6: Resuscitate or True Defender"
+  ],
+  "gm_intrusions": "A character focused on protecting others may periodically leave themselves vulnerable to attacks.",
+  "text": "You stand up for the helpless, the weak, and the unprotected.",
+  "details": [
+    "You stand up for the helpless, the weak, and the unprotected."
+  ]
+}

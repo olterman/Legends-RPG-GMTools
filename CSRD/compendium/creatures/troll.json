@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Troll",
+  "slug": "troll",
+  "level": 6,
+  "target_number": 18,
+  "description": "A troll is a hideous humanoid standing at least 10 feet (3 m) tall that hunts more by smell than by sight. They are dangerous but not particularly intelligent. Always ravenous, trolls eat anything, and rarely take the time to cook a meal. Usually, they distend their mouths and throats and swallow subdued prey whole.",
+  "motive": "Hungers for flesh",
+  "environment": "Nearly anywhere, hunting alone or in pairs",
+  "health": "30",
+  "damage_inflicted": "7 points",
+  "armor": "1",
+  "movement": "Long",
+  "modifications": "Speed defense as level 5 due to size; Might defense as level 7; sees through deception as level 4",
+  "combat": "The troll attacks with its claws. If it hits, it grabs a foe tightly, then squeezes and bites until the victim is dead or it releases that victim to attack another creature. Each round that a held creature does not escape, they take 10 points of damage. Trolls regain 3 points of health per round. If a troll suffers a particularly egregious wound (10 or more points of damage in one round), rather than regain health in that round (and instead of taking any other action), the troll divides into two level 4 trolls that are 3 feet (1 m) tall. Spawned trolls that survive the battle and have access to food grow into full-power trolls within a few weeks.",
+  "interaction": "Trolls speak their own simple language, but a few know a little bit of a local human language. Most prefer to attack and eat other creatures, but might be bargained with after a successful show of force.",
+  "use": "Trolls may be chance encounters in the wilderness for unlucky travelers. Sometimes captured trolls are used by slavers, armies, and powerful wizards as guards and warriors.",
+  "loot": null,
+  "gm_intrusion": null
+}

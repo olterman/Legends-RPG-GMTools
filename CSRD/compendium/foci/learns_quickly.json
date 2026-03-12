@@ -1,0 +1,23 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Learns Quickly",
+  "slug": "learns_quickly",
+  "summary": "You deal with bad situations as they arise, learning new lessons each time.",
+  "tiers": [
+    "Tier 1: Enhanced Intellect",
+    "Tier 1: There’s Your Problem",
+    "Tier 2: Quick Study",
+    "Tier 3: Hard to Distract",
+    "Tier 3: Enhanced Intellect Edge or Flex Skill",
+    "Tier 4: Pay It Forward",
+    "Tier 5: Enhanced Intellect",
+    "Tier 5: Learned a Few Things",
+    "Tier 6: Two Things at Once or Skill With Defense"
+  ],
+  "gm_intrusions": "Accidents and mistakes are great teachers.",
+  "text": "You deal with bad situations as they arise, learning new lessons each time.",
+  "details": [
+    "You deal with bad situations as they arise, learning new lessons each time."
+  ]
+}

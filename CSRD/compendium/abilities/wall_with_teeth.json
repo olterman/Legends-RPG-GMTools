@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wall With Teeth",
+  "slug": "wall_with_teeth",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You inflict 2 additional points of damage with all attacks when using your Living Wall ability. Enabler.",
+  "details": [
+    "You inflict 2 additional points of damage with all attacks when using your Living Wall ability. Enabler."
+  ]
+}

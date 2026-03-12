@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Getting People to Believe or Trust",
+  "slug": "getting_people_to_believe_or_trust",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:mysterious",
+        "line": "Inability: People never know where they stand with you. Any task involving getting people to believe or trust you is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

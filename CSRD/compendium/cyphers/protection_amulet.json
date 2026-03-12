@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Protection Amulet",
+  "slug": "protection_amulet",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": "Stylized amulet worn on a chain",
+  "effect": "The amulet reduces one type of damage by an amount equal to the artifact level. Roll a d20 to determine the kind of damage the amulet protects against.",
+  "depletion": "1 in 1d6 (check each time the amulet reduces damage)"
+}

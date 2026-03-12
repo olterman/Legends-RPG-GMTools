@@ -1,0 +1,31 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Attacks with All Weapons That Throw",
+  "slug": "attacks_with_all_weapons_that_throw",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:careful_aim",
+        "line": "You are trained in attacks with all weapons that you throw. Enabler."
+      }
+    ],
+    "expert": [
+      {
+        "from": "ability:specialized_throwing",
+        "line": "You are specialized in attacks with all weapons that you throw. Enabler."
+      },
+      {
+        "from": "ability:specialized_throwing",
+        "line": "You are specialized in attacks with all weapons that you throw. Enabler. Speed Burst (4 Speed points): You can take two separate actions in this round. In the following round, all actions are hindered. You cannot use this ability two rounds in a row. Enabler. Speedy Recovery (3 Intellect points): Your words enhance the normal regenerative ability of a character within short range who is able to understand you. When they make a recovery roll, they must spend only half the normal amount of time required to do so (minimum one action). Action. Spin Attack (5+ Speed points): You stand still and make attacks against up to five foes, all as part of the same action in one round. All of the attacks have to be the same sort of attack (melee or ranged). Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Anything that modifies your attack or damage applies to all of these attacks. In addition to the normal options for using Effort, you can choose to use Effort to increase the number of foes you can attack with this ability (one additional foe per level of Effort used in this way). Action. Spin Identity (2+ Intellect points): You convince all intelligent creatures who can see, hear, and understand you that you are someone or something other than who you actually are. You don’t impersonate a specific individual known to the victim. Instead, you convince the victim that you are someone they do not know belonging to a certain category of people. “We’re from the government.” “I’m just a simple farmer from the next town over.” “Your commander sent me.” A disguise isn’t necessary, but a good disguise will almost certainly be an asset to the roll involved. If you attempt to convince more than one creature, the Intellect cost increases by 1 point per additional victim. Fooled creatures remain so for up to an hour, unless your actions or other circumstances reveal your true identity earlier. Action."
+      }
+    ]
+  },
+  "levels": [
+    "trained",
+    "expert"
+  ],
+  "summary": "trained, expert"
+}

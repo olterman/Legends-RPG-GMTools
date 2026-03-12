@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Breaker",
+  "slug": "breaker",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Tasks related to breaking things by smashing them are eased.",
+  "details": [
+    "Tasks related to breaking things by smashing them are eased."
+  ]
+}

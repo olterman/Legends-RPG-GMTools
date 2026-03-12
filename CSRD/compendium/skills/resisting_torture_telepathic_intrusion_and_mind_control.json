@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resisting Torture, Telepathic Intrusion, and Mind Control",
+  "slug": "resisting_torture_telepathic_intrusion_and_mind_control",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:inner_defense",
+        "line": "Life’s trials have toughened you and made you hard to read. You are trained in any task to resist another creature’s attempt to discern your true feelings, beliefs, or plans. You are likewise trained in resisting torture, telepathic intrusion, and mind control. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

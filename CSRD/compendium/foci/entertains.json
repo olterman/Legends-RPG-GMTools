@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Entertains",
+  "slug": "entertains",
+  "summary": "You perform, mostly for the benefit of others.",
+  "tiers": [
+    "Tier 1: Levity",
+    "Tier 2: Inspiring Ease",
+    "Tier 3: Knowledge Skills or Greater Enhanced Potential",
+    "Tier 4: Calm",
+    "Tier 5: Able Assistance",
+    "Tier 6: Master Entertainer or Vindictive Performance"
+  ],
+  "gm_intrusions": "The audience is annoyed or offended. Musical instruments break. Paints dry in their pots. The words to a poem or song are forgotten.",
+  "text": "You perform, mostly for the benefit of others.",
+  "details": [
+    "You perform, mostly for the benefit of others."
+  ]
+}

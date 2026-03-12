@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Commands Mental Powers",
+  "slug": "commands_mental_powers",
+  "summary": "You have honed the power of your mind to perform amazing psychic deeds.",
+  "tiers": [
+    "Tier 1: Telepathic",
+    "Tier 2: Mind Reading",
+    "Tier 3: Psychic Burst or Psychic Suggestion",
+    "Tier 4: Use Senses of Others",
+    "Tier 5: Precognition",
+    "Tier 6: Mind Control or Telepathic Network"
+  ],
+  "gm_intrusions": "Something glimpsed in the target’s mind is horrifying. A feedback loop allows the target to read the character’s mind.",
+  "text": "You have honed the power of your mind to perform amazing psychic deeds.",
+  "details": [
+    "You have honed the power of your mind to perform amazing psychic deeds."
+  ]
+}

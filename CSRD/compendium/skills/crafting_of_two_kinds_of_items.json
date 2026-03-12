@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Crafting of Two Kinds of Items",
+  "slug": "crafting_of_two_kinds_of_items",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:crafter",
+        "line": "You are trained in the crafting of two kinds of items. Enabler."
+      },
+      {
+        "from": "ability:crafter",
+        "line": "You are trained in the crafting of two kinds of items. Enabler. Create (7 Intellect points): You create something from nothing. You can create any item you choose that would ordinarily have a difficulty of 5 or lower (using the crafting rules). Once created, the item lasts for a number of hours equal to 6 minus the difficulty to create it. Thus, if you create a set of sturdy manacles (difficulty 5), it would last for one hour. Action. Create Deadly Poison (3+ Intellect points): You create one dose of a level 2 poison that either inflicts 5 points of damage or hinders the poisoned creature’s actions for ten minutes (your choice each time you create the poison). You can apply this poison to a weapon, food, or drink as part of the action of creating it. In addition to the normal options for using Effort, you can choose to use Effort to increase the level of the poison; each level of Effort used in this way increases the poison level by 1. If unused, the poison loses its potency after one hour. Action. Create Water (2 Intellect points): You cause water to bubble up from a spot on the ground you can see. The water flows from that spot for one minute, creating about 1 gallon (4 liters) by the time it stops. Action to initiate. Creature Insight (3 Intellect points): When examining any nonhuman creature, you can ask the GM one question to gain an idea of its level, its capabilities, what it eats, what motivates it, what its weaknesses are (if any), how it can be repaired, or any other similar query. This is for difficult or strange creatures beyond those readily identified by using skills. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

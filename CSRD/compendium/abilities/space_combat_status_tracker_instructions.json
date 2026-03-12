@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Space Combat Status Tracker Instructions",
+  "slug": "space_combat_status_tracker_instructions",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Using dice (or similar objects) as markers, track the difficulty of the current task that a PC is attempting, as well as the GM intrusion range for that round if any character is attempting to redline. Place the marker in the column appropriate to the kind of task being attempted (attack, defense, or other) at the starting difficulty level. If the PCs face more than one enemy spacecraft, use different colored dice to represent different ships, or separate copies of this status tracker for each additional enemy spacecraft. At the end of each full round, reset all the markers on the tracker to their base state, unless some effect causes a modification that lasts longer than a round. Be sure to reset the GM intrusion marker, too. Roll initiative: Begin the combat, with the enemy spacecraft of your choice taking on the PCs’ ship. Decide whether the enemy spacecraft are already in weapon range (it’s your call, we’re not tracking that here), and if not, how soon they will be close enough to begin attacking, and let the combat flow",
+  "details": [
+    "Using dice (or similar objects) as markers, track the difficulty of the current task that a PC is attempting, as well as the GM intrusion range for that round if any character is attempting to redline. Place the marker in the column appropriate to the kind of task being attempted (attack, defense, or other) at the starting difficulty level. If the PCs face more than one enemy spacecraft, use different colored dice to represent different ships, or separate copies of this status tracker for each additional enemy spacecraft.",
+    "At the end of each full round, reset all the markers on the tracker to their base state, unless some effect causes a modification that lasts longer than a round. Be sure to reset the GM intrusion marker, too.",
+    "Roll initiative: Begin the combat, with the enemy spacecraft of your choice taking on the PCs’ ship. Decide whether the enemy spacecraft are already in weapon range (it’s your call, we’re not tracking that here), and if not, how soon they will be close enough to begin attacking, and let the combat flow"
+  ]
+}

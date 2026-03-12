@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Opportunist",
+  "slug": "opportunist",
+  "cost": null,
+  "alpha_section": "O",
+  "effect": "You have an asset on any attack roll you make against a creature that has already been attacked at some point during the round and is within immediate range. Enabler. Oratory (4 Intellect points): When speaking with a group of intelligent creatures that can understand you and aren’t hostile, you convince them to take one reasonable action in the next round. A reasonable action should not put the creatures or their allies in obvious danger or be wildly out of character. Action.",
+  "details": [
+    "You have an asset on any attack roll you make against a creature that has already been attacked at some point during the round and is within immediate range. Enabler.",
+    "Oratory (4 Intellect points): When speaking with a group of intelligent creatures that can understand you and aren’t hostile, you convince them to take one reasonable action in the next round. A reasonable action should not put the creatures or their allies in obvious danger or be wildly out of character. Action."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Zero-Point Phantom",
+  "slug": "zero_point_phantom",
+  "level": 3,
+  "target_number": 9,
+  "description": "Temporary violations of conservation of energy mean that “virtual particles” constantly and seemingly randomly pop out of nothing, briefly interact with normal matter, then disappear. Zero-point phantoms are collections of such particles, taking the form of a very large, almost spider-like entity of many legs, stalks, and arms. What they’re doing when they’re not manifest is unknown; are they entombed in nearby solids, phased into another dimension, or do they simply not exist until they are called into being by some random cosmic event? Whatever the case, zero-point phantoms seem to prefer unlit or dimly lit areas in spacecraft and stations far from any planet, when they seem to struggle out of solid surfaces, raising a cloud of shadow.",
+  "motive": "See everything, know everything",
+  "environment": "Everywhere there is weather, real or magic-made",
+  "health": "21",
+  "damage_inflicted": "5 points",
+  "armor": "2 (from personal ice walls)",
+  "movement": "Short; long if flying",
+  "modifications": "Tasks involving water and the dark as level 3",
+  "combat": "She carries an umbrella that acts as a heavy weapon, and she can use the following abilities: familiar (pack of wolves, swarm of bees, flock of crows, and an army of flying monkeys), hexbolt, imprison, protect, and shrivel.",
+  "interaction": "She is volatile in nature and quick to anger. However, she can also be a bit cowardly, and will likely back down in a confrontation (only to send her hordes of magical animals out afterward to do her dirty work).",
+  "use": "The characters need to find galoshes of fortune and decide to steal a pair from the Wicked Witch of the West. Perhaps they need to make it through the land she presides over and must find a way to get her approval.",
+  "loot": "Whatever shoes she’s wearing (which are very likely an artifact). NPCS MODERN MAGIC NPCs",
+  "gm_intrusion": "The wind children grab something precious from one of the characters and start to play a game of “keep away” with it. Witch 5 (15) Witches are complex beings of myriad personalities, desires, and abilities. Sometimes they’re the stuff of nightmares, with tales of their exploits keeping children safe in their beds during the darkest hours. Other times they’re wise helpers—at least for a little while, or possibly for a price. Often, they’re a little of everything, taking on no end of roles throughout their lifetime. They may isolate themselves deep in the dark woods, falsify their way into a royal family, or reside in the middle of town, hiding their identity. But one thing they are, always, is dangerous, for they carry within their hearts and heads knowledge, power, and magic—and a willingness to use all of them when necessary. Motive: Domination of others, power, knowledge, eternal life or beauty, hunger, revenge Environment: Almost anywhere, although most often alone in unique dwellings in the forest, in civilization as healers, or having infiltrated royal families"
+}

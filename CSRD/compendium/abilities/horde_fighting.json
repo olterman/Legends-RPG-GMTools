@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Horde Fighting",
+  "slug": "horde_fighting",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "When two or more foes attack you at once in melee, you can use them against each other. You gain an asset to Speed defense rolls or attack rolls (your choice each round) against them. Enabler. Horde Tactics (7 Might points): For up to one hour a day, you and at least three other allies can act like a single creature. Use your stats, but add +8 to your Might Pool, +1 to your Might Edge, +2 to your Speed Pool, +1 to your Speed Edge, and +1 to your Armor. Enabler. Hover (2 Intellect points): You float slowly into the air. If you concentrate, you can control your movement to remain motionless in the air or float up to a short distance as your action; otherwise, you drift with the wind or with any momentum you have gained. This effect lasts for up to ten minutes. Action to initiate.",
+  "details": [
+    "When two or more foes attack you at once in melee, you can use them against each other. You gain an asset to Speed defense rolls or attack rolls (your choice each round) against them. Enabler.",
+    "Horde Tactics (7 Might points): For up to one hour a day, you and at least three other allies can act like a single creature. Use your stats, but add +8 to your Might Pool, +1 to your Might Edge, +2 to your Speed Pool, +1 to your Speed Edge, and +1 to your Armor. Enabler.",
+    "Hover (2 Intellect points): You float slowly into the air. If you concentrate, you can control your movement to remain motionless in the air or float up to a short distance as your action; otherwise, you drift with the wind or with any momentum you have gained. This effect lasts for up to ten minutes. Action to initiate."
+  ]
+}

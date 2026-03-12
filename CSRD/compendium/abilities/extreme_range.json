@@ -1,0 +1,16 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Extreme Range",
+  "slug": "extreme_range",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Targets just at the limit of a weapon’s range are at extreme range. Attacks against such targets are hindered. (The GM might allow a character with a ranged weapon to attack beyond extreme range, but the attack would be hindered by two steps for each range category beyond the normal limit. Attacks with hard limits, such as the blast radius of a bomb, can’t be modified.) (In certain situations, such as a PC on top of a building looking across an open field, the GM should allow ranged attacks to exceed their maximum range. For example, in perfect conditions, a good archer can hit a large target with a bow and arrow at 500 feet (150 m), much farther than a bow’s typical long range.) Illumination What characters can see (and how well they can see) plays a huge factor in combat.",
+  "details": [
+    "Targets just at the limit of a weapon’s range are at extreme range. Attacks against such targets are hindered.",
+    "(The GM might allow a character with a ranged weapon to attack beyond extreme range, but the attack would be hindered by two steps for each range category beyond the normal limit. Attacks with hard limits, such as the blast radius of a bomb, can’t be modified.)",
+    "(In certain situations, such as a PC on top of a building looking across an open field, the GM should allow ranged attacks to exceed their maximum range. For example, in perfect conditions, a good archer can hit a large target with a bow and arrow at 500 feet (150 m), much farther than a bow’s typical long range.)",
+    "Illumination",
+    "What characters can see (and how well they can see) plays a huge factor in combat."
+  ]
+}

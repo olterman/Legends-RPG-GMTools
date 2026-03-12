@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Infiltrator",
+  "slug": "infiltrator",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Tiny capsule launches and moves at great speed, mapping and scanning an unknown area. It moves 500 feet (150 m) per level, scanning an area up to 50 feet (15 m) per level away from it. It identifies basic layout, creatures, and major energy sources and either transmits this information back to the user (perhaps by telepathy or an electronic signal) or returns to the user to show what it saw. Its movement is blocked by any physical or energy barrier.",
+  "depletion": null
+}

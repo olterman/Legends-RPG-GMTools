@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Blazes With Radiance",
+  "slug": "blazes_with_radiance",
+  "summary": "You can create light, sculpt it, bend it away from you, or gather it to use as a weapon.",
+  "tiers": [
+    "Tier 1: Enlightened",
+    "Tier 1: Illuminating Touch",
+    "Tier 2: Dazzling Sunburst",
+    "Tier 3: Burning Light or Skill With Defense",
+    "Tier 4: Sunlight",
+    "Tier 5: Disappear",
+    "Tier 6: Living Light or Defensive Field"
+  ],
+  "gm_intrusions": "Allies are accidentally dazzled or blinded. Bright flashes draw guards.",
+  "text": "You can create light, sculpt it, bend it away from you, or gather it to use as a weapon.",
+  "details": [
+    "You can create light, sculpt it, bend it away from you, or gather it to use as a weapon."
+  ]
+}

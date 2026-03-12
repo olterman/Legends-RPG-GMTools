@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Silent As Space",
+  "slug": "silent_as_space",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "By taking advantage of microgravity conditions, you gain an asset to stealth and initiative tasks while in zero-gravity or low-gravity conditions. Enabler.",
+  "details": [
+    "By taking advantage of microgravity conditions, you gain an asset to stealth and initiative tasks while in zero-gravity or low-gravity conditions. Enabler."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Inspiring Ease",
+  "slug": "inspiring_ease",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "Through stories, songs, art, or other forms of entertainment, you inspire your friends. After spending 24 hours with you, once per day each of your friends can ease a task. This benefit is ongoing while you remain in the friend’s company. It ends if you leave, but it resumes if you return to the friend’s company within 24 hours. If you leave the friend’s company for more than 24 hours, you must spend another 24 hours together to reactivate the benefit. Enabler. Inspiring Success (6 Intellect points): When you succeed on a roll to perform a task related to the stat that you choose upon selecting this ability, and you applied at least one level of Effort, you may choose another character within short range. That character has an asset on the next task they attempt using that stat on their next turn. Enabler. Intelligent Interface (3 Intellect points): You can speak telepathically with any intelligent machine within long range. Further, you are trained in all interactions with intelligent machines. Such machines and robots that normally would never communicate with a human might talk to you. Enabler. Intense Interaction (3 Intellect points): You gain an asset on intimidating, persuading, and influencing people for ten minutes. Action.",
+  "details": [
+    "Through stories, songs, art, or other forms of entertainment, you inspire your friends. After spending 24 hours with you, once per day each of your friends can ease a task. This benefit is ongoing while you remain in the friend’s company. It ends if you leave, but it resumes if you return to the friend’s company within 24 hours. If you leave the friend’s company for more than 24 hours, you must spend another 24 hours together to reactivate the benefit. Enabler.",
+    "Inspiring Success (6 Intellect points): When you succeed on a roll to perform a task related to the stat that you choose upon selecting this ability, and you applied at least one level of Effort, you may choose another character within short range. That character has an asset on the next task they attempt using that stat on their next turn. Enabler.",
+    "Intelligent Interface (3 Intellect points): You can speak telepathically with any intelligent machine within long range. Further, you are trained in all interactions with intelligent machines. Such machines and robots that normally would never communicate with a human might talk to you. Enabler.",
+    "Intense Interaction (3 Intellect points): You gain an asset on intimidating, persuading, and influencing people for ten minutes. Action."
+  ]
+}

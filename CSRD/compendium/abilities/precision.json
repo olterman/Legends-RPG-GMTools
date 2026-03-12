@@ -1,0 +1,20 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Precision",
+  "slug": "precision",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You deal 2 additional points of damage with attacks using weapons that you throw. Enabler. Precognition (6 Intellect points): You dimly sense the future for the next ten minutes. This has the following effects until the duration expires: Your defense tasks gain an asset. You can predict the actions of those around you. You gain an asset to seeing through deceptions and attempts to betray you as well as avoiding traps and ambushes. You know what people are probably thinking and what they will say before they say it, which gives you an edge. You gain an asset to all interaction skills. Enabler. Predictive Equation (2 Intellect points): You observe or study a creature, object, or location for at least one round. The next time you interact with it (possibly in the following round), a related task (such as persuading the creature, attacking it, or defending from its attack) is eased. Action. Predictive Model (2+ Intellect points): If you’ve used Predictive Equation on a creature, object, or location within the last few days, you can learn one random fact about the subject that is pertinent to a topic you designate. If you also have the magic flavor ability Premonition, one use of either ability grants you two random but related facts about the subject. In addition, you can use Predictive Model on the same subject multiple times (even if you’ve learned a creature’s level), but each time you do, you must apply one additional level of Effort than on your previous use. Action. Premonition (2 Intellect points): You learn one random fact about a creature or location that is pertinent to a topic you designate. Alternatively, you can choose to learn a creature’s level; however, if you do so, you cannot learn anything else about it later with this ability. Action.",
+  "details": [
+    "You deal 2 additional points of damage with attacks using weapons that you throw. Enabler.",
+    "Precognition (6 Intellect points): You dimly sense the future for the next ten minutes. This has the following effects until the duration expires:",
+    "Your defense tasks gain an asset.",
+    "You can predict the actions of those around you. You gain an asset to seeing through deceptions and attempts to betray you as well as avoiding traps and ambushes.",
+    "You know what people are probably thinking and what they will say before they say it, which gives you an edge. You gain an asset to all interaction skills.",
+    "Enabler.",
+    "Predictive Equation (2 Intellect points): You observe or study a creature, object, or location for at least one round. The next time you interact with it (possibly in the following round), a related task (such as persuading the creature, attacking it, or defending from its attack) is eased. Action.",
+    "Predictive Model (2+ Intellect points): If you’ve used Predictive Equation on a creature, object, or location within the last few days, you can learn one random fact about the subject that is pertinent to a topic you designate. If you also have the magic flavor ability Premonition, one use of either ability grants you two random but related facts about the subject. In addition, you can use Predictive Model on the same subject multiple times (even if you’ve learned a creature’s level), but each time you do, you must apply one additional level of Effort than on your previous use. Action.",
+    "Premonition (2 Intellect points): You learn one random fact about a creature or location that is pertinent to a topic you designate. Alternatively, you can choose to learn a creature’s level; however, if you do so, you cannot learn anything else about it later with this ability. Action."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Knowledge Is Power",
+  "slug": "knowledge_is_power",
+  "cost": null,
+  "alpha_section": "K",
+  "effect": "Choose two noncombat skills in which you are not trained. You are trained in those skills. Enabler.",
+  "details": [
+    "Choose two noncombat skills in which you are not trained. You are trained in those skills. Enabler."
+  ]
+}

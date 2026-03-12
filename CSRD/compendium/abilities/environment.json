@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Environment",
+  "slug": "environment",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Anywhere dark",
+  "details": [
+    "Anywhere dark"
+  ]
+}

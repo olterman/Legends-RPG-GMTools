@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Spaceborn",
+  "slug": "spaceborn",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You are not adversely affected by long-term microgravity or high-radiation conditions common in space. In addition, you can withstand high acceleration (up to 15 G) for about an hour without passing out, having a stroke, a heart attack, and so on (though longer periods of acceleration could still result in such outcomes). Add +1 to your Intellect Edge. Enabler. (PCs without the spaceborn posthuman upgrade probably have to rely on supplementation with adjuvants if they travel in space, such as space-fit serum)",
+  "details": [
+    "You are not adversely affected by long-term microgravity or high-radiation conditions common in space. In addition, you can withstand high acceleration (up to 15 G) for about an hour without passing out, having a stroke, a heart attack, and so on (though longer periods of acceleration could still result in such outcomes). Add +1 to your Intellect Edge. Enabler. (PCs without the spaceborn posthuman upgrade probably have to rely on supplementation with adjuvants if they travel in space, such as space-fit serum)"
+  ]
+}

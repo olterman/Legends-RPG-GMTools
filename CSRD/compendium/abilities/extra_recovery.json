@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Extra Recovery",
+  "slug": "extra_recovery",
+  "cost": null,
+  "alpha_section": "E",
+  "effect": "You gain an additional one-action recovery each day. Enabler.",
+  "details": [
+    "You gain an additional one-action recovery each day. Enabler."
+  ]
+}

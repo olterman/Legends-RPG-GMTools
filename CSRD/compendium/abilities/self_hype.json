@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Self-Hype",
+  "slug": "self_hype",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When you apply a level of Effort to a task, you get a free level of Effort. You can do this one time, although the ability is renewed each time you make a one-hour or ten-hour recovery roll.",
+  "details": [
+    "When you apply a level of Effort to a task, you get a free level of Effort. You can do this one time, although the ability is renewed each time you make a one-hour or ten-hour recovery roll."
+  ]
+}

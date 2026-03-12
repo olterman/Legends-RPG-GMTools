@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Focuses Mind Over Matter",
+  "slug": "focuses_mind_over_matter",
+  "summary": "You can telekinetically move objects with your mind without physically touching them.",
+  "tiers": [
+    "Tier 1: Divert Attacks",
+    "Tier 2: Telekinesis",
+    "Tier 3: Cloak of Opportunity or Enhance Strength",
+    "Tier 4: Apportation",
+    "Tier 5: Psychokinetic Attack",
+    "Tier 6: Improved Apportation or Reshape"
+  ],
+  "gm_intrusions": "One mental slip, and moving objects drop or fragile objects break. Sometimes the wrong item moves, falls, or breaks.",
+  "text": "You can telekinetically move objects with your mind without physically touching them.",
+  "details": [
+    "You can telekinetically move objects with your mind without physically touching them."
+  ]
+}

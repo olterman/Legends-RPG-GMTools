@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Repel",
+  "slug": "repel",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "One NPC within immediate range who is of a level lower than the cypher decides to leave, using their next five rounds to move away quickly.",
+  "depletion": null
+}

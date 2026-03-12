@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Defense Actions to Resist Mental",
+  "slug": "defense_actions_to_resist_mental",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:charming",
+        "line": "Inability: Your willpower is not one of your strong points. Defense actions to resist mental attacks are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

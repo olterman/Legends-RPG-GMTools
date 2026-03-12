@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Uncanny Valley",
+  "slug": "uncanny_valley",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You have a hard time relating to organic beings, and they don’t react well to you. All positive interaction tasks with such beings are hindered by two steps.",
+  "details": [
+    "You have a hard time relating to organic beings, and they don’t react well to you. All positive interaction tasks with such beings are hindered by two steps."
+  ]
+}

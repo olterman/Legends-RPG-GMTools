@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Loot",
+  "slug": "loot",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Some wraiths carry valuable items and equipment. GM Intrusion: The attacked character must also succeed on a Might defense, or they take an additional 3 points of ambient damage and contract radiation sickness.",
+  "details": [
+    "Some wraiths carry valuable items and equipment.",
+    "GM Intrusion: The attacked character must also succeed on a Might defense, or they take an additional 3 points of ambient damage and contract radiation sickness."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hard Choices",
+  "slug": "hard_choices",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "Sometimes, you believe that you’ve got to lie to those who trust you for their own good. You are specialized in deception tasks. Enabler.",
+  "details": [
+    "Sometimes, you believe that you’ve got to lie to those who trust you for their own good. You are specialized in deception tasks. Enabler."
+  ]
+}

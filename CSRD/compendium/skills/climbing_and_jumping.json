@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Climbing and Jumping",
+  "slug": "climbing_and_jumping",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:movement_skills",
+        "line": "You are trained in climbing and jumping. Enabler."
+      },
+      {
+        "from": "ability:movement_skills",
+        "line": "You are trained in climbing and jumping. Enabler. Moving Like Water (3 Speed points): You spin and move so that your defense and attacks are aided by your fluid motion. For one minute, all your attacks and Speed defense tasks gain an asset. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

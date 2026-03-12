@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Lead From the Front",
+  "slug": "lead_from_the_front",
+  "cost": null,
+  "alpha_section": "L",
+  "effect": "You gain 3 new points to divide among your stat Pools however you wish. Enabler.",
+  "details": [
+    "You gain 3 new points to divide among your stat Pools however you wish. Enabler."
+  ]
+}

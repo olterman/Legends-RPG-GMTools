@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Small",
+  "slug": "small",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal is considerably smaller than a human, easing its Speed defense tasks but hindering tasks to move heavy things.",
+  "details": [
+    "The animal is considerably smaller than a human, easing its Speed defense tasks but hindering tasks to move heavy things."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fusion",
+  "slug": "fusion",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You can fuse your manifest cyphers and artifacts with your body. These fused devices function as if they were one level higher. Enabler.",
+  "details": [
+    "You can fuse your manifest cyphers and artifacts with your body. These fused devices function as if they were one level higher. Enabler."
+  ]
+}

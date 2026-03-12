@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hidden Reserves",
+  "slug": "hidden_reserves",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "When you use an action to make a recovery roll, you also gain +1 to both your Might Edge and your Speed Edge for ten minutes thereafter. Enabler.",
+  "details": [
+    "When you use an action to make a recovery roll, you also gain +1 to both your Might Edge and your Speed Edge for ten minutes thereafter. Enabler."
+  ]
+}

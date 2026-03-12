@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Resisting the Effects of Natural Poisons",
+  "slug": "resisting_the_effects_of_natural_poisons",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:living_off_the_land",
+        "line": "Given an hour or so, you can always find edible food and potable water in the wilderness. You can even find enough for a small group of people, if need be. Further, since you’re so hardy and have gained resistance over time, you are trained in resisting the effects of natural poisons (such as those from plants or living creatures). You’re also immune to natural diseases. Enabler."
+      },
+      {
+        "from": "ability:living_off_the_land",
+        "line": "Given an hour or so, you can always find edible food and potable water in the wilderness. You can even find enough for a small group of people, if need be. Further, since you’re so hardy and have gained resistance over time, you are trained in resisting the effects of natural poisons (such as those from plants or living creatures). You’re also immune to natural diseases. Enabler. Living Wall (3 Might points): You specify a confined area—such as an open doorway, a hallway, or a space between two trees—where you stand. For the next ten minutes, if anyone attempts to enter or pass through that area and you don’t wish it, you make an automatic attack against them. If you hit, not only do you inflict damage, but they must also stop their movement. Enabler. Lock (2+ Intellect points): A door, gate, chest, drawer, locket, or other object that can be closed within long range snaps shut and is magically locked (level 3 effect) for one hour. If an object or creature is physically holding the target object open, you must also succeed on an Intellect-based attack. For each level of Effort you apply, the quality of the magical lock increases by one level. Action to initiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

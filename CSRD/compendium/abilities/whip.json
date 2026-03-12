@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Whip",
+  "slug": "whip",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A leather cord with a handle, used more for tricks and inflicting punishments than for deadly combat.",
+  "details": [
+    "A leather cord with a handle, used more for tricks and inflicting punishments than for deadly combat."
+  ]
+}

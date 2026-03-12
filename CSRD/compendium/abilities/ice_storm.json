@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Ice Storm",
+  "slug": "ice_storm",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "You attempt an additional Intellect task as part of your Cold Burst attack, and if successful, you blind foes for up to one minute with a layer of freezing ice. All tasks of blinded creatures are hindered by two steps. Enabler. Ignition (4 Intellect points): You designate a creature or flammable object you can see within short range to catch fire. This is an Intellect attack. The target takes 6 points of ambient damage per round until the flames are extinguished, which a creature can do by dousing itself in water, rolling on the ground, or smothering the flames. Usually, putting out the flames takes an action. Action to initiate. Ignore Affliction (5 Might points): If you are affected by an unwanted condition or affliction (such as disease, paralysis, mind control, broken limb, and so on, but not damage), you can ignore it and act as if it does not affect you for one hour. If the condition would normally last less than an hour, it is entirely negated. Action.",
+  "details": [
+    "You attempt an additional Intellect task as part of your Cold Burst attack, and if successful, you blind foes for up to one minute with a layer of freezing ice. All tasks of blinded creatures are hindered by two steps. Enabler.",
+    "Ignition (4 Intellect points): You designate a creature or flammable object you can see within short range to catch fire. This is an Intellect attack. The target takes 6 points of ambient damage per round until the flames are extinguished, which a creature can do by dousing itself in water, rolling on the ground, or smothering the flames. Usually, putting out the flames takes an action. Action to initiate.",
+    "Ignore Affliction (5 Might points): If you are affected by an unwanted condition or affliction (such as disease, paralysis, mind control, broken limb, and so on, but not damage), you can ignore it and act as if it does not affect you for one hour. If the condition would normally last less than an hour, it is entirely negated. Action."
+  ]
+}

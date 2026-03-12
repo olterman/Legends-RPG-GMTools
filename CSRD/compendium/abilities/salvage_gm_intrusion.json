@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Salvage GM Intrusion",
+  "slug": "salvage_gm_intrusion",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Claim jumpers/pirates might try to salvage a ship that PCs are attempting to salvage.",
+  "details": [
+    "Claim jumpers/pirates might try to salvage a ship that PCs are attempting to salvage."
+  ]
+}

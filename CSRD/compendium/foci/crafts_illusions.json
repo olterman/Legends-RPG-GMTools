@@ -1,0 +1,20 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Crafts Illusions",
+  "slug": "crafts_illusions",
+  "summary": "You fashion images from light that are so perfect they seem real.",
+  "tiers": [
+    "Tier 1: Minor Illusion",
+    "Tier 2: Illusory Disguise",
+    "Tier 3: Cast Illusion or Major Illusion",
+    "Tier 4: Illusory Selves",
+    "Tier 5: Terrifying Image",
+    "Tier 6: Grandiose Illusion or Permanent Illusion"
+  ],
+  "gm_intrusions": "The illusion isn’t believable. The illusion is pierced at just the wrong moment.",
+  "text": "You fashion images from light that are so perfect they seem real.",
+  "details": [
+    "You fashion images from light that are so perfect they seem real."
+  ]
+}

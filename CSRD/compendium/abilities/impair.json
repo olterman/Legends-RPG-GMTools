@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Impair",
+  "slug": "impair",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "For the rest of the combat, all tasks the foe attempts are hindered. Knock down: The foe is knocked prone. It can get up on its turn.",
+  "details": [
+    "For the rest of the combat, all tasks the foe attempts are hindered.",
+    "Knock down: The foe is knocked prone. It can get up on its turn."
+  ]
+}

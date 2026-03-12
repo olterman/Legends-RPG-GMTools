@@ -1,0 +1,18 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Acid",
+  "slug": "acid",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A flask of strong acid. Can be thrown up to short range, inflicting acid damage as a light weapon (ignores Armor). If poured carefully, it can damage or destroy a small item or areas made of stone or metal. Adventuring pack: Includes 50 feet (15 m) of rope, three days’ iron rations, three spikes, small hammer, a set of warm clothes, boots, and three torches. Alchemist fire: A flask of chemicals that burst into flames upon contact with air. The flames burn out after one round. Can be thrown up to short range, inflicting fire damage as a light weapon (ignores Armor). Alchemist tools: A sturdy wooden case with tiny flasks, stirring rods, droppers, and other materials used in alchemy. It grants an asset for identifying potion cyphers and similar mysterious liquids. Bag of heavy tools: Contains a hammer, six spikes, crowbar, large tongs, chisel, and 10 feet (3 m) of strong rope. Bag of light tools: Contains a small hammer, small tongs, pliers, small pry bar, awl, lockpicks, 10 feet (3 m) of string, 3 feet (1 m) of metal wire, and a handful of nails. Battering ram: This sturdy plank is capped with hard metal. It provides an asset for breaking down doors.",
+  "details": [
+    "A flask of strong acid. Can be thrown up to short range, inflicting acid damage as a light weapon (ignores Armor). If poured carefully, it can damage or destroy a small item or areas made of stone or metal.",
+    "Adventuring pack: Includes 50 feet (15 m) of rope, three days’ iron rations, three spikes, small hammer, a set of warm clothes, boots, and three torches.",
+    "Alchemist fire: A flask of chemicals that burst into flames upon contact with air. The flames burn out after one round. Can be thrown up to short range, inflicting fire damage as a light weapon (ignores Armor).",
+    "Alchemist tools: A sturdy wooden case with tiny flasks, stirring rods, droppers, and other materials used in alchemy. It grants an asset for identifying potion cyphers and similar mysterious liquids.",
+    "Bag of heavy tools: Contains a hammer, six spikes, crowbar, large tongs, chisel, and 10 feet (3 m) of strong rope.",
+    "Bag of light tools: Contains a small hammer, small tongs, pliers, small pry bar, awl, lockpicks, 10 feet (3 m) of string, 3 feet (1 m) of metal wire, and a handful of nails.",
+    "Battering ram: This sturdy plank is capped with hard metal. It provides an asset for breaking down doors."
+  ]
+}

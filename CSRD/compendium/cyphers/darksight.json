@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Darksight",
+  "slug": "darksight",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Grants the ability to see in the dark for five hours per cypher level. (For a more realistic game, this cypher could instead make the user specialized in low-light spotting.)",
+  "depletion": null
+}

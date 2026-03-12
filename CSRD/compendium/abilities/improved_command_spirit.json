@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Improved Command Spirit",
+  "slug": "improved_command_spirit",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "When you use your Command Spirit ability, you can command a spirit or animate undead creature of up to level 7. Enabler.",
+  "details": [
+    "When you use your Command Spirit ability, you can command a spirit or animate undead creature of up to level 7. Enabler."
+  ]
+}

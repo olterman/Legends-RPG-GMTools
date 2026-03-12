@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Community Activist",
+  "slug": "community_activist",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "When speaking to others in a community you have a strong connection to, you are trained in persuasion and intimidation tasks about topics that directly relate to the community. Enabler. Community Knowledge (2 Intellect points): If you’ve invested yourself in a community and have spent at least a few months living there, you can learn things about it through a variety of methods. Sometimes contacts slip the information to you. Other times, you’re able to draw conclusions simply by what you can see and hear. When you use this ability, you can ask the GM one question about the community and get a very short answer. Action.",
+  "details": [
+    "When speaking to others in a community you have a strong connection to, you are trained in persuasion and intimidation tasks about topics that directly relate to the community. Enabler.",
+    "Community Knowledge (2 Intellect points): If you’ve invested yourself in a community and have spent at least a few months living there, you can learn things about it through a variety of methods. Sometimes contacts slip the information to you. Other times, you’re able to draw conclusions simply by what you can see and hear. When you use this ability, you can ask the GM one question about the community and get a very short answer. Action."
+  ]
+}

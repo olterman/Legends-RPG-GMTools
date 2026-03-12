@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Pilot",
+  "slug": "pilot",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You are trained in all tasks related to piloting a starcraft. Generally speaking, piloting tasks are Speed-based tasks, though using sensors and communication instruments are Intellect-based tasks. Enabler. Play to the Crowd (3 Intellect points): You give a speech that is both rousing and terrifying. Those within short range who can hear and understand you have their next action either eased (an asset) or hindered—you choose, and it can be different for each individual. Action; a few rounds to complete.",
+  "details": [
+    "You are trained in all tasks related to piloting a starcraft. Generally speaking, piloting tasks are Speed-based tasks, though using sensors and communication instruments are Intellect-based tasks. Enabler.",
+    "Play to the Crowd (3 Intellect points): You give a speech that is both rousing and terrifying. Those within short range who can hear and understand you have their next action either eased (an asset) or hindered—you choose, and it can be different for each individual. Action; a few rounds to complete."
+  ]
+}

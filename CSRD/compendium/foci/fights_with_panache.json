@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Fights With Panache",
+  "slug": "fights_with_panache",
+  "summary": "You’re a swashbuckling daredevil who fights with flamboyant style that’s entertaining to watch.",
+  "tiers": [
+    "Tier 1: Attack Flourish",
+    "Tier 2: Quick Block",
+    "Tier 3: Acrobatic Attack or Flamboyant Boast",
+    "Tier 4: Block for Another",
+    "Tier 4: Fast Kill",
+    "Tier 5: Using the Environment",
+    "Tier 6: Agile Wit or Return to Sender"
+  ],
+  "gm_intrusions": "The display comes off looking silly, clumsy, or unattractive.",
+  "text": "You’re a swashbuckling daredevil who fights with flamboyant style that’s entertaining to watch.",
+  "details": [
+    "You’re a swashbuckling daredevil who fights with flamboyant style that’s entertaining to watch."
+  ]
+}

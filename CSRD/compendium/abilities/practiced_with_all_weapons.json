@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Practiced With All Weapons",
+  "slug": "practiced_with_all_weapons",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler.",
+  "details": [
+    "You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler."
+  ]
+}

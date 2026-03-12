@@ -75,6 +75,17 @@ races:
           shadow-draped fabrics
         tone: secretive hierarchical manipulators
 
+      falthrim:
+        label: Falthrim
+        appearance:
+          - sea-worn ageless features
+          - bioluminescent markings
+          - tide-glass eyes
+        clothing: >
+          kelp-woven layers, pearl-threaded leathers,
+          whalebone charms
+        tone: nomadic deepwater keepers
+
 
   velim:
     name: Velim
@@ -155,7 +166,7 @@ races:
     variants:
 
       fenmir:
-        label: Fenmir
+        label: Highland Fenmir
         appearance:
           - wind-weathered skin
           - ritual tattoos
@@ -163,6 +174,16 @@ races:
           highland leathers, clan cloth,
           carved bone charms
         tone: spiritual proud highlanders
+
+      lowland_fenmir:
+        label: Lowland Fenmir
+        appearance:
+          - sea-weathered skin
+          - practical layered garb
+        clothing: >
+          coastal leathers, patched trade fabrics,
+          privateer insignia
+        tone: adaptable free-city survivors
 
       caldoran:
         label: Caldorans

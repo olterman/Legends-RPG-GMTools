@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Book",
+  "slug": "book",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A book with information on a particular topic, such as geography, history, magic, or religion. Provides an asset on appropriate rolls if the character reads or skims the book for at least ten minutes before attempting the task (this assumes the character has already read the book and is looking for relevant information). Caltrops, bag: A bag of hard things you scatter on the ground to slow or injure anyone walking through an area. One bag covers an immediate area and makes that area count as difficult terrain. A creature can safely move through it as if it were difficult terrain (half speed). If a creature moves through the area at normal speed, they must make a difficulty 2 Speed defense roll or take 2 points of Speed damage (ignores Armor).",
+  "details": [
+    "A book with information on a particular topic, such as geography, history, magic, or religion. Provides an asset on appropriate rolls if the character reads or skims the book for at least ten minutes before attempting the task (this assumes the character has already read the book and is looking for relevant information).",
+    "Caltrops, bag: A bag of hard things you scatter on the ground to slow or injure anyone walking through an area. One bag covers an immediate area and makes that area count as difficult terrain. A creature can safely move through it as if it were difficult terrain (half speed). If a creature moves through the area at normal speed, they must make a difficulty 2 Speed defense roll or take 2 points of Speed damage (ignores Armor)."
+  ]
+}

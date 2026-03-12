@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Moving, Bending, or Breaking Things",
+  "slug": "moving_bending_or_breaking_things",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:resilient",
+        "line": "Inability: You’re hardy but not necessarily strong. Any task involving moving, bending, or breaking things is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

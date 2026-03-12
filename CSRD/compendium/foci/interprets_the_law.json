@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Interprets the Law",
+  "slug": "interprets_the_law",
+  "summary": "You excel at winning others over to your views.",
+  "tiers": [
+    "Tier 1: Opening Statement",
+    "Tier 1: Knowledge of the Law",
+    "Tier 2: Debate",
+    "Tier 3: Able Assistance or Enhanced Intellect Edge",
+    "Tier 4: Castigate",
+    "Tier 5: No One Knows Better",
+    "Tier 6: Greater Enhanced Potential or Legal Intern"
+  ],
+  "gm_intrusions": "Onlookers react badly to a know-it-all. A distraction or interruption throws the character’s argument off the rails.",
+  "text": "You excel at winning others over to your views.",
+  "details": [
+    "You excel at winning others over to your views."
+  ]
+}

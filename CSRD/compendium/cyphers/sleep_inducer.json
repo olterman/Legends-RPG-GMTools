@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sleep Inducer",
+  "slug": "sleep_inducer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Touch puts the victim to sleep for ten minutes per cypher level or until awoken by a violent action or an extremely loud noise.",
+  "depletion": null
+}

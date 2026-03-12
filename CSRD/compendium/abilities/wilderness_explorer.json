@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wilderness Explorer",
+  "slug": "wilderness_explorer",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "While taking any action (including fighting) in the wild, you ignore any penalties due to natural causes such as tall grass, thick brush, rugged terrain, weather, and so on. Enabler.",
+  "details": [
+    "While taking any action (including fighting) in the wild, you ignore any penalties due to natural causes such as tall grass, thick brush, rugged terrain, weather, and so on. Enabler."
+  ]
+}

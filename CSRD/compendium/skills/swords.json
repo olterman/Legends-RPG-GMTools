@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Swords",
+  "slug": "swords",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "focus:slays_monsters",
+        "line": "Tier 1: Practiced With Swords"
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

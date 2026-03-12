@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Water Adapter",
+  "slug": "water_adapter",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "The user can breathe underwater and operate at any depth (without facing the debilitating consequences of changing pressure) for four hours per cypher level. This cypher can also be used in the regular atmosphere, allowing the user to ignore ill effects from very low or very high atmospheric pressure. The cypher does not protect against vacuum.",
+  "depletion": null
+}

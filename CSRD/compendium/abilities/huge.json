@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Huge",
+  "slug": "huge",
+  "cost": null,
+  "alpha_section": "H",
+  "effect": "When you use Enlarge, you can choose to grow up to 16 feet (5 m) in height. When you do, you add +1 to Armor (a total of +2 to Armor) and deal 2 additional points of damage with melee attacks. Enabler. Hunter’s Drive (5 Intellect points): Through force of will, when you wish it, you grant yourself greater prowess in the hunt for ten minutes. During this time, you gain an asset to all tasks involving your quarry, including attacks. Your quarry is the creature you selected with your Quarry ability. Enabler. Hurl Flame (2 Intellect points): While your Shroud of Flame is active, you can reach into your halo and hurl a handful of fire at a target. This is a ranged attack with short range that deals 4 points of fire damage. Action.",
+  "details": [
+    "When you use Enlarge, you can choose to grow up to 16 feet (5 m) in height. When you do, you add +1 to Armor (a total of +2 to Armor) and deal 2 additional points of damage with melee attacks. Enabler.",
+    "Hunter’s Drive (5 Intellect points): Through force of will, when you wish it, you grant yourself greater prowess in the hunt for ten minutes. During this time, you gain an asset to all tasks involving your quarry, including attacks. Your quarry is the creature you selected with your Quarry ability. Enabler.",
+    "Hurl Flame (2 Intellect points): While your Shroud of Flame is active, you can reach into your halo and hurl a handful of fire at a target. This is a ranged attack with short range that deals 4 points of fire damage. Action."
+  ]
+}

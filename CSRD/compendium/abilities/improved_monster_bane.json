@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Improved Monster Bane",
+  "slug": "improved_monster_bane",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "When you inflict damage to creatures more than twice as large or massive as you, you inflict 3 additional points of damage. Enabler. Improved Object Bond (5 Intellect points): When you manifest the ally from your Bound Magic Creature ability, it is now a level 4 creature. Also, the creature gains a pulse attack that renders all artifacts, machines, manifest cyphers, and lesser magic devices within short range inoperable for one minute. After the creature uses this ability, it must retreat to its object to rest for three hours. Enabler.",
+  "details": [
+    "When you inflict damage to creatures more than twice as large or massive as you, you inflict 3 additional points of damage. Enabler.",
+    "Improved Object Bond (5 Intellect points): When you manifest the ally from your Bound Magic Creature ability, it is now a level 4 creature. Also, the creature gains a pulse attack that renders all artifacts, machines, manifest cyphers, and lesser magic devices within short range inoperable for one minute. After the creature uses this ability, it must retreat to its object to rest for three hours. Enabler."
+  ]
+}

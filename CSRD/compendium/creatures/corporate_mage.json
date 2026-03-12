@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Corporate Mage",
+  "slug": "corporate_mage",
+  "level": 4,
+  "target_number": 12,
+  "description": "A corporate mage is a professional spellcaster working for a company, using their magic to fix problems. They have a similar role as enforcers, lawyers, corporate spies, and researchers, doing what needs to be done so the company’s interests are protected. They’re paid well, dress to show it, and aren’t above unethical (or even illegal) acts to get the job done. They work alone, in pairs, or with a lawyer and a few bodyguards. Lawyer: level 2, law and intimidation as level 4 Bodyguard: level 2; Armor 1; short-range pistol inflicts 4 damage Stats for a corporate mage also work well for paranormal law enforcement NPCs, such as the police or FBI.",
+  "motive": "Accomplish the goals of their employer",
+  "environment": null,
+  "health": "12",
+  "damage_inflicted": "4 points",
+  "armor": "1 (from spell)",
+  "movement": "Short",
+  "modifications": "Intellect defense as level 5",
+  "combat": "Corporate mages are trained to handle normal people and magic threats, and they usually attack with a short-range blast of cold, fire, force, or electricity. Some carry a concealed handgun for situations where magic isn’t allowed or effective. A corporate mage knows quite a few spells, including knocking a person unconscious for a few minutes, turning invisible for a few minutes, temporarily befriending a reluctant person, creating an illusory disguise of a nondescript role (such as construction worker or technician), granting themselves +1 Armor, reading minds, and teleporting back to headquarters. Many of them have some training in law, espionage, governmental operations, or a scientific field.",
+  "interaction": "Corporate mages are hard and intimidating. If they can get what they want without using magic, they’ll do so, but they aren’t afraid to make a demonstration of supernatural force when necessary.",
+  "use": "Corporate mages do the dirty work of sketchy businesses. They’re not here to make friends, and they know just how far to push someone (especially a powerless person) to get what they want, sometimes by bending (but not quite breaking) the law.",
+  "loot": "A corporate mage usually has a cypher that’s helpful for their current assignment, plus the cash equivalent of one or two expensive items.",
+  "gm_intrusion": null
+}

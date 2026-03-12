@@ -1,0 +1,51 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Initiative",
+  "slug": "initiative",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:hardy",
+        "line": "Inability: Your big, strong body is slow to react. Any task involving initiative is hindered."
+      },
+      {
+        "from": "character_type:explorer",
+        "line": "Sam still needs a descriptor and a focus. Looking to the Descriptor chapter, they choose Hardy, which increases their Might Pool to 17. They also heal more quickly and can operate better when injured. They’re trained in Might defense but have an inability with initiative; however, it’s effectively canceled out by their Danger Sense (and vice versa). Sam could go back and select something else instead of Danger Sense, but they like it and decide to keep it. Overall, the descriptor ends up making the character tough but a little slow."
+      }
+    ],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:brash",
+        "line": "Skill: You are trained in initiative."
+      },
+      {
+        "from": "descriptor:impulsive",
+        "line": "Skill: You’re trained in initiative actions (to determine who goes first in combat)."
+      },
+      {
+        "from": "descriptor:sharp_eyed",
+        "line": "Skill: You’re trained in initiative actions."
+      },
+      {
+        "from": "descriptor:swift",
+        "line": "Skill: You’re trained in initiative actions (to determine who goes first in combat)."
+      },
+      {
+        "from": "descriptor:tongue_tied",
+        "line": "Skill: You are trained in initiative (unless it’s a social situation)."
+      },
+      {
+        "from": "ability:preternatural_senses",
+        "line": "While you are conscious and able to use an action, you cannot be surprised. In addition, you are trained in initiative actions. Enabler."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "inability",
+    "trained"
+  ],
+  "summary": "inability, trained"
+}

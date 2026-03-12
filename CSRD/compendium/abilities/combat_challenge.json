@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Combat Challenge",
+  "slug": "combat_challenge",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "All attempted tasks that draw an attack to yourself (and away from someone else) are eased by two steps. Enabler.",
+  "details": [
+    "All attempted tasks that draw an attack to yourself (and away from someone else) are eased by two steps. Enabler."
+  ]
+}

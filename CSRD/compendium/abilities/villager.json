@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Villager",
+  "slug": "villager",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "level 2",
+  "details": [
+    "level 2"
+  ]
+}

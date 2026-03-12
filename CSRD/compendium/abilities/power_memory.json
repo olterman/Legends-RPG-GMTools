@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Power Memory",
+  "slug": "power_memory",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "When you use Copy Power, you only need to have seen the ability used within the past day (instead of the past hour), and using Effort extends how long ago your copying can reach to one day per level of Effort (instead of one hour per level). Enabler.",
+  "details": [
+    "When you use Copy Power, you only need to have seen the ability used within the past day (instead of the past hour), and using Effort extends how long ago your copying can reach to one day per level of Effort (instead of one hour per level). Enabler."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sensing Other Emotions, Discerning Dispositions, and Getting a Hunch About People Around",
+  "slug": "sensing_other_emotions_discerning_dispositions_and_getting_a_hunch_about_people_around",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:empathic",
+        "line": "Skill: You’re trained in tasks involving sensing other emotions, discerning dispositions, and getting a hunch about people around you."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

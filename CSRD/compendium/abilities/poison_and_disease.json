@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Poison and Disease",
+  "slug": "poison_and_disease",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When characters encounter poison—whether the venom of a serpent, rat poison slipped into a burrito, cyanide dissolved in wine, or an overdose of acetaminophen—they make a Might defense roll to resist it. Failure to resist can result in points of damage, moving down the damage track, or a specific effect such as paralysis, unconsciousness, disability, or something stranger. For example, some poisons affect the brain, making it impossible to say certain words, take certain actions, resist certain effects, or recover points to a stat Pool. Diseases work like poisons, but their effect occurs every day, so the victim must make a Might defense roll each day or suffer the effects. Disease effects are as varied as poisons: points of damage, moving down the damage track, disability, and so on. Many diseases inflict damage that cannot be restored through conventional means.",
+  "details": [
+    "When characters encounter poison—whether the venom of a serpent, rat poison slipped into a burrito, cyanide dissolved in wine, or an overdose of acetaminophen—they make a Might defense roll to resist it. Failure to resist can result in points of damage, moving down the damage track, or a specific effect such as paralysis, unconsciousness, disability, or something stranger. For example, some poisons affect the brain, making it impossible to say certain words, take certain actions, resist certain effects, or recover points to a stat Pool.",
+    "Diseases work like poisons, but their effect occurs every day, so the victim must make a Might defense roll each day or suffer the effects. Disease effects are as varied as poisons: points of damage, moving down the damage track, disability, and so on. Many diseases inflict damage that cannot be restored through conventional means."
+  ]
+}

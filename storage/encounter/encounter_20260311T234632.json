@@ -1,0 +1,29 @@
+{
+  "saved_at": "2026-03-11T23:46:32.485882+00:00",
+  "filename": "encounter/encounter_20260311T234632.json",
+  "payload": {
+    "environment": "fenmir_highlands",
+    "seed": "order-test"
+  },
+  "result": {
+    "type": "encounter",
+    "name": "A Fenmir Elder",
+    "sections": {
+      "subject": "a Fenmir elder",
+      "environment": "Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.",
+      "first_notice": "wind moves through standing stones with a voice too close to speech",
+      "hook": "settle a dispute before it hardens into feud",
+      "complication": "honor requires forms that delay urgent action",
+      "truth": "a sacred site has become dangerous after a storm or disturbance"
+    },
+    "text": "Encounter seed.\n\nSubject:\na Fenmir elder.\n\nEnvironment:\nWind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.\n\nFirst Notice:\nwind moves through standing stones with a voice too close to speech.\n\nHook:\nsettle a dispute before it hardens into feud.\n\nComplication:\nhonor requires forms that delay urgent action.\n\nTruth:\na sacred site has become dangerous after a storm or disturbance.\n",
+    "metadata": {
+      "environment": "fenmir_highlands",
+      "first_impression": "wind moves through standing stones with a voice too close to speech",
+      "subject": "a Fenmir elder",
+      "truth": "a sacred site has become dangerous after a storm or disturbance",
+      "complication": "honor requires forms that delay urgent action",
+      "hook": "settle a dispute before it hardens into feud"
+    }
+  }
+}

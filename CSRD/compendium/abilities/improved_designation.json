@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Improved Designation",
+  "slug": "improved_designation",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "When you use Designation, you can designate one additional creature to be innocent or guilty, which means up to two creatures at a time may be innocent, or two guilty, or one innocent and one guilty. Enabler.",
+  "details": [
+    "When you use Designation, you can designate one additional creature to be innocent or guilty, which means up to two creatures at a time may be innocent, or two guilty, or one innocent and one guilty. Enabler."
+  ]
+}

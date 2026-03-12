@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Constrict",
+  "slug": "constrict",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "The animal can grip its opponent fast after making a melee attack (usually with a bite or claw), easing attack rolls against that foe on later turns until the animal releases the foe.",
+  "details": [
+    "The animal can grip its opponent fast after making a melee attack (usually with a bite or claw), easing attack rolls against that foe on later turns until the animal releases the foe."
+  ]
+}

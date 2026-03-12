@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Closed Mind",
+  "slug": "closed_mind",
+  "cost": null,
+  "alpha_section": "C",
+  "effect": "You are trained in Intellect defense tasks and have +2 Armor against damage that selectively targets your Intellect Pool (which normally ignores Armor). Enabler. Cloud Personal Memories (3 Intellect points): If you interact with or study a target for at least a round, you gain a sense of how its mind works, which you can use against it in the most blunt fashion possible. You can attempt to confuse it and make it forget what’s just happened. On a success, you erase up to the last five minutes of its memory. Action to prepare; action to initiate. Coaxing Power (2 Intellect points): You boost the power or function of a machine so that it operates at one level higher than normal for one hour. Action to initiate.",
+  "details": [
+    "You are trained in Intellect defense tasks and have +2 Armor against damage that selectively targets your Intellect Pool (which normally ignores Armor). Enabler.",
+    "Cloud Personal Memories (3 Intellect points): If you interact with or study a target for at least a round, you gain a sense of how its mind works, which you can use against it in the most blunt fashion possible. You can attempt to confuse it and make it forget what’s just happened. On a success, you erase up to the last five minutes of its memory. Action to prepare; action to initiate.",
+    "Coaxing Power (2 Intellect points): You boost the power or function of a machine so that it operates at one level higher than normal for one hour. Action to initiate."
+  ]
+}

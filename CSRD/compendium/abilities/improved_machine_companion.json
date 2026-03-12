@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Improved Machine Companion",
+  "slug": "improved_machine_companion",
+  "cost": null,
+  "alpha_section": "I",
+  "effect": "The machine from your Machine Companion ability improves, becoming a level 5 creature with the ability either to fly a long distance each round (and carry you) for up to ten minutes at a time, or to carry an extra cypher for you that doesn’t count against your cypher limit. Enabler.",
+  "details": [
+    "The machine from your Machine Companion ability improves, becoming a level 5 creature with the ability either to fly a long distance each round (and carry you) for up to ten minutes at a time, or to carry an extra cypher for you that doesn’t count against your cypher limit. Enabler."
+  ]
+}

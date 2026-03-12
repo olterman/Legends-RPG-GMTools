@@ -1,0 +1,114 @@
+{
+  "saved_at": "2026-03-12T01:24:30.304401+00:00",
+  "filename": "character_sheet/character_sheet_20260312T012307.json",
+  "payload": {},
+  "result": {
+    "type": "character_sheet",
+    "name": "Alara Windrose",
+    "sheet": {
+      "name": "Alara Windrose",
+      "sentence": "Alara Windrose is a Impulsive Adept with Combat flavor who Masters Spells.",
+      "type": "Adept",
+      "flavor": "Combat Flavor",
+      "descriptor": "Impulsive",
+      "focus": "Masters Spells",
+      "effort": 1,
+      "cypher_limit": 3,
+      "weapons": "Practiced with light weapons; medium/heavy attacks are hindered.",
+      "pools": {
+        "max": {
+          "might": 9,
+          "speed": 12,
+          "intellect": 15
+        },
+        "current": {
+          "might": 9,
+          "speed": 12,
+          "intellect": 15
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 0,
+        "intellect": 1
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 2,
+          "intellect": 0
+        },
+        "skills": [
+          "You’re trained in initiative actions (to determine who goes first in combat).",
+          "You’re trained in Speed defense actions."
+        ],
+        "inabilities": [
+          "You’ll try anything once, but quickly grow bored after that. Any task that involves patience, willpower, or discipline is hindered."
+        ],
+        "traits": [
+          "Reckless: +2 to your Speed Pool."
+        ],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [
+        "Distortion",
+        "Erase Memories",
+        "Far Step",
+        "Hedge Magic",
+        "Magic Training",
+        "Onslaught",
+        "Push",
+        "Resonance Field",
+        "Scan",
+        "Shatter",
+        "Ward"
+      ],
+      "flavor_tier_1_abilities": [
+        "Danger Sense",
+        "Practiced in Armor",
+        "Practiced With Medium Weapons"
+      ],
+      "focus_tier_1_abilities": [
+        "Arcane Flare"
+      ],
+      "chosen_abilities": [
+        "Danger Sense",
+        "Far Step",
+        "Magic Training",
+        "Shatter"
+      ],
+      "equipment": [],
+      "notes": "",
+      "generated": null,
+      "metadata": {
+        "name": "Alara Windrose",
+        "race": "alfirin",
+        "profession": "poet_warrior",
+        "environment": "pirate_seas",
+        "character_type": "Adept",
+        "flavor": "Combat Flavor",
+        "descriptor": "Impulsive",
+        "focus": "Masters Spells",
+        "tier": 1
+      },
+      "wizard_completed": true
+    },
+    "metadata": {
+      "environment": "pirate_seas",
+      "race": "alfirin",
+      "profession": "poet_warrior",
+      "character_type": "Adept",
+      "flavor": "Combat Flavor",
+      "descriptor": "Impulsive",
+      "focus": "Masters Spells",
+      "tier": null
+    }
+  }
+}

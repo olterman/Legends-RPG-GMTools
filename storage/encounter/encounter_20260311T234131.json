@@ -1,0 +1,29 @@
+{
+  "saved_at": "2026-03-11T23:41:31.959711+00:00",
+  "filename": "encounter/encounter_20260311T234131.json",
+  "payload": {
+    "environment": "pirate_seas"
+  },
+  "result": {
+    "type": "encounter",
+    "name": "A Pirate Captain Seeking Temporary Alliance",
+    "sections": {
+      "environment": "Storm-lashed waters between Caldor Island, the Island of Lights, and the Dragon's Teeth islands. Hidden coves, shipwreck graveyards, and shifting alliances define this dangerous maritime frontier.",
+      "first_notice": "wreckage bumps softly against hidden rocks in an unnatural rhythm",
+      "subject": "a pirate captain seeking temporary alliance",
+      "truth": "one hidden route is no longer safe because the sea itself is changing",
+      "complication": "every witness wants ownership of the story",
+      "hook": "uncover who laid the trap and who profits from it",
+      "style": "painted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art"
+    },
+    "text": "Encounter seed.\n\nEnvironment:\nStorm-lashed waters between Caldor Island, the Island of Lights, and the Dragon's Teeth islands. Hidden coves, shipwreck graveyards, and shifting alliances define this dangerous maritime frontier.\n\nWhat the party first notices:\nwreckage bumps softly against hidden rocks in an unnatural rhythm.\n\nWho or what is involved:\na pirate captain seeking temporary alliance.\n\nWhat is actually happening:\none hidden route is no longer safe because the sea itself is changing.\n\nComplication:\nevery witness wants ownership of the story.\n\nGM Hook:\nuncover who laid the trap and who profits from it.\n\nSTYLE:\npainted british comic encounter illustration, gritty graphic novel action scene, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, dramatic composition, immediate tension, layered action, dark fantasy encounter art.\n",
+    "metadata": {
+      "environment": "pirate_seas",
+      "first_impression": "wreckage bumps softly against hidden rocks in an unnatural rhythm",
+      "subject": "a pirate captain seeking temporary alliance",
+      "truth": "one hidden route is no longer safe because the sea itself is changing",
+      "complication": "every witness wants ownership of the story",
+      "hook": "uncover who laid the trap and who profits from it"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Throw Enchanted Weapon",
+  "slug": "throw_enchanted_weapon",
+  "cost": null,
+  "alpha_section": "T",
+  "effect": "You can throw your enchanted weapon up to short range as a light ranged weapon. Whether it hits or misses, it immediately flies back to your hands, and you can automatically catch it or allow it to land at your feet. Enabler.",
+  "details": [
+    "You can throw your enchanted weapon up to short range as a light ranged weapon. Whether it hits or misses, it immediately flies back to your hands, and you can automatically catch it or allow it to land at your feet. Enabler."
+  ]
+}

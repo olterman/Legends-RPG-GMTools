@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Hammer",
+  "slug": "hammer",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A wooden handle with a heavy metal head, either one-sided (like a carpenter’s hammer) or two-sided (like a sledgehammer). Hand crossbow: A smaller and weaker version of a light crossbow. It fires crossbow bolts. You can fire it with one hand. You need two hands to load it.",
+  "details": [
+    "A wooden handle with a heavy metal head, either one-sided (like a carpenter’s hammer) or two-sided (like a sledgehammer).",
+    "Hand crossbow: A smaller and weaker version of a light crossbow. It fires crossbow bolts. You can fire it with one hand. You need two hands to load it."
+  ]
+}

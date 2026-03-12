@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Think Happy Thoughts",
+  "slug": "think_happy_thoughts",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You think of something or someone that brings you great joy, and it imbues your next few actions with magic, allowing you to fly or do some other thing that you are normally unable to do.",
+  "details": [
+    "You think of something or someone that brings you great joy, and it imbues your next few actions with magic, allowing you to fly or do some other thing that you are normally unable to do."
+  ]
+}

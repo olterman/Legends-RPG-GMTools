@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Master Crafter",
+  "slug": "master_crafter",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "You are trained in the crafting of two kinds of items, or you are specialized in two kinds of items that you are already trained in. Enabler.",
+  "details": [
+    "You are trained in the crafting of two kinds of items, or you are specialized in two kinds of items that you are already trained in. Enabler."
+  ]
+}

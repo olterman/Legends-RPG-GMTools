@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Target Is Moving",
+  "slug": "target_is_moving",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "Attackers trying to hit a foe who is moving very fast are hindered. (A foe moving very fast is one who is doing nothing but running, mounted on a moving creature, riding on a vehicle or moving conveyance, and so on.)",
+  "details": [
+    "Attackers trying to hit a foe who is moving very fast are hindered. (A foe moving very fast is one who is doing nothing but running, mounted on a moving creature, riding on a vehicle or moving conveyance, and so on.)"
+  ]
+}

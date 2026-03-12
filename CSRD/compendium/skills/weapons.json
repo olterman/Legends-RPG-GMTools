@@ -1,0 +1,29 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Weapons",
+  "slug": "weapons",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "character_type:explorer",
+        "line": "Practiced With All Weapons"
+      },
+      {
+        "from": "flavor:combat",
+        "line": "Practiced With All Weapons"
+      },
+      {
+        "from": "focus:stands_like_a_bastion",
+        "line": "Tier 3: Greater Enhanced Might or Practiced With All Weapons"
+      }
+    ],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "practiced"
+  ],
+  "summary": "practiced"
+}

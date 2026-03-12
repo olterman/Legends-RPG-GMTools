@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Eagleseye",
+  "slug": "eagleseye",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "Grants the ability to see ten times as far as normal for one hour per cypher level. (For a more realistic game, the eagleseye cypher could instead give the user two assets on tasks involving seeing to long distances.)",
+  "depletion": null
+}

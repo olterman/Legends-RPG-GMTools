@@ -1,0 +1,14 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Force Blast",
+  "slug": "force_blast",
+  "cost": null,
+  "alpha_section": "F",
+  "effect": "You figure out how to project blasts of pure force from the gauntlets of the power armor from your Powered Armor ability. This allows you to fire a blast of force that inflicts 5 points of damage with a range of 200 feet (60 m). Action. Force Field (3 Intellect points): You create an invisible energy barrier around a creature or object you choose within short range. The force field moves with the creature or object and lasts for ten minutes. If the target is a creature, they gain +1 to Armor; if the target is an object, attacks against it are hindered. Force Field Barrier (3+ Intellect points): You create an opaque, stationary barrier of solid energy (a force field) within immediate range. The barrier is 10 feet by 10 feet (3 m by 3 m) and of negligible thickness. It is a level 2 barrier and lasts for ten minutes. It can be placed anywhere it fits, whether against a solid object (including the ground) or floating in the air. Each level of Effort you apply strengthens the barrier by one level. For example, applying two levels of Effort creates a level 4 barrier. Action.",
+  "details": [
+    "You figure out how to project blasts of pure force from the gauntlets of the power armor from your Powered Armor ability. This allows you to fire a blast of force that inflicts 5 points of damage with a range of 200 feet (60 m). Action.",
+    "Force Field (3 Intellect points): You create an invisible energy barrier around a creature or object you choose within short range. The force field moves with the creature or object and lasts for ten minutes. If the target is a creature, they gain +1 to Armor; if the target is an object, attacks against it are hindered.",
+    "Force Field Barrier (3+ Intellect points): You create an opaque, stationary barrier of solid energy (a force field) within immediate range. The barrier is 10 feet by 10 feet (3 m by 3 m) and of negligible thickness. It is a level 2 barrier and lasts for ten minutes. It can be placed anywhere it fits, whether against a solid object (including the ground) or floating in the air. Each level of Effort you apply strengthens the barrier by one level. For example, applying two levels of Effort creates a level 4 barrier. Action."
+  ]
+}

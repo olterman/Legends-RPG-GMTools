@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Training, Riding, or Placating Natural Animals",
+  "slug": "training_riding_or_placating_natural_animals",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:rugged",
+        "line": "Skill: You’re trained in all tasks involving training, riding, or placating natural animals."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

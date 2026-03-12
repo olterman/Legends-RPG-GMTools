@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Sleep and Mixing Natural Elixirs to Help Creatures Fall Asleep",
+  "slug": "sleep_and_mixing_natural_elixirs_to_help_creatures_fall_asleep",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:oneirochemy",
+        "line": "You are trained in tasks related to sleep and mixing natural elixirs to help creatures fall asleep. Enabler."
+      },
+      {
+        "from": "ability:oneirochemy",
+        "line": "You are trained in tasks related to sleep and mixing natural elixirs to help creatures fall asleep. Enabler. Onslaught (1 Intellect point): You attack a foe using energies that assail either their physical form or their mind. In either case, you must be able to see your target. If the attack is physical, you emit a short-range ray of force that inflicts 4 points of damage. If the attack is mental, you focus your mental energy to blast the thought processes of another creature within short range. This mindslice inflicts 2 points of Intellect damage (ignores Armor). Some creatures without minds (such as robots) might be immune to your mindslice. Action. Open Mind (3 Intellect points): You open your mind to increase your awareness. You gain an asset to any task involving perception. While you have this asset and you are conscious and able to take actions, other characters gain no benefit from surprising you. The effect lasts for one hour. Action."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

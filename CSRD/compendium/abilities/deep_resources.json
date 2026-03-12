@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Deep Resources",
+  "slug": "deep_resources",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "You gain an additional 6 points to your Speed Pool. Enabler.",
+  "details": [
+    "You gain an additional 6 points to your Speed Pool. Enabler."
+  ]
+}

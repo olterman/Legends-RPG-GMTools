@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Intimidation and Any Other Fear-based Interactions",
+  "slug": "intimidation_and_any_other_fear_based_interactions",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:hideous",
+        "line": "Skill: You are trained in intimidation and any other fear-based interactions, if you show your true face."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

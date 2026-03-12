@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Finding Prying Eyes",
+  "slug": "finding_prying_eyes",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 3",
+  "form": null,
+  "effect": "Magically discovers if anything is watching or listening to the user right at that moment, and reveals the source. Electronic surveillance devices, long-range scopes, hidden cameras, and magical scrying attempts all trigger this effect. In all these cases, the “source” is the nearest representation. So a hidden microphone is revealed, but not the location of the listener.",
+  "depletion": null
+}

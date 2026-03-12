@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Serv-0 Defender",
+  "slug": "serv_0_defender",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "Your Serv-0 aids you in combat by blocking attacks. It gains a modification in Speed defense. Enabler.",
+  "details": [
+    "Your Serv-0 aids you in combat by blocking attacks. It gains a modification in Speed defense. Enabler."
+  ]
+}

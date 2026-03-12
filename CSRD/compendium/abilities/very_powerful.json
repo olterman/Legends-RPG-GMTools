@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Very Powerful",
+  "slug": "very_powerful",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+4 to your Might Pool.",
+  "details": [
+    "+4 to your Might Pool."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Safe Fall",
+  "slug": "safe_fall",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "You reduce the damage from a fall by 5 points. Enabler.",
+  "details": [
+    "You reduce the damage from a fall by 5 points. Enabler."
+  ]
+}

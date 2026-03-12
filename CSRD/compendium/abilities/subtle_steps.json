@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Subtle Steps",
+  "slug": "subtle_steps",
+  "cost": null,
+  "alpha_section": "S",
+  "effect": "When you move no more than a short distance, you can move without making a sound, regardless of the surface you move across. Enabler.",
+  "details": [
+    "When you move no more than a short distance, you can move without making a sound, regardless of the surface you move across. Enabler."
+  ]
+}

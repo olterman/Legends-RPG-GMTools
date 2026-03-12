@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Rough Terrain",
+  "slug": "rough_terrain",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A surface that’s considered rough terrain is covered in loose stones or other material, uneven or with unsure footing, unsteady, or a surface that requires movement across a narrow space, such as a cramped corridor or a slender ledge. Stairs are also considered rough terrain. Rough terrain does not slow normal movement on a round-by-round basis, but hinders move rolls. Rough terrain cuts long-term movement rates in half.",
+  "details": [
+    "A surface that’s considered rough terrain is covered in loose stones or other material, uneven or with unsure footing, unsteady, or a surface that requires movement across a narrow space, such as a cramped corridor or a slender ledge. Stairs are also considered rough terrain. Rough terrain does not slow normal movement on a round-by-round basis, but hinders move rolls. Rough terrain cuts long-term movement rates in half."
+  ]
+}

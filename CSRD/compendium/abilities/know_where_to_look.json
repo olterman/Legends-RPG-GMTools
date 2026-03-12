@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Know Where to Look",
+  "slug": "know_where_to_look",
+  "cost": null,
+  "alpha_section": "K",
+  "effect": "Whenever the GM obtains a result for you on the Useful Stuff table, you get two results instead of one. If the GM is using some other method to generate rewards for finding valuables, you should gain double the result you would otherwise obtain. Enabler.",
+  "details": [
+    "Whenever the GM obtains a result for you on the Useful Stuff table, you get two results instead of one. If the GM is using some other method to generate rewards for finding valuables, you should gain double the result you would otherwise obtain. Enabler."
+  ]
+}

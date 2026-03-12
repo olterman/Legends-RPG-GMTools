@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Wilderness Life",
+  "slug": "wilderness_life",
+  "cost": null,
+  "alpha_section": "W",
+  "effect": "You are trained in two of the following: climbing, swimming, navigation, or identifying plants and creatures. Enabler.",
+  "details": [
+    "You are trained in two of the following: climbing, swimming, navigation, or identifying plants and creatures. Enabler."
+  ]
+}

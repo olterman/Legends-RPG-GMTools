@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "X-Ray Viewer",
+  "slug": "x_ray_viewer",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 4",
+  "form": null,
+  "effect": "Allows the user to see through up to 2 feet (60 cm) of material of a level lower than the cypher. The effect lasts for one minute per cypher level.",
+  "depletion": null
+}

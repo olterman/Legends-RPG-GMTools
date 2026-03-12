@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Stealth",
+  "slug": "stealth",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "descriptor:dishonorable",
+        "line": "Skill: You are trained in stealth."
+      },
+      {
+        "from": "ability:skill",
+        "line": "You are trained in stealth."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

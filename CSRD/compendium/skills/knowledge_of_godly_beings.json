@@ -1,0 +1,25 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Knowledge of Godly Beings",
+  "slug": "knowledge_of_godly_beings",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [
+      {
+        "from": "ability:divine_knowledge",
+        "line": "You are trained in all tasks related to knowledge of godly beings. Enabler."
+      },
+      {
+        "from": "ability:divine_knowledge",
+        "line": "You are trained in all tasks related to knowledge of godly beings. Enabler. Divine Radiance (2 Intellect points): Your prayer calls divine radiance from the heavens to punish an unworthy target within long range, inflicting 4 points of damage. If the target is a demon, spirit, or something similar, it also stands in unwilling awe of the divine energy coursing through it and is unable to act on its next turn. Once exposed to this blessing, the target can’t be awed by this attack again for several hours. Action. Divine Symbol (5+ Intellect points): You invoke divine power by scribing a glowing symbol in the air with your fingers. Writhing pillars of divine radiance spear up to five targets within long range. A successful attack on a target inflicts 5 points of damage. If you apply Effort to increase the damage, you deal 2 additional points of damage per level of Effort (instead of 3 points); targets take 1 point of damage even if you fail the attack roll. Action. Do You Know Who I Am? (3 Intellect points): Acting only as someone who is famous and used to privilege can, you verbally harangue a living foe who can hear and understand you so forcefully that it is unable to take any action, including making attacks, for one round. Whether you succeed or fail, the next action the target takes after your attempt is hindered. Action. Dodge and Resist (3 Speed points): You can reroll any of your Might, Speed, or Intellect defense rolls and take the better of the two results. Enabler. Dodge and Respond (3 Might points): If a melee attack misses you, you can immediately make a melee attack in return, but no more than once per turn. Enabler. Double Strike (3 Might points): When you wield two weapons, you can choose to make one attack roll against a foe. If you hit, you inflict damage with both weapons plus 2 additional points of damage, and because you made a single attack, the target’s Armor is subtracted only once. Action. Dragon’s Maw (6 Intellect points): You fashion and control a “hovering” phantasmal construct of magic within long range that resembles a dragon’s head. The construct lasts for up to an hour, until it is destroyed, or until you cast another spell. It is a level 4 construct that inflicts 6 points of damage with its bite when directed. While the construct persists, you can use it to manipulate large objects, carry heavy items in its mouth, or attack foes. If you use it to attack foes, you must use your action to directly control the phantom maw for each attack. Action to initiate."
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "trained"
+  ],
+  "summary": "trained"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Patient Recovery",
+  "slug": "patient_recovery",
+  "cost": null,
+  "alpha_section": "P",
+  "effect": "You gain an extra ten-minute recovery roll each day. Enabler. Pay It Forward (3 Intellect points): You can pass on what you’ve learned. When you give another character a suggestion involving their next action that is not an attack, their action is eased for one minute. Action.",
+  "details": [
+    "You gain an extra ten-minute recovery roll each day. Enabler.",
+    "Pay It Forward (3 Intellect points): You can pass on what you’ve learned. When you give another character a suggestion involving their next action that is not an attack, their action is eased for one minute. Action."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Distinctive Physical Quirk",
+  "slug": "distinctive_physical_quirk",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "You have an unusual physical aspect. Depending on the setting, this can vary greatly; it might be something external and obvious, such as an odd smell or blue hair, or internal and hidden, like having blood type “omega.” Whatever it is, your quirk draws a lot of attention when it’s discovered.",
+  "details": [
+    "You have",
+    "an unusual physical aspect. Depending on the setting, this can vary greatly; it might be something external and obvious, such as an odd smell or blue hair, or internal and hidden, like having blood type “omega.” Whatever it is, your quirk draws a lot of attention when it’s discovered."
+  ]
+}

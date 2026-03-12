@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Point-Blank Range",
+  "slug": "point_blank_range",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "If a character uses a ranged weapon against a target within immediate range, the attack is eased.",
+  "details": [
+    "If a character uses a ranged weapon against a target within immediate range, the attack is eased."
+  ]
+}

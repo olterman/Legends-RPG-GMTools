@@ -1,0 +1,21 @@
+{
+  "type": "creature",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Poison Gas",
+  "slug": "poison_gas",
+  "level": 3,
+  "target_number": 9,
+  "description": "The area slowly fills with poison gas. Because it takes a minute or more for the poison to become thick enough to cause harm, it is likely that the character won’t realize at first that they’ve sprung a trap. A variant of this trap fills the room with flammable gas, which explodes if there is an open flame (such as from a torch) or a spark (such as a metal weapon against metal armor), inflicting fire damage equal to the trap’s level. A further variant fills the room with dead air (containing no oxygen), which slowly extinguishes flames and suffocates creatures.",
+  "motive": null,
+  "environment": null,
+  "health": null,
+  "damage_inflicted": "As poison",
+  "armor": null,
+  "movement": null,
+  "modifications": "Stealth as level 5 GM Intrusion: The character has an allergic reaction to the gas, which hinders all their actions for an hour after exposure because of sneezing, watery eyes, or itchy skin. The gas makes the character hallucinate, mistaking their companions for enemies, until they make an Intellect defense roll. The gas is flammable.",
+  "combat": null,
+  "interaction": null,
+  "use": null,
+  "loot": null,
+  "gm_intrusion": null
+}

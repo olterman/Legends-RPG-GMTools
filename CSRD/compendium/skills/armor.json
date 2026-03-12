@@ -1,0 +1,59 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Armor",
+  "slug": "armor",
+  "progression": {
+    "inability": [],
+    "practiced": [
+      {
+        "from": "character_type:warrior",
+        "line": "Practiced in Armor"
+      },
+      {
+        "from": "character_type:explorer",
+        "line": "Practiced in Armor"
+      },
+      {
+        "from": "character_type:speaker",
+        "line": "Practiced in Armor"
+      },
+      {
+        "from": "flavor:combat",
+        "line": "Practiced in Armor"
+      },
+      {
+        "from": "focus:masters_defense",
+        "line": "Tier 2: Practiced in Armor"
+      },
+      {
+        "from": "focus:stands_like_a_bastion",
+        "line": "(Some characters who Stand Like a Bastion might already be experts in armor. They can choose a different tier 1 ability instead of Practiced in Armor.)"
+      },
+      {
+        "from": "focus:stands_like_a_bastion",
+        "line": "Tier 1: Practiced in Armor"
+      }
+    ],
+    "trained": [
+      {
+        "from": "character_type:warrior",
+        "line": "Trained Without Armor"
+      },
+      {
+        "from": "character_type:explorer",
+        "line": "Trained Without Armor"
+      },
+      {
+        "from": "flavor:combat",
+        "line": "Trained Without Armor"
+      }
+    ],
+    "expert": []
+  },
+  "levels": [
+    "practiced",
+    "trained"
+  ],
+  "summary": "practiced, trained"
+}

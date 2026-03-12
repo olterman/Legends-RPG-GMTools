@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Knowledge",
+  "slug": "knowledge",
+  "progression": {
+    "inability": [
+      {
+        "from": "ability:inability",
+        "line": "Tasks involving knowledge are hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

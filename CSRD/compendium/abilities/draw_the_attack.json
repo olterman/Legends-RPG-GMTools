@@ -1,0 +1,13 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Draw the Attack",
+  "slug": "draw_the_attack",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "When an NPC attacks a character, another PC can prominently present themselves, shout taunts, and move to try to get the foe to attack them instead. In most cases, this action succeeds without a roll—the opponent attacks the prominent PC instead of their companions. In other cases, such as with intelligent or determined foes, the prominent character must succeed at an Intellect action to draw the attack. If that Intellect action is successful, the foe attacks the prominent character, whose defenses are hindered by two steps. Two characters attempting to draw an attack at the same time cancel each other out. (Two characters attempting to draw an attack at the same time cancel each other out.)",
+  "details": [
+    "When an NPC attacks a character, another PC can prominently present themselves, shout taunts, and move to try to get the foe to attack them instead. In most cases, this action succeeds without a roll—the opponent attacks the prominent PC instead of their companions. In other cases, such as with intelligent or determined foes, the prominent character must succeed at an Intellect action to draw the attack. If that Intellect action is successful, the foe attacks the prominent character, whose defenses are hindered by two steps. Two characters attempting to draw an attack at the same time cancel each other out.",
+    "(Two characters attempting to draw an attack at the same time cancel each other out.)"
+  ]
+}

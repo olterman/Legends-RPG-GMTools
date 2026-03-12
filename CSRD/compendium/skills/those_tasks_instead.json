@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Those Tasks Instead",
+  "slug": "those_tasks_instead",
+  "progression": {
+    "inability": [],
+    "practiced": [],
+    "trained": [],
+    "expert": [
+      {
+        "from": "ability:tower_of_intellect",
+        "line": "You are trained in Intellect defense tasks. If you are already trained, you are specialized in those tasks instead. Enabler."
+      }
+    ]
+  },
+  "levels": [
+    "expert"
+  ],
+  "summary": "expert"
+}

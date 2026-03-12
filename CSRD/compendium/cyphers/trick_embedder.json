@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Trick Embedder",
+  "slug": "trick_embedder",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6",
+  "form": null,
+  "effect": "A nonintelligent animal immediately and perfectly learns one trick (two tricks if the cypher is level 4 or higher) it is capable of physically performing (roll over, heel, spin, shake, go to an indicated place within long range, and so on). The trick must be designated when the cypher is activated.",
+  "depletion": null
+}

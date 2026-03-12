@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Lantern",
+  "slug": "lantern",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "An improved version of a lamp, with a wick that draws oil and glass or metal panes to protect it from wind. A lantern creates normal light in an immediate area and dim light out to the short area beyond that. It burns for three to four hours on 1 pint (.5 L) of oil. If dropped, it is less likely to spill than a lamp.",
+  "details": [
+    "An improved version of a lamp, with a wick that draws oil and glass or metal panes to protect it from wind. A lantern creates normal light in an immediate area and dim light out to the short area beyond that. It burns for three to four hours on 1 pint (.5 L) of oil. If dropped, it is less likely to spill than a lamp."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "cypher",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Disarm",
+  "slug": "disarm",
+  "category": "Dark Magic And Occult Cyphers",
+  "level": "1d6 + 1",
+  "form": null,
+  "effect": "One NPC within immediate range whose level is lower than the cypher level drops whatever they are holding.",
+  "depletion": null
+}

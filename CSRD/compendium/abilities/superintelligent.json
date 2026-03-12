@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Superintelligent",
+  "slug": "superintelligent",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "+4 to your Intellect Pool.",
+  "details": [
+    "+4 to your Intellect Pool."
+  ]
+}

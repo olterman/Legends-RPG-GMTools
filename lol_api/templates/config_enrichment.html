@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Config Enrichment — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Config Enrichment</h1>
+<p>Review lore-derived race and environment candidates, then write curated additions to YAML.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="output-path">Output YAML Path</label>
+      <input id="output-path" value="config/90_lore_enrichment.yaml" />
+    </div>
+
+    <div class="actions">
+      <button id="refresh-btn" type="button" class="secondary">Reload Candidates</button>
+      <button id="apply-btn" type="button">Apply Selection</button>
+    </div>
+    <div class="status" id="status">Loading candidates...</div>
+  </div>
+
+  <div class="panel output-panel">
+    <div class="output-card">
+      <h3>Races</h3>
+      <div id="races-list"></div>
+    </div>
+    <div class="output-card">
+      <h3>Environments</h3>
+      <div id="envs-list"></div>
+    </div>
+    <div class="output-card">
+      <h3>Result</h3>
+      <div id="result" class="output-value">No output yet.</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    outputPath: document.getElementById('output-path'),
+    refreshBtn: document.getElementById('refresh-btn'),
+    applyBtn: document.getElementById('apply-btn'),
+    status: document.getElementById('status'),
+    racesList: document.getElementById('races-list'),
+    envsList: document.getElementById('envs-list'),
+    result: document.getElementById('result'),
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  async function fetchJson(url, options = null) {
+    const res = await fetch(url, options || undefined);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
+  }
+
+  function candidateItem(item, kind, selectedSet) {
+    const key = String(item.key || "");
+    const checked = selectedSet.has(key) ? "checked" : "";
+    const conf = Number(item.confidence || 0).toFixed(2);
+    return `
+      <label style="display:block; margin-bottom:8px;">
+        <input type="checkbox" class="${kind}-cb" value="${escapeHtml(key)}" ${checked} style="width:auto; margin-right:8px;" />
+        <strong>${escapeHtml(item.name || key)}</strong>
+        <span class="small">(${escapeHtml(key)} | confidence ${conf})</span>
+      </label>
+    `;
+  }
+
+  function renderCandidates(data) {
+    const raceDefaults = new Set((data.defaults?.race_keys || []).map(String));
+    const envDefaults = new Set((data.defaults?.environment_keys || []).map(String));
+    const races = data.races || [];
+    const envs = data.environments || [];
+
+    els.racesList.innerHTML = races.length
+      ? races.map(item => candidateItem(item, "race", raceDefaults)).join("")
+      : `<div class="output-value">No race candidates.</div>`;
+
+    els.envsList.innerHTML = envs.length
+      ? envs.map(item => candidateItem(item, "env", envDefaults)).join("")
+      : `<div class="output-value">No environment candidates.</div>`;
+
+    const excluded = (data.excluded_race_keys || []).join(", ");
+    els.status.textContent = `Loaded ${races.length} race and ${envs.length} environment candidates. Curated race exclusions: ${excluded || "none"}.`;
+  }
+
+  function selectedValues(selector) {
+    return Array.from(document.querySelectorAll(selector))
+      .filter(el => el.checked)
+      .map(el => el.value);
+  }
+
+  async function loadCandidates() {
+    els.status.textContent = "Loading candidates...";
+    const data = await fetchJson('/config-enrichment/candidates');
+    renderCandidates(data);
+  }
+
+  async function applySelection() {
+    const raceKeys = selectedValues('.race-cb');
+    const envKeys = selectedValues('.env-cb');
+    els.status.textContent = "Applying selected candidates...";
+    const data = await fetchJson('/config-enrichment/apply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        race_keys: raceKeys,
+        environment_keys: envKeys,
+        output_path: els.outputPath.value.trim() || "config/90_lore_enrichment.yaml",
+      }),
+    });
+    els.result.textContent =
+      `Wrote ${data.output_path}\n` +
+      `races: ${data.counts.races}\n` +
+      `environments: ${data.counts.environments}\n` +
+      `settlements: ${data.counts.settlements}\n` +
+      `encounters: ${data.counts.encounters}`;
+    els.status.textContent = "Selection applied.";
+  }
+
+  els.refreshBtn.addEventListener('click', () => {
+    loadCandidates().catch(err => { els.status.textContent = `Error: ${err.message}`; });
+  });
+  els.applyBtn.addEventListener('click', () => {
+    applySelection().catch(err => { els.status.textContent = `Error: ${err.message}`; });
+  });
+
+  loadCandidates().catch(err => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

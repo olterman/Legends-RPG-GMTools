@@ -1,0 +1,21 @@
+{
+  "type": "skill",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Charm, Persuasion, or Deception",
+  "slug": "charm_persuasion_or_deception",
+  "progression": {
+    "inability": [
+      {
+        "from": "descriptor:mystical",
+        "line": "Inability: You have a manner or an aura that others find a bit unnerving. Any task involving charm, persuasion, or deception is hindered."
+      }
+    ],
+    "practiced": [],
+    "trained": [],
+    "expert": []
+  },
+  "levels": [
+    "inability"
+  ],
+  "summary": "inability"
+}

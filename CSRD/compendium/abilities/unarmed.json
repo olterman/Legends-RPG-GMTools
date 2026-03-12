@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Unarmed",
+  "slug": "unarmed",
+  "cost": null,
+  "alpha_section": "Z",
+  "effect": "A typical punch, kick, or other weaponless attack.",
+  "details": [
+    "A typical punch, kick, or other weaponless attack."
+  ]
+}

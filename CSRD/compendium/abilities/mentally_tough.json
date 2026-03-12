@@ -1,0 +1,12 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Mentally Tough",
+  "slug": "mentally_tough",
+  "cost": null,
+  "alpha_section": "M",
+  "effect": "Staring into the naked weave of hyperspace, warped space, or a similar effect related to faster-than-light travel is hard on the mind, but you’ve developed resistance. You’re trained in Intellect defense tasks. Enabler.",
+  "details": [
+    "Staring into the naked weave of hyperspace, warped space, or a similar effect related to faster-than-light travel is hard on the mind, but you’ve developed resistance. You’re trained in Intellect defense tasks. Enabler."
+  ]
+}

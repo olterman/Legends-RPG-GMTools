@@ -1,0 +1,21 @@
+{
+  "type": "focus",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Works the System",
+  "slug": "works_the_system",
+  "summary": "You can exploit flaws in artificial systems, including but not limited to computer code.",
+  "tiers": [
+    "Tier 1: Hack the Impossible",
+    "Tier 1: Computer Programming",
+    "Tier 2: Connected",
+    "Tier 3: Confidence Artist or Skill With Attacks",
+    "Tier 4: Confuse Enemy",
+    "Tier 5: Work the Friendship",
+    "Tier 6: Call in Favor or Greater Enhanced Potential"
+  ],
+  "gm_intrusions": "Contacts sometimes have ulterior motives. Devices sometimes have failsafes or even traps.",
+  "text": "You can exploit flaws in artificial systems, including but not limited to computer code.",
+  "details": [
+    "You can exploit flaws in artificial systems, including but not limited to computer code."
+  ]
+}

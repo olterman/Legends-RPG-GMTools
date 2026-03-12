@@ -1,0 +1,15 @@
+{
+  "type": "ability",
+  "source": "Cypher System Reference Document 2025-08-22",
+  "title": "Diver",
+  "slug": "diver",
+  "cost": null,
+  "alpha_section": "D",
+  "effect": "You can safely dive into water from heights of up to 100 feet (30 m), and you can withstand pressure when in water as deep as 100 feet. Enabler. Divert Attacks (4 Speed points): For one minute, you automatically deflect or dodge any ranged projectile attacks. However, on your next turn after you’re attacked with ranged projectiles, all your other actions are hindered. Action to initiate. Divide Your Mind (7 Intellect points): You split your consciousness into two parts. For one minute, you can take two actions on each of your turns, but only one of them can be to use a special ability. Action. Divine Intervention (2 Intellect points, or 2 Intellect points + 4 XP): You ask the divine to intervene on your behalf, usually against a creature within long range, changing the course of its life in a small way by introducing a major special effect upon it. The major special effect is akin to what occurs when you roll a natural 20 on an attack. If you want to try for a larger effect, and if the GM allows it, you can attempt a divine intervention with a more far-reaching effect, which is more like the kind of GM intrusion initiated by the GM on their players. In this case, Divine Intervention also costs 4 XP, the effect may not work out exactly like you hope, and you may not make another plea for divine intervention for a week. Action.",
+  "details": [
+    "You can safely dive into water from heights of up to 100 feet (30 m), and you can withstand pressure when in water as deep as 100 feet. Enabler.",
+    "Divert Attacks (4 Speed points): For one minute, you automatically deflect or dodge any ranged projectile attacks. However, on your next turn after you’re attacked with ranged projectiles, all your other actions are hindered. Action to initiate.",
+    "Divide Your Mind (7 Intellect points): You split your consciousness into two parts. For one minute, you can take two actions on each of your turns, but only one of them can be to use a special ability. Action.",
+    "Divine Intervention (2 Intellect points, or 2 Intellect points + 4 XP): You ask the divine to intervene on your behalf, usually against a creature within long range, changing the course of its life in a small way by introducing a major special effect upon it. The major special effect is akin to what occurs when you roll a natural 20 on an attack. If you want to try for a larger effect, and if the GM allows it, you can attempt a divine intervention with a more far-reaching effect, which is more like the kind of GM intrusion initiated by the GM on their players. In this case, Divine Intervention also costs 4 XP, the effect may not work out exactly like you hope, and you may not make another plea for divine intervention for a week. Action."
+  ]
+}

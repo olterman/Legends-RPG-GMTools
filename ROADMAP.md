@@ -77,6 +77,10 @@
   - Character Studio references canonical skill labels only.
   - Rule entries expose source/version metadata in API and UI.
 
+### UI Tweaks 
+- for all the charachters/npcs/cyphers/artifacts/locations/ and equipment categories I want the search results (in all searches to have a fourth icon "copy art prompt" that puts together an ai art prompt (optimised for atomic pro) the prompt should contain description, area prompt (named environment in the prompt) props and weapons (attacks?)  and the legend style prompt picking the correct style prompt depending on type ie. character for character item for cyphers etc
+
+
 ## Mid Term (2-4 months)
 
 ### 1) Character Studio v2

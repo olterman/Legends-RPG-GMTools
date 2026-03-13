@@ -759,8 +759,29 @@ def register_routes(app: Flask) -> None:
     def plugin_settings_path() -> Path:
         return current_app.config["LOL_CONFIG_DIR"] / "plugins_settings.json"
 
+    def plugin_secrets_path() -> Path:
+        return current_app.config["LOL_CONFIG_DIR"] / "plugins_secrets.json"
+
     def load_plugin_settings_store() -> dict[str, dict]:
         path = plugin_settings_path()
+        if not path.exists():
+            return {}
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+        if not isinstance(data, dict):
+            return {}
+        out: dict[str, dict] = {}
+        for key, value in data.items():
+            plugin_id = str(key or "").strip()
+            if not plugin_id or not isinstance(value, dict):
+                continue
+            out[plugin_id] = {str(k): str(v) for k, v in value.items()}
+        return out
+
+    def load_plugin_secrets_store() -> dict[str, dict]:
+        path = plugin_secrets_path()
         if not path.exists():
             return {}
         try:
@@ -787,6 +808,26 @@ def register_routes(app: Flask) -> None:
                 continue
             serializable[pid] = {str(k): str(v) for k, v in sorted(values.items(), key=lambda kv: kv[0])}
         path.write_text(json.dumps(serializable, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def save_plugin_secrets_store(store: dict[str, dict]) -> None:
+        path = plugin_secrets_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        serializable: dict[str, dict] = {}
+        for plugin_id, values in sorted(store.items(), key=lambda kv: kv[0]):
+            pid = str(plugin_id or "").strip()
+            if not pid or not isinstance(values, dict):
+                continue
+            serializable[pid] = {str(k): str(v) for k, v in sorted(values.items(), key=lambda kv: kv[0])}
+        path.write_text(json.dumps(serializable, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def is_secret_plugin_setting(plugin_id: str, key: str) -> bool:
+        pid = str(plugin_id or "").strip()
+        skey = str(key or "").strip()
+        secret_keys: dict[str, set[str]] = {
+            "openai_remote": {"api_key"},
+            "foundryVTT": {"api_token"},
+        }
+        return skey in secret_keys.get(pid, set())
 
     def plugin_settings_defaults(plugin_id: str) -> dict[str, str]:
         pid = str(plugin_id or "").strip()
@@ -868,11 +909,16 @@ def register_routes(app: Flask) -> None:
     def get_plugin_settings(plugin_id: str) -> dict[str, str]:
         pid = str(plugin_id or "").strip()
         defaults = plugin_settings_defaults(pid)
-        store = load_plugin_settings_store()
-        persisted = store.get(pid) or {}
+        settings_store = load_plugin_settings_store()
+        secrets_store = load_plugin_secrets_store()
+        persisted = settings_store.get(pid) or {}
+        secrets = secrets_store.get(pid) or {}
         merged = {**defaults}
         for key, value in persisted.items():
             if key in defaults:
+                merged[key] = str(value)
+        for key, value in secrets.items():
+            if key in defaults and is_secret_plugin_setting(pid, key):
                 merged[key] = str(value)
         return merged
 
@@ -881,15 +927,23 @@ def register_routes(app: Flask) -> None:
         defaults = plugin_settings_defaults(pid)
         if not defaults:
             raise ValueError(f"unknown plugin settings schema for '{pid}'")
-        store = load_plugin_settings_store()
-        current = store.get(pid) or {}
+        settings_store = load_plugin_settings_store()
+        secrets_store = load_plugin_secrets_store()
+        current_settings = settings_store.get(pid) or {}
+        current_secrets = secrets_store.get(pid) or {}
         for key, raw in values.items():
             skey = str(key or "").strip()
             if skey not in defaults:
                 continue
-            current[skey] = str(raw or "").strip()
-        store[pid] = current
-        save_plugin_settings_store(store)
+            value = str(raw or "").strip()
+            if is_secret_plugin_setting(pid, skey):
+                current_secrets[skey] = value
+            else:
+                current_settings[skey] = value
+        settings_store[pid] = current_settings
+        secrets_store[pid] = current_secrets
+        save_plugin_settings_store(settings_store)
+        save_plugin_secrets_store(secrets_store)
         return get_plugin_settings(pid)
 
     def load_plugin_state() -> dict[str, bool]:

@@ -9,3 +9,4 @@ generated/
 .gitignore
 logseq/
 .env.deploy
+config/plugins_secrets.json

@@ -931,6 +931,10 @@ def register_routes(app: Flask) -> None:
         secrets_store = load_plugin_secrets_store()
         current_settings = settings_store.get(pid) or {}
         current_secrets = secrets_store.get(pid) or {}
+        # Ensure sensitive fields are never persisted in the non-secret store.
+        for key in list(current_settings.keys()):
+            if is_secret_plugin_setting(pid, key):
+                current_settings.pop(key, None)
         for key, raw in values.items():
             skey = str(key or "").strip()
             if skey not in defaults:
@@ -1221,7 +1225,7 @@ def register_routes(app: Flask) -> None:
                     "label": "API Key",
                     "type": "password",
                     "value": str(values.get("api_key") or ""),
-                    "help": "OpenAI API key (stored locally in config/plugins_settings.json).",
+                    "help": "OpenAI API key (stored locally in config/plugins_secrets.json; gitignored).",
                 },
                 {
                     "key": "system_prompt",
@@ -1238,7 +1242,7 @@ def register_routes(app: Flask) -> None:
                     "label": "API Token",
                     "type": "password",
                     "value": str(values.get("api_token") or ""),
-                    "help": "Bearer/X-Foundry token expected by Foundry plugin endpoints (optional).",
+                    "help": "Bearer/X-Foundry token expected by Foundry plugin endpoints (optional, stored in config/plugins_secrets.json).",
                 },
                 {
                     "key": "allowed_origins",

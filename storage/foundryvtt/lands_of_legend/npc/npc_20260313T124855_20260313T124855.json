@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.980168+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124855_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Warhorse",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Warhorse"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 0,
+      "damage": 4,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "A horse trained to be calm during the noise and action of combat, used either as a mount or to pull a vehicle such as a chariot.\n\nLevel 4; moves a long distance each round\n\nWarhorse\nLevel 4 (target number 12)\nHealth: 12\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.vhGua32GarGCzLGv",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/animal_mundane_20260313T124855_a9d3766a.webp",
+      "images": [
+        "uploads/foundryvtt/animal_mundane_20260313T124855_a9d3766a.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/animal_mundane.webp"
+    },
+    "description": "A horse trained to be calm during the noise and action of combat, used either as a mount or to pull a vehicle such as a chariot. Level 4; moves a long distance each round Warhorse Level 4 (target number 12) Health: 12 Armor: 0 Damage: 4"
+  }
+}

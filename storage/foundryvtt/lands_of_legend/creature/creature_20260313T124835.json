@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:35.385777+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124835.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Fundamental angel",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Fundamental angel",
+      "environment": "Anywhere, usually in response to mortal activity",
+      "motive": "Preserving the natural order",
+      "interaction": "A fundamental angel operates on a mental and metaphysical level far above humans and doesn’t bother to explain itself to anyone other than its targets. It goes out of its way to not harm innocent creatures. It can communicate with any creature that uses language.",
+      "use": "“FEAR NOT!” says the radiant being that appears out of nowhere. It ignores bystanders and uses a beam of energy to destroy a scientist and his experimental reactor.",
+      "loot": "Fundamental angels sometimes create or refresh subtle cyphers by their mere presence. GM Intrusions: A fundamental angel’s successful attack also blinds its opponent, lasting until they make an Intellect defense roll (try once each round). A fundamental angel makes a second attack this round against a target that is adjacent to its primary target."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 35,
+      "armor": 2,
+      "damage": 8,
+      "movement": "Short; short when flying",
+      "modifications": [
+        "All knowledge as level 9; attacks against mad science and supernatural targets as level 8"
+      ],
+      "combat": [
+        "A fundamental angel attacks other creatures by creating a long-range blast of bright divine energy that inflicts 8 points of damage. In addition, it automatically inflicts 4 points of damage each round against all creatures within short range, although it can shield itself with wings or other protrusions to negate this effect against individuals. Any creature within long range that sees it and fails an Intellect defense roll becomes frightened unless the angel tells it (specifically or in general) not to be afraid. As an action, it can teleport up to a hundred miles away or transport itself fully to its native dimension where it exists as pure thought and spirit."
+      ],
+      "interaction": [
+        "A fundamental angel operates on a mental and metaphysical level far above humans and doesn’t bother to explain itself to anyone other than its targets. It goes out of its way to not harm innocent creatures. It can communicate with any creature that uses language."
+      ],
+      "loot": [
+        "Fundamental angels sometimes create or refresh subtle cyphers by their mere presence. GM Intrusions: A fundamental angel’s successful attack also blinds its opponent, lasting until they make an Intellect defense roll (try once each round). A fundamental angel makes a second attack this round against a target that is adjacent to its primary target."
+      ]
+    },
+    "text": "Fundamental angels are mysterious holy beings that maintain and guard fundamental concepts of the universe, such as time, gravity, and energy. They have powers and agendas deriving from higher states of reality. They are strange, terrifying, and inconstant in form, unlike the relatively benign and comprehensible winged humanoids from religion and myth.\n\nIn the rare times when mortals interfere with these concepts, fundamental angels manifest in the world to set things right. They have intervened to destroy cataclysmic atomic weapons, power sources that skirt the rules of matter and energy, and life forms that betray the principles of creation.\n\nFor the purpose of vampire aversions (see Stay Alive!), the angel’s direct and area attacks count as religious power or sunlight, whichever is worse for the vampire.\n\nMotive: Preserving the natural order\n\nEnvironment: Anywhere, usually in response to mortal activity\n\nHealth: 35\n\nDamage Inflicted: 8 points\n\nArmor: 2 (+3 against energy)\n\nMovement: Short; short when flying\n\nModifications: All knowledge as level 9; attacks against mad science and supernatural targets as level 8\n\nCombat: A fundamental angel attacks other creatures by creating a long-range blast of bright divine energy that inflicts 8 points of damage. In addition, it automatically inflicts 4 points of damage each round against all creatures within short range, although it can shield itself with wings or other protrusions to negate this effect against individuals.\n\nAny creature within long range that sees it and fails an Intellect defense roll becomes frightened unless the angel tells it (specifically or in general) not to be afraid.\n\nAs an action, it can teleport up to a hundred miles away or transport itself fully to its native dimension where it exists as pure thought and spirit.\n\nInteraction: A fundamental angel operates on a mental and metaphysical level far above humans and doesn’t bother to explain itself to anyone other than its targets. It goes out of its way to not harm innocent creatures. It can communicate with any creature that uses language.\n\nUse: “FEAR NOT!” says the radiant being that appears out of nowhere. It ignores bystanders and uses a beam of energy to destroy a scientist and his experimental reactor.\n\nLoot: Fundamental angels sometimes create or refresh subtle cyphers by their mere presence.\n\nGM Intrusions: A fundamental angel’s successful attack also blinds its opponent, lasting until they make an Intellect defense roll (try once each round).\n\nA fundamental angel makes a second attack this round against a target that is adjacent to its primary target.\n\nFundamental angel\nLevel 7 (target number 21)\nHealth: 35\nArmor: 2\nDamage: 8",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.tFN6i2MkDZgCdVBo",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_fundamental-angel_20260313T124835_348afe3d.webp",
+      "images": [
+        "uploads/foundryvtt/creature_fundamental-angel_20260313T124835_348afe3d.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/horror/creature_fundamental-angel.webp"
+    },
+    "description": "“FEAR NOT!” says the radiant being that appears out of nowhere. It ignores bystanders and uses a beam of energy to destroy a scientist and his experimental reactor."
+  }
+}

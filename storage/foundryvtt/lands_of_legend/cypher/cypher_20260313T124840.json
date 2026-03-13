@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:40.317828+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124840.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Interrogate",
+    "level": "6",
+    "sections": {
+      "name": "Interrogate",
+      "level": "6",
+      "effect": "<p>You question an NPC who can hear you whose level doesn't exceed the cypher's. The NPC answers three questions you ask them truthfully, and to the best of their ability. If the NPC is hostile, they answer only one question before resuming their hostilities.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Insath Vralath",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124840.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124840_702c30b4.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124840_702c30b4.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

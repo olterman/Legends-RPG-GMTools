@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:25.701269+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124825_20260313T124825.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Vigilance",
+    "level": "6",
+    "sections": {
+      "name": "Vigilance",
+      "level": "6",
+      "effect": "<p>For one day, you gain an asset to initiative and perception tasks.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Apbod Awbraod",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124825_20260313T124825.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124825_9bf0af3a.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124825_9bf0af3a.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

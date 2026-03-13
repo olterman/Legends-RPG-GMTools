@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:44.959581+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124844_20260313T124844.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Nightgaunt",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Nightgaunt",
+      "environment": "Anywhere dark, usually in groups of four to seven",
+      "motive": "Unknowable",
+      "interaction": "Nightgaunts never speak, and they ignore anyone who attempts to interact with them, whether the communication takes the form of commanding, beseeching, or frantically pleading. Such is the way of nightgaunts.",
+      "use": "Someone who bears one or more of the PCs a grudge discovers a tome of spells and summons a flight of nightgaunts, which set off in search of their prey.",
+      "loot": "One in three nightgaunts has a valuable souvenir from a past victim, which might be an expensive watch, a ring, an amulet, or sometimes a cypher.",
+      "gm_intrusion": "The character is startled by the nightgaunt and suffers the risk of temporary dementia. On a failed Intellect defense roll, the character shrieks and faints (or, at the GM’s option, babbles, drools, laughs, and so on). The character can attempt a new Intellect defense roll each round to return to normal."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 1,
+      "damage": 4,
+      "movement": "Immediate; long when flying (short when flying with a victim)",
+      "modifications": [
+        "Perception and Speed defense as level 4; stealth as level 7"
+      ],
+      "combat": [
+        "A nightgaunt can attack with its barbed tail. To catch a foe, a nightgaunt dives through the air from just outside of short range. When it does, it moves 100 feet (30 m) in a round and attempts to grab a victim near the midpoint of its movement. A target who fails a Speed defense roll (and who isn’t more than twice the size of the nightgaunt) is jerked into the creature’s boneless clutches and carried upward, finding themselves dangling from a height of 50 feet (15 m). The nightgaunt automatically tickles grabbed victims with its barbed tail. This subtle form of torture hinders all the victim’s actions by two steps."
+      ],
+      "interaction": [
+        "Nightgaunts never speak, and they ignore anyone who attempts to interact with them, whether the communication takes the form of commanding, beseeching, or frantically pleading. Such is the way of nightgaunts."
+      ],
+      "loot": [
+        "One in three nightgaunts has a valuable souvenir from a past victim, which might be an expensive watch, a ring, an amulet, or sometimes a cypher."
+      ]
+    },
+    "text": "A nightgaunt’s hands and feet have no opposable digits. All its fingers and toes can grasp with firm but unpleasant boneless strength. Hungry nightgaunts swoop out of the night, grab prey, and fly off into darkness. The creatures sometimes “work” for other agencies, though often enough, their goals are obscure.\n\nMotive: Unknowable\n\nEnvironment: Anywhere dark, usually in groups of four to seven\n\nHealth: 9\n\nDamage Inflicted: 4 points\n\nArmor: 1\n\nMovement: Immediate; long when flying (short when flying with a victim)\n\nModifications: Perception and Speed defense as level 4; stealth as level 7\n\nCombat: A nightgaunt can attack with its barbed tail. To catch a foe, a nightgaunt dives through the air from just outside of short range. When it does, it moves 100 feet (30 m) in a round and attempts to grab a victim near the midpoint of its movement. A target who fails a Speed defense roll (and who isn’t more than twice the size of the nightgaunt) is jerked into the creature’s boneless clutches and carried upward, finding themselves dangling from a height of 50 feet (15 m).\n\nThe nightgaunt automatically tickles grabbed victims with its barbed tail. This subtle form of torture hinders all the victim’s actions by two steps.\n\nInteraction: Nightgaunts never speak, and they ignore anyone who attempts to interact with them, whether the communication takes the form of commanding, beseeching, or frantically pleading. Such is the way of nightgaunts.\n\nUse: Someone who bears one or more of the PCs a grudge discovers a tome of spells and summons a flight of nightgaunts, which set off in search of their prey.\n\nLoot: One in three nightgaunts has a valuable souvenir from a past victim, which might be an expensive watch, a ring, an amulet, or sometimes a cypher.\n\nGM Intrusion: The character is startled by the nightgaunt and suffers the risk of temporary dementia. On a failed Intellect defense roll, the character shrieks and faints (or, at the GM’s option, babbles, drools, laughs, and so on). The character can attempt a new Intellect defense roll each round to return to normal.\n\nNightgaunt\nLevel 3 (target number 9)\nHealth: 9\nArmor: 1\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.CC7y0Wq7Krwbvy0O",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_nightgaunt_20260313T124844_7e8c35eb.webp",
+      "images": [
+        "uploads/foundryvtt/creature_nightgaunt_20260313T124844_7e8c35eb.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/horror/creature_nightgaunt.webp"
+    },
+    "description": "Someone who bears one or more of the PCs a grudge discovers a tome of spells and summons a flight of nightgaunts, which set off in search of their prey."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:04.320464+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125004.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Rose of red",
+    "description": "Level: 1d6 + 1 Form: Big, beautiful crimson rose in full bloom Effect: Pricking a finger on the rose’s thorns causes the user to bleed a single drop of blood. When flung into the air, the blood becomes a large red bird that flies toward a chosen target up to a long distance away. When it arrives, it bursts in an immediate radius, inflicting Intellect damage equal to the cypher level. The burst spawns 1d6 additional birds; in the next round, each one flies to a random spot within short range and…",
+    "sections": {
+      "name": "Rose of red",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Big, beautiful crimson rose in full bloom\n\nEffect: Pricking a finger on the rose’s thorns causes the user to bleed a single drop of blood. When flung into the air, the blood becomes a large red bird that flies toward a chosen target up to a long distance away. When it arrives, it bursts in an immediate radius, inflicting Intellect damage equal to the cypher level. The burst spawns 1d6 additional birds; in the next round, each one flies to a random spot within short range and explodes in an immediate radius, inflicting damage equal to the cypher level."
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Big, beautiful crimson rose in full bloom\n\nEffect: Pricking a finger on the rose’s thorns causes the user to bleed a single drop of blood. When flung into the air, the blood becomes a large red bird that flies toward a chosen target up to a long distance away. When it arrives, it bursts in an immediate radius, inflicting Intellect damage equal to the cypher level. The burst spawns 1d6 additional birds; in the next round, each one flies to a random spot within short range and explodes in an immediate radius, inflicting damage equal to the cypher level.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125004_ed8bdb53.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125004_ed8bdb53.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

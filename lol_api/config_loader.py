@@ -3,15 +3,36 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+import json
 import yaml
 
 
-def load_yaml_file(path: Path) -> dict[str, Any]:
+def load_config_file(path: Path) -> dict[str, Any]:
+    suffix = path.suffix.lower()
     with path.open("r", encoding="utf-8") as f:
-        data = yaml.safe_load(f) or {}
+        raw = f.read()
+    if suffix == ".json":
+        data = json.loads(raw or "{}")
+    else:
+        data = yaml.safe_load(raw) or {}
     if not isinstance(data, dict):
         raise ValueError(f"{path} does not contain a top-level mapping.")
     return data
+
+
+def load_yaml_file(path: Path) -> dict[str, Any]:
+    return load_config_file(path)
+
+
+def iter_config_mapping_files(folder: Path, *, include_json: bool = True) -> list[Path]:
+    files: list[Path] = []
+    suffixes = ["*.yaml", "*.yml"]
+    if include_json:
+        suffixes.append("*.json")
+    for suffix in suffixes:
+        files.extend(folder.glob(suffix))
+    # Deterministic order across mixed extensions (00_world.* etc.).
+    return sorted(set(files), key=lambda p: p.name.lower())
 
 
 def _merge_top_level(merged: dict[str, Any], data: dict[str, Any], source: Path) -> None:
@@ -46,8 +67,8 @@ def load_world_layer(config_dir: Path, world_id: str) -> dict[str, Any]:
         raise FileNotFoundError(f"World config folder not found: {world_dir}")
 
     merged_world: dict[str, Any] = {}
-    for path in sorted(world_dir.glob("*.yaml")):
-        data = load_yaml_file(path)
+    for path in iter_config_mapping_files(world_dir):
+        data = load_config_file(path)
         _merge_top_level(merged_world, data, path)
     return merged_world
 
@@ -120,6 +141,7 @@ def describe_world(config_dir: Path, world_id: str) -> dict[str, Any]:
         "core_setting": str(core_value or "").strip() or None,
         "core_genre": str(core_value or "").strip() or None,
         "description": str(world_block.get("description") or "").strip() or None,
+        "cover_image": str(world_block.get("cover_image") or "").strip() or None,
     }
 
 
@@ -155,15 +177,15 @@ def load_config_dir(
     merged: dict[str, Any] = {}
 
     # Legacy flat config remains supported during migration.
-    for path in sorted(config_dir.glob("*.yaml")):
-        data = load_yaml_file(path)
+    for path in iter_config_mapping_files(config_dir, include_json=False):
+        data = load_config_file(path)
         _merge_top_level(merged, data, path)
 
     # Optional core layer for shared, cross-world config.
     core_dir = config_dir / "core"
     if core_dir.exists():
-        for path in sorted(core_dir.glob("*.yaml")):
-            data = load_yaml_file(path)
+        for path in iter_config_mapping_files(core_dir, include_json=False):
+            data = load_config_file(path)
             _merge_top_level(merged, data, path)
 
     # Optional genre layer (legacy name: setting), selected via world.core_genre / world.core_setting.
@@ -175,8 +197,8 @@ def load_config_dir(
     if active_core_setting:
         setting_dir = config_dir / "settings" / active_core_setting
         if setting_dir.exists():
-            for path in sorted(setting_dir.glob("*.yaml")):
-                data = load_yaml_file(path)
+            for path in iter_config_mapping_files(setting_dir, include_json=False):
+                data = load_config_file(path)
                 _merge_top_level(merged, data, path)
 
     # Optional world-specific layer (highest precedence).
@@ -184,8 +206,8 @@ def load_config_dir(
         world_dir = config_dir / "worlds" / active_world
         if not world_dir.exists():
             raise FileNotFoundError(f"World config folder not found: {world_dir}")
-        for path in sorted(world_dir.glob("*.yaml")):
-            data = load_yaml_file(path)
+        for path in iter_config_mapping_files(world_dir):
+            data = load_config_file(path)
             _merge_top_level(merged, data, path)
 
     # Backward-compatible aliasing while refactoring "environment" -> "area".

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:13.147563+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125013.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Witch’s ladder",
+    "description": "Level: 1d6 + 2 Form: Garland of knotted string, feathers, teeth, and bells Effect: Safely stores one curse for use at a later time. The stored curse may be released and cast only by the person who stored it, or by someone who has received their permission to do so.",
+    "sections": {
+      "name": "Witch’s ladder",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Garland of knotted string, feathers, teeth, and bells\n\nEffect: Safely stores one curse for use at a later time. The stored curse may be released and cast only by the person who stored it, or by someone who has received their permission to do so."
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Garland of knotted string, feathers, teeth, and bells\n\nEffect: Safely stores one curse for use at a later time. The stored curse may be released and cast only by the person who stored it, or by someone who has received their permission to do so.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125013_b589ec13.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125013_b589ec13.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

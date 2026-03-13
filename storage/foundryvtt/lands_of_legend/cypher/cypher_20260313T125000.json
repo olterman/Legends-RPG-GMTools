@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:00.016936+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125000.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Perfect memory",
+    "description": "Level: 1d6 Effect: Allows the user to mentally record everything they see for thirty seconds per cypher level and store the recording permanently in their long-term memory. This cypher is useful for watching someone pick a specific lock, enter a complex code, or do something else that happens quickly.",
+    "sections": {
+      "name": "Perfect memory",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: Allows the user to mentally record everything they see for thirty seconds per cypher level and store the recording permanently in their long-term memory. This cypher is useful for watching someone pick a specific lock, enter a complex code, or do something else that happens quickly."
+    },
+    "text": "Level: 1d6\n\nEffect: Allows the user to mentally record everything they see for thirty seconds per cypher level and store the recording permanently in their long-term memory. This cypher is useful for watching someone pick a specific lock, enter a complex code, or do something else that happens quickly.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125000_87f1385e.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125000_87f1385e.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

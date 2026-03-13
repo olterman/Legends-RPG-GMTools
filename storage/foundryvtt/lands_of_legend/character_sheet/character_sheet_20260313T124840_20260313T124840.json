@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:40.623990+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124840_20260313T124840.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Jenny",
+    "sheet": {
+      "name": "Jenny",
+      "sentence": "Jenny is a character .",
+      "type": "",
+      "flavor": "",
+      "descriptor": "",
+      "focus": "",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 10,
+          "speed": 10,
+          "intellect": 10
+        },
+        "current": {
+          "might": 10,
+          "speed": 10,
+          "intellect": 10
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [],
+        "inabilities": [],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [],
+      "chosen_skills": [],
+      "attacks": [],
+      "cyphers": [],
+      "artifacts": [],
+      "equipment": [],
+      "notes": "",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Jenny",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "",
+        "flavor": "",
+        "descriptor": "",
+        "focus": "",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124840_cf94f408.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124840_cf94f408.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "",
+      "flavor": "",
+      "descriptor": "",
+      "focus": "",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124840_cf94f408.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124840_cf94f408.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    }
+  }
+}

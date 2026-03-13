@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.269647+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Mad Scientist",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Mad Scientist",
+      "environment": "Usually in a lab",
+      "motive": "Understanding and exploiting reality",
+      "interaction": "Mad scientists are narcissistic and love to monologue about their work. They negotiate but usually are sociopathic and don’t care about other people. Some are filled with self-loathing but too far gone to feel they can change.",
+      "use": "Blackouts and strange noises have been traced to a location found to hold a secret lab where a scientist is creating something amazing and monstrous.",
+      "loot": "Mad scientists have a few manifest cyphers and possibly an artifact.",
+      "gm_intrusion": "The mad scientist produces a gadget or cypher that proves to be the perfect answer to a dilemma at hand."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 0,
+      "damage": 7,
+      "movement": "Short",
+      "modifications": [
+        "Defends as level 6 due to a gadget (or cypher); knowledge of advanced science as level 7"
+      ],
+      "combat": [
+        "Mad scientists are usually accompanied by security guards, robots, zombies, or some other appropriate creature. A mad scientist can attempt to take command of an enemy’s technological device (armor, a weapon, a cypher, a robot, and so on) within short range for up to one minute using a handheld device. Mad scientists usually have access to a long-range energy or high-velocity weapon that inflicts 7 points of damage. They often carry manifest cyphers that increase Armor, confuse opponents’ senses, or transform themselves into a form that eases all their actions by two steps."
+      ],
+      "interaction": [
+        "Mad scientists are narcissistic and love to monologue about their work. They negotiate but usually are sociopathic and don’t care about other people. Some are filled with self-loathing but too far gone to feel they can change."
+      ],
+      "loot": [
+        "Mad scientists have a few manifest cyphers and possibly an artifact."
+      ]
+    },
+    "text": "A mad scientist is someone who delves into areas of science best left unexamined, abandoning ethics and pushing for what can be created without asking if it should be.\n\nMotive: Understanding and exploiting reality\n\nEnvironment: Usually in a lab\n\nHealth: 15\n\nDamage Inflicted: 7 points\n\nMovement: Short\n\nModifications: Defends as level 6 due to a gadget (or cypher); knowledge of advanced science as level 7\n\nCombat: Mad scientists are usually accompanied by security guards, robots, zombies, or some other appropriate creature. A mad scientist can attempt to take command of an enemy’s technological device (armor, a weapon, a cypher, a robot, and so on) within short range for up to one minute using a handheld device.\n\nMad scientists usually have access to a long-range energy or high-velocity weapon that inflicts 7 points of damage. They often carry manifest cyphers that increase Armor, confuse opponents’ senses, or transform themselves into a form that eases all their actions by two steps.\n\nInteraction: Mad scientists are narcissistic and love to monologue about their work. They negotiate but usually are sociopathic and don’t care about other people. Some are filled with self-loathing but too far gone to feel they can change.\n\nUse: Blackouts and strange noises have been traced to a location found to hold a secret lab where a scientist is creating something amazing and monstrous.\n\nLoot: Mad scientists have a few manifest cyphers and possibly an artifact.\n\nGM Intrusion: The mad scientist produces a gadget or cypher that proves to be the perfect answer to a dilemma at hand.\n\nMad Scientist\nLevel 4 (target number 12)\nHealth: 15\nArmor: 0\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.LcxX3niP2skHyTUs",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_mad-scientist_20260313T124842_3eaa5479.webp",
+      "images": [
+        "uploads/foundryvtt/npc_mad-scientist_20260313T124842_3eaa5479.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/horror/npc_mad-scientist.webp"
+    },
+    "description": "Blackouts and strange noises have been traced to a location found to hold a secret lab where a scientist is creating something amazing and monstrous."
+  }
+}

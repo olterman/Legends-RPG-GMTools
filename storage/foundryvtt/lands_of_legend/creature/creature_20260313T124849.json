@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:49.204251+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124849.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Satyr",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Satyr",
+      "environment": "Woodlands, hills, and plains",
+      "motive": "Play tricks, gather treasure, fulfill desires",
+      "interaction": "Satyrs are inveterate mercenaries. They gladly work for strong drink and other treasures, and they ally with almost any creature capable of meeting their price. A satyr is always willing to start negotiations, but is prone to lying and exaggeration. Offering excessive libation, food, and other rewards is the only way to ensure that a satyr remains honest, and then for only a short period.",
+      "use": "Strange piping music in the forest lures away young people from a nearby community. Community elders say a charismatic cult leader has set up in the woods and clouds the minds of all who come near.",
+      "loot": "A satyr is likely to carry one or two cyphers.",
+      "gm_intrusion": "A mental effect makes the character view the satyr as a good friend for up to one minute unless they succeed at an Intellect defense task."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 15,
+      "armor": 1,
+      "damage": 6,
+      "movement": "Short",
+      "modifications": [
+        "Tasks related to persuasion and deception as level 7; resists mental attacks as level 7"
+      ],
+      "combat": [
+        "Satyrs usually carry spears that they can use in melee and against foes within short range. They can also create magical effects by playing their pipes as an action, which can either bolster allies or harm enemies: Dance of the Leaping Stag: Foes within short range who fail an Intellect defense task lose their next turn to dancing and leaping. Attacks made against affected targets are eased. Feral Overture: An ally within short range is infused with magic, and one attack it makes on its next turn is eased; if it hits, it inflicts +3 damage. Tune of the Clouded Mind: A foe within short range who fails an Intellect defense task spends its next turn attacking one of its allies."
+      ],
+      "interaction": [
+        "Satyrs are inveterate mercenaries. They gladly work for strong drink and other treasures, and they ally with almost any creature capable of meeting their price. A satyr is always willing to start negotiations, but is prone to lying and exaggeration. Offering excessive libation, food, and other rewards is the only way to ensure that a satyr remains honest, and then for only a short period."
+      ],
+      "loot": [
+        "A satyr is likely to carry one or two cyphers."
+      ]
+    },
+    "text": "These muscular humanoids sport long curved horns and furry, hooved legs. They are self-centered, greedy, and sybaritic creatures, dedicated to food, drink, and other pleasures. They rob and steal from others as it pleases them, often relying on tricks and lies, or alluring music they play on pipes.\n\nMotive: Play tricks, gather treasure, fulfill desires\n\nEnvironment: Woodlands, hills, and plains\n\nHealth: 15\n\nDamage Inflicted: 6 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Tasks related to persuasion and deception as level 7; resists mental attacks as level 7\n\nCombat: Satyrs usually carry spears that they can use in melee and against foes within short range. They can also create magical effects by playing their pipes as an action, which can either bolster allies or harm enemies:\n\nDance of the Leaping Stag: Foes within short range who fail an Intellect defense task lose their next turn to dancing and leaping. Attacks made against affected targets are eased.\n\nFeral Overture: An ally within short range is infused with magic, and one attack it makes on its next turn is eased; if it hits, it inflicts +3 damage.\n\nTune of the Clouded Mind: A foe within short range who fails an Intellect defense task spends its next turn attacking one of its allies.\n\nInteraction: Satyrs are inveterate mercenaries. They gladly work for strong drink and other treasures, and they ally with almost any creature capable of meeting their price. A satyr is always willing to start negotiations, but is prone to lying and exaggeration. Offering excessive libation, food, and other rewards is the only way to ensure that a satyr remains honest, and then for only a short period.\n\nUse: Strange piping music in the forest lures away young people from a nearby community. Community elders say a charismatic cult leader has set up in the woods and clouds the minds of all who come near.\n\nLoot: A satyr is likely to carry one or two cyphers.\n\nGM Intrusion: A mental effect makes the character view the satyr as a good friend for up to one minute unless they succeed at an Intellect defense task.\n\nSatyr\nLevel 5 (target number 15)\nHealth: 15\nArmor: 1\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.2lkf7EeXqhUFsEQI",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_satyr_20260313T124849_d8a66e2c.webp",
+      "images": [
+        "uploads/foundryvtt/creature_satyr_20260313T124849_d8a66e2c.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_satyr.webp"
+    },
+    "description": "Strange piping music in the forest lures away young people from a nearby community. Community elders say a charismatic cult leader has set up in the woods and clouds the minds of all who come near."
+  }
+}

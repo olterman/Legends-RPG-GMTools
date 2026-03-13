@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:58.014089+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124858.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Yithian",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Yithian",
+      "environment": "Anywhere",
+      "motive": "Knowledge",
+      "interaction": "Yithians are not malicious, but they are quite focused and relatively uncaring about other races, such as humans.",
+      "use": "A yithian projects its mind across the aeons, swapping consciousnesses with the character. While controlling the character’s body, the yithian is there mainly to learn and observe, and rarely takes any violent actions.",
+      "loot": "A yithian encountered in the flesh will have 1d6 manifest cyphers and very likely a technological artifact.",
+      "gm_intrusion": "The yithian produces a cypher that has a function that is perfect for its current situation: a teleporter to get away, a protective field against precisely the kind of attack being used against it, or a weapon that exploits a weakness of the character’s."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 22,
+      "armor": 2,
+      "damage": 6,
+      "movement": "Short",
+      "modifications": [
+        "All knowledge as level 8; Intellect defense as level 7; Speed defense as level 5 due to size and speed"
+      ],
+      "combat": [
+        "Although large and hardy, members of the Great Race are ill-suited to physical combat. If they must engage in melee, they use pincer-like claws. They almost always wield artifacts and cyphers, however, which makes them dangerous opponents. Assume that a yithian has one or more of the following abilities arising from advanced technology devices: Force field that grants them +3 Armor Mental field that gives them +4 Armor against any mental attack Ray emitter that inflicts 7 points of damage up to long range Cloaking field that renders them invisible for up to ten minutes Stun weapon with short range that makes the target fall unconscious for ten minutes Yithians have the ability to transfer their consciousness backward or forward through time, swapping minds with a creature native to the era they wish to observe. A yithian inhabiting the body of another creature is in complete control of that body. A creature trapped in the body of a yithian must attempt Intellect-based tasks each time it wishes to exert control. For the most part, it is trapped in the yithian’s body and is merely along for the ride. It’s worth noting that the bodies the yithians use are not their original bodies, but instead the bodies of supremely ancient creatures that they inhabit. The Great Race hails originally from some extraterrestrial world."
+      ],
+      "interaction": [
+        "Yithians are not malicious, but they are quite focused and relatively uncaring about other races, such as humans."
+      ],
+      "loot": [
+        "A yithian encountered in the flesh will have 1d6 manifest cyphers and very likely a technological artifact."
+      ]
+    },
+    "text": "The yithians (also known as the Great Race of Yith) were immense wrinkly cones 10 feet (3 m) high, with a head, four limbs, and other organs spreading from the top of their body. They communicated by making noises with their hands and claws, and they moved by gliding their lower surface across a layer of slime, like a slug. Their civilization was destroyed a billion years before the present day, but they transported their minds into new bodies far in the future and may still be encountered observing the past (our present) by telepathically inhabiting human bodies.\n\nMotive: Knowledge\n\nEnvironment: Anywhere\n\nHealth: 22\n\nDamage Inflicted: 6 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: All knowledge as level 8; Intellect defense as level 7; Speed defense as level 5 due to size and speed\n\nCombat: Although large and hardy, members of the Great Race are ill-suited to physical combat. If they must engage in melee, they use pincer-like claws. They almost always wield artifacts and cyphers, however, which makes them dangerous opponents. Assume that a yithian has one or more of the following abilities arising from advanced technology devices:\n\nForce field that grants them +3 Armor\n\nMental field that gives them +4 Armor against any mental attack\n\nRay emitter that inflicts 7 points of damage up to long range\n\nCloaking field that renders them invisible for up to ten minutes\n\nStun weapon with short range that makes the target fall unconscious for ten minutes\n\nYithians have the ability to transfer their consciousness backward or forward through time, swapping minds with a creature native to the era they wish to observe. A yithian inhabiting the body of another creature is in complete control of that body. A creature trapped in the body of a yithian must attempt Intellect-based tasks each time it wishes to exert control. For the most part, it is trapped in the yithian’s body and is merely along for the ride.\n\nIt’s worth noting that the bodies the yithians use are not their original bodies, but instead the bodies of supremely ancient creatures that they inhabit. The Great Race hails originally from some extraterrestrial world.\n\nInteraction: Yithians are not malicious, but they are quite focused and relatively uncaring about other races, such as humans.\n\nUse: A yithian projects its mind across the aeons, swapping consciousnesses with the character. While controlling the character’s body, the yithian is there mainly to learn and observe, and rarely takes any violent actions.\n\nLoot: A yithian encountered in the flesh will have 1d6 manifest cyphers and very likely a technological artifact.\n\nGM Intrusion: The yithian produces a cypher that has a function that is perfect for its current situation: a teleporter to get away, a protective field against precisely the kind of attack being used against it, or a weapon that exploits a weakness of the character’s.\n\nYithian\nLevel 6 (target number 18)\nHealth: 22\nArmor: 2\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.rjM9OyQ6grYszuYz",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_yithian_20260313T124858_a578cd08.webp",
+      "images": [
+        "uploads/foundryvtt/creature_yithian_20260313T124858_a578cd08.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/horror/creature_yithian.webp"
+    },
+    "description": "A yithian projects its mind across the aeons, swapping consciousnesses with the character. While controlling the character’s body, the yithian is there mainly to learn and observe, and rarely takes any violent actions."
+  }
+}

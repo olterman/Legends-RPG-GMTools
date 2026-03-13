@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:08.049396+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125008.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Staff of the prophet",
+    "description": "Level: 1d6+2 Form: Short wooden staff Effect: The staff has three abilities, each of which requires an action to activate. Sea Passage. Creates a dry route through a body of water. The route is approximately 20 feet (6 m) wide, up to 1,000 feet (300 m) deep, and as long as the body of water is wide. The path remains open for up to four hours, or the wielder can collapse it as an action. Snake Form. Staff transforms into a venomous snake whose level is equal to the artifact level. The snake has…",
+    "sections": {
+      "name": "Staff of the prophet",
+      "level": "1d6+2",
+      "effect": "Level: 1d6+2\n\nForm: Short wooden staff\n\nEffect: The staff has three abilities, each of which requires an action to activate.\n\nSea Passage. Creates a dry route through a body of water. The route is approximately 20 feet (6 m) wide, up to 1,000 feet (300 m) deep, and as long as the body of water is wide. The path remains open for up to four hours, or the wielder can collapse it as an action.\n\nSnake Form. Staff transforms into a venomous snake whose level is equal to the artifact level. The snake has a bite attack that inflicts 6 points of damage, plus 3 additional points of Speed damage (ignores Armor) for three rounds on a failed Might defense roll. The snake obeys the wielder’s verbal commands, but it can’t do anything a regular snake couldn’t do.\n\nWater From Stone. Produces approximately 10 gallons (38 liters) of pure water within immediate range, as if from a natural spring in the ground.\n\nDepletion: 1 in 1d20",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6+2\n\nForm: Short wooden staff\n\nEffect: The staff has three abilities, each of which requires an action to activate.\n\nSea Passage. Creates a dry route through a body of water. The route is approximately 20 feet (6 m) wide, up to 1,000 feet (300 m) deep, and as long as the body of water is wide. The path remains open for up to four hours, or the wielder can collapse it as an action.\n\nSnake Form. Staff transforms into a venomous snake whose level is equal to the artifact level. The snake has a bite attack that inflicts 6 points of damage, plus 3 additional points of Speed damage (ignores Armor) for three rounds on a failed Might defense roll. The snake obeys the wielder’s verbal commands, but it can’t do anything a regular snake couldn’t do.\n\nWater From Stone. Produces approximately 10 gallons (38 liters) of pure water within immediate range, as if from a natural spring in the ground.\n\nDepletion: 1 in 1d20",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125008_8cf83eee.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125008_8cf83eee.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

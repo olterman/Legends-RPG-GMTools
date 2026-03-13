@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:51.919420+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124851_20260313T124851.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Statue, animate",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Statue, animate",
+      "environment": "In out-of-the-way places, especially ancient ruins",
+      "motive": "Release from imprisonment; guard an area",
+      "interaction": "Statues spend years immobilized and insensate, their minds lost in half-remembered experiences and hallucinations. Rousing a statue has unpredictable results. Some might rampage. Others laugh, cry, or scream streams of nonsense. Regardless, if one has been commanded to guard an area or entrance, it also likely lashes out.",
+      "use": "An animate statue holds a treasure trove of knowledge. If the characters can keep it focused or knocked down long enough, they might coax from it the information they seek.",
+      "gm_intrusion": "The animate statue strikes a character so hard that the victim flies a long distance and lands in a heap, possibly dropping gear and weapons along the way."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 33,
+      "armor": 4,
+      "damage": 9,
+      "movement": "Short",
+      "modifications": [
+        "All tasks involving balance as level 2; Might defense as level 8; Speed defense as level 5 due to size"
+      ],
+      "combat": [
+        "An animate statue towers over most foes, and it can smash or stomp a target within short range as a melee attack. The statue’s massive size and the material of its body means it can walk through nearly any obstacle, smashing through walls of solid rock, buildings, and trees. When walking, it pays no attention to what it steps on. Anything in its path is likely flattened. A character who is stepped on must make a Speed defense roll to dodge or be knocked down and take 9 points of damage. Animate statues are strong and hard to hurt, but they are often top-heavy. If one falls or is knocked over, it takes a few rounds to rise and resume whatever it was doing."
+      ],
+      "interaction": [
+        "Statues spend years immobilized and insensate, their minds lost in half-remembered experiences and hallucinations. Rousing a statue has unpredictable results. Some might rampage. Others laugh, cry, or scream streams of nonsense. Regardless, if one has been commanded to guard an area or entrance, it also likely lashes out."
+      ],
+      "loot": []
+    },
+    "text": "Towering statues carved from stone or cast in metal are sometimes more than humans rendered in moments of triumph, celebration, or suffering. Sometimes a statue moves, usually in service to some ancient geas or command that animated it in the first place.\n\nMost animate statues are vessels imprisoning the mind of a sentient creature. Such entrapment usually tumbles the spirits into the abyss of insanity, though most rest in a dormant state, their minds lost in whatever memories they retain. Disturbing animate statues can cause them to awaken, usually with disastrous results.\n\nMotive: Release from imprisonment; guard an area\n\nEnvironment: In out-of-the-way places, especially ancient ruins\n\nHealth: 33\n\nDamage Inflicted: 9 points\n\nArmor: 4\n\nMovement: Short\n\nModifications: All tasks involving balance as level 2; Might defense as level 8; Speed defense as level 5 due to size\n\nCombat: An animate statue towers over most foes, and it can smash or stomp a target within short range as a melee attack. The statue’s massive size and the material of its body means it can walk through nearly any obstacle, smashing through walls of solid rock, buildings, and trees. When walking, it pays no attention to what it steps on. Anything in its path is likely flattened. A character who is stepped on must make a Speed defense roll to dodge or be knocked down and take 9 points of damage.\n\nAnimate statues are strong and hard to hurt, but they are often top-heavy. If one falls or is knocked over, it takes a few rounds to rise and resume whatever it was doing.\n\nInteraction: Statues spend years immobilized and insensate, their minds lost in half-remembered experiences and hallucinations. Rousing a statue has unpredictable results. Some might rampage. Others laugh, cry, or scream streams of nonsense. Regardless, if one has been commanded to guard an area or entrance, it also likely lashes out.\n\nUse: An animate statue holds a treasure trove of knowledge. If the characters can keep it focused or knocked down long enough, they might coax from it the information they seek.\n\nGM Intrusion: The animate statue strikes a character so hard that the victim flies a long distance and lands in a heap, possibly dropping gear and weapons along the way.\n\nStatue, animate\nLevel 7 (target number 21)\nHealth: 33\nArmor: 4\nDamage: 9",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.nkAvknrgByU2kBSn",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_staute-animate_20260313T124851_dd8763c4.webp",
+      "images": [
+        "uploads/foundryvtt/creature_staute-animate_20260313T124851_dd8763c4.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_staute-animate.webp"
+    },
+    "description": "An animate statue holds a treasure trove of knowledge. If the characters can keep it focused or knocked down long enough, they might coax from it the information they seek."
+  }
+}

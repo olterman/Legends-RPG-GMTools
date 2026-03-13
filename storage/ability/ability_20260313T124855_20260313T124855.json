@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.512827+00:00",
+  "filename": "ability/ability_20260313T124855_20260313T124855.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Vortath Daess",
+    "ability_name": "Trained in all stealth tasks"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Trained in all stealth tasks",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Trained in all stealth tasks'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Vortath Daess",
+      "missing_from_compendium": true,
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ]
+    }
+  }
+}

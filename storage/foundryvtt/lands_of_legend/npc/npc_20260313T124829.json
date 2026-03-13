@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:29.008121+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124829.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Changeling",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Changeling",
+      "motive": "Serving the fey; finding their place in the world",
+      "interaction": "Changelings aren’t inherently untruthful or untrustworthy, but sometimes they can’t help but embellish a fact or take advantage of a situation. They otherwise act like regular people, but spending enough time with them usually reveals an odd quirk or attitude.",
+      "use": "An acquaintance is having trouble at home (because their family realized they’re a changeling). Someone suspects a family member is actually a changeling.",
+      "loot": "Changelings have the same kinds of personal items that humans do, but they often have a token or other treasured thing that doesn’t quite belong (and might secretly be a cypher or artifact)."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 0,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Might defense as level 2; deception, disguise, and stealth as level 4"
+      ],
+      "combat": [
+        "Changelings use human weapons. A changeling can use an action to alter their appearance for a minute or so to match that of someone they’ve seen. This is a reasonable likeness, although they may not know their target’s mannerisms, accent, and other nonphysical qualities. Some changelings are vulnerable to iron, taking an extra 1 point of damage from any iron or steel weapon."
+      ],
+      "interaction": [
+        "Changelings aren’t inherently untruthful or untrustworthy, but sometimes they can’t help but embellish a fact or take advantage of a situation. They otherwise act like regular people, but spending enough time with them usually reveals an odd quirk or attitude."
+      ],
+      "loot": [
+        "Changelings have the same kinds of personal items that humans do, but they often have a token or other treasured thing that doesn’t quite belong (and might secretly be a cypher or artifact)."
+      ]
+    },
+    "text": "Fey creatures sometimes kidnap a human child and leave a changeling in its place, tricking the human parents into raising an inhuman creature as their own offspring. The changeling has a foot in two worlds, living as a spy or sleeper agent for the fey, but thoroughly enjoying their life among humans.\n\nMotive: Serving the fey; finding their place in the world\n\nHealth: 9\n\nDamage Inflicted: 3 points\n\nMovement: Short\n\nModifications: Might defense as level 2; deception, disguise, and stealth as level 4\n\nCombat: Changelings use human weapons.\n\nA changeling can use an action to alter their appearance for a minute or so to match that of someone they’ve seen. This is a reasonable likeness, although they may not know their target’s mannerisms, accent, and other nonphysical qualities.\n\nSome changelings are vulnerable to iron, taking an extra 1 point of damage from any iron or steel weapon.\n\nInteraction: Changelings aren’t inherently untruthful or untrustworthy, but sometimes they can’t help but embellish a fact or take advantage of a situation. They otherwise act like regular people, but spending enough time with them usually reveals an odd quirk or attitude.\n\nUse: An acquaintance is having trouble at home (because their family realized they’re a changeling). Someone suspects a family member is actually a changeling.\n\nLoot: Changelings have the same kinds of personal items that humans do, but they often have a token or other treasured thing that doesn’t quite belong (and might secretly be a cypher or artifact).\n\nChangeling\nLevel 3 (target number 9)\nHealth: 9\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.DVAvF7bXekQzTSCB",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_changeling_20260313T124829_bac8a375.webp",
+      "images": [
+        "uploads/foundryvtt/npc_changeling_20260313T124829_bac8a375.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/modern-fantasy/npc_changeling.webp"
+    },
+    "description": "An acquaintance is having trouble at home (because their family realized they’re a changeling). Someone suspects a family member is actually a changeling."
+  }
+}

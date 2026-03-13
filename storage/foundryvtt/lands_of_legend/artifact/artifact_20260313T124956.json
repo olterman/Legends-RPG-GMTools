@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:56.173145+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124956.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Iron stove",
+    "description": "Level: 1d6 + 3 Form: Iron stove that walks and talks Effect: Once per day, the stove can bake a living gingerbread cookie. The baker chooses the form, but it must be a simple, one-dimensional shape (such as a human, a dog, or a tree). The cookie is a level 3 creature that can move, talk, and complete simple tasks that the baker asks of it. After a day, the cookie crumbles away. Additionally, the iron stove can be used as a regular stove to heat water, cook meals, and so on. Depletion: 1 in 1d10…",
+    "sections": {
+      "name": "Iron stove",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Iron stove that walks and talks\n\nEffect: Once per day, the stove can bake a living gingerbread cookie. The baker chooses the form, but it must be a simple, one-dimensional shape (such as a human, a dog, or a tree). The cookie is a level 3 creature that can move, talk, and complete simple tasks that the baker asks of it. After a day, the cookie crumbles away.\n\nAdditionally, the iron stove can be used as a regular stove to heat water, cook meals, and so on.\n\nDepletion: 1 in 1d100. After depletion, it remains a regular working stove, but no longer walks and talks.\n\nA gingerbread being is not immune to dangers. Large amounts of liquids are likely to make it melt away, while birds and other scavengers have been known to try to take an eye or leg.",
+      "depletion": "1 in [[/r d100]]"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Iron stove that walks and talks\n\nEffect: Once per day, the stove can bake a living gingerbread cookie. The baker chooses the form, but it must be a simple, one-dimensional shape (such as a human, a dog, or a tree). The cookie is a level 3 creature that can move, talk, and complete simple tasks that the baker asks of it. After a day, the cookie crumbles away.\n\nAdditionally, the iron stove can be used as a regular stove to heat water, cook meals, and so on.\n\nDepletion: 1 in 1d100. After depletion, it remains a regular working stove, but no longer walks and talks.\n\nA gingerbread being is not immune to dangers. Large amounts of liquids are likely to make it melt away, while birds and other scavengers have been known to try to take an eye or leg.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124956_2698148d.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124956_2698148d.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

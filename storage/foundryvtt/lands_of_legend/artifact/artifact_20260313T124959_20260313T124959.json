@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:59.867133+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124959_20260313T124959.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Pandora’s box",
+    "description": "Level: 1d6 + 4 Form: Elegant gold box with a hinged lid and a locked clasp Effect: When the box is opened, light leaks out. The light coalesces into a golden form that represents a deep sense of peace and hope to the person who opened the box. For a number of rounds equal to the artifact level, the golden form eases all actions taken by the opener. Alternatively, the opener can share the effect of the golden form as their action, easing all actions taken by allies within short range (but not gi…",
+    "sections": {
+      "name": "Pandora’s box",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: Elegant gold box with a hinged lid and a locked clasp\n\nEffect: When the box is opened, light leaks out. The light coalesces into a golden form that represents a deep sense of peace and hope to the person who opened the box. For a number of rounds equal to the artifact level, the golden form eases all actions taken by the opener.\n\nAlternatively, the opener can share the effect of the golden form as their action, easing all actions taken by allies within short range (but not giving themselves the benefits).\n\nDepletion: 1 in 1d6",
+      "depletion": "1 in [[/r d6]]"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Elegant gold box with a hinged lid and a locked clasp\n\nEffect: When the box is opened, light leaks out. The light coalesces into a golden form that represents a deep sense of peace and hope to the person who opened the box. For a number of rounds equal to the artifact level, the golden form eases all actions taken by the opener.\n\nAlternatively, the opener can share the effect of the golden form as their action, easing all actions taken by allies within short range (but not giving themselves the benefits).\n\nDepletion: 1 in 1d6",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124959_481216df.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124959_481216df.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

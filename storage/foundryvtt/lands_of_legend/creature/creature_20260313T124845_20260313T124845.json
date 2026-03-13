@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:45.930384+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124845_20260313T124845.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Oz, the Great and Terrible",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Oz, the Great and Terrible",
+      "interaction": "Curmudgeonly and a bit of a humbug, but rarely with evil intent, Oz is likely to help those who ask, although he often fumbles things just to make a point.",
+      "use": "The characters set off to meet the powerful ruler of a strange land. Or they encounter someone they believe is just a humble, simple man, but who instead turns out to be incredibly powerful.",
+      "loot": "Oz has at least one artifact, as well as 1d6 cyphers."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 15,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Using and controlling magic as level 7"
+      ],
+      "combat": [
+        "Oz does not fight, but instead sends his army of green-whiskered soldiers forth. He may also use an artifact or spell to protect himself, hide himself, or flee. He can use the following abilities: Enchant: Imbues a normal object with a magical power. The object works under the Oz’s command, and does as he asks of it. For example, he might imbue a foe’s weapon and force it to attack the foe, or he might imbue a door and have it close tight against incoming dangers. Invisible: Turns anything (including himself, others, and entire areas up to 30 feet by 30 feet [9 m by 9 m]) invisible for ten minutes. It’s a level 6 Intellect task to be able to see something that has been made invisible. Persuasion: Convinces all victims in long range that what they believe is not real or that what is false is real. Sometimes this ability just affects others’ minds, creating a mental dissonance. Other times, Oz creates an illusion or other visible, auditory, and tactile element that persuades a character to believe everything they are experiencing. The effect lasts for ten minutes. Green-whiskered soldiers: level 4; Armor 2; unloaded rifles deal 4 points of damage"
+      ],
+      "interaction": [
+        "Curmudgeonly and a bit of a humbug, but rarely with evil intent, Oz is likely to help those who ask, although he often fumbles things just to make a point."
+      ],
+      "loot": [
+        "Oz has at least one artifact, as well as 1d6 cyphers."
+      ]
+    },
+    "text": "It is perhaps the greatest feat the Wizard of Oz ever pulled off to make everyone believe that he was not a sorcerer at all, but merely a ventriloquist and balloonist from some faraway land. He is, in fact, far more powerful than that, but prefers that no one were ever to know. For if they did, they would expect things of him, and that makes him anxious.\n\nHealth: 15\n\nDamage Inflicted: 5 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: Using and controlling magic as level 7\n\nCombat: Oz does not fight, but instead sends his army of green-whiskered soldiers forth. He may also use an artifact or spell to protect himself, hide himself, or flee. He can use the following abilities:\n\nEnchant: Imbues a normal object with a magical power. The object works under the Oz’s command, and does as he asks of it. For example, he might imbue a foe’s weapon and force it to attack the foe, or he might imbue a door and have it close tight against incoming dangers.\n\nInvisible: Turns anything (including himself, others, and entire areas up to 30 feet by 30 feet [9 m by 9 m]) invisible for ten minutes. It’s a level 6 Intellect task to be able to see something that has been made invisible.\n\nPersuasion: Convinces all victims in long range that what they believe is not real or that what is false is real. Sometimes this ability just affects others’ minds, creating a mental dissonance. Other times, Oz creates an illusion or other visible, auditory, and tactile element that persuades a character to believe everything they are experiencing. The effect lasts for ten minutes.\n\nGreen-whiskered soldiers: level 4; Armor 2; unloaded rifles deal 4 points of damage\n\nInteraction: Curmudgeonly and a bit of a humbug, but rarely with evil intent, Oz is likely to help those who ask, although he often fumbles things just to make a point.\n\nUse: The characters set off to meet the powerful ruler of a strange land. Or they encounter someone they believe is just a humble, simple man, but who instead turns out to be incredibly powerful.\n\nLoot: Oz has at least one artifact, as well as 1d6 cyphers.\n\nOz, the Great and Terrible\nLevel 5 (target number 15)\nHealth: 15\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.676nwovDl2OdoNgK",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.3CD1yc1Ff2EXEMVG",
+          "label": "Green-whiskered soldiers"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/creature_oz_20260313T124845_63dbbacd.webp",
+      "images": [
+        "uploads/foundryvtt/creature_oz_20260313T124845_63dbbacd.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales_public-domain/creature_oz.webp"
+    },
+    "description": "The characters set off to meet the powerful ruler of a strange land. Or they encounter someone they believe is just a humble, simple man, but who instead turns out to be incredibly powerful."
+  }
+}

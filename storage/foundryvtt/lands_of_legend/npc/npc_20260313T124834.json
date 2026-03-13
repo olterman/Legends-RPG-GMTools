@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:34.202505+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124834.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Faerie",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Faerie"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 0,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 4, deception and Speed defense as level 5; short-range magic dust attack inflicts damage or makes target amenable to faerie suggestions for one minute\n\nMost fey creatures of level 2 or higher regain 1 point of health per round, unless wounded by silvered or cold iron weapons.\n\nFaerie\nLevel 4 (target number 12)\nHealth: 12\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.PS7RVxRlUxllwCky",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/fey_faerie_20260313T124834_d4438be1.webp",
+      "images": [
+        "uploads/foundryvtt/fey_faerie_20260313T124834_d4438be1.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/fey_faerie.webp"
+    },
+    "description": "Level 4, deception and Speed defense as level 5; short-range magic dust attack inflicts damage or makes target amenable to faerie suggestions for one minute Most fey creatures of level 2 or higher regain 1 point of health per round, unless wounded by silvered or cold iron weapons. Faerie Level 4 (target number 12) Health: 12 Armor: 0 Damage: 5"
+  }
+}

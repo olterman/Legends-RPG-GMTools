@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.789466+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124842_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Marauder (raider)",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Marauder (raider)",
+      "environment": "Groups of four to six roaming the ruins",
+      "motive": "Raid and kill for what they want",
+      "interaction": "If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack.",
+      "use": "The raider encampment has a new leader, a warlord whose presence doubles raider activity.",
+      "loot": "A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 1,
+      "damage": 4,
+      "movement": "Short; short when climbing",
+      "modifications": [
+        "Stealth and deception tasks as level 5"
+      ],
+      "combat": [
+        "Marauders use stealth and the night to position themselves before attacking, hoping to make their initial attack with surprise using bladed weapons. Whether they have surprise or not, if they attack before their target’s first action, their attacks are eased and inflict 6 points of damage. Marauders often dose their bladed weapons with poison, so targets must also make a Might defense roll or take 2 points of Speed damage (ignores Armor) each round for three rounds."
+      ],
+      "interaction": [
+        "If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack."
+      ],
+      "loot": [
+        "A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel."
+      ]
+    },
+    "text": "Stripped of humanity by brutal living conditions and their determination to survive no matter the cost, raiders still look human. But beneath that veneer, they’re feral.\n\nMarauders are raiders who attack with stealth, wrapping themselves in light smothering clothes and targeting survivors after midnight. By day, they act like regular people, part of a survivor community. That’s pretense; when time allows, they torture targets to death and take flesh trophies.\n\nMotive: Raid and kill for what they want\n\nEnvironment: Groups of four to six roaming the ruins\n\nHealth: 12 \n\nDamage Inflicted: 4 points; see Combat \n\nMovement: Short; short when climbing \n\nModifications: Stealth and deception tasks as level 5 \n\nCombat: Marauders use stealth and the night to position themselves before attacking, hoping to make their initial attack with surprise using bladed weapons. Whether they have surprise or not, if they attack before their target’s first action, their attacks are eased and inflict 6 points of damage. \n\nMarauders often dose their bladed weapons with poison, so targets must also make a Might defense roll or take 2 points of Speed damage (ignores Armor) each round for three rounds.\n\nInteraction: If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack.\n\nUse: The raider encampment has a new leader, a warlord whose presence doubles raider activity.\n\nLoot: A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel.\n\nMarauder (raider)\nLevel 3 (target number 9)\nHealth: 12\nArmor: 1\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.okJ6rT9DTQs3yvmW",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_marauder_20260313T124842_95a55180.webp",
+      "images": [
+        "uploads/foundryvtt/creature_marauder_20260313T124842_95a55180.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/post-apocalyptic/creature_marauder.webp"
+    },
+    "description": "The raider encampment has a new leader, a warlord whose presence doubles raider activity."
+  }
+}

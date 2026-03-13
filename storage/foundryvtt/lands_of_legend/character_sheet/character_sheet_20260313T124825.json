@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:25.598467+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124825.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Ans Dross",
+    "sheet": {
+      "name": "Ans Dross",
+      "sentence": "Ans Dross is Fast who Looks For Trouble.",
+      "type": "Barbarian With Combat Flavor",
+      "flavor": "",
+      "descriptor": "Fast",
+      "focus": "Looks For Trouble",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 13,
+          "speed": 13,
+          "intellect": 10
+        },
+        "current": {
+          "might": 13,
+          "speed": 13,
+          "intellect": 10
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Fast",
+          "Trained in running",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "A sprinter, not a long-distance runner",
+          "Heavy weapons"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Danger Sense",
+        "Find The Way",
+        "Fists Of Fury",
+        "Practiced With All Weapons",
+        "Surging Confidence",
+        "Wound Tender"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Fast",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in running",
+          "level": "trained"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "A sprinter, not a long-distance runner",
+          "level": "inability"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Ray Emitter (Mind Disrupting)",
+          "level": "5",
+          "description": "Allows the user to project a ray of destructive energy up to very long range that inflicts Intellect damage equal to the cypher's level. Also, the victim cannot take actions for a number of rounds equal to the cypher's level."
+        },
+        {
+          "name": "Uninterruptible Power Source",
+          "level": "5",
+          "description": "Provides power to another device for up to a day. The device to be powered can be as simple as a light source or as complex as a small starcraft, assuming the cypher's level is equal to the item's power requirements. A desk lamp is a level 1 power requirement, a car engine is a level 5 power requirement, and a starship is a level 10 power requirement."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and a weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nFortuitous Malfunction\nA trap or a dangerous device malfunctions before it can affect you.\n\nSerendipitous Landmark\nJust when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point.\n\nWeak Strain\nThe poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflicts only half the damage that it would have otherwise.\n\nEnergetic\n+2 to your Speed Pool.\nGranted from Fast\n\nPossible GM intrusion from your focus:\nWeapons break or fly from even the strongest grip. Brawlers trip and fall. Even the battlefield can work against you with things falling or collapsing.\n\nBackground:\nA Barbarian is also known as a Explorer\n\nBarbarian\nYou are a person of action and physical ability, fearlessly facing the unknown. You travel to strange, exotic, and dangerous places, and discover new things. This means you're physical but also probably knowledgeable. Although Explorers can be academics or well studied, they are first and foremost interested in action. They face grave dangers and terrible obstacles as a routine part of life.\n\nFast\nYou're fleet of foot. Because you're quick, you can accomplish tasks more rapidly than others can. You're not just quick on your feet, however-you're quick with your hands, and you think and react quickly. You even talk quickly.\n\nLooks For Trouble\nYou're a scrapper and love a good fight.\n\nChoose how you became involved in the adventure:\n- You jumped in to save one of the other PCs who was in dire need.\n- One of the other PCs recruited you for your unique talents.\n- You're impulsive, and it seemed like a good idea at the time.\n- This mission ties in with a personal goal of your own.\n\nBackground Connection:\nYou own a small bar or restaurant.\n\nFocus Connection:\nPick two PCs (preferably ones who are likely to get in the way of your attacks). When you miss with an attack and the GM rules that you struck someone other than your target, you hit one of these two characters.\n\nFast: You can move a short distance and still take another action in the same round, or you can move a long distance as your action without needing to make any kind of roll.\nGranted from Fast\nTrained in running: Granted from Fast\nLight weapons: Light Weapons\nGranted from Explorer\nMedium weapons: Medium Weapons\nGranted from Explorer\nA sprinter, not a long-distance runner: You don't have a lot of stamina. Might defense rolls are hindered.\nGranted from Fast\nHeavy weapons: Heavy Weapons\nGranted from Explorer\nDanger Sense: Your initiative task is eased. You pay the cost each time the ability is used. Enabler.\nGranted from Barbarian\nFind The Way: When you apply Effort to a navigation task because you don't know the way, are lost, are attempting to blaze a new route, need to choose between two or more otherwise similar paths to take, or something very similar, you can apply a free level of Effort. Enabler.\nGranted from Barbarian\nFists Of Fury: You inflict 2 additional points of damage with unarmed attacks. Enabler.\nGranted from Looks For Trouble\nPracticed With All Weapons: You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler.\nGranted from Barbarian\nSurging Confidence: When you use an action to make your first recovery roll of the day, you immediately gain another action. Enabler.\nGranted from Barbarian\nWound Tender: You are trained in healing. Enabler.\nGranted from Looks For Trouble\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Ans Dross",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Barbarian With Combat Flavor",
+        "flavor": "",
+        "descriptor": "Fast",
+        "focus": "Looks For Trouble",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124825_f937945e.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124825_f937945e.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Barbarian With Combat Flavor",
+      "flavor": "",
+      "descriptor": "Fast",
+      "focus": "Looks For Trouble",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124825_f937945e.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124825_f937945e.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Fortuitous Malfunction A trap or a dangerous device malfunctions before it can affect you. Serendipitous Landmark Just when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point. Weak Strain The poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflic…"
+  }
+}

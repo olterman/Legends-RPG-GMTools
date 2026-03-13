@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:13.486690+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125013_20260313T125013.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Zero point field",
+    "description": "Level: 1d6 + 3 Effect: Renders an inanimate object outside the effects of most energy for one minute. This means the object cannot be harmed, moved, or manipulated in any way. It remains in place (even in midair).",
+    "sections": {
+      "name": "Zero point field",
+      "level": "1d6 + 3",
+      "effect": "Level: 1d6 + 3\n\nEffect: Renders an inanimate object outside the effects of most energy for one minute. This means the object cannot be harmed, moved, or manipulated in any way. It remains in place (even in midair)."
+    },
+    "text": "Level: 1d6 + 3\n\nEffect: Renders an inanimate object outside the effects of most energy for one minute. This means the object cannot be harmed, moved, or manipulated in any way. It remains in place (even in midair).",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125013_ec25b98e.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125013_ec25b98e.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

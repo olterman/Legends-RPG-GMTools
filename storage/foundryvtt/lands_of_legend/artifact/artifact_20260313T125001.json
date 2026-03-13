@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:01.282253+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125001.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Poisoner’s touch",
+    "description": "Level: 1d6 + 1 Form: Very thin transparent glove with faint markings Effect: When the wearer activates the glove (which might require speaking a command word or tracing a specific pattern on its surface), it secretes a small amount of poison. The next creature the wearer touches with the glove takes Speed damage equal to the artifact level (ignores Armor) and must make a new Might defense roll each round or suffer the damage again until either they succeed at the defense roll or five rounds pas…",
+    "sections": {
+      "name": "Poisoner’s touch",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Very thin transparent glove with faint markings\n\nEffect: When the wearer activates the glove (which might require speaking a command word or tracing a specific pattern on its surface), it secretes a small amount of poison. The next creature the wearer touches with the glove takes Speed damage equal to the artifact level (ignores Armor) and must make a new Might defense roll each round or suffer the damage again until either they succeed at the defense roll or five rounds pass, whichever comes first.\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r 1d10 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Very thin transparent glove with faint markings\n\nEffect: When the wearer activates the glove (which might require speaking a command word or tracing a specific pattern on its surface), it secretes a small amount of poison. The next creature the wearer touches with the glove takes Speed damage equal to the artifact level (ignores Armor) and must make a new Might defense roll each round or suffer the damage again until either they succeed at the defense roll or five rounds pass, whichever comes first.\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125001_fe606ae4.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125001_fe606ae4.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:43.048702+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124843.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Mechanical soldier",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Mechanical soldier",
+      "environment": "Anywhere, usually in groups of three to eight",
+      "motive": "Incomprehensible",
+      "interaction": "On their own, mechanical soldiers act on prior orders. Otherwise, they listen to and obey their creator—and only their creator.",
+      "use": "An enterprising bandit has captured and repurposed a number of mechanical soldiers, probably using sound. These soldiers remember nothing of their former duties and work for their new master as high-tech brigands and pirates. The bandit has no idea how to repair them if they are damaged, much less make new soldiers.",
+      "loot": "A determined scientist might scavenge the body of one of these automatons to find a cypher.",
+      "gm_intrusion": "The destroyed soldier explodes in a gout of flame, black smoke, and steam, inflicting 6 points of damage to all within immediate range."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 3,
+      "damage": 4,
+      "movement": "Short",
+      "modifications": [
+        "Perception as level 5; leaps, runs, and balances as level 3"
+      ],
+      "combat": [
+        "Mechanical soldiers attack in groups using well-organized tactics. Although they can speak, they transmit information to one another silently and instantly within a 100-mile (160 km) range via wireless radio transmissions. Soldiers armed with advanced weaponry typically carry rifle-like guns that can fire multiple rapid shots without reloading. The soldiers fire at up to three targets (all next to one another) at once. For each target after the first, defense rolls are eased. In addition, one in four soldiers carries a back-mounted device that hurls bombs at long range with deadly accuracy. They explode in immediate range for 4 points of damage. Each device holds [[/r 1d6]] such bombs. A mechanical soldier that has lost its original weaponry scavenges whatever is available. Certain frequencies of sound confuse these clockwork soldiers, hindering all their actions by two steps, and other frequencies prevent them from acting at all for [[/r 1d6 + 1]] rounds."
+      ],
+      "interaction": [
+        "On their own, mechanical soldiers act on prior orders. Otherwise, they listen to and obey their creator—and only their creator."
+      ],
+      "loot": [
+        "A determined scientist might scavenge the body of one of these automatons to find a cypher."
+      ]
+    },
+    "text": "Clockwork automatons powered by steam, these mechanical men patrol about and guard locations of importance to their makers. Lanky and awkward in their movements, these quasi-humanoid automatons stand almost 8 feet (2 m) tall. In their three-fingered hands, they wield a variety of weapons.\n\nA few people have wondered if a gear-driven soldier could ever truly attain sentience. Most scoff at the suggestion, but is that a gleam in the glass lens of its eye?\n\nMotive: Incomprehensible\n\nEnvironment: Anywhere, usually in groups of three to eight\n\nHealth: 15\n\nDamage Inflicted: 4 points\n\nArmor: 3\n\nMovement: Short\n\nModifications: Perception as level 5; leaps, runs, and balances as level 3\n\nCombat: Mechanical soldiers attack in groups using well-organized tactics. Although they can speak, they transmit information to one another silently and instantly within a 100-mile (160 km) range via wireless radio transmissions.\n\nSoldiers armed with advanced weaponry typically carry rifle-like guns that can fire multiple rapid shots without reloading. The soldiers fire at up to three targets (all next to one another) at once. For each target after the first, defense rolls are eased.\n\nIn addition, one in four soldiers carries a back-mounted device that hurls bombs at long range with deadly accuracy. They explode in immediate range for 4 points of damage. Each device holds [[/r 1d6]] such bombs.\n\nA mechanical soldier that has lost its original weaponry scavenges whatever is available.\n\nCertain frequencies of sound confuse these clockwork soldiers, hindering all their actions by two steps, and other frequencies prevent them from acting at all for [[/r 1d6 + 1]] rounds.\n\nInteraction: On their own, mechanical soldiers act on prior orders. Otherwise, they listen to and obey their creator—and only their creator.\n\nUse: An enterprising bandit has captured and repurposed a number of mechanical soldiers, probably using sound. These soldiers remember nothing of their former duties and work for their new master as high-tech brigands and pirates. The bandit has no idea how to repair them if they are damaged, much less make new soldiers.\n\nLoot: A determined scientist might scavenge the body of one of these automatons to find a cypher.\n\nGM Intrusion: The destroyed soldier explodes in a gout of flame, black smoke, and steam, inflicting 6 points of damage to all within immediate range.\n\nMechanical soldier\nLevel 4 (target number 12)\nHealth: 15\nArmor: 3\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.EX0RBWZzdGetaDK9",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_mechanical-soldier_20260313T124843_30eb7bc1.webp",
+      "images": [
+        "uploads/foundryvtt/creature_mechanical-soldier_20260313T124843_30eb7bc1.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_mechanical-soldier.webp"
+    },
+    "description": "An enterprising bandit has captured and repurposed a number of mechanical soldiers, probably using sound. These soldiers remember nothing of their former duties and work for their new master as high-tech brigands and pirates. The bandit has no idea how to repair them if they are damaged, much less make new soldiers."
+  }
+}

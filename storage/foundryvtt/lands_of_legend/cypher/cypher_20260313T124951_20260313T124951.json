@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:51.941867+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124951_20260313T124951.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Force shield projector",
+    "description": "Level: 1d6 + 3 Effect: Creates a shimmering energy shield around the user for one hour, during which time they gain +3 to Armor (or +4 to Armor if the cypher is level 5 or higher). Some force walls, shields, and cubes are transparent. Others are translucent. A few are opaque.",
+    "sections": {
+      "name": "Force shield projector",
+      "level": "1d6 + 3",
+      "effect": "Level: 1d6 + 3\n\nEffect: Creates a shimmering energy shield around the user for one hour, during which time they gain +3 to Armor (or +4 to Armor if the cypher is level 5 or higher).\n\nSome force walls, shields, and cubes are transparent. Others are translucent. A few are opaque."
+    },
+    "text": "Level: 1d6 + 3\n\nEffect: Creates a shimmering energy shield around the user for one hour, during which time they gain +3 to Armor (or +4 to Armor if the cypher is level 5 or higher).\n\nSome force walls, shields, and cubes are transparent. Others are translucent. A few are opaque.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124951_44790376.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124951_44790376.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

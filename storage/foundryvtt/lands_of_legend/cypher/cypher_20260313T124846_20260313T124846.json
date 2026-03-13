@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.090144+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124846_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Thieving Strike",
+    "level": "3",
+    "sections": {
+      "name": "Thieving Strike",
+      "level": "3",
+      "effect": "<p>You reach out and strike a foe with an unarmed attack using a free hand. If this attack is successful, you can inflicts damage equal to the cypher level instead of your normal unarmed attack's damage. In addition, if the attack is successful, you can steal one item of your choice that is worn, held, or carried by the target.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Ozella Muller",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124846.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124846_88d4efd9.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124846_88d4efd9.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

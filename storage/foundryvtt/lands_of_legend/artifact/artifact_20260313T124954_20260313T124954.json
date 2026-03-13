@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:54.962407+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124954_20260313T124954.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Horn of thunder",
+    "description": "Level: 1d6 + 4 Form: Large signal horn banded with metal and carved with runes Effect: This massive instrument can barely be held or carried by a single person. When activated, it emits a 50-foot (15 m) wide cone of pure sonic force out to long range. Any creature in that area is knocked prone and stunned for one round, losing its action. Unfixed items the size of a human or smaller are toppled and/or moved at least 5 feet (1.5 m). Larger objects might also be toppled. Depletion: 1 in 1d10",
+    "sections": {
+      "name": "Horn of thunder",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: Large signal horn banded with metal and carved with runes\n\nEffect: This massive instrument can barely be held or carried by a single person. When activated, it emits a 50-foot (15 m) wide cone of pure sonic force out to long range. Any creature in that area is knocked prone and stunned for one round, losing its action. Unfixed items the size of a human or smaller are toppled and/or moved at least 5 feet (1.5 m). Larger objects might also be toppled.\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r 1d10 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Large signal horn banded with metal and carved with runes\n\nEffect: This massive instrument can barely be held or carried by a single person. When activated, it emits a 50-foot (15 m) wide cone of pure sonic force out to long range. Any creature in that area is knocked prone and stunned for one round, losing its action. Unfixed items the size of a human or smaller are toppled and/or moved at least 5 feet (1.5 m). Larger objects might also be toppled.\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124954_346b8b3f.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124954_346b8b3f.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:57.072537+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124857.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Witchfox",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Witchfox",
+      "environment": "Anywhere humans can live, or houses or dens in the forest",
+      "motive": "Preying on or living in human society; knowledge and power",
+      "use": "A witchfox is potentially a threat, thief, criminal, rival, informant, or romantic partner, depending on their personal attitude and the reaction of the player characters. They like to trade secrets they know in exchange for safety and companionship.",
+      "loot": "A witchfox usually has one or two cyphers and some magical ingredients. Most of their other wealth is actually leaves, twigs, stones, and scrap paper, all covered with illusions."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 0,
+      "damage": 4,
+      "movement": "Short",
+      "modifications": [
+        "Disguise and social interaction as level 6"
+      ],
+      "combat": [
+        "A witchfox in fox form can attack with their bite, and in human form they use human weapons, but in general they prefer magic. Most witchfoxes can use the following abilities. Bewilder: The witchfox enchants a foe within short range who fails an Intellect defense roll. The foe turns on their allies, wanders off, or waits quietly, as directed by the witchfox. This lasts for one minute, or ends early if the character succeeds on an Intellect defense roll as part of their turn.Feed: The witchfox draws on the life force of an adjacent dead or nearly dead person (GM’s discretion), or eats the heart of a dead person, restoring 4 points of health and easing all tasks for the next day.Human Guise: The witchfox changes shape into a human form (any gender, any age). They usually have a “tell” indicating their nonhuman nature, such as a fox’s tail, a fox-like face, fur on their body, or a fox’s shadow. The witchfox can revert to their fox form as part of another action.Illusion: The witchfox creates a nonmoving illusion in a short area, such as making a hovel look like a home or an empty glade seem eerie and oppressive. The illusion lasts as long as the witchfox remains within a long distance.Magical Blast: The witchfox attacks a creature within short range with electricity, fire, or poison, inflicting 4 points of Might or Speed damage (ignores Armor).Interaction: A witchfox in human form tries to keep up the pretense of being human for as long as possible. Once their true nature is revealed, they’re likely to bargain for what they want (a home, safety, their magical cravings) or attack or flee if negotiations turn against them."
+      ],
+      "interaction": [],
+      "loot": [
+        "A witchfox usually has one or two cyphers and some magical ingredients. Most of their other wealth is actually leaves, twigs, stones, and scrap paper, all covered with illusions."
+      ]
+    },
+    "text": "A witchfox is a supernatural creature whose natural form is that of a fox, but they can transform into a human form and walk among regular people. Like humans, some are evil, some are good, and most are in the middle, but many of the stories and legends are about the bad ones. A witchfox’s fur is usually red, black, or silver, but some are pure white. Witchfoxes often have multiple tails (up to nine); most human legends say the creature gains more tails as it gets older, wiser, and more powerful.\n\nWitchfoxes don’t have human morals, but ones friendly to humans try their best to adapt, with mixed results. For example, a witchfox thinks it’s fine to steal something from a person they dislike and give that item as a gift to someone they like. Most witchfoxes are afraid of dogs and avoid spending time near them or near people who have them.\n\nWitchfoxes are also known as vulps or fox sorcerers.\n\nMotive: Preying on or living in human society; knowledge and power\n\nEnvironment: Anywhere humans can live, or houses or dens in the forest\n\nHealth: 15\n\nDamage Inflicted: 4 points\n\nMovement: Short\n\nModifications: Disguise and social interaction as level 6\n\nCombat: A witchfox in fox form can attack with their bite, and in human form they use human weapons, but in general they prefer magic. Most witchfoxes can use the following abilities.\n\nBewilder: The witchfox enchants a foe within short range who fails an Intellect defense roll. The foe turns on their allies, wanders off, or waits quietly, as directed by the witchfox. This lasts for one minute, or ends early if the character succeeds on an Intellect defense roll as part of their turn.Feed: The witchfox draws on the life force of an adjacent dead or nearly dead person (GM’s discretion), or eats the heart of a dead person, restoring 4 points of health and easing all tasks for the next day.Human Guise: The witchfox changes shape into a human form (any gender, any age). They usually have a “tell” indicating their nonhuman nature, such as a fox’s tail, a fox-like face, fur on their body, or a fox’s shadow. The witchfox can revert to their fox form as part of another action.Illusion: The witchfox creates a nonmoving illusion in a short area, such as making a hovel look like a home or an empty glade seem eerie and oppressive. The illusion lasts as long as the witchfox remains within a long distance.Magical Blast: The witchfox attacks a creature within short range with electricity, fire, or poison, inflicting 4 points of Might or Speed damage (ignores Armor).Interaction: A witchfox in human form tries to keep up the pretense of being human for as long as possible. Once their true nature is revealed, they’re likely to bargain for what they want (a home, safety, their magical cravings) or attack or flee if negotiations turn against them.\n\nUse: A witchfox is potentially a threat, thief, criminal, rival, informant, or romantic partner, depending on their personal attitude and the reaction of the player characters. They like to trade secrets they know in exchange for safety and companionship.\n\nLoot: A witchfox usually has one or two cyphers and some magical ingredients. Most of their other wealth is actually leaves, twigs, stones, and scrap paper, all covered with illusions.\n\nWitchfox\nLevel 4 (target number 12)\nHealth: 15\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.Vxvqr02HyDYGBsWO",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_witchfox_20260313T124857_d09c3078.webp",
+      "images": [
+        "uploads/foundryvtt/creature_witchfox_20260313T124857_d09c3078.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/modern-fantasy/creature_witchfox.webp"
+    },
+    "description": "A witchfox is potentially a threat, thief, criminal, rival, informant, or romantic partner, depending on their personal attitude and the reaction of the player characters. They like to trade secrets they know in exchange for safety and companionship."
+  }
+}

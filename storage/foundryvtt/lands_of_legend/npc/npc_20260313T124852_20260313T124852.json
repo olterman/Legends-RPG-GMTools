@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:52.964706+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124852_20260313T124852.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Tarantula",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Tarantula"
+    },
+    "stat_block": {
+      "level": 1,
+      "target_number": 3,
+      "health": 3,
+      "armor": 0,
+      "damage": 1,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 1\n\nTarantula\nLevel 1 (target number 3)\nHealth: 3\nArmor: 0\nDamage: 1",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.T39Cl27TWeR8jVsZ",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/vermin_spider_20260313T124852_7c5d07ab.webp",
+      "images": [
+        "uploads/foundryvtt/vermin_spider_20260313T124852_7c5d07ab.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/vermin_spider.webp"
+    },
+    "description": "Level 1 Tarantula Level 1 (target number 3) Health: 3 Armor: 0 Damage: 1"
+  }
+}

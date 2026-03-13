@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:42.698181+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124942_20260313T124942.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Black book",
+    "description": "Level: 6 Form: Black book Effect: Allows the user to cast animate, blood to stone, enchant, or endless passage. Casting a spell from the black book costs 2 Intellect points and is an action. Animate: Takes any material (such as wood or stone) and turns it into an animate level 4 creature. The creature has a mind and will of its own, and acts just as that type of creature would act if it were born instead of created. Blood to Stone: Turns living creatures into stone, or immobilizes them in their…",
+    "sections": {
+      "name": "Black book",
+      "level": "6",
+      "effect": "Level: 6\n\nForm: Black book\n\nEffect: Allows the user to cast animate, blood to stone, enchant, or endless passage. Casting a spell from the black book costs 2 Intellect points and is an action.\n\nAnimate: Takes any material (such as wood or stone) and turns it into an animate level 4 creature. The creature has a mind and will of its own, and acts just as that type of creature would act if it were born instead of created.\n\nBlood to Stone: Turns living creatures into stone, or immobilizes them in their current form. Breaking free is a level 6 Might task.\n\nEnchant: Imbues a normal object with a magical power. The object works under the enchanter’s command, and does as the enchanter asks of it. For example, an enchanter might imbue a foe’s weapon and force it to attack the foe, or they might imbue a door and have it close tight against incoming dangers.\n\nEndless Passage: Creates an endless series of thick spiderwebs, invisible barriers, rings of flame, or other hurdles across an entrance, exit, tunnel, or passage. Every time one of the hurdles is broken, another forms. Characters’ movement is halved while going through the endless passage, and they take 2 points of Intellect damage each round.\n\nDepletion: 1 in 1d6",
+      "depletion": "1 in [[/r d6]]"
+    },
+    "text": "Level: 6\n\nForm: Black book\n\nEffect: Allows the user to cast animate, blood to stone, enchant, or endless passage. Casting a spell from the black book costs 2 Intellect points and is an action.\n\nAnimate: Takes any material (such as wood or stone) and turns it into an animate level 4 creature. The creature has a mind and will of its own, and acts just as that type of creature would act if it were born instead of created.\n\nBlood to Stone: Turns living creatures into stone, or immobilizes them in their current form. Breaking free is a level 6 Might task.\n\nEnchant: Imbues a normal object with a magical power. The object works under the enchanter’s command, and does as the enchanter asks of it. For example, an enchanter might imbue a foe’s weapon and force it to attack the foe, or they might imbue a door and have it close tight against incoming dangers.\n\nEndless Passage: Creates an endless series of thick spiderwebs, invisible barriers, rings of flame, or other hurdles across an entrance, exit, tunnel, or passage. Every time one of the hurdles is broken, another forms. Characters’ movement is halved while going through the endless passage, and they take 2 points of Intellect damage each round.\n\nDepletion: 1 in 1d6",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124942_c0b88407.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124942_c0b88407.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

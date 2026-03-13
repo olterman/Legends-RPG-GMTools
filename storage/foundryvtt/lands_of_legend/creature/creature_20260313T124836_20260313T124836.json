@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:36.881884+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124836_20260313T124836.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Giant rat",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Giant rat",
+      "environment": "Anywhere in ruins or sewers, in groups of one to seven",
+      "motive": "Defense, reproduction",
+      "interaction": "Giant rats stubbornly pursue prey, but they flee if that prey proves to be too strong.",
+      "use": "A contact of the PCs dies of plague before they can deliver an important message. The PCs will have to backtrack the contact’s movements to discover what they wanted to say, which leads to a giant rat colony.",
+      "gm_intrusion": "A swarm of twelve ordinary rats—each level 1, but acting like a level 3 swarm—is summoned by the high-pitched squeaking of a giant rat."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 18,
+      "armor": 0,
+      "damage": 4,
+      "movement": "Short; long when jumping",
+      "modifications": [
+        "Perception as level 4; tasks related to overcoming obstacles and puzzles as level 5"
+      ],
+      "combat": [
+        "Victims damaged by a giant rat’s diseased teeth and claws take 4 points of damage and, on a failed Might defense roll, are infected with a level 5 disease. Within twelve hours, the victim’s lymph glands swell, creating visible buboes. Every twelve hours thereafter, the victim must succeed on a Might defense roll or take 5 points of ambient damage."
+      ],
+      "interaction": [
+        "Giant rats stubbornly pursue prey, but they flee if that prey proves to be too strong."
+      ],
+      "loot": []
+    },
+    "text": "Giant rats are as large as big attack dogs, just as vicious, and more wily. Some giant rats are the lone matriarchs of a pack of ordinary level 1 rats, and others are just one of several making up a colony of oversized rodents. Like their smaller cousins, giant rats are known for harboring virulent disease.\n\nMotive: Defense, reproduction\n\nEnvironment: Anywhere in ruins or sewers, in groups of one to seven\n\nHealth: 18\n\nDamage Inflicted: 4 points\n\nMovement: Short; long when jumping\n\nModifications: Perception as level 4; tasks related to overcoming obstacles and puzzles as level 5\n\nCombat: Victims damaged by a giant rat’s diseased teeth and claws take 4 points of damage and, on a failed Might defense roll, are infected with a level 5 disease. Within twelve hours, the victim’s lymph glands swell, creating visible buboes. Every twelve hours thereafter, the victim must succeed on a Might defense roll or take 5 points of ambient damage.\n\nInteraction: Giant rats stubbornly pursue prey, but they flee if that prey proves to be too strong.\n\nUse: A contact of the PCs dies of plague before they can deliver an important message. The PCs will have to backtrack the contact’s movements to discover what they wanted to say, which leads to a giant rat colony.\n\nGM Intrusion: A swarm of twelve ordinary rats—each level 1, but acting like a level 3 swarm—is summoned by the high-pitched squeaking of a giant rat.\n\nGiant rat\nLevel 3 (target number 9)\nHealth: 18\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.U508Iiym5DOrLbCP",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_giant-rat_20260313T124836_09783248.webp",
+      "images": [
+        "uploads/foundryvtt/creature_giant-rat_20260313T124836_09783248.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_giant-rat.webp"
+    },
+    "description": "A contact of the PCs dies of plague before they can deliver an important message. The PCs will have to backtrack the contact’s movements to discover what they wanted to say, which leads to a giant rat colony."
+  }
+}

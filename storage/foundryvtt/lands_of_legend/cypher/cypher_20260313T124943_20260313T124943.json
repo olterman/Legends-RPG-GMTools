@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:43.935668+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124943_20260313T124943.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Cat sidhe medallion",
+    "description": "Level: 1d6 + 2 Form: Medallion in the shape of the white symbol on a cat sidhe’s chest Effect: When activated, the medallion protects the wearer from the next curse (of the cypher level or lower) that is cast upon them. The curse goes into the medallion, which shatters into thousands of tiny pieces.",
+    "sections": {
+      "name": "Cat sidhe medallion",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Medallion in the shape of the white symbol on a cat sidhe’s chest\n\nEffect: When activated, the medallion protects the wearer from the next curse (of the cypher level or lower) that is cast upon them. The curse goes into the medallion, which shatters into thousands of tiny pieces."
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Medallion in the shape of the white symbol on a cat sidhe’s chest\n\nEffect: When activated, the medallion protects the wearer from the next curse (of the cypher level or lower) that is cast upon them. The curse goes into the medallion, which shatters into thousands of tiny pieces.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124943_35275690.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124943_35275690.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

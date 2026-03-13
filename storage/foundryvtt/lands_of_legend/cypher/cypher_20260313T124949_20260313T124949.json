@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:49.834766+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124949_20260313T124949.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Emperor’s new clothes",
+    "description": "Level: 1d6 Form: Magical thread sewn onto armor Effect: For the next day, the armor the thread is attached to is invisible, making the wearer appear to be unarmored.",
+    "sections": {
+      "name": "Emperor’s new clothes",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Magical thread sewn onto armor\n\nEffect: For the next day, the armor the thread is attached to is invisible, making the wearer appear to be unarmored."
+    },
+    "text": "Level: 1d6\n\nForm: Magical thread sewn onto armor\n\nEffect: For the next day, the armor the thread is attached to is invisible, making the wearer appear to be unarmored.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124949_8e81b9ec.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124949_8e81b9ec.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -22,6 +22,28 @@ def _new_actor_id() -> str:
     return uuid.uuid4().hex[:16]
 
 
+def _new_item_id() -> str:
+    return uuid.uuid4().hex[:16]
+
+
+def _pick_text(*values: Any) -> str:
+    for value in values:
+        text = str(value or "").strip()
+        if text:
+            return text
+    return ""
+
+
+def _extract_level_text(*values: Any) -> str:
+    text = _pick_text(*values)
+    if not text:
+        return "1"
+    match = re.search(r"\d+(?:\s*\+\s*\d+)?|1d\d+(?:\s*\+\s*\d+)?", text, flags=re.IGNORECASE)
+    if match:
+        return match.group(0).replace(" ", "")
+    return text
+
+
 def _skill_rating_label(level: str) -> str:
     key = str(level or "").strip().lower()
     mapping = {
@@ -374,3 +396,129 @@ def npc_or_creature_result_to_foundry_actor(result: dict[str, Any], payload: dic
         })
 
     return actor
+
+
+def cypher_result_to_foundry_item(result: dict[str, Any], payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    _ = payload or {}
+    sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
+    metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+    name = str(result.get("name") or "Imported Cypher").strip() or "Imported Cypher"
+    level = _extract_level_text(
+        result.get("level"),
+        sections.get("level"),
+        metadata.get("level"),
+    )
+    form = _pick_text(
+        sections.get("form"),
+        sections.get("manifestation"),
+        sections.get("appearance"),
+        result.get("manifestation"),
+        result.get("appearance"),
+    )
+    effect = _pick_text(
+        sections.get("effect"),
+        result.get("description"),
+        result.get("text"),
+    )
+    description = effect
+    if form:
+        description = f"Form: {form}\n\nEffect: {effect or ''}".strip()
+
+    return {
+        "name": name,
+        "type": "cypher",
+        "img": "systems/cyphersystem/icons/items/cypher.svg",
+        "system": {
+            "version": 2,
+            "description": description,
+            "basic": {
+                "level": level or "1",
+                "type": [2, 1],
+                "identified": True,
+            },
+        },
+        "effects": [],
+        "_stats": {
+            "compendiumSource": None,
+            "duplicateSource": None,
+            "exportSource": {
+                "worldId": "lands-of-legend",
+                "uuid": f"Item.{_new_item_id()}",
+                "coreVersion": "13.351",
+                "systemId": "cyphersystem",
+                "systemVersion": "3.4.3",
+            },
+            "coreVersion": "13.351",
+            "systemId": "cyphersystem",
+            "systemVersion": "3.4.3",
+            "createdTime": _ms_now(),
+            "modifiedTime": _ms_now(),
+        },
+    }
+
+
+def artifact_result_to_foundry_item(result: dict[str, Any], payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    _ = payload or {}
+    sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
+    metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+    name = str(result.get("name") or "Imported Artifact").strip() or "Imported Artifact"
+    level = _extract_level_text(
+        result.get("level"),
+        sections.get("level"),
+        metadata.get("level"),
+    )
+    depletion = _pick_text(
+        result.get("depletion"),
+        sections.get("depletion"),
+        metadata.get("depletion"),
+    )
+    form = _pick_text(
+        sections.get("form"),
+        sections.get("manifestation"),
+        sections.get("appearance"),
+        result.get("manifestation"),
+        result.get("appearance"),
+    )
+    effect = _pick_text(
+        sections.get("effect"),
+        result.get("description"),
+        result.get("text"),
+    )
+    description_bits: list[str] = []
+    if form:
+        description_bits.append(f"Form: {form}")
+    if effect:
+        description_bits.append(f"Effect: {effect}")
+    description = "\n\n".join(description_bits).strip()
+
+    return {
+        "name": name,
+        "type": "artifact",
+        "img": "systems/cyphersystem/icons/items/artifact.svg",
+        "system": {
+            "version": 2,
+            "description": description,
+            "basic": {
+                "level": level or "1",
+                "depletion": depletion,
+                "identified": True,
+            },
+        },
+        "effects": [],
+        "_stats": {
+            "compendiumSource": None,
+            "duplicateSource": None,
+            "exportSource": {
+                "worldId": "lands-of-legend",
+                "uuid": f"Item.{_new_item_id()}",
+                "coreVersion": "13.351",
+                "systemId": "cyphersystem",
+                "systemVersion": "3.4.3",
+            },
+            "coreVersion": "13.351",
+            "systemId": "cyphersystem",
+            "systemVersion": "3.4.3",
+            "createdTime": _ms_now(),
+            "modifiedTime": _ms_now(),
+        },
+    }

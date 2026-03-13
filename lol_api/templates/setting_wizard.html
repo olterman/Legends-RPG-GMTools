@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+
+{% block title %}Setting Wizard — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Setting Creation Wizard</h1>
+<p>Create a complete starter setting YAML pack. Uses your selected AI provider and can pull flavor from core + genre books and an existing setting.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="sw-provider">AI Provider</label>
+      <select id="sw-provider">
+        <option value="ollama_local">Ollama Local</option>
+        <option value="openai_remote">OpenAI Remote (gpt-4o-mini default)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="sw-setting-label">Setting Name</label>
+      <input id="sw-setting-label" placeholder="e.g. Isles of Ember" />
+    </div>
+    <div class="field">
+      <label for="sw-setting-id">Setting ID</label>
+      <input id="sw-setting-id" placeholder="auto-from-name if blank" />
+    </div>
+    <div class="field">
+      <label for="sw-genre-id">Core Genre</label>
+      <select id="sw-genre-id"></select>
+    </div>
+    <div class="field">
+      <label for="sw-base-setting-id">Use Existing Setting Flavor (Optional)</label>
+      <select id="sw-base-setting-id">
+        <option value="">None</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="sw-brief">Design Brief</label>
+      <textarea id="sw-brief" rows="8" placeholder="Tone, inspirations, constraints, must-have factions/areas..."></textarea>
+    </div>
+    <div class="field">
+      <label><input id="sw-overwrite" type="checkbox" /> Overwrite existing setting folder if present</label>
+    </div>
+    <div class="actions">
+      <button id="sw-generate-btn" type="button">Generate YAML Pack</button>
+      <button id="sw-create-btn" type="button" class="secondary" disabled>Create Setting Files</button>
+    </div>
+    <div id="sw-status" class="status">Ready.</div>
+    <div id="sw-flavor" class="small"></div>
+  </div>
+
+  <div class="panel">
+    <div class="output-card">
+      <div class="small">Generated Files</div>
+      <div id="sw-files" style="margin-top:8px;">Generate to preview files.</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    provider: document.getElementById('sw-provider'),
+    settingLabel: document.getElementById('sw-setting-label'),
+    settingId: document.getElementById('sw-setting-id'),
+    genreId: document.getElementById('sw-genre-id'),
+    baseSettingId: document.getElementById('sw-base-setting-id'),
+    brief: document.getElementById('sw-brief'),
+    overwrite: document.getElementById('sw-overwrite'),
+    generateBtn: document.getElementById('sw-generate-btn'),
+    createBtn: document.getElementById('sw-create-btn'),
+    status: document.getElementById('sw-status'),
+    flavor: document.getElementById('sw-flavor'),
+    files: document.getElementById('sw-files'),
+  };
+  const state = {
+    generatedFiles: null,
+    settingId: '',
+    settingLabel: '',
+    genreId: '',
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function slugify(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+
+  async function fetchJson(url, options) {
+    const response = await fetch(url, options);
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data.error || `Request failed (${response.status})`);
+    }
+    return data;
+  }
+
+  function renderFiles(files) {
+    const entries = Object.entries(files || {});
+    if (!entries.length) {
+      els.files.textContent = 'No files generated.';
+      return;
+    }
+    els.files.innerHTML = entries.map(([name, text]) => `
+      <div class="field" style="margin-bottom:10px;">
+        <label>${escapeHtml(name)}</label>
+        <textarea class="sw-file-textarea" data-file="${escapeHtml(name)}" rows="10">${escapeHtml(String(text || ''))}</textarea>
+      </div>
+    `).join('');
+  }
+
+  function collectFilesFromEditors() {
+    const out = {};
+    document.querySelectorAll('.sw-file-textarea').forEach((ta) => {
+      const key = String(ta.getAttribute('data-file') || '').trim();
+      if (!key) return;
+      out[key] = String(ta.value || '');
+    });
+    return out;
+  }
+
+  async function loadWizardOptions() {
+    const [data, compendiumData] = await Promise.all([
+      fetchJson('/meta'),
+      fetchJson('/compendiums'),
+    ]);
+    const nav = data.settings_nav || {};
+    let genreOptions = Array.isArray(nav.genre_options) ? nav.genre_options : [];
+    if (!genreOptions.length) {
+      genreOptions = Array.isArray(nav.core_options) ? nav.core_options : [];
+    }
+    if (!genreOptions.length) {
+      const catalog = data.genres || data.settings || {};
+      const catalogObj = (catalog && typeof catalog === 'object' && catalog.catalog && typeof catalog.catalog === 'object')
+        ? catalog.catalog
+        : {};
+      genreOptions = Object.entries(catalogObj).map(([value, row]) => ({
+        value,
+        label: String((row && typeof row === 'object' && row.label) ? row.label : value),
+      }));
+    }
+    if (genreOptions.length) {
+      els.genreId.innerHTML = genreOptions
+        .filter((row) => String((row || {}).value || '').toLowerCase() !== 'all_settings')
+        .map((row) => `<option value="${escapeHtml(row.value)}">${escapeHtml(row.label || row.value)}</option>`)
+        .join('');
+    } else {
+      els.genreId.innerHTML = '<option value="fantasy">Fantasy</option>';
+    }
+
+    const settings = Array.isArray(data.available_settings) ? data.available_settings : [];
+    const descMap = new Map();
+    (Array.isArray(data.available_setting_descriptors) ? data.available_setting_descriptors : []).forEach((row) => {
+      if (!row || !row.id) return;
+      descMap.set(String(row.id), String(row.label || row.id));
+    });
+    const localGroup = document.createElement('optgroup');
+    localGroup.label = 'Workspace Settings';
+    for (const sid of settings) {
+      const id = String(sid || '').trim();
+      if (!id) continue;
+      const label = descMap.get(id) || id;
+      const opt = document.createElement('option');
+      opt.value = id;
+      opt.textContent = label;
+      localGroup.appendChild(opt);
+    }
+    if (localGroup.children.length) {
+      els.baseSettingId.appendChild(localGroup);
+    }
+
+    const compendiumItems = Array.isArray(compendiumData?.items) ? compendiumData.items : [];
+    const compGroup = document.createElement('optgroup');
+    compGroup.label = 'Compendium Flavor Sources';
+    for (const row of compendiumItems) {
+      if (!row) continue;
+      const id = String(row.id || '').trim().toLowerCase();
+      const sourceKind = String(row.source_kind || '').trim().toLowerCase();
+      const enabled = row.enabled !== false;
+      if (!id || !enabled) continue;
+      if (id === 'foundryvtt' || id === 'settings_catalog') continue;
+      if (!['official', 'core_pdf', 'csrd'].includes(sourceKind)) continue;
+      const opt = document.createElement('option');
+      opt.value = `compendium:${id}`;
+      opt.textContent = `${String(row.name || id)} (${sourceKind})`;
+      compGroup.appendChild(opt);
+    }
+    if (compGroup.children.length) {
+      els.baseSettingId.appendChild(compGroup);
+    }
+  }
+
+  async function generatePack() {
+    const settingLabel = String(els.settingLabel.value || '').trim();
+    const settingId = slugify(els.settingId.value || settingLabel);
+    const genreId = String(els.genreId.value || '').trim();
+    const baseSettingId = String(els.baseSettingId.value || '').trim();
+    const brief = String(els.brief.value || '').trim();
+
+    if (!settingLabel) {
+      els.status.textContent = 'Setting name is required.';
+      return;
+    }
+    if (!genreId) {
+      els.status.textContent = 'Core genre is required.';
+      return;
+    }
+    if (!settingId) {
+      els.status.textContent = 'Setting ID is required.';
+      return;
+    }
+
+    const provider = String(els.provider?.value || 'ollama_local').trim().toLowerCase();
+    const providerLabel = provider === 'openai_remote' ? 'OpenAI' : 'Ollama';
+    els.status.textContent = `Generating YAML pack with ${providerLabel}...`;
+    els.flavor.textContent = '';
+    try {
+      const data = await fetchJson('/setting-wizard/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          setting_label: settingLabel,
+          setting_id: settingId,
+          genre_id: genreId,
+          base_setting_id: baseSettingId,
+          brief,
+          provider,
+        }),
+      });
+      state.generatedFiles = data.files || {};
+      state.settingId = String(data.setting_id || settingId);
+      state.settingLabel = String(data.setting_label || settingLabel);
+      state.genreId = String(data.genre_id || genreId);
+      renderFiles(state.generatedFiles);
+      els.createBtn.disabled = false;
+      const used = Array.isArray(data.flavor_compendiums_used) ? data.flavor_compendiums_used : [];
+      els.flavor.textContent = used.length
+        ? `Flavor sources used: ${used.join(', ')}`
+        : 'Flavor sources used: none available (skeleton or limited context).';
+      els.status.textContent = data.warning ? `Generated with warning: ${data.warning}` : 'YAML pack generated.';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      els.status.textContent = `Generate failed: ${err.message}`;
+    }
+  }
+
+  async function createSetting() {
+    const files = collectFilesFromEditors();
+    if (!Object.keys(files).length) {
+      els.status.textContent = 'Generate files first.';
+      return;
+    }
+    const settingLabel = String(els.settingLabel.value || state.settingLabel || '').trim();
+    const settingId = slugify(els.settingId.value || state.settingId || settingLabel);
+    const genreId = String(els.genreId.value || state.genreId || '').trim();
+    els.status.textContent = 'Writing setting files...';
+    try {
+      const data = await fetchJson('/setting-wizard/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          setting_label: settingLabel,
+          setting_id: settingId,
+          genre_id: genreId,
+          overwrite: Boolean(els.overwrite.checked),
+          files,
+        }),
+      });
+      const count = Array.isArray(data.written_files) ? data.written_files.length : 0;
+      els.status.textContent = `Setting created (${count} files). Registered in ${data.settings_updated || '02_settings.yaml'}.`;
+    } catch (err) {
+      els.status.textContent = `Create failed: ${err.message}`;
+    }
+  }
+
+  els.settingLabel.addEventListener('input', () => {
+    if (!String(els.settingId.value || '').trim()) {
+      els.settingId.value = slugify(els.settingLabel.value || '');
+    }
+  });
+  els.generateBtn?.addEventListener('click', generatePack);
+  els.createBtn?.addEventListener('click', createSetting);
+
+  loadWizardOptions().catch((err) => {
+    els.status.textContent = `Failed to load wizard options: ${err.message}`;
+  });
+</script>
+{% endblock %}

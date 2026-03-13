@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:11.069881+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125011.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Tweedledee’s umbrella",
+    "description": "Level: 1d6 + 2 Form: Large umbrella with a sharp point on the end Effect: Touch a creature (up to the artifact’s level) of any size and the umbrella will fold up around it, capturing it inside. Holding the umbrella with the captive inside is an action. A caught character is held for ten minutes or until they make a successful Might roll to break free. Depletion: 1 in 1d10",
+    "sections": {
+      "name": "Tweedledee’s umbrella",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Large umbrella with a sharp point on the end\n\nEffect: Touch a creature (up to the artifact’s level) of any size and the umbrella will fold up around it, capturing it inside. Holding the umbrella with the captive inside is an action. A caught character is held for ten minutes or until they make a successful Might roll to break free.\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r d10]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Large umbrella with a sharp point on the end\n\nEffect: Touch a creature (up to the artifact’s level) of any size and the umbrella will fold up around it, capturing it inside. Holding the umbrella with the captive inside is an action. A caught character is held for ten minutes or until they make a successful Might roll to break free.\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125011_403b1b8e.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125011_403b1b8e.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

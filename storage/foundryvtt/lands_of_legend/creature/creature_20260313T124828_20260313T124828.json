@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:28.650014+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124828_20260313T124828.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Cat Sidhe",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Cat Sidhe",
+      "environment": "Highlands, mountains, and forests",
+      "motive": "Steal souls, gain power",
+      "interaction": "Having once been witches, cat sidhes are smart, cunning, and dangerous. Most have no interest in conversations or bargains, unless they are injured in some way. They can, however, sometimes be distracted from their purpose of stealing souls by riddles, music, and children’s games.",
+      "use": "A cat sidhe stalks a forest where the characters are passing through on their way elsewhere. Someone sends the characters to capture a “lost” cat, which turns out to be a cat sidhe.",
+      "loot": "When a cat sidhe dies, it disappears, leaving behind only the once-white symbol on its chest in the form of a medallion.",
+      "gm_intrusion": "The cat sidhe yowls, causing a second cat sidhe to appear from hiding."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 0,
+      "damage": 6,
+      "movement": "Long",
+      "modifications": [
+        "Speed defense as level 6 due to quickness and agility"
+      ],
+      "combat": [
+        "Cat sidhes can attack with their claws for 6 points of damage, but they much prefer to engage from a long distance, using their unique ability to cast curses that steal part or all of a victim’s soul. They may attack a foe using the following types of soul-stealing curses. Characters who succeed on an Intellect defense roll resist the effect, but take 1 point of Intellect damage due to the effort. If someone can read the symbol on the cat’s chest and pronounce it, they gain +1 Armor against the cat’s attacks. Falter. Removes a favored part of the creature’s personality, such as their sense of humor, courage, or kindness. The creature doesn’t forget that they had that part of their personality; they just can’t remember how to access it again. All social interactions are hindered. Fester. Replaces a piece of the character’s soul with an idea, false memory, or thought that, once placed, grows into something insidious and dangerous inside them. The character takes no damage at the time, but each time they make a recovery roll, they take 2 points of Intellect damage. Forget. Removes something from the creature’s memory, such as all nouns (including their own name), a loved one’s face, their current purpose, an ability, or a skill. This inflicts 3 points of Intellect damage and causes the character to forget the specific thing."
+      ],
+      "interaction": [
+        "Having once been witches, cat sidhes are smart, cunning, and dangerous. Most have no interest in conversations or bargains, unless they are injured in some way. They can, however, sometimes be distracted from their purpose of stealing souls by riddles, music, and children’s games."
+      ],
+      "loot": [
+        "When a cat sidhe dies, it disappears, leaving behind only the once-white symbol on its chest in the form of a medallion."
+      ]
+    },
+    "text": "Cat sidhes, sometimes called phantom cats, are dog-sized felines that were once witches and now have shifted permanently into cat form. They’re all black except for a single white symbol on their chest, which is their name.\n\nWhen cat sidhes form (because a witch has turned themselves into a cat for the ninth time), they gain nine tails. Each time a cat sidhe would be killed, they can choose to lose one of their tails instead. Once a cat sidhe has no more tails remaining, their death is final.\n\nWhile cat sidhes inflict damage with their soul-stealing attacks, the roleplaying element of a character losing part of their soul is possibly more important than the game effect. Consider removing something from the character that will affect them in interesting and unusual ways.\n\nMotive: Steal souls, gain power\n\nEnvironment: Highlands, mountains, and forests\n\nHealth: 15\n\nDamage Inflicted: 6 points\n\nMovement: Long\n\nModifications: Speed defense as level 6 due to quickness and agility\n\nCombat: Cat sidhes can attack with their claws for 6 points of damage, but they much prefer to engage from a long distance, using their unique ability to cast curses that steal part or all of a victim’s soul. They may attack a foe using the following types of soul-stealing curses. Characters who succeed on an Intellect defense roll resist the effect, but take 1 point of Intellect damage due to the effort. If someone can read the symbol on the cat’s chest and pronounce it, they gain +1 Armor against the cat’s attacks.\n\nFalter. Removes a favored part of the creature’s personality, such as their sense of humor, courage, or kindness. The creature doesn’t forget that they had that part of their personality; they just can’t remember how to access it again. All social interactions are hindered.\n\nFester. Replaces a piece of the character’s soul with an idea, false memory, or thought that, once placed, grows into something insidious and dangerous inside them. The character takes no damage at the time, but each time they make a recovery roll, they take 2 points of Intellect damage.\n\nForget. Removes something from the creature’s memory, such as all nouns (including their own name), a loved one’s face, their current purpose, an ability, or a skill. This inflicts 3 points of Intellect damage and causes the character to forget the specific thing.\n\nInteraction: Having once been witches, cat sidhes are smart, cunning, and dangerous. Most have no interest in conversations or bargains, unless they are injured in some way. They can, however, sometimes be distracted from their purpose of stealing souls by riddles, music, and children’s games.\n\nUse: A cat sidhe stalks a forest where the characters are passing through on their way elsewhere. Someone sends the characters to capture a “lost” cat, which turns out to be a cat sidhe.\n\nLoot: When a cat sidhe dies, it disappears, leaving behind only the once-white symbol on its chest in the form of a medallion.\n\nGM Intrusion: The cat sidhe yowls, causing a second cat sidhe to appear from hiding.\n\nCat Sidhe\nLevel 4 (target number 12)\nHealth: 15\nArmor: 0\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.uDPPcJ10ru8rNpGK",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_cat-sidhe_20260313T124828_6a7899ae.webp",
+      "images": [
+        "uploads/foundryvtt/creature_cat-sidhe_20260313T124828_6a7899ae.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/creature_cat-sidhe.webp"
+    },
+    "description": "A cat sidhe stalks a forest where the characters are passing through on their way elsewhere. Someone sends the characters to capture a “lost” cat, which turns out to be a cat sidhe."
+  }
+}

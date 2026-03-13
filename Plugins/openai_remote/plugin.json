@@ -1,0 +1,6 @@
+{
+  "name": "OpenAI Remote RAG",
+  "summary": "Queries OpenAI API with vector-indexed private compendium context.",
+  "docs_url": "Plugins/openai_remote/README.md"
+}
+

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:10.198180+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125010.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Tinderbox",
+    "description": "Level: 1d6 + 2 Form: Small ornate tinderbox made of metal Effect: Summons three dogs to do the user’s bidding. The dogs can complete any tasks dogs would normally be able to accomplish, including carrying, fetching, attacking, defending, and so on. They act as a single level 3 creature. Depletion: 1 in 1d6",
+    "sections": {
+      "name": "Tinderbox",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Small ornate tinderbox made of metal\n\nEffect: Summons three dogs to do the user’s bidding. The dogs can complete any tasks dogs would normally be able to accomplish, including carrying, fetching, attacking, defending, and so on. They act as a single level 3 creature.\n\nDepletion: 1 in 1d6",
+      "depletion": "1 in [[/r d6]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Small ornate tinderbox made of metal\n\nEffect: Summons three dogs to do the user’s bidding. The dogs can complete any tasks dogs would normally be able to accomplish, including carrying, fetching, attacking, defending, and so on. They act as a single level 3 creature.\n\nDepletion: 1 in 1d6",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125010_968fc4af.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125010_968fc4af.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

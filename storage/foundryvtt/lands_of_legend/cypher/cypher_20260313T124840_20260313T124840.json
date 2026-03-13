@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:40.320973+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124840_20260313T124840.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Stakeout",
+    "level": "1",
+    "sections": {
+      "name": "Stakeout",
+      "level": "1",
+      "effect": "<p>You quickly scan over a creature or container within short range. You learn all objects held and carried by the creature, or all contents of the container, without requiring a roll.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Insath Vralath",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124840.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124840_56b33864.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124840_56b33864.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

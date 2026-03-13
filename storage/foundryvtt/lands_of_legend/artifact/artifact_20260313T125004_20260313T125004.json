@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:04.998181+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125004_20260313T125004.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "She-bear",
+    "description": "Level: 1d6 Form: Bit of wood carved in the shape of a bear Effect: When placed in the mouth, changes the wielder into the form of a female bear. While in this form, the user gains +4 to their Might Pool, +4 to their Speed Pool, and +1 to Armor. They also can communicate with other bears while in this form. The effect lasts for ten minutes. Depletion: 1 in 1d6",
+    "sections": {
+      "name": "She-bear",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Bit of wood carved in the shape of a bear\n\nEffect: When placed in the mouth, changes the wielder into the form of a female bear. While in this form, the user gains +4 to their Might Pool, +4 to their Speed Pool, and +1 to Armor. They also can communicate with other bears while in this form. The effect lasts for ten minutes.\n\nDepletion: 1 in 1d6",
+      "depletion": "1 in [[/r d6]]"
+    },
+    "text": "Level: 1d6\n\nForm: Bit of wood carved in the shape of a bear\n\nEffect: When placed in the mouth, changes the wielder into the form of a female bear. While in this form, the user gains +4 to their Might Pool, +4 to their Speed Pool, and +1 to Armor. They also can communicate with other bears while in this form. The effect lasts for ten minutes.\n\nDepletion: 1 in 1d6",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125004_119bd37c.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125004_119bd37c.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

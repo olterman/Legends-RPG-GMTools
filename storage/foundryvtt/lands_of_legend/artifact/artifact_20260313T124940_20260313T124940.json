@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:40.730428+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124940_20260313T124940.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Adamantine rope",
+    "description": "Level: 1d6 + 4 Form: A 50-foot (15 m) length of black rope Effect: This length of rope has the flexibility of ordinary rope but a hardness greater than steel. It is impervious to damage (including attempts to cut it) from anything less than the artifact’s level. Depletion: —",
+    "sections": {
+      "name": "Adamantine rope",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: A 50-foot (15 m) length of black rope\n\nEffect: This length of rope has the flexibility of ordinary rope but a hardness greater than steel. It is impervious to damage (including attempts to cut it) from anything less than the artifact’s level.\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: A 50-foot (15 m) length of black rope\n\nEffect: This length of rope has the flexibility of ordinary rope but a hardness greater than steel. It is impervious to damage (including attempts to cut it) from anything less than the artifact’s level.\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124940_17cc3bcb.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124940_17cc3bcb.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

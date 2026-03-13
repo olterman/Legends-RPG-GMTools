@@ -35,6 +35,8 @@ def create_app():
     docs_dir = project_root / "docs"
     foundry_token = os.getenv("LOL_FOUNDRYVTT_API_TOKEN", "").strip()
     foundry_origins_raw = os.getenv("LOL_FOUNDRYVTT_ALLOWED_ORIGINS", "").strip()
+    ollama_base_url = os.getenv("LOL_OLLAMA_BASE_URL", "http://127.0.0.1:11434").strip()
+    ollama_default_model = os.getenv("LOL_OLLAMA_DEFAULT_MODEL", "llama3.1").strip()
     foundry_origins = [
         value.strip()
         for value in foundry_origins_raw.split(",")
@@ -54,6 +56,8 @@ def create_app():
     app.config["LOL_DOCS_DIR"] = docs_dir
     app.config["LOL_FOUNDRYVTT_API_TOKEN"] = foundry_token
     app.config["LOL_FOUNDRYVTT_ALLOWED_ORIGINS"] = foundry_origins
+    app.config["LOL_OLLAMA_BASE_URL"] = ollama_base_url
+    app.config["LOL_OLLAMA_DEFAULT_MODEL"] = ollama_default_model
 
     available_worlds = list_world_ids(config_dir)
     available_world_descriptors = list_world_descriptors(config_dir)

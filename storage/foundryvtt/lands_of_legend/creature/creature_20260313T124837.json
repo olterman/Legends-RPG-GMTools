@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:37.166782+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124837.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Giant snake",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Giant snake",
+      "environment": "Anywhere a giant snake can lurk, including jungles, sewers, caves, and spacecraft access tubes",
+      "motive": "Hungers for flesh",
+      "interaction": "A giant snake is a predator that regards other creatures as food, though it ignores them when it is already busy digesting a meal.",
+      "use": "Characters note something amiss as they glimpse lambent eyes peering from the darkness, glaring as if seeking to pin victims in place with cold terror.",
+      "loot": "A giant snake’s droppings or gullet might hold a few cyphers and possibly an artifact that the creature could not digest.",
+      "gm_intrusion": "The snake’s venom affects the character more strongly. Instead of merely inflicting Speed damage, it also paralyzes the character for one minute, though after a couple of rounds, the victim can make another Might defense roll to throw off the effects of the poison early."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 18,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Perception and stealth as level 6; Speed defense as level 3 due to size"
+      ],
+      "combat": [
+        "A giant snake bites foes, preferably from ambush, hindering the target’s Speed defense by two steps. If it succeeds, the snake’s bite deals 8 points of damage for that attack. On a failed Might defense roll, a bite also inflicts 3 points of Speed damage (ignores Armor). A giant snake may coil around a sleeping, stunned, or debilitated victim. Caught victims automatically take 5 points of crushing damage each round until they break free. Giant snakes lose their perception and stealth modifications in cold climates and when attacked with abilities that reduce the temperature. Thus, the creatures retreat from cold."
+      ],
+      "interaction": [
+        "A giant snake is a predator that regards other creatures as food, though it ignores them when it is already busy digesting a meal."
+      ],
+      "loot": [
+        "A giant snake’s droppings or gullet might hold a few cyphers and possibly an artifact that the creature could not digest."
+      ]
+    },
+    "text": "Those about to stumble into the presence of a giant snake at least 50 feet (15 m) long are warned by the skin it shed and discarded and by the cracked, slippery bones of digested victims.\n\nMotive: Hungers for flesh\n\nEnvironment: Anywhere a giant snake can lurk, including jungles, sewers, caves, and spacecraft access tubes\n\nHealth: 18\n\nDamage Inflicted: 5 points or more; see Combat\n\nArmor: 2\n\nMovement: Short\n\nModifications: Perception and stealth as level 6; Speed defense as level 3 due to size\n\nCombat: A giant snake bites foes, preferably from ambush, hindering the target’s Speed defense by two steps. If it succeeds, the snake’s bite deals 8 points of damage for that attack. On a failed Might defense roll, a bite also inflicts 3 points of Speed damage (ignores Armor). A giant snake may coil around a sleeping, stunned, or debilitated victim. Caught victims automatically take 5 points of crushing damage each round until they break free.\n\nGiant snakes lose their perception and stealth modifications in cold climates and when attacked with abilities that reduce the temperature. Thus, the creatures retreat from cold.\n\nInteraction: A giant snake is a predator that regards other creatures as food, though it ignores them when it is already busy digesting a meal.\n\nUse: Characters note something amiss as they glimpse lambent eyes peering from the darkness, glaring as if seeking to pin victims in place with cold terror.\n\nLoot: A giant snake’s droppings or gullet might hold a few cyphers and possibly an artifact that the creature could not digest.\n\nGM Intrusion: The snake’s venom affects the character more strongly. Instead of merely inflicting Speed damage, it also paralyzes the character for one minute, though after a couple of rounds, the victim can make another Might defense roll to throw off the effects of the poison early.\n\nGiant snake\nLevel 4 (target number 12)\nHealth: 18\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.G1R1ESjuGxTJ7VwN",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_giant-snake_20260313T124837_5b89b8bc.webp",
+      "images": [
+        "uploads/foundryvtt/creature_giant-snake_20260313T124837_5b89b8bc.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_giant-snake.webp"
+    },
+    "description": "Characters note something amiss as they glimpse lambent eyes peering from the darkness, glaring as if seeking to pin victims in place with cold terror."
+  }
+}

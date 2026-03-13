@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:53.037844+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124953.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Gilded shell",
+    "description": "Level: 1d6 Form: Golden snail shell Effect: When blown into softly, the shell expands into a simple structure with a front door and walls that let in a soft light. From inside the structure, it’s about 10 feet by 10 feet by 20 feet (3 m by 3 m by 6 m). From the outside, the shell continues to look exactly the way it did before, in both size and shape, making it difficult for others to notice. Once expanded, the structure is permanent and immobile.",
+    "sections": {
+      "name": "Gilded shell",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Golden snail shell\n\nEffect: When blown into softly, the shell expands into a simple structure with a front door and walls that let in a soft light. From inside the structure, it’s about 10 feet by 10 feet by 20 feet (3 m by 3 m by 6 m). From the outside, the shell continues to look exactly the way it did before, in both size and shape, making it difficult for others to notice. Once expanded, the structure is permanent and immobile."
+    },
+    "text": "Level: 1d6\n\nForm: Golden snail shell\n\nEffect: When blown into softly, the shell expands into a simple structure with a front door and walls that let in a soft light. From inside the structure, it’s about 10 feet by 10 feet by 20 feet (3 m by 3 m by 6 m). From the outside, the shell continues to look exactly the way it did before, in both size and shape, making it difficult for others to notice. Once expanded, the structure is permanent and immobile.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124953_5cedaccc.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124953_5cedaccc.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

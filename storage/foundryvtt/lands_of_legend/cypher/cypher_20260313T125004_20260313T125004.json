@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:04.919046+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125004_20260313T125004.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Shard of the moon",
+    "description": "Level: 1d6 + 2 Form: Tiny sliver of the moon Effect: Glows softly for ten minutes, drawing all moon-loving creatures (such as moths, moon hares, and werewolves) within long range. For as long as the effect lasts, any attracted creatures will not attack the user or their allies. The user can converse with the creatures and ask them questions, which the creatures will answer to the best of their ability, but always within their nature (so a trickster will still answer as a trickster would, for ex…",
+    "sections": {
+      "name": "Shard of the moon",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Tiny sliver of the moon\n\nEffect: Glows softly for ten minutes, drawing all moon-loving creatures (such as moths, moon hares, and werewolves) within long range. For as long as the effect lasts, any attracted creatures will not attack the user or their allies. The user can converse with the creatures and ask them questions, which the creatures will answer to the best of their ability, but always within their nature (so a trickster will still answer as a trickster would, for example)."
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Tiny sliver of the moon\n\nEffect: Glows softly for ten minutes, drawing all moon-loving creatures (such as moths, moon hares, and werewolves) within long range. For as long as the effect lasts, any attracted creatures will not attack the user or their allies. The user can converse with the creatures and ask them questions, which the creatures will answer to the best of their ability, but always within their nature (so a trickster will still answer as a trickster would, for example).",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125004_8a90c423.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125004_8a90c423.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

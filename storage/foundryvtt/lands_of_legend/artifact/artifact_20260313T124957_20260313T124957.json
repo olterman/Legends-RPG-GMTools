@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:57.893145+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124957_20260313T124957.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Mastercraft weapon",
+    "description": "Level: 1d6 Form: Weapon of exceptional quality Effect: This weapon grants its wielder an asset for attack rolls made with it. Depletion: — Depending on the game world, mastercraft weapons might be magical, mundanely crafted with exceptional quality, or both.",
+    "sections": {
+      "name": "Mastercraft weapon",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Weapon of exceptional quality\n\nEffect: This weapon grants its wielder an asset for attack rolls made with it.\n\nDepletion: —\n\nDepending on the game world, mastercraft weapons might be magical, mundanely crafted with exceptional quality, or both.",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6\n\nForm: Weapon of exceptional quality\n\nEffect: This weapon grants its wielder an asset for attack rolls made with it.\n\nDepletion: —\n\nDepending on the game world, mastercraft weapons might be magical, mundanely crafted with exceptional quality, or both.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124957_fda90e6a.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124957_fda90e6a.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

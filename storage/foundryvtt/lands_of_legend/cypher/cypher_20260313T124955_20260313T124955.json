@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:55.959013+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124955_20260313T124955.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Intellect booster",
+    "description": "Level: 1d6 + 2 Effect: Adds 1 to the user’s Intellect Edge for one hour (or 2 if the cypher is level 5 or higher).",
+    "sections": {
+      "name": "Intellect booster",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Adds 1 to the user’s Intellect Edge for one hour (or 2 if the cypher is level 5 or higher)."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Adds 1 to the user’s Intellect Edge for one hour (or 2 if the cypher is level 5 or higher).",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124955_b50ab839.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124955_b50ab839.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

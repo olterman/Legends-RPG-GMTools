@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:56.888335+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124956_20260313T124956.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Lightning hammer",
+    "description": "Level: 1d6 + 2 Form: Massive silver hammer that crackles with electricity Effect: This hammer functions as a normal heavy weapon. However, if the wielder uses an action to activate it, the weapon radiates electricity for one round. If used to attack on the next round, the hammer inflicts an additional 10 points of electricity damage. The user can choose to strike the ground instead, sending shockwaves of electricity outward that deal 5 points of damage to everyone within short range. Depletion:…",
+    "sections": {
+      "name": "Lightning hammer",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Massive silver hammer that crackles with electricity\n\nEffect: This hammer functions as a normal heavy weapon. However, if the wielder uses an action to activate it, the weapon radiates electricity for one round. If used to attack on the next round, the hammer inflicts an additional 10 points of electricity damage. The user can choose to strike the ground instead, sending shockwaves of electricity outward that deal 5 points of damage to everyone within short range.\n\nDepletion: 1 in 1d6 (still usable as a normal heavy weapon after depletion)",
+      "depletion": "1 in [[/r 1d6 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Massive silver hammer that crackles with electricity\n\nEffect: This hammer functions as a normal heavy weapon. However, if the wielder uses an action to activate it, the weapon radiates electricity for one round. If used to attack on the next round, the hammer inflicts an additional 10 points of electricity damage. The user can choose to strike the ground instead, sending shockwaves of electricity outward that deal 5 points of damage to everyone within short range.\n\nDepletion: 1 in 1d6 (still usable as a normal heavy weapon after depletion)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124956_5ac21f9d.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124956_5ac21f9d.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

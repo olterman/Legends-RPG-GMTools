@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:26.185225+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124826.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Auton",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Auton"
+    },
+    "stat_block": {
+      "level": 1,
+      "target_number": 3,
+      "health": 3,
+      "armor": 0,
+      "damage": 1,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "The generic term “auton” refers to a smart robot, one able to exist in the world as a full-fledged entity, though not nearly so competent as a true AI. On the other hand, autons come very close to having self-awareness, and some have probably achieved it. The variety of autons is staggering, given that they can be trained in nearly any task. Autons also come in a variety of shapes and colors, which vary based on culture and tech level. Though most can move on treads or legs to follow their owners as directed, some autons are housed in drone-like chassis using either rotors or microthrusters, allowing them to fly rather than move on the ground.\n\nTreat a basic auton as a level 1 follower, which allows the auton modifications in one task.\n\nAuton\nLevel 1 (target number 3)\nHealth: 3\nArmor: 0\nDamage: 1",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.8fKOPQThWYSHMfIs",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/construct_technological_20260313T124826_c1227f87.webp",
+      "images": [
+        "uploads/foundryvtt/construct_technological_20260313T124826_c1227f87.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/construct_technological.webp"
+    },
+    "description": "The generic term “auton” refers to a smart robot, one able to exist in the world as a full-fledged entity, though not nearly so competent as a true AI. On the other hand, autons come very close to having self-awareness, and some have probably achieved it. The variety of autons is staggering, given that they can be trained in nearly any task. Autons also come in a variety of shapes and colors, which vary based on culture and tech level. Though most can move on treads or legs to follow their owne…"
+  }
+}

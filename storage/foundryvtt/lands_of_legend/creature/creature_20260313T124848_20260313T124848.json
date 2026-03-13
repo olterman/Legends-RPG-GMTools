@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:48.892704+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124848_20260313T124848.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Sapient tree",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Sapient tree",
+      "environment": "Found in groves or copses of five to twenty",
+      "motive": "Defense",
+      "interaction": "Sapient trees are generally unfriendly and indignant toward animal life. They are fearful and assume that any creature not native to their forest is a threat. They are likely to attack first rather than speak, although they can speak eloquently, if sometimes slowly.",
+      "use": "These trees populate magic forests. They can be used to surprise characters with an attack from an unexpected direction.",
+      "gm_intrusion": "The tree grabs the character and holds them fast, shaking them. They take 4 points of damage each round and can do nothing but attempt to escape (the task is hindered by two steps because of the shaking)."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 16,
+      "armor": 3,
+      "damage": 4,
+      "movement": "Short",
+      "modifications": [
+        "Initiative as level 4; Speed defense as level 2 due to size"
+      ],
+      "combat": [
+        "When a sapient tree attacks, it often does so with surprise because it looks like a normal tree at first. If a character about to be attacked fails an Intellect defense roll, they do not perceive the attack in time, and the tree’s attack is eased. If a tree strikes in combat with one of its branch-arms, it can choose to grab the foe (rather than inflict damage) and toss them an immediate distance away, inflicting 2 points of ambient damage if they hit the ground or another solid object. If they are tossed at another creature, that second creature must make a successful Speed defense roll or also take this damage. Sometimes, a sapient tree that bears fruit will hurl its fruit up to short range, inflicting 4 points of damage."
+      ],
+      "interaction": [
+        "Sapient trees are generally unfriendly and indignant toward animal life. They are fearful and assume that any creature not native to their forest is a threat. They are likely to attack first rather than speak, although they can speak eloquently, if sometimes slowly."
+      ],
+      "loot": []
+    },
+    "text": "Guardians of the wood, sapient trees stand eternally vigilant, often on the outskirts of their grove or forest to keep out those who might seek to do them—or other, ordinary trees— harm. They look like normal trees until they reveal their true nature, with limb-like branches and faces in the bark of their trunk. They don’t always move, but with effort, they can uproot themselves and walk about. However, they usually do so only when no one is looking. The origin and temperament of sapient trees varies; they might be haunted trees possessed by spirits, trees animated by magic spells, or ancient mythical beings. Some are peaceful and noble, but others are downright wicked and cruel.\n\nMotive: Defense\n\nEnvironment: Found in groves or copses of five to twenty\n\nHealth: 16\n\nDamage Inflicted: 4 points\n\nArmor: 3\n\nMovement: Short\n\nModifications: Initiative as level 4; Speed defense as level 2 due to size\n\nCombat: When a sapient tree attacks, it often does so with surprise because it looks like a normal tree at first. If a character about to be attacked fails an Intellect defense roll, they do not perceive the attack in time, and the tree’s attack is eased.\n\nIf a tree strikes in combat with one of its branch-arms, it can choose to grab the foe (rather than inflict damage) and toss them an immediate distance away, inflicting 2 points of ambient damage if they hit the ground or another solid object. If they are tossed at another creature, that second creature must make a successful Speed defense roll or also take this damage.\n\nSometimes, a sapient tree that bears fruit will hurl its fruit up to short range, inflicting 4 points of damage.\n\nInteraction: Sapient trees are generally unfriendly and indignant toward animal life. They are fearful and assume that any creature not native to their forest is a threat. They are likely to attack first rather than speak, although they can speak eloquently, if sometimes slowly.\n\nUse: These trees populate magic forests. They can be used to surprise characters with an attack from an unexpected direction.\n\nGM Intrusion: The tree grabs the character and holds them fast, shaking them. They take 4 points of damage each round and can do nothing but attempt to escape (the task is hindered by two steps because of the shaking).\n\nSapient tree\nLevel 3 (target number 9)\nHealth: 16\nArmor: 3\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.NVr1JYXJvKeTc979",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_sapient-tree_20260313T124848_e450a497.webp",
+      "images": [
+        "uploads/foundryvtt/creature_sapient-tree_20260313T124848_e450a497.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_sapient-tree.webp"
+    },
+    "description": "These trees populate magic forests. They can be used to surprise characters with an attack from an unexpected direction."
+  }
+}

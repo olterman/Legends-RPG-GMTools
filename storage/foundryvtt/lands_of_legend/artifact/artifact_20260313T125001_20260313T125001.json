@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:01.926666+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125001_20260313T125001.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Protection amulet",
+    "description": "Level: 1d6 Form: Stylized amulet worn on a chain Effect:The amulet reduces one type of damage by an amount equal to the artifact level. Roll a [[/r d20]] to determine the kind of damage the amulet protects against. 1–4 Acid 5–8 Cold 9–12 Electricity 13–16 Fire 17–20 Poison Depletion: 1 in 1d6 (check each time the amulet reduces damage)",
+    "sections": {
+      "name": "Protection amulet",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Stylized amulet worn on a chain\n\nEffect:The amulet reduces one type of damage by an amount equal to the artifact level. Roll a [[/r d20]] to determine the kind of damage the amulet protects against.\n\n1–4\nAcid\n\n5–8\nCold\n\n9–12\nElectricity\n\n13–16\nFire\n\n17–20\nPoison\n\nDepletion: 1 in 1d6 (check each time the amulet reduces damage)",
+      "depletion": "1 in [[/r 1d6 # Depletion roll]]"
+    },
+    "text": "Level: 1d6\n\nForm: Stylized amulet worn on a chain\n\nEffect:The amulet reduces one type of damage by an amount equal to the artifact level. Roll a [[/r d20]] to determine the kind of damage the amulet protects against.\n\n1–4\nAcid\n\n5–8\nCold\n\n9–12\nElectricity\n\n13–16\nFire\n\n17–20\nPoison\n\nDepletion: 1 in 1d6 (check each time the amulet reduces damage)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125001_f8ba6bf1.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125001_f8ba6bf1.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

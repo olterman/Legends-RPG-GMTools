@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:08.131441+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125008.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Stasis keeper",
+    "description": "Level: 1d6 Effect: Puts a subject into stasis for a number of days equal to the cypher’s level, or until it is violently disturbed. An object in stasis does not age and comes out of the stasis alive and in the same condition as it went in, with no memory of the period of inactivity.",
+    "sections": {
+      "name": "Stasis keeper",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: Puts a subject into stasis for a number of days equal to the cypher’s level, or until it is violently disturbed. An object in stasis does not age and comes out of the stasis alive and in the same condition as it went in, with no memory of the period of inactivity."
+    },
+    "text": "Level: 1d6\n\nEffect: Puts a subject into stasis for a number of days equal to the cypher’s level, or until it is violently disturbed. An object in stasis does not age and comes out of the stasis alive and in the same condition as it went in, with no memory of the period of inactivity.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125008_99c69ff0.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125008_99c69ff0.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

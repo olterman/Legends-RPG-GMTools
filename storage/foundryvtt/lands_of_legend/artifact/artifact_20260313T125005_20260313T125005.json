@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:05.950721+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125005_20260313T125005.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Skill ring",
+    "description": "Level: 1d6 Form: Ring carved with sigils appropriate to its granted skill Effect: This ring grants its wearer knowledge of a specific skill, such as climbing, jumping, history, or persuasion. This grants the wearer training in that skill (or in two skills if the artifact is level 5 or higher). Depletion: —",
+    "sections": {
+      "name": "Skill ring",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Ring carved with sigils appropriate to its granted skill\n\nEffect: This ring grants its wearer knowledge of a specific skill, such as climbing, jumping, history, or persuasion. This grants the wearer training in that skill (or in two skills if the artifact is level 5 or higher).\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6\n\nForm: Ring carved with sigils appropriate to its granted skill\n\nEffect: This ring grants its wearer knowledge of a specific skill, such as climbing, jumping, history, or persuasion. This grants the wearer training in that skill (or in two skills if the artifact is level 5 or higher).\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125005_fb9c021d.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125005_fb9c021d.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

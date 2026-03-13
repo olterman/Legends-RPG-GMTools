@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:03.918529+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125003_20260313T125003.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Retaliation",
+    "description": "Level: 1d6 Effect: For the next day, anyone striking the user receives a small burst of electricity that inflicts 1 point of damage (2 points if the cypher is level 4 or higher, 3 points if the cypher is level 6 or higher). No action or roll is required by the user.",
+    "sections": {
+      "name": "Retaliation",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: For the next day, anyone striking the user receives a small burst of electricity that inflicts 1 point of damage (2 points if the cypher is level 4 or higher, 3 points if the cypher is level 6 or higher). No action or roll is required by the user."
+    },
+    "text": "Level: 1d6\n\nEffect: For the next day, anyone striking the user receives a small burst of electricity that inflicts 1 point of damage (2 points if the cypher is level 4 or higher, 3 points if the cypher is level 6 or higher). No action or roll is required by the user.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125003_4e5c155a.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125003_4e5c155a.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

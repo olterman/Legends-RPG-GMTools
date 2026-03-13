@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:10.984344+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125010_20260313T125010.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Tunneling gauntlets",
+    "description": "Level: 1d6 + 1 Form: Oversized pair of metallic gauntlets with broad nails Effect: When activated, for one hour the gauntlets let the wearer burrow up to an immediate distance each round. They can burrow through most soils and even some stone, but only through material whose level is lower than the artifact level. Burrowing leaves behind a tunnel with a diameter of 5 feet (1.5 m) that remains stable for several hours. After that, the tunnel is subject to collapse. Depletion: 1 in 1d20",
+    "sections": {
+      "name": "Tunneling gauntlets",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Oversized pair of metallic gauntlets with broad nails\n\nEffect: When activated, for one hour the gauntlets let the wearer burrow up to an immediate distance each round. They can burrow through most soils and even some stone, but only through material whose level is lower than the artifact level. Burrowing leaves behind a tunnel with a diameter of 5 feet (1.5 m) that remains stable for several hours. After that, the tunnel is subject to collapse.\n\nDepletion: 1 in 1d20",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Oversized pair of metallic gauntlets with broad nails\n\nEffect: When activated, for one hour the gauntlets let the wearer burrow up to an immediate distance each round. They can burrow through most soils and even some stone, but only through material whose level is lower than the artifact level. Burrowing leaves behind a tunnel with a diameter of 5 feet (1.5 m) that remains stable for several hours. After that, the tunnel is subject to collapse.\n\nDepletion: 1 in 1d20",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125010_055a6ef8.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125010_055a6ef8.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:48.004185+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124848.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Ravage bear",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Ravage bear",
+      "environment": "Alone or in pairs (usually with a few cubs) in wooded, rocky, or mountainous areas, typically in cold or temperate climes",
+      "motive": "Hungers for flesh",
+      "interaction": "Ravage bears are animals and act like animals.",
+      "use": "Ravage bears are likely chance encounters in the wilderness for unlucky travelers.",
+      "gm_intrusion": "In its rage, the ravage bear makes an extra attack that does 2 additional points of damage."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 20,
+      "armor": 1,
+      "damage": 7,
+      "movement": "Long",
+      "modifications": [
+        "Makes Might defense rolls as level 6; runs, climbs, and jumps as level 7"
+      ],
+      "combat": [
+        "A ravage bear grabs foes with its powerful arms, holds them fast, and then squeezes and tears at them until they are dead. It can hold only one creature at a time. While a ravage bear is holding a creature, it can attack only the held creature. In each round that a held creature does not escape, it suffers 4 points of damage in addition to damage from attacks made against it. A ravage bear can move very quickly in short sprints. In combat, it can go into an insane fury and will fight to the death. If it takes 10 or more points of damage, its defenses are hindered, but its attacks are eased. Ravage bears are immune to visual effects, such as illusions. However, olfactory effects can confuse and “blind” them temporarily."
+      ],
+      "interaction": [
+        "Ravage bears are animals and act like animals."
+      ],
+      "loot": []
+    },
+    "text": "A ravage bear is a hideous predator that hunts entirely by sense of smell. It is blind and nearly deaf, but it still tracks and senses prey easily. It is very protective of its young, and if hungry, it is extremely dangerous. Otherwise, it gives most creatures a wide berth.\n\nMotive: Hungers for flesh\n\nEnvironment: Alone or in pairs (usually with a few cubs) in wooded, rocky, or mountainous areas, typically in cold or temperate climes\n\nHealth: 20\n\nDamage Inflicted: 7 points\n\nArmor: 1\n\nMovement: Long\n\nModifications: Makes Might defense rolls as level 6; runs, climbs, and jumps as level 7\n\nCombat: A ravage bear grabs foes with its powerful arms, holds them fast, and then squeezes and tears at them until they are dead. It can hold only one creature at a time. While a ravage bear is holding a creature, it can attack only the held creature. In each round that a held creature does not escape, it suffers 4 points of damage in addition to damage from attacks made against it.\n\nA ravage bear can move very quickly in short sprints. In combat, it can go into an insane fury and will fight to the death. If it takes 10 or more points of damage, its defenses are hindered, but its attacks are eased.\n\nRavage bears are immune to visual effects, such as illusions. However, olfactory effects can confuse and “blind” them temporarily.\n\nInteraction: Ravage bears are animals and act like animals.\n\nUse: Ravage bears are likely chance encounters in the wilderness for unlucky travelers.\n\nGM Intrusion: In its rage, the ravage bear makes an extra attack that does 2 additional points of damage.\n\nRavage bear\nLevel 4 (target number 12)\nHealth: 20\nArmor: 1\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.qT2StUmJ4FDfS2Ji",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_ravage-bear_20260313T124848_640ea250.webp",
+      "images": [
+        "uploads/foundryvtt/creature_ravage-bear_20260313T124848_640ea250.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_ravage-bear.webp"
+    },
+    "description": "Ravage bears are likely chance encounters in the wilderness for unlucky travelers."
+  }
+}

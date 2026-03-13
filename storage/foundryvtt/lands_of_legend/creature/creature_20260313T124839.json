@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:39.104327+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124839.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Hell Mary",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Hell Mary",
+      "environment": "Anywhere with a mirror",
+      "motive": "Revenge",
+      "interaction": "Hell Mary only cares about one thing— revenge. All other topics are likely to fall upon deaf ears.",
+      "use": "A character was attacked and calls upon Hell Mary to help them seek revenge. Someone is using Hell Mary to seek revenge (rightfully or wrongfully) upon a character."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 15,
+      "armor": 0,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Intimidation as level 7"
+      ],
+      "combat": [
+        "Hell Mary merely has to scream at, strangle, or scratch a foe within immediate range to inflict 5 points of Intellect damage (ignores Armor). She can curse a creature within short range to experience intense fear, stunning them for a minute or until they succeed at an Intellect defense roll to break free. She can possess a willing summoner for a few rounds in order to enact revenge on their behalf. During this time her summoner can only watch, feel, and listen as Hell Mary gets them their retribution."
+      ],
+      "interaction": [
+        "Hell Mary only cares about one thing— revenge. All other topics are likely to fall upon deaf ears."
+      ],
+      "loot": []
+    },
+    "text": "Say her name thirteen times, but only if you dare. Over the ages, Hell Mary has been rumored to be a ghost, a witch, a demon, and a hoax, and perhaps she has been all of these over time. But now she is none of these and more—over the years of worship and wonder and whispers, she has morphed into something far greater than the sum of her parts.\n\nNow she is a demon, built of blood and bone and sustained purely by revenge.\n\nThose who wish to call her merely need say her name thirteen times while looking into a mirror (or just three times if the mirror has magic of any kind to it). Those who seek revenge may call upon her for aid, but only if she deems their need worthy. Those who call her on a whim or a dare will shortly find themselves in dire straits.\n\nIn the mirror, she looks at first like a glare of light, then as a skeleton or dead body, then as a woman with the face of a nightmare—empty eye sockets and a single bloodshot eye in her forehead. Her mouth is full of sharpened teeth, and the claws of her hands are curled and silver tipped. Her skin and dress are so coated in blood it’s impossible to tell where they end and she begins. As she starts to crawl from the mirror, she moves faster and faster until she pulls herself fully free as a corporeal being. Typically, Hell Mary will not attack creatures that she deems as innocent or unworthy of revenge, unless they provoke her in some way.\n\nMotive: Revenge\n\nEnvironment: Anywhere with a mirror\n\nHealth: 15\n\nDamage Inflicted: 5 points\n\nMovement: Short\n\nModifications: Intimidation as level 7\n\nCombat: Hell Mary merely has to scream at, strangle, or scratch a foe within immediate range to inflict 5 points of Intellect damage (ignores Armor).\n\nShe can curse a creature within short range to experience intense fear, stunning them for a minute or until they succeed at an Intellect defense roll to break free.\n\nShe can possess a willing summoner for a few rounds in order to enact revenge on their behalf. During this time her summoner can only watch, feel, and listen as Hell Mary gets them their retribution.\n\nInteraction: Hell Mary only cares about one thing— revenge. All other topics are likely to fall upon deaf ears.\n\nUse: A character was attacked and calls upon Hell Mary to help them seek revenge. Someone is using Hell Mary to seek revenge (rightfully or wrongfully) upon a character.\n\nHell Mary\nLevel 5 (target number 15)\nHealth: 15\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.8l1byl7SbJ64cQ1Z",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_hell-mary_20260313T124839_0dbbf8da.webp",
+      "images": [
+        "uploads/foundryvtt/creature_hell-mary_20260313T124839_0dbbf8da.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/modern-fantasy/creature_hell-mary.webp"
+    },
+    "description": "A character was attacked and calls upon Hell Mary to help them seek revenge. Someone is using Hell Mary to seek revenge (rightfully or wrongfully) upon a character."
+  }
+}

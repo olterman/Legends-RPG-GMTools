@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:44.011218+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124944.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Catholicon",
+    "description": "Level: 1d6 + 2 Effect: Cures any disease of the cypher level or lower.",
+    "sections": {
+      "name": "Catholicon",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Cures any disease of the cypher level or lower."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Cures any disease of the cypher level or lower.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124944_01e915f4.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124944_01e915f4.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

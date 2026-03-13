@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:59.940434+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124959_20260313T124959.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Penultimate key",
+    "description": "Level: 1d6 + 2 Effect: Locks or unlocks any one door, portal, chest, or other lockable item of the cypher’s level or lower. The targeted item must have a keyhole for the cypher to work. Legends speak of the Ultimate Key, which can open any lock, even those sealed by a god.",
+    "sections": {
+      "name": "Penultimate key",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Locks or unlocks any one door, portal, chest, or other lockable item of the cypher’s level or lower. The targeted item must have a keyhole for the cypher to work.\n\nLegends speak of the Ultimate Key, which can open any lock, even those sealed by a god."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Locks or unlocks any one door, portal, chest, or other lockable item of the cypher’s level or lower. The targeted item must have a keyhole for the cypher to work.\n\nLegends speak of the Ultimate Key, which can open any lock, even those sealed by a god.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124959_bd89aa17.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124959_bd89aa17.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

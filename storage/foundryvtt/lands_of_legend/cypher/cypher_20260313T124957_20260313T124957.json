@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:57.972722+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124957_20260313T124957.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Matter transference ray",
+    "description": "Level: 1d6 + 3 Effect: The user can target one nonliving object within long range that is their size or smaller of the cypher level or lower. The object is transferred directly to a random location at least 100 miles (160 km) away. If the GM feels it appropriate to the circumstances, only a portion of an object is transferred (a portion whose volume is no more than the user’s).",
+    "sections": {
+      "name": "Matter transference ray",
+      "level": "1d6 + 3",
+      "effect": "Level: 1d6 + 3\n\nEffect: The user can target one nonliving object within long range that is their size or smaller of the cypher level or lower. The object is transferred directly to a random location at least 100 miles (160 km) away. If the GM feels it appropriate to the circumstances, only a portion of an object is transferred (a portion whose volume is no more than the user’s)."
+    },
+    "text": "Level: 1d6 + 3\n\nEffect: The user can target one nonliving object within long range that is their size or smaller of the cypher level or lower. The object is transferred directly to a random location at least 100 miles (160 km) away. If the GM feels it appropriate to the circumstances, only a portion of an object is transferred (a portion whose volume is no more than the user’s).",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124957_e756358d.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124957_e756358d.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

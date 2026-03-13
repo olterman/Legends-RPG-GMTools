@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:32.155443+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124832.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Drad Soriul",
+    "sheet": {
+      "name": "Drad Soriul",
+      "sentence": "Drad Soriul is Lizardfolk who Controls Beasts.",
+      "type": "Ranger",
+      "flavor": "",
+      "descriptor": "Lizardfolk",
+      "focus": "Controls Beasts",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 13,
+          "speed": 11,
+          "intellect": 12
+        },
+        "current": {
+          "might": 13,
+          "speed": 11,
+          "intellect": 12
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Trained in balancing, jumping, and swimming",
+          "Trained in hunting and tracking",
+          "Light weapons",
+          "Medium weapons",
+          "Practiced in using javelins and spears",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Heavy weapons",
+          "Your slightly clawed hands make fine detail work difficult"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Beast Companion",
+        "Danger Sense",
+        "Practiced With All Weapons",
+        "Surging Confidence",
+        "Trained Without Armor"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Trained in balancing, jumping, and swimming",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in hunting and tracking",
+          "level": "trained"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Practiced in using javelins and spears",
+          "level": "practiced"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Your slightly clawed hands make fine detail work difficult",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Javelin",
+          "description": "A small throwing javelin. Granted from Lizardfolk. Attacks are eased by 1 for Light weapons.Point-Blank Range: If a character uses a ranged weapon against a target within immediate range, the attack is eased.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "long range",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Light Weapon",
+          "description": "A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Spear",
+          "description": "A sturdy thrusting spear. Granted from Lizardfolk.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "long range",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Attractor",
+          "level": "5",
+          "description": "One unanchored item the user's size or smaller within long range (very long range if the cypher level is 8 or higher) is drawn immediately to them. This takes one round. The item has no momentum when it arrives."
+        },
+        {
+          "name": "Ray Emitter",
+          "level": "7",
+          "description": "Allows the user to project a ray of destructive energy up to very long range that inflicts damage equal to the cypher's level. Roll a d100 to determine the type of energy. (Even weirder ray emitters: Turns target inside out, Inflicts damage and turns flesh blue, Renders target mute, Damages only plants, Damages only inorganic matter, Turns flesh to dead, stonelike material) Rolled a 33. Heat/concentrated light."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "You have a spear and a pair of javelins.  Granted from Lizardfolk.",
+        "Appropriate clothing and a weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nFortuitous Malfunction\nA trap or a dangerous device malfunctions before it can affect you.\n\nSerendipitous Landmark\nJust when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point.\n\nWeak Strain\nThe poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflicts only half the damage that it would have otherwise.\n\nAgile\n+2 to your Speed Pool.\nGranted from Lizardfolk\n\nScaly\n+1 to Armor.\nGranted from Lizardfolk\n\nPossible GM intrusion from your focus:\nThe community is reluctant to welcome dangerous animals. Out-of-control beasts become a real hazard.\n\nBackground:\nA Ranger is also known as a Explorer\n\nRanger\nYou are a person of action and physical ability, fearlessly facing the unknown. You travel to strange, exotic, and dangerous places, and discover new things. This means you're physical but also probably knowledgeable. Although Explorers can be academics or well studied, they are first and foremost interested in action. They face grave dangers and terrible obstacles as a routine part of life.\n\nLizardfolk\nYou are from a long line of fierce reptilian predators. You show your fangs and scales proudly. Your people survive and thrive in the wetlands, guarding their eggs, raising their hatchlings, and protecting their territory. City-builders may call you a savage and your culture primitive, but there is grace in your hunting, artistry in your crafting, joy in your songs, and reverence in your worship.\n\nControls Beasts\nYour ability to communicate and lead beasts is uncanny.\n\nChoose how you became involved in the adventure:\n- The other PCs were lost in your territory and you were sent to escort them out.\n- Something has been attacking your community and you want to find and destroy it.\n- You were exiled from your community and need to prove your worthiness before you can return to it.\n- You or your priest had a vision of you traveling with the other PCs.\n\nBackground Connection:\nYou used to be a teacher. Your students remember you fondly.\n\nFocus Connection:\nPick one other PC. You once saved their life, and they clearly feel indebted to you. You wish they didn't; it's just part of the job.\n\nTrained in balancing, jumping, and swimming: Granted from Lizardfolk\nTrained in hunting and tracking: Granted from Lizardfolk\nLight weapons: Light Weapons\nGranted from Explorer\nMedium weapons: Medium Weapons\nGranted from Explorer\nPracticed in using javelins and spears: Granted from Lizardfolk\nHeavy weapons: Heavy Weapons\nGranted from Explorer\nYour slightly clawed hands make fine detail work difficult: You have an inability with picking locks, picking pockets, and other manual dexterity tasks (but not crafting).\nGranted from Lizardfolk\nBeast Companion: A level 2 creature of your size or smaller accompanies you and follows your instructions. You and the GM must work out the details of your creature, and you'll probably make rolls for it in combat or when it takes actions. The beast companion acts on your turn. As a level 2 creature, it has a target number of 6 and 6 health and it inflicts 2 points of damage. Its movement is based on its creature type (avian, swimmer, and so on). If your beast companion dies, you can hunt in the wild for 1d6 days to find a new one. Enabler. (A creature's level determines its target number, health, and damage, unless otherwise stated. So a level 2 beast companion has a target number of 6 and a health of 6, and it inflicts 2 points of damage. A level 4 beast companion has a target number of 12 and a health of 12, and it inflicts 4 points of damage. And so on.)\nGranted from Controls Beasts\nDanger Sense: Your initiative task is eased. You pay the cost each time the ability is used. Enabler.\nGranted from Ranger\nPracticed With All Weapons: You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler.\nGranted from Ranger\nSurging Confidence: When you use an action to make your first recovery roll of the day, you immediately gain another action. Enabler.\nGranted from Ranger\nTrained Without Armor: You are trained in Speed defense tasks when not wearing armor. Enabler.\nGranted from Ranger\nJavelin: A small throwing javelin. Granted from Lizardfolk. Attacks are eased by 1 for Light weapons.Point-Blank Range: If a character uses a ranged weapon against a target within immediate range, the attack is eased.\nLight Weapon: A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.\nSpear: A sturdy thrusting spear. Granted from Lizardfolk.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Drad Soriul",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Ranger",
+        "flavor": "",
+        "descriptor": "Lizardfolk",
+        "focus": "Controls Beasts",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124832_28cfc8a8.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124832_28cfc8a8.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Ranger",
+      "flavor": "",
+      "descriptor": "Lizardfolk",
+      "focus": "Controls Beasts",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124832_28cfc8a8.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124832_28cfc8a8.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Fortuitous Malfunction A trap or a dangerous device malfunctions before it can affect you. Serendipitous Landmark Just when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point. Weak Strain The poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflic…"
+  }
+}

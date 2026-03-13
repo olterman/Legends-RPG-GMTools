@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:31.114176+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124831.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Demon hunter",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Demon hunter",
+      "motive": "Hunt down and defeat their chosen foes",
+      "interaction": "Many novice hunters are overconfident and condescending. Others (especially the more experienced ones) are paranoid and hardened by battle and the deaths of too many friends. They react positively if given respect.",
+      "use": "A couple of rough-looking drifters arrive in a classic car, looking for trouble. Someone who seems to be a meek professor turns out to secretly be a hunter.",
+      "loot": "Hunters carry equipment needed for their job, cash, and perhaps an old book (cypher) with an ability relevant to their current prey."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 0,
+      "damage": 4,
+      "movement": "Short",
+      "modifications": [
+        "Attacks and Intellect defense as level 4; perception, tracking, and creature lore as level 5"
+      ],
+      "combat": [
+        "A typical hunter is weaker than the average demon or witch, and prefers to outwit their foes rather than engage in a straight-up fight. Knowing this, they pick their battles carefully and use ambush tactics and strength of numbers—either another hunter or several support characters such as priests and soldiers—to help defeat their foes. A hunter usually has a good idea of their opponent’s strengths and weaknesses, and they plan and react accordingly. Depending on the setting, a demon hunter might hunt demons, vampires, witches, or all supernatural creatures. Exceptional hunter: level 5; attacks and Intellect defense as level 6; perception, tracking, and creature lore as level 7; health 20; attacks deal 6 damage Priest: level 2, religious lore and all interaction tasks as level 6 Soldier: level 3, perception as level 4; health 12; Armor 1; attacks inflict 5 damage"
+      ],
+      "interaction": [
+        "Many novice hunters are overconfident and condescending. Others (especially the more experienced ones) are paranoid and hardened by battle and the deaths of too many friends. They react positively if given respect."
+      ],
+      "loot": [
+        "Hunters carry equipment needed for their job, cash, and perhaps an old book (cypher) with an ability relevant to their current prey."
+      ]
+    },
+    "text": "In a world where demons, witches, and other evil magical creatures are free to prey upon humanity, hunters are one of the few things that keep them in check. They usually have to keep their work secret and are slow to trust anyone, but once befriended they have a habit of showing up just when help is needed.\n\nMotive: Hunt down and defeat their chosen foes\n\nHealth: 12\n\nDamage Inflicted: 4 points\n\nMovement: Short\n\nModifications: Attacks and Intellect defense as level 4; perception, tracking, and creature lore as level 5\n\nCombat: A typical hunter is weaker than the average demon or witch, and prefers to outwit their foes rather than engage in a straight-up fight. Knowing this, they pick their battles carefully and use ambush tactics and strength of numbers—either another hunter or several support characters such as priests and soldiers—to help defeat their foes. A hunter usually has a good idea of their opponent’s strengths and weaknesses, and they plan and react accordingly.\n\nDepending on the setting, a demon hunter might hunt demons, vampires, witches, or all supernatural creatures.\n\nExceptional hunter: level 5; attacks and Intellect defense as level 6; perception, tracking, and creature lore as level 7; health 20; attacks deal 6 damage\n\nPriest: level 2, religious lore and all interaction tasks as level 6\n\nSoldier: level 3, perception as level 4; health 12; Armor 1; attacks inflict 5 damage\n\nInteraction: Many novice hunters are overconfident and condescending. Others (especially the more experienced ones) are paranoid and hardened by battle and the deaths of too many friends. They react positively if given respect.\n\nUse: A couple of rough-looking drifters arrive in a classic car, looking for trouble. Someone who seems to be a meek professor turns out to secretly be a hunter.\n\nLoot: Hunters carry equipment needed for their job, cash, and perhaps an old book (cypher) with an ability relevant to their current prey.\n\nDemon hunter\nLevel 3 (target number 9)\nHealth: 12\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.kutz7IST4NG4b7II",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_demon-hunter_20260313T124831_0ab7d2d9.webp",
+      "images": [
+        "uploads/foundryvtt/npc_demon-hunter_20260313T124831_0ab7d2d9.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/modern-fantasy/npc_demon-hunter.webp"
+    },
+    "description": "A couple of rough-looking drifters arrive in a classic car, looking for trouble. Someone who seems to be a meek professor turns out to secretly be a hunter."
+  }
+}

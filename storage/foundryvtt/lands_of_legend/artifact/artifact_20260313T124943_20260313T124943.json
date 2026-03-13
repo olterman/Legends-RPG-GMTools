@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:43.864102+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124943_20260313T124943.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Carving knife of sharpness",
+    "description": "Level: 1d6 + 1 Form: Knife (light weapon) Effect: This weapon functions as a normal knife of its kind. When the wielder gets a special major effect when attacking, they can choose to lop off one of the target’s limbs. Depletion: 1 in 1d10 (roll on each major effect) The GM determines the effect of a lost limb; however, many magical beings can withstand lost limbs with far more aplomb than a mortal creature will display in a similar situation.",
+    "sections": {
+      "name": "Carving knife of sharpness",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Knife (light weapon)\n\nEffect: This weapon functions as a normal knife of its kind. When the wielder gets a special major effect when attacking, they can choose to lop off one of the target’s limbs.\n\nDepletion: 1 in 1d10 (roll on each major effect)\n\nThe GM determines the effect of a lost limb; however, many magical beings can withstand lost limbs with far more aplomb than a mortal creature will display in a similar situation.",
+      "depletion": "1 in [[/r d10]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Knife (light weapon)\n\nEffect: This weapon functions as a normal knife of its kind. When the wielder gets a special major effect when attacking, they can choose to lop off one of the target’s limbs.\n\nDepletion: 1 in 1d10 (roll on each major effect)\n\nThe GM determines the effect of a lost limb; however, many magical beings can withstand lost limbs with far more aplomb than a mortal creature will display in a similar situation.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124943_65dea537.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124943_65dea537.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

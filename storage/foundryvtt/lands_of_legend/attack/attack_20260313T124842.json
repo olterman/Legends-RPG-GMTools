@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.053157+00:00",
+  "filename": "foundryvtt/lands_of_legend/attack/attack_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "attack",
+    "name": "Heavy Weapon",
+    "sections": {
+      "description": "<p>A heavy weapon of your choice. Granted from Starting Equipment. Requires two hands.</p>",
+      "weapon_type": "Heavy",
+      "damage": "6",
+      "range": "",
+      "skill_rating": "Practiced"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Llornoth Abal",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124842.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/attack_20260313T124842_c178b364.svg",
+      "images": [
+        "uploads/foundryvtt/attack_20260313T124842_c178b364.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/attack.svg"
+    }
+  }
+}

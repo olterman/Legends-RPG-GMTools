@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:51.057914+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124851.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Snark",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Snark",
+      "environment": "Upon islands filled with chasms and crags, near bathing machines, and around those whose coats are too tight in the waist",
+      "motive": "Unfathomable",
+      "interaction": "Not recommended.",
+      "use": "The characters are given the impossible task of hunting a snark. Whether or not they actually find one, they have grand adventures along the way.",
+      "loot": "The frabjous joy of catching the impossible, improbable, unimaginable snark.",
+      "gm_intrusion": "Everything about the snark is a GM intrusion."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 21,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short when moving perpendicular; long when moving sideways",
+      "modifications": [
+        "Invisibility, shapeshifting, confusion, and mimsy as level 8"
+      ],
+      "combat": [
+        "Inflicts 5 points of damage with biting feathers, catching claws, and snatching jaws. Also blows out a stream of fire that can light a match or inflict 3 points of damage to everyone in close range."
+      ],
+      "interaction": [
+        "Not recommended."
+      ],
+      "loot": [
+        "The frabjous joy of catching the impossible, improbable, unimaginable snark."
+      ]
+    },
+    "text": "The snark is unimaginable. It is a Boojum, you see. An agony in eight fits. Part snail and shark and bark and snake and snarl. It has feathers that bite, claws that catch, and jaws that snatch. It softly and suddenly vanishes away, never to be met with again. It smells of the will-o-wisp, sleeps late in the day, and breathes fire when it finds something funny (which is nearly never).\n\nMotive: Unfathomable\n\nEnvironment: Upon islands filled with chasms and crags, near bathing machines, and around those whose coats are too tight in the waist\n\nHealth: 21\n\nDamage Inflicted: 5 points\n\nArmor: 2\n\nMovement: Short when moving perpendicular; long when moving sideways\n\nModifications: Invisibility, shapeshifting, confusion, and mimsy as level 8\n\nCombat: Inflicts 5 points of damage with biting feathers, catching claws, and snatching jaws. Also blows out a stream of fire that can light a match or inflict 3 points of damage to everyone in close range.\n\nInteraction: Not recommended.\n\nUse: The characters are given the impossible task of hunting a snark. Whether or not they actually find one, they have grand adventures along the way.\n\nLoot: The frabjous joy of catching the impossible, improbable, unimaginable snark.\n\nGM Intrusion: Everything about the snark is a GM intrusion.\n\nSnark\nLevel 7 (target number 21)\nHealth: 21\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.kj4cwtfq3E2rHOkU",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_snark_20260313T124851_3748f044.webp",
+      "images": [
+        "uploads/foundryvtt/creature_snark_20260313T124851_3748f044.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/creature_snark.webp"
+    },
+    "description": "The characters are given the impossible task of hunting a snark. Whether or not they actually find one, they have grand adventures along the way."
+  }
+}

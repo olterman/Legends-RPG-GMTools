@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:49.065865+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124949.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Dust of the dreamer",
+    "description": "Level: 1d6 Form: Pouch of very fine, rainbow-hued dust Effect: When sprinkled in the eyes, grants the recipient all the benefits of a ten-hour recovery roll as a single action. This does not use up any of their recovery rolls.",
+    "sections": {
+      "name": "Dust of the dreamer",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Pouch of very fine, rainbow-hued dust\n\nEffect: When sprinkled in the eyes, grants the recipient all the benefits of a ten-hour recovery roll as a single action. This does not use up any of their recovery rolls."
+    },
+    "text": "Level: 1d6\n\nForm: Pouch of very fine, rainbow-hued dust\n\nEffect: When sprinkled in the eyes, grants the recipient all the benefits of a ten-hour recovery roll as a single action. This does not use up any of their recovery rolls.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124949_5142ea13.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124949_5142ea13.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

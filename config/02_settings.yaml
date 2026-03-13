@@ -1,23 +1,22 @@
 settings:
   core:
-    - fantasy
-    - modern
-    - modern_magic
-    - cyberpunk
-    - science_fiction
-    - horror
-    - romance
-    - superheroes
-    - post_apocalyptic
-    - fairy_tale
-    - historical
-    - weird_west
-
+  - fantasy
+  - modern
+  - modern_magic
+  - cyberpunk
+  - science_fiction
+  - horror
+  - romance
+  - superheroes
+  - post_apocalyptic
+  - fairy_tale
+  - historical
+  - weird_west
   catalog:
     fantasy:
       label: Fantasy
       worlds:
-        - lands_of_legends
+      - lands_of_legends
     modern:
       label: Modern
       worlds: []
@@ -51,34 +50,28 @@ settings:
     weird_west:
       label: Weird West
       worlds: []
-
   defaults:
-    - fantasy
-    - lands_of_legends
-
-# New terminology alias:
-# genres = old settings
-# settings (nested in catalog) = old worlds
+  - fantasy
+  - lands_of_legends
 genres:
   core:
-    - fantasy
-    - modern
-    - modern_magic
-    - cyberpunk
-    - science_fiction
-    - horror
-    - romance
-    - superheroes
-    - post_apocalyptic
-    - fairy_tale
-    - historical
-    - weird_west
-
+  - fantasy
+  - modern
+  - modern_magic
+  - cyberpunk
+  - science_fiction
+  - horror
+  - romance
+  - superheroes
+  - post_apocalyptic
+  - fairy_tale
+  - historical
+  - weird_west
   catalog:
     fantasy:
       label: Fantasy
       settings:
-        - lands_of_legends
+      - lands_of_legends
     modern:
       label: Modern
       settings: []
@@ -112,7 +105,6 @@ genres:
     weird_west:
       label: Weird West
       settings: []
-
   defaults:
-    - fantasy
-    - lands_of_legends
+  - fantasy
+  - lands_of_legends

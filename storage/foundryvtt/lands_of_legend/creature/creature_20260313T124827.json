@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:27.001759+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124827.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Bargainer fiend",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Bargainer fiend",
+      "environment": "Anywhere humans can be found",
+      "motive": "Bargain for souls",
+      "interaction": "Bargainer fiends serve at the pleasure of their infernal masters, and they know their lives are forfeit if they ever fail. This colors their interactions with clients; they will say anything to accomplish their mission, and their only true loyalty is to the fiend who created and controls them.",
+      "use": "A motivational speaker offers to teach clients confidence and charm, with great results. An old sorcerer knows some rare magic for those willing to pay a steep price. A mysterious person has been seen visiting people in the terminal ward of various hospitals.",
+      "loot": "A bargainer fiend may have a cypher relating to their duties or as a gift or payment for a client, but most of their material riches are hell-crafted and not safe to carry for long."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 2,
+      "damage": 4,
+      "movement": "Short",
+      "modifications": [
+        "Deception as level 5"
+      ],
+      "combat": [
+        "A bargainer fiend attacks with a punch or a firearm. If they aren’t trying to hide their inhuman nature, they throw short-range bolts of painful hellfire, inflicting 4 points of damage and stunning the target for one round. The heart of a bargainer fiend’s power is its ability to arrange for rewards for a mortal client in exchange for the client’s soul. Typical rewards are training in a skill, learning a new type or focus ability, wealth equivalent to one exorbitant item, an artifact, or anything else that can be acquired by spending 4 XP. The price is always the client’s mortal soul, usually after a specific time period. Bigger demands by the client require the fiend to get approval from their superiors, and the price is higher, but usually still manageable. A bargainer fiend can use an action to transform themself into a human or near-human form (such as a human with devil horns) or return to their natural form. They can assume the guise of a specific human (such as a person their client knows) only if that human is dead or has an agreement with a bargainer fiend."
+      ],
+      "interaction": [
+        "Bargainer fiends serve at the pleasure of their infernal masters, and they know their lives are forfeit if they ever fail. This colors their interactions with clients; they will say anything to accomplish their mission, and their only true loyalty is to the fiend who created and controls them."
+      ],
+      "loot": [
+        "A bargainer fiend may have a cypher relating to their duties or as a gift or payment for a client, but most of their material riches are hell-crafted and not safe to carry for long."
+      ]
+    },
+    "text": "Bargainer fiends are natives of “hell dimensions” whose job is to come to the mortal world and convince people to barter or trade their souls. Their natural shape is usually a lanky humanoid with horns, claws, vestigial bat wings, and a forked tail, with a faint smell of brimstone, but they can partially or completely disguise themselves as humans to tempt and advise mortals.\n\nTypical devils are warriors and torturers, and demons are mortal souls reforged into entities of pure spite and hate, whereas bargainer fiends see themselves as classier beings with loftier goals. However, bargainers are aware that they are weaker than their counterparts, and they make sure they don’t do any front-line fighting if they can help it.\n\nMotive: Bargain for souls\n\nEnvironment: Anywhere humans can be found\n\nHealth: 9\n\nDamage Inflicted: 4 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: Deception as level 5\n\nCombat: A bargainer fiend attacks with a punch or a firearm. If they aren’t trying to hide their inhuman nature, they throw short-range bolts of painful hellfire, inflicting 4 points of damage and stunning the target for one round.\n\nThe heart of a bargainer fiend’s power is its ability to arrange for rewards for a mortal client in exchange for the client’s soul. Typical rewards are training in a skill, learning a new type or focus ability, wealth equivalent to one exorbitant item, an artifact, or anything else that can be acquired by spending 4 XP. The price is always the client’s mortal soul, usually after a specific time period. Bigger demands by the client require the fiend to get approval from their superiors, and the price is higher, but usually still manageable.\n\nA bargainer fiend can use an action to transform themself into a human or near-human form (such as a human with devil horns) or return to their natural form. They can assume the guise of a specific human (such as a person their client knows) only if that human is dead or has an agreement with a bargainer fiend.\n\nInteraction: Bargainer fiends serve at the pleasure of their infernal masters, and they know their lives are forfeit if they ever fail. This colors their interactions with clients; they will say anything to accomplish their mission, and their only true loyalty is to the fiend who created and controls them.\n\nUse: A motivational speaker offers to teach clients confidence and charm, with great results. An old sorcerer knows some rare magic for those willing to pay a steep price. A mysterious person has been seen visiting people in the terminal ward of various hospitals.\n\nLoot: A bargainer fiend may have a cypher relating to their duties or as a gift or payment for a client, but most of their material riches are hell-crafted and not safe to carry for long.\n\nBargainer fiend\nLevel 3 (target number 9)\nHealth: 9\nArmor: 2\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.26ELcG5exRCAWBkj",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.creatures.Actor.Z4Y7VaCkpXbCZ2yy",
+          "label": "devils"
+        },
+        {
+          "target": "Compendium.cyphersystem-compendium.creatures.Actor.C2tRCVUtCl1OEb7M",
+          "label": "demons"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/creature_bargainer-fiend_20260313T124827_76ef484f.webp",
+      "images": [
+        "uploads/foundryvtt/creature_bargainer-fiend_20260313T124827_76ef484f.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/modern-fantasy/creature_bargainer-fiend.webp"
+    },
+    "description": "A motivational speaker offers to teach clients confidence and charm, with great results. An old sorcerer knows some rare magic for those willing to pay a steep price. A mysterious person has been seen visiting people in the terminal ward of various hospitals."
+  }
+}

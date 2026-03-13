@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.906194+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124855_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Wardroid",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Wardroid",
+      "environment": "Anywhere",
+      "motive": "Maintain control, crush, kill, destroy",
+      "interaction": "Interaction is difficult for those not authorized to communicate with a wardroid.",
+      "use": "Wardroids are often deployed in groups of two or three to guard a vault or the entrance to a spacecraft, or to track down intruders aboard a space station.",
+      "loot": "The remains of a wardroid can yield one or two cyphers to someone adept at salvage.",
+      "gm_intrusion": "When defeated, the wardroid detonates, inflicting 8 points of damage on all creatures within immediate range."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 30,
+      "armor": 3,
+      "damage": 8,
+      "movement": "Short; some models can fly a short distance each round",
+      "modifications": [
+        "Attacks as level 7"
+      ],
+      "combat": [
+        "A wardroid’s main weapon is a bank of laser blasters that it can use to attack up to three foes standing next to each other as one action. When damaged, a wardroid regains 1 point of health each round. Furthermore, each wardroid has one additional capability. Roll a [[/r d6]] to determine the ability. d6 Ability 1 Emit poison gas that inflicts 5 points of damage on organic beings in immediate range 2 Project grenades up to long distance that detonate in an immediate radius, inflicting 5 points of damage 3 Fire a beam that stuns an organic being for one round, during which it cannot take actions 4 Emit a field that disrupts machines; technological devices and machine creatures in immediate range cannot function for one round 5 Fire a piercing projectile up to long range that inflicts 6 points of damage that ignores physical armor (but not necessarily other Armor) 6 Spray a corrosive that inflicts 5 points of damage on everything in immediate range"
+      ],
+      "interaction": [
+        "Interaction is difficult for those not authorized to communicate with a wardroid."
+      ],
+      "loot": [
+        "The remains of a wardroid can yield one or two cyphers to someone adept at salvage."
+      ]
+    },
+    "text": "When star troopers need heavy support, they sometimes bring in wardroids. These fearsome robots, standing about 8 feet (2 m) tall, are ruthless even by trooper standards and are known to kill innocent bystanders as often as they kill foes. It is said that when wardroids are unleashed, wise troopers fall back and take cover.\n\nMotive: Maintain control, crush, kill, destroy\n\nEnvironment: Anywhere\n\nHealth: 30\n\nDamage Inflicted: 8 points\n\nArmor: 3\n\nMovement: Short; some models can fly a short distance each round\n\nModifications: Attacks as level 7\n\nCombat: A wardroid’s main weapon is a bank of laser blasters that it can use to attack up to three foes standing next to each other as one action. When damaged, a wardroid regains 1 point of health each round. Furthermore, each wardroid has one additional capability. Roll a [[/r d6]] to determine the ability.\n\nd6\nAbility\n\n1\nEmit poison gas that inflicts 5 points of damage on organic beings in immediate range\n\n2\nProject grenades up to long distance that detonate in an immediate radius, inflicting 5 points of damage\n\n3\nFire a beam that stuns an organic being for one round, during which it cannot take actions\n\n4\nEmit a field that disrupts machines; technological devices and machine creatures in immediate range cannot function for one round\n\n5\nFire a piercing projectile up to long range that inflicts 6 points of damage that ignores physical armor (but not necessarily other Armor)\n\n6\nSpray a corrosive that inflicts 5 points of damage on everything in immediate range\n\nInteraction: Interaction is difficult for those not authorized to communicate with a wardroid.\n\nUse: Wardroids are often deployed in groups of two or three to guard a vault or the entrance to a spacecraft, or to track down intruders aboard a space station.\n\nLoot: The remains of a wardroid can yield one or two cyphers to someone adept at salvage.\n\nGM Intrusion: When defeated, the wardroid detonates, inflicting 8 points of damage on all creatures within immediate range.\n\nWardroid\nLevel 6 (target number 18)\nHealth: 30\nArmor: 3\nDamage: 8",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.WsWJRqBjUW1WO1Wp",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_war-droid_20260313T124855_71cf0985.webp",
+      "images": [
+        "uploads/foundryvtt/creature_war-droid_20260313T124855_71cf0985.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_war-droid.webp"
+    },
+    "description": "Wardroids are often deployed in groups of two or three to guard a vault or the entrance to a spacecraft, or to track down intruders aboard a space station."
+  }
+}

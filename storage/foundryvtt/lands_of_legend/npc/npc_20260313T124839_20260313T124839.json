@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:39.750632+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124839_20260313T124839.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Huntsman/woodcutter",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Huntsman/woodcutter",
+      "environment": "Woods, forests, and other wild lands",
+      "motive": "Follow orders, support their loved ones, protect the innocent",
+      "interaction": "Many huntsmen and woodcutters are motivated by a deep need to be loyal, but they’re also soft of heart and have a strong moral center. If they’re tasked with something they deem unpalatable, they may forgo their promises and go rogue.",
+      "use": "They are hunting the characters on the orders of a higher authority. They save the PCs from a dangerous foe, then ask for assistance for their own tasks.",
+      "loot": "In addition to their clothing and mundane weapon, they likely have an expensive token of promise or affection from someone they have helped or who they owe fealty to.",
+      "gm_intrusion": "A perfectly timed cut sends a tree down in the direction of the character."
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 8,
+      "armor": 1,
+      "damage": 2,
+      "movement": "Short",
+      "modifications": [
+        "Tracking and pathfinding as level 4"
+      ],
+      "combat": [
+        "Huntsmen and woodcutters both understand the power of the perfectly aimed shot or swing. They take their time, steady their hand and breath, and hit with precision and force. When they take no action on a turn, their next attack inflicts twice the normal damage."
+      ],
+      "interaction": [
+        "Many huntsmen and woodcutters are motivated by a deep need to be loyal, but they’re also soft of heart and have a strong moral center. If they’re tasked with something they deem unpalatable, they may forgo their promises and go rogue."
+      ],
+      "loot": [
+        "In addition to their clothing and mundane weapon, they likely have an expensive token of promise or affection from someone they have helped or who they owe fealty to."
+      ]
+    },
+    "text": "A huntsman may be in the employ of a powerful magic user, protecting a section of the woods they consider their own, or just trying to provide for their family by chopping wood and hunting game.\n\nMotive: Follow orders, support their loved ones, protect the innocent\n\nEnvironment: Woods, forests, and other wild lands\n\nHealth: 8\n\nDamage Inflicted: 2 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Tracking and pathfinding as level 4\n\nCombat: Huntsmen and woodcutters both understand the power of the perfectly aimed shot or swing. They take their time, steady their hand and breath, and hit with precision and force.\n\nWhen they take no action on a turn, their next attack inflicts twice the normal damage.\n\nInteraction: Many huntsmen and woodcutters are motivated by a deep need to be loyal, but they’re also soft of heart and have a strong moral center. If they’re tasked with something they deem unpalatable, they may forgo their promises and go rogue.\n\nUse: They are hunting the characters on the orders of a higher authority. They save the PCs from a dangerous foe, then ask for assistance for their own tasks.\n\nLoot: In addition to their clothing and mundane weapon, they likely have an expensive token of promise or affection from someone they have helped or who they owe fealty to.\n\nGM Intrusion: A perfectly timed cut sends a tree down in the direction of the character.\n\nHuntsman/woodcutter\nLevel 2 (target number 6)\nHealth: 8\nArmor: 1\nDamage: 2",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.PnLhVe7OOaDb2Kks",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_crafter_20260313T124839_a216a044.webp",
+      "images": [
+        "uploads/foundryvtt/npc_crafter_20260313T124839_a216a044.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/npc_crafter.webp"
+    },
+    "description": "They are hunting the characters on the orders of a higher authority. They save the PCs from a dangerous foe, then ask for assistance for their own tasks."
+  }
+}

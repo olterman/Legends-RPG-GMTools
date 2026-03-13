@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:10.025145+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125010.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Time dilation (offensive)",
+    "description": "Level: 1d6 Effect: For the next twenty-four hours, when the user makes a melee attack, they move at almost instantaneous speed, easing their attacks by two steps (three steps if the cypher is level 6 or higher).",
+    "sections": {
+      "name": "Time dilation (offensive)",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: For the next twenty-four hours, when the user makes a melee attack, they move at almost instantaneous speed, easing their attacks by two steps (three steps if the cypher is level 6 or higher)."
+    },
+    "text": "Level: 1d6\n\nEffect: For the next twenty-four hours, when the user makes a melee attack, they move at almost instantaneous speed, easing their attacks by two steps (three steps if the cypher is level 6 or higher).",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125010_635db967.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125010_635db967.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.081284+00:00",
+  "filename": "ability/ability_20260313T124846.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Ozella Muller",
+    "ability_name": "Chaotic"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Chaotic",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Chaotic'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Ozella Muller",
+      "missing_from_compendium": true,
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ]
+    }
+  }
+}

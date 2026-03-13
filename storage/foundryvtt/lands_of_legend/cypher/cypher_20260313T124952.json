@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:52.012287+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124952.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Forget-me-knot",
+    "description": "Level: 1d6 + 3 Form: Length of magical rope Effect: Knotting the rope together to form a loop allows the user to capture a memory from their past. They don’t lose the memory when capturing it with the forget-me-knot. When the user unties the loop, everyone in close range spends one round doing nothing but experiencing the memory as if it were their own. If the memory is particularly sad, loving, scary, and so on, all affected beings likely spend an additional round dealing with the emotional im…",
+    "sections": {
+      "name": "Forget-me-knot",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Length of magical rope\n\nEffect: Knotting the rope together to form a loop allows the user to capture a memory from their past. They don’t lose the memory when capturing it with the forget-me-knot. When the user unties the loop, everyone in close range spends one round doing nothing but experiencing the memory as if it were their own. If the memory is particularly sad, loving, scary, and so on, all affected beings likely spend an additional round dealing with the emotional impacts of that memory. Capturing the memory is an action, as is untying the loop."
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Length of magical rope\n\nEffect: Knotting the rope together to form a loop allows the user to capture a memory from their past. They don’t lose the memory when capturing it with the forget-me-knot. When the user unties the loop, everyone in close range spends one round doing nothing but experiencing the memory as if it were their own. If the memory is particularly sad, loving, scary, and so on, all affected beings likely spend an additional round dealing with the emotional impacts of that memory. Capturing the memory is an action, as is untying the loop.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124952_baf02f10.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124952_baf02f10.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

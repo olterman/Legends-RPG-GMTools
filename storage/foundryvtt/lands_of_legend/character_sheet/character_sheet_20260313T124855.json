@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.070295+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Velat Doshbes",
+    "sheet": {
+      "name": "Velat Doshbes",
+      "sentence": "Velat Doshbes is Exiled who Travels Through Time.",
+      "type": "Warrior",
+      "flavor": "",
+      "descriptor": "Exiled",
+      "focus": "Travels Through Time",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 14,
+          "speed": 14,
+          "intellect": 8
+        },
+        "current": {
+          "might": 14,
+          "speed": 14,
+          "intellect": 8
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Loner",
+          "Trained in all tasks involving foraging, hunting, and finding safe places to rest or hide",
+          "Trained in all tasks involving sneaking",
+          "Heavy weapons",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Living on your own for as long as you have makes you slow to trust others and awkward in social situations"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Anticipation",
+        "Combat Prowess",
+        "Control The Field",
+        "Practiced In Armor",
+        "Quick Throw"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Loner",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in all tasks involving foraging, hunting, and finding safe places to rest or hide",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in all tasks involving sneaking",
+          "level": "trained"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Living on your own for as long as you have makes you slow to trust others and awkward in social situations",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Heavy Weapon",
+          "description": "A heavy weapon of your choice. Granted from Starting Equipment. Requires two hands.",
+          "damage": 6,
+          "weapon_type": "Heavy",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Intuitive Insight",
+          "level": "4",
+          "description": "You notice, learn, or discover something about your current situation or location. The GM provides you with relevant, useful, and reliable information. You can ask the GM to determine the information on their own, or you can ask the GM one question relevant to your immediate situation, which they must answer truthfully with a simple, non-cryptic response."
+        },
+        {
+          "name": "Wings",
+          "level": "5",
+          "description": "User can fly at their normal running speed for ten minutes per cypher level."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "You have a memento from your past-an old picture, a locket with a few strands of hair inside, or a lighter given to you by someone important. You keep the object close at hand and pull it out to help you remember better times.  Granted from Exiled.",
+        "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment.",
+        "Armor of your choice.  Granted from Practiced In Armor."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nPerfect Setup\nYou're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action.\n\nOld Friend\nA comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a mission of their own and can't stay longer than it takes to help out, chat for a while after, and perhaps share a quick meal.\n\nWeapon Break\nYour foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track.\n\nSelf-Reliant\n+2 to your Might Pool.\nGranted from Exiled\n\nPossible GM intrusion from your focus:\nParadoxes are created. Others remember past events differently.\n\nBackground:\nA Warrior is also known as a Warrior\n\nWarrior\nYou're a good ally to have in a fight. You know how to use weapons and defend yourself. Depending on the genre and setting in question, this might mean wielding a sword and shield in the gladiatorial arena, an AK-47 and a bandolier of grenades in a savage firefight, or a blaster rifle and powered armor when exploring an alien planet. Warriors are physical, action-oriented people. They're more likely to overcome a challenge using force than by other means, and they often take the most straightforward path toward their goals.\n\nExiled\nYou have walked a long and lonely road, leaving your home and your life behind. You might have committed a heinous crime, something so awful that your people forced you out, and if you dare return, you face death. You might have been accused of a crime you didn't commit and now must pay the price for someone else's wicked deed. Your exile might be the result of a social gaffe-perhaps you shamed your family or a friend, or you embarrassed yourself in front of your peers, an authority, or someone you respect. Whatever the reason, you have left your old life behind and now strive to make a new one.\n\nTravels Through Time\nYou can see through time, try to reach through it, and eventually even travel through it.\n\nChoose how you became involved in the adventure:\n- The other PCs earned your trust by helping you when you needed it. You accompany them to repay them.\n- While exploring on your own, you discovered something strange. When you traveled to a settlement, the PCs were the only ones who believed you, and they have accompanied you to help you deal with the problem.\n- One of the other PCs reminds you of someone you used to know.\n- You have grown weary of your isolation. Joining the other PCs gives you a chance to belong.\n\nBackground Connection:\nYou trained in an isolated monastery. The monks think of you as a brother, but you're a stranger to all others.\n\nFocus Connection:\nPick one other PC. You are always trying to impress that character with your skill, wit, appearance, or bravado. Perhaps they are a rival, perhaps you need their respect, or perhaps you're romantically interested in them.\n\nLoner: You gain no benefit when you get help with a task from another character who is trained or specialized in that task.\nGranted from Exiled\nTrained in all tasks involving foraging, hunting, and finding safe places to rest or hide: Granted from Exiled\nTrained in all tasks involving sneaking: Granted from Exiled\nHeavy weapons: Heavy Weapons\nGranted from Warrior\nLight weapons: Light Weapons\nGranted from Warrior\nMedium weapons: Medium Weapons\nGranted from Warrior\nLiving on your own for as long as you have makes you slow to trust others and awkward in social situations: Any task involving social interaction is hindered.\nGranted from Exiled\nAnticipation: You look ahead to see how your actions might unfold. The first task you perform before the end of the next round gains an asset. Action.\nGranted from Travels Through Time\nCombat Prowess: You add +1 damage to one type of weapon attack of your choice: melee weapon attacks or ranged weapon attacks. Enabler.\nGranted from Warrior\nControl The Field: This melee attack inflicts 1 less point of damage than normal, and regardless of whether you hit the target, you maneuver it into a position you desire within immediate range. Action.\nGranted from Warrior\nPracticed In Armor: You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler.\nGranted from Warrior\nQuick Throw: After using a thrown light weapon, you draw another light weapon and make another thrown attack against the same target or a different one. Action.\nGranted from Warrior\nHeavy Weapon: A heavy weapon of your choice. Granted from Starting Equipment. Requires two hands.\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Velat Doshbes",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Warrior",
+        "flavor": "",
+        "descriptor": "Exiled",
+        "focus": "Travels Through Time",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124855_370c691f.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124855_370c691f.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Warrior",
+      "flavor": "",
+      "descriptor": "Exiled",
+      "focus": "Travels Through Time",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124855_370c691f.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124855_370c691f.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Perfect Setup You're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Old Friend A comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a miss…"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:41.376951+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124841.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Kos Udath",
+    "sheet": {
+      "name": "Kos Udath",
+      "sentence": "Kos Udath is Undead Crew who Descends From Nobility.",
+      "type": "Cleric With Magic Flavor",
+      "flavor": "",
+      "descriptor": "Undead Crew",
+      "focus": "Descends From Nobility",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 10,
+          "intellect": 14
+        },
+        "current": {
+          "might": 12,
+          "speed": 10,
+          "intellect": 14
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 0,
+        "intellect": 1
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Allergic to sunlight",
+          "Connection",
+          "Dark appetites",
+          "Dark gift",
+          "Reduce metabolism",
+          "Light weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Heavy weapons",
+          "Medium weapons"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Encouragement",
+        "Fast Talk",
+        "Magic Training",
+        "Mental Link",
+        "Privileged Nobility"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Allergic to sunlight",
+          "level": "trained"
+        },
+        {
+          "name": "Connection",
+          "level": "trained"
+        },
+        {
+          "name": "Dark appetites",
+          "level": "trained"
+        },
+        {
+          "name": "Dark gift",
+          "level": "trained"
+        },
+        {
+          "name": "Reduce metabolism",
+          "level": "trained"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Light Weapon",
+          "description": "A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Full Fury",
+          "level": "3",
+          "description": "You gain +1 Might Edge, +1 Speed Edge, and +2 Armor for one minute. If the cypher level is 5 or higher, these bonuses increase to +2 Might Edge, +2 Speed Edge, and +3 Armor. Either way, your Speed defense rolls are Hindered for the same duration. You can end the effect early (no action required)."
+        },
+        {
+          "name": "Sudden Switcheroo",
+          "level": "8",
+          "description": "You swap places with one willing creature within 1 mile (1.5 km) of you. You must know where the target is, and the cypher cannot teleport through energy barriers of a higher level than the cypher's."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and a light weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nFriendly NPC\nAn NPC you don't know, someone you don't know that well, or someone you know but who hasn't been particularly friendly in the past chooses to help you, though doesn't necessarily explain why. Maybe they'll ask you for a favor in return afterward, depending on how much trouble they go to.\n\nPerfect Suggestion\nA follower or other already-friendly NPC suggests a course of action with regard to an urgent question, problem, or obstacle you're facing.\n\nUnexpected Gift\nAn NPC hands you a physical gift you were not expecting, one that helps put the situation at ease if things seem strained, or provides you with a new insight for understanding the context of the situation if there's something you're failing to understand or grasp.\n\nUndead Strength\n+2 to your Might Pool.\nGranted from Undead Crew\n\nPossible GM intrusion from your focus:\nDebts incurred by a family are owed by the character. A long-lost sibling seeks to disinherit rivals. An assassin finds the character.\n\nBackground:\nA Cleric is also known as a Speaker\n\nCleric\nYou're good with words and good with people. You talk your way past challenges and out of jams, and you get people to do what you want. Speakers are smart and charismatic. They like people and, more important, they understand them. This helps speakers get others to do what needs to be done.\n\nUndead Crew\nThe Undead Crew is for parties where every PC is undead.\n\nCrews let your whole team share abilities across the board as a shared fourth option. Your character sentence is now I'm a [Crew] [Descriptor] [Type] who [Foci]. At first glance, Crews share some things with Descriptors, but as you'll see they come with some added spice called Connections.\n\nEach player gets their individual bonuses and skills. Since everyone is getting the same minor benefits, it all balances out.\n\nThe GM can assign a Crew aspect to the party or players can vote on their favorite.\n\nConnections are a shared resource that may be used twice per session within reason. There may be times where Connections can't be accessed or relied upon. It's easier to think of Connections as providing opportunities, not guarantees, for your party.\n\nCrews can also represent a more in-depth version of a particular race in your campaign.\n\nDescends From Nobility\nA descendent of wealth and power, you carry a noble title and the abilities granted by a privileged upbringing.\n\nBackground Connection:\nYour neighbors were murdered, and the mystery remains unsolved.\n\nFocus Connection:\nPick one other PC. That character comes from the same place you do, and you knew each other as children.\n\nAllergic to sunlight: Each intelligent undead needs to feed off something to fuel its supernatural existence, whether it's life force, blood or rotting corpses. The longer it is denied its appetites the more feral the creature will get.\nAfter two weeks for a Ghoul (or a week for a vampire or Lich), a Might check is needed starting at level 3. If the hunger is not satiated that week, next week's check is increased by another level.\nA failed roll gives the PC a global Inability: Hunger until they feed.\nGranted from Undead Crew\nConnection: Twice a day, an Undead Crew can usually find access to either a level 3 skeleton servants or a cypher-like spell effect. The Crew much select one PC to command this benefit. Only one Connection benefit can be active at a time.\nGranted from Undead Crew\nDark appetites: Each intelligent undead needs to feed off something to fuel its supernatural existence, whether it is life force, blood or rotting corpses. The longer it's denied its appetites the more feral the creature will get.\nAfter two weeks for a Ghoul (or a week for a vampire or Lich), a Might check is needed starting at level 3. If the hunger is not satiated that week, next week's check is increased by another level.\nA failed roll gives the PC a global Inability: Hunger until they feed.\nGranted from Undead Crew\nDark gift: Being undead is not without benefits on Thora. The benefit depends on your undead race.\nA Lich gets a heart box, which contains the creature's life force. If a Lich's body is destroyed, the heart box will transfer the Lich's soul to the nearest, freshest dead body it can find. Destroying a heart box is usually a level 7 task.\nVampires are able to regenerate one point for every 2 damage they cause with their fangs. A vampire out of combat can usually bite for four point of damage.\nGhouls gain the ability to have poisonous, enchanted blood and saliva. The blood makes them unpalatable to vampire feeding and charms as well as an asset against any magic done by Lich.\nGranted from Undead Crew\nReduce metabolism: Depending on the type of undead the party has become, they now need less natural intake of foods and liquids.\nThe Lich or vampire may not need to breathe, but even a ghoul can double or halve feats of stamina in their favor when it comes to breathing or needing to eat.\nGranted from Undead Crew\nLight weapons: Light Weapons\nGranted from Speaker\nHeavy weapons: Heavy Weapons\nGranted from Speaker\nMedium weapons: Medium Weapons\nGranted from Speaker\nEncouragement: While you maintain this ability through ongoing inspiring oration, your allies within short range ease one of the following task types (your choice): defense tasks, attack tasks, or tasks related to any skill that you are trained or specialized in. Action.\nGranted from Cleric\nFast Talk: When speaking with an intelligent creature who can understand you and isn't hostile, you convince that creature to take one reasonable action in the next round. A reasonable action must be agreed upon by the GM; it should not put the creature or its allies in obvious danger or be wildly out of character. Action.\nGranted from Cleric\nMagic Training: You are trained in the basics of magic (including the operation of magic artifacts and cyphers) and can attempt to understand and identify its properties. Enabler.\nGranted from Magic Flavor\nMental Link: You open a pathway to another creature's mind via a light touch, which allows you to transmit thoughts and images to each other. The mental link remains regardless of distance and lasts for one hour. In addition to the normal options for using Effort, you can choose to use Effort to extend the duration by one hour for each level of Effort applied. Action to initiate.\nGranted from Magic Flavor\nPrivileged Nobility: You are adept at claiming the rewards that a noble background can generate. When recognized, you can be seated at any eating establishment no matter how full, get a room in an inn even if that means others are turned out, be let into any court or other structure where laws are decided or nobility rules, be invited to any gala, and get a seat at a private function of any sort. In addition, you are trained in persuasion. Enabler.\nGranted from Descends From Nobility\nLight Weapon: A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Kos Udath",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Cleric With Magic Flavor",
+        "flavor": "",
+        "descriptor": "Undead Crew",
+        "focus": "Descends From Nobility",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124841_c3a15b62.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124841_c3a15b62.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Cleric With Magic Flavor",
+      "flavor": "",
+      "descriptor": "Undead Crew",
+      "focus": "Descends From Nobility",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124841_c3a15b62.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124841_c3a15b62.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Friendly NPC An NPC you don't know, someone you don't know that well, or someone you know but who hasn't been particularly friendly in the past chooses to help you, though doesn't necessarily explain why. Maybe they'll ask you for a favor in return afterward, depending on how much trouble they go to. Perfect Suggestion A follower or other already-friendly NPC suggests a course of action with regard to an urgent question, problem, or obsta…"
+  }
+}

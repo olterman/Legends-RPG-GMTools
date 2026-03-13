@@ -1356,10 +1356,13 @@
   <div class="wrap">
     <div class="nav">
       <a href="/">Home</a>
+      <a href="/players-guide">Players Guide</a>
       <details class="nav-group">
         <summary class="nav-toggle">Generation Tools</summary>
         <div class="nav-menu">
           <a href="/generator">Generator</a>
+          <a href="/ai-generate">AI Generate</a>
+          <a href="/setting-wizard">Setting Wizard</a>
           <a href="/character-studio">Character Studio</a>
           <a href="/map-tools">Map Tools</a>
           <a href="/config-enrichment">Config Enrichment</a>
@@ -1369,6 +1372,7 @@
         <summary class="nav-toggle">Search & Browse</summary>
         <div class="nav-menu">
           <a href="/search">Search</a>
+          <a href="/docs-browser">Docs Browser</a>
           <a href="/dice-roller">Quick Roller</a>
           <a href="/cypher-roller">Cypher Roller</a>
           <a href="/trash">Trash Bin</a>
@@ -1601,7 +1605,7 @@
         .then((res) => res.json())
         .then(async (meta) => {
           try {
-            const worldsRes = await fetch("/settings");
+            const worldsRes = await fetch("/api/settings");
             const worldsData = await worldsRes.json();
             if (worldsRes.ok) {
               fillWorldProfileSelect(worldsData.settings || worldsData.worlds || [], worldsData.active_setting || worldsData.active_world || "");

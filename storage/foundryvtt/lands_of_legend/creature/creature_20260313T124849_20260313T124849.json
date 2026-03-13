@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:49.892704+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124849_20260313T124849.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Sentinel tree",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Sentinel tree",
+      "environment": "In groves of three to six, able to tolerate most atmospheres (even thin ones, like on Mars) but not vacuum",
+      "motive": "Feed",
+      "interaction": "Sentinel trees are about as smart as well-trained guard dogs. They can’t speak, but can understand some words and gestures.",
+      "use": "A grove of sentinel trees guard a compound that the characters need to break into.",
+      "gm_intrusion": "The character caught in the detonation is blinded with tiny black seeds until they use a recovery roll to remove the condition. (The recovery use doesn’t return points to a Pool.)"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 1,
+      "damage": 3,
+      "movement": "Immediate",
+      "modifications": [],
+      "combat": [
+        "Sentinel trees can fling a vibrating pod at a target within long range, which detonates on impact, inflicting 3 points of damage on all targets within immediate range of the blast. Targets must also succeed on a Might defense roll or be poisoned for 3 points of damage, plus 3 points again each subsequent round until a Might task is successful. A sentinel tree can also lash out with its barbed vines at a target within immediate range, inflicting 3 points of damage. Melee targets must also succeed on a Might defense roll or become entangled and unable to take physical actions until they can break free on their turn."
+      ],
+      "interaction": [
+        "Sentinel trees are about as smart as well-trained guard dogs. They can’t speak, but can understand some words and gestures."
+      ],
+      "loot": []
+    },
+    "text": "Depending on the sci-fi setting, sentinel trees are mutated trees that grow near radioactive craters dimpling the landscape, alien plant-life that evolved in a different biosphere (or dimension), or the result of intensive gene-tailoring, possibly of the illegal sort. Regardless of their provenance, sentinel trees resemble thorny masses of knotted vines. Razor-sharp glass-like leaves flex like claws, and vibrating pods glisten, ready to detonate if thrown. If cultivated, they may take on a shape designed to further frighten—or at least warn away— those who see one. Sentinel trees are mobile, aggressive, and feed on almost any sort of organic matter. Once it brings down prey, it sinks barbed roots in the body for feeding and decomposition.\n\nMotive: Feed\n\nEnvironment: In groves of three to six, able to tolerate most atmospheres (even thin ones, like on Mars) but not vacuum\n\nHealth: 12\n\nDamage Inflicted: 3 points\n\nArmor: 1\n\nMovement: Immediate\n\nCombat: Sentinel trees can fling a vibrating pod at a target within long range, which detonates on impact, inflicting 3 points of damage on all targets within immediate range of the blast. Targets must also succeed on a Might defense roll or be poisoned for 3 points of damage, plus 3 points again each subsequent round until a Might task is successful.\n\nA sentinel tree can also lash out with its barbed vines at a target within immediate range, inflicting 3 points of damage. Melee targets must also succeed on a Might defense roll or become entangled and unable to take physical actions until they can break free on their turn.\n\nInteraction: Sentinel trees are about as smart as well-trained guard dogs. They can’t speak, but can understand some words and gestures.\n\nUse: A grove of sentinel trees guard a compound that the characters need to break into.\n\nGM Intrusion: The character caught in the detonation is blinded with tiny black seeds until they use a recovery roll to remove the condition. (The recovery use doesn’t return points to a Pool.)\n\nSentinel tree\nLevel 3 (target number 9)\nHealth: 12\nArmor: 1\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.RaPHj3KPpslWyktz",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_sentinel-tree_20260313T124849_6b6de36b.webp",
+      "images": [
+        "uploads/foundryvtt/creature_sentinel-tree_20260313T124849_6b6de36b.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_sentinel-tree.webp"
+    },
+    "description": "A grove of sentinel trees guard a compound that the characters need to break into."
+  }
+}

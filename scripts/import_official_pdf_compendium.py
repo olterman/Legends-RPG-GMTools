@@ -7,8 +7,6 @@ import re
 from pathlib import Path
 from typing import Any
 
-from pypdf import PdfReader  # type: ignore
-
 
 SUPPORTED_TYPES = {
     "npc",
@@ -69,6 +67,58 @@ _IGNORE_HEADINGS = {
     "CHARACTER ABILITIES AS CYPHERS",
 }
 
+_NPC_HINT_TOKENS = {
+    "berserker",
+    "druid",
+    "thief",
+    "paladin",
+    "priest",
+    "wizard",
+    "sorcerer",
+    "cultist",
+    "guard",
+    "soldier",
+    "merchant",
+    "noble",
+    "captain",
+    "assassin",
+    "hunter",
+    "ranger",
+    "barbarian",
+    "bard",
+    "cleric",
+    "monk",
+    "warrior",
+    "halfling",
+    "elf",
+    "dwarf",
+}
+
+_CREATURE_HINT_TOKENS = {
+    "dragon",
+    "basilisk",
+    "chimera",
+    "beast",
+    "wolf",
+    "spider",
+    "serpent",
+    "hound",
+    "demon",
+    "devil",
+    "undead",
+    "ooze",
+    "golem",
+    "hydra",
+    "wyvern",
+    "griffin",
+    "gryphon",
+    "elemental",
+    "ghost",
+    "wraith",
+    "zombie",
+    "skeleton",
+}
+
 
 def slugify(value: str) -> str:
     text = re.sub(r"[^a-z0-9]+", "_", str(value or "").strip().lower())
@@ -91,6 +141,10 @@ def title_case_heading(value: str) -> str:
 
 
 def extract_pages(pdf_path: Path) -> list[str]:
+    try:
+        from pypdf import PdfReader  # type: ignore
+    except Exception as exc:  # pragma: no cover - runtime dependency guard
+        raise RuntimeError("pypdf is required for PDF extraction commands") from exc
     reader = PdfReader(str(pdf_path))
     pages: list[str] = []
     for page in reader.pages:
@@ -177,13 +231,16 @@ def _entry_payload(
     }
     if metadata_extra:
         metadata.update(metadata_extra)
+    pages_value = ""
+    if int(page_start or 0) > 0:
+        pages_value = f"{page_start}-{page_end}" if page_end != page_start else f"{page_start}"
     return {
         "slug": slugify(slug),
         "title": title,
         "type": item_type,
         "source": "official_pdf",
         "book": book,
-        "pages": f"{page_start}-{page_end}" if page_end != page_start else f"{page_start}",
+        "pages": pages_value,
         "description": description,
         "text": chunk,
         "settings": settings,
@@ -465,6 +522,278 @@ def cmd_auto_import_white_books(args: argparse.Namespace) -> int:
     return 0
 
 
+def _normalize_label_key(value: str) -> str:
+    return re.sub(r"\s+", " ", str(value or "").strip().lower())
+
+
+def _extract_labeled_fields(lines: list[str]) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    current_key = ""
+    for raw_line in lines:
+        line = re.sub(r"\s+", " ", str(raw_line or "").strip())
+        if not line:
+            continue
+        m = re.match(r"^([A-Za-z][A-Za-z0-9 '’\-/]{1,48}):\s*(.*)$", line)
+        if m:
+            key = _normalize_label_key(m.group(1))
+            value = str(m.group(2) or "").strip()
+            current_key = key
+            if key in fields and value:
+                fields[key] = f"{fields[key]} {value}".strip()
+            else:
+                fields[key] = value
+            continue
+        if current_key:
+            fields[current_key] = f"{fields.get(current_key, '')} {line}".strip()
+    return {k: v.strip() for k, v in fields.items() if str(v).strip()}
+
+
+def _extract_page_hint(text: str) -> int:
+    source = str(text or "")
+    patterns = [
+        r"(?im)\bpage\s+(\d{1,4})\b",
+        r"(?im)\bp\.\s*(\d{1,4})\b",
+    ]
+    for pattern in patterns:
+        m = re.search(pattern, source)
+        if m:
+            try:
+                return int(m.group(1))
+            except Exception:
+                pass
+    return 0
+
+
+def _classify_docling_entry(title: str, heading_path: str, fields: dict[str, str]) -> str:
+    title_lc = str(title or "").strip().lower()
+    path_lc = str(heading_path or "").strip().lower()
+    combined_lc = " ".join([
+        title_lc,
+        path_lc,
+        str(fields.get("description") or "").strip().lower(),
+        str(fields.get("combat") or "").strip().lower(),
+    ])
+    keys = set(fields.keys())
+    looks_like_creature = any(tok in combined_lc for tok in _CREATURE_HINT_TOKENS) or any(
+        tok in path_lc for tok in ("creature", "monster", "beast")
+    )
+    looks_like_npc = any(tok in combined_lc for tok in _NPC_HINT_TOKENS) or any(
+        tok in path_lc for tok in ("npc", "humanoid", "people", "folk", "villain", "ally")
+    )
+
+    if "depletion" in keys and ("effect" in keys or "level" in keys):
+        return "artifact"
+    if "effect" in keys and ("level" in keys or "form" in keys or "manifestation" in keys or "limitation" in keys):
+        return "cypher"
+    if any(k.startswith("tier ") for k in keys):
+        return "focus"
+    if "motive" in keys and "health" in keys:
+        if looks_like_creature:
+            return "creature"
+        if looks_like_npc:
+            return "npc"
+        if "npc" in path_lc:
+            return "npc"
+        if "creature" in path_lc or "monster" in path_lc:
+            return "creature"
+        return "creature"
+    if "health" in keys and ("damage inflicted" in keys or "combat" in keys):
+        if looks_like_creature:
+            return "creature"
+        if looks_like_npc:
+            return "npc"
+        if "creature" in path_lc or "monster" in path_lc:
+            return "creature"
+        if "npc" in path_lc:
+            return "npc"
+        return "creature"
+    if "player intrusion" in keys and "stat pools" in keys:
+        return "character_type"
+    if "special abilities" in keys and ("health" in keys or "armor" in keys):
+        return "npc"
+    return ""
+
+
+def _split_docling_blocks(markdown_text: str) -> list[dict[str, Any]]:
+    lines = str(markdown_text or "").replace("\r\n", "\n").split("\n")
+    heading_stack: list[tuple[int, str]] = []
+    blocks: list[dict[str, Any]] = []
+    current_title = ""
+    current_level = 0
+    current_path = ""
+    current_lines: list[str] = []
+
+    def flush() -> None:
+        nonlocal current_lines
+        if not current_title:
+            current_lines = []
+            return
+        payload_lines = [re.sub(r"\s+", " ", x).strip() for x in current_lines if str(x or "").strip()]
+        if payload_lines:
+            blocks.append({
+                "title": current_title,
+                "level": current_level,
+                "heading_path": current_path,
+                "lines": payload_lines,
+                "text": "\n".join(payload_lines).strip(),
+            })
+        current_lines = []
+
+    for line in lines:
+        m = re.match(r"^\s{0,3}(#{1,6})\s+(.+?)\s*$", line)
+        if m:
+            flush()
+            level = len(m.group(1))
+            title = str(m.group(2) or "").strip()
+            while heading_stack and heading_stack[-1][0] >= level:
+                heading_stack.pop()
+            heading_stack.append((level, title))
+            path_titles = [x[1] for x in heading_stack]
+            current_title = title
+            current_level = level
+            current_path = " > ".join(path_titles)
+            current_lines = []
+            continue
+        current_lines.append(line)
+    flush()
+    return blocks
+
+
+def _derive_title_from_text(title: str, lines: list[str]) -> str:
+    base = str(title or "").strip()
+    if base and not re.fullmatch(r"\d+\s*\(\d+\)", base):
+        # Docling headings can be sentence-like ("A Berserker Is A Fierce Warrior...").
+        # Trim to the likely name phrase so downstream type heuristics can work.
+        m_phrase = re.match(r"^(?:a|an|the|some)\s+([A-Za-z][A-Za-z'’\- ]{1,80}?)\s+(?:are|is|can|have|has)\b", base, flags=re.IGNORECASE)
+        if m_phrase:
+            phrase = str(m_phrase.group(1) or "").strip()
+            return title_case_heading(phrase)
+        m_head = re.match(r"^([A-Za-z][A-Za-z'’\- ]{1,64}?)(?:[.:;]|$)", base)
+        if m_head:
+            return title_case_heading(str(m_head.group(1) or "").strip())
+        return title_case_heading(base)
+    first = re.sub(r"\s+", " ", str(lines[0] if lines else "").strip())
+    if not first:
+        return base or "Untitled"
+    candidate = ""
+    m = re.match(r"^([A-Za-z][A-Za-z'’\- ]{1,48})\s+(?:are|is|can|have|has)\b", first)
+    if m:
+        candidate = str(m.group(1) or "").strip()
+    else:
+        # fallback: first 1-4 words
+        words = re.findall(r"[A-Za-z][A-Za-z'’\-]*", first)
+        candidate = " ".join(words[:4]).strip()
+    if candidate.endswith("s") and len(candidate) > 4 and " " not in candidate:
+        candidate = candidate[:-1]
+    return title_case_heading(candidate or base or "Untitled")
+
+
+def _extract_docling_entries(
+    markdown_text: str,
+    *,
+    book: str,
+    settings: list[str],
+    source_name: str,
+    slug_prefix: str,
+    min_text_len: int = 90,
+) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for block in _split_docling_blocks(markdown_text):
+        raw_title = str(block.get("title") or "").strip()
+        if not raw_title:
+            continue
+        if _looks_like_heading(raw_title):
+            # This heading style is often all-caps section noise in docling output.
+            if raw_title.upper() in _IGNORE_HEADINGS:
+                continue
+        lines = list(block.get("lines") or [])
+        title = _derive_title_from_text(raw_title, lines)
+        text = str(block.get("text") or "").strip()
+        if len(text) < min_text_len:
+            continue
+        fields = _extract_labeled_fields(lines)
+        item_type = _classify_docling_entry(title, str(block.get("heading_path") or ""), fields)
+        if not item_type:
+            continue
+        if item_type not in SUPPORTED_TYPES:
+            continue
+        page_hint = _extract_page_hint(text)
+        desc = ""
+        for key in ("description", "effect", "combat", "motive", "interaction", "use"):
+            value = str(fields.get(key) or "").strip()
+            if value:
+                desc = value
+                break
+        if not desc:
+            desc = re.sub(r"\s+", " ", text).strip()
+        desc = desc[:520]
+        base_slug = slugify(title)
+        full_slug = f"{slug_prefix}_{base_slug}" if slug_prefix else base_slug
+        uniq = (item_type, full_slug)
+        if uniq in seen:
+            continue
+        seen.add(uniq)
+        out.append(_entry_payload(
+            item_type=item_type,
+            title=title_case_heading(title),
+            slug=full_slug,
+            book=book,
+            page_start=page_hint,
+            page_end=page_hint,
+            chunk=text,
+            description=desc,
+            settings=settings,
+            pdf_path=Path(source_name),
+            metadata_extra={
+                "import_mode": "docling_auto",
+                "docling_source": source_name,
+                "heading_path": str(block.get("heading_path") or ""),
+            },
+        ))
+    return out
+
+
+def cmd_auto_import_docling(args: argparse.Namespace) -> int:
+    out_dir = Path(args.out_dir).resolve()
+    markdown_paths = [Path(x).resolve() for x in (args.markdown or []) if str(x or "").strip()]
+    if not markdown_paths:
+        raise ValueError("at least one --markdown path is required")
+    explicit_settings = [str(x).strip() for x in str(args.settings or "").split(",") if str(x).strip()]
+    written = 0
+    candidates = 0
+    by_type: dict[str, int] = {}
+    for markdown_path in markdown_paths:
+        if not markdown_path.exists() or not markdown_path.is_file():
+            continue
+        text = markdown_path.read_text(encoding="utf-8", errors="replace")
+        book = str(args.book or markdown_path.stem).strip()
+        settings = list(explicit_settings)
+        if not settings:
+            settings = WHITE_BOOK_SETTINGS.get(slugify(book), [])
+        prefix = slugify(str(args.slug_prefix or book)) if args.prefix_slug_with_book else ""
+        entries = _extract_docling_entries(
+            text,
+            book=book,
+            settings=settings,
+            source_name=str(markdown_path),
+            slug_prefix=prefix,
+            min_text_len=max(20, int(args.min_text_len or 90)),
+        )
+        candidates += len(entries)
+        for item in entries:
+            t = str(item.get("type") or "").strip().lower()
+            by_type[t] = by_type.get(t, 0) + 1
+            if _write_entry(out_dir, item, overwrite=bool(args.overwrite)):
+                written += 1
+        print(f"[docling:{markdown_path.name}] candidates={len(entries)}")
+
+    index = build_index(out_dir)
+    print(f"AUTO docling import: candidates={candidates}, wrote={written}, by_type={by_type}")
+    print(f"Official private compendium index count: {index['count']}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Import legally-restricted official PDF material into private compendium storage (git-ignored)."
@@ -514,6 +843,24 @@ def build_parser() -> argparse.ArgumentParser:
     auto_import_white.add_argument("--prefix-slug-with-book", action="store_true", default=True, help="Prefix slugs with book slug (default: on).")
     auto_import_white.add_argument("--overwrite", action="store_true", help="Overwrite existing slug file if present.")
     auto_import_white.set_defaults(func=cmd_auto_import_white_books)
+
+    auto_import_docling = sub.add_parser(
+        "auto-import-docling",
+        help="Auto-extract entries from one or more Docling markdown files.",
+    )
+    auto_import_docling.add_argument(
+        "--markdown",
+        action="append",
+        default=[],
+        help="Path to Docling markdown file (can be provided multiple times).",
+    )
+    auto_import_docling.add_argument("--book", default="", help="Book title override (default: markdown stem).")
+    auto_import_docling.add_argument("--settings", default="", help="Comma-separated settings tags, e.g. 'fantasy'.")
+    auto_import_docling.add_argument("--slug-prefix", default="", help="Slug prefix (default: book slug).")
+    auto_import_docling.add_argument("--prefix-slug-with-book", action="store_true", default=True, help="Prefix slugs with book slug (default: on).")
+    auto_import_docling.add_argument("--min-text-len", type=int, default=90, help="Minimum block text length for candidate extraction.")
+    auto_import_docling.add_argument("--overwrite", action="store_true", help="Overwrite existing slug file if present.")
+    auto_import_docling.set_defaults(func=cmd_auto_import_docling)
 
     return parser
 

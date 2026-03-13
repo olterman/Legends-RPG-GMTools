@@ -1,5 +1,22 @@
 # Roadmap: Vector Database from World Files
 
+## Implementation Status (March 13, 2026)
+
+### Completed
+- [x] Initial local vector database pipeline scaffolded.
+- [x] Chunking/index batch flow added and integrated with plugin tooling.
+- [x] Semantic query endpoint + UI entry point added to Search.
+- [x] Compendium/local source material included in initial index path.
+
+### In Progress
+- [ ] Retrieval quality tuning (reduce noisy chunks, improve readable ranking).
+- [ ] Semantic result card UX normalization (fully clickable, output-panel native cards).
+- [ ] Incremental reindex quality and compendium parse-aware chunk enrichment.
+
+### Planned
+- [ ] Relevance evaluation set and benchmark targets.
+- [ ] Authoring helpers (“use snippet as context”, similar-lore suggestions).
+
 ## Objective
 Build a local vector database pipeline that indexes world/genre content for semantic retrieval in:
 - Search assistance

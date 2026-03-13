@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:51.844453+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124851_20260313T124851.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Stag/hart, magical",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Stag/hart, magical"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 1,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 4; Armor 1; horns inflict 3 points of damage; two magical abilities\n\nStag/hart, magical\nLevel 4 (target number 12)\nHealth: 12\nArmor: 1\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.F2nnB1qu3dcOCBZf",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-journals.n1Ve9K17Pxjvc1yk.JournalEntryPage.IJXYS3XVkU4yrRe8#suggested-magical-abilities-for-animals",
+          "label": "two magical abilities"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/magical-beast_20260313T124851_3d09441b.webp",
+      "images": [
+        "uploads/foundryvtt/magical-beast_20260313T124851_3d09441b.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/magical-beast.webp"
+    },
+    "description": "Level 4; Armor 1; horns inflict 3 points of damage; two magical abilities Stag/hart, magical Level 4 (target number 12) Health: 12 Armor: 1 Damage: 3"
+  }
+}

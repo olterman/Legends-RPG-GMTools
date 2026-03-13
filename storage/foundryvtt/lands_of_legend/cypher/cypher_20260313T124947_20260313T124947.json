@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:47.985830+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124947_20260313T124947.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Detonation (web)",
+    "description": "Level: 1d6 + 2 Effect: Projects a small physical explosive up to a long distance away that explodes in an immediate radius and creates sticky strands of goo. PCs caught in the area must use a Might-based action to get out, with the difficulty determined by the cypher level. NPCs break free if their level is higher than the cypher level. Rather than strands of sticky goo, some web detonations fill the area with a mass of quick-hardening foam that has the same result.",
+    "sections": {
+      "name": "Detonation (web)",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Projects a small physical explosive up to a long distance away that explodes in an immediate radius and creates sticky strands of goo. PCs caught in the area must use a Might-based action to get out, with the difficulty determined by the cypher level. NPCs break free if their level is higher than the cypher level.\n\nRather than strands of sticky goo, some web detonations fill the area with a mass of quick-hardening foam that has the same result."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Projects a small physical explosive up to a long distance away that explodes in an immediate radius and creates sticky strands of goo. PCs caught in the area must use a Might-based action to get out, with the difficulty determined by the cypher level. NPCs break free if their level is higher than the cypher level.\n\nRather than strands of sticky goo, some web detonations fill the area with a mass of quick-hardening foam that has the same result.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124947_5b2e034f.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124947_5b2e034f.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

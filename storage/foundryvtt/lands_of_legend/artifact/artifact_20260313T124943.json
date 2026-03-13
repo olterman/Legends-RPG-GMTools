@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:43.283933+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124943.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Book of all spells",
+    "description": "Level: 1d6 + 2 Form: Weighty tome filled with pages of spell runes Effect: This mysterious spellbook is said to contain knowledge of hundreds of spells—perhaps even all spells. Each set of facing pages includes the magical runes for one spell and a description of the spell and how to use it. When a character first opens the book, the GM randomly determines what type of spell is shown by rolling on the following table, then rolling on the indicated table: [[/r d6]] Cypher Type 1–2 Roll on the Ma…",
+    "sections": {
+      "name": "Book of all spells",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Weighty tome filled with pages of spell runes\n\nEffect: This mysterious spellbook is said to contain knowledge of hundreds of spells—perhaps even all spells. Each set of facing pages includes the magical runes for one spell and a description of the spell and how to use it.\n\nWhen a character first opens the book, the GM randomly determines what type of spell is shown by rolling on the following table, then rolling on the indicated table:\n\n[[/r d6]]\nCypher Type\n\n1–2\nRoll on the Manifest Cypher table\n\n3–5\nRoll on the Fantastic Cypher table\n\n6\nRoll on the Subtle Cypher table\n\nThe bearer can cast the spell on the page as if it were a cypher with a level equal to the book’s level. This doesn’t remove the spell from the page (it can be cast again and again), but it does require a depletion roll.\n\nAs part of another action, the bearer can turn the page to find a new spell, but only forward, never backward. It is said that turning to the last page makes the book vanish and appear somewhere else in the world.\n\nThe artifact always remembers the last page it was turned to. Opening the book always presents that page. Attempting to copy, remove, or destroy a page only makes the book turn to a later page on its own.\n\nDepletion: 1 in 1d100 (Check each time the book is used or the bearer turns a page. The chance of depletion increases by 1 each time it is used [1 in 1d100, 2 in 1d100, 3 in 1d100, and so on]. Instead of depleting, the book might turn to a later page, or disappear and reappear somewhere else in the world.)",
+      "depletion": "1 in [[/r 1d100 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Weighty tome filled with pages of spell runes\n\nEffect: This mysterious spellbook is said to contain knowledge of hundreds of spells—perhaps even all spells. Each set of facing pages includes the magical runes for one spell and a description of the spell and how to use it.\n\nWhen a character first opens the book, the GM randomly determines what type of spell is shown by rolling on the following table, then rolling on the indicated table:\n\n[[/r d6]]\nCypher Type\n\n1–2\nRoll on the Manifest Cypher table\n\n3–5\nRoll on the Fantastic Cypher table\n\n6\nRoll on the Subtle Cypher table\n\nThe bearer can cast the spell on the page as if it were a cypher with a level equal to the book’s level. This doesn’t remove the spell from the page (it can be cast again and again), but it does require a depletion roll.\n\nAs part of another action, the bearer can turn the page to find a new spell, but only forward, never backward. It is said that turning to the last page makes the book vanish and appear somewhere else in the world.\n\nThe artifact always remembers the last page it was turned to. Opening the book always presents that page. Attempting to copy, remove, or destroy a page only makes the book turn to a later page on its own.\n\nDepletion: 1 in 1d100 (Check each time the book is used or the bearer turns a page. The chance of depletion increases by 1 each time it is used [1 in 1d100, 2 in 1d100, 3 in 1d100, and so on]. Instead of depleting, the book might turn to a later page, or disappear and reappear somewhere else in the world.)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-roll-tables.Bn74yPIGZJTwA9yO",
+          "label": "Manifest Cypher table"
+        },
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-roll-tables.tAjYZpL0GKkROZpR",
+          "label": "Fantastic Cypher table"
+        },
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-roll-tables.yXkmPLGNM6UH5nkx",
+          "label": "Subtle Cypher table"
+        }
+      ],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124943_b4332bd7.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124943_b4332bd7.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

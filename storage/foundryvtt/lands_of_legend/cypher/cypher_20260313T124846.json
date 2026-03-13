@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.086826+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Eagleseye",
+    "level": "1",
+    "sections": {
+      "name": "Eagleseye",
+      "level": "1",
+      "effect": "<p>Grants the ability to see ten times as far as normal for one hour per cypher level. (For a more realistic game, the eagleseye cypher could instead give the user two assets on tasks involving seeing to long distances.)  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Ozella Muller",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124846.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124846_ae6ae80a.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124846_ae6ae80a.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:56.738937+00:00",
+  "filename": "ability/ability_20260313T124856_20260313T124856.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Willem",
+    "ability_name": "Using special abilities that influence the minds of others"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Using special abilities that influence the minds of others",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Using special abilities that influence the minds of others'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Willem",
+      "missing_from_compendium": true,
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ]
+    }
+  }
+}

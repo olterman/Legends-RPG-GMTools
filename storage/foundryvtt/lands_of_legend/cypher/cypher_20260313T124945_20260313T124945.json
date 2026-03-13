@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:45.931996+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124945_20260313T124945.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Darning needle",
+    "description": "Level: 1d6 Form: Needle with a large eye Effect: When activated, grows into a larger version of itself that acts as a medium weapon. It inflicts 4 points of damage and causes anything it successfully hits to shrink to half its size. The needle lasts for a number of hours equal to the cypher’s level.",
+    "sections": {
+      "name": "Darning needle",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Needle with a large eye\n\nEffect: When activated, grows into a larger version of itself that acts as a medium weapon. It inflicts 4 points of damage and causes anything it successfully hits to shrink to half its size. The needle lasts for a number of hours equal to the cypher’s level."
+    },
+    "text": "Level: 1d6\n\nForm: Needle with a large eye\n\nEffect: When activated, grows into a larger version of itself that acts as a medium weapon. It inflicts 4 points of damage and causes anything it successfully hits to shrink to half its size. The needle lasts for a number of hours equal to the cypher’s level.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124945_5ba9c40a.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124945_5ba9c40a.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

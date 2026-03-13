@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:51.552397+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124951.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Flying carpet",
+    "description": "Level: 1d6 + 1 Form: Silken rug with repeating designs bordered with a pattern that suggests scudding clouds Effect: The carpet flies a long distance each round, carrying up to five passengers. It flies for up to ten hours per activation. When traveling overland, the artifact can achieve a flying speed of 60 miles (97 km) per hour. Depletion: 1 in 1d20",
+    "sections": {
+      "name": "Flying carpet",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Silken rug with repeating designs bordered with a pattern that suggests scudding clouds\n\nEffect: The carpet flies a long distance each round, carrying up to five passengers. It flies for up to ten hours per activation. When traveling overland, the artifact can achieve a flying speed of 60 miles (97 km) per hour.\n\nDepletion: 1 in 1d20",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Silken rug with repeating designs bordered with a pattern that suggests scudding clouds\n\nEffect: The carpet flies a long distance each round, carrying up to five passengers. It flies for up to ten hours per activation. When traveling overland, the artifact can achieve a flying speed of 60 miles (97 km) per hour.\n\nDepletion: 1 in 1d20",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124951_157fc9f5.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124951_157fc9f5.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

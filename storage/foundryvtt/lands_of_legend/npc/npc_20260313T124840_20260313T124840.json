@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:40.889668+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124840_20260313T124840.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Juvenile, rooted blossom",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Juvenile, rooted blossom"
+    },
+    "stat_block": {
+      "level": 1,
+      "target_number": 3,
+      "health": 3,
+      "armor": 1,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 1; Armor 1; a group of five flowers attacks with a level 3 microwave ray inflicting 3 ambient damage.\n\nIn its juvenile, rooted form, a hooked blossom resembles a flower with a metallic stem, which is dangerous when active.\n\nJuvenile, rooted blossom\nLevel 1 (target number 3)\nHealth: 3\nArmor: 1\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.T33VfmsqsOFy37xt",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/aberration_20260313T124840_5d1147e8.webp",
+      "images": [
+        "uploads/foundryvtt/aberration_20260313T124840_5d1147e8.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/aberration.webp"
+    },
+    "description": "Level 1; Armor 1; a group of five flowers attacks with a level 3 microwave ray inflicting 3 ambient damage. In its juvenile, rooted form, a hooked blossom resembles a flower with a metallic stem, which is dangerous when active. Juvenile, rooted blossom Level 1 (target number 3) Health: 3 Armor: 1 Damage: 3"
+  }
+}

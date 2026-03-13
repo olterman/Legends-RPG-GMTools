@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:44.272137+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124844.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Moth swarm",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Moth swarm"
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 6,
+      "armor": 0,
+      "damage": 2,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 2\n\nMoth swarm\nLevel 2 (target number 6)\nHealth: 6\nArmor: 0\nDamage: 2",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.NY2GAJuLrw0qvZoa",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/vermin_insect_20260313T124844_15abe510.webp",
+      "images": [
+        "uploads/foundryvtt/vermin_insect_20260313T124844_15abe510.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/vermin_insect.webp"
+    },
+    "description": "Level 2 Moth swarm Level 2 (target number 6) Health: 6 Armor: 0 Damage: 2"
+  }
+}

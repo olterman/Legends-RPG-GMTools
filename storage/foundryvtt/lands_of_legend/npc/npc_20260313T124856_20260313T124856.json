@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:56.450849+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124856_20260313T124856.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Weretiger",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Weretiger"
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 15,
+      "armor": 1,
+      "damage": 6,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 5, attacks as level 6; Armor 1; damage inflicted 6 points; regenerates 2 health per round (unless recently wounded by silver)\n\nWeretiger\nLevel 5 (target number 15)\nHealth: 15\nArmor: 1\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.IiqUvfy4sLXjA2q7",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/monstrous-humanoid_20260313T124856_e0bee173.webp",
+      "images": [
+        "uploads/foundryvtt/monstrous-humanoid_20260313T124856_e0bee173.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/monstrous-humanoid.webp"
+    },
+    "description": "Level 5, attacks as level 6; Armor 1; damage inflicted 6 points; regenerates 2 health per round (unless recently wounded by silver) Weretiger Level 5 (target number 15) Health: 15 Armor: 1 Damage: 6"
+  }
+}

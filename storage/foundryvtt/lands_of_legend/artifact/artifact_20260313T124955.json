@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:55.630087+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124955.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Instant ladder",
+    "description": "Level: 1d6 Form: Small lightweight metal rod with gem buttons Effect: When activated, the rod extends and produces rungs so that it can be used as a ladder up to 28 feet (9 m) long. The ladder can be transformed back into its rod form from either end. Depletion: 1 in 1d100 A creature unfamiliar with the buttons on an instant ladder needs to spend several rounds figuring out the proper sequence to expand or collapse it.",
+    "sections": {
+      "name": "Instant ladder",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Small lightweight metal rod with gem buttons\n\nEffect: When activated, the rod extends and produces rungs so that it can be used as a ladder up to 28 feet (9 m) long. The ladder can be transformed back into its rod form from either end.\n\nDepletion: 1 in 1d100\n\nA creature unfamiliar with the buttons on an instant ladder needs to spend several rounds figuring out the proper sequence to expand or collapse it.",
+      "depletion": "1 in [[/r 1d100 # Depletion roll]]"
+    },
+    "text": "Level: 1d6\n\nForm: Small lightweight metal rod with gem buttons\n\nEffect: When activated, the rod extends and produces rungs so that it can be used as a ladder up to 28 feet (9 m) long. The ladder can be transformed back into its rod form from either end.\n\nDepletion: 1 in 1d100\n\nA creature unfamiliar with the buttons on an instant ladder needs to spend several rounds figuring out the proper sequence to expand or collapse it.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124955_13867a67.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124955_13867a67.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

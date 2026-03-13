@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:41.992135+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124941_20260313T124941.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Baba Yaga’s spiced cookie",
+    "description": "Level: 1d6 Form: Rye cookie flavored with spices and honey Effect: Eating the cookie increases the user’s Intellect Edge by 1 for one hour.",
+    "sections": {
+      "name": "Baba Yaga’s spiced cookie",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Rye cookie flavored with spices and honey\n\nEffect: Eating the cookie increases the user’s Intellect Edge by 1 for one hour."
+    },
+    "text": "Level: 1d6\n\nForm: Rye cookie flavored with spices and honey\n\nEffect: Eating the cookie increases the user’s Intellect Edge by 1 for one hour.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124941_8b5878cb.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124941_8b5878cb.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:50.941876+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124950_20260313T124950.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Fiddle of the fossegrim",
+    "description": "Level: 1d6 + 2 Form: Water-worn fiddle Effect: Playing the fiddle causes everyone within long distance to become enticed by the music and draw closer to the player. After one round, all creatures in short range begin to dance uncontrollably for a number of rounds equal to the artifact level. The only action they can take while dancing is to attempt to break free from the effect (an Intellect action equal to the artifact level). Depletion: 1 in 1d20",
+    "sections": {
+      "name": "Fiddle of the fossegrim",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Water-worn fiddle\n\nEffect: Playing the fiddle causes everyone within long distance to become enticed by the music and draw closer to the player. After one round, all creatures in short range begin to dance uncontrollably for a number of rounds equal to the artifact level. The only action they can take while dancing is to attempt to break free from the effect (an Intellect action equal to the artifact level).\n\nDepletion: 1 in 1d20",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Water-worn fiddle\n\nEffect: Playing the fiddle causes everyone within long distance to become enticed by the music and draw closer to the player. After one round, all creatures in short range begin to dance uncontrollably for a number of rounds equal to the artifact level. The only action they can take while dancing is to attempt to break free from the effect (an Intellect action equal to the artifact level).\n\nDepletion: 1 in 1d20",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124950_14b7bf03.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124950_14b7bf03.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:38.012472+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124838.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Green-whiskered soldier",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Green-whiskered soldier"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 2,
+      "damage": 4,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 4; Armor 2; unloaded rifles deal 4 points of damage\n\nGreen-whiskered soldier\nLevel 4 (target number 12)\nHealth: 12\nArmor: 2\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.3CD1yc1Ff2EXEMVG",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/humanoid_mundane_20260313T124838_ad8222af.webp",
+      "images": [
+        "uploads/foundryvtt/humanoid_mundane_20260313T124838_ad8222af.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/humanoid_mundane.webp"
+    },
+    "description": "Level 4; Armor 2; unloaded rifles deal 4 points of damage Green-whiskered soldier Level 4 (target number 12) Health: 12 Armor: 2 Damage: 4"
+  }
+}

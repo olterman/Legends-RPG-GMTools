@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:46.963051+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124946_20260313T124946.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Detonation",
+    "description": "Level: 1d6 + 2 Effect: Projects a small physical explosive up to a long distance away that explodes in an immediate radius, inflicting damage equal to the cypher’s level. Roll a [[/r d100]] to determine the type of damage. 01–10 Cell-disrupting (harms only flesh) 11–30 Corrosive 31–40 Electrical discharge 41–50 Heat drain (cold) 51–75 Fire 76–00 Shrapnel All damaging detonations inflict a minimum of 2 points of damage to those in the radius, regardless of attack or defense rolls.",
+    "sections": {
+      "name": "Detonation",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Projects a small physical explosive up to a long distance away that explodes in an immediate radius, inflicting damage equal to the cypher’s level. Roll a [[/r d100]] to determine the type of damage.\n\n01–10\n\nCell-disrupting (harms only flesh)\n\n11–30\n\nCorrosive\n\n31–40\n\nElectrical discharge\n\n41–50\n\nHeat drain (cold)\n\n51–75\n\nFire\n\n76–00\n\nShrapnel\n\nAll damaging detonations inflict a minimum of 2 points of damage to those in the radius, regardless of attack or defense rolls."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Projects a small physical explosive up to a long distance away that explodes in an immediate radius, inflicting damage equal to the cypher’s level. Roll a [[/r d100]] to determine the type of damage.\n\n01–10\n\nCell-disrupting (harms only flesh)\n\n11–30\n\nCorrosive\n\n31–40\n\nElectrical discharge\n\n41–50\n\nHeat drain (cold)\n\n51–75\n\nFire\n\n76–00\n\nShrapnel\n\nAll damaging detonations inflict a minimum of 2 points of damage to those in the radius, regardless of attack or defense rolls.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124946_a4233975.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124946_a4233975.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.043608+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Elemental Conjuration",
+    "level": "6",
+    "sections": {
+      "name": "Elemental Conjuration",
+      "level": "6",
+      "effect": "<p>Summons an elemental creature (air, earth, fire, or water) that can understand the verbal commands of the user. Once the elemental is summoned, commanding it is not an action. It can make attacks or perform actions as ordered to the best of its abilities, but it cannot speak. The elemental never goes farther than long range away from the user. The elemental is not particularly intelligent or capable of initiating action. It responds if attacked, but otherwise does only as commanded. The elemental remains for one hour per cypher level or until its physical form is destroyed, after which it vanishes back to its native realm.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Llornoth Abal",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124842.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124842_17d16dfa.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124842_17d16dfa.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

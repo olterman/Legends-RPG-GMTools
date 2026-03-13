@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Players Guide — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Players Guide</h1>
+
+<section class="output-card" style="margin-bottom:12px; border-color: rgba(0, 170, 255, 0.45);">
+  <div class="small">Attribution</div>
+  <h3 style="margin: 8px 0 6px;">Old Gus' Unofficial Cypher System Player's Guide</h3>
+  <p style="margin: 0 0 10px;">
+    This page displays Old Gus' material from the extracted source document. Visit the official Old Gus page here:
+  </p>
+  <p style="margin: 0;">
+    <a href="{{ old_gus_url }}" target="_blank" rel="noopener"><strong>{{ old_gus_url }}</strong></a>
+  </p>
+</section>
+
+{% if not source_exists %}
+  <section class="output-card">
+    <h3 style="margin:0 0 8px;">Source Not Found</h3>
+    <p style="margin:0;">
+      Could not find the extracted file at <code>{{ source_rel }}</code>.
+    </p>
+  </section>
+{% else %}
+  <section class="output-card">
+    <div class="small">Source File</div>
+    <div style="margin-top:6px;"><code>{{ source_rel }}</code></div>
+  </section>
+  <section class="output-card players-guide-content" style="margin-top:12px;">
+    {{ players_guide_html | safe }}
+  </section>
+{% endif %}
+{% endblock %}
+
+{% block head_extra %}
+<style>
+  .players-guide-content {
+    max-width: 100%;
+  }
+  .players-guide-content h1,
+  .players-guide-content h2,
+  .players-guide-content h3,
+  .players-guide-content h4 {
+    margin: 1rem 0 0.35rem;
+    color: #c8d8ff;
+  }
+  .players-guide-content p {
+    margin: 0.25rem 0 0.8rem;
+    line-height: 1.55;
+  }
+  .players-guide-content ul {
+    margin: 0.2rem 0 0.9rem 1.4rem;
+  }
+  .players-guide-content li {
+    margin: 0.2rem 0;
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:01.849401+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125001_20260313T125001.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Princess’s pea",
+    "description": "Level: 1d6 + 3 Form: Dried pea that was previously slept on Effect: For one hour per cypher level, allows the user to recognize disguises, optical illusions, sound mimicry, false claims, and other such tricks (for all senses) for what they are.",
+    "sections": {
+      "name": "Princess’s pea",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Dried pea that was previously slept on\n\nEffect: For one hour per cypher level, allows the user to recognize disguises, optical illusions, sound mimicry, false claims, and other such tricks (for all senses) for what they are."
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Dried pea that was previously slept on\n\nEffect: For one hour per cypher level, allows the user to recognize disguises, optical illusions, sound mimicry, false claims, and other such tricks (for all senses) for what they are.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125001_a7b7498c.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125001_a7b7498c.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

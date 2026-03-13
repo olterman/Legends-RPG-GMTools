@@ -1,0 +1,6 @@
+{
+  "name": "Docling PDF Extractor",
+  "summary": "Batch-convert source PDFs into cleaner extraction artifacts for compendium parsing.",
+  "docs_url": "Plugins/docling/README.md"
+}
+

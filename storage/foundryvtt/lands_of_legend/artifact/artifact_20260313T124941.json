@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:41.124638+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124941.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Alchemist bag",
+    "description": "Level: 1d6 Form: Embroidered velvet bag Effect: This bag can contain up to one cypher per artifact level, as long as each is no larger than a typical potion bottle or scroll case. These cyphers do not count against a character’s cypher limit. Depletion: 1 in 1d20 (check each time a cypher is added to the bag)",
+    "sections": {
+      "name": "Alchemist bag",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Embroidered velvet bag\n\nEffect: This bag can contain up to one cypher per artifact level, as long as each is no larger than a typical potion bottle or scroll case. These cyphers do not count against a character’s cypher limit.\n\nDepletion: 1 in 1d20 (check each time a cypher is added to the bag)",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6\n\nForm: Embroidered velvet bag\n\nEffect: This bag can contain up to one cypher per artifact level, as long as each is no larger than a typical potion bottle or scroll case. These cyphers do not count against a character’s cypher limit.\n\nDepletion: 1 in 1d20 (check each time a cypher is added to the bag)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124941_aad976d1.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124941_aad976d1.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

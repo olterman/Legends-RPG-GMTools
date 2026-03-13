@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:57.850478+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124857_20260313T124857.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Xenoparasite",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Xenoparasite",
+      "environment": "Hunts alone or in small groups",
+      "motive": "Eat and reproduce",
+      "interaction": "These creatures are built to consume, not negotiate.",
+      "use": "Xenoparasites are tough aliens. A colony of them would be a challenge even for PCs normally accustomed to stiff opposition. A single xenoparasite introduced into an inhabited area could turn the entire place into an infested hive within a week. GM (Group) Intrusion: An NPC shrieks, bursts, and births [[/r 1d6]] juvenile xenoparasites."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 28,
+      "armor": 2,
+      "damage": 6,
+      "movement": "Short; long when flying",
+      "modifications": [
+        "All stealth actions as level 8"
+      ],
+      "combat": [
+        "A xenoparasite bites with its mandibles and stings one victim with its ovipositor as a single action. The bite inflicts 6 points of damage, and the ovipositor inflicts 3 points of damage and injects thousands of microscopic eggs if the victim fails a Might defense roll. Once every other round, an adult can fly at least a short distance to build terrifying velocity and then make a flying attack with its mandibles, dealing 12 points of damage. Defenses against this attack are hindered. An egg host requires the attention of someone skilled in medicine (and a successful difficulty 7 Intellect-based roll) to sterilize all the eggs in the victim’s blood before they hatch twenty or more hours after being deposited, which kills the host and releases [[/r 1d6]] juvenile xenoparasites. Juveniles are level 2 creatures, but they attack the species of the host they were hatched from as if level 4. After just a few days of feeding, they grow to full adult size. Xenoparasites can survive at crushing ocean and gas giant pressures, as well as in the vacuum of space. They can encrust abandoned spacecraft and desolate moons for millennia in extended hibernation, only to become active again when vibrations alert them to potential new food sources."
+      ],
+      "interaction": [
+        "These creatures are built to consume, not negotiate."
+      ],
+      "loot": []
+    },
+    "text": "This alien creature exists only to eat and reproduce. In doing so, it also destroys every form of life it encounters. Xenoparasites are not technological but were likely engineered by a species with advanced biological super-science. Xenoparasites don’t travel between star systems on their own; they were presumably spread across an area of space by their creators to serve as a broad-spectrum bioweapon. What has become of the original maker species is unknown, but given the fecundity and ferocity of the xenoparasite, it’s likely they were consumed by their own creation.\n\nXenoparasites use ovipositors to lay thousands of microscopic eggs in victims. The implanted eggs, like tiny biological labs, detect the particular biology of the new host, adapt accordingly, and use it to fertilize themselves. Within a day or two, victims who haven’t already been consumed by adult xenoparasites (which are human sized) give explosive birth to multiple vicious juveniles (which are the size of cats). These juvenile xenoparasites have an edge in dealing with the particular species of creature they hatched from.\n\nMotive: Eat and reproduce\n\nEnvironment: Hunts alone or in small groups\n\nHealth: 28\n\nDamage Inflicted: 6 points\n\nArmor: 2\n\nMovement: Short; long when flying\n\nModifications: All stealth actions as level 8\n\nCombat: A xenoparasite bites with its mandibles and stings one victim with its ovipositor as a single action. The bite inflicts 6 points of damage, and the ovipositor inflicts 3 points of damage and injects thousands of microscopic eggs if the victim fails a Might defense roll.\n\nOnce every other round, an adult can fly at least a short distance to build terrifying velocity and then make a flying attack with its mandibles, dealing 12 points of damage. Defenses against this attack are hindered.\n\nAn egg host requires the attention of someone skilled in medicine (and a successful difficulty 7 Intellect-based roll) to sterilize all the eggs in the victim’s blood before they hatch twenty or more hours after being deposited, which kills the host and releases [[/r 1d6]] juvenile xenoparasites. Juveniles are level 2 creatures, but they attack the species of the host they were hatched from as if level 4. After just a few days of feeding, they grow to full adult size.\n\nXenoparasites can survive at crushing ocean and gas giant pressures, as well as in the vacuum of space. They can encrust abandoned spacecraft and desolate moons for millennia in extended hibernation, only to become active again when vibrations alert them to potential new food sources.\n\nInteraction: These creatures are built to consume, not negotiate.\n\nUse: Xenoparasites are tough aliens. A colony of them would be a challenge even for PCs normally accustomed to stiff opposition. A single xenoparasite introduced into an inhabited area could turn the entire place into an infested hive within a week.\n\nGM (Group) Intrusion: An NPC shrieks, bursts, and births [[/r 1d6]] juvenile xenoparasites.\n\nXenoparasite\nLevel 6 (target number 18)\nHealth: 28\nArmor: 2\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.Ziw2e08pt2Fc8vHz",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_xenoparasite_20260313T124857_a942325c.webp",
+      "images": [
+        "uploads/foundryvtt/creature_xenoparasite_20260313T124857_a942325c.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_xenoparasite.webp"
+    },
+    "description": "Xenoparasites are tough aliens. A colony of them would be a challenge even for PCs normally accustomed to stiff opposition. A single xenoparasite introduced into an inhabited area could turn the entire place into an infested hive within a week. GM (Group) Intrusion: An NPC shrieks, bursts, and births [[/r 1d6]] juvenile xenoparasites."
+  }
+}

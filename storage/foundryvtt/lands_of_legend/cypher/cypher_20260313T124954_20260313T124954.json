@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:54.561192+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124954_20260313T124954.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Heat attack",
+    "description": "Level: 1d6 Effect: For the next day, each time the user strikes a solid creature or object, the attack generates a burst of heat that inflicts 2 additional points of damage.",
+    "sections": {
+      "name": "Heat attack",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: For the next day, each time the user strikes a solid creature or object, the attack generates a burst of heat that inflicts 2 additional points of damage."
+    },
+    "text": "Level: 1d6\n\nEffect: For the next day, each time the user strikes a solid creature or object, the attack generates a burst of heat that inflicts 2 additional points of damage.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124954_5d0e1611.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124954_5d0e1611.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

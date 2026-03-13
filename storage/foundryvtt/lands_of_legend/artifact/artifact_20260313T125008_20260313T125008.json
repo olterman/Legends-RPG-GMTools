@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:08.913829+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125008_20260313T125008.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Table-be-set",
+    "description": "Level: 1d6 Form: Common-looking wooden table Effect: Putting the table out and saying “Table be set” automatically fills the table with as much food and drink as will fit upon its surface. The table does not become empty as long as there is anyone in long range who still wishes to eat. Once a character uses the table’s ability, they can’t do so again until after they make a ten-hour recovery roll. Depletion: 1 in 1d100 In addition to artifact quirks, common sense suggests that the effects of so…",
+    "sections": {
+      "name": "Table-be-set",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Common-looking wooden table\n\nEffect: Putting the table out and saying “Table be set” automatically fills the table with as much food and drink as will fit upon its surface. The table does not become empty as long as there is anyone in long range who still wishes to eat. Once a character uses the table’s ability, they can’t do so again until after they make a ten-hour recovery roll.\n\nDepletion: 1 in 1d100\n\nIn addition to artifact quirks, common sense suggests that the effects of some artifacts will draw additional interesting opportunities or dangers. Using table-be-set in the middle of a forest, for example, is likely to draw bears and other hungry beasts, while using it in the middle of town might garner the characters new friends, or catch the attention of thieves.",
+      "depletion": "1 in [[/r d100]]"
+    },
+    "text": "Level: 1d6\n\nForm: Common-looking wooden table\n\nEffect: Putting the table out and saying “Table be set” automatically fills the table with as much food and drink as will fit upon its surface. The table does not become empty as long as there is anyone in long range who still wishes to eat. Once a character uses the table’s ability, they can’t do so again until after they make a ten-hour recovery roll.\n\nDepletion: 1 in 1d100\n\nIn addition to artifact quirks, common sense suggests that the effects of some artifacts will draw additional interesting opportunities or dangers. Using table-be-set in the middle of a forest, for example, is likely to draw bears and other hungry beasts, while using it in the middle of town might garner the characters new friends, or catch the attention of thieves.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125008_b04aed1d.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125008_b04aed1d.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

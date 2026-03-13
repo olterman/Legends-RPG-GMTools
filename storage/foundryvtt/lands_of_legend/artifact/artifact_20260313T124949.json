@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:49.756539+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124949.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Elfblade",
+    "description": "Level: 1d6 + 3 Form: Medium sword Effect: This sword can be used as a normal medium sword that deals 2 additional points of damage (for a total of 6 points). The short sword can cut through any material of its level or lower with ease, owing to its exceptional sharpness. The blade sheds a blue light as bright as a candle to warn when goblins, orcs, trolls, or similar creatures are within 300 feet (90 m). Depletion: —",
+    "sections": {
+      "name": "Elfblade",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Medium sword\n\nEffect: This sword can be used as a normal medium sword that deals 2 additional points of damage (for a total of 6 points).\n\nThe short sword can cut through any material of its level or lower with ease, owing to its exceptional sharpness. The blade sheds a blue light as bright as a candle to warn when goblins, orcs, trolls, or similar creatures are within 300 feet (90 m).\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Medium sword\n\nEffect: This sword can be used as a normal medium sword that deals 2 additional points of damage (for a total of 6 points).\n\nThe short sword can cut through any material of its level or lower with ease, owing to its exceptional sharpness. The blade sheds a blue light as bright as a candle to warn when goblins, orcs, trolls, or similar creatures are within 300 feet (90 m).\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124949_cc74ee81.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124949_cc74ee81.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

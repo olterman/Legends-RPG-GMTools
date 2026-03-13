@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:54.025755+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124954.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Guardian idol",
+    "description": "Level: 1d6 + 3 Form: Demonic idol on top of a thin metal leg that is 1 foot (30 cm) tall Effect: It takes two rounds to balance this artifact on its metal leg, and then it requires an action to activate. When activated, the idol stares at the activating character and nearby creatures for five rounds, memorizing their faces and shapes. After that, if anything the idol doesn’t recognize (and is larger than a mouse) comes within long range, it spits a small ball of fire at the target. The fire inf…",
+    "sections": {
+      "name": "Guardian idol",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Demonic idol on top of a thin metal leg that is 1 foot (30 cm) tall\n\nEffect: It takes two rounds to balance this artifact on its metal leg, and then it requires an action to activate. When activated, the idol stares at the activating character and nearby creatures for five rounds, memorizing their faces and shapes. After that, if anything the idol doesn’t recognize (and is larger than a mouse) comes within long range, it spits a small ball of fire at the target. The fire inflicts damage equal to the artifact level. The idol can attack up to ten times per round, but it never attacks the same target more than once per round. It remains on watch for twenty-four hours or until it has made one hundred attacks, whichever comes first.\n\nDepletion: Automatic",
+      "depletion": "automatic"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Demonic idol on top of a thin metal leg that is 1 foot (30 cm) tall\n\nEffect: It takes two rounds to balance this artifact on its metal leg, and then it requires an action to activate. When activated, the idol stares at the activating character and nearby creatures for five rounds, memorizing their faces and shapes. After that, if anything the idol doesn’t recognize (and is larger than a mouse) comes within long range, it spits a small ball of fire at the target. The fire inflicts damage equal to the artifact level. The idol can attack up to ten times per round, but it never attacks the same target more than once per round. It remains on watch for twenty-four hours or until it has made one hundred attacks, whichever comes first.\n\nDepletion: Automatic",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124954_062a0b84.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124954_062a0b84.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

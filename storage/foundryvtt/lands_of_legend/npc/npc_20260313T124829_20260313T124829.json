@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:29.975009+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124829_20260313T124829.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Crime boss",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Crime boss",
+      "motive": "Money and power",
+      "interaction": "Crime bosses are committed to their plans, whatever those might be. Most bosses rely on a lieutenant or trusted thug to interact with people in their place.",
+      "use": "A crime boss and their followers execute a heist on a secure location and take hostages when things go south. Someone must go in and talk to the crime boss to defuse the situation.",
+      "loot": "A crime boss has currency equivalent to a very expensive item in addition to weapons, medium armor, and miscellaneous gear.",
+      "gm_intrusion": "The crime boss uses a clever trick or cypher to block all incoming attacks in a given round of combat."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 1,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Deception, persuasion, intimidation, and tasks related to friendly interaction as level 7"
+      ],
+      "combat": [
+        "Guards, thugs, and other followers deal 1 additional point of damage when the crime boss can see them and issue commands. If possible, crime bosses fight while mounted or in a vehicle, directing their followers from the rear of any conflict, concentrating first on issuing orders."
+      ],
+      "interaction": [
+        "Crime bosses are committed to their plans, whatever those might be. Most bosses rely on a lieutenant or trusted thug to interact with people in their place."
+      ],
+      "loot": [
+        "A crime boss has currency equivalent to a very expensive item in addition to weapons, medium armor, and miscellaneous gear."
+      ]
+    },
+    "text": "A crime boss usually isn’t physically powerful but wields power through lies, bribery, and control. Rarely encountered alone, they rely on guards, thugs, and other measures to provide physical security. A crime boss could be a petty noble, a mafia king, or the captain of a pirate ship that sails the seas or glides the space lanes.\n\nMotive: Money and power\n\nHealth: 12\n\nDamage Inflicted: 5 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Deception, persuasion, intimidation, and tasks related to friendly interaction as level 7\n\nCombat: Guards, thugs, and other followers deal 1 additional point of damage when the crime boss can see them and issue commands. If possible, crime bosses fight while mounted or in a vehicle, directing their followers from the rear of any conflict, concentrating first on issuing orders.\n\nInteraction: Crime bosses are committed to their plans, whatever those might be. Most bosses rely on a lieutenant or trusted thug to interact with people in their place.\n\nUse: A crime boss and their followers execute a heist on a secure location and take hostages when things go south. Someone must go in and talk to the crime boss to defuse the situation.\n\nLoot: A crime boss has currency equivalent to a very expensive item in addition to weapons, medium armor, and miscellaneous gear.\n\nGM Intrusion: The crime boss uses a clever trick or cypher to block all incoming attacks in a given round of combat.\n\nCrime boss\nLevel 3 (target number 9)\nHealth: 12\nArmor: 1\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.jZT0TZAHaKkZ8kGv",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_crime-boss_20260313T124829_403a09c5.webp",
+      "images": [
+        "uploads/foundryvtt/npc_crime-boss_20260313T124829_403a09c5.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/npc_crime-boss.webp"
+    },
+    "description": "A crime boss and their followers execute a heist on a secure location and take hostages when things go south. Someone must go in and talk to the crime boss to defuse the situation."
+  }
+}

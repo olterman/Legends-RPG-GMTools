@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:47.149471+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124847.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Prince(ss) of summer",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Prince(ss) of summer",
+      "environment": "Almost any wilderness region alone or commanding a small group of lesser faerie creatures",
+      "motive": "Unpredictable; defend fey territory and prerogatives",
+      "interaction": "Most fey are willing to talk, and those of the Summer Court are especially eager to make deals. However, people who bargain with fey nobles should take care to avoid being tricked.",
+      "use": "The characters find a fey noble wounded and in need of aid.",
+      "loot": "In addition to fine clothing, fine equipment, and a considerable sum of currency, a prince or princess of summer might carry a few cyphers and even a faerie artifact.",
+      "gm_intrusion": "The character is blinded for up to one minute by a shaft of brilliant sunlight unless they succeed on a Might defense task."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 22,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short; short when gliding on the wind",
+      "modifications": [
+        "Tasks related to deception, disguise, courtly manners, and positive interactions as level 7"
+      ],
+      "combat": [
+        "Most fey princesses and princes are armed with an elegant sword and possibly a bow carved of silverwood. Also, each knows one or more faerie spells. Faerie spells include the following. Brilliant Smile: Target must succeed on an Intellect defense task or do the fey creature’s will for up to one minute. Golden Mead: Allies who drink from the fey’s flask gain an asset to all defense tasks for ten hours. Night’s Reward: Target suffers 5 points of Intellect damage (ignores Armor) and must make an Intellect defense roll or fall asleep for up to one minute. Summer Confidence: Selected targets in short range have an asset on tasks related to resisting fear and acting boldly. Thorns: Target suffers 5 points of Speed damage (ignores Armor) and must succeed on a Might defense task or lose their next turn entangled in rapidly grown thorny vines. Princes and princesses of summer regain 2 points of health per round while their health is above 0 unless they’ve been damaged with a silvered or cold iron weapon."
+      ],
+      "interaction": [
+        "Most fey are willing to talk, and those of the Summer Court are especially eager to make deals. However, people who bargain with fey nobles should take care to avoid being tricked."
+      ],
+      "loot": [
+        "In addition to fine clothing, fine equipment, and a considerable sum of currency, a prince or princess of summer might carry a few cyphers and even a faerie artifact."
+      ]
+    },
+    "text": "Fey nobility are as numberless as cottonwood seeds on the June breeze. But that doesn’t mean each isn’t unique, with a quirky personality and a specific role to play in the mysterious Court of Summer. Demonstrating life, vigor, predation, growth, and competition, the princesses and princes of summer are beings of warmth and generosity, usually. But catch them during the change of the season, and they can be deadly adversaries just as easily. Fey nobles dress in costly diaphanous and flowing garments, and often wear some sign of their noble lineage, such as a circlet or diadem.\n\nMotive: Unpredictable; defend fey territory and prerogatives\n\nEnvironment: Almost any wilderness region alone or commanding a small group of lesser faerie creatures\n\nHealth: 22\n\nDamage Inflicted: 5 points\n\nArmor: 2\n\nMovement: Short; short when gliding on the wind\n\nModifications: Tasks related to deception, disguise, courtly manners, and positive interactions as level 7\n\nCombat: Most fey princesses and princes are armed with an elegant sword and possibly a bow carved of silverwood. Also, each knows one or more faerie spells. Faerie spells include the following.\n\nBrilliant Smile: Target must succeed on an Intellect defense task or do the fey creature’s will for up to one minute.\n\nGolden Mead: Allies who drink from the fey’s flask gain an asset to all defense tasks for ten hours.\n\nNight’s Reward: Target suffers 5 points of Intellect damage (ignores Armor) and must make an Intellect defense roll or fall asleep for up to one minute.\n\nSummer Confidence: Selected targets in short range have an asset on tasks related to resisting fear and acting boldly.\n\nThorns: Target suffers 5 points of Speed damage (ignores Armor) and must succeed on a Might defense task or lose their next turn entangled in rapidly grown thorny vines.\n\nPrinces and princesses of summer regain 2 points of health per round while their health is above 0 unless they’ve been damaged with a silvered or cold iron weapon.\n\nInteraction: Most fey are willing to talk, and those of the Summer Court are especially eager to make deals. However, people who bargain with fey nobles should take care to avoid being tricked.\n\nUse: The characters find a fey noble wounded and in need of aid.\n\nLoot: In addition to fine clothing, fine equipment, and a considerable sum of currency, a prince or princess of summer might carry a few cyphers and even a faerie artifact.\n\nGM Intrusion: The character is blinded for up to one minute by a shaft of brilliant sunlight unless they succeed on a Might defense task.\n\nPrince(ss) of summer\nLevel 5 (target number 15)\nHealth: 22\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.KrHZmg9AKHxbGRnk",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_princess-of-summer_20260313T124847_ce15b892.webp",
+      "images": [
+        "uploads/foundryvtt/creature_princess-of-summer_20260313T124847_ce15b892.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_princess-of-summer.webp"
+    },
+    "description": "The characters find a fey noble wounded and in need of aid."
+  }
+}

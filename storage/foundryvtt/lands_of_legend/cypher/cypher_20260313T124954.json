@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:54.189067+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124954.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Hart’s heart",
+    "description": "Level: 1d6 + 3 Form: Still-beating heart from a forest stag, kept in an ornate lined box Effect: When the user offers the heart to another living being, all attempts by the user to bribe, deceive, coerce, or convince the recipient are eased by two steps.",
+    "sections": {
+      "name": "Hart’s heart",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Still-beating heart from a forest stag, kept in an ornate lined box\n\nEffect: When the user offers the heart to another living being, all attempts by the user to bribe, deceive, coerce, or convince the recipient are eased by two steps."
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Still-beating heart from a forest stag, kept in an ornate lined box\n\nEffect: When the user offers the heart to another living being, all attempts by the user to bribe, deceive, coerce, or convince the recipient are eased by two steps.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124954_e3ea41eb.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124954_e3ea41eb.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:48.068625+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124948.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Devils and tailors",
+    "description": "Level: 1d6 + 2 Form: Blood-stained draughtboard with figures of white gold, bronze, and pearl Effect: Playing someone in a game of checkers or draughts eases all of the user’s positive social interactions with their opponent. While playing, the user can make a move and interact with their opponent as a single action. The game lasts a number of rounds equal to the artifact level. Depletion: 1 in 1d20 (check each game played). After depletion, the board continues to function as a regular draughtb…",
+    "sections": {
+      "name": "Devils and tailors",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Blood-stained draughtboard with figures of white gold, bronze, and pearl\n\nEffect: Playing someone in a game of checkers or draughts eases all of the user’s positive social interactions with their opponent. While playing, the user can make a move and interact with their opponent as a single action. The game lasts a number of rounds equal to the artifact level.\n\nDepletion: 1 in 1d20 (check each game played). After depletion, the board continues to function as a regular draughtboard.\n\nYou can determine the outcome of a game by having both players roll 2d6. The player with the highest number of pieces left on the board (highest roll) is the winner.",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Blood-stained draughtboard with figures of white gold, bronze, and pearl\n\nEffect: Playing someone in a game of checkers or draughts eases all of the user’s positive social interactions with their opponent. While playing, the user can make a move and interact with their opponent as a single action. The game lasts a number of rounds equal to the artifact level.\n\nDepletion: 1 in 1d20 (check each game played). After depletion, the board continues to function as a regular draughtboard.\n\nYou can determine the outcome of a game by having both players roll 2d6. The player with the highest number of pieces left on the board (highest roll) is the winner.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124948_180bc723.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124948_180bc723.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

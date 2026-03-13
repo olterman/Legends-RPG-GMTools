@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+
+{% block title %}Settings — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Settings Index</h1>
+<p>Available settings in this workspace. Select one to load or remove it from the project.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="output-card">
+      <div class="small">Setting Cards</div>
+      <div id="settings-cards" class="settings-cards" style="margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="field">
+      <label for="settings-select">Load Setting</label>
+      <select id="settings-select"></select>
+    </div>
+    <div class="actions">
+      <button id="settings-load-btn" type="button">Load Selected</button>
+      <button id="settings-delete-btn" type="button" class="secondary settings-danger-btn">Delete Selected</button>
+    </div>
+    <div id="settings-status" class="status">Loading settings...</div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(() => {
+  const els = {
+    select: document.getElementById("settings-select"),
+    loadBtn: document.getElementById("settings-load-btn"),
+    deleteBtn: document.getElementById("settings-delete-btn"),
+    status: document.getElementById("settings-status"),
+    cards: document.getElementById("settings-cards"),
+  };
+
+  const state = {
+    worlds: [],
+    active: "",
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  async function fetchJson(url, init) {
+    const res = await fetch(url, init);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+    return data;
+  }
+
+  async function resizeImageForWeb(file, { maxWidth = 1600, maxHeight = 1600, quality = 0.86 } = {}) {
+    if (!(file instanceof File) || !String(file.type || "").startsWith("image/")) {
+      return file;
+    }
+    const dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.onerror = () => reject(reader.error || new Error("failed to read file"));
+      reader.readAsDataURL(file);
+    });
+    const img = await new Promise((resolve, reject) => {
+      const element = new Image();
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("failed to decode image"));
+      element.src = dataUrl;
+    });
+    const scale = Math.min(maxWidth / img.width, maxHeight / img.height, 1);
+    const width = Math.max(1, Math.round(img.width * scale));
+    const height = Math.max(1, Math.round(img.height * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(img, 0, 0, width, height);
+    const outType = String(file.type || "").toLowerCase().includes("png") ? "image/png" : "image/jpeg";
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, outType, quality));
+    if (!blob) return file;
+    const baseName = (file.name || "upload").replace(/\.[^.]+$/, "");
+    const ext = outType === "image/png" ? ".png" : ".jpg";
+    return new File([blob], `${baseName}${ext}`, { type: outType });
+  }
+
+  async function uploadCoverForSetting(settingId) {
+    const id = String(settingId || "").trim();
+    if (!id) return "";
+    const current = state.worlds.find((w) => String(w.id || "") === id) || {};
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    const picked = await new Promise((resolve) => {
+      input.addEventListener("change", () => resolve(input.files?.[0] || null), { once: true });
+      input.click();
+    });
+    if (!picked) return "";
+
+    const resized = await resizeImageForWeb(picked);
+    const form = new FormData();
+    form.append("file", resized);
+    form.append("friendly_name", String(current.label || id));
+    const tags = [
+      "setting_cover",
+      id,
+      String(current.core_genre || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_"),
+    ].filter(Boolean);
+    form.append("tags", tags.join(","));
+    const uploaded = await fetchJson("/media/images/upload", { method: "POST", body: form });
+    return String(uploaded.path || "").trim();
+  }
+
+  function renderSelect() {
+    els.select.innerHTML = "";
+    const blank = document.createElement("option");
+    blank.value = "";
+    blank.textContent = "Default";
+    els.select.appendChild(blank);
+    for (const world of state.worlds) {
+      const opt = document.createElement("option");
+      opt.value = String(world.id || "");
+      opt.textContent = String(world.label || world.id || "");
+      els.select.appendChild(opt);
+    }
+    els.select.value = state.active || "";
+  }
+
+  function renderCards() {
+    if (!state.worlds.length) {
+      els.cards.innerHTML = `<div class="small">No settings found.</div>`;
+      return;
+    }
+    els.cards.innerHTML = state.worlds.map((world) => {
+      const id = String(world.id || "");
+      const label = String(world.label || id || "");
+      const active = id && id === state.active;
+      const cover = String(world.cover_url || "");
+      return `
+        <div class="result-card settings-card ${active ? "selected" : ""}" data-setting-id="${escapeHtml(id)}">
+          <a href="/settings/${encodeURIComponent(id)}" class="settings-link-wrap" title="Open setting page">
+            <div class="settings-cover-wrap">
+              <img src="${escapeHtml(cover)}" alt="${escapeHtml(label)} cover" class="settings-cover" loading="lazy" />
+            </div>
+          </a>
+          <div class="result-top">
+            <div>
+              <a href="/settings/${encodeURIComponent(id)}" class="settings-title-link">
+                <div class="result-heading">${escapeHtml(label)}</div>
+              </a>
+              <div class="result-meta">ID: ${escapeHtml(id)}</div>
+            </div>
+            <div class="settings-card-top-actions">
+              <button type="button" class="secondary settings-cover-icon-btn" data-setting-id="${escapeHtml(id)}" title="Attach cover image" aria-label="Attach cover image">
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                  <path fill="currentColor" d="M21 5a2 2 0 0 0-2-2H9.83a2 2 0 0 0-1.41.59L3.59 8.42A2 2 0 0 0 3 9.83V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2Zm-2 9-3-4-2.5 3-2-2.5L7 16Zm-11.5-4A1.5 1.5 0 1 1 9 8.5 1.5 1.5 0 0 1 7.5 10Z"/>
+                </svg>
+              </button>
+              ${active ? `<div class="source-badge source-house">Active</div>` : ""}
+            </div>
+          </div>
+          ${world.description ? `<div class="result-description">${escapeHtml(world.description)}</div>` : ""}
+          <div class="actions" style="margin-top:10px;">
+            <button type="button" class="secondary settings-load-inline-btn" data-setting-id="${escapeHtml(id)}">Load</button>
+            <button type="button" class="secondary settings-danger-btn settings-delete-inline-btn" data-setting-id="${escapeHtml(id)}">Delete</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  async function loadData() {
+    const data = await fetchJson("/api/settings");
+    state.worlds = Array.isArray(data.settings || data.worlds) ? (data.settings || data.worlds) : [];
+    state.active = String(data.active_setting || data.active_world || "");
+    renderSelect();
+    renderCards();
+    els.status.textContent = `Loaded ${state.worlds.length} settings.`;
+  }
+
+  async function loadSetting(settingId) {
+    els.status.textContent = "Switching setting...";
+    await fetchJson("/settings/select", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ setting_id: settingId || null }),
+    });
+    window.location.reload();
+  }
+
+  async function deleteSetting(settingId) {
+    const id = String(settingId || "").trim();
+    if (!id) {
+      els.status.textContent = "Select a setting first.";
+      return;
+    }
+    const ok = window.confirm(
+      `Delete setting '${id}'?\n\nThis removes config/worlds/${id} and unregisters it from 02_settings.yaml.`
+    );
+    if (!ok) return;
+    els.status.textContent = `Deleting ${id}...`;
+    await fetchJson("/settings/delete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ setting_id: id }),
+    });
+    await loadData();
+  }
+
+  async function setCover(settingId) {
+    const id = String(settingId || "").trim();
+    if (!id) return;
+    els.status.textContent = `Choose cover image for ${id}...`;
+    const imagePath = await uploadCoverForSetting(id);
+    if (!imagePath) {
+      els.status.textContent = "Cover selection cancelled.";
+      return;
+    }
+    els.status.textContent = `Saving cover for ${id}...`;
+    await fetchJson("/settings/cover", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ setting_id: id, cover_image: imagePath }),
+    });
+    await loadData();
+  }
+
+  els.loadBtn?.addEventListener("click", () => loadSetting(els.select.value).catch((err) => {
+    els.status.textContent = `Load failed: ${err.message}`;
+  }));
+  els.deleteBtn?.addEventListener("click", () => deleteSetting(els.select.value).catch((err) => {
+    els.status.textContent = `Delete failed: ${err.message}`;
+  }));
+
+  els.cards?.addEventListener("click", (event) => {
+    const loadBtn = event.target.closest(".settings-load-inline-btn");
+    if (loadBtn) {
+      const id = loadBtn.getAttribute("data-setting-id") || "";
+      loadSetting(id).catch((err) => {
+        els.status.textContent = `Load failed: ${err.message}`;
+      });
+      return;
+    }
+    const coverBtn = event.target.closest(".settings-cover-icon-btn");
+    if (coverBtn) {
+      const id = coverBtn.getAttribute("data-setting-id") || "";
+      setCover(id).catch((err) => {
+        els.status.textContent = `Set cover failed: ${err.message}`;
+      });
+      return;
+    }
+    const delBtn = event.target.closest(".settings-delete-inline-btn");
+    if (delBtn) {
+      const id = delBtn.getAttribute("data-setting-id") || "";
+      deleteSetting(id).catch((err) => {
+        els.status.textContent = `Delete failed: ${err.message}`;
+      });
+    }
+  });
+
+  loadData().catch((err) => {
+    els.status.textContent = `Failed to load settings: ${err.message}`;
+  });
+})();
+</script>
+<style>
+  .settings-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .settings-card {
+    overflow: hidden;
+  }
+  .settings-link-wrap {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .settings-title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .settings-title-link:hover .result-heading {
+    color: var(--accent);
+  }
+  .settings-card-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .settings-cover-icon-btn {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .settings-cover-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.2);
+  }
+  .settings-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .settings-danger-btn {
+    background: rgba(128, 22, 33, 0.95) !important;
+    color: #ffecef !important;
+    border: 1px solid rgba(255, 128, 142, 0.65) !important;
+  }
+  .settings-danger-btn:hover {
+    background: rgba(156, 28, 42, 0.98) !important;
+  }
+</style>
+{% endblock %}

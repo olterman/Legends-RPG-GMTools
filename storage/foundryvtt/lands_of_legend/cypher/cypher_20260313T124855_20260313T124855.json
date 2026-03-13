@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.526417+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124855_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Rallying Cry",
+    "level": "3",
+    "sections": {
+      "name": "Rallying Cry",
+      "level": "3",
+      "effect": "<p>You cheer on your allies who can hear you with a short speech or anecdote that bolsters their morale. Each friendly creature other than you in the area who can understand you regains Intellect points equal to the cypher level.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Vortath Daess",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124855_20260313T124855.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124855_c3cc7860.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124855_c3cc7860.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -85,6 +85,22 @@
     margin: 4px 0;
     color: var(--text);
   }
+
+  .sync-toggle {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .sync-toggle label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-weight: 700;
+  }
 </style>
 {% endblock %}
 
@@ -132,6 +148,25 @@
 
       const summary = Array.isArray(data.summary) ? data.summary : [];
       const contents = Array.isArray(data.contents) ? data.contents : [];
+      const pipeline = data && typeof data.pipeline === 'object' && data.pipeline ? data.pipeline : {};
+      const tags = data && typeof data.tags === 'object' && data.tags ? data.tags : {};
+      const foundrySync = data && typeof data.foundry_sync === 'object' && data.foundry_sync ? data.foundry_sync : {};
+      const showFoundrySyncToggle = Boolean(foundrySync.present) && Boolean(foundrySync.can_toggle);
+      const taxonomyTagHtml = [
+        tags.core_rules ? `<span class="comp-stat"><span class="k">Core</span><span class="v">${escapeHtml(String(tags.core_rules))}</span></span>` : '',
+        tags.genre ? `<span class="comp-stat"><span class="k">Genre</span><span class="v">${escapeHtml(String(tags.genre))}</span></span>` : '',
+        tags.setting ? `<span class="comp-stat"><span class="k">Setting</span><span class="v">${escapeHtml(String(tags.setting))}</span></span>` : '',
+      ].join('');
+      const pipelineRows = [
+        `PDF: ${pipeline.pdf_present ? 'present' : 'missing'}`,
+        `Docling: ${pipeline.docling_processed ? 'processed' : (pipeline.docling_running ? 'running' : 'not processed')}`,
+        `Parser: ${pipeline.parser_processed ? 'processed' : (pipeline.parser_running ? 'running' : 'not processed')}`,
+        `Vector DB: ${pipeline.vector_processed ? 'indexed' : (pipeline.vector_running ? 'indexing' : 'not indexed')}`,
+      ];
+      if (pipeline.docling_auto_started) pipelineRows.push('Docling auto-started from this page.');
+      if (pipeline.parser_auto_started) pipelineRows.push('Parser auto-started from this page.');
+      if (pipeline.vector_auto_started) pipelineRows.push('Vector indexing auto-started from this page.');
+      if (pipeline.disabled_reason) pipelineRows.push(`Disabled: ${pipeline.disabled_reason}`);
 
       root.innerHTML = `
         <div class="comp-hero">
@@ -142,11 +177,29 @@
             <h2 style="margin:0;">${escapeHtml(data.name || 'Compendium')}</h2>
             <div class="small" style="margin-top:4px;">${escapeHtml(data.subtitle || '')}</div>
             <div class="comp-stats">${statBadges || '<span class="small">No stats available.</span>'}</div>
+            ${taxonomyTagHtml ? `<div class="comp-stats" style="margin-top:8px;">${taxonomyTagHtml}</div>` : ''}
             <div class="actions" style="margin-top:10px;">
-              ${data.search_url ? `<a href="${escapeHtml(data.search_url)}">Open in Search</a>` : ''}
+              ${data.search_url && data.enabled !== false ? `<a href="${escapeHtml(data.search_url)}">Open in Search</a>` : ''}
               ${data.pdf_url ? `<a href="${escapeHtml(data.pdf_url)}" target="_blank" rel="noopener">Open PDF</a>` : ''}
+              ${data.raw_text_url ? `<a href="${escapeHtml(data.raw_text_url)}" target="_blank" rel="noopener">Open Raw Text</a>` : ''}
             </div>
+            ${showFoundrySyncToggle ? `
+              <div class="sync-toggle">
+                <label>
+                  <input id="foundry-sync-checkbox" type="checkbox" style="width:auto;" ${foundrySync.enabled ? 'checked' : ''} />
+                  Sync this compendium with FoundryVTT imports
+                </label>
+                <div class="small" id="foundry-sync-status" style="margin-top:6px;">
+                  ${foundrySync.plugin_enabled ? 'FoundryVTT plugin is enabled.' : 'FoundryVTT plugin is currently disabled, but this setting is saved.'}
+                </div>
+              </div>
+            ` : ''}
           </div>
+        </div>
+
+        <div class="panel" style="margin-top:12px;">
+          <h2 style="margin-top:0;">Pipeline</h2>
+          ${pipelineRows.map(line => `<p>${escapeHtml(line)}</p>`).join('')}
         </div>
 
         <div class="panel">
@@ -169,6 +222,37 @@
         </div>
       `;
       statusEl.textContent = '';
+
+      const syncCheckbox = document.getElementById('foundry-sync-checkbox');
+      const syncStatus = document.getElementById('foundry-sync-status');
+      if (syncCheckbox && syncStatus) {
+        syncCheckbox.addEventListener('change', async () => {
+          const nextValue = Boolean(syncCheckbox.checked);
+          syncCheckbox.disabled = true;
+          syncStatus.textContent = 'Saving Foundry sync setting...';
+          try {
+            const saveRes = await fetch(`/compendiums/${encodeURIComponent(compendiumId)}/foundry-sync`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ enabled: nextValue }),
+            });
+            const saveData = await saveRes.json();
+            if (!saveRes.ok) {
+              throw new Error(saveData.error || `Request failed: ${saveRes.status}`);
+            }
+            const enabled = Boolean(saveData.foundry_sync_enabled);
+            syncCheckbox.checked = enabled;
+            syncStatus.textContent = enabled
+              ? 'Foundry sync is enabled for this compendium.'
+              : 'Foundry sync is disabled for this compendium.';
+          } catch (err) {
+            syncCheckbox.checked = !nextValue;
+            syncStatus.textContent = `Failed to save Foundry sync setting: ${err.message}`;
+          } finally {
+            syncCheckbox.disabled = false;
+          }
+        });
+      }
     } catch (err) {
       statusEl.textContent = `Failed to load compendium: ${err.message}`;
       root.innerHTML = '';

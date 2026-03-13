@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:33.598443+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124833.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Elephant",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Elephant"
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 20,
+      "armor": 1,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 5; health 20; Armor 1\n\nElephant\nLevel 5 (target number 15)\nHealth: 20\nArmor: 1\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.EAQLcWNH3gTUC89n",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/animal_mundane_20260313T124833_f568cb23.webp",
+      "images": [
+        "uploads/foundryvtt/animal_mundane_20260313T124833_f568cb23.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/animal_mundane.webp"
+    },
+    "description": "Level 5; health 20; Armor 1 Elephant Level 5 (target number 15) Health: 20 Armor: 1 Damage: 5"
+  }
+}

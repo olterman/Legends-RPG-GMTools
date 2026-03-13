@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.513130+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124855_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Vortath Daess",
+    "sheet": {
+      "name": "Vortath Daess",
+      "sentence": "Vortath Daess is Stealthy who Channels Divine Blessings.",
+      "type": "Warrior",
+      "flavor": "",
+      "descriptor": "Stealthy",
+      "focus": "Channels Divine Blessings",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 13,
+          "intellect": 11
+        },
+        "current": {
+          "might": 12,
+          "speed": 13,
+          "intellect": 11
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 1,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Trained in all interactions involving lies or trickery",
+          "Trained in all special abilities involving illusions or trickery",
+          "Trained in all stealth tasks",
+          "Heavy weapons",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Sneaky but not fast"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Blessing Of The Gods",
+        "Physical Skills",
+        "Practiced In Armor",
+        "Quick Throw",
+        "Trained Without Armor"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Trained in all interactions involving lies or trickery",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in all special abilities involving illusions or trickery",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in all stealth tasks",
+          "level": "trained"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Sneaky but not fast",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Light Weapon",
+          "description": "A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Damage Boost",
+          "level": "8",
+          "description": "This cypher boosts an ability that inflicts points of damage. The ability inflicts additional damage equal to this cypher's level."
+        },
+        {
+          "name": "Rallying Cry",
+          "level": "3",
+          "description": "You cheer on your allies who can hear you with a short speech or anecdote that bolsters their morale. Each friendly creature other than you in the area who can understand you regains Intellect points equal to the cypher level."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment.",
+        "Armor of your choice.  Granted from Practiced In Armor."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nPerfect Setup\nYou're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action.\n\nOld Friend\nA comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a mission of their own and can't stay longer than it takes to help out, chat for a while after, and perhaps share a quick meal.\n\nWeapon Break\nYour foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track.\n\nQuick\n+2 to your Speed Pool.\nGranted from Stealthy\n\nPossible GM intrusion from your focus:\nA demon investigates divine magic use. A rival cult has issues with the character's teachings.\n\nBackground:\nA Warrior is also known as a Warrior\n\nWarrior\nYou're a good ally to have in a fight. You know how to use weapons and defend yourself. Depending on the genre and setting in question, this might mean wielding a sword and shield in the gladiatorial arena, an AK-47 and a bandolier of grenades in a savage firefight, or a blaster rifle and powered armor when exploring an alien planet. Warriors are physical, action-oriented people. They're more likely to overcome a challenge using force than by other means, and they often take the most straightforward path toward their goals.\n\nStealthy\nYou're sneaky, slippery, and fast. These talents help you hide, move quietly, and pull off tricks that require sleight of hand. Most likely, you're wiry and small. However, you're not much of a sprinter-you're more dexterous than fleet of foot.\n\nChannels Divine Blessings\nA devout follower of a divine being, you channel some of your deity's power to achieve wonders.\n\nChoose how you became involved in the adventure:\n- You attempted to steal from one of the other PCs. That character caught you and forced you to come along with them.\n- You were tailing one of the other PCs for reasons of your own, which brought you into the action.\n- An NPC employer secretly paid you to get involved.\n- You overheard the other PCs talking about a topic that interested you, so you decided to approach the group.\n\nBackground Connection:\nYou spent time on the streets and were in prison for a while.\n\nFocus Connection:\nPick one other PC. That character recently mocked you in some fashion that really hurt your feelings. How you deal with this (if at all) is up to you.\n\nTrained in all interactions involving lies or trickery: Granted from Stealthy\nTrained in all special abilities involving illusions or trickery: Granted from Stealthy\nTrained in all stealth tasks: Granted from Stealthy\nHeavy weapons: Heavy Weapons\nGranted from Warrior\nLight weapons: Light Weapons\nGranted from Warrior\nMedium weapons: Medium Weapons\nGranted from Warrior\nSneaky but not fast: All movement-related tasks are hindered.\nGranted from Stealthy\nBlessing Of The Gods: As a servant of the gods, you can call up blessings in their name. This blessing depends on the god's general demeanor and area of influence. Choose two of the abilities described below.\n\nAuthority/Law/Peace (3 Intellect points).\nYou prevent a foe that can hear and understand you from attacking anyone or anything for one round. Action.\n\nBenevolence/Righteousness/Spirit (2+ Intellect points).\nOne level 1 demon, spirit, or similar creature within short range is destroyed or banished. In addition to the normal options for using Effort, you can choose to use Effort to increase the maximum level of the target. Thus, to destroy or banish a level 5 target (four levels above the normal limit), you must apply four levels of Effort. Action.\n\nDeath/Darkness (2 Intellect points).\nA target you choose within short range withers, suffering 3 points of damage. Action.\n\nDesire/Love/Health (3 Intellect points).\nWith a touch, you restore 1d6 points to one stat Pool of any creature, including yourself. This ability is a difficulty 2 Intellect task. Each time you attempt to heal the same creature, the task is hindered by an additional step. The difficulty returns to 2 after that creature rests for ten hours. Action.Earth/Stone. You are trained in climbing, stonecraft, and spelunking. Enabler.\n\nKnowledge/Wisdom (3 Intellect points).\nChoose up to three creatures (potentially including yourself). For one minute, a particular type of task (but not an attack roll or defense roll) is eased for those creatures, but only while they remain within immediate range of you. Action.Nature/Animals/Plants. You are trained in botany and handling natural animals. Enabler.\n\nProtection/Silence (3 Intellect points).\nYou create a quiet bubble of protection around you to an immediate radius for one minute. The bubble moves with you. All defense rolls for you and all creatures you designate within the bubble are eased, and no noise, regardless of its origin, sounds louder than a normal speaking voice. Action to initiate.\n\nSky/Air (2 Intellect points).\nA creature you touch is immune to airborne toxins or contaminants for ten minutes. Action.\n\nSun/Light/Fire (2 Intellect points).\nYou cause one creature or object within short range to catch fire, inflicting 1 point of ambient damage each round until the fire is extinguished (requiring an action). Action.Trickery/Greed/Commerce. You are trained in detecting the deceptions of other creatures. Enabler. War (1 Intellect point). A target you choose within short range (potentially yourself) deals 2 additional points of damage with its next successful weapon attack. Action.\n\nWater/Sea (2 Intellect points).\nA target you touch can breathe water for ten minutes. Action.\nGranted from Channels Divine Blessings\nPhysical Skills: You are trained in two skills in which you are not already trained. Choose two of the following: balancing, climbing, jumping, running, or swimming. You can select this ability multiple times. Each time you select it, you must choose two different skills. Enabler.\nGranted from Warrior\nPracticed In Armor: You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler.\nGranted from Warrior\nQuick Throw: After using a thrown light weapon, you draw another light weapon and make another thrown attack against the same target or a different one. Action.\nGranted from Warrior\nTrained Without Armor: You are trained in Speed defense tasks when not wearing armor. Enabler.\nGranted from Warrior\nLight Weapon: A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Vortath Daess",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Warrior",
+        "flavor": "",
+        "descriptor": "Stealthy",
+        "focus": "Channels Divine Blessings",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124855_b43fca5c.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124855_b43fca5c.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Warrior",
+      "flavor": "",
+      "descriptor": "Stealthy",
+      "focus": "Channels Divine Blessings",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124855_b43fca5c.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124855_b43fca5c.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Perfect Setup You're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Old Friend A comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a miss…"
+  }
+}

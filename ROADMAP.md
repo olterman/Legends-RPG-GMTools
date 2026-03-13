@@ -1,5 +1,29 @@
 # Product Roadmap
 
+## Status Update (March 13, 2026)
+
+### Recently Completed
+- [x] Consolidated search direction: single primary Search experience retained; redundant browse paths deprecated/removed from active flow.
+- [x] Source-aware card UX: consistent source badges, source color system, and normalized card actions across major search surfaces.
+- [x] Trash lifecycle implemented end-to-end (delete, recover, expunge) with dedicated Trash Bin page.
+- [x] FoundryVTT plugin foundation shipped (handshake + actor/item import paths) and treated as a first-class compendium source.
+- [x] Foundry imports tagged as `FoundryVTT`, with compendium/source filter integration.
+- [x] Docling plugin added and wired into plugin ecosystem.
+- [x] Compendium index/landing architecture expanded (core rules, genres, settings groupings + compendium pages).
+- [x] Vector index foundation added (semantic query path, chunking/index scripts, plugin wiring).
+- [x] AI provider split added (`Ollama Local` + `OpenAI Remote`) with provider selection in AI generation flows.
+- [x] Setting Wizard implemented and integrated with provider-based generation.
+
+### In Progress
+- [ ] High-quality official compendium parsing from Docling text into reliably typed canonical cards.
+- [ ] Semantic/Ollama result UX polish (fully card-native semantic answers and output panel behavior).
+- [ ] Foundry sync expansion to robust bulk/manual sync-all workflows with stronger conflict handling.
+
+### Next Session Priority
+1. Stabilize parser quality for official compendiums (especially NPC/creature classification).
+2. Complete semantic/AI result presentation parity with normal search cards.
+3. Continue Foundry sync hardening (manual sync-all flows + folder/setting targeting).
+
 ## Completed This Week
 - Implemented global source badges/colors (`CSRD` and `House`) in search flows.
 - Added edit/delete + trash/recover/expunge lifecycle for Unified Search and Local Library.
@@ -11,12 +35,34 @@
 - Added automated smoke tests for filtering, trash lifecycle, and lore index consistency.
 
 ## Small Tweaks
-- Search result cards: render image thumbnails under the type label.
-- Uploaded images: auto-resize to web-safe dimensions and support click-to-open full-size popup preview.
-- Upload defaults: auto-set image `friendly_name` from attached entity name and auto-tag with `area`, `genre`, and selected `setting`.
-- Standardize canonical `description` support across core entity types and all result cards.
-- Keep compact card action icons (edit/trash) anchored in the lower-right corner for consistency.
-- Evaluate consolidating Library, Lore, CSRD, and Unified search into one search experience (proposal only).
+- [x] Search result cards: render image thumbnails under the type label.
+- [x] Uploaded images: auto-resize to web-safe dimensions and support click-to-open full-size popup preview.
+- [x] Upload defaults: auto-set image `friendly_name` from attached entity name and auto-tag with `area`, `genre`, and selected `setting`.
+- [x] Standardize canonical `description` support across core entity types and all result cards.
+- [x] Keep compact card action icons (edit/trash) anchored in the lower-right corner for consistency.
+- [x] Evaluate consolidating Library, Lore, CSRD, and Unified search into one search experience (now adopted as primary direction).
+- [ ] Semantic search UX follow-up: add a one-click “Use Snippet in Prompt/Generator Context” action for selected vector hits.
+- [ ] Semantic retrieval ranking tweak: prioritize readable narrative/rules chunks by default while still keeping TOC/index chunks available for page-number lookup queries.
+- [ ] Foundry bridge UX tweak: show the current GMTools sync target setting near Foundry sheet sync actions/tooltips for quick visibility.
+- [ ] Foundry media sync follow-up: support optional GMTools image upsync back to Foundry when local images are added/replaced (deferred).
+- [ ] AI Generate UX tweak: add one-click type-based source presets (recommended compendium/source checkbox defaults per type like `encounter`, `npc`, `cypher`, etc.).
+- [ ] Setting Wizard hardening: strict YAML output contracts and schema validation on generated setting bundles.
+- [ ] Compendium parsing refinement: preserve page anchors while removing low-value image-only chunk noise from retrieval ranking.
+
+## Current Focus (March 13, 2026)
+- Reference execution roadmap: `docs/SPRINT_MOBILE_CAMPAIGN_GENERATION_ROADMAP.md`
+- Prioritize three parallel tracks:
+  - Mobile-first UI behavior and layout fixes.
+  - Campaign Mode (GM overview for scenes, actors, and dice).
+  - Data-driven generation (prefer local indexed/storage data over hardcoded YAML-only inputs).
+- Track account/auth requirements in parallel:
+  - login flow and session handling
+  - GM vs Player roles and permission boundaries
+- Start with mobile fixes first to unblock daily usability, then ship Campaign Mode MVP, then complete generation data-provider migration.
+- Require each track to ship with:
+  - smoke-test notes
+  - schema/storage impact notes
+  - rollback notes
 
 ## Near Term (0-6 weeks)
 
@@ -168,6 +214,10 @@
 - Build a local vector database pipeline from world/config/lore files.
 - Support semantic retrieval filtered by genre, setting, type, area, and source.
 - Integrate semantic retrieval into search and generation context workflows.
+- Progress:
+  - [x] Initial vector build/query flow implemented.
+  - [x] Semantic query path available in Search.
+  - [ ] Retrieval relevance/formatting polish and card-native rendering still in progress.
 - Done when:
   - Index build is incremental and deterministic.
   - Query endpoint returns cited chunks with source metadata.

@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.171725+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124842_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Llorul Tuvrulut",
+    "sheet": {
+      "name": "Llorul Tuvrulut",
+      "sentence": "Llorul Tuvrulut is Guarded who Keeps A Magic Ally.",
+      "type": "Knight",
+      "flavor": "",
+      "descriptor": "Guarded",
+      "focus": "Keeps A Magic Ally",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 11,
+          "speed": 12,
+          "intellect": 13
+        },
+        "current": {
+          "might": 11,
+          "speed": 12,
+          "intellect": 13
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 1,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Trained in all intellect defense tasks",
+          "Trained in all tasks involving discerning the truth, piercing disguises, and recognizing falsehoods and other deceptions",
+          "Heavy weapons",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Your suspicious nature makes you unlikeable"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Bash",
+        "Bound Magic Creature",
+        "Improved Edge",
+        "No Need For Weapons",
+        "Swipe"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Trained in all intellect defense tasks",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in all tasks involving discerning the truth, piercing disguises, and recognizing falsehoods and other deceptions",
+          "level": "trained"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Your suspicious nature makes you unlikeable",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Light Weapon",
+          "description": "A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Ray Of Hope",
+          "level": "3",
+          "description": "You can activate this cypher when you or an ally rolls a 20 on a task (no action required). When you do, designate youself or the ally who rolled the 20 as the recipient. The recipient can restore a number of points to their Pools equal to the cypher's level, dividing among their Pools however they wish."
+        },
+        {
+          "name": "Spy",
+          "level": "7",
+          "description": "Produces a tiny spying object that resists detection as a level 8 creature. The object moves at great speed, mapping and scanning an unknown area. It moves 500 feet (150 m) per level, scanning an area up to 50 feet (15 m) away from it. It identifies basic layout, creatures, and major energy sources. Its movement is blocked by any physical or energy barrier. At the end of its mapping run, it returns to the user and reports. If it discovers a predefined target during its run (such as \"a creature of level 5 or higher,\" \"a locked door,\" \"a major energy source,\" and so on), it detonates instead, dealing damage equal to the cypher's level (half electrical damage, half shrapnel damage) to all creatures and objects in short range."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nPerfect Setup\nYou're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action.\n\nOld Friend\nA comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a mission of their own and can't stay longer than it takes to help out, chat for a while after, and perhaps share a quick meal.\n\nWeapon Break\nYour foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track.\n\nSuspicious\n+2 to your Intellect Pool.\nGranted from Guarded\n\nPossible GM intrusion from your focus:\nThe creature unexpectedly disappears into its bound object. The bound object cracks. The creature disagrees and doesn't do as asked. The creature says it's leaving unless a task is performed for it.\n\nBackground:\nA Knight is also known as a Warrior\n\nKnight\nYou're a good ally to have in a fight. You know how to use weapons and defend yourself. Depending on the genre and setting in question, this might mean wielding a sword and shield in the gladiatorial arena, an AK-47 and a bandolier of grenades in a savage firefight, or a blaster rifle and powered armor when exploring an alien planet. Warriors are physical, action-oriented people. They're more likely to overcome a challenge using force than by other means, and they often take the most straightforward path toward their goals.\n\nGuarded\nYou conceal your true nature behind a mask and are loath to let anyone see who you really are. Protecting yourself, physically and emotionally, is what you care about most, and you prefer to keep everyone else at a safe distance. You may be suspicious of everyone you meet, expecting the worst from people so you won't be surprised when they prove you right. Or you might just be a bit reserved, careful about letting people through your gruff exterior to the person you really are.\n\nNo one can be as reserved as you are and make many friends. Most likely, you have an abrasive personality and tend to be pessimistic in your outlook. You probably nurse an old hurt and find that the only way you can cope is to keep it and your personality locked down.\n\nKeeps A Magic Ally\nAn allied magic creature bound to an object (such as a minor djinn in a lamp, or a ghost in a pipe) is your friend, protector, and weapon.\n\nChoose how you became involved in the adventure:\n- One of the PCs managed to overcome your defenses and befriend you.\n- You want to see what the PCs are up to, so you accompany them to catch them in the act of some wrongdoing.\n- You have made a few enemies and take up with the PCs for protection.\n- The PCs are the only people who will put up with you.\n\nBackground Connection:\nYou served as a bodyguard to a powerful criminal who now owes you their life.\n\nFocus Connection:\nPick one other PC. For reasons unknown to you, that character is completely immune to your focus abilities, whether you use them for help or for harm.\n\nTrained in all intellect defense tasks: Granted from Guarded\nTrained in all tasks involving discerning the truth, piercing disguises, and recognizing falsehoods and other deceptions: Granted from Guarded\nHeavy weapons: Heavy Weapons\nGranted from Warrior\nLight weapons: Light Weapons\nGranted from Warrior\nMedium weapons: Medium Weapons\nGranted from Warrior\nYour suspicious nature makes you unlikeable: Any task involving deception or persuasion is hindered.\nGranted from Guarded\nBash: This is a pummeling melee attack. Your attack inflicts 1 less point of damage than normal, but dazes your target for one round, during which time all tasks it performs are hindered. Action.\nGranted from Knight\nBound Magic Creature: You have a level 3 magic ally bound to a physical object (perhaps a minor djinn bound to a lamp, a lesser demon bound to a coin, or a spirit bound to a mirror). The magic ally doesn't yet have the full power that one of its kind could possess when mature. Normally, the ally remains quiescent in its bound object. When you use an action to manifest it, it appears next to you as a creature that can converse with you. The creature has its own personality determined by the GM and is a level higher than its base level for one area of knowledge (such as local history). The GM determines whether the magic ally has a long-term goal of its own. Each time the magic ally becomes physically manifest, it remains so for up to one hour. During that period, it accompanies you and follows your instructions. The magic ally must remain an immediate distance from you; if it moves farther away, it is yanked back into its object at the end of your following turn and cannot return until after your next ten-hour recovery roll. It doesn't attack creatures, but it can use its action to serve as an asset for any one attack you make on your turn. Otherwise, it can take actions on its own (though you'll likely roll for it). If the creature is reduced to 0 health, it dissipates. It reforms in its object in 1d6 + 2 days. If you lose the bound object, you retain a sense of the direction in which it lies. Action to manifest the magic creature.\nGranted from Keeps A Magic Ally\nImproved Edge: Choose one of your Edge stats that is 0. It increases to 1. Enabler.\nGranted from Knight\nNo Need For Weapons: When you make an unarmed attack (such as a punch or kick), it counts as a medium weapon instead of a light weapon. Enabler.\nGranted from Knight\nSwipe: This is a quick, agile melee attack. Your attack inflicts 1 less point of damage than normal but dazes your target for one round, during which time all tasks it performs are hindered. Action.\nGranted from Knight\nLight Weapon: A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Llorul Tuvrulut",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Knight",
+        "flavor": "",
+        "descriptor": "Guarded",
+        "focus": "Keeps A Magic Ally",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124842_e3c7a880.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124842_e3c7a880.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Knight",
+      "flavor": "",
+      "descriptor": "Guarded",
+      "focus": "Keeps A Magic Ally",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124842_e3c7a880.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124842_e3c7a880.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Perfect Setup You're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Old Friend A comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a miss…"
+  }
+}

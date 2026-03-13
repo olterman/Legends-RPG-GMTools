@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:35.587404+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124835.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Convenient Mistake",
+    "level": "8",
+    "sections": {
+      "name": "Convenient Mistake",
+      "level": "8",
+      "effect": "<p>An enemy creature of your choice whose level doesn't exceed the cypher's takes an action which inadvertently helps you or your allies. The details are up to the GM.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Gad Vrottan",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124835.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124835_20b4681f.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124835_20b4681f.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

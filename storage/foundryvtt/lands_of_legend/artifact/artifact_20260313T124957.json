@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:57.812078+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124957.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Mastercraft armor",
+    "description": "Level: 1d6 Form: Armor of exceptional quality Effect: This armor grants its wearer an asset for Speed defense rolls. Depletion: — Depending on the game world, mastercraft armor might be magical, mundanely crafted with exceptional quality, or both.",
+    "sections": {
+      "name": "Mastercraft armor",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Armor of exceptional quality\n\nEffect: This armor grants its wearer an asset for Speed defense rolls.\n\nDepletion: —\n\nDepending on the game world, mastercraft armor might be magical, mundanely crafted with exceptional quality, or both.",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6\n\nForm: Armor of exceptional quality\n\nEffect: This armor grants its wearer an asset for Speed defense rolls.\n\nDepletion: —\n\nDepending on the game world, mastercraft armor might be magical, mundanely crafted with exceptional quality, or both.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124957_de7243c1.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124957_de7243c1.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

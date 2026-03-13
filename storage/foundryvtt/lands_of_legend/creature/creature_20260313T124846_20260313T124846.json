@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.975455+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124846_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Posthuman",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Posthuman",
+      "environment": "Alone or in small groups or communities in orbital colonies or other designed locations",
+      "motive": "Variable",
+      "interaction": "Posthumans are so physically and mentally powerful that they are almost godlike to unmodified people, and either ignore, care for, or pity them. Knowing what a posthuman actually wants is hard to pin down because their motivations are complex and many-layered.",
+      "use": "A rogue posthuman is researching a method whereby they might portal into the “quantum” realm of dark energy underlying the known universe of normal matter. Despite the revealed risk of antagonistic post-singularity AIs roaming that realm escaping, the posthuman continues their work.",
+      "loot": "The body of a posthuman is riddled with unrecognizable technologies fused seamlessly with residual organic material—or at least material that grows like organic material used to. Amid this, it might be possible to salvage a few manifest cyphers and an artifact.",
+      "gm_intrusion": "The posthuman allows acts out of turn, or takes control of a device that the character is about to use against the posthuman."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 50,
+      "armor": 4,
+      "damage": 9,
+      "movement": "Short; flies a long distance",
+      "modifications": [
+        "Knowledge tasks as level 9"
+      ],
+      "combat": [
+        "Posthumans can selectively attack foes up to a very long distance away with bolts of directed plasma that deal 9 points of damage. A posthuman can dial up the level of destruction if they wish, so instead of affecting only one target, a bolt deals 7 points of damage to all targets within short range of the primary target, and 1 point even if the targets caught in the conflagration succeed on a Speed defense roll. Posthumans can also call on a variety of other abilities, either by small manipulations of the quantum field or by deploying nanotechnology. Essentially, a posthuman can mimic the ability of any subtle cypher of level 5 or less as an action. Posthumans automatically regain 2 points of health per round while its health is above 0."
+      ],
+      "interaction": [
+        "Posthumans are so physically and mentally powerful that they are almost godlike to unmodified people, and either ignore, care for, or pity them. Knowing what a posthuman actually wants is hard to pin down because their motivations are complex and many-layered."
+      ],
+      "loot": [
+        "The body of a posthuman is riddled with unrecognizable technologies fused seamlessly with residual organic material—or at least material that grows like organic material used to. Amid this, it might be possible to salvage a few manifest cyphers and an artifact."
+      ]
+    },
+    "text": "Rather than evolving naturally, posthumans advance via a directed jump, designed with smart tools and AI surgeons. With all the advances fantastic technology brings to their genetic upgrade, posthumans are beings whose basic capacities radically exceed regular people. They can’t really be considered human any longer; they’ve transcended humanity, which is why they’re also sometimes called transhumans. They’re often involved in large-scale projects, such as creating bigger-than-world habitats or spacecraft, or possibly even researching how they might ascend to some still-higher realm of consciousness or being.\n\nMotive: Variable\n\nEnvironment: Alone or in small groups or communities in orbital colonies or other designed locations\n\nHealth: 50\n\nDamage Inflicted: 9 points\n\nArmor: 4\n\nMovement: Short; flies a long distance\n\nModifications: Knowledge tasks as level 9\n\nCombat: Posthumans can selectively attack foes up to a very long distance away with bolts of directed plasma that deal 9 points of damage. A posthuman can dial up the level of destruction if they wish, so instead of affecting only one target, a bolt deals 7 points of damage to all targets within short range of the primary target, and 1 point even if the targets caught in the conflagration succeed on a Speed defense roll.\n\nPosthumans can also call on a variety of other abilities, either by small manipulations of the quantum field or by deploying nanotechnology. Essentially, a posthuman can mimic the ability of any subtle cypher of level 5 or less as an action.\n\nPosthumans automatically regain 2 points of health per round while its health is above 0.\n\nInteraction: Posthumans are so physically and mentally powerful that they are almost godlike to unmodified people, and either ignore, care for, or pity them. Knowing what a posthuman actually wants is hard to pin down because their motivations are complex and many-layered.\n\nUse: A rogue posthuman is researching a method whereby they might portal into the “quantum” realm of dark energy underlying the known universe of normal matter. Despite the revealed risk of antagonistic post-singularity AIs roaming that realm escaping, the posthuman continues their work.\n\nLoot: The body of a posthuman is riddled with unrecognizable technologies fused seamlessly with residual organic material—or at least material that grows like organic material used to. Amid this, it might be possible to salvage a few manifest cyphers and an artifact.\n\nGM Intrusion: The posthuman allows acts out of turn, or takes control of a device that the character is about to use against the posthuman.\n\nPosthuman\nLevel 7 (target number 21)\nHealth: 50\nArmor: 4\nDamage: 9",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.9L2tmATomO22MAQT",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_posthuman_20260313T124846_d8f357b0.webp",
+      "images": [
+        "uploads/foundryvtt/creature_posthuman_20260313T124846_d8f357b0.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_posthuman.webp"
+    },
+    "description": "A rogue posthuman is researching a method whereby they might portal into the “quantum” realm of dark energy underlying the known universe of normal matter. Despite the revealed risk of antagonistic post-singularity AIs roaming that realm escaping, the posthuman continues their work."
+  }
+}

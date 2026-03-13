@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:41.525438+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124841_20260313T124841.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Kovut Kass",
+    "sheet": {
+      "name": "Kovut Kass",
+      "sentence": "Kovut Kass is Hideous who Exists In Two Places At Once.",
+      "type": "Knight",
+      "flavor": "",
+      "descriptor": "Hideous",
+      "focus": "Exists In Two Places At Once",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 15,
+          "speed": 12,
+          "intellect": 11
+        },
+        "current": {
+          "might": 15,
+          "speed": 12,
+          "intellect": 11
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 1,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Versatile",
+          "Trained in disguise and stealth tasks",
+          "Trained in intimidation and any other fear-based interactions, if you show your true face",
+          "Heavy weapons",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "All tasks relating to pleasant social interaction are hindered"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Bash",
+        "Duplicate",
+        "Improved Edge",
+        "Physical Skills",
+        "Trained Without Armor"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Versatile",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in disguise and stealth tasks",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in intimidation and any other fear-based interactions, if you show your true face",
+          "level": "trained"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "All tasks relating to pleasant social interaction are hindered",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Serendipity",
+          "level": "2",
+          "description": "You reveal a single, but useful mundane item no larger than 2 feet (61 cm), such as a knife or a bundle of rope. The item cannot be unique (such as a one of a kind key, or specific person's diary)."
+        },
+        {
+          "name": "Teleporter (Interstellar)",
+          "level": "6",
+          "description": "User teleports anywhere in the galaxy to a location they have previously visited or seen. They arrive safely with their possessions but cannot take anything else with them."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nPerfect Setup\nYou're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action.\n\nOld Friend\nA comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a mission of their own and can't stay longer than it takes to help out, chat for a while after, and perhaps share a quick meal.\n\nWeapon Break\nYour foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track.\n\nPossible GM intrusion from your focus:\nPerceiving the world from two different places disorients the character, causing momentary vertigo, nausea, or confusion.\n\nBackground:\nA Knight is also known as a Warrior\n\nKnight\nYou're a good ally to have in a fight. You know how to use weapons and defend yourself. Depending on the genre and setting in question, this might mean wielding a sword and shield in the gladiatorial arena, an AK-47 and a bandolier of grenades in a savage firefight, or a blaster rifle and powered armor when exploring an alien planet. Warriors are physical, action-oriented people. They're more likely to overcome a challenge using force than by other means, and they often take the most straightforward path toward their goals.\n\nHideous\nYou are physically repugnant by almost any human standard. You might have had a serious accident, a harmful mutation, or just poor genetic luck, but you are incontrovertibly ugly.\n\nYou've more than made up for your appearance in other ways, however. Because you have to hide your appearance, you excel at sneaking about unnoticed or disguising yourself. But perhaps most important, being ostracized while others socialized, you took the time growing up to develop yourself as you saw fit-you grew strong or quick, or you honed your mind.\n\nExists In Two Places At Once\nYou exist in two places at once.\n\nChoose how you became involved in the adventure:\n- One of the other PCs approached you while you were in disguise, recruiting you while believing you were someone else.\n- While skulking about, you overheard the other PCs' plans and realized you wanted in.\n- One of the other PCs invited you, but you wonder if it was out of pity.\n- You bullied your way in with intimidation and bluster.\n\nBackground Connection:\nYou and a friend both smoke the same kind of rare, expensive tobacco. The two of you get together weekly to chat and smoke.\n\nFocus Connection:\nPick one other PC. That character has a habit that annoys you, but you're otherwise quite impressed with their abilities.\n\nVersatile: You get 4 additional points to divide among your stat Pools.\nGranted from Hideous\nTrained in disguise and stealth tasks: Granted from Hideous\nTrained in intimidation and any other fear-based interactions, if you show your true face: Granted from Hideous\nHeavy weapons: Heavy Weapons\nGranted from Warrior\nLight weapons: Light Weapons\nGranted from Warrior\nMedium weapons: Medium Weapons\nGranted from Warrior\nAll tasks relating to pleasant social interaction are hindered: Granted from Hideous\nBash: This is a pummeling melee attack. Your attack inflicts 1 less point of damage than normal, but dazes your target for one round, during which time all tasks it performs are hindered. Action.\nGranted from Knight\nDuplicate: You cause a duplicate of yourself to appear at any point you can see within short range. The duplicate has no clothing or possessions when it appears. The duplicate is a level 2 NPC with 6 health. The duplicate obeys your commands and does as you direct it. The duplicate remains until you dismiss it using an action or until it is killed. When the duplicate disappears, it leaves behind anything it was wearing or carrying. If the duplicate disappears because it was killed, you take 4 points of damage that ignore Armor, and you lose your next action. Action to initiate.\nGranted from Exists In Two Places At Once\nImproved Edge: Choose one of your Edge stats that is 0. It increases to 1. Enabler.\nGranted from Knight\nPhysical Skills: You are trained in two skills in which you are not already trained. Choose two of the following: balancing, climbing, jumping, running, or swimming. You can select this ability multiple times. Each time you select it, you must choose two different skills. Enabler.\nGranted from Knight\nTrained Without Armor: You are trained in Speed defense tasks when not wearing armor. Enabler.\nGranted from Knight\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Kovut Kass",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Knight",
+        "flavor": "",
+        "descriptor": "Hideous",
+        "focus": "Exists In Two Places At Once",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124841_379f2f67.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124841_379f2f67.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Knight",
+      "flavor": "",
+      "descriptor": "Hideous",
+      "focus": "Exists In Two Places At Once",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124841_379f2f67.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124841_379f2f67.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Perfect Setup You're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Old Friend A comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a miss…"
+  }
+}

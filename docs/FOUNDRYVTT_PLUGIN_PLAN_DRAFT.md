@@ -1,5 +1,23 @@
 # Draft Plan: FoundryVTT Plugin for Direct Sync
 
+## Implementation Status (March 13, 2026)
+
+### Completed
+- [x] FoundryVTT module base scaffold created under `Plugins/foundryVTT/module`.
+- [x] Handshake/health API foundation implemented for module-to-app communication.
+- [x] Initial Foundry -> GMTools import routes and mappings for core actor/item paths.
+- [x] Foundry-sourced records tagged with source metadata (`FoundryVTT`).
+- [x] Foundry surfaced as a compendium-style source in app filters/catalog.
+
+### In Progress
+- [ ] Robust bulk/manual sync-all workflow from Foundry UI (explicit button-driven sync).
+- [ ] Conflict strategy hardening (newest-wins policy, clearer reporting).
+- [ ] Per-setting/world sync targeting and folder segregation.
+
+### Planned
+- [ ] GMTools -> Foundry sync/export flows for selected canonical categories.
+- [ ] Full scene and journal sync parity.
+
 ## Goal
 Create a FoundryVTT module that can communicate with this app and directly transfer:
 - Characters

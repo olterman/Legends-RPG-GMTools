@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:54.953117+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124854_20260313T124854.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Vat reject",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Vat reject",
+      "environment": "Anywhere in lost and lonely places",
+      "motive": "Self-destruction through endless aggression",
+      "interaction": "Vat rejects are usually always enraged, making interaction nearly impossible. However, some may negotiate if offered a reasonable hope of salvation through extreme surgery or other transformation.",
+      "use": "A long-missing derelict ship, famous for carrying a load of planet-buster superweapons, is found. However, salvagers discover it to be overrun by vat rejects. No one knows if the rejects plan to use the superweapons, if they have been released by someone else as a distraction, or if they are part of a mutated ship defense system.",
+      "gm_intrusion": "The vat reject also has a radioactive sting. On a failed Might defense roll, the character struck by the reject descends one step on the damage track."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 0,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Speed defense as level 4 due to frenzied alacrity"
+      ],
+      "combat": [
+        "Vat rejects charge into battle with berserk speed, hindering defenses against their initial attack. All vat rejects are able to inflict damage directly by cutting, bashing, or biting a victim, depending on their particular morphology. Some also have additional abilities; roll a [[/r d6]] to determine the ability for each reject. d6 Ability 1 Reject deals +3 damage in melee (6 points total) 2 Reject has short-range acid spit attack that inflicts 2 points of damage, plus 2 points of damage each additional round until victim succeeds on a Might defense roll 3 Reject can fly a long distance as an action 4 Reject has 2 Armor 5 Reject has long-range destructive eye ray attack that inflicts 6 points of damage 6 When struck by an attack, reject detonates in an immediate radius, inflicting 6 points of damage in a radioactive explosion (and 1 point even on a successful Speed defense roll)"
+      ],
+      "interaction": [
+        "Vat rejects are usually always enraged, making interaction nearly impossible. However, some may negotiate if offered a reasonable hope of salvation through extreme surgery or other transformation."
+      ],
+      "loot": []
+    },
+    "text": "Vat rejects come into being when clone vats meant to produce clone soldiers or similar mass-produced entities are corrupted. How the carefully controlled process becomes compromised varies, but possibilities include yeast contamination, sunspot activity, nanovirus evolution, or purposeful meddling with control parameters. Unskilled operators experimenting with derelict cloning equipment can also produce a vat of rejects.\n\nVat rejects fear nothing and welcome death, except that their existential rage requires an outlet other than immediate suicide. Their warped forms mean that most are in constant pain, and they somehow understand that this was artificially stamped into them by their creators. Revenge is their only possible redemption.\n\nMotive: Self-destruction through endless aggression\n\nEnvironment: Anywhere in lost and lonely places\n\nHealth: 9\n\nDamage Inflicted: 3 points\n\nMovement: Short\n\nModifications: Speed defense as level 4 due to frenzied alacrity\n\nCombat: Vat rejects charge into battle with berserk speed, hindering defenses against their initial attack. All vat rejects are able to inflict damage directly by cutting, bashing, or biting a victim, depending on their particular morphology. Some also have additional abilities; roll a [[/r d6]] to determine the ability for each reject.\n\nd6\nAbility\n\n1\nReject deals +3 damage in melee (6 points total)\n\n2\nReject has short-range acid spit attack that inflicts 2 points of damage, plus 2 points of damage each additional round until victim succeeds on a Might defense roll\n\n3\nReject can fly a long distance as an action\n\n4\nReject has 2 Armor\n\n5\nReject has long-range destructive eye ray attack that inflicts 6 points of damage\n\n6\nWhen struck by an attack, reject detonates in an immediate radius, inflicting 6 points of damage in a radioactive explosion (and 1 point even on a successful Speed defense roll)\n\nInteraction: Vat rejects are usually always enraged, making interaction nearly impossible. However, some may negotiate if offered a reasonable hope of salvation through extreme surgery or other transformation.\n\nUse: A long-missing derelict ship, famous for carrying a load of planet-buster superweapons, is found. However, salvagers discover it to be overrun by vat rejects. No one knows if the rejects plan to use the superweapons, if they have been released by someone else as a distraction, or if they are part of a mutated ship defense system.\n\nGM Intrusion: The vat reject also has a radioactive sting. On a failed Might defense roll, the character struck by the reject descends one step on the damage track.\n\nVat reject\nLevel 3 (target number 9)\nHealth: 9\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.QFTQJ4Z4kmHVr23P",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_vat-reject_20260313T124854_64f8eda2.webp",
+      "images": [
+        "uploads/foundryvtt/creature_vat-reject_20260313T124854_64f8eda2.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_vat-reject.webp"
+    },
+    "description": "A long-missing derelict ship, famous for carrying a load of planet-buster superweapons, is found. However, salvagers discover it to be overrun by vat rejects. No one knows if the rejects plan to use the superweapons, if they have been released by someone else as a distraction, or if they are part of a mutated ship defense system."
+  }
+}

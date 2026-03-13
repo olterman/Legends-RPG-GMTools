@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:49.941646+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124949_20260313T124949.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Enchanted armor",
+    "description": "Level: 1d6 + 3 Form: Full suit of light, medium, or heavy armor Effect: This armor is carefully crafted and reinforced with magic to be stronger and more protective than typical armor. It is armor according to its type (light, medium, or heavy), but it grants an additional +1 Armor (or +2 if the artifact is level 7 or higher) beyond what it would normally provide. For example, chainmail is medium armor (2 Armor), so enchanted chainmail provides a total of 3 Armor (for artifact level 6 or lower)…",
+    "sections": {
+      "name": "Enchanted armor",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Full suit of light, medium, or heavy armor\n\nEffect: This armor is carefully crafted and reinforced with magic to be stronger and more protective than typical armor. It is armor according to its type (light, medium, or heavy), but it grants an additional +1 Armor (or +2 if the artifact is level 7 or higher) beyond what it would normally provide. For example, chainmail is medium armor (2 Armor), so enchanted chainmail provides a total of 3 Armor (for artifact level 6 or lower) or 4 Armor (for artifact level 7 or higher).\n\nThe additional Armor provided by the magic also applies to damage that often isn’t reduced by typical armor, such as heat or cold damage (but not Intellect damage).\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Full suit of light, medium, or heavy armor\n\nEffect: This armor is carefully crafted and reinforced with magic to be stronger and more protective than typical armor. It is armor according to its type (light, medium, or heavy), but it grants an additional +1 Armor (or +2 if the artifact is level 7 or higher) beyond what it would normally provide. For example, chainmail is medium armor (2 Armor), so enchanted chainmail provides a total of 3 Armor (for artifact level 6 or lower) or 4 Armor (for artifact level 7 or higher).\n\nThe additional Armor provided by the magic also applies to damage that often isn’t reduced by typical armor, such as heat or cold damage (but not Intellect damage).\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124949_168c73e4.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124949_168c73e4.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

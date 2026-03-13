@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:35.591406+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124835_20260313T124835.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Detonation (Singularity)",
+    "level": "10",
+    "sections": {
+      "name": "Detonation (Singularity)",
+      "level": "10",
+      "effect": "<p>Projects a small physical explosive up to a long distance away that explodes and creates a momentary singularity that tears at the fabric of the universe. Inflicts 20 points of damage to all within short range, drawing them (or their remains) together to immediate range (if possible). Player characters in the radius who fail a Might defense roll move down one step on the damage track. (The singularity detonation is a greatly feared device, sought by those interested in truly horrific destruction.)  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Gad Vrottan",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124835.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124835_7c5cd61b.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124835_7c5cd61b.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:41.036716+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124841.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Kelpie",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Kelpie",
+      "environment": "Near or in rivers, streams, lakes, and other bodies of running or still water. Modern settings might find them near public or private swimming pools, koi ponds, and reservoirs.",
+      "motive": "Unknown",
+      "interaction": "Not all kelpies are malevolent. Some were once “tamed” by someone who learned their names and loved them. These kelpies actively seek out human contact, attempting to find someone to replace the one they loved.",
+      "use": "In the gloom, a large black horse appears, wearing beautiful tack and acting as if lost. It offers one of the weary characters a ride upon its back.",
+      "gm_intrusion": "While dealing with something else, the characters come upon a kelpie in the process of drowning someone."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 21,
+      "armor": 0,
+      "damage": 4,
+      "movement": "Very long when running",
+      "modifications": [],
+      "combat": [
+        "When a passerby approaches, the kelpie might appear tame, a little lost, injured, or otherwise friendly and in need. Or, if the passerby appears weary or sad, the kelpie will offer a ride upon their back. The kelpie’s sticky skin traps the rider (level 7 Might task to break free). Once the rider is seated, the kelpie may attempt to drown them in the lake, run so fast that the rider takes 5 points of Intellect damage from fright, or roll over on them, inflicting 4 points of damage (ignores Armor)."
+      ],
+      "interaction": [
+        "Not all kelpies are malevolent. Some were once “tamed” by someone who learned their names and loved them. These kelpies actively seek out human contact, attempting to find someone to replace the one they loved."
+      ],
+      "loot": []
+    },
+    "text": "A sinister aquatic creature that takes the shape of a grey horse or white pony, the kelpie lures unsuspecting passersby and attempts to drown them in a nearby body of water.\n\nSome kelpies look just like horses. Others look as if they’re created from elements of the swamp—maybe its tail is algae, its mane cattails, its eyes glowing pebbles or miniature moons. Maybe eels and snails and other creatures are its teeth or tongue. One thing about kelpies is always true: their manes are always dripping and their hooves are always inverted.\n\nIf someone knows a kelpie’s name and says it aloud, the kelpie loses all its power over that person and retreats to the depths of the water.\n\nMotive: Unknown\n\nEnvironment: Near or in rivers, streams, lakes, and other bodies of running or still water. Modern settings might find them near public or private swimming pools, koi ponds, and reservoirs.\n\nHealth: 21\n\nDamage Inflicted: 4 points\n\nMovement: Very long when running\n\nCombat: When a passerby approaches, the kelpie might appear tame, a little lost, injured, or otherwise friendly and in need. Or, if the passerby appears weary or sad, the kelpie will offer a ride upon their back. The kelpie’s sticky skin traps the rider (level 7 Might task to break free). Once the rider is seated, the kelpie may attempt to drown them in the lake, run so fast that the rider takes 5 points of Intellect damage from fright, or roll over on them, inflicting 4 points of damage (ignores Armor).\n\nInteraction: Not all kelpies are malevolent. Some were once “tamed” by someone who learned their names and loved them. These kelpies actively seek out human contact, attempting to find someone to replace the one they loved.\n\nUse: In the gloom, a large black horse appears, wearing beautiful tack and acting as if lost. It offers one of the weary characters a ride upon its back.\n\nGM Intrusion: While dealing with something else, the characters come upon a kelpie in the process of drowning someone.\n\nKelpie\nLevel 6 (target number 18)\nHealth: 21\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.NLqnOouSaXhdcfeX",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_kelpie_20260313T124841_9e692f8a.webp",
+      "images": [
+        "uploads/foundryvtt/creature_kelpie_20260313T124841_9e692f8a.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/creature_kelpie.webp"
+    },
+    "description": "In the gloom, a large black horse appears, wearing beautiful tack and acting as if lost. It offers one of the weary characters a ride upon its back."
+  }
+}

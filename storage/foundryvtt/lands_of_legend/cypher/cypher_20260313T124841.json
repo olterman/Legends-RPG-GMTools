@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:41.381357+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124841.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Full Fury",
+    "level": "3",
+    "sections": {
+      "name": "Full Fury",
+      "level": "3",
+      "effect": "<p>You gain +1 Might Edge, +1 Speed Edge, and +2 Armor for one minute. If the cypher level is 5 or higher, these bonuses increase to +2 Might Edge, +2 Speed Edge, and +3 Armor. Either way, your Speed defense rolls are Hindered for the same duration. You can end the effect early (no action required).  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Kos Udath",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124841.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124841_1a633ccd.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124841_1a633ccd.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

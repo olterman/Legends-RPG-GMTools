@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:46.801322+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124946_20260313T124946.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Demonic rune blade",
+    "description": "Level: 1d6 + 4 Form: Sword inscribed with demonic runes Effect: This longsword functions as a medium weapon, but it is actually a powerful demon transformed into the shape of a sword. The demon cannot speak directly to the wielder, but it can make its desires known by emitting bass rumbles and dirgelike melodies, and by pulling in the direction of its desire. The sword eases all attacks made with it by one step, and it inflicts 4 additional points of damage (for a total of 8 points). If the wie…",
+    "sections": {
+      "name": "Demonic rune blade",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: Sword inscribed with demonic runes\n\nEffect: This longsword functions as a medium weapon, but it is actually a powerful demon transformed into the shape of a sword. The demon cannot speak directly to the wielder, but it can make its desires known by emitting bass rumbles and dirgelike melodies, and by pulling in the direction of its desire.\n\nThe sword eases all attacks made with it by one step, and it inflicts 4 additional points of damage (for a total of 8 points).\n\nIf the wielder kills a creature with the sword, the sword eats the creature’s spirit and transfers some of its energy to the wielder, adding 5 points to their Might Pool and increasing their Might Edge by 1. This lasts for an hour and allows the wielder to exceed their normal Might Pool and Might Edge stats.\n\nIf the wielder misses with an attack, the blade sometimes hits an ally of the wielder instead (this always happens on an attack roll of 1).\n\nDepletion: 1 in 1d10 (check each time a killed creature’s life force is absorbed; if depleted, the sword’s magical abilities can be recharged if it kills an “innocent” creature)",
+      "depletion": "1 in [[/r 1d10 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Sword inscribed with demonic runes\n\nEffect: This longsword functions as a medium weapon, but it is actually a powerful demon transformed into the shape of a sword. The demon cannot speak directly to the wielder, but it can make its desires known by emitting bass rumbles and dirgelike melodies, and by pulling in the direction of its desire.\n\nThe sword eases all attacks made with it by one step, and it inflicts 4 additional points of damage (for a total of 8 points).\n\nIf the wielder kills a creature with the sword, the sword eats the creature’s spirit and transfers some of its energy to the wielder, adding 5 points to their Might Pool and increasing their Might Edge by 1. This lasts for an hour and allows the wielder to exceed their normal Might Pool and Might Edge stats.\n\nIf the wielder misses with an attack, the blade sometimes hits an ally of the wielder instead (this always happens on an attack roll of 1).\n\nDepletion: 1 in 1d10 (check each time a killed creature’s life force is absorbed; if depleted, the sword’s magical abilities can be recharged if it kills an “innocent” creature)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124946_6d1c57a2.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124946_6d1c57a2.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

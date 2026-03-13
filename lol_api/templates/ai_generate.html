@@ -1,0 +1,756 @@
+{% extends "base.html" %}
+
+{% block title %}AI Generate — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>AI Content Generator</h1>
+<p>Generate Cypher System content with your configured AI provider (Ollama or OpenAI).</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="ai-provider">AI Provider</label>
+      <select id="ai-provider">
+        <option value="ollama_local">Ollama Local</option>
+        <option value="openai_remote">OpenAI Remote (gpt-4o-mini default)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="ai-type">Content Type</label>
+      <select id="ai-type">
+        <option value="free_text">Free Text</option>
+        <option value="lore">Lore</option>
+        <option value="rollable_table">Rollable Table</option>
+        <option value="cypher">Cypher</option>
+        <option value="artifact">Artifact</option>
+        <option value="encounter">Encounter</option>
+        <option value="settlement">Settlement</option>
+        <option value="landmark">Landmark</option>
+        <option value="npc">NPC</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="ai-brief">Prompt / Brief</label>
+      <textarea id="ai-brief" rows="12" placeholder="Describe what you want generated..."></textarea>
+    </div>
+    <div class="field">
+      <label>Allowed Sources</label>
+      <div class="actions" style="margin-bottom: 8px;">
+        <button id="ai-sources-all-btn" type="button" class="secondary">Select All Sources</button>
+        <button id="ai-sources-none-btn" type="button" class="secondary">Clear Sources</button>
+      </div>
+      <div id="ai-sources" class="small">Loading sources...</div>
+    </div>
+    <div class="field">
+      <label>Allowed Compendiums</label>
+      <div class="actions" style="margin-bottom: 8px;">
+        <button id="ai-comp-all-btn" type="button" class="secondary">Select All Compendiums</button>
+        <button id="ai-comp-none-btn" type="button" class="secondary">Clear Compendiums</button>
+      </div>
+      <div id="ai-compendiums" class="small">Loading compendiums...</div>
+    </div>
+    <div class="field">
+      <label for="ai-schema">Type JSON Schema Prompt</label>
+      <pre id="ai-schema" class="small" style="white-space: pre-wrap; margin: 0; max-height: 260px; overflow: auto;"></pre>
+    </div>
+    <div class="actions">
+      <button id="ai-generate-btn" type="button">Generate</button>
+      <button id="ai-save-btn" type="button" class="secondary">Save Card</button>
+      <button id="ai-clear-btn" type="button" class="secondary">Clear</button>
+      <button id="ai-copy-btn" type="button" class="secondary">Copy Output</button>
+    </div>
+    <div class="status" id="ai-status">Ready.</div>
+  </div>
+
+  <div class="panel">
+    <div class="output-card">
+      <div class="small">Pretty Output</div>
+      <div id="ai-rendered" style="margin-top: 0.5rem;"></div>
+    </div>
+    <div class="output-card" style="margin-top:12px;">
+      <div class="small">Raw JSON / Model Output</div>
+      <pre id="ai-output" style="white-space: pre-wrap; word-break: break-word; margin: 0.5rem 0 0;"></pre>
+    </div>
+    <div class="output-card" style="margin-top:12px;">
+      <div class="small">Citations</div>
+      <div id="ai-citations" class="small" style="margin-top: 0.5rem;">No citations yet.</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    provider: document.getElementById('ai-provider'),
+    type: document.getElementById('ai-type'),
+    brief: document.getElementById('ai-brief'),
+    sources: document.getElementById('ai-sources'),
+    compendiums: document.getElementById('ai-compendiums'),
+    schema: document.getElementById('ai-schema'),
+    generateBtn: document.getElementById('ai-generate-btn'),
+    saveBtn: document.getElementById('ai-save-btn'),
+    sourcesAllBtn: document.getElementById('ai-sources-all-btn'),
+    sourcesNoneBtn: document.getElementById('ai-sources-none-btn'),
+    compAllBtn: document.getElementById('ai-comp-all-btn'),
+    compNoneBtn: document.getElementById('ai-comp-none-btn'),
+    clearBtn: document.getElementById('ai-clear-btn'),
+    copyBtn: document.getElementById('ai-copy-btn'),
+    status: document.getElementById('ai-status'),
+    rendered: document.getElementById('ai-rendered'),
+    output: document.getElementById('ai-output'),
+    citations: document.getElementById('ai-citations'),
+  };
+  const state = {
+    compendiums: [],
+    parsedCard: null,
+    lastType: 'free_text',
+    lastRawAnswer: '',
+  };
+
+  const TYPE_CONFIG = {
+    free_text: {
+      label: 'Free Text',
+      schema: {
+        name: 'Title',
+        description: 'Main generated text',
+      },
+    },
+    lore: {
+      label: 'Lore',
+      schema: {
+        type: 'lore',
+        name: 'Entry Name',
+        description: 'Lore summary',
+        rumors: ['Rumor 1', 'Rumor 2'],
+        hooks: ['Hook 1', 'Hook 2'],
+      },
+    },
+    rollable_table: {
+      label: 'Rollable Table',
+      schema: {
+        name: 'Table Name',
+        dice: 'd20',
+        rows: [
+          { roll: '1-2', result: 'Outcome text' },
+          { roll: '3-4', result: 'Outcome text' },
+        ],
+      },
+    },
+    cypher: {
+      label: 'Cypher',
+      schema: {
+        type: 'cypher',
+        name: 'Cypher Name',
+        level: '1d6+2',
+        form: 'Physical form',
+        effect: 'Cypher effect',
+        depletion: '1 in 1d20',
+      },
+    },
+    artifact: {
+      label: 'Artifact',
+      schema: {
+        type: 'artifact',
+        name: 'Artifact Name',
+        level: '1d6+3',
+        form: 'Physical form',
+        effect: 'Artifact effect',
+        depletion: '1 in 1d10',
+      },
+    },
+    encounter: {
+      label: 'Encounter',
+      schema: {
+        type: 'encounter',
+        encounter_title: 'Encounter Name',
+        encounter_level: 4,
+        target_number: 12,
+        situation: '2-3 sentence setup',
+        creatures: [
+          {
+            name: 'Creature Name',
+            level: 4,
+            health: 12,
+            armor: 1,
+            damage_inflicted: 4,
+            movement: 'Short',
+            modifications: 'Stealth as level 5',
+          },
+        ],
+        tactics: ['Tactic 1', 'Tactic 2', 'Tactic 3'],
+        gm_intrusion: ['Intrusion option 1'],
+        loot: ['Loot item 1'],
+      },
+    },
+    settlement: {
+      label: 'Settlement',
+      schema: {
+        type: 'settlement',
+        name: 'Settlement Name',
+        settlement_type: 'Settlement type',
+        environment: 'Environment',
+        visual_feature: 'Visual feature',
+        landmark: 'Landmark',
+        economy_survival_basis: 'Economy/survival basis',
+        current_tension: 'Current tension',
+        atmosphere: 'Atmosphere',
+        local_inn_or_tavern: 'Inn or tavern',
+        description: 'Short summary',
+      },
+    },
+    landmark: {
+      label: 'Landmark',
+      schema: {
+        type: 'location',
+        location_category_type: 'landmark',
+        content_type: 'landmark',
+        name: 'Landmark Name',
+        area: 'Area name',
+        description: 'Landmark description',
+        distinctive_features: ['Feature 1', 'Feature 2'],
+        history: 'Short history',
+        hooks: ['Hook 1', 'Hook 2'],
+        risks: ['Risk 1'],
+      },
+    },
+    npc: {
+      label: 'NPC',
+      schema: {
+        type: 'npc',
+        name: 'NPC Name',
+        level: 4,
+        health: 12,
+        armor: 1,
+        damage_inflicted: 4,
+        movement: 'Short',
+        modifications: 'Pleasant social interactions as level 5',
+        motive: 'Motive',
+        environment: 'Environment',
+        combat: 'Combat behavior',
+        interaction: 'Interaction notes',
+        use: 'How to use',
+        gm_intrusion: 'GM intrusion',
+        loot: 'Loot',
+        description: 'Short summary',
+      },
+    },
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  async function fetchJson(url, options) {
+    const response = await fetch(url, options);
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data.error || `Request failed (${response.status})`);
+    }
+    return data;
+  }
+
+  function schemaForType(type) {
+    return TYPE_CONFIG[type]?.schema || TYPE_CONFIG.free_text.schema;
+  }
+
+  function labelForType(type) {
+    return TYPE_CONFIG[type]?.label || 'Free Text';
+  }
+
+  function titleCase(text) {
+    return String(text || '')
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
+  function renderSchema(type) {
+    els.schema.textContent = JSON.stringify(schemaForType(type), null, 2);
+  }
+
+  function setSaveEnabled(enabled) {
+    els.saveBtn.disabled = !enabled;
+  }
+
+  function sourceKindLabel(kind) {
+    const k = String(kind || '').toLowerCase();
+    if (k === 'local') return 'Local Library';
+    if (k === 'csrd') return 'CSRD';
+    if (k === 'official') return 'Official Sourcebooks';
+    if (k === 'core_pdf') return 'Core Rules';
+    if (k === 'foundry') return 'FoundryVTT';
+    return k || 'Unknown';
+  }
+
+  function compendiumCandidates() {
+    const out = [];
+    const seen = new Set();
+    for (const item of state.compendiums) {
+      if (!item || item.searchable === false || item.enabled === false) continue;
+      const id = String(item.id || '').trim().toLowerCase();
+      if (!id || seen.has(id)) continue;
+      seen.add(id);
+      out.push({
+        id,
+        name: String(item.name || id),
+        source_kind: String(item.source_kind || '').toLowerCase(),
+      });
+    }
+    if (!seen.has('local_library')) {
+      out.push({ id: 'local_library', name: 'Local Library', source_kind: 'local' });
+    }
+    return out;
+  }
+
+  function renderFilters() {
+    const candidates = compendiumCandidates();
+    const kinds = Array.from(new Set(candidates.map((row) => row.source_kind).filter(Boolean))).sort();
+    if (!kinds.length) {
+      els.sources.textContent = 'No sources available.';
+      els.compendiums.textContent = 'No compendiums available.';
+      return;
+    }
+    els.sources.innerHTML = kinds.map((kind) => (
+      `<label style="display:block; margin-bottom:4px;">
+        <input type="checkbox" class="ai-source-checkbox" value="${escapeHtml(kind)}" checked />
+        ${escapeHtml(sourceKindLabel(kind))}
+      </label>`
+    )).join('');
+    els.compendiums.innerHTML = candidates.map((row) => (
+      `<label style="display:block; margin-bottom:4px;">
+        <input type="checkbox" class="ai-comp-checkbox" value="${escapeHtml(row.id)}" data-kind="${escapeHtml(row.source_kind)}" checked />
+        ${escapeHtml(row.name)} <span class="small">(${escapeHtml(sourceKindLabel(row.source_kind))})</span>
+      </label>`
+    )).join('');
+  }
+
+  function selectedSourceKinds() {
+    const nodes = document.querySelectorAll('.ai-source-checkbox:checked');
+    return new Set(Array.from(nodes).map((node) => String(node.value || '').trim().toLowerCase()).filter(Boolean));
+  }
+
+  function selectedCompendiumIds() {
+    const kinds = selectedSourceKinds();
+    const nodes = document.querySelectorAll('.ai-comp-checkbox:checked');
+    const ids = [];
+    for (const node of nodes) {
+      const id = String(node.value || '').trim().toLowerCase();
+      const kind = String(node.getAttribute('data-kind') || '').trim().toLowerCase();
+      if (!id) continue;
+      if (kinds.size && kind && !kinds.has(kind)) continue;
+      if (!ids.includes(id)) ids.push(id);
+    }
+    return ids;
+  }
+
+  function setAllBySelector(selector, checked) {
+    document.querySelectorAll(selector).forEach((node) => {
+      node.checked = Boolean(checked);
+    });
+  }
+
+  function extractJsonObject(text) {
+    const raw = String(text || '').trim();
+    if (!raw) return null;
+    try {
+      return JSON.parse(raw);
+    } catch {}
+    const fence = raw.match(/```json\s*([\s\S]*?)```/i) || raw.match(/```\s*([\s\S]*?)```/i);
+    if (fence && fence[1]) {
+      try {
+        return JSON.parse(String(fence[1]).trim());
+      } catch {}
+    }
+    const first = raw.indexOf('{');
+    const last = raw.lastIndexOf('}');
+    if (first >= 0 && last > first) {
+      const chunk = raw.slice(first, last + 1);
+      try {
+        return JSON.parse(chunk);
+      } catch {}
+    }
+    return null;
+  }
+
+  function asArray(value) {
+    if (Array.isArray(value)) return value;
+    if (value === null || value === undefined) return [];
+    const text = String(value).trim();
+    return text ? [text] : [];
+  }
+
+  function compact(value) {
+    return String(value ?? '').trim();
+  }
+
+  function renderRow(label, value) {
+    const v = compact(value);
+    if (!v) return '';
+    return `<div style="margin-bottom:6px;"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(v)}</div>`;
+  }
+
+  function renderList(label, values) {
+    const items = asArray(values).map((v) => compact(v)).filter(Boolean);
+    if (!items.length) return '';
+    return `
+      <div style="margin: 8px 0;">
+        <strong>${escapeHtml(label)}:</strong>
+        <ul style="margin:6px 0 0 18px;">
+          ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderPrettyOutput(type, obj) {
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) {
+      return `<div class="small">No structured JSON detected.</div>`;
+    }
+    const t = String(type || 'free_text').toLowerCase();
+    const name =
+      compact(obj.name) ||
+      compact(obj.title) ||
+      compact(obj.encounter_title) ||
+      labelForType(t);
+    const typeText = compact(obj.type);
+
+    if (t === 'free_text') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Type', typeText)}
+          <div>${escapeHtml(compact(obj.description) || compact(obj.text) || '')}</div>
+        </div>
+      `;
+    }
+
+    if (t === 'cypher' || t === 'artifact') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}${compact(obj.level) ? ` (Lv ${escapeHtml(compact(obj.level))})` : ''}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Form', obj.form)}
+          ${renderRow('Effect', obj.effect)}
+          ${renderRow('Depletion', obj.depletion)}
+          ${renderRow('Description', obj.description)}
+        </div>
+      `;
+    }
+
+    if (t === 'encounter') {
+      const creatures = Array.isArray(obj.creatures) ? obj.creatures : [];
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Encounter Level', obj.encounter_level)}
+          ${renderRow('Target Number', obj.target_number)}
+          ${renderRow('Situation', obj.situation)}
+          ${creatures.length ? `
+            <div style="margin: 8px 0;">
+              <strong>Creatures/NPCs:</strong>
+              <ul style="margin:6px 0 0 18px;">
+                ${creatures.map((c) => {
+                  const cn = compact(c?.name) || 'Entry';
+                  const lv = compact(c?.level);
+                  const hp = compact(c?.health);
+                  const ar = compact(c?.armor);
+                  const dmg = compact(c?.damage_inflicted);
+                  return `<li>${escapeHtml(cn)}${lv ? ` (Lv ${escapeHtml(lv)})` : ''}${hp ? `, HP ${escapeHtml(hp)}` : ''}${ar ? `, Armor ${escapeHtml(ar)}` : ''}${dmg ? `, Dmg ${escapeHtml(dmg)}` : ''}</li>`;
+                }).join('')}
+              </ul>
+            </div>
+          ` : ''}
+          ${renderList('Tactics', obj.tactics)}
+          ${renderList('GM Intrusion', obj.gm_intrusion)}
+          ${renderList('Loot', obj.loot)}
+        </div>
+      `;
+    }
+
+    if (t === 'settlement') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Settlement Type', obj.settlement_type)}
+          ${renderRow('Environment', obj.environment)}
+          ${renderRow('Visual Feature', obj.visual_feature)}
+          ${renderRow('Landmark', obj.landmark)}
+          ${renderRow('Economy / Survival Basis', obj.economy_survival_basis)}
+          ${renderRow('Current Tension', obj.current_tension)}
+          ${renderRow('Atmosphere', obj.atmosphere)}
+          ${renderRow('Local Inn or Tavern', obj.local_inn_or_tavern)}
+          ${renderRow('Description', obj.description)}
+        </div>
+      `;
+    }
+
+    if (t === 'landmark') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Location Category', obj.location_category_type || obj.content_type)}
+          ${renderRow('Area', obj.area)}
+          ${renderRow('Description', obj.description)}
+          ${renderList('Distinctive Features', obj.distinctive_features)}
+          ${renderRow('History', obj.history)}
+          ${renderList('Hooks', obj.hooks)}
+          ${renderList('Risks', obj.risks)}
+        </div>
+      `;
+    }
+
+    if (t === 'npc') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}${compact(obj.level) ? ` (Lv ${escapeHtml(compact(obj.level))})` : ''}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Description', obj.description)}
+          ${renderRow('Motive', obj.motive)}
+          ${renderRow('Environment', obj.environment)}
+          ${renderRow('Health', obj.health)}
+          ${renderRow('Armor', obj.armor)}
+          ${renderRow('Damage Inflicted', obj.damage_inflicted)}
+          ${renderRow('Movement', obj.movement)}
+          ${renderRow('Modifications', obj.modifications)}
+          ${renderRow('Combat', obj.combat)}
+          ${renderRow('Interaction', obj.interaction)}
+          ${renderRow('Use', obj.use)}
+          ${renderRow('GM Intrusion', obj.gm_intrusion)}
+          ${renderRow('Loot', obj.loot)}
+        </div>
+      `;
+    }
+
+    if (t === 'lore' || t === 'rollable_table') {
+        if (t === 'rollable_table') {
+        const rows = Array.isArray(obj.rows) ? obj.rows : [];
+        return `
+          <div>
+            <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+            ${renderRow('Type', typeText)}
+            ${renderRow('Dice', obj.dice)}
+            ${rows.length ? `
+              <table style="width:100%; border-collapse: collapse; margin-top:8px;">
+                <thead>
+                  <tr>
+                    <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,0.15); padding:4px;">Roll</th>
+                    <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,0.15); padding:4px;">Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rows.map((r) => `<tr><td style="padding:4px; vertical-align:top;">${escapeHtml(compact(r?.roll))}</td><td style="padding:4px;">${escapeHtml(compact(r?.result))}</td></tr>`).join('')}
+                </tbody>
+              </table>
+            ` : ''}
+          </div>
+        `;
+      }
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Description', obj.description)}
+          ${renderList('Rumors', obj.rumors)}
+          ${renderList('Hooks', obj.hooks)}
+        </div>
+      `;
+    }
+
+    const knownKeys = Object.keys(obj);
+    return `
+      <div>
+        <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+        ${knownKeys.map((k) => renderRow(titleCase(k), typeof obj[k] === 'object' ? JSON.stringify(obj[k]) : obj[k])).join('')}
+      </div>
+    `;
+  }
+
+  function applyTypeDefaults(type, obj) {
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj;
+    const t = String(type || '').toLowerCase();
+    const out = { ...obj };
+    if (t === 'landmark') {
+      if (!compact(out.type)) out.type = 'location';
+      if (!compact(out.location_category_type)) out.location_category_type = 'landmark';
+      if (!compact(out.content_type)) out.content_type = 'landmark';
+      return out;
+    }
+    if (t === 'lore' && !compact(out.type)) out.type = 'lore';
+    if (t === 'cypher' && !compact(out.type)) out.type = 'cypher';
+    if (t === 'artifact' && !compact(out.type)) out.type = 'artifact';
+    if (t === 'encounter' && !compact(out.type)) out.type = 'encounter';
+    if (t === 'settlement' && !compact(out.type)) out.type = 'settlement';
+    if (t === 'npc' && !compact(out.type)) out.type = 'npc';
+    return out;
+  }
+
+  async function loadCompendiums() {
+    const data = await fetchJson('/compendiums');
+    state.compendiums = Array.isArray(data.items) ? data.items : [];
+    renderFilters();
+  }
+
+  function renderCitations(citations) {
+    const items = Array.isArray(citations) ? citations : [];
+    if (!items.length) {
+      els.citations.textContent = 'No citations returned.';
+      return;
+    }
+    els.citations.innerHTML = items.map((item) => {
+      const n = Number(item.n || 0);
+      const path = String(item.source_path || '');
+      const heading = String(item.heading || '');
+      return `<div>[${n}] ${escapeHtml(heading || 'Chunk')} — <code>${escapeHtml(path)}</code></div>`;
+    }).join('');
+  }
+
+  async function doGenerate() {
+    const brief = String(els.brief?.value || '').trim();
+    const type = String(els.type?.value || 'free_text');
+    if (!brief) {
+      els.status.textContent = 'Enter a prompt first.';
+      return;
+    }
+    const schema = schemaForType(type);
+    const allowedCompendiumIds = selectedCompendiumIds();
+    const finalPrompt = [
+      `Generate Cypher System content of type: ${labelForType(type)}.`,
+      'Return ONLY a valid JSON object.',
+      'Do not include markdown fences, commentary, or any text outside JSON.',
+      'JSON MUST include an explicit `type` field.',
+      'Write richer descriptions by default: usually 3-6 sentences with concrete sensory/world details.',
+      'For `description` fields, avoid one-liners unless the user explicitly asks for brevity.',
+      type === 'landmark'
+        ? 'For landmark output, set `type` to `location` and include `location_category_type: "landmark"`.'
+        : '',
+      `Follow this JSON shape exactly (keys may be added if useful):\n${JSON.stringify(schema, null, 2)}`,
+      `Allowed vector sources/compendiums: ${allowedCompendiumIds.length ? allowedCompendiumIds.join(', ') : 'all indexed sources'}`,
+      '',
+      'User brief:',
+      brief,
+    ].join('\n');
+
+    const provider = String(els.provider?.value || 'ollama_local').trim().toLowerCase();
+    const endpoint = provider === 'openai_remote' ? '/plugins/openai-remote/query' : '/plugins/ollama-local/query';
+    const providerLabel = provider === 'openai_remote' ? 'OpenAI' : 'Ollama';
+
+    els.status.textContent = `Generating with ${providerLabel}...`;
+    state.parsedCard = null;
+    setSaveEnabled(false);
+    els.output.textContent = '';
+    els.citations.textContent = '';
+    try {
+      const data = await fetchJson(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q: finalPrompt, k: 12, compendium_ids: allowedCompendiumIds }),
+      });
+      const answer = String(data.answer || '').trim();
+      state.lastType = type;
+      state.lastRawAnswer = answer;
+      const parsed = extractJsonObject(answer);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        const normalized = applyTypeDefaults(type, parsed);
+        state.parsedCard = normalized;
+        els.rendered.innerHTML = renderPrettyOutput(type, normalized);
+        els.output.textContent = JSON.stringify(normalized, null, 2);
+        setSaveEnabled(true);
+      } else {
+        els.rendered.innerHTML = `<div class="small">No structured JSON detected for pretty output.</div>`;
+        els.output.textContent = answer || '(No answer returned)';
+        setSaveEnabled(false);
+      }
+      renderCitations(data.citations || []);
+      els.status.textContent = `Done with ${data.model || 'model'}.`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      els.status.textContent = `Generation failed: ${err.message}`;
+    }
+  }
+
+  async function copyOutput() {
+    const text = String(els.output?.textContent || '').trim();
+    if (!text) {
+      els.status.textContent = 'Nothing to copy.';
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(text);
+      els.status.textContent = 'Output copied to clipboard.';
+    } catch {
+      els.status.textContent = 'Copy failed.';
+    }
+  }
+
+  async function saveCard() {
+    if (!state.parsedCard || typeof state.parsedCard !== 'object') {
+      els.status.textContent = 'Generate valid JSON output first.';
+      return;
+    }
+    const payload = {
+      setting: document.getElementById('nav-world-setting')?.value || '',
+      area: '',
+      location: '',
+    };
+    els.status.textContent = 'Saving card...';
+    try {
+      const data = await fetchJson('/ai-generate/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content_type: state.lastType || String(els.type?.value || 'free_text'),
+          card: state.parsedCard,
+          payload,
+        }),
+      });
+      const filename = String(data?.result?.storage?.filename || '');
+      els.status.textContent = filename ? `Saved: ${filename}` : 'Saved.';
+    } catch (err) {
+      els.status.textContent = `Save failed: ${err.message}`;
+    }
+  }
+
+  function clearAll() {
+    els.brief.value = '';
+    state.parsedCard = null;
+    state.lastRawAnswer = '';
+    setSaveEnabled(false);
+    els.output.textContent = '';
+    els.rendered.innerHTML = '';
+    els.citations.textContent = 'No citations yet.';
+    els.status.textContent = 'Cleared.';
+  }
+
+  els.type?.addEventListener('change', () => {
+    renderSchema(String(els.type?.value || 'free_text'));
+  });
+  els.generateBtn?.addEventListener('click', doGenerate);
+  els.saveBtn?.addEventListener('click', saveCard);
+  els.copyBtn?.addEventListener('click', copyOutput);
+  els.clearBtn?.addEventListener('click', clearAll);
+  els.sourcesAllBtn?.addEventListener('click', () => setAllBySelector('.ai-source-checkbox', true));
+  els.sourcesNoneBtn?.addEventListener('click', () => setAllBySelector('.ai-source-checkbox', false));
+  els.compAllBtn?.addEventListener('click', () => setAllBySelector('.ai-comp-checkbox', true));
+  els.compNoneBtn?.addEventListener('click', () => setAllBySelector('.ai-comp-checkbox', false));
+  els.brief?.addEventListener('keydown', (event) => {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+      event.preventDefault();
+      doGenerate();
+    }
+  });
+  renderSchema(String(els.type?.value || 'free_text'));
+  setSaveEnabled(false);
+  loadCompendiums().catch((err) => {
+    els.sources.textContent = `Failed to load sources: ${err.message}`;
+    els.compendiums.textContent = `Failed to load compendiums: ${err.message}`;
+  });
+</script>
+{% endblock %}

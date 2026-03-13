@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:06.832204+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125006_20260313T125006.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Sorcerer’s skeleton key",
+    "description": "Level: 1d6 + 2 Form: Wooden stick, iron wand, or piece of straw Effect: When tapped three times against any locked door or other object (of the cypher level or lower), the key automatically unlocks it.",
+    "sections": {
+      "name": "Sorcerer’s skeleton key",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Wooden stick, iron wand, or piece of straw\n\nEffect: When tapped three times against any locked door or other object (of the cypher level or lower), the key automatically unlocks it."
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Wooden stick, iron wand, or piece of straw\n\nEffect: When tapped three times against any locked door or other object (of the cypher level or lower), the key automatically unlocks it.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125006_cc079cf2.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125006_cc079cf2.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ollama Local RAG",
+  "summary": "Queries a LAN/local Ollama endpoint using vector-indexed private compendium context.",
+  "docs_url": "Plugins/ollama_local/README.md"
+}

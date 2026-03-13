@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:57.143068+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124857.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Wizard, mighty",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Wizard, mighty",
+      "motive": "Seek powerful sources of magic (to collect or to keep safe)",
+      "interaction": "Care should be taken when negotiating with wizards because they are subtle and quick to anger. Even when negotiations succeed, a wizard’s suggestions are usually cryptic and open to interpretation. A mighty wizard might be convinced to teach a character how to cast a spell.",
+      "use": "A wizard is putting together a team to challenge a great foe, and the PCs fit the bill.",
+      "loot": "A mighty wizard has [[/r 1d6]] cyphers.",
+      "gm_intrusion": "The wizard casts two spells as a single action instead of just one."
+    },
+    "stat_block": {
+      "level": 8,
+      "target_number": 24,
+      "health": 40,
+      "armor": 0,
+      "damage": 8,
+      "movement": "Short",
+      "modifications": [
+        "All tasks related to knowledge of arcane lore as level 9"
+      ],
+      "combat": [
+        "When a wizard makes a long-range attack with their staff or strikes someone with it, arcane energy damages the target and, if desired, all creatures the wizard selects within short range of the target. Targets that are within immediate range of the wizard when they take damage are thrown out of immediate range. A mighty wizard knows many spells, including spells that grant +5 to Armor for an hour, spells of teleportation, spells of finding, and so on. A wizard also likely carries several cyphers useful in combat."
+      ],
+      "interaction": [
+        "Care should be taken when negotiating with wizards because they are subtle and quick to anger. Even when negotiations succeed, a wizard’s suggestions are usually cryptic and open to interpretation. A mighty wizard might be convinced to teach a character how to cast a spell."
+      ],
+      "loot": [
+        "A mighty wizard has [[/r 1d6]] cyphers."
+      ]
+    },
+    "text": "Some wizards learn so many spells and accumulate so much lore that they become incredibly powerful. Some work for a higher purpose, whereas others are concerned only with themselves.\n\nMotive: Seek powerful sources of magic (to collect or to keep safe)\n\nHealth: 40\n\nDamage Inflicted: 8 points\n\nMovement: Short\n\nModifications: All tasks related to knowledge of arcane lore as level 9\n\nCombat: When a wizard makes a long-range attack with their staff or strikes someone with it, arcane energy damages the target and, if desired, all creatures the wizard selects within short range of the target. Targets that are within immediate range of the wizard when they take damage are thrown out of immediate range.\n\nA mighty wizard knows many spells, including spells that grant +5 to Armor for an hour, spells of teleportation, spells of finding, and so on. A wizard also likely carries several cyphers useful in combat.\n\nInteraction: Care should be taken when negotiating with wizards because they are subtle and quick to anger. Even when negotiations succeed, a wizard’s suggestions are usually cryptic and open to interpretation. A mighty wizard might be convinced to teach a character how to cast a spell.\n\nUse: A wizard is putting together a team to challenge a great foe, and the PCs fit the bill.\n\nLoot: A mighty wizard has [[/r 1d6]] cyphers.\n\nGM Intrusion: The wizard casts two spells as a single action instead of just one.\n\nWizard, mighty\nLevel 8 (target number 24)\nHealth: 40\nArmor: 0\nDamage: 8",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.T49YQrtaJRk1stLD",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_wizard-mighty_20260313T124857_68936b02.webp",
+      "images": [
+        "uploads/foundryvtt/npc_wizard-mighty_20260313T124857_68936b02.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/npc_wizard-mighty.webp"
+    },
+    "description": "A wizard is putting together a team to challenge a great foe, and the PCs fit the bill."
+  }
+}

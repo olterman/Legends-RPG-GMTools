@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:48.077637+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124848.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Raven/owl, magical",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Raven/owl, magical"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 0,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 3, intelligence and cunning as level 4; one magical ability\n\nRaven/owl, magical\nLevel 3 (target number 9)\nHealth: 9\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.zQ6eMlHI6ACdllKd",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-journals.n1Ve9K17Pxjvc1yk.JournalEntryPage.IJXYS3XVkU4yrRe8#suggested-magical-abilities-for-animals",
+          "label": "one magical ability"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/magical-beast_20260313T124848_8b5be28f.webp",
+      "images": [
+        "uploads/foundryvtt/magical-beast_20260313T124848_8b5be28f.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/magical-beast.webp"
+    },
+    "description": "Level 3, intelligence and cunning as level 4; one magical ability Raven/owl, magical Level 3 (target number 9) Health: 9 Armor: 0 Damage: 3"
+  }
+}

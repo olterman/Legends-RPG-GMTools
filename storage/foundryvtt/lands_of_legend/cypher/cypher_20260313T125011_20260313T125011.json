@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:11.920441+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125011_20260313T125011.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Vocal translator",
+    "description": "Level: 1d6 Effect: For twenty-four hours per cypher level, translates everything said by the user into a language that anyone can understand.",
+    "sections": {
+      "name": "Vocal translator",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: For twenty-four hours per cypher level, translates everything said by the user into a language that anyone can understand."
+    },
+    "text": "Level: 1d6\n\nEffect: For twenty-four hours per cypher level, translates everything said by the user into a language that anyone can understand.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125011_023e7ccc.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125011_023e7ccc.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

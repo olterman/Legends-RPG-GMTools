@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.038758+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Llornoth Abal",
+    "sheet": {
+      "name": "Llornoth Abal",
+      "sentence": "Llornoth Abal is Intuitive who Entertains.",
+      "type": "Warrior Mage With Magic Flavor",
+      "flavor": "",
+      "descriptor": "Intuitive",
+      "focus": "Entertains",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 13,
+          "intellect": 11
+        },
+        "current": {
+          "might": 12,
+          "speed": 13,
+          "intellect": 11
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 1,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Trained in perception tasks",
+          "Heavy weapons",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Know what to do"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Combat Prowess",
+        "Entangling Force",
+        "Hedge Magic",
+        "Levity",
+        "Practiced In Armor"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Trained in perception tasks",
+          "level": "trained"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Know what to do",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Heavy Weapon",
+          "description": "A heavy weapon of your choice. Granted from Starting Equipment. Requires two hands.",
+          "damage": 6,
+          "weapon_type": "Heavy",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Elemental Conjuration",
+          "level": "6",
+          "description": "Summons an elemental creature (air, earth, fire, or water) that can understand the verbal commands of the user. Once the elemental is summoned, commanding it is not an action. It can make attacks or perform actions as ordered to the best of its abilities, but it cannot speak. The elemental never goes farther than long range away from the user. The elemental is not particularly intelligent or capable of initiating action. It responds if attacked, but otherwise does only as commanded. The elemental remains for one hour per cypher level or until its physical form is destroyed, after which it vanishes back to its native realm."
+        },
+        {
+          "name": "Hotwire",
+          "level": "6",
+          "description": "You gain access—or activate in an intentional manner—a vehicle, device, mechanism, or lock, whose level equal to or less than the cypher's. If the object is in a state of disrepair, you can temporarily restore functionality to such a device for a number of minutes equal to the cypher level."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment.",
+        "Armor of your choice.  Granted from Practiced In Armor."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nPerfect Setup\nYou're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action.\n\nOld Friend\nA comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a mission of their own and can't stay longer than it takes to help out, chat for a while after, and perhaps share a quick meal.\n\nWeapon Break\nYour foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track.\n\nInnate\n+2 to your Intellect Pool.\nGranted from Intuitive\n\nPossible GM intrusion from your focus:\nThe audience is annoyed or offended. Musical instruments break. Paints dry in their pots. The words to a poem or song are forgotten.\n\nBackground:\nA Warrior Mage is also known as a Warrior\n\nWarrior Mage\nYou're a good ally to have in a fight. You know how to use weapons and defend yourself. Depending on the genre and setting in question, this might mean wielding a sword and shield in the gladiatorial arena, an AK-47 and a bandolier of grenades in a savage firefight, or a blaster rifle and powered armor when exploring an alien planet. Warriors are physical, action-oriented people. They're more likely to overcome a challenge using force than by other means, and they often take the most straightforward path toward their goals.\n\nIntuitive\nYou are often tickled by a sense of knowing what someone will say, how they will react, or how events might unfold. Maybe you have a mutant sense, maybe you can see just a few moments ahead through time, or maybe you're just good at reading people and extrapolating a situation. Whatever the case, many who look into your eyes immediately glance away, as if afraid of what you might see in their expression.\n\nEntertains\nYou perform, mostly for the benefit of others.\n\nChoose how you became involved in the adventure:\n- You just knew you had to come along.\n- You convinced one of the other PCs that your intuition is invaluable.\n- You felt that something terrible would happen if you didn't go.\n- You're confident the reason you arrived at this point will soon become clear.\n\nBackground Connection:\nYou served as a bodyguard to a powerful criminal who now owes you their life.\n\nFocus Connection:\nPick one other PC whose focus intertwines with yours. This odd connection affects them in some way. For example, if the character uses a weapon, your focus ability sometimes improves their attack in some fashion.\n\nTrained in perception tasks: Granted from Intuitive\nHeavy weapons: Heavy Weapons\nGranted from Warrior\nLight weapons: Light Weapons\nGranted from Warrior\nMedium weapons: Medium Weapons\nGranted from Warrior\nKnow what to do: You can act immediately, even if it's not your turn. Afterward, on your next regular turn, any action you take is hindered. You can do this one time, although the ability is renewed each time you make a recovery roll.\nGranted from Intuitive\nCombat Prowess: You add +1 damage to one type of weapon attack of your choice: melee weapon attacks or ranged weapon attacks. Enabler.\nGranted from Warrior Mage\nEntangling Force: A target within short range is subject to a snare constructed of semi-tangible lines of force for one minute. The force snare is a level 2 construct. A target caught in the force snare cannot move from its position, but it can attack and defend normally. The target can also use its action attempting to break free. You can increase the level of the force snare by 1 per level of Effort applied. Action to initiate.\nGranted from Magic Flavor\nHedge Magic: You can perform small tricks: temporarily change the color or basic appearance of a small object, cause small objects to float through the air, clean a small area, mend a broken object, prepare (but not create) food, and so on. You can't use Hedge Magic to harm another creature or object. Action.\nGranted from Magic Flavor\nLevity: Through wit, charm, humor, and grace, you are trained in all social interactions other than those involving coercion or intimidation. During rests, you put friends and comrades at ease so much that they gain +1 to their recovery rolls. Enabler.\nGranted from Entertains\nPracticed In Armor: You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler.\nGranted from Warrior Mage\nHeavy Weapon: A heavy weapon of your choice. Granted from Starting Equipment. Requires two hands.\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Llornoth Abal",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Warrior Mage With Magic Flavor",
+        "flavor": "",
+        "descriptor": "Intuitive",
+        "focus": "Entertains",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124842_a4aa5412.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124842_a4aa5412.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Warrior Mage With Magic Flavor",
+      "flavor": "",
+      "descriptor": "Intuitive",
+      "focus": "Entertains",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124842_a4aa5412.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124842_a4aa5412.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Perfect Setup You're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action. Old Friend A comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a miss…"
+  }
+}

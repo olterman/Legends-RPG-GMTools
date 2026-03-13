@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:07.185808+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125007.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Sound dampener",
+    "description": "Level: 1d6 + 2 Effect: Dampens all sound within immediate range for one minute per cypher level, providing an asset on stealth actions by all creatures in the area.",
+    "sections": {
+      "name": "Sound dampener",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Dampens all sound within immediate range for one minute per cypher level, providing an asset on stealth actions by all creatures in the area."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Dampens all sound within immediate range for one minute per cypher level, providing an asset on stealth actions by all creatures in the area.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125007_f4b3f285.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125007_f4b3f285.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

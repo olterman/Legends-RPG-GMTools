@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:48.798339+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124848_20260313T124848.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Roc",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Roc"
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 25,
+      "armor": 2,
+      "damage": 6,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 6; health 25; Armor 2; flies a long distance each round; attacks twice as an action\n\nRoc\nLevel 6 (target number 18)\nHealth: 25\nArmor: 2\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.1AULWPx1s6s2pmD1",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/animal_mundane_20260313T124848_c7310b65.webp",
+      "images": [
+        "uploads/foundryvtt/animal_mundane_20260313T124848_c7310b65.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/animal_mundane.webp"
+    },
+    "description": "Level 6; health 25; Armor 2; flies a long distance each round; attacks twice as an action Roc Level 6 (target number 18) Health: 25 Armor: 2 Damage: 6"
+  }
+}

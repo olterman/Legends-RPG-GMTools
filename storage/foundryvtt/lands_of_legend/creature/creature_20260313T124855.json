@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.309620+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Virgilius the Sorcerer",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Virgilius the Sorcerer",
+      "interaction": "Virgilius is quick thinking, wily, and full of interesting schemes. Those who entertain him for longer than a moment might find him a very useful ally. However, he is also driven toward revenge, particularly on those who attempt to publicly humiliate or shame him.",
+      "use": "The characters enter into a battle of wits or wills, only to discover they’re competing with Virgilius.",
+      "loot": "Carries a black book Black book (artifact): level 6; allows the user to cast animate, blood to stone, enchant, or endless passage. Casting a spell from the black book costs 2 Intellect points and is an action."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 21,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Using and controlling magic as level 7"
+      ],
+      "combat": [
+        "Can use the following abilities: Animate: Takes any material (such as wood or stone) and turns it into an animate level 4 creature. The creature has a mind and will of its own, and acts just as that type of creature would act if it were born instead of created. Blood to Stone: Turns living creatures into stone, or immobilizes them in their current form. Breaking free is a level 6 Might task. Enchant: Imbues a normal object with a magical power. The object works under Virgilius’s command, and does as he asks of it. For example, he might imbue a foe’s weapon and force it to attack the foe, or he might imbue a door and have it close tight against incoming dangers. Endless Passage: Creates an endless series of thick spiderwebs, invisible barriers, rings of flame, or other hurdles across an entrance, exit, tunnel, or passage. Every time one of the hurdles is broken, another forms. Characters’ movement is halved while going through the endless passage, and they take 2 points of Intellect damage each round."
+      ],
+      "interaction": [
+        "Virgilius is quick thinking, wily, and full of interesting schemes. Those who entertain him for longer than a moment might find him a very useful ally. However, he is also driven toward revenge, particularly on those who attempt to publicly humiliate or shame him."
+      ],
+      "loot": [
+        "Carries a black book Black book (artifact): level 6; allows the user to cast animate, blood to stone, enchant, or endless passage. Casting a spell from the black book costs 2 Intellect points and is an action.",
+        "Black book"
+      ]
+    },
+    "text": "The most renowned of all the poet-sorcerers, Virgilius studies and uses the power of the written word to enhance his magical abilities. He keeps a black book, which is the source of his spells, and creates copper creatures to protect and defend him. He has a love of challenges, such as magician’s battles, and seeks them out.\n\nVirgilius’s copper dogs: level 5; Armor 2\n\nHealth: 21\n\nDamage Inflicted: 5 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: Using and controlling magic as level 7\n\nCombat: Can use the following abilities:\n\nAnimate: Takes any material (such as wood or stone) and turns it into an animate level 4 creature. The creature has a mind and will of its own, and acts just as that type of creature would act if it were born instead of created.\n\nBlood to Stone: Turns living creatures into stone, or immobilizes them in their current form. Breaking free is a level 6 Might task.\n\nEnchant: Imbues a normal object with a magical power. The object works under Virgilius’s command, and does as he asks of it. For example, he might imbue a foe’s weapon and force it to attack the foe, or he might imbue a door and have it close tight against incoming dangers.\n\nEndless Passage: Creates an endless series of thick spiderwebs, invisible barriers, rings of flame, or other hurdles across an entrance, exit, tunnel, or passage. Every time one of the hurdles is broken, another forms. Characters’ movement is halved while going through the endless passage, and they take 2 points of Intellect damage each round.\n\nInteraction: Virgilius is quick thinking, wily, and full of interesting schemes. Those who entertain him for longer than a moment might find him a very useful ally. However, he is also driven toward revenge, particularly on those who attempt to publicly humiliate or shame him.\n\nUse: The characters enter into a battle of wits or wills, only to discover they’re competing with Virgilius.\n\nLoot: Carries a black book\n\nBlack book (artifact): level 6; allows the user to cast animate, blood to stone, enchant, or endless passage. Casting a spell from the black book costs 2 Intellect points and is an action.\n\nVirgilius the Sorcerer\nLevel 7 (target number 21)\nHealth: 21\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.4dIvoNg3PN9MC6Nl",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.wc0EhkvoISzhCjtr",
+          "label": "Virgilius’s copper dogs"
+        },
+        {
+          "target": "Compendium.cyphersystem-compendium.artifacts-fairy-tale.8pQDZ9uV9pUCYDu7",
+          "label": "Black book (artifact)"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/creature_virgilius_20260313T124855_c4d989ff.webp",
+      "images": [
+        "uploads/foundryvtt/creature_virgilius_20260313T124855_c4d989ff.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales_public-domain/creature_virgilius.webp"
+    },
+    "description": "The characters enter into a battle of wits or wills, only to discover they’re competing with Virgilius."
+  }
+}

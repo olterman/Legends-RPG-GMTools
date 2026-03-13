@@ -4,9 +4,4 @@ world:
   core_genre: fantasy
   core_setting: fantasy
   description: Default world profile for Lands of Legends.
-
-# World-specific overrides can be added here over time.
-# Example:
-# environments:
-#   fenmir_highlands:
-#     description: Custom world-specific description override.
+  cover_image: images/uploads/Legends_20260313T142010_aaba8c7c.png

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:34.057722+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124834.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Evil priest",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Evil priest",
+      "environment": "Almost anywhere that people live",
+      "motive": "Domination of others, divine rule",
+      "interaction": "Evil priests tend to be knowledgeable, arrogant, and condescending toward heroes and members of rival faiths. They might strike a bargain to save their lives or the life of a valuable minion, or to gain an advantage later on.",
+      "use": "An evil priest is converting frightened peasants into followers, and turning those who refuse into zombie slaves. A new religious figure in the city is acting suspiciously, and members of rival faiths have been disappearing or turning up dead.",
+      "loot": "Evil priests usually have mundane treasures equivalent to three or four expensive items, a few useful manifest cyphers, and an artifact. GM Intrusions: The dying evil priest utters a curse that attempts to pull the character’s soul into the afterlife with them, moving them one step down the damage track if they fail anIntellect defense roll. The evil priest ignores, avoids, or immediately recovers from an attack that would have killed or greatly harmed them."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 28,
+      "armor": 1,
+      "damage": 7,
+      "movement": "Short",
+      "modifications": [
+        "Deception, persuasion, and religious lore as level 8"
+      ],
+      "combat": [
+        "Evil priests make one or two short-range magical attacks as an action, which are thematically appropriate to the god or entity they serve, such as blasts of hellfire, grasping shadowy tentacles, or disruptive necromantic energy. They often rely on zealous minions to protect them from melee opponents. Priests usually know several spells, such as how to banish or control creatures from other dimensions, create an area of darkness, see and hear remote locations, speak with the dead, mesmerize or paralyze a person, cause blindness, or create a ward against energy damage. They also have the following magical abilities: Curse: The priest curses a foe within short range, hindering all of the foe’s actions by two steps. Heal: The priest heals a touched creature for 10 health or removes an affliction such as a disease or curse. Necromancy: The priest uses a ten-minute ritual to animate up to four human-sized corpses as skeletons or zombies under their control. The undead revert to corpses after a day. Sacrifice: The priest uses a ten-minute ritual to kill a helpless, restrained, or unconscious creature of level 4 or higher, using its soul to grant one ally an asset on all actions and defenses for one day. Summon: Once per hour the priest can summon a demon or one level 3 or 4 creature (such as a giant snake, giant spider, or swarm of bugs). The summoned creature serves the priest for an hour before vanishing. An evil priest usually has one or two combat-useful manifest cyphers and often has an artifact appropriate to their religion. Most also wear armor or have an ongoing defensive spell that grants them Armor. Swarm of bugs: level 3"
+      ],
+      "interaction": [
+        "Evil priests tend to be knowledgeable, arrogant, and condescending toward heroes and members of rival faiths. They might strike a bargain to save their lives or the life of a valuable minion, or to gain an advantage later on."
+      ],
+      "loot": [
+        "Evil priests usually have mundane treasures equivalent to three or four expensive items, a few useful manifest cyphers, and an artifact. GM Intrusions: The dying evil priest utters a curse that attempts to pull the character’s soul into the afterlife with them, moving them one step down the damage track if they fail anIntellect defense roll. The evil priest ignores, avoids, or immediately recovers from an attack that would have killed or greatly harmed them."
+      ]
+    },
+    "text": "Evil priests are worshippers of evil gods, demons, devils, strange malevolent forces from beyond known dimensions, or even death itself. They lead cults, corrupt the innocent with lies and twisted ideologies, and enact the will of their patron in the mortal world. The most insidious ones are able to infiltrate good churches and secular organizations in order to tear them down from the inside.\n\nMotive: Domination of others, divine rule\n\nEnvironment: Almost anywhere that people live\n\nHealth: 28\n\nDamage Inflicted: 7 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Deception, persuasion, and religious lore as level 8\n\nCombat: Evil priests make one or two short-range magical attacks as an action, which are thematically appropriate to the god or entity they serve, such as blasts of hellfire, grasping shadowy tentacles, or disruptive necromantic energy. They often rely on zealous minions to protect them from melee opponents.\n\nPriests usually know several spells, such as how to banish or control creatures from other dimensions, create an area of darkness, see and hear remote locations, speak with the dead, mesmerize or paralyze a person, cause blindness, or create a ward against energy damage. They also have the following magical abilities:\n\nCurse: The priest curses a foe within short range, hindering all of the foe’s actions by two steps.\nHeal: The priest heals a touched creature for 10 health or removes an affliction such as a disease or curse.\nNecromancy: The priest uses a ten-minute ritual to animate up to four human-sized corpses as skeletons or zombies under their control. The undead revert to corpses after a day.\nSacrifice: The priest uses a ten-minute ritual to kill a helpless, restrained, or unconscious creature of level 4 or higher, using its soul to grant one ally an asset on all actions and defenses for one day.\nSummon: Once per hour the priest can summon a demon or one level 3 or 4 creature (such as a giant snake, giant spider, or swarm of bugs). The summoned creature serves the priest for an hour before vanishing.\nAn evil priest usually has one or two combat-useful manifest cyphers and often has an artifact appropriate to their religion. Most also wear armor or have an ongoing defensive spell that grants them Armor.\n\nSwarm of bugs: level 3\n\nInteraction: Evil priests tend to be knowledgeable, arrogant, and condescending toward heroes and members of rival faiths. They might strike a bargain to save their lives or the life of a valuable minion, or to gain an advantage later on.\n\nUse: An evil priest is converting frightened peasants into followers, and turning those who refuse into zombie slaves. A new religious figure in the city is acting suspiciously, and members of rival faiths have been disappearing or turning up dead.\n\nLoot: Evil priests usually have mundane treasures equivalent to three or four expensive items, a few useful manifest cyphers, and an artifact.\n\nGM Intrusions: The dying evil priest utters a curse that attempts to pull the character’s soul into the afterlife with them, moving them one step down the damage track if they fail anIntellect defense roll.\n\nThe evil priest ignores, avoids, or immediately recovers from an attack that would have killed or greatly harmed them.\n\nEvil priest\nLevel 7 (target number 21)\nHealth: 28\nArmor: 1\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.3QAVP8CKluUCHw2C",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.WqUZxlVymuKmoSXP",
+          "label": "Swarm of bugs"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/creature_evil-priest_20260313T124834_242c03b2.webp",
+      "images": [
+        "uploads/foundryvtt/creature_evil-priest_20260313T124834_242c03b2.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_evil-priest.webp"
+    },
+    "description": "An evil priest is converting frightened peasants into followers, and turning those who refuse into zombie slaves. A new religious figure in the city is acting suspiciously, and members of rival faiths have been disappearing or turning up dead."
+  }
+}

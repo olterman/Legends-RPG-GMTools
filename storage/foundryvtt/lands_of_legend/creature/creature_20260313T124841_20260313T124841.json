@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:41.755419+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124841_20260313T124841.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Lich",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Lich",
+      "environment": "Wherever they can remain hidden and work undisturbed",
+      "motive": "Magic, immortality, power",
+      "interaction": "Liches hate being interrupted and have more important things to do than answer questions from mortal weaklings. A lich may be convinced to teach a character a spell, especially if given a spell, cypher, or artifact in trade.",
+      "use": "A lich is planning a ritual to raise an army of skeletons or zombies to attack the kingdom. A lich has made a pact with a demon to unleash a plague in exchange for obscure magical knowledge.",
+      "loot": "A lich has [[/r 1d6]] cyphers and usually an artifact. GM Intrusions: The lich casts a spell in addition to taking other actions on its turn. The lich uses a cypher, spell, or other ability to nullify an attack that otherwise would have affected it."
+    },
+    "stat_block": {
+      "level": 8,
+      "target_number": 24,
+      "health": 45,
+      "armor": 5,
+      "damage": 8,
+      "movement": "Short",
+      "modifications": [
+        "Intellect defense and magical lore as level 10"
+      ],
+      "combat": [
+        "A lich can shoot blasts of necromantic energy that inflict 8 points of damage on a target and 4 points on any creature within immediate range of the target. A lich knows many spells, such as the following: Animate guards: Animate ten corpses as skeletons or zombies, which obey the lich for one hour before turning back into corpses."
+      ],
+      "interaction": [
+        "Liches hate being interrupted and have more important things to do than answer questions from mortal weaklings. A lich may be convinced to teach a character a spell, especially if given a spell, cypher, or artifact in trade."
+      ],
+      "loot": [
+        "A lich has [[/r 1d6]] cyphers and usually an artifact. GM Intrusions: The lich casts a spell in addition to taking other actions on its turn. The lich uses a cypher, spell, or other ability to nullify an attack that otherwise would have affected it."
+      ]
+    },
+    "text": "A lich is a powerful wizard or priest who has used their knowledge of necromancy to bind their soul in a magical object called a phylactery, making them immortal and undead unless their soul object is found and destroyed. Having corrupted its own life energy in an obscene ritual, a lich can pursue its other magical goals, usually the acquisition of more wealth, magic, and power. A newly made lich may look like a recent corpse, but maintaining its physical vessel becomes less of a priority as the centuries pass, so over time they tend to look withered or even skeletal. Liches often work with or command other undead, such as wraiths, skeletons, vampires, and zombies.\n\nMotive: Magic, immortality, power\n\nEnvironment: Wherever they can remain hidden and work undisturbed\n\nHealth: 45\n\nDamage Inflicted: 8 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Intellect defense and magical lore as level 10\n\nCombat: A lich can shoot blasts of necromantic energy that inflict 8 points of damage on a target and 4 points on any creature within immediate range of the target.\n\nA lich knows many spells, such as the following:\n\nAnimate guards: Animate ten corpses as skeletons or zombies, which obey the lich for one hour before turning back into corpses.\nArmor: Gain +5 Armor for one hour.\nDeath: Inflict 8 points of damage on a creature within short range; if the creature fails a Might defense roll, it also moves two steps down the damage track.\nFly: For one hour, move through the air as effortlessly as walking.\nParalyze: One target within short range is held motionless for two rounds, unable to take any physical actions.\nPolymorph: Transform a creature within short range into a harmless creature like a fish or frog for one minute.\nScrying eye: View any familiar location within 1 mile (1.5 km) as if the lich was observing it directly.\nTeleport: Move instantly up to 1 mile.\n\nA lich also likely carries several cyphers useful in combat. Liches are undead, and therefore immune to anything that affects only living creatures, such as disease and poison.\n\nUnless its well-hidden phylactery is destroyed, a lich that is killed reforms a new body near its phylactery over the next week or so, returning at full health and with all of its abilities and memories.\n\nInteraction: Liches hate being interrupted and have more important things to do than answer questions from mortal weaklings. A lich may be convinced to teach a character a spell, especially if given a spell, cypher, or artifact in trade.\n\nUse: A lich is planning a ritual to raise an army of skeletons or zombies to attack the kingdom. A lich has made a pact with a demon to unleash a plague in exchange for obscure magical knowledge.\n\nLoot: A lich has [[/r 1d6]] cyphers and usually an artifact.\n\nGM Intrusions: The lich casts a spell in addition to taking other actions on its turn. The lich uses a cypher, spell, or other ability to nullify an attack that otherwise would have affected it.\n\nLich\nLevel 8 (target number 24)\nHealth: 45\nArmor: 5\nDamage: 8",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.IikKVlRYUaAzTdGB",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_lich_20260313T124841_dde80433.webp",
+      "images": [
+        "uploads/foundryvtt/creature_lich_20260313T124841_dde80433.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_lich.webp"
+    },
+    "description": "A lich is planning a ritual to raise an army of skeletons or zombies to attack the kingdom. A lich has made a pact with a demon to unleash a plague in exchange for obscure magical knowledge."
+  }
+}

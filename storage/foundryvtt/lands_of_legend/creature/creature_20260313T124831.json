@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:31.043542+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124831.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Demon",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Demon",
+      "environment": "Anywhere",
+      "motive": "Hungers for others’ pain and fear",
+      "interaction": "A demon allows a possessed host to act normally, as long as it doesn’t reveal the demon’s presence. If its presence is known, the demon might negotiate, but only after a tirade of lies and obscenity, and the demon likely betrays any deal reached.",
+      "use": "An ally of the PCs has begun acting differently, and not for the good.",
+      "gm_intrusion": "The character who attempts an exorcism of a possessed target is successful, but the demon moves directly from the former victim into the exorcist. The new host can make an Intellect-based roll to eject the demon, but only after the first round of possession."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 25,
+      "armor": 0,
+      "damage": 6,
+      "movement": "Short; immediate while flying in immaterial form",
+      "modifications": [
+        "All stealth tasks as level 7 in immaterial form; deception tasks as level 6"
+      ],
+      "combat": [
+        "The immaterial touch of a demon either inflicts 5 points of damage from rot, or allows the demon to attempt to possess the target. The target of an attempted possession must make an Intellect defense roll or become possessed, whereupon the demon’s immaterial form disappears into the target. The first round in which a character is possessed, they can act normally. In the second and all subsequent rounds, the possessing demon can control the actions of the host, but the character can attempt an Intellect defense roll to resist each suggested action. Successful resistance means that the character does nothing for one round. In other rounds, the character can act as they choose. A possessing demon’s actions are limited to attempts to control its host and leaving the host. A possessed target is allowed an Intellect defense roll to eject the demon once per day, barring any exorcism attempts. The defense roll is hindered by one additional step each day of possession after the first seven days. An ejected or cast-out demon is powerless for one or more days. A demon not possessing another creature is immaterial and can pass through solid objects whose level is lower than its own. While the demon is immaterial, it takes only 1 point of damage from mundane attacks, but it takes full damage from magical, energy, and psychic attacks. While it possesses another creature, the demon is immune to most attacks (though not so the host; killing the host will eject the demon)."
+      ],
+      "interaction": [
+        "A demon allows a possessed host to act normally, as long as it doesn’t reveal the demon’s presence. If its presence is known, the demon might negotiate, but only after a tirade of lies and obscenity, and the demon likely betrays any deal reached."
+      ],
+      "loot": []
+    },
+    "text": "Demons are formless spirits of the dead tortured in nether realms until all that was good or caring in them was burned away, forging a being of spite and hate. A demon remembers only fragments of its former life—every good memory is cauterized, and every slight, misfortune, snub, and pain is amplified, motivating the creature to tempt others into the same state.\n\nHaving no flesh to call its own, a demon is a shadowed, ephemeral horror able to possess others. A demon can cause great harm in a short time by forcing its host to lie, steal, and harm loved ones.\n\nMotive: Hungers for others’ pain and fear\n\nEnvironment: Anywhere\n\nHealth: 25\n\nDamage Inflicted: 6 points\n\nMovement: Short; immediate while flying in immaterial form\n\nModifications: All stealth tasks as level 7 in immaterial form; deception tasks as level 6\n\nCombat: The immaterial touch of a demon either inflicts 5 points of damage from rot, or allows the demon to attempt to possess the target. The target of an attempted possession must make an Intellect defense roll or become possessed, whereupon the demon’s immaterial form disappears into the target.\n\nThe first round in which a character is possessed, they can act normally. In the second and all subsequent rounds, the possessing demon can control the actions of the host, but the character can attempt an Intellect defense roll to resist each suggested action. Successful resistance means that the character does nothing for one round. In other rounds, the character can act as they choose. A possessing demon’s actions are limited to attempts to control its host and leaving the host.\n\nA possessed target is allowed an Intellect defense roll to eject the demon once per day, barring any exorcism attempts. The defense roll is hindered by one additional step each day of possession after the first seven days. An ejected or cast-out demon is powerless for one or more days.\n\nA demon not possessing another creature is immaterial and can pass through solid objects whose level is lower than its own. While the demon is immaterial, it takes only 1 point of damage from mundane attacks, but it takes full damage from magical, energy, and psychic attacks. While it possesses another creature, the demon is immune to most attacks (though not so the host; killing the host will eject the demon).\n\nInteraction: A demon allows a possessed host to act normally, as long as it doesn’t reveal the demon’s presence. If its presence is known, the demon might negotiate, but only after a tirade of lies and obscenity, and the demon likely betrays any deal reached.\n\nUse: An ally of the PCs has begun acting differently, and not for the good.\n\nGM Intrusion: The character who attempts an exorcism of a possessed target is successful, but the demon moves directly from the former victim into the exorcist. The new host can make an Intellect-based roll to eject the demon, but only after the first round of possession.\n\nDemon\nLevel 5 (target number 15)\nHealth: 25\nArmor: 0\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.C2tRCVUtCl1OEb7M",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_demon_20260313T124831_559d07d9.webp",
+      "images": [
+        "uploads/foundryvtt/creature_demon_20260313T124831_559d07d9.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_demon.webp"
+    },
+    "description": "An ally of the PCs has begun acting differently, and not for the good."
+  }
+}

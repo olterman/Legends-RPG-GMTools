@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:43.006274+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124943.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Blood pearl blossom",
+    "description": "Level: 1d6 + 4 Form: Rare blood-red flower with a beautiful pearl in its center Effect: When ingested, removes one curse (of the cypher level or lower) from the user. The curse-removal process can take from one round to one day, depending on the level, severity, and type of curse.",
+    "sections": {
+      "name": "Blood pearl blossom",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: Rare blood-red flower with a beautiful pearl in its center\n\nEffect: When ingested, removes one curse (of the cypher level or lower) from the user. The curse-removal process can take from one round to one day, depending on the level, severity, and type of curse."
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Rare blood-red flower with a beautiful pearl in its center\n\nEffect: When ingested, removes one curse (of the cypher level or lower) from the user. The curse-removal process can take from one round to one day, depending on the level, severity, and type of curse.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124943_69bf8f8d.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124943_69bf8f8d.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

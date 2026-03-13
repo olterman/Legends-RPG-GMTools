@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:55.074821+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124855.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Intuitive Insight",
+    "level": "4",
+    "sections": {
+      "name": "Intuitive Insight",
+      "level": "4",
+      "effect": "<p>You notice, learn, or discover something about your current situation or location. The GM provides you with relevant, useful, and reliable information. You can ask the GM to determine the information on their own, or you can ask the GM one question relevant to your immediate situation, which they must answer truthfully with a simple, non-cryptic response.  </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Velat Doshbes",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124855.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124855_56cefd01.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124855_56cefd01.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

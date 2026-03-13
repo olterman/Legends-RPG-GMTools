@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:25.423332+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124825.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Angik",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Angik"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 0,
+      "damage": 4,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Reanimated spirits of babies who died, typically due to hard winters, and who now haunt the living. At night, they turn into giant owls and prey on solitary travelers.\n\nLevel 3; talons inflict 4 points of damage\n\nAngik\nLevel 3 (target number 9)\nHealth: 9\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.kOWjKGtArif3iZqr",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/undead_ghost_20260313T124825_79cb33bf.webp",
+      "images": [
+        "uploads/foundryvtt/undead_ghost_20260313T124825_79cb33bf.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/undead_ghost.webp"
+    },
+    "description": "Reanimated spirits of babies who died, typically due to hard winters, and who now haunt the living. At night, they turn into giant owls and prey on solitary travelers. Level 3; talons inflict 4 points of damage Angik Level 3 (target number 9) Health: 9 Armor: 0 Damage: 4"
+  }
+}

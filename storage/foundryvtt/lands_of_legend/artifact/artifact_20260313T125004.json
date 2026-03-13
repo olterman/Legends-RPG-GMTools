@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:04.083635+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125004.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Ring of fall flourishing",
+    "description": "Level: 1d6 Form: Gold band inscribed with feather wreath Effect: The wearer of the ring becomes invisible for one minute. While invisible, the wearer is specialized in stealth and Speed defense tasks. The effect ends if they attack or spend points from a Pool for any reason. Depletion: 1 in 1d100",
+    "sections": {
+      "name": "Ring of fall flourishing",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Gold band inscribed with feather wreath\n\nEffect: The wearer of the ring becomes invisible for one minute. While invisible, the wearer is specialized in stealth and Speed defense tasks. The effect ends if they attack or spend points from a Pool for any reason.\n\nDepletion: 1 in 1d100",
+      "depletion": "1 in [[/r 1d100 # Depletion roll]]"
+    },
+    "text": "Level: 1d6\n\nForm: Gold band inscribed with feather wreath\n\nEffect: The wearer of the ring becomes invisible for one minute. While invisible, the wearer is specialized in stealth and Speed defense tasks. The effect ends if they attack or spend points from a Pool for any reason.\n\nDepletion: 1 in 1d100",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125004_43b61b8b.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125004_43b61b8b.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

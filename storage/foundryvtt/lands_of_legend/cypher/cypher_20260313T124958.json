@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:58.063331+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124958.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Meditation aid",
+    "description": "Level: 1d6 + 2 Effect: Restores a number of points equal to the cypher’s level to the user’s Intellect Pool.",
+    "sections": {
+      "name": "Meditation aid",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Restores a number of points equal to the cypher’s level to the user’s Intellect Pool."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Restores a number of points equal to the cypher’s level to the user’s Intellect Pool.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124958_c96e8390.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124958_c96e8390.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

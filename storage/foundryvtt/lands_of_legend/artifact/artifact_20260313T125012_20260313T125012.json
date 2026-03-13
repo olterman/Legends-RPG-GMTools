@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:12.662774+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125012_20260313T125012.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Whisperer in the ether",
+    "description": "Level: 1d6 + 1 Form: Small crystal Effect: The bearer of this crystal can telepathically communicate with an immortal being whose location is unknown (probably another dimension or a godly or infernal realm). The user can converse with the intelligence on an ongoing basis, but in general, the whisperer can share a useful bit of information, insight, or advice about once every day. Sometimes, this translates into an asset on one of the user’s actions. For example, the intelligence can suggest th…",
+    "sections": {
+      "name": "Whisperer in the ether",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Small crystal\n\nEffect: The bearer of this crystal can telepathically communicate with an immortal being whose location is unknown (probably another dimension or a godly or infernal realm). The user can converse with the intelligence on an ongoing basis, but in general, the whisperer can share a useful bit of information, insight, or advice about once every day. Sometimes, this translates into an asset on one of the user’s actions. For example, the intelligence can suggest the right phrase to make friends with a shopkeeper to get a good deal, the right tools to use while trying to break open a door, or the right place to put a shield to deflect an incoming attack. Sometimes the information is more broad, such as the right road to take to reach the next town or why a group of monsters is attacking the caravan the bearer is guarding.\n\nThe whisperer’s willingness and ability to converse varies considerably. Sometimes it is quite chatty and offers advice. Other times, it must be convinced, cajoled, or tricked into giving information. And sometimes, it is entirely absent for reasons it will not explain. The whisperer’s knowledge base is broad but not omniscient. It cannot see the future, but it can often predict outcomes based on logic.\n\nDepletion: 1 in 1d20 (check each day)",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Small crystal\n\nEffect: The bearer of this crystal can telepathically communicate with an immortal being whose location is unknown (probably another dimension or a godly or infernal realm). The user can converse with the intelligence on an ongoing basis, but in general, the whisperer can share a useful bit of information, insight, or advice about once every day. Sometimes, this translates into an asset on one of the user’s actions. For example, the intelligence can suggest the right phrase to make friends with a shopkeeper to get a good deal, the right tools to use while trying to break open a door, or the right place to put a shield to deflect an incoming attack. Sometimes the information is more broad, such as the right road to take to reach the next town or why a group of monsters is attacking the caravan the bearer is guarding.\n\nThe whisperer’s willingness and ability to converse varies considerably. Sometimes it is quite chatty and offers advice. Other times, it must be convinced, cajoled, or tricked into giving information. And sometimes, it is entirely absent for reasons it will not explain. The whisperer’s knowledge base is broad but not omniscient. It cannot see the future, but it can often predict outcomes based on logic.\n\nDepletion: 1 in 1d20 (check each day)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125012_90d127ce.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125012_90d127ce.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

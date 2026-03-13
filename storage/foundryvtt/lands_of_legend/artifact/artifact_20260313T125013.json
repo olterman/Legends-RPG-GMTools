@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:13.070861+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125013.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Witch’s broom",
+    "description": "Level: 1d6 + 2 Form: A 6-foot (2 m) long wooden broom Effect: As a vehicle, the broom can be ridden a long distance each round. On extended trips, it can move up to 100 miles (160 km) per hour. The bearer can call upon the broom to grant them a powerful hallucinogenic state that lasts for four hours, during which time all tasks are hindered. After the hallucinations end, the bearer’s Intellect tasks are eased for the next ten minutes. Depletion: 1 in 1d20",
+    "sections": {
+      "name": "Witch’s broom",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: A 6-foot (2 m) long wooden broom\n\nEffect: As a vehicle, the broom can be ridden a long distance each round. On extended trips, it can move up to 100 miles (160 km) per hour.\n\nThe bearer can call upon the broom to grant them a powerful hallucinogenic state that lasts for four hours, during which time all tasks are hindered. After the hallucinations end, the bearer’s Intellect tasks are eased for the next ten minutes.\n\nDepletion: 1 in 1d20",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: A 6-foot (2 m) long wooden broom\n\nEffect: As a vehicle, the broom can be ridden a long distance each round. On extended trips, it can move up to 100 miles (160 km) per hour.\n\nThe bearer can call upon the broom to grant them a powerful hallucinogenic state that lasts for four hours, during which time all tasks are hindered. After the hallucinations end, the bearer’s Intellect tasks are eased for the next ten minutes.\n\nDepletion: 1 in 1d20",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125013_90d6cc95.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125013_90d6cc95.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

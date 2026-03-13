@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:52.007821+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124852.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Storm marine",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Storm marine",
+      "environment": "Alone in or in fireteams of three, anywhere nation-states or similar entities have a financial or military interest",
+      "motive": "Achieve mission goals",
+      "interaction": "A storm marine might negotiate, but getting one to act against their mission is difficult.",
+      "use": "A fireteam of storm marines are sent to eliminate the PCs or someone the PCs know on suspicion of being radical elements that need to be dealt with.",
+      "loot": "Though bio-locked to each storm marine, someone who succeeds on a difficulty 8 Intellect task to reprogram the suit could gain a battlesuit of their own, minus the drones (which fly off or detonate).",
+      "gm_intrusion": "A character targeting a gun drone rather than the storm marine hits the drone, but the drone reacts by darting to the character and exploding, inflicting 6 points of damage to the character and anyone standing within immediate range."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 4,
+      "damage": 6,
+      "movement": "Long; flies a long distance each round",
+      "modifications": [
+        "Perception as level 6; attacks as level 5 due to combat targeting neuro-wetware."
+      ],
+      "combat": [
+        "Thanks to their battlesuit, a storm marine has many options in combat. They can deploy an electrified blade to attack every foe in immediate range as a single action, or use a long-range heavy energy rifle that inflicts 6 points of damage. A storm marine can deploy two level 3 gun drones that fire energy rays at two different targets up to 800 m (2,600 feet) away, inflicting 6 points of damage. If the drones focus on a single target, a successful hit deals 9 points of damage and moves the target one step down the damage track. The drones can attack only once or twice before returning to their cradles in the storm marine’s suit for several rounds to recharge."
+      ],
+      "interaction": [
+        "A storm marine might negotiate, but getting one to act against their mission is difficult."
+      ],
+      "loot": [
+        "Though bio-locked to each storm marine, someone who succeeds on a difficulty 8 Intellect task to reprogram the suit could gain a battlesuit of their own, minus the drones (which fly off or detonate)."
+      ]
+    },
+    "text": "The storm marine creed is an oft-repeated mantra, “I will never quit, knowing full well that I might die in service to the cause.” Wearing advanced battlesuits, hyped up on a cocktail of experimental military drugs, and able to draw on a suite of cybernetic and network-connected drone guns, few things can stand before a storm marine fireteam.\n\nStorm marines usually work for nation-states, conglomerates, and similar entities. They mercilessly conduct their mission, even if that mission is to wipe out a rival. Storm marines that question their orders are quickly dispatched by their fellows.\n\nMotive: Achieve mission goals\n\nEnvironment: Alone in or in fireteams of three, anywhere nation-states or similar entities have a financial or military interest\n\nHealth: 15\n\nDamage Inflicted: 6 points\n\nArmor: 4\n\nMovement: Long; flies a long distance each round\n\nModifications: Perception as level 6; attacks as level 5 due to combat targeting neuro-wetware.\n\nCombat: Thanks to their battlesuit, a storm marine has many options in combat. They can deploy an electrified blade to attack every foe in immediate range as a single action, or use a long-range heavy energy rifle that inflicts 6 points of damage.\n\nA storm marine can deploy two level 3 gun drones that fire energy rays at two different targets up to 800 m (2,600 feet) away, inflicting 6 points of damage. If the drones focus on a single target, a successful hit deals 9 points of damage and moves the target one step down the damage track. The drones can attack only once or twice before returning to their cradles in the storm marine’s suit for several rounds to recharge.\n\nInteraction: A storm marine might negotiate, but getting one to act against their mission is difficult.\n\nUse: A fireteam of storm marines are sent to eliminate the PCs or someone the PCs know on suspicion of being radical elements that need to be dealt with.\n\nLoot: Though bio-locked to each storm marine, someone who succeeds on a difficulty 8 Intellect task to reprogram the suit could gain a battlesuit of their own, minus the drones (which fly off or detonate).\n\nGM Intrusion: A character targeting a gun drone rather than the storm marine hits the drone, but the drone reacts by darting to the character and exploding, inflicting 6 points of damage to the character and anyone standing within immediate range.\n\nStorm marine\nLevel 4 (target number 12)\nHealth: 15\nArmor: 4\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.sbTJJl5q80quKcXu",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_storm-marine_20260313T124852_3e1ae920.webp",
+      "images": [
+        "uploads/foundryvtt/creature_storm-marine_20260313T124852_3e1ae920.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_storm-marine.webp"
+    },
+    "description": "A fireteam of storm marines are sent to eliminate the PCs or someone the PCs know on suspicion of being radical elements that need to be dealt with."
+  }
+}

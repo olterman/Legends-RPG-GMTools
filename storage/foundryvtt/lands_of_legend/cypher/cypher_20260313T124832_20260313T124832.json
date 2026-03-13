@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:32.162321+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124832_20260313T124832.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Ray Emitter",
+    "level": "7",
+    "sections": {
+      "name": "Ray Emitter",
+      "level": "7",
+      "effect": "<p>Allows the user to project a ray of destructive energy up to very long range that inflicts damage equal to the cypher's level. Roll a d100 to determine the type of energy. (Even weirder ray emitters: Turns target inside out, Inflicts damage and turns flesh blue, Renders target mute, Damages only plants, Damages only inorganic matter, Turns flesh to dead, stonelike material) Rolled a 33. Heat/concentrated light. </p>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Drad Soriul",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124832.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124832_79578f32.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124832_79578f32.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

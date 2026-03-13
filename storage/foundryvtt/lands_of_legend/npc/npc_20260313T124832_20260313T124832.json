@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:32.951322+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124832_20260313T124832.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Dwarf priest",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Dwarf priest"
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 16,
+      "armor": 0,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 5; health 16; can heal one creature for 10 points or all within immediate range for 5 points\n\nDwarf priest\nLevel 5 (target number 15)\nHealth: 16\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.shj7biH8H6oTNOuV",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/humanoid_magical_20260313T124832_6e297328.webp",
+      "images": [
+        "uploads/foundryvtt/humanoid_magical_20260313T124832_6e297328.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/humanoid_magical.webp"
+    },
+    "description": "Level 5; health 16; can heal one creature for 10 points or all within immediate range for 5 points Dwarf priest Level 5 (target number 15) Health: 16 Armor: 0 Damage: 5"
+  }
+}

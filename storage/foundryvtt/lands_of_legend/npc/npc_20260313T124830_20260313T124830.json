@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:30.678914+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124830_20260313T124830.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Death manifestation",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Death manifestation"
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 21,
+      "armor": 0,
+      "damage": 7,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 7\n\nDeath manifestation\nLevel 7 (target number 21)\nHealth: 21\nArmor: 0\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.43wwoHWFTLNnIR4r",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/aberration_20260313T124830_b55faf55.webp",
+      "images": [
+        "uploads/foundryvtt/aberration_20260313T124830_b55faf55.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/aberration.webp"
+    },
+    "description": "Level 7 Death manifestation Level 7 (target number 21) Health: 21 Armor: 0 Damage: 7"
+  }
+}

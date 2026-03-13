@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:44.073070+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124844.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Morgan le Fay",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Morgan le Fay",
+      "interaction": "Morgan le Fay is fickle and enigmatic, and rarely reveals her purposes. If she agrees to help the characters in some way, it’s absolutely because she has a higher goal in mind.",
+      "use": "The characters are stopped by a beautiful woman in the woods, who asks them to help her accomplish a great task. A powerful foe has brought Morgan le Fay into his confidence, and she is helping him against the PCs."
+    },
+    "stat_block": {
+      "level": 9,
+      "target_number": 27,
+      "health": 27,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Using and controlling magic as level 7"
+      ],
+      "combat": [
+        "Attacks with a variety of weapons, including a sword and staff. She also can use any of the following abilities: Charm: Morgan le Fay can attempt to use a song or light display to charm others within short range. The target must succeed on an Intellect defense task or fall into a suggestible state for one hour. During this period, the target can be led by Morgan le Fay until attacked, damaged, or shaken from their glamour. Enchant: Imbues a normal object with a magical power. The object works under the Morgan le Fay’s command, and does as she asks of it. For example, she might imbue a foe’s weapon and force it to attack the foe, or she might imbue a door and have it close tight against incoming dangers. Glamour: Glamour is an illusion that Morgan le Fay creates. It may let her look like someone else, appear to be a tree or a bird, or even make her invisible. Seeing through the glamour is a level 8 Intellect task. A failed attempt inflicts 2 points of Intellect damage. Once a character sees through the glamour, they cannot unsee it. Heal: Morgan le Fay heals herself, a plant, a creature, or another character for [[/r 1d6 + 2]] points of damage. Invisible: Turns anything (including herself, others, and entire areas up to 30 feet by 30 feet [9 m by 9 m]) invisible for ten minutes. It’s a level 6 Intellect task to be able to see something that has been made invisible. Persuasion: Convinces all victims in long range that what they believe is not real or that what is false is real. Sometimes this ability just affects others’ minds, creating a mental dissonance. Other times, Morgan le Fay creates an illusion or other visible, auditory, and tactile element that persuades a character to believe everything they are experiencing. The effect lasts for ten minutes. Protect: Places a confinement spell to keep someone from going in or out of a location, building, or room. Those who attempt to pass through the spell but fail take 3 points of Intellect damage and are knocked back. Once the spell activates, it disappears. Revive: This rare and costly ability allows a witch to bring someone back to life, as long as they haven’t been dead for more than a year. In order to accomplish this, Morgan le Fay needs all or part of the body of the dead, a beloved object of the dead’s, and the willingness of someone else to take on a curse that results from the magical working (roll on the Curse table to determine the resulting curse). Revive takes ten minutes to cast, and the character returns to life with 1 point in all of their Pools. Seduce: Creatures within short range who fail an Intellect defense roll become enamored of Morgan le Fay. Resisting her persuasion attempts is hindered by two steps until the victim succeeds on an Intellect defense roll; each time they fail to resist the persuasion attempt, her next persuasion attempt is eased by an additional step. Shrivel: A victim within long range and up to two creatures next to the victim must succeed on a Might defense roll or take 3 points of Speed damage (ignores Armor). In each subsequent round, a victim who failed the previous roll must make another Might defense roll with the same outcome on failure."
+      ],
+      "interaction": [
+        "Morgan le Fay is fickle and enigmatic, and rarely reveals her purposes. If she agrees to help the characters in some way, it’s absolutely because she has a higher goal in mind."
+      ],
+      "loot": []
+    },
+    "text": "Morgan le Fay (also known as Morgen, Margain, Morgant, and various other names) is a powerful sorceress from the legends of King Arthur. She has an unpredictable duality to her nature, with the potential for great good and great evil.\n\nHealth: 27\n\nDamage Inflicted: 5 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: Using and controlling magic as level 7\n\nCombat: Attacks with a variety of weapons, including a sword and staff. She also can use any of the following abilities:\n\nCharm: Morgan le Fay can attempt to use a song or light display to charm others within short range. The target must succeed on an Intellect defense task or fall into a suggestible state for one hour. During this period, the target can be led by Morgan le Fay until attacked, damaged, or shaken from their glamour.\n\nEnchant: Imbues a normal object with a magical power. The object works under the Morgan le Fay’s command, and does as she asks of it. For example, she might imbue a foe’s weapon and force it to attack the foe, or she might imbue a door and have it close tight against incoming dangers.\n\nGlamour: Glamour is an illusion that Morgan le Fay creates. It may let her look like someone else, appear to be a tree or a bird, or even make her invisible. Seeing through the glamour is a level 8 Intellect task. A failed attempt inflicts 2 points of Intellect damage. Once a character sees through the glamour, they cannot unsee it.\n\nHeal: Morgan le Fay heals herself, a plant, a creature, or another character for [[/r 1d6 + 2]] points of damage.\n\nInvisible: Turns anything (including herself, others, and entire areas up to 30 feet by 30 feet [9 m by 9 m]) invisible for ten minutes. It’s a level 6 Intellect task to be able to see something that has been made invisible.\n\nPersuasion: Convinces all victims in long range that what they believe is not real or that what is false is real. Sometimes this ability just affects others’ minds, creating a mental dissonance. Other times, Morgan le Fay creates an illusion or other visible, auditory, and tactile element that persuades a character to believe everything they are experiencing. The effect lasts for ten minutes.\n\nProtect: Places a confinement spell to keep someone from going in or out of a location, building, or room. Those who attempt to pass through the spell but fail take 3 points of Intellect damage and are knocked back. Once the spell activates, it disappears.\n\nRevive: This rare and costly ability allows a witch to bring someone back to life, as long as they haven’t been dead for more than a year. In order to accomplish this, Morgan le Fay needs all or part of the body of the dead, a beloved object of the dead’s, and the willingness of someone else to take on a curse that results from the magical working (roll on the Curse table to determine the resulting curse). Revive takes ten minutes to cast, and the character returns to life with 1 point in all of their Pools.\n\nSeduce: Creatures within short range who fail an Intellect defense roll become enamored of Morgan le Fay. Resisting her persuasion attempts is hindered by two steps until the victim succeeds on an Intellect defense roll; each time they fail to resist the persuasion attempt, her next persuasion attempt is eased by an additional step.\n\nShrivel: A victim within long range and up to two creatures next to the victim must succeed on a Might defense roll or take 3 points of Speed damage (ignores Armor). In each subsequent round, a victim who failed the previous roll must make another Might defense roll with the same outcome on failure.\n\nInteraction: Morgan le Fay is fickle and enigmatic, and rarely reveals her purposes. If she agrees to help the characters in some way, it’s absolutely because she has a higher goal in mind.\n\nUse: The characters are stopped by a beautiful woman in the woods, who asks them to help her accomplish a great task. A powerful foe has brought Morgan le Fay into his confidence, and she is helping him against the PCs.\n\nMorgan le Fay\nLevel 9 (target number 27)\nHealth: 27\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.ABtmaQq4sPwKhofJ",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_morgan-le-fay_20260313T124844_922f14ee.webp",
+      "images": [
+        "uploads/foundryvtt/creature_morgan-le-fay_20260313T124844_922f14ee.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales_public-domain/creature_morgan-le-fay.webp"
+    },
+    "description": "The characters are stopped by a beautiful woman in the woods, who asks them to help her accomplish a great task. A powerful foe has brought Morgan le Fay into his confidence, and she is helping him against the PCs."
+  }
+}

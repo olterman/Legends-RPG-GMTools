@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.211469+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Paladin",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Paladin",
+      "motive": "Protecting the innocent, destroying evil",
+      "interaction": "Paladins have big personalities and strongly believe in their purpose and goals. They have no tolerance for evil acts and are unwilling to look the other way when their allies want to bend the rules or take advantage of a “grey area.” However, they are not fools and won’t throw away their lives for nothing.",
+      "use": "A paladin lays claim to a foe the characters are seeking or have captured. An old paladin is looking for one last villain to smite.",
+      "loot": "In addition to their weapons and armor, paladins might have one or two cyphers. More experienced ones might be lucky enough to have an artifact (usually a weapon or armor)."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 2,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Attacks and Might defense as level 5"
+      ],
+      "combat": [
+        "Paladins like flashy weapons and shiny armor, which help them show their devotion to the ideals of goodness and draw the attention of evil foes. Many choose a two-handed weapon, but some prefer using a shield in their off hand (defense-oriented paladins like these inflict only 4 points of damage with their attacks but gain an asset on Speed defense). Blessed by the powers of good, paladins can draw on innate holy magic for several purposes, such as detecting the presence of supernatural evil (demons, evil dragons, undead, and so on), restoring 4 health to themselves or a touched creature, smiting an evil foe to inflict an additional 4 points of damage, or breaking free of mind control."
+      ],
+      "interaction": [
+        "Paladins have big personalities and strongly believe in their purpose and goals. They have no tolerance for evil acts and are unwilling to look the other way when their allies want to bend the rules or take advantage of a “grey area.” However, they are not fools and won’t throw away their lives for nothing."
+      ],
+      "loot": [
+        "In addition to their weapons and armor, paladins might have one or two cyphers. More experienced ones might be lucky enough to have an artifact (usually a weapon or armor)."
+      ]
+    },
+    "text": "Paladins are heroes who swear a holy oath to vanquish evil. Their power and righteousness are a gift and a heavy burden, and most of them expect to die in battle against an evil foe.\n\nMotive: Protecting the innocent, destroying evil\n\nHealth: 15\n\nDamage Inflicted: 5 points\n\nArmor: 2 or 3\n\nMovement: Short\n\nModifications: Attacks and Might defense as level 5\n\nCombat: Paladins like flashy weapons and shiny armor, which help them show their devotion to the ideals of goodness and draw the attention of evil foes. Many choose a two-handed weapon, but some prefer using a shield in their off hand (defense-oriented paladins like these inflict only 4 points of damage with their attacks but gain an asset on Speed defense).\n\nBlessed by the powers of good, paladins can draw on innate holy magic for several purposes, such as detecting the presence of supernatural evil (demons, evil dragons, undead, and so on), restoring 4 health to themselves or a touched creature, smiting an evil foe to inflict an additional 4 points of damage, or breaking free of mind control.\n\nInteraction: Paladins have big personalities and strongly believe in their purpose and goals. They have no tolerance for evil acts and are unwilling to look the other way when their allies want to bend the rules or take advantage of a “grey area.” However, they are not fools and won’t throw away their lives for nothing.\n\nUse: A paladin lays claim to a foe the characters are seeking or have captured. An old paladin is looking for one last villain to smite.\n\nLoot: In addition to their weapons and armor, paladins might have one or two cyphers. More experienced ones might be lucky enough to have an artifact (usually a weapon or armor).\n\nPaladin\nLevel 4 (target number 12)\nHealth: 15\nArmor: 2\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.KFNbjtstq9MzI2og",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_paladin_20260313T124846_5cd115ce.webp",
+      "images": [
+        "uploads/foundryvtt/npc_paladin_20260313T124846_5cd115ce.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/npc_paladin.webp"
+    },
+    "description": "A paladin lays claim to a foe the characters are seeking or have captured. An old paladin is looking for one last villain to smite."
+  }
+}

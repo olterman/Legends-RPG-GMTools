@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:48.699155+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124948_20260313T124948.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Dragontooth soldiers",
+    "description": "Level: 1d6 + 1 Form: Burlap bag containing a handful of large reptilian teeth Effect: If a tooth is drawn from the bag and cast upon the earth, a dragontooth warrior appears, ready to fight for the user for up to ten minutes before going their own way. The user can draw several teeth at once from the bag, but each tooth drawn requires a separate depletion roll. Dragontooth warrior: level equal to the artifact level, Speed defense as artifact level + 1 due to shield; Armor 1; spear attack (melee…",
+    "sections": {
+      "name": "Dragontooth soldiers",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Burlap bag containing a handful of large reptilian teeth\n\nEffect: If a tooth is drawn from the bag and cast upon the earth, a dragontooth warrior appears, ready to fight for the user for up to ten minutes before going their own way. The user can draw several teeth at once from the bag, but each tooth drawn requires a separate depletion roll.\n\nDragontooth warrior: level equal to the artifact level, Speed defense as artifact level + 1 due to shield; Armor 1; spear attack (melee or short range) inflicts damage and impedes movement of victim to immediate range for one round\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r 1d10 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Burlap bag containing a handful of large reptilian teeth\n\nEffect: If a tooth is drawn from the bag and cast upon the earth, a dragontooth warrior appears, ready to fight for the user for up to ten minutes before going their own way. The user can draw several teeth at once from the bag, but each tooth drawn requires a separate depletion roll.\n\nDragontooth warrior: level equal to the artifact level, Speed defense as artifact level + 1 due to shield; Armor 1; spear attack (melee or short range) inflicts damage and impedes movement of victim to immediate range for one round\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124948_8c38844a.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124948_8c38844a.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

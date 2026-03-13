@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:25.697296+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124825_20260313T124825.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Apbod Awbraod",
+    "sheet": {
+      "name": "Apbod Awbraod",
+      "sentence": "Apbod Awbraod is Creative who Exists In Two Places At Once.",
+      "type": "Thief With Stealth Flavor",
+      "flavor": "",
+      "descriptor": "Creative",
+      "focus": "Exists In Two Places At Once",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 12,
+          "intellect": 12
+        },
+        "current": {
+          "might": 12,
+          "speed": 12,
+          "intellect": 12
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 1
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Naturally inventive",
+          "Original",
+          "To be creative requires that you always be learning",
+          "You love solving riddles and the like",
+          "Light weapons",
+          "Medium weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Heavy weapons",
+          "Inventive but not charming"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Decipher",
+        "Duplicate",
+        "Improved Edge",
+        "Knowledge Skills",
+        "Physical Skills"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Naturally inventive",
+          "level": "trained"
+        },
+        {
+          "name": "Original",
+          "level": "trained"
+        },
+        {
+          "name": "To be creative requires that you always be learning",
+          "level": "trained"
+        },
+        {
+          "name": "You love solving riddles and the like",
+          "level": "trained"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Inventive but not charming",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Medium Weapon",
+          "description": "A medium weapon of your choice. Granted from Starting Equipment.",
+          "damage": 4,
+          "weapon_type": "Medium",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Infiltrator",
+          "level": "4",
+          "description": "Tiny capsule launches and moves at great speed, mapping and scanning an unknown area. It moves 500 feet (150 m) per level, scanning an area up to 50 feet (15 m) per level away from it. It identifies basic layout, creatures, and major energy sources and either transmits this information back to the user (perhaps by telepathy or an electronic signal) or returns to the user to show what it saw. Its movement is blocked by any physical or energy barrier."
+        },
+        {
+          "name": "Vigilance",
+          "level": "6",
+          "description": "For one day, you gain an asset to initiative and perception tasks."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and a weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nFortuitous Malfunction\nA trap or a dangerous device malfunctions before it can affect you.\n\nSerendipitous Landmark\nJust when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point.\n\nWeak Strain\nThe poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflicts only half the damage that it would have otherwise.\n\nInventive\n+2 to your Intellect Pool.\nGranted from Creative\n\nPossible GM intrusion from your focus:\nPerceiving the world from two different places disorients the character, causing momentary vertigo, nausea, or confusion.\n\nBackground:\nA Thief is also known as a Explorer\n\nThief\nYou are a person of action and physical ability, fearlessly facing the unknown. You travel to strange, exotic, and dangerous places, and discover new things. This means you're physical but also probably knowledgeable. Although Explorers can be academics or well studied, they are first and foremost interested in action. They face grave dangers and terrible obstacles as a routine part of life.\n\nCreative\nMaybe you have a notebook where you write down ideas so you can develop them later. Perhaps you email yourself ideas that strike you out of the blue so you can sort them in an electronic document. Or maybe you just sit down, stare at your screen and, by indomitable force of will, produce something from nothing. However your gift works, you're creative-you code, write, compose, sculpt, design, direct, or otherwise create narratives that enthrall other people with your vision.\n\nExists In Two Places At Once\nYou exist in two places at once.\n\nChoose how you became involved in the adventure:\n- You were doing research for a project and convinced the PCs to bring you along.\n- You're looking for new markets for the results of your creative output.\n- You fell in with the wrong crowd, but they grew on you.\n- A creative life is often one beset with financial hurdles. You joined the PCs because you hoped it would be profitable.\n\nBackground Connection:\nYour sister owns a store and gives you a hefty discount.\n\nFocus Connection:\nPick one other PC. You're always trying to impress them, but you're not sure why.\n\nNaturally inventive: You are trained in one specific creative skill of your choice: writing, computer coding, composing music, painting, drawing, and so on.\nGranted from Creative\nOriginal: You're always coming up with something new. You're trained in any task related to creating a narrative (such as a story, play, or scenario). This includes deception, if the deception involves a narrative you're able to tell.\nGranted from Creative\nTo be creative requires that you always be learning: You are trained in any task that involves finding out something new, such as when you're digging through a library, data bank, news archive, or similar collection of knowledge.\nGranted from Creative\nYou love solving riddles and the like: You are trained in puzzle-solving tasks.\nGranted from Creative\nLight weapons: Light Weapons\nGranted from Explorer\nMedium weapons: Medium Weapons\nGranted from Explorer\nHeavy weapons: Heavy Weapons\nGranted from Explorer\nInventive but not charming: All tasks related to pleasant social interaction are hindered.\nGranted from Creative\nDecipher: If you spend one minute examining a piece of writing or code in a language you do not understand, you can make an Intellect roll of difficulty 3 (or higher, based on the complexity of the language or code) to get the gist of the message. Action to initiate.\nGranted from Thief\nDuplicate: You cause a duplicate of yourself to appear at any point you can see within short range. The duplicate has no clothing or possessions when it appears. The duplicate is a level 2 NPC with 6 health. The duplicate obeys your commands and does as you direct it. The duplicate remains until you dismiss it using an action or until it is killed. When the duplicate disappears, it leaves behind anything it was wearing or carrying. If the duplicate disappears because it was killed, you take 4 points of damage that ignore Armor, and you lose your next action. Action to initiate.\nGranted from Exists In Two Places At Once\nImproved Edge: Choose one of your Edge stats that is 0. It increases to 1. Enabler.\nGranted from Thief\nKnowledge Skills: You are trained in two skills in which you are not already trained. Choose two areas of knowledge such as history, geography, archeology, and so on. You can select this ability multiple times. Each time you select it, you must choose two different skills. Enabler.\nGranted from Thief\nPhysical Skills: You are trained in two skills in which you are not already trained. Choose two of the following: balancing, climbing, jumping, running, or swimming. You can select this ability multiple times. Each time you select it, you must choose two different skills. Enabler.\nGranted from Thief\nMedium Weapon: A medium weapon of your choice. Granted from Starting Equipment.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Apbod Awbraod",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Thief With Stealth Flavor",
+        "flavor": "",
+        "descriptor": "Creative",
+        "focus": "Exists In Two Places At Once",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124825_76e59412.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124825_76e59412.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Thief With Stealth Flavor",
+      "flavor": "",
+      "descriptor": "Creative",
+      "focus": "Exists In Two Places At Once",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124825_76e59412.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124825_76e59412.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Fortuitous Malfunction A trap or a dangerous device malfunctions before it can affect you. Serendipitous Landmark Just when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point. Weak Strain The poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflic…"
+  }
+}

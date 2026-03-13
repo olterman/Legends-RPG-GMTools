@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:46.485951+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124946.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Death’s scythe",
+    "description": "Level: 1d6 + 4 Form: Double-handed scythe Effect: This scythe functions as a heavy weapon. In addition, it instantly kills level 1 or level 2 creatures it hits. In addition to the normal options for using Effort, the user can choose to use a level of Effort to affect a higher-level target; each level of Effort applied increases the level of creature that can be instantly killed by the scythe. Thus, to instantly kill a level 5 target (three levels above the normal limit), the wielder must apply…",
+    "sections": {
+      "name": "Death’s scythe",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: Double-handed scythe\n\nEffect: This scythe functions as a heavy weapon. In addition, it instantly kills level 1 or level 2 creatures it hits. In addition to the normal options for using Effort, the user can choose to use a level of Effort to affect a higher-level target; each level of Effort applied increases the level of creature that can be instantly killed by the scythe. Thus, to instantly kill a level 5 target (three levels above the normal limit), the wielder must apply three levels of Effort.\n\nDepletion: 1 in 1d20 (check per killing effect; upon depletion, a manifestation of Death appears to reclaim its blade)\n\nDeath manifestation: level 7",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Double-handed scythe\n\nEffect: This scythe functions as a heavy weapon. In addition, it instantly kills level 1 or level 2 creatures it hits. In addition to the normal options for using Effort, the user can choose to use a level of Effort to affect a higher-level target; each level of Effort applied increases the level of creature that can be instantly killed by the scythe. Thus, to instantly kill a level 5 target (three levels above the normal limit), the wielder must apply three levels of Effort.\n\nDepletion: 1 in 1d20 (check per killing effect; upon depletion, a manifestation of Death appears to reclaim its blade)\n\nDeath manifestation: level 7",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.43wwoHWFTLNnIR4r",
+          "label": "Death manifestation"
+        }
+      ],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124946_9f2450c7.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124946_9f2450c7.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:40.574440+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124940.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "A tisket a tasket",
+    "description": "Level: 1d6 Form: Woven yellow basket with wooden handles Effect: This basket can contain up to one cypher per artifact level, as long as each is no larger than a typical cat. Cyphers in the basket do not count against a character’s limit. Depletion: 1 in 1d20 (check each time a cypher is added to the basket)",
+    "sections": {
+      "name": "A tisket a tasket",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Woven yellow basket with wooden handles\n\nEffect: This basket can contain up to one cypher per artifact level, as long as each is no larger than a typical cat. Cyphers in the basket do not count against a character’s limit.\n\nDepletion: 1 in 1d20 (check each time a cypher is added to the basket)",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 1d6\n\nForm: Woven yellow basket with wooden handles\n\nEffect: This basket can contain up to one cypher per artifact level, as long as each is no larger than a typical cat. Cyphers in the basket do not count against a character’s limit.\n\nDepletion: 1 in 1d20 (check each time a cypher is added to the basket)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124940_917d29e8.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124940_917d29e8.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

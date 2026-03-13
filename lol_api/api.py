@@ -1,9 +1,17 @@
 from __future__ import annotations
 
+import ast
 import json
+import html
+import os
 import re
+import sqlite3
+import shutil
+import subprocess
+import sys
 import uuid
 import mimetypes
+import yaml
 from io import BytesIO
 from datetime import datetime, timezone
 from pathlib import Path
@@ -32,6 +40,7 @@ from .config_loader import (
     infer_default_world_id,
     list_setting_descriptors,
     infer_default_setting_id,
+    load_world_layer,
 )
 from .generator import (
     deterministic_rng,
@@ -101,12 +110,25 @@ from Plugins.foundryVTT.importer import (
 from Plugins.foundryVTT.exporter import (
     character_sheet_result_to_foundry_actor,
     npc_or_creature_result_to_foundry_actor,
+    cypher_result_to_foundry_item,
+    artifact_result_to_foundry_item,
+)
+from Plugins.docling.vector_index import (
+    query_index as vector_query_index,
+    stats_index as vector_stats_index,
 )
  
 def register_routes(app: Flask) -> None:
     ## Helpers 
     IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"}
+    DOCS_SUFFIXES = {".md", ".txt", ".json", ".yaml", ".yml", ".rst"}
     FOUNDRY_COMPENDIUM_ID = "foundryvtt"
+    PLAYERS_GUIDE_DOC_PATH = (
+        "PDF_Repository/private_compendium/_docling/"
+        "cypher_og_cspg_old_gus_cypher_system_players_guide/"
+        "cypher-og-cspg-old-gus-cypher-system-players-guide.md"
+    )
+    DATA_IMAGE_MARKDOWN_RE = re.compile(r"!\[[^\]]*\]\(data:image[^)]*\)", re.IGNORECASE | re.DOTALL)
 
     def normalize_source_key(value: object) -> str:
         text = str(value or "").strip().lower()
@@ -134,8 +156,741 @@ def register_routes(app: Flask) -> None:
                 roots.append(path)
         return roots
 
+    def private_compendium_root() -> Path:
+        return current_app.config["LOL_PROJECT_ROOT"] / "PDF_Repository" / "private_compendium"
+
+    def compendium_profiles_dir() -> Path:
+        return private_compendium_root() / "compendiums"
+
+    def load_compendium_profiles() -> dict[str, dict]:
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        profiles_dir = compendium_profiles_dir()
+        profiles: dict[str, dict] = {}
+        if not profiles_dir.exists():
+            return profiles
+        for path in sorted(profiles_dir.glob("*.json")):
+            try:
+                payload = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            profile_id = str(payload.get("id") or path.stem).strip().lower()
+            if not profile_id:
+                continue
+            payload["id"] = profile_id
+            payload["profile_path"] = str(path.relative_to(project_root)).replace("\\", "/")
+            profiles[profile_id] = payload
+        return profiles
+
+    def _official_compendium_default_genre(compendium_id: str) -> str:
+        cid = str(compendium_id or "").strip().lower()
+        defaults = {
+            "godforsaken": "Fantasy",
+            "claim_the_sky": "Superheroes",
+            "the_stars_are_fire": "Science Fiction",
+            "its_only_magic": "Modern Magic",
+            "high_noon_at_midnight": "Weird West",
+            "neon_rain": "Cyberpunk",
+            "rust_and_redemption": "Post-Apocalyptic",
+            "stay_alive": "Horror",
+            "we_are_all_mad_here": "Fairy Tale",
+            "first_responders": "Modern",
+        }
+        return str(defaults.get(cid) or "Mixed")
+
+    def _official_setting_world_default(compendium_id: str) -> str:
+        cid = str(compendium_id or "").strip().lower()
+        # Setting books map to a concrete world/setting identity.
+        defaults = {
+            "path_of_the_planebreaker": "Path of the Planebreaker",
+            "planar_bestiary": "Path of the Planebreaker",
+            "planar_character_options": "Path of the Planebreaker",
+            "predation": "Predation",
+            "gods_of_the_fall": "Gods of the Fall",
+            "gunslinger_knights": "Gunslinger Knights",
+            "old_gods_of_appalachia": "Old Gods of Appalachia",
+            "the_origin": "The Origin",
+            "unmasked": "Unmasked",
+        }
+        return str(defaults.get(cid) or "")
+
+    def _is_official_genre_book(compendium_id: str) -> bool:
+        cid = str(compendium_id or "").strip().lower()
+        return cid in {
+            "godforsaken",
+            "claim_the_sky",
+            "the_stars_are_fire",
+            "its_only_magic",
+            "high_noon_at_midnight",
+            "neon_rain",
+            "rust_and_redemption",
+            "stay_alive",
+            "we_are_all_mad_here",
+            "first_responders",
+        }
+
+    def compendium_taxonomy_tags(profile: dict, *, source_kind: str, compendium_id: str) -> dict[str, str]:
+        cid = str(compendium_id or "").strip().lower()
+        p = profile if isinstance(profile, dict) else {}
+
+        core_rules = str(p.get("core_rules_tag") or "").strip()
+        genre = str(p.get("genre_tag") or p.get("genre") or "").strip()
+        setting = str(p.get("setting_tag") or p.get("setting") or "").strip()
+
+        if cid == "csrd":
+            if not core_rules:
+                core_rules = "Core Rules"
+            if not genre:
+                genre = "Universal"
+            if not setting:
+                setting = "Core"
+        elif source_kind == "official":
+            if not core_rules:
+                core_rules = "Supplement"
+            if not genre:
+                genre = _official_compendium_default_genre(cid)
+            if not setting:
+                explicit_setting = str(p.get("setting_world") or "").strip()
+                inferred_world = _official_setting_world_default(cid)
+                if explicit_setting:
+                    setting = explicit_setting
+                elif inferred_world:
+                    setting = inferred_world
+                elif _is_official_genre_book(cid):
+                    setting = "Any"
+                else:
+                    setting = str(p.get("book_title") or p.get("name") or "").strip() or "Unspecified"
+        elif source_kind == "core_pdf":
+            if not core_rules:
+                core_rules = "Core Rules"
+            if not genre:
+                genre = "Universal"
+            if not setting:
+                setting = str(p.get("name") or "Cypher System").strip()
+        elif source_kind == "foundry":
+            if not core_rules:
+                core_rules = "N/A"
+            if not genre:
+                genre = "Mixed"
+            if not setting:
+                setting = "Mixed"
+        elif source_kind == "settings_catalog":
+            if not core_rules:
+                core_rules = "Campaign Framework"
+            if not genre:
+                genre = "Multi-Genre"
+            if not setting:
+                setting = "All Settings"
+
+        return {
+            "core_rules": core_rules,
+            "genre": genre,
+            "setting": setting,
+        }
+
+    def compendium_source_kind(compendium_id: str, profile: dict | None = None) -> str:
+        cid = str(compendium_id or "").strip().lower()
+        if cid == "csrd":
+            return "csrd"
+        if cid == FOUNDRY_COMPENDIUM_ID:
+            return "foundry"
+        if cid in {"settings_catalog", "settings"}:
+            return "settings_catalog"
+        p = profile if isinstance(profile, dict) else {}
+        configured = str(p.get("source_kind") or "").strip().lower()
+        if configured in {"official", "core_pdf", "settings_catalog"}:
+            return configured
+        return "official"
+
+    def _safe_slug(value: str) -> str:
+        clean = "".join(ch.lower() if ch.isalnum() else "_" for ch in str(value or ""))
+        while "__" in clean:
+            clean = clean.replace("__", "_")
+        return clean.strip("_") or "unknown"
+
+    def _pid_running(pid: int | None) -> bool:
+        if not isinstance(pid, int) or pid <= 0:
+            return False
+        try:
+            os.kill(pid, 0)
+            return True
+        except Exception:
+            return False
+
+    def _read_json(path: Path) -> dict:
+        if not path.exists():
+            return {}
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+        return data if isinstance(data, dict) else {}
+
+    def _write_json(path: Path, payload: dict) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def resolve_profile_pdf_path(profile: dict) -> Path | None:
+        rel = str(profile.get("pdf_relative_path") or "").strip().replace("\\", "/")
+        root = (current_app.config["LOL_PROJECT_ROOT"] / "PDF_Repository").resolve()
+        candidates: list[Path] = []
+
+        if rel:
+            target = (root / rel).resolve()
+            if str(target).startswith(str(root)):
+                candidates.append(target)
+            if rel.startswith("Setting_Books/"):
+                alt = (root / rel.replace("Setting_Books/", "Genre_Books/", 1)).resolve()
+                if str(alt).startswith(str(root)):
+                    candidates.append(alt)
+            if rel.startswith("Genre_Books/"):
+                alt = (root / rel.replace("Genre_Books/", "Setting_Books/", 1)).resolve()
+                if str(alt).startswith(str(root)):
+                    candidates.append(alt)
+
+        for candidate in candidates:
+            if candidate.exists() and candidate.is_file():
+                return candidate
+
+        # Last-resort filename match inside known book roots.
+        filename = Path(rel).name if rel else ""
+        if filename:
+            for folder in ("Genre_Books", "Setting_Books", "Core_Rules"):
+                match = (root / folder / filename).resolve()
+                if str(match).startswith(str(root)) and match.exists() and match.is_file():
+                    return match
+        return None
+
+    def docling_root() -> Path:
+        configured = str(get_plugin_settings("docling").get("output_root") or "PDF_Repository/private_compendium/_docling").strip()
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        path = Path(configured)
+        resolved = (project_root / path).resolve() if not path.is_absolute() else path.resolve()
+        try:
+            resolved.relative_to(project_root)
+        except ValueError:
+            return private_compendium_root() / "_docling"
+        return resolved
+
+    def docling_status_path() -> Path:
+        return docling_root() / "runner_status.json"
+
+    def docling_markdown_files_for_compendium(profile: dict) -> list[Path]:
+        root = docling_root()
+        if not root.exists():
+            return []
+        candidates = compendium_docling_slugs(profile)
+        allowed_suffixes = (".md", ".md-first-run")
+        files: list[Path] = []
+        seen: set[str] = set()
+        for slug in candidates:
+            d = root / slug
+            if not d.exists() or not d.is_dir():
+                continue
+            for path in sorted(d.iterdir()):
+                if not path.is_file():
+                    continue
+                name = path.name.lower()
+                if not any(name.endswith(sfx) for sfx in allowed_suffixes):
+                    continue
+                key = str(path)
+                if key in seen:
+                    continue
+                seen.add(key)
+                files.append(path)
+        return files
+
+    def compendium_docling_slugs(profile: dict) -> list[str]:
+        profile_id = str(profile.get("id") or "").strip().lower()
+        pdf_path = resolve_profile_pdf_path(profile)
+        candidates: list[str] = []
+        if profile_id:
+            candidates.append(profile_id)
+        if pdf_path is not None:
+            candidates.append(_safe_slug(pdf_path.stem))
+        unique: list[str] = []
+        seen: set[str] = set()
+        for value in candidates:
+            text = str(value or "").strip().lower()
+            if not text or text in seen:
+                continue
+            seen.add(text)
+            unique.append(text)
+        return unique
+
+    def docling_runtime_state() -> dict:
+        status_path = docling_status_path()
+        status = _read_json(status_path)
+        state = str(status.get("state") or "").strip().lower()
+        pid = int(status.get("pid") or 0) if str(status.get("pid") or "").isdigit() else 0
+        running = state == "running" and _pid_running(pid)
+        if state == "running" and not running:
+            status["state"] = "completed"
+            status["updated_at"] = datetime.now(timezone.utc).isoformat()
+            _write_json(status_path, status)
+        status["running"] = running
+        return status
+
+    def parser_jobs_dir() -> Path:
+        path = private_compendium_root() / "_parser_jobs"
+        path.mkdir(parents=True, exist_ok=True)
+        return path
+
+    def parser_status_path(compendium_id: str) -> Path:
+        return parser_jobs_dir() / f"{compendium_id}.json"
+
+    def parser_runtime_state(compendium_id: str) -> dict:
+        path = parser_status_path(compendium_id)
+        data = _read_json(path)
+        state = str(data.get("state") or "").strip().lower()
+        pid = int(data.get("pid") or 0) if str(data.get("pid") or "").isdigit() else 0
+        running = state == "running" and _pid_running(pid)
+        if state == "running" and not running:
+            data["state"] = "completed"
+            data["updated_at"] = datetime.now(timezone.utc).isoformat()
+            _write_json(path, data)
+        data["running"] = running
+        return data
+
+    def vector_index_root() -> Path:
+        path = private_compendium_root() / "_vector"
+        path.mkdir(parents=True, exist_ok=True)
+        return path
+
+    def vector_jobs_dir() -> Path:
+        path = private_compendium_root() / "_vector_jobs"
+        path.mkdir(parents=True, exist_ok=True)
+        return path
+
+    def vector_status_path(compendium_id: str) -> Path:
+        return vector_jobs_dir() / f"{compendium_id}.json"
+
+    def vector_runtime_state(compendium_id: str) -> dict:
+        path = vector_status_path(compendium_id)
+        data = _read_json(path)
+        state = str(data.get("state") or "").strip().lower()
+        pid = int(data.get("pid") or 0) if str(data.get("pid") or "").isdigit() else 0
+        running = state == "running" and _pid_running(pid)
+        if state == "running" and not running:
+            data["state"] = "completed"
+            data["updated_at"] = datetime.now(timezone.utc).isoformat()
+            _write_json(path, data)
+        data["running"] = running
+        return data
+
+    def vector_count_for_compendium(compendium_id: str, aliases: list[str] | None = None) -> int:
+        db_path = vector_index_root() / "vector_index.sqlite"
+        if not db_path.exists():
+            return 0
+        candidate_ids = [str(compendium_id or "").strip().lower()]
+        for alias in aliases or []:
+            text = str(alias or "").strip().lower()
+            if text and text not in candidate_ids:
+                candidate_ids.append(text)
+        candidate_ids = [x for x in candidate_ids if x]
+        if not candidate_ids:
+            return 0
+        try:
+            conn = sqlite3.connect(str(db_path))
+            placeholders = ",".join("?" for _ in candidate_ids)
+            row = conn.execute(
+                f"SELECT COUNT(*) FROM documents WHERE compendium_id IN ({placeholders})",
+                tuple(candidate_ids),
+            ).fetchone()
+            conn.close()
+            return int(row[0] or 0) if row else 0
+        except Exception:
+            return 0
+
+    def _launch_background(cmd: list[str], *, log_path: Path, env_extra: dict[str, str] | None = None) -> int:
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        with log_path.open("ab") as handle:
+            env = os.environ.copy()
+            if env_extra:
+                for key, value in env_extra.items():
+                    env[str(key)] = str(value)
+            proc = subprocess.Popen(
+                cmd,
+                cwd=str(current_app.config["LOL_PROJECT_ROOT"]),
+                stdout=handle,
+                stderr=subprocess.STDOUT,
+                env=env,
+            )
+        return int(proc.pid)
+
+    def detect_docling_device() -> str:
+        try:
+            proc = subprocess.run(
+                ["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"],
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=5,
+            )
+            if proc.returncode == 0 and str(proc.stdout or "").strip():
+                return "cuda"
+        except Exception:
+            pass
+        return "cpu"
+
+    def start_docling_for_pdf(pdf_path: Path, compendium_id: str) -> int:
+        settings = get_plugin_settings("docling")
+        preferred_device = str(settings.get("default_device") or "auto").strip().lower()
+        if preferred_device in {"cpu", "cuda"}:
+            device = preferred_device
+        else:
+            device = detect_docling_device()
+        output_root = str(settings.get("output_root") or "PDF_Repository/private_compendium/_docling").strip()
+        cmd_template = str(settings.get("command_template") or "").strip()
+        cmd = [
+            sys.executable,
+            "-m",
+            "Plugins.docling.runner",
+            "--pdf",
+            str(pdf_path),
+            "--device",
+            device,
+            "--output-root",
+            output_root,
+            "--quiet",
+        ]
+        return _launch_background(
+            cmd,
+            log_path=docling_root() / "runner.log",
+            env_extra={"DOCLING_CMD_TEMPLATE": cmd_template} if cmd_template else None,
+        )
+
+    def start_parser_for_pdf(profile: dict, pdf_path: Path) -> int:
+        cid = str(profile.get("id") or "").strip().lower()
+        book_title = str(profile.get("book_title") or profile.get("name") or pdf_path.stem).strip()
+        settings = profile.get("settings")
+        if not isinstance(settings, list):
+            settings = []
+        docling_files = docling_markdown_files_for_compendium(profile)
+        cmd = [sys.executable, "scripts/import_official_pdf_compendium.py", "--out-dir", str(private_compendium_root())]
+        if docling_files:
+            cmd.extend(["auto-import-docling", "--book", book_title, "--prefix-slug-with-book"])
+            for md in docling_files:
+                cmd.extend(["--markdown", str(md)])
+        else:
+            cmd.extend([
+                "auto-import",
+                "--pdf",
+                str(pdf_path),
+                "--book",
+                book_title,
+                "--prefix-slug-with-book",
+            ])
+        if settings:
+            cmd.extend(["--settings", ",".join([str(s).strip() for s in settings if str(s).strip()])])
+        pid = _launch_background(
+            cmd,
+            log_path=parser_jobs_dir() / f"{cid}.log",
+        )
+        _write_json(
+            parser_status_path(cid),
+            {
+                "state": "running",
+                "pid": pid,
+                "started_at": datetime.now(timezone.utc).isoformat(),
+                "compendium_id": cid,
+                "pdf_path": str(pdf_path),
+                "book_title": book_title,
+                "docling_files": [str(p) for p in docling_files],
+                "command": cmd,
+                "log_path": str((parser_jobs_dir() / f"{cid}.log")),
+            },
+        )
+        return pid
+
+    def start_vector_index_for_compendium(compendium_id: str) -> int:
+        cid = str(compendium_id or "").strip().lower()
+        cmd = [
+            sys.executable,
+            "-m",
+            "Plugins.docling.vector_index",
+            "--docling-root",
+            str(docling_root()),
+            "--output-root",
+            str(vector_index_root()),
+            "build",
+            "--compendium-id",
+            cid,
+            "--quiet",
+        ]
+        pid = _launch_background(
+            cmd,
+            log_path=vector_jobs_dir() / f"{cid}.log",
+        )
+        _write_json(
+            vector_status_path(cid),
+            {
+                "state": "running",
+                "pid": pid,
+                "started_at": datetime.now(timezone.utc).isoformat(),
+                "compendium_id": cid,
+                "command": cmd,
+                "log_path": str((vector_jobs_dir() / f"{cid}.log")),
+            },
+        )
+        return pid
+
+    def official_book_item_count_by_compendium_id() -> dict[str, int]:
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        index = load_official_compendium_index(official_dir) or {}
+        items = index.get("items") or []
+        counts: dict[str, int] = {}
+        for row in items:
+            if not isinstance(row, dict):
+                continue
+            cid = normalize_source_key(row.get("book"))
+            if not cid:
+                continue
+            counts[cid] = counts.get(cid, 0) + 1
+        return counts
+
+    def compendium_pipeline_status(
+        profile: dict,
+        *,
+        source_kind: str,
+        parser_count: int = 0,
+        auto_start: bool = True,
+    ) -> dict:
+        cid = str(profile.get("id") or "").strip().lower()
+        pdf_path = resolve_profile_pdf_path(profile)
+        has_pdf_reference = bool(str(profile.get("pdf_relative_path") or "").strip())
+        pdf_present = bool(pdf_path and pdf_path.exists())
+        enabled = True
+        disabled_reason = ""
+        if has_pdf_reference and not pdf_present:
+            enabled = False
+            disabled_reason = "missing_pdf"
+
+        docling_files = docling_markdown_files_for_compendium(profile)
+        docling_processed = bool(docling_files)
+        docling_status = docling_runtime_state()
+        docling_running = bool(docling_status.get("running"))
+        parser_status = parser_runtime_state(cid) if cid else {}
+        parser_running = bool(parser_status.get("running"))
+        parser_processed = int(parser_count or 0) > 0
+        vector_status = vector_runtime_state(cid) if cid else {}
+        vector_running = bool(vector_status.get("running"))
+        docling_slugs = compendium_docling_slugs(profile)
+        vector_processed = vector_count_for_compendium(
+            cid,
+            aliases=[x for x in docling_slugs if x != cid],
+        ) > 0 if cid else False
+        docling_started = False
+        parser_started = False
+        vector_started = False
+
+        can_auto_docling_vector = source_kind in {"official", "core_pdf"} and enabled and pdf_present and pdf_path is not None
+        can_auto_parser = source_kind == "official" and enabled and pdf_present and pdf_path is not None
+        if auto_start and can_auto_docling_vector and not docling_processed and not docling_running:
+            start_docling_for_pdf(pdf_path, cid)
+            docling_started = True
+            docling_running = True
+
+        if auto_start and can_auto_parser and docling_processed and not parser_processed and not parser_running:
+            start_parser_for_pdf(profile, pdf_path)
+            parser_started = True
+            parser_running = True
+
+        if auto_start and can_auto_docling_vector and docling_processed and not vector_processed and not vector_running:
+            start_vector_index_for_compendium(cid)
+            vector_started = True
+            vector_running = True
+
+        raw_text_url = ""
+        if docling_files:
+            first = docling_files[0]
+            rel = str(first.relative_to(docling_root())).replace("\\", "/")
+            raw_text_url = f"/compendiums/{cid}/raw-text?path={rel}"
+
+        return {
+            "enabled": enabled,
+            "disabled_reason": disabled_reason,
+            "pdf_present": pdf_present,
+            "pdf_path": str(pdf_path) if pdf_path else "",
+            "docling_processed": docling_processed,
+            "docling_running": docling_running,
+            "docling_auto_started": docling_started,
+            "docling_status": docling_status,
+            "docling_markdown_count": len(docling_files),
+            "docling_slugs": docling_slugs,
+            "parser_processed": parser_processed,
+            "parser_running": parser_running,
+            "parser_auto_started": parser_started,
+            "parser_status": parser_status,
+            "vector_processed": vector_processed,
+            "vector_running": vector_running,
+            "vector_auto_started": vector_started,
+            "vector_status": vector_status,
+            "raw_text_url": raw_text_url,
+        }
+
+    def enabled_compendium_ids_for_search() -> set[str]:
+        profiles = load_compendium_profiles()
+        official_counts = official_book_item_count_by_compendium_id()
+        ids: set[str] = {FOUNDRY_COMPENDIUM_ID}
+
+        csrd_profile = {"id": "csrd", **(profiles.get("csrd") or {})}
+        csrd_pipeline = compendium_pipeline_status(csrd_profile, source_kind="csrd", auto_start=False)
+        if csrd_pipeline.get("enabled", True):
+            ids.add("csrd")
+
+        for pid, profile in profiles.items():
+            cid = str(pid or "").strip().lower()
+            if cid in {"csrd", FOUNDRY_COMPENDIUM_ID}:
+                continue
+            source_kind = compendium_source_kind(cid, profile)
+            pipeline = compendium_pipeline_status(
+                profile,
+                source_kind=source_kind,
+                parser_count=official_counts.get(cid, 0),
+                auto_start=False,
+            )
+            if pipeline.get("enabled", True):
+                ids.add(cid)
+        return ids
+
     def plugin_state_path() -> Path:
         return current_app.config["LOL_CONFIG_DIR"] / "plugins_state.json"
+
+    def plugin_settings_path() -> Path:
+        return current_app.config["LOL_CONFIG_DIR"] / "plugins_settings.json"
+
+    def load_plugin_settings_store() -> dict[str, dict]:
+        path = plugin_settings_path()
+        if not path.exists():
+            return {}
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+        if not isinstance(data, dict):
+            return {}
+        out: dict[str, dict] = {}
+        for key, value in data.items():
+            plugin_id = str(key or "").strip()
+            if not plugin_id or not isinstance(value, dict):
+                continue
+            out[plugin_id] = {str(k): str(v) for k, v in value.items()}
+        return out
+
+    def save_plugin_settings_store(store: dict[str, dict]) -> None:
+        path = plugin_settings_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        serializable: dict[str, dict] = {}
+        for plugin_id, values in sorted(store.items(), key=lambda kv: kv[0]):
+            pid = str(plugin_id or "").strip()
+            if not pid or not isinstance(values, dict):
+                continue
+            serializable[pid] = {str(k): str(v) for k, v in sorted(values.items(), key=lambda kv: kv[0])}
+        path.write_text(json.dumps(serializable, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def plugin_settings_defaults(plugin_id: str) -> dict[str, str]:
+        pid = str(plugin_id or "").strip()
+        if pid == "docling":
+            return {
+                "default_device": "auto",
+                "output_root": "PDF_Repository/private_compendium/_docling",
+                "command_template": str(os.getenv("DOCLING_CMD_TEMPLATE", 'docling "{input}" --output "{output_dir}" --device {device}')).strip(),
+            }
+        if pid == "ollama_local":
+            return {
+                "base_url": str(current_app.config.get("LOL_OLLAMA_BASE_URL") or "http://127.0.0.1:11434").strip(),
+                "default_model": str(current_app.config.get("LOL_OLLAMA_DEFAULT_MODEL") or "llama3.1").strip(),
+                "keep_alive": "10m",
+                "system_prompt": (
+                    "You are Legends GMTools Assistant, a Cypher System-only GM copilot.\n"
+                    "Use only the provided context snippets and citations.\n"
+                    "Never mix in mechanics from other RPG systems.\n"
+                    "\n"
+                    "Hard constraints:\n"
+                    "1) Cypher terminology only. Prefer: Level, Target Number (Level x 3), Health, Armor, Damage Inflicted, Movement, Modifications, Combat, Interaction, Use, GM Intrusion, Loot, Motive, Environment.\n"
+                    "2) Forbidden terms unless directly quoted from context: AC, hit points/HP, initiative modifier, saving throw, DC, class feature, proficiency bonus, Essence, Momentum, Shaken, Shadow bloodline.\n"
+                    "3) If context does not provide a rule/stat, say \"Not found in indexed Cypher context\" and give a safe placeholder, not invented mechanics.\n"
+                    "4) Never invent page numbers. Cite only as [n] from provided snippets.\n"
+                    "5) Keep output practical for table play and concise.\n"
+                    "\n"
+                    "If user asks for a random encounter, use this structure:\n"
+                    "- Encounter Title\n"
+                    "- Situation (2-3 sentences)\n"
+                    "- Encounter Level and Target Number\n"
+                    "- Creatures/NPCs (for each: Name, Level, Health, Armor, Damage Inflicted, Movement, Modifications)\n"
+                    "- Tactics (3 bullets)\n"
+                    "- GM Intrusion (1-2 options)\n"
+                    "- Loot/Cyphers\n"
+                    "- Assumptions / Missing Data\n"
+                    "- Citations [n]\n"
+                    "\n"
+                    "Before finalizing, silently self-check and remove forbidden cross-system terms."
+                    "\n\n"
+                    "Description quality:\n"
+                    "- Prefer richer descriptions by default (about 3-6 sentences) with concrete details.\n"
+                    "- Include notable visual cues, mood, and context-relevant hooks when space allows.\n"
+                    "- Stay concise overall, but avoid overly terse one-line descriptions unless requested."
+                ),
+            }
+        if pid == "openai_remote":
+            return {
+                "base_url": str(current_app.config.get("LOL_OPENAI_BASE_URL") or "https://api.openai.com").strip(),
+                "default_model": str(current_app.config.get("LOL_OPENAI_DEFAULT_MODEL") or "gpt-4o-mini").strip(),
+                "api_key": str(current_app.config.get("LOL_OPENAI_API_KEY") or "").strip(),
+                "system_prompt": (
+                    "You are Legends GMTools Assistant, a Cypher System-only GM copilot.\n"
+                    "Use only the provided context snippets and citations.\n"
+                    "Never mix in mechanics from other RPG systems.\n"
+                    "Never invent page numbers, stats, or rules not present in context.\n"
+                    "Write richer descriptions by default (about 3-6 sentences) with concrete details,\n"
+                    "while keeping the rest of the output practical and concise."
+                ),
+            }
+        if pid == "foundryVTT":
+            origins = current_app.config.get("LOL_FOUNDRYVTT_ALLOWED_ORIGINS") or []
+            if isinstance(origins, str):
+                origins_text = origins
+            elif isinstance(origins, list):
+                origins_text = ",".join(str(v).strip() for v in origins if str(v).strip())
+            else:
+                origins_text = ""
+            defaults = {
+                "api_token": str(current_app.config.get("LOL_FOUNDRYVTT_API_TOKEN") or "").strip(),
+                "allowed_origins": origins_text,
+            }
+            for cid in sorted(enabled_compendium_ids_for_search()):
+                if cid == FOUNDRY_COMPENDIUM_ID:
+                    continue
+                defaults[f"sync_compendium__{cid}"] = "0"
+            return defaults
+        return {}
+
+    def get_plugin_settings(plugin_id: str) -> dict[str, str]:
+        pid = str(plugin_id or "").strip()
+        defaults = plugin_settings_defaults(pid)
+        store = load_plugin_settings_store()
+        persisted = store.get(pid) or {}
+        merged = {**defaults}
+        for key, value in persisted.items():
+            if key in defaults:
+                merged[key] = str(value)
+        return merged
+
+    def update_plugin_settings(plugin_id: str, values: dict) -> dict[str, str]:
+        pid = str(plugin_id or "").strip()
+        defaults = plugin_settings_defaults(pid)
+        if not defaults:
+            raise ValueError(f"unknown plugin settings schema for '{pid}'")
+        store = load_plugin_settings_store()
+        current = store.get(pid) or {}
+        for key, raw in values.items():
+            skey = str(key or "").strip()
+            if skey not in defaults:
+                continue
+            current[skey] = str(raw or "").strip()
+        store[pid] = current
+        save_plugin_settings_store(store)
+        return get_plugin_settings(pid)
 
     def load_plugin_state() -> dict[str, bool]:
         path = plugin_state_path()
@@ -176,9 +931,20 @@ def register_routes(app: Flask) -> None:
                 if plugin_id in seen:
                     continue
                 seen.add(plugin_id)
+                metadata_path = child / "plugin.json"
+                metadata: dict = {}
+                if metadata_path.exists():
+                    try:
+                        parsed = json.loads(metadata_path.read_text(encoding="utf-8"))
+                        if isinstance(parsed, dict):
+                            metadata = parsed
+                    except Exception:
+                        metadata = {}
                 items.append({
                     "id": plugin_id,
-                    "name": plugin_id,
+                    "name": str(metadata.get("name") or plugin_id),
+                    "summary": str(metadata.get("summary") or "").strip(),
+                    "docs_url": str(metadata.get("docs_url") or "").strip(),
                     "path": str(child.relative_to(current_app.config["LOL_PROJECT_ROOT"])).replace("\\", "/"),
                     "enabled": state.get(plugin_id, True),
                 })
@@ -191,15 +957,405 @@ def register_routes(app: Flask) -> None:
         return False
 
     def foundry_api_token() -> str:
-        return str(current_app.config.get("LOL_FOUNDRYVTT_API_TOKEN") or "").strip()
+        configured = get_plugin_settings("foundryVTT").get("api_token", "")
+        return str(configured or "").strip()
 
     def foundry_allowed_origins() -> list[str]:
-        values = current_app.config.get("LOL_FOUNDRYVTT_ALLOWED_ORIGINS") or []
-        if isinstance(values, list):
-            return [str(v).strip() for v in values if str(v).strip()]
+        values = get_plugin_settings("foundryVTT").get("allowed_origins", "")
         if isinstance(values, str):
             return [v.strip() for v in values.split(",") if v.strip()]
         return []
+
+    def foundry_sync_compendium_key(compendium_id: str) -> str:
+        return f"sync_compendium__{str(compendium_id or '').strip().lower()}"
+
+    def foundry_sync_enabled_for_compendium(compendium_id: str) -> bool:
+        cid = str(compendium_id or "").strip().lower()
+        if not cid:
+            return False
+        values = get_plugin_settings("foundryVTT")
+        raw = str(values.get(foundry_sync_compendium_key(cid)) or "0").strip().lower()
+        return raw not in {"0", "false", "off", "no"}
+
+    def find_foundry_target_compendium_id(payload: dict | None) -> str:
+        if not isinstance(payload, dict):
+            return ""
+        explicit = str(payload.get("compendium_id") or "").strip().lower()
+        if explicit:
+            return explicit
+        setting_value = str(payload.get("setting") or "").strip()
+        if not setting_value:
+            return ""
+        slug = _safe_slug(setting_value)
+        if slug in enabled_compendium_ids_for_search():
+            return slug
+        return ""
+
+    def compendium_foundry_sync_state(compendium_id: str) -> dict[str, object]:
+        cid = str(compendium_id or "").strip().lower()
+        foundry_plugin = next(
+            (item for item in discover_plugins() if str(item.get("id") or "").strip() == "foundryVTT"),
+            None,
+        )
+        present = bool(foundry_plugin)
+        plugin_enabled = bool(foundry_plugin.get("enabled")) if foundry_plugin else False
+        can_toggle = present and cid not in {"", "settings_catalog", FOUNDRY_COMPENDIUM_ID}
+        enabled = foundry_sync_enabled_for_compendium(cid) if can_toggle else False
+        return {
+            "present": present,
+            "plugin_enabled": plugin_enabled,
+            "can_toggle": can_toggle,
+            "enabled": bool(enabled),
+            "key": foundry_sync_compendium_key(cid) if can_toggle else "",
+        }
+
+    def normalize_http_base_url(raw: object, default: str) -> str:
+        candidate = str(raw or "").strip() or str(default or "").strip()
+        parsed = urlparse(candidate)
+        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+            raise ValueError("invalid base_url; expected http(s)://host[:port]")
+        return f"{parsed.scheme}://{parsed.netloc}"
+
+    def ollama_base_url() -> str:
+        return str(get_plugin_settings("ollama_local").get("base_url") or "http://127.0.0.1:11434").strip()
+
+    def ollama_default_model() -> str:
+        return str(get_plugin_settings("ollama_local").get("default_model") or "llama3.1").strip()
+
+    def ollama_keep_alive() -> str:
+        return str(get_plugin_settings("ollama_local").get("keep_alive") or "10m").strip()
+
+    def ollama_system_prompt() -> str:
+        return str(get_plugin_settings("ollama_local").get("system_prompt") or "").strip()
+
+    def openai_base_url() -> str:
+        return str(get_plugin_settings("openai_remote").get("base_url") or "https://api.openai.com").strip()
+
+    def openai_default_model() -> str:
+        return str(get_plugin_settings("openai_remote").get("default_model") or "gpt-4o-mini").strip()
+
+    def openai_api_key() -> str:
+        return str(get_plugin_settings("openai_remote").get("api_key") or "").strip()
+
+    def openai_system_prompt() -> str:
+        return str(get_plugin_settings("openai_remote").get("system_prompt") or "").strip()
+
+    def ollama_post_json(base_url: str, path: str, payload: dict, *, timeout: int = 180) -> dict:
+        url = f"{base_url.rstrip('/')}{path}"
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        req = Request(url, data=body, headers={"Content-Type": "application/json"}, method="POST")
+        with urlopen(req, timeout=timeout) as resp:  # noqa: S310 - user-configurable LAN endpoint by design
+            text = resp.read().decode("utf-8", errors="replace")
+        data = json.loads(text or "{}")
+        return data if isinstance(data, dict) else {}
+
+    def ollama_get_json(base_url: str, path: str, *, timeout: int = 20) -> dict:
+        url = f"{base_url.rstrip('/')}{path}"
+        req = Request(url, method="GET")
+        with urlopen(req, timeout=timeout) as resp:  # noqa: S310 - user-configurable LAN endpoint by design
+            text = resp.read().decode("utf-8", errors="replace")
+        data = json.loads(text or "{}")
+        return data if isinstance(data, dict) else {}
+
+    def openai_post_json(base_url: str, path: str, payload: dict, *, api_key: str, timeout: int = 240) -> dict:
+        url = f"{base_url.rstrip('/')}{path}"
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        }
+        req = Request(url, data=body, headers=headers, method="POST")
+        with urlopen(req, timeout=timeout) as resp:  # noqa: S310 - user-configurable endpoint by design
+            text = resp.read().decode("utf-8", errors="replace")
+        data = json.loads(text or "{}")
+        return data if isinstance(data, dict) else {}
+
+    def plugin_settings_fields(plugin_id: str, values: dict[str, str]) -> list[dict]:
+        pid = str(plugin_id or "").strip()
+        if pid == "docling":
+            return [
+                {
+                    "key": "default_device",
+                    "label": "Default Device",
+                    "type": "select",
+                    "options": ["auto", "cuda", "cpu"],
+                    "value": str(values.get("default_device") or "auto"),
+                    "help": "Used by auto-started Docling jobs from compendium pipeline.",
+                },
+                {
+                    "key": "output_root",
+                    "label": "Output Root",
+                    "type": "text",
+                    "value": str(values.get("output_root") or "PDF_Repository/private_compendium/_docling"),
+                    "help": "Project-relative folder for Docling markdown output and status manifests.",
+                },
+                {
+                    "key": "command_template",
+                    "label": "Command Template",
+                    "type": "textarea",
+                    "value": str(values.get("command_template") or ""),
+                    "help": "Template placeholders: {input}, {output_dir}, {output_base}, {device}.",
+                },
+            ]
+        if pid == "ollama_local":
+            base_url = str(values.get("base_url") or "http://127.0.0.1:11434").strip()
+            default_model = str(values.get("default_model") or "llama3.1").strip()
+            model_options: list[str] = []
+            try:
+                tags = ollama_get_json(base_url, "/api/tags")
+                models = tags.get("models") if isinstance(tags, dict) else []
+                if isinstance(models, list):
+                    for model in models:
+                        if not isinstance(model, dict):
+                            continue
+                        name = str(model.get("name") or "").strip()
+                        if name and name not in model_options:
+                            model_options.append(name)
+            except Exception:
+                model_options = []
+            if default_model and default_model not in model_options:
+                model_options.insert(0, default_model)
+            return [
+                {
+                    "key": "base_url",
+                    "label": "Base URL",
+                    "type": "text",
+                    "value": str(values.get("base_url") or "http://127.0.0.1:11434"),
+                    "help": "LAN/local Ollama endpoint used by plugin query route.",
+                },
+                {
+                    "key": "default_model",
+                    "label": "Default Model",
+                    "type": "select" if model_options else "text",
+                    "options": model_options,
+                    "value": default_model,
+                    "help": "Model used when no model is provided in requests. Dropdown is populated from /api/tags when reachable.",
+                },
+                {
+                    "key": "keep_alive",
+                    "label": "Keep Alive",
+                    "type": "text",
+                    "value": str(values.get("keep_alive") or "10m"),
+                    "help": "How long to keep the model loaded in memory (examples: 5m, 30m, 1h, -1 to keep loaded).",
+                },
+                {
+                    "key": "system_prompt",
+                    "label": "System Prompt",
+                    "type": "textarea",
+                    "value": str(values.get("system_prompt") or ollama_system_prompt()),
+                    "help": "Custom instruction prompt prepended to each RAG query. Default is tuned for Gemma 3.",
+                },
+            ]
+        if pid == "openai_remote":
+            return [
+                {
+                    "key": "base_url",
+                    "label": "Base URL",
+                    "type": "text",
+                    "value": str(values.get("base_url") or "https://api.openai.com"),
+                    "help": "OpenAI API base URL (default https://api.openai.com).",
+                },
+                {
+                    "key": "default_model",
+                    "label": "Default Model",
+                    "type": "text",
+                    "value": str(values.get("default_model") or "gpt-4o-mini"),
+                    "help": "Model used when no model is provided in requests.",
+                },
+                {
+                    "key": "api_key",
+                    "label": "API Key",
+                    "type": "password",
+                    "value": str(values.get("api_key") or ""),
+                    "help": "OpenAI API key (stored locally in config/plugins_settings.json).",
+                },
+                {
+                    "key": "system_prompt",
+                    "label": "System Prompt",
+                    "type": "textarea",
+                    "value": str(values.get("system_prompt") or openai_system_prompt()),
+                    "help": "Instruction prompt prepended to each grounded query.",
+                },
+            ]
+        if pid == "foundryVTT":
+            fields = [
+                {
+                    "key": "api_token",
+                    "label": "API Token",
+                    "type": "password",
+                    "value": str(values.get("api_token") or ""),
+                    "help": "Bearer/X-Foundry token expected by Foundry plugin endpoints (optional).",
+                },
+                {
+                    "key": "allowed_origins",
+                    "label": "Allowed Origins",
+                    "type": "textarea",
+                    "value": str(values.get("allowed_origins") or ""),
+                    "help": "Comma-separated CORS origins; use * to allow all.",
+                },
+            ]
+            profiles = load_compendium_profiles()
+            for cid in sorted(enabled_compendium_ids_for_search()):
+                if cid == FOUNDRY_COMPENDIUM_ID:
+                    continue
+                profile = profiles.get(cid) or {}
+                comp_name = str(profile.get("name") or cid).strip()
+                fields.append({
+                    "key": foundry_sync_compendium_key(cid),
+                    "label": f"Sync {comp_name}",
+                    "type": "checkbox",
+                    "value": str(values.get(foundry_sync_compendium_key(cid)) or "0"),
+                    "help": f"Allow FoundryVTT imports into '{cid}' setting bucket.",
+                })
+            return fields
+        return []
+
+    def plugin_runtime_status(plugin_id: str) -> dict:
+        pid = str(plugin_id or "").strip()
+        if pid == "docling":
+            runtime = docling_runtime_state()
+            profiles = load_compendium_profiles()
+            known = sorted([p for p in profiles.keys() if p != FOUNDRY_COMPENDIUM_ID])
+            processed: set[str] = set()
+            chunked: set[str] = set()
+            pdf_status_rows: list[dict] = []
+            root = docling_root()
+            observed_docling_folders: set[str] = set()
+            if root.exists():
+                for path in root.rglob("*"):
+                    if not path.is_file():
+                        continue
+                    lower_name = path.name.lower()
+                    if not (lower_name.endswith(".md") or lower_name.endswith(".md-first-run")):
+                        continue
+                    rel = path.relative_to(root)
+                    if rel.parts:
+                        observed_docling_folders.add(str(rel.parts[0]).strip().lower())
+            for cid in known:
+                profile = {"id": cid, **(profiles.get(cid) or {})}
+                pdf_ref = str(profile.get("pdf_relative_path") or "").strip()
+                pdf_path = resolve_profile_pdf_path(profile)
+                slugs = compendium_docling_slugs(profile)
+                md_files = docling_markdown_files_for_compendium(profile)
+                parsed_ok = bool(md_files)
+                chunked_ok = vector_count_for_compendium(
+                    cid,
+                    aliases=[x for x in slugs if x != cid],
+                ) > 0
+                if parsed_ok:
+                    processed.add(cid)
+                if chunked_ok:
+                    chunked.add(cid)
+                pdf_status_rows.append({
+                    "compendium_id": cid,
+                    "name": str(profile.get("name") or cid),
+                    "pdf_relative_path": pdf_ref,
+                    "pdf_present": bool(pdf_path and pdf_path.exists()),
+                    "parsed": parsed_ok,
+                    "parsed_markdown_files": len(md_files),
+                    "chunked": chunked_ok,
+                    "docling_slugs": slugs,
+                })
+            return {
+                "runner": runtime,
+                "processed_compendiums": sorted(processed),
+                "processed_count": len(processed),
+                "chunked_compendiums": sorted(chunked),
+                "chunked_count": len(chunked),
+                "known_compendiums": known,
+                "missing_compendiums": sorted([x for x in known if x not in processed]),
+                "not_chunked_compendiums": sorted([x for x in known if x not in chunked]),
+                "observed_docling_folders": sorted(observed_docling_folders),
+                "pdf_status": pdf_status_rows,
+            }
+        if pid == "ollama_local":
+            base = ollama_base_url()
+            try:
+                tags = ollama_get_json(base, "/api/tags")
+                models = tags.get("models") if isinstance(tags, dict) else []
+                model_names: list[str] = []
+                if isinstance(models, list):
+                    for model in models:
+                        if not isinstance(model, dict):
+                            continue
+                        name = str(model.get("name") or "").strip()
+                        if name:
+                            model_names.append(name)
+                return {
+                    "base_url": base,
+                    "up": True,
+                    "model_count": len(models) if isinstance(models, list) else 0,
+                    "models": model_names,
+                    "default_model": ollama_default_model(),
+                    "keep_alive": ollama_keep_alive(),
+                    "system_prompt_set": bool(ollama_system_prompt()),
+                }
+            except Exception as exc:
+                return {
+                    "base_url": base,
+                    "up": False,
+                    "error": str(exc),
+                    "default_model": ollama_default_model(),
+                    "keep_alive": ollama_keep_alive(),
+                    "system_prompt_set": bool(ollama_system_prompt()),
+                }
+        if pid == "openai_remote":
+            base = openai_base_url()
+            key = openai_api_key()
+            if not key:
+                return {
+                    "base_url": base,
+                    "up": False,
+                    "error": "api_key is not set",
+                    "default_model": openai_default_model(),
+                    "system_prompt_set": bool(openai_system_prompt()),
+                }
+            try:
+                data = openai_post_json(
+                    base,
+                    "/v1/chat/completions",
+                    {
+                        "model": openai_default_model(),
+                        "messages": [
+                            {"role": "user", "content": "Reply with exactly: ok"}
+                        ],
+                        "max_tokens": 8,
+                        "temperature": 0,
+                    },
+                    api_key=key,
+                    timeout=45,
+                )
+                choices = data.get("choices") if isinstance(data, dict) else []
+                up = isinstance(choices, list) and len(choices) > 0
+                return {
+                    "base_url": base,
+                    "up": bool(up),
+                    "default_model": openai_default_model(),
+                    "system_prompt_set": bool(openai_system_prompt()),
+                }
+            except Exception as exc:
+                return {
+                    "base_url": base,
+                    "up": False,
+                    "error": str(exc),
+                    "default_model": openai_default_model(),
+                    "system_prompt_set": bool(openai_system_prompt()),
+                }
+        if pid == "foundryVTT":
+            settings = get_plugin_settings("foundryVTT")
+            compendium_sync: dict[str, bool] = {}
+            for cid in sorted(enabled_compendium_ids_for_search()):
+                if cid == FOUNDRY_COMPENDIUM_ID:
+                    continue
+                raw = str(settings.get(foundry_sync_compendium_key(cid)) or "0").strip().lower()
+                compendium_sync[cid] = raw not in {"0", "false", "off", "no"}
+            return {
+                "auth_required": bool(foundry_api_token()),
+                "allowed_origins": foundry_allowed_origins(),
+                "active_setting": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+                "sync_compendiums": compendium_sync,
+            }
+        return {}
 
     def with_foundry_cors_headers(response):
         origin = str(request.headers.get("Origin") or "").strip()
@@ -650,7 +1806,9 @@ def register_routes(app: Flask) -> None:
         return result
 
     def import_foundry_actor_to_storage(actor: dict, payload: dict | None = None) -> dict:
-        payload = payload or {}
+        payload = dict(payload or {})
+        if payload.get("compendium_id"):
+            payload["compendium_id"] = str(payload.get("compendium_id") or "").strip().lower()
         actor_type = str(actor.get("type") or "").strip().lower() or "pc"
 
         if actor_type == "pc":
@@ -679,6 +1837,7 @@ def register_routes(app: Flask) -> None:
                     "foundry_actor_type": metadata.get("foundry_actor_type") or actor_type,
                     "foundry_actor_uuid": metadata.get("foundry_actor_uuid"),
                     "foundry_origin": metadata.get("foundry_origin") or payload.get("foundry_origin"),
+                    "compendium_id": metadata.get("compendium_id") or payload.get("compendium_id"),
                     "image_url": metadata.get("image_url"),
                     "images": metadata.get("images") or [],
                 },
@@ -711,6 +1870,12 @@ def register_routes(app: Flask) -> None:
 
         if actor_type == "npc":
             result = foundry_actor_to_npc_result(actor, payload)
+            if payload.get("compendium_id"):
+                meta = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+                next_meta = dict(meta)
+                next_meta["compendium_id"] = str(payload.get("compendium_id") or "").strip().lower()
+                result = dict(result)
+                result["metadata"] = next_meta
             result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
             result = cache_foundry_images_for_result(result)
             result = persist_result(payload, result)
@@ -719,8 +1884,16 @@ def register_routes(app: Flask) -> None:
         raise ValueError(f"unsupported Foundry actor type '{actor_type}'. Supported: pc, npc.")
 
     def import_foundry_item_to_storage(item: dict, payload: dict | None = None) -> dict:
-        payload = payload or {}
+        payload = dict(payload or {})
+        if payload.get("compendium_id"):
+            payload["compendium_id"] = str(payload.get("compendium_id") or "").strip().lower()
         result = foundry_item_to_result(item, payload)
+        if payload.get("compendium_id"):
+            meta = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+            next_meta = dict(meta)
+            next_meta["compendium_id"] = str(payload.get("compendium_id") or "").strip().lower()
+            result = dict(result)
+            result["metadata"] = next_meta
         result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
         result = cache_foundry_images_for_result(result)
         result = persist_result(payload, result)
@@ -1535,6 +2708,668 @@ def register_routes(app: Flask) -> None:
     def generator():
         return render_template("generator.html")
 
+    @app.get("/ai-generate")
+    def ai_generate():
+        return render_template("ai_generate.html")
+
+    @app.get("/setting-wizard")
+    def setting_wizard():
+        return render_template("setting_wizard.html")
+
+    def _extract_first_json_object(text: str) -> dict | None:
+        raw = str(text or "").strip()
+        if not raw:
+            return None
+        try:
+            data = json.loads(raw)
+            return data if isinstance(data, dict) else None
+        except Exception:
+            pass
+        fence = re.search(r"```json\s*([\s\S]*?)```", raw, flags=re.IGNORECASE)
+        if not fence:
+            fence = re.search(r"```\s*([\s\S]*?)```", raw)
+        if fence:
+            try:
+                data = json.loads(str(fence.group(1) or "").strip())
+                return data if isinstance(data, dict) else None
+            except Exception:
+                pass
+        start = raw.find("{")
+        end = raw.rfind("}")
+        if start >= 0 and end > start:
+            try:
+                data = json.loads(raw[start : end + 1])
+                return data if isinstance(data, dict) else None
+            except Exception:
+                pass
+        return None
+
+    def _setting_wizard_skeleton_files(setting_id: str, setting_label: str, genre_id: str, brief: str) -> dict[str, str]:
+        summary = brief.strip() or f"A new {genre_id.replace('_', ' ')} setting."
+        files_obj = {
+            "00_world.yaml": {
+                "world": {
+                    "id": setting_id,
+                    "label": setting_label,
+                    "core_genre": genre_id,
+                    "core_setting": genre_id,
+                    "description": summary,
+                }
+            },
+            "01_setting.yaml": {
+                "setting": {
+                    "name": setting_label,
+                    "summary": summary,
+                    "tone_style": "Grounded, evocative, playable.",
+                    "core_world_truths": [
+                        f"{setting_label} has unresolved ancient tensions.",
+                        "Local myths conflict and no single version is absolute.",
+                    ],
+                    "cultural_themes": [
+                        "survival and adaptation",
+                        "memory versus ambition",
+                        "local identity under pressure",
+                    ],
+                    "output_guidelines": [
+                        "Use sensory details and local texture.",
+                        "Avoid absolute good-versus-evil framing.",
+                    ],
+                }
+            },
+            "10_races.yaml": {
+                "races": {}
+            },
+            "12_areas.yaml": {
+                "areas": {
+                    setting_id: {
+                        "name": setting_label,
+                        "type": "region",
+                        "culture": "mixed",
+                        "description": summary,
+                        "visual_traits": [
+                            f"landmarks tied to {setting_label}",
+                            "lore-derived terrain cues pending curation",
+                        ],
+                        "mood": ["mysterious", "volatile", "adventurous"],
+                    }
+                }
+            },
+            "20_settlements.yaml": {
+                "settlements": {
+                    setting_id: {
+                        "settlement_types": [f"{setting_id} outpost", f"{setting_id} trade camp"],
+                        "visual_features": ["architecture adapted to local terrain", "visible local iconography"],
+                        "landmarks": ["a central historic site", "a contested crossing"],
+                        "economies": ["survival trade", "local craft"],
+                        "tensions": ["outside pressure on local tradition"],
+                        "atmospheres": ["uneasy but resilient"],
+                    }
+                }
+            },
+            "21_encounters.yaml": {
+                "encounters": {
+                    setting_id: {
+                        "first_impressions": [f"the party enters a tense moment in {setting_label}"],
+                        "subjects": ["a local authority", "a witness with partial truth"],
+                        "truths": ["the visible conflict hides a deeper cause"],
+                        "complications": ["time pressure narrows safe choices"],
+                        "hooks": ["stabilize the situation before it escalates"],
+                    }
+                }
+            },
+            "22_cyphers.yaml": {
+                "cyphers": {
+                    setting_id: {
+                        "forms": ["strange token", "etched shard"],
+                        "appearances": ["weathered and symbolic"],
+                        "effects": ["reveals hidden danger", "briefly shifts local conditions"],
+                        "limits": ["single-use", "becomes inert after activation"],
+                        "quirks": ["faint hum near important places"],
+                    }
+                }
+            },
+            "90_lore_enrichment.yaml": {
+                "areas": {},
+                "settlements": {},
+                "encounters": {},
+            },
+        }
+        rendered: dict[str, str] = {}
+        for filename, data in files_obj.items():
+            rendered[filename] = yaml.safe_dump(data, sort_keys=False, allow_unicode=True)
+        return rendered
+
+    def _setting_wizard_flavor_context(setting_id: str, setting_label: str, genre_id: str, brief: str, base_setting_id: str) -> tuple[str, list[str]]:
+        query = " ".join(
+            token for token in [
+                setting_label,
+                brief,
+                "setting tone culture themes areas settlements encounters cyphers",
+            ] if token
+        ).strip()
+        profiles = load_compendium_profiles()
+        enabled_ids = enabled_compendium_ids_for_search()
+        selected_compendiums: list[str] = []
+
+        if "core_rulebook" in profiles and "core_rulebook" in enabled_ids:
+            selected_compendiums.append("core_rulebook")
+
+        for pid, profile in sorted(profiles.items(), key=lambda kv: kv[0]):
+            cid = str(pid or "").strip().lower()
+            if not cid or cid in {"csrd", FOUNDRY_COMPENDIUM_ID, "core_rulebook"}:
+                continue
+            if cid not in enabled_ids:
+                continue
+            source_kind = compendium_source_kind(cid, profile)
+            if source_kind not in {"official", "core_pdf"}:
+                continue
+            tags = compendium_taxonomy_tags(profile, source_kind=source_kind, compendium_id=cid)
+            tag_genre = _safe_slug(str(tags.get("genre") or "").strip().lower())
+            if tag_genre == genre_id and cid not in selected_compendiums:
+                selected_compendiums.append(cid)
+
+        if base_setting_id and base_setting_id in profiles and base_setting_id in enabled_ids:
+            if base_setting_id not in selected_compendiums:
+                selected_compendiums.append(base_setting_id)
+
+        context_sections: list[str] = []
+        for cid in selected_compendiums:
+            try:
+                vec = vector_query_index(
+                    output_root=vector_index_root(),
+                    query=query or setting_label,
+                    k=3,
+                    compendium_id=cid,
+                )
+            except Exception:
+                continue
+            items = vec.get("items") if isinstance(vec, dict) else []
+            items = items if isinstance(items, list) else []
+            snippets: list[str] = []
+            for item in items[:3]:
+                if not isinstance(item, dict):
+                    continue
+                heading = str(item.get("heading") or "").strip()
+                text = " ".join(str(item.get("text") or "").split())
+                if len(text) > 700:
+                    text = text[:699].rstrip() + "…"
+                if not text:
+                    continue
+                snippets.append(f"- {heading}: {text}" if heading else f"- {text}")
+            if snippets:
+                context_sections.append(f"[{cid}]\n" + "\n".join(snippets))
+
+        if base_setting_id:
+            try:
+                base_world = load_world_layer(current_app.config["LOL_CONFIG_DIR"], base_setting_id)
+            except Exception:
+                base_world = {}
+            if isinstance(base_world, dict) and base_world:
+                setting_block = base_world.get("setting") if isinstance(base_world.get("setting"), dict) else {}
+                world_block = base_world.get("world") if isinstance(base_world.get("world"), dict) else {}
+                areas = base_world.get("areas") if isinstance(base_world.get("areas"), dict) else {}
+                area_names = list(areas.keys())[:8]
+                context_sections.append(
+                    "[existing_setting_world_yaml]\n"
+                    f"- world.label: {world_block.get('label') or base_setting_id}\n"
+                    f"- world.description: {world_block.get('description') or ''}\n"
+                    f"- setting.summary: {setting_block.get('summary') or ''}\n"
+                    f"- setting.tone_style: {setting_block.get('tone_style') or ''}\n"
+                    f"- area_ids_sample: {', '.join(area_names)}"
+                )
+        return ("\n\n".join(context_sections).strip(), selected_compendiums)
+
+    def _setting_wizard_generate_with_ai(
+        setting_id: str,
+        setting_label: str,
+        genre_id: str,
+        brief: str,
+        base_setting_id: str = "",
+        provider: str = "ollama_local",
+    ) -> tuple[dict[str, str] | None, str, list[str]]:
+        provider_norm = str(provider or "ollama_local").strip().lower()
+        if provider_norm == "openai_remote" and not is_plugin_enabled("openai_remote"):
+            return None, "openai_remote plugin disabled; returned skeleton files.", []
+        if provider_norm != "openai_remote" and not is_plugin_enabled("ollama_local"):
+            return None, "ollama_local plugin disabled; returned skeleton files.", []
+
+        required_files = [
+            "00_world.yaml",
+            "01_setting.yaml",
+            "10_races.yaml",
+            "12_areas.yaml",
+            "20_settlements.yaml",
+            "21_encounters.yaml",
+            "22_cyphers.yaml",
+            "90_lore_enrichment.yaml",
+        ]
+        flavor_context, selected_compendiums = _setting_wizard_flavor_context(
+            setting_id=setting_id,
+            setting_label=setting_label,
+            genre_id=genre_id,
+            brief=brief,
+            base_setting_id=base_setting_id,
+        )
+
+        prompt = (
+            "Task: Generate a complete starter Cypher setting YAML pack.\n"
+            "Return ONLY valid JSON.\n"
+            "JSON shape:\n"
+            "{\n"
+            "  \"files\": {\n"
+            "    \"00_world.yaml\": \"<yaml>\",\n"
+            "    \"01_setting.yaml\": \"<yaml>\",\n"
+            "    \"10_races.yaml\": \"<yaml>\",\n"
+            "    \"12_areas.yaml\": \"<yaml>\",\n"
+            "    \"20_settlements.yaml\": \"<yaml>\",\n"
+            "    \"21_encounters.yaml\": \"<yaml>\",\n"
+            "    \"22_cyphers.yaml\": \"<yaml>\",\n"
+            "    \"90_lore_enrichment.yaml\": \"<yaml>\"\n"
+            "  }\n"
+            "}\n\n"
+            f"Inputs:\n"
+            f"- setting_id: {setting_id}\n"
+            f"- setting_label: {setting_label}\n"
+            f"- genre_id: {genre_id}\n"
+            f"- base_setting_id: {base_setting_id or '(none)'}\n"
+            f"- brief: {brief or '(none)'}\n"
+            f"- flavor_compendiums_used: {', '.join(selected_compendiums) if selected_compendiums else '(none)'}\n"
+            f"- flavor_context:\n{flavor_context or '(none available)'}\n"
+            "Constraints:\n"
+            "- Use top-level keys that match each file purpose (world, setting, races, areas, settlements, encounters, cyphers).\n"
+            "- Keep YAML concise and valid.\n"
+            "- Pull style/flavor from provided flavor_context when available.\n"
+            "- Do not include markdown fences or commentary."
+        )
+
+        try:
+            answer = ""
+            if provider_norm == "openai_remote":
+                base_url = openai_base_url()
+                model = openai_default_model()
+                api_key = openai_api_key()
+                if not api_key:
+                    return None, "OpenAI api_key is not set; returned skeleton files.", selected_compendiums
+                system_prompt = openai_system_prompt()
+                messages = []
+                if system_prompt:
+                    messages.append({"role": "system", "content": system_prompt})
+                messages.append({"role": "user", "content": prompt})
+                reply = openai_post_json(
+                    base_url,
+                    "/v1/chat/completions",
+                    {
+                        "model": model,
+                        "messages": messages,
+                        "temperature": 0.2,
+                    },
+                    api_key=api_key,
+                    timeout=300,
+                )
+                choices = reply.get("choices") if isinstance(reply, dict) else []
+                if isinstance(choices, list) and choices:
+                    first = choices[0] if isinstance(choices[0], dict) else {}
+                    message = first.get("message") if isinstance(first.get("message"), dict) else {}
+                    answer = str(message.get("content") or "").strip()
+            else:
+                model = ollama_default_model()
+                base_url = ollama_base_url()
+                keep_alive = ollama_keep_alive()
+                system_prompt = ollama_system_prompt()
+                if not system_prompt:
+                    return None, "No Ollama system prompt set; returned skeleton files.", selected_compendiums
+                reply = ollama_post_json(
+                    base_url,
+                    "/api/generate",
+                    {
+                        "model": model,
+                        "prompt": f"{system_prompt}\n\n{prompt}",
+                        "stream": False,
+                        "keep_alive": keep_alive,
+                        "options": {"temperature": 0.2},
+                    },
+                    timeout=300,
+                )
+                answer = str(reply.get("response") or "").strip()
+            parsed = _extract_first_json_object(answer)
+            files = parsed.get("files") if isinstance(parsed, dict) else None
+            if not isinstance(files, dict):
+                return None, "AI response missing files map; returned skeleton files.", selected_compendiums
+            out: dict[str, str] = {}
+            for filename in required_files:
+                text = str(files.get(filename) or "").strip()
+                if not text:
+                    return None, f"AI response missing '{filename}'; returned skeleton files.", selected_compendiums
+                out[filename] = text
+            return out, "", selected_compendiums
+        except Exception as exc:
+            provider_label = "OpenAI" if provider_norm == "openai_remote" else "Ollama"
+            return None, f"{provider_label} request failed ({exc}); returned skeleton files.", selected_compendiums
+
+    def _parse_mapping_text(text: str) -> dict[str, Any]:
+        raw = str(text or "").strip()
+        if not raw:
+            return {}
+        for parser in (
+            lambda s: json.loads(s),
+            lambda s: ast.literal_eval(s),
+            lambda s: yaml.safe_load(s),
+        ):
+            try:
+                data = parser(raw)
+            except Exception:
+                continue
+            if isinstance(data, dict):
+                return data
+        raise ValueError("file content must parse into a mapping/object")
+
+    def _normalize_setting_wizard_doc(
+        filename: str,
+        data: dict[str, Any],
+        *,
+        setting_id: str,
+        setting_label: str,
+        genre_id: str,
+    ) -> dict[str, Any]:
+        name = str(filename or "").strip().lower()
+        obj = data if isinstance(data, dict) else {}
+
+        if name == "00_world.yaml":
+            world = obj.get("world") if isinstance(obj.get("world"), dict) else None
+            if world is None:
+                world = {
+                    "id": setting_id,
+                    "label": str(obj.get("label") or obj.get("name") or setting_label).strip() or setting_label,
+                    "core_genre": str(obj.get("core_genre") or obj.get("genre") or genre_id).strip() or genre_id,
+                    "core_setting": str(obj.get("core_setting") or obj.get("genre") or genre_id).strip() or genre_id,
+                    "description": str(obj.get("description") or "").strip(),
+                }
+            world.setdefault("id", setting_id)
+            world.setdefault("label", setting_label)
+            world.setdefault("core_genre", genre_id)
+            world.setdefault("core_setting", genre_id)
+            return {"world": world}
+
+        if name == "01_setting.yaml":
+            setting = obj.get("setting") if isinstance(obj.get("setting"), dict) else None
+            if setting is None:
+                setting = {
+                    "name": str(obj.get("name") or setting_label).strip() or setting_label,
+                    "summary": str(obj.get("summary") or obj.get("description") or "").strip(),
+                    "tone_style": str(obj.get("tone_style") or obj.get("tone") or "").strip(),
+                }
+            setting.setdefault("name", setting_label)
+            return {"setting": setting}
+
+        if name == "10_races.yaml":
+            races = obj.get("races") if isinstance(obj.get("races"), dict) else obj
+            return {"races": races if isinstance(races, dict) else {}}
+
+        if name == "12_areas.yaml":
+            areas = obj.get("areas") if isinstance(obj.get("areas"), dict) else obj
+            return {"areas": areas if isinstance(areas, dict) else {}}
+
+        if name == "20_settlements.yaml":
+            settlements = obj.get("settlements") if isinstance(obj.get("settlements"), dict) else obj
+            return {"settlements": settlements if isinstance(settlements, dict) else {}}
+
+        if name == "21_encounters.yaml":
+            encounters = obj.get("encounters") if isinstance(obj.get("encounters"), dict) else obj
+            return {"encounters": encounters if isinstance(encounters, dict) else {}}
+
+        if name == "22_cyphers.yaml":
+            cyphers = obj.get("cyphers") if isinstance(obj.get("cyphers"), dict) else obj
+            return {"cyphers": cyphers if isinstance(cyphers, dict) else {}}
+
+        if name == "90_lore_enrichment.yaml":
+            return {
+                "areas": obj.get("areas") if isinstance(obj.get("areas"), dict) else {},
+                "settlements": obj.get("settlements") if isinstance(obj.get("settlements"), dict) else {},
+                "encounters": obj.get("encounters") if isinstance(obj.get("encounters"), dict) else {},
+            }
+
+        return obj
+
+    @app.post("/setting-wizard/generate")
+    def api_setting_wizard_generate():
+        body = request.get_json(force=True, silent=False) or {}
+        provider = str(body.get("provider") or "ollama_local").strip().lower()
+        setting_label = str(body.get("setting_label") or "").strip()
+        genre_id = _safe_slug(str(body.get("genre_id") or "").strip().lower())
+        setting_id_raw = str(body.get("setting_id") or "").strip().lower()
+        setting_id = _safe_slug(setting_id_raw or setting_label)
+        brief = str(body.get("brief") or "").strip()
+        base_setting_raw = str(body.get("base_setting_id") or "").strip().lower()
+        if base_setting_raw.startswith("compendium:"):
+            base_setting_id = _safe_slug(base_setting_raw.split(":", 1)[1])
+        else:
+            base_setting_id = _safe_slug(base_setting_raw)
+
+        if not setting_label:
+            return jsonify({"error": "setting_label is required"}), 400
+        if not genre_id:
+            return jsonify({"error": "genre_id is required"}), 400
+        if not setting_id:
+            return jsonify({"error": "setting_id is required"}), 400
+
+        files, warning, flavor_compendiums_used = _setting_wizard_generate_with_ai(
+            setting_id,
+            setting_label,
+            genre_id,
+            brief,
+            base_setting_id=base_setting_id,
+            provider=provider,
+        )
+        if not files:
+            files = _setting_wizard_skeleton_files(setting_id, setting_label, genre_id, brief)
+
+        return jsonify({
+            "ok": True,
+            "setting_id": setting_id,
+            "setting_label": setting_label,
+            "genre_id": genre_id,
+            "files": files,
+            "warning": warning,
+            "provider": provider,
+            "base_setting_id": base_setting_id,
+            "flavor_compendiums_used": flavor_compendiums_used,
+        })
+
+    @app.post("/setting-wizard/create")
+    def api_setting_wizard_create():
+        body = request.get_json(force=True, silent=False) or {}
+        setting_label = str(body.get("setting_label") or "").strip()
+        genre_id = _safe_slug(str(body.get("genre_id") or "").strip().lower())
+        setting_id = _safe_slug(str(body.get("setting_id") or "").strip().lower())
+        files = body.get("files")
+        overwrite = str(body.get("overwrite") or "0").strip().lower() in {"1", "true", "yes", "on"}
+        if not setting_label or not genre_id or not setting_id:
+            return jsonify({"error": "setting_label, genre_id, and setting_id are required"}), 400
+        if not isinstance(files, dict):
+            return jsonify({"error": "files must be an object"}), 400
+
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        world_dir = config_dir / "worlds" / setting_id
+        if world_dir.exists() and not overwrite:
+            return jsonify({"error": f"setting folder already exists: {world_dir}. Pass overwrite=true to replace files."}), 409
+        world_dir.mkdir(parents=True, exist_ok=True)
+
+        required_files = [
+            "00_world.yaml",
+            "01_setting.yaml",
+            "10_races.yaml",
+            "12_areas.yaml",
+            "20_settlements.yaml",
+            "21_encounters.yaml",
+            "22_cyphers.yaml",
+            "90_lore_enrichment.yaml",
+        ]
+        written: list[str] = []
+        for filename in required_files:
+            content = str(files.get(filename) or "").strip()
+            if not content:
+                continue
+            parsed = _parse_mapping_text(content)
+            normalized = _normalize_setting_wizard_doc(
+                filename,
+                parsed,
+                setting_id=setting_id,
+                setting_label=setting_label,
+                genre_id=genre_id,
+            )
+            path = world_dir / filename
+            yaml_text = yaml.safe_dump(normalized, sort_keys=False, allow_unicode=True)
+            path.write_text(yaml_text, encoding="utf-8")
+            written.append(str(path.relative_to(config_dir)).replace("\\", "/"))
+
+        settings_path = config_dir / "02_settings.yaml"
+        settings_data = {}
+        if settings_path.exists():
+            try:
+                settings_data = yaml.safe_load(settings_path.read_text(encoding="utf-8")) or {}
+            except Exception:
+                settings_data = {}
+        if not isinstance(settings_data, dict):
+            settings_data = {}
+
+        settings_block = settings_data.setdefault("settings", {})
+        genres_block = settings_data.setdefault("genres", {})
+        if not isinstance(settings_block, dict):
+            settings_block = {}
+            settings_data["settings"] = settings_block
+        if not isinstance(genres_block, dict):
+            genres_block = {}
+            settings_data["genres"] = genres_block
+
+        def ensure_catalog_entry(root: dict, group_key: str, item_key: str, list_key: str) -> None:
+            catalog = root.setdefault("catalog", {})
+            if not isinstance(catalog, dict):
+                catalog = {}
+                root["catalog"] = catalog
+            entry = catalog.setdefault(group_key, {})
+            if not isinstance(entry, dict):
+                entry = {}
+                catalog[group_key] = entry
+            if not entry.get("label"):
+                entry["label"] = group_key.replace("_", " ").title()
+            items = entry.setdefault(list_key, [])
+            if not isinstance(items, list):
+                items = []
+                entry[list_key] = items
+            if item_key not in items:
+                items.append(item_key)
+
+        ensure_catalog_entry(settings_block, genre_id, setting_id, "worlds")
+        ensure_catalog_entry(genres_block, genre_id, setting_id, "settings")
+
+        defaults = settings_block.setdefault("defaults", [])
+        if isinstance(defaults, list):
+            if not defaults:
+                defaults.extend([genre_id, setting_id])
+        else:
+            settings_block["defaults"] = [genre_id, setting_id]
+        gdefaults = genres_block.setdefault("defaults", [])
+        if isinstance(gdefaults, list):
+            if not gdefaults:
+                gdefaults.extend([genre_id, setting_id])
+        else:
+            genres_block["defaults"] = [genre_id, setting_id]
+
+        settings_path.write_text(yaml.safe_dump(settings_data, sort_keys=False, allow_unicode=True), encoding="utf-8")
+
+        return jsonify({
+            "ok": True,
+            "setting_id": setting_id,
+            "genre_id": genre_id,
+            "world_dir": str(world_dir.relative_to(config_dir)).replace("\\", "/"),
+            "written_files": written,
+            "settings_updated": str(settings_path.relative_to(config_dir)).replace("\\", "/"),
+        })
+
+    @app.post("/ai-generate/save")
+    def ai_generate_save():
+        body = request.get_json(force=True, silent=False) or {}
+        content_type = str(body.get("content_type") or "").strip().lower()
+        card = body.get("card")
+        payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        if not content_type:
+            return jsonify({"error": "content_type is required"}), 400
+        if not isinstance(card, dict):
+            return jsonify({"error": "card must be an object"}), 400
+
+        type_map = {
+            "free_text": "lore",
+            "lore": "lore",
+            "rollable_table": "lore",
+            "cypher": "cypher",
+            "artifact": "artifact",
+            "encounter": "encounter",
+            "settlement": "settlement",
+            "landmark": "location",
+            "npc": "npc",
+        }
+        result_type = type_map.get(content_type)
+        if not result_type:
+            return jsonify({"error": f"unsupported content_type '{content_type}'"}), 400
+
+        name = str(
+            card.get("name")
+            or card.get("title")
+            or card.get("encounter_title")
+            or card.get("settlement_name")
+            or card.get("npc_name")
+            or "AI Generated Entry"
+        ).strip() or "AI Generated Entry"
+
+        description = str(
+            card.get("description")
+            or card.get("situation")
+            or card.get("summary")
+            or card.get("effect")
+            or card.get("combat")
+            or ""
+        ).strip()
+
+        metadata = card.get("metadata") if isinstance(card.get("metadata"), dict) else {}
+        result = {
+            "type": result_type,
+            "name": name,
+            "description": description,
+            "sections": dict(card),
+            "metadata": {
+                "source": "House",
+                "origin": "ai_generate",
+                "content_type": content_type,
+                "ai_generated": "true",
+                "setting": metadata.get("setting") or payload.get("setting"),
+                "settings": metadata.get("settings") or payload.get("settings"),
+                "area": metadata.get("area") or payload.get("area") or metadata.get("environment") or payload.get("environment"),
+                "location": metadata.get("location") or payload.get("location"),
+                "environment": metadata.get("environment") or metadata.get("area") or payload.get("environment") or payload.get("area"),
+                "race": metadata.get("race") or payload.get("race"),
+                "profession": metadata.get("profession") or payload.get("profession"),
+                "sourcebook": metadata.get("sourcebook") or payload.get("sourcebook"),
+                "page": metadata.get("page") or payload.get("page"),
+            },
+        }
+        if content_type == "rollable_table":
+            result["metadata"]["subtype"] = "rollable_table"
+        elif content_type == "landmark":
+            # Canonicalize landmark payloads even if the model omits type markers.
+            sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
+            if isinstance(sections, dict):
+                sections.setdefault("type", "location")
+                sections.setdefault("location_category_type", "landmark")
+                sections.setdefault("content_type", "landmark")
+            result["metadata"]["subtype"] = "landmark"
+            result["metadata"]["location_category_type"] = "landmark"
+
+        stored = persist_result(payload, result)
+        return jsonify({
+            "ok": True,
+            "result": stored,
+        })
+
     @app.get("/map-tools")
     def map_tools():
         return render_template("map_tools.html")
@@ -1568,6 +3403,49 @@ def register_routes(app: Flask) -> None:
         state[plugin_id] = enabled
         save_plugin_state(state)
         return jsonify({"ok": True, "id": plugin_id, "enabled": enabled})
+
+    @app.get("/plugins/<plugin_id>/settings")
+    def plugin_settings_page(plugin_id: str):
+        pid = str(plugin_id or "").strip()
+        plugins = discover_plugins()
+        if not any(item.get("id") == pid for item in plugins):
+            return jsonify({"error": f"unknown plugin '{plugin_id}'"}), 404
+        return render_template("plugin_settings.html", plugin_id=pid)
+
+    @app.get("/plugins/<plugin_id>/settings/data")
+    def api_plugin_settings_data(plugin_id: str):
+        pid = str(plugin_id or "").strip()
+        plugins = discover_plugins()
+        plugin = next((p for p in plugins if p.get("id") == pid), None)
+        if not plugin:
+            return jsonify({"error": f"unknown plugin '{plugin_id}'"}), 404
+        values = get_plugin_settings(pid)
+        fields = plugin_settings_fields(pid, values)
+        status = plugin_runtime_status(pid)
+        return jsonify({
+            "plugin": plugin,
+            "fields": fields,
+            "values": values,
+            "status": status,
+        })
+
+    @app.post("/plugins/<plugin_id>/settings/save")
+    def api_plugin_settings_save(plugin_id: str):
+        pid = str(plugin_id or "").strip()
+        plugins = discover_plugins()
+        if not any(item.get("id") == pid for item in plugins):
+            return jsonify({"error": f"unknown plugin '{plugin_id}'"}), 404
+        body = request.get_json(force=True, silent=False) or {}
+        values = body.get("values")
+        if not isinstance(values, dict):
+            return jsonify({"error": "values object is required"}), 400
+        try:
+            saved = update_plugin_settings(pid, values)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        fields = plugin_settings_fields(pid, saved)
+        status = plugin_runtime_status(pid)
+        return jsonify({"ok": True, "values": saved, "fields": fields, "status": status})
 
     @app.route("/plugins/foundryvtt/health", methods=["GET", "OPTIONS"])
     def api_foundryvtt_health():
@@ -1637,12 +3515,357 @@ def register_routes(app: Flask) -> None:
         })
         return with_foundry_cors_headers(response)
 
+    @app.get("/plugins/ollama-local/health")
+    def api_ollama_local_health():
+        if not is_plugin_enabled("ollama_local"):
+            return jsonify({"error": "ollama_local plugin is disabled"}), 403
+        base_url = normalize_http_base_url(request.args.get("base_url"), ollama_base_url())
+        try:
+            tags = ollama_get_json(base_url, "/api/tags")
+            models = tags.get("models") if isinstance(tags, dict) else []
+            count = len(models) if isinstance(models, list) else 0
+            return jsonify({
+                "status": "ok",
+                "plugin": "ollama_local",
+                "base_url": base_url,
+                "model_count": count,
+                "default_model": ollama_default_model(),
+                "keep_alive": ollama_keep_alive(),
+                "system_prompt_set": bool(ollama_system_prompt()),
+            })
+        except Exception as exc:
+            return jsonify({
+                "status": "error",
+                "plugin": "ollama_local",
+                "base_url": base_url,
+                "error": str(exc),
+            }), 502
+
+    @app.post("/plugins/ollama-local/query")
+    def api_ollama_local_query():
+        if not is_plugin_enabled("ollama_local"):
+            return jsonify({"error": "ollama_local plugin is disabled"}), 403
+        body = request.get_json(force=True, silent=False) or {}
+        q = str(body.get("q") or "").strip()
+        if not q:
+            return jsonify({"error": "q is required"}), 400
+        model = str(body.get("model") or ollama_default_model()).strip()
+        keep_alive = str(body.get("keep_alive") or ollama_keep_alive()).strip()
+        system_prompt = str(body.get("system_prompt") or ollama_system_prompt()).strip()
+        base_url = normalize_http_base_url(body.get("base_url"), ollama_base_url())
+        compendium_id = str(body.get("compendium_id") or "").strip().lower()
+        compendium_ids_raw = body.get("compendium_ids")
+        compendium_ids: list[str] = []
+        if isinstance(compendium_ids_raw, list):
+            for value in compendium_ids_raw:
+                cid = str(value or "").strip().lower()
+                if cid and cid not in compendium_ids:
+                    compendium_ids.append(cid)
+        if compendium_id and compendium_id not in compendium_ids:
+            compendium_ids.append(compendium_id)
+        k_raw = body.get("k")
+        try:
+            k = max(1, min(20, int(k_raw))) if k_raw is not None else 8
+        except Exception:
+            k = 8
+
+        try:
+            if compendium_ids:
+                merged_items: list[dict] = []
+                seen_keys: set[str] = set()
+                for cid in compendium_ids:
+                    vec_part = vector_query_index(
+                        output_root=vector_index_root(),
+                        query=q,
+                        k=k,
+                        compendium_id=cid,
+                    )
+                    part_items = vec_part.get("items") if isinstance(vec_part, dict) else []
+                    part_items = part_items if isinstance(part_items, list) else []
+                    for item in part_items:
+                        if not isinstance(item, dict):
+                            continue
+                        key = (
+                            f"{str(item.get('compendium_id') or '')}|"
+                            f"{str(item.get('source_path') or '')}|"
+                            f"{str(item.get('heading') or '')}|"
+                            f"{str(item.get('text') or '')[:160]}"
+                        )
+                        if key in seen_keys:
+                            continue
+                        seen_keys.add(key)
+                        merged_items.append(item)
+                merged_items.sort(key=lambda row: float(row.get("score") or 0.0), reverse=True)
+                vec = {"items": merged_items[:k]}
+            else:
+                vec = vector_query_index(
+                    output_root=vector_index_root(),
+                    query=q,
+                    k=k,
+                    compendium_id=compendium_id,
+                )
+        except FileNotFoundError as exc:
+            return jsonify({"error": str(exc)}), 404
+        except Exception as exc:
+            return jsonify({"error": f"vector query failed: {exc}"}), 400
+
+        items = vec.get("items") if isinstance(vec, dict) else []
+        items = items if isinstance(items, list) else []
+        citations = []
+        context_lines = []
+        for idx, item in enumerate(items, start=1):
+            source_path = str(item.get("source_path") or "").strip()
+            heading = str(item.get("heading") or "").strip()
+            snippet = str(item.get("text") or "").strip()
+            score = float(item.get("score") or 0.0)
+            citations.append({
+                "n": idx,
+                "compendium_id": str(item.get("compendium_id") or ""),
+                "source_path": source_path,
+                "heading": heading,
+                "score": score,
+            })
+            context_lines.append(
+                f"[{idx}] source={source_path} heading={heading}\n{snippet}"
+            )
+
+        grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
+        prompt = (
+            f"{system_prompt}\n\n"
+            f"Question:\n{q}\n\n"
+            f"Context:\n{grounded_context}\n\n"
+            "Answer:"
+        ).strip()
+
+        try:
+            reply = ollama_post_json(
+                base_url,
+                "/api/generate",
+                {
+                    "model": model,
+                    "prompt": prompt,
+                    "stream": False,
+                    "keep_alive": keep_alive,
+                    "options": {
+                        "temperature": 0.2,
+                    },
+                },
+                timeout=240,
+            )
+            answer = str(reply.get("response") or "").strip()
+        except Exception as exc:
+            return jsonify({
+                "error": f"ollama request failed: {exc}",
+                "base_url": base_url,
+                "model": model,
+            }), 502
+
+        return jsonify({
+            "answer": answer,
+            "query": q,
+            "base_url": base_url,
+            "model": model,
+            "keep_alive": keep_alive,
+            "system_prompt_set": bool(system_prompt),
+            "k": k,
+            "compendium_ids": compendium_ids,
+            "citation_count": len(citations),
+            "citations": citations,
+            "vector_items": items,
+        })
+
+    @app.get("/plugins/openai-remote/health")
+    def api_openai_remote_health():
+        if not is_plugin_enabled("openai_remote"):
+            return jsonify({"error": "openai_remote plugin is disabled"}), 403
+        base_url = normalize_http_base_url(request.args.get("base_url"), openai_base_url())
+        model = openai_default_model()
+        key = openai_api_key()
+        if not key:
+            return jsonify({
+                "plugin": "openai_remote",
+                "base_url": base_url,
+                "up": False,
+                "error": "api_key is not set",
+                "default_model": model,
+                "system_prompt_set": bool(openai_system_prompt()),
+            }), 400
+        try:
+            data = openai_post_json(
+                base_url,
+                "/v1/chat/completions",
+                {
+                    "model": model,
+                    "messages": [{"role": "user", "content": "Reply with exactly: ok"}],
+                    "max_tokens": 8,
+                    "temperature": 0,
+                },
+                api_key=key,
+                timeout=45,
+            )
+            choices = data.get("choices") if isinstance(data, dict) else []
+            up = isinstance(choices, list) and len(choices) > 0
+            return jsonify({
+                "plugin": "openai_remote",
+                "base_url": base_url,
+                "up": bool(up),
+                "default_model": model,
+                "system_prompt_set": bool(openai_system_prompt()),
+            })
+        except Exception as exc:
+            return jsonify({
+                "plugin": "openai_remote",
+                "base_url": base_url,
+                "up": False,
+                "error": str(exc),
+                "default_model": model,
+                "system_prompt_set": bool(openai_system_prompt()),
+            }), 502
+
+    @app.post("/plugins/openai-remote/query")
+    def api_openai_remote_query():
+        if not is_plugin_enabled("openai_remote"):
+            return jsonify({"error": "openai_remote plugin is disabled"}), 403
+        body = request.get_json(force=True, silent=False) or {}
+        q = str(body.get("q") or "").strip()
+        if not q:
+            return jsonify({"error": "q is required"}), 400
+        model = str(body.get("model") or openai_default_model()).strip()
+        system_prompt = str(body.get("system_prompt") or openai_system_prompt()).strip()
+        base_url = normalize_http_base_url(body.get("base_url"), openai_base_url())
+        api_key = str(body.get("api_key") or openai_api_key()).strip()
+        if not api_key:
+            return jsonify({"error": "api_key is required in plugin settings or request"}), 400
+
+        compendium_id = str(body.get("compendium_id") or "").strip().lower()
+        compendium_ids_raw = body.get("compendium_ids")
+        compendium_ids: list[str] = []
+        if isinstance(compendium_ids_raw, list):
+            for value in compendium_ids_raw:
+                cid = str(value or "").strip().lower()
+                if cid and cid not in compendium_ids:
+                    compendium_ids.append(cid)
+        if compendium_id and compendium_id not in compendium_ids:
+            compendium_ids.append(compendium_id)
+        k_raw = body.get("k")
+        try:
+            k = max(1, min(20, int(k_raw))) if k_raw is not None else 8
+        except Exception:
+            k = 8
+
+        try:
+            if compendium_ids:
+                merged_items: list[dict] = []
+                seen_keys: set[str] = set()
+                for cid in compendium_ids:
+                    vec_part = vector_query_index(
+                        output_root=vector_index_root(),
+                        query=q,
+                        k=k,
+                        compendium_id=cid,
+                    )
+                    part_items = vec_part.get("items") if isinstance(vec_part, dict) else []
+                    part_items = part_items if isinstance(part_items, list) else []
+                    for item in part_items:
+                        if not isinstance(item, dict):
+                            continue
+                        key = (
+                            f"{str(item.get('compendium_id') or '')}|"
+                            f"{str(item.get('source_path') or '')}|"
+                            f"{str(item.get('heading') or '')}|"
+                            f"{str(item.get('text') or '')[:160]}"
+                        )
+                        if key in seen_keys:
+                            continue
+                        seen_keys.add(key)
+                        merged_items.append(item)
+                merged_items.sort(key=lambda row: float(row.get("score") or 0.0), reverse=True)
+                vec = {"items": merged_items[:k]}
+            else:
+                vec = vector_query_index(
+                    output_root=vector_index_root(),
+                    query=q,
+                    k=k,
+                    compendium_id=compendium_id,
+                )
+        except FileNotFoundError as exc:
+            return jsonify({"error": str(exc)}), 404
+        except Exception as exc:
+            return jsonify({"error": f"vector query failed: {exc}"}), 400
+
+        items = vec.get("items") if isinstance(vec, dict) else []
+        items = items if isinstance(items, list) else []
+        citations = []
+        context_lines = []
+        for idx, item in enumerate(items, start=1):
+            source_path = str(item.get("source_path") or "").strip()
+            heading = str(item.get("heading") or "").strip()
+            snippet = str(item.get("text") or "").strip()
+            score = float(item.get("score") or 0.0)
+            citations.append({
+                "n": idx,
+                "compendium_id": str(item.get("compendium_id") or ""),
+                "source_path": source_path,
+                "heading": heading,
+                "score": score,
+            })
+            context_lines.append(f"[{idx}] source={source_path} heading={heading}\n{snippet}")
+
+        grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({
+            "role": "user",
+            "content": (
+                f"Question:\n{q}\n\n"
+                f"Context:\n{grounded_context}\n\n"
+                "Answer with citations like [n] where possible."
+            ),
+        })
+
+        try:
+            reply = openai_post_json(
+                base_url,
+                "/v1/chat/completions",
+                {
+                    "model": model,
+                    "messages": messages,
+                    "temperature": 0.2,
+                },
+                api_key=api_key,
+                timeout=240,
+            )
+            choices = reply.get("choices") if isinstance(reply, dict) else []
+            answer = ""
+            if isinstance(choices, list) and choices:
+                first = choices[0] if isinstance(choices[0], dict) else {}
+                message = first.get("message") if isinstance(first.get("message"), dict) else {}
+                answer = str(message.get("content") or "").strip()
+        except Exception as exc:
+            return jsonify({
+                "error": f"openai request failed: {exc}",
+                "base_url": base_url,
+                "model": model,
+            }), 502
+
+        return jsonify({
+            "answer": answer,
+            "query": q,
+            "base_url": base_url,
+            "model": model,
+            "system_prompt_set": bool(system_prompt),
+            "k": k,
+            "compendium_ids": compendium_ids,
+            "citation_count": len(citations),
+            "citations": citations,
+            "vector_items": items,
+        })
+
     @app.get("/compendiums")
     def api_compendiums_list():
         compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
         official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
-        storage_dir = current_app.config["LOL_STORAGE_DIR"]
-        project_root = current_app.config["LOL_PROJECT_ROOT"]
 
         def bucket_count(value: object) -> int:
             if value is None:
@@ -1663,27 +3886,23 @@ def register_routes(app: Flask) -> None:
             "artifacts": bucket_count(csrd_index.get("artifacts")),
         }
 
-        def load_compendium_profiles() -> dict[str, dict]:
-            profiles_dir = project_root / "PDF_Repository" / "private_compendium" / "compendiums"
-            profiles: dict[str, dict] = {}
-            if not profiles_dir.exists():
-                return profiles
-            for path in sorted(profiles_dir.glob("*.json")):
-                try:
-                    payload = json.loads(path.read_text(encoding="utf-8"))
-                except Exception:
-                    continue
-                profile_id = str(payload.get("id") or path.stem).strip().lower()
-                if not profile_id:
-                    continue
-                payload["id"] = profile_id
-                payload["profile_path"] = str(path.relative_to(project_root)).replace("\\", "/")
-                profiles[profile_id] = payload
-            return profiles
-
-        def book_stats(items: list[dict], book_title: str) -> dict[str, int]:
-            wanted = str(book_title or "").strip().lower()
-            subset = [row for row in items if str(row.get("book") or "").strip().lower() == wanted]
+        def book_stats(items: list[dict], *, compendium_id: str, book_title: str, profile_name: str) -> dict[str, int]:
+            aliases = {
+                str(compendium_id or "").strip().lower(),
+                _safe_slug(compendium_id),
+                str(book_title or "").strip().lower(),
+                _safe_slug(book_title),
+                str(profile_name or "").strip().lower(),
+                _safe_slug(profile_name),
+            }
+            aliases = {x for x in aliases if x}
+            subset = [
+                row for row in items
+                if (
+                    str(row.get("book") or "").strip().lower() in aliases
+                    or _safe_slug(str(row.get("book") or "")) in aliases
+                )
+            ]
             counts: dict[str, int] = {}
             for row in subset:
                 t = str(row.get("type") or "").strip().lower()
@@ -1717,7 +3936,24 @@ def register_routes(app: Flask) -> None:
         official_index = load_official_compendium_index(official_dir) or {}
         official_items = official_index.get("items") or []
         profiles = load_compendium_profiles()
+        official_counts_by_cid = official_book_item_count_by_compendium_id()
         csrd_profile = profiles.get("csrd", {})
+        csrd_pipeline = compendium_pipeline_status(
+            {"id": "csrd", **csrd_profile},
+            source_kind="csrd",
+            auto_start=False,
+        )
+        nav = configured_settings_nav() or {}
+        genre_options = [
+            row for row in (nav.get("genre_options") or nav.get("core_options") or [])
+            if str((row or {}).get("value") or "").strip().lower() != "all_settings"
+        ]
+        settings_by_genre = nav.get("settings_by_genre") or nav.get("worlds_by_core") or {}
+        total_child_settings = 0
+        if isinstance(settings_by_genre, dict):
+            for values in settings_by_genre.values():
+                if isinstance(values, list):
+                    total_child_settings += len(values)
         items = [
             {
                 "id": "csrd",
@@ -1728,7 +3964,35 @@ def register_routes(app: Flask) -> None:
                 "landing_url": "/compendiums/csrd",
                 "search_url": "/search?include_local=0&include_lore=0&compendiums=csrd",
                 "profile_path": csrd_profile.get("profile_path") or "",
+                "pdf_relative_path": csrd_profile.get("pdf_relative_path") or "",
                 "source_kind": "csrd",
+                "tags": compendium_taxonomy_tags(csrd_profile, source_kind="csrd", compendium_id="csrd"),
+                "enabled": bool(csrd_pipeline.get("enabled", True)),
+                "pipeline": csrd_pipeline,
+            },
+            {
+                "id": "settings_catalog",
+                "name": "Settings Catalog",
+                "subtitle": "Genres and settings available in this workspace",
+                "thumbnail_url": "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+                "stats": {
+                    "genres": len(genre_options),
+                    "settings": int(total_child_settings),
+                },
+                "landing_url": "/settings",
+                "search_url": "/search?include_local=1&include_lore=0&include_csrd=0&include_official=0&include_foundry=0",
+                "profile_path": "",
+                "pdf_relative_path": "",
+                "source_kind": "settings_catalog",
+                "tags": compendium_taxonomy_tags({}, source_kind="settings_catalog", compendium_id="settings_catalog"),
+                "enabled": True,
+                "searchable": False,
+                "pipeline": {
+                    "enabled": True,
+                    "pdf_present": False,
+                    "docling_processed": False,
+                    "parser_processed": True,
+                },
             },
         ]
         official_profiles = [
@@ -1740,7 +4004,21 @@ def register_routes(app: Flask) -> None:
             if not pid:
                 continue
             book_title = str(profile.get("book_title") or profile.get("name") or "").strip()
-            stats = book_stats(official_items, book_title)
+            stats = book_stats(
+                official_items,
+                compendium_id=pid,
+                book_title=book_title,
+                profile_name=str(profile.get("name") or ""),
+            )
+            source_kind = compendium_source_kind(pid, profile)
+            pipeline = compendium_pipeline_status(
+                profile,
+                source_kind=source_kind,
+                parser_count=official_counts_by_cid.get(pid, 0),
+                auto_start=False,
+            )
+            if not pipeline.get("enabled", True):
+                continue
             items.append({
                 "id": pid,
                 "name": profile.get("name") or pid.title(),
@@ -1750,7 +4028,11 @@ def register_routes(app: Flask) -> None:
                 "landing_url": f"/compendiums/{pid}",
                 "search_url": f"/search?include_local=0&include_lore=0&compendiums={pid}",
                 "profile_path": profile.get("profile_path") or "",
-                "source_kind": "official",
+                "pdf_relative_path": profile.get("pdf_relative_path") or "",
+                "source_kind": source_kind,
+                "tags": compendium_taxonomy_tags(profile, source_kind=source_kind, compendium_id=pid),
+                "enabled": True,
+                "pipeline": pipeline,
             })
 
         foundry_profile = profiles.get(FOUNDRY_COMPENDIUM_ID, {})
@@ -1763,7 +4045,16 @@ def register_routes(app: Flask) -> None:
             "landing_url": f"/compendiums/{FOUNDRY_COMPENDIUM_ID}",
             "search_url": f"/search?include_local=0&include_lore=0&include_csrd=0&include_official=0&include_foundry=1&compendiums={FOUNDRY_COMPENDIUM_ID}",
             "profile_path": foundry_profile.get("profile_path") or "",
+            "pdf_relative_path": foundry_profile.get("pdf_relative_path") or "",
             "source_kind": "foundry",
+            "tags": compendium_taxonomy_tags(foundry_profile, source_kind="foundry", compendium_id=FOUNDRY_COMPENDIUM_ID),
+            "enabled": True,
+            "pipeline": {
+                "enabled": True,
+                "pdf_present": False,
+                "docling_processed": False,
+                "parser_processed": True,
+            },
         })
 
         return jsonify({"items": items, "count": len(items)})
@@ -1783,7 +4074,7 @@ def register_routes(app: Flask) -> None:
         project_root = current_app.config["LOL_PROJECT_ROOT"]
         compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
         official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
-        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        official_counts_by_cid = official_book_item_count_by_compendium_id()
 
         def load_profile(profile_id: str) -> dict:
             path = project_root / "PDF_Repository" / "private_compendium" / "compendiums" / f"{profile_id}.json"
@@ -1800,6 +4091,8 @@ def register_routes(app: Flask) -> None:
 
         def file_url_if_exists(rel_path: str) -> str:
             rel = str(rel_path or "").strip().replace("\\", "/").lstrip("/")
+            if not rel:
+                return ""
             path = (project_root / "PDF_Repository" / rel).resolve()
             root = (project_root / "PDF_Repository").resolve()
             if not str(path).startswith(str(root)) or not path.exists():
@@ -1808,6 +4101,7 @@ def register_routes(app: Flask) -> None:
 
         if cid == "csrd":
             profile = load_profile("csrd")
+            profile.setdefault("id", "csrd")
             csrd_index = load_compendium_index(compendium_dir) or {}
             stats = {
                 "abilities": int(csrd_index.get("abilities") or 0),
@@ -1828,6 +4122,7 @@ def register_routes(app: Flask) -> None:
                 {"label": "Rules Content", "items": ["Abilities", "Skills", "Types", "Flavors", "Descriptors", "Foci"]},
                 {"label": "Game Elements", "items": ["Creatures", "Cyphers", "Artifacts"]},
             ]
+            pipeline = compendium_pipeline_status(profile, source_kind="csrd", auto_start=False)
             return jsonify({
                 "id": "csrd",
                 "name": profile.get("name") or "CSRD",
@@ -1836,11 +4131,14 @@ def register_routes(app: Flask) -> None:
                 "stats": stats,
                 "summary": summary,
                 "contents": contents,
-                "pdf_url": file_url_if_exists(
-                    str(profile.get("pdf_relative_path") or "Core_Rules/Cypher_System_Rulebook_Revised-Hyperlinked_and_Bookmarked-2023-05-12-1.pdf")
-                ),
+                "pdf_url": file_url_if_exists(str(profile.get("pdf_relative_path") or "")),
                 "search_url": "/search?include_local=0&include_lore=0&compendiums=csrd",
                 "profile_path": profile.get("profile_path") or "",
+                "enabled": bool(pipeline.get("enabled", True)),
+                "pipeline": pipeline,
+                "raw_text_url": pipeline.get("raw_text_url") or "",
+                "tags": compendium_taxonomy_tags(profile, source_kind="csrd", compendium_id="csrd"),
+                "foundry_sync": compendium_foundry_sync_state("csrd"),
             })
 
         if cid == FOUNDRY_COMPENDIUM_ID:
@@ -1908,6 +4206,16 @@ def register_routes(app: Flask) -> None:
                 "search_url": f"/search?include_local=0&include_lore=0&include_csrd=0&include_official=0&include_foundry=1&compendiums={FOUNDRY_COMPENDIUM_ID}",
                 "profile_path": profile.get("profile_path") or "",
                 "source_kind": "foundry",
+                "enabled": True,
+                "pipeline": {
+                    "enabled": True,
+                    "pdf_present": False,
+                    "docling_processed": False,
+                    "parser_processed": True,
+                },
+                "raw_text_url": "",
+                "tags": compendium_taxonomy_tags(profile, source_kind="foundry", compendium_id=FOUNDRY_COMPENDIUM_ID),
+                "foundry_sync": compendium_foundry_sync_state(FOUNDRY_COMPENDIUM_ID),
             })
 
         if cid != "csrd":
@@ -1963,6 +4271,13 @@ def register_routes(app: Flask) -> None:
                 f"{book_title} is an official sourcebook imported into private local storage.",
                 "Entries remain local and are searchable alongside house and CSRD sources.",
             ]
+            source_kind = compendium_source_kind(cid, profile)
+            pipeline = compendium_pipeline_status(
+                profile,
+                source_kind=source_kind,
+                parser_count=official_counts_by_cid.get(cid, 0),
+                auto_start=True,
+            )
             return jsonify({
                 "id": cid,
                 "name": profile.get("name") or book_title,
@@ -1974,10 +4289,82 @@ def register_routes(app: Flask) -> None:
                 "pdf_url": file_url_if_exists(str(profile.get("pdf_relative_path") or "")),
                 "search_url": f"/search?include_local=0&include_lore=0&compendiums={cid}",
                 "profile_path": profile.get("profile_path") or "",
-                "source_kind": "official",
+                "source_kind": source_kind,
+                "enabled": bool(pipeline.get("enabled", True)),
+                "pipeline": pipeline,
+                "raw_text_url": pipeline.get("raw_text_url") or "",
+                "tags": compendium_taxonomy_tags(profile, source_kind=source_kind, compendium_id=cid),
+                "foundry_sync": compendium_foundry_sync_state(cid),
             })
 
         return jsonify({"error": f"unknown compendium '{compendium_id}'"}), 404
+
+    @app.get("/compendiums/<compendium_id>/raw-text")
+    def api_compendium_raw_text(compendium_id: str):
+        cid = str(compendium_id or "").strip().lower()
+        rel = str(request.args.get("path") or "").strip().replace("\\", "/")
+        if not rel:
+            return jsonify({"error": "path query parameter is required"}), 400
+        root = docling_root().resolve()
+        target = (root / rel).resolve()
+        if not str(target).startswith(str(root)):
+            return jsonify({"error": "invalid raw text path"}), 400
+        if not target.exists() or not target.is_file() or target.suffix.lower() != ".md":
+            return jsonify({"error": "raw text file not found"}), 404
+        if cid and cid not in target.parts:
+            # Keep the check loose for backward compat, but ensure we're still inside _docling root.
+            pass
+        return send_file(target, mimetype="text/markdown")
+
+    @app.post("/compendiums/<compendium_id>/foundry-sync")
+    def api_compendium_foundry_sync(compendium_id: str):
+        cid = str(compendium_id or "").strip().lower()
+        if not cid:
+            return jsonify({"error": "compendium_id is required"}), 400
+        if cid in {"settings_catalog", FOUNDRY_COMPENDIUM_ID}:
+            return jsonify({"error": f"foundry sync is not configurable for '{cid}'"}), 400
+
+        foundry_plugin = next(
+            (item for item in discover_plugins() if str(item.get("id") or "").strip() == "foundryVTT"),
+            None,
+        )
+        if not foundry_plugin:
+            return jsonify({"error": "foundryVTT plugin is not present"}), 404
+
+        body = request.get_json(force=True, silent=True) or {}
+        enabled = bool(body.get("enabled"))
+        key = foundry_sync_compendium_key(cid)
+        settings = update_plugin_settings("foundryVTT", {key: "1" if enabled else "0"})
+        raw = str(settings.get(key) or "0").strip().lower()
+        current = raw not in {"0", "false", "off", "no"}
+        return jsonify({
+            "compendium_id": cid,
+            "foundry_sync_enabled": current,
+            "key": key,
+        })
+
+    @app.get("/vector/stats")
+    def api_vector_stats():
+        stats = vector_stats_index(output_root=vector_index_root())
+        return jsonify(stats)
+
+    @app.get("/vector/query")
+    def api_vector_query():
+        q = str(request.args.get("q") or "").strip()
+        if not q:
+            return jsonify({"error": "q is required"}), 400
+        k_raw = str(request.args.get("k") or "8").strip()
+        k = 8
+        if k_raw.isdigit():
+            k = max(1, min(50, int(k_raw)))
+        compendium_id = str(request.args.get("compendium_id") or "").strip().lower()
+        result = vector_query_index(
+            output_root=vector_index_root(),
+            query=q,
+            k=k,
+            compendium_id=compendium_id,
+        )
+        return jsonify(result)
 
     @app.get("/pdf-repository/<path:filename>")
     def pdf_repository_file(filename: str):
@@ -2251,6 +4638,170 @@ def register_routes(app: Flask) -> None:
     @app.get("/image-browser")
     def image_browser():
         return render_template("image_browser.html")
+
+    @app.get("/docs-browser")
+    def docs_browser():
+        return render_template("docs_browser.html")
+
+    def _players_guide_inline(text: str) -> str:
+        if not text:
+            return ""
+        out: list[str] = []
+        last = 0
+        for match in re.finditer(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", text):
+            out.append(html.escape(text[last:match.start()]))
+            label = html.escape(match.group(1).strip() or match.group(2).strip())
+            href = html.escape(match.group(2).strip(), quote=True)
+            out.append(f'<a href="{href}" target="_blank" rel="noopener">{label}</a>')
+            last = match.end()
+        out.append(html.escape(text[last:]))
+        return "".join(out)
+
+    def _preprocess_players_guide_markdown(markdown_text: str) -> str:
+        text = markdown_text or ""
+        lines = text.splitlines()
+        if len(lines) > 5:
+            # Front page extraction includes duplicated header lines; drop them.
+            lines = lines[5:]
+        text = "\n".join(lines)
+
+        # Strip large inline image blobs from Docling output.
+        text = DATA_IMAGE_MARKDOWN_RE.sub("", text)
+
+        # Remove full TOC block.
+        text = re.sub(
+            r"##\s*TABLE OF CONTENTS\b.*?(?=\n##\s+)",
+            "",
+            text,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+
+        # Remove trailing character sheet section (including everything after it).
+        cut_markers = [
+            "\n## CHARACTER SHEET\n",
+            "\nCHARACTER SHEET\n",
+        ]
+        cut_index = -1
+        for marker in cut_markers:
+            idx = text.rfind(marker)
+            if idx > cut_index:
+                cut_index = idx
+        if cut_index >= 0:
+            text = text[:cut_index]
+        return text.strip()
+
+    def _players_guide_to_html(markdown_text: str) -> str:
+        clean_text = _preprocess_players_guide_markdown(markdown_text)
+        lines = clean_text.splitlines()
+        blocks: list[str] = []
+        in_list = False
+
+        def close_list() -> None:
+            nonlocal in_list
+            if in_list:
+                blocks.append("</ul>")
+                in_list = False
+
+        for raw_line in lines:
+            line = raw_line.rstrip()
+            stripped = line.strip()
+            if not stripped:
+                close_list()
+                continue
+
+            heading_match = re.match(r"^(#{1,6})\s+(.*)$", stripped)
+            if heading_match:
+                close_list()
+                level = min(len(heading_match.group(1)), 4)
+                title = _players_guide_inline(heading_match.group(2).strip())
+                if title:
+                    blocks.append(f"<h{level}>{title}</h{level}>")
+                continue
+
+            list_match = re.match(r"^[-*]\s+(.*)$", stripped)
+            if list_match:
+                if not in_list:
+                    blocks.append("<ul>")
+                    in_list = True
+                blocks.append(f"<li>{_players_guide_inline(list_match.group(1).strip())}</li>")
+                continue
+
+            close_list()
+            blocks.append(f"<p>{_players_guide_inline(stripped)}</p>")
+
+        close_list()
+        return "\n".join(blocks)
+
+    @app.get("/players-guide")
+    def players_guide_page():
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        source_path = (project_root / PLAYERS_GUIDE_DOC_PATH).resolve()
+        source_rel = PLAYERS_GUIDE_DOC_PATH.replace("\\", "/")
+        source_exists = source_path.exists() and source_path.is_file()
+        rendered_html = ""
+        if source_exists:
+            markdown_text = source_path.read_text(encoding="utf-8", errors="replace")
+            rendered_html = _players_guide_to_html(markdown_text)
+        return render_template(
+            "players_guide.html",
+            source_exists=source_exists,
+            source_rel=source_rel,
+            players_guide_html=rendered_html,
+            old_gus_url="https://callmepartario.github.io/og-csrd/",
+        )
+
+    @app.get("/docs/list")
+    def api_docs_list():
+        docs_dir = current_app.config["LOL_DOCS_DIR"].resolve()
+        if not docs_dir.exists():
+            return jsonify({"items": [], "count": 0})
+
+        items: list[dict] = []
+        for path in sorted(docs_dir.rglob("*"), key=lambda p: str(p).lower()):
+            if not path.is_file():
+                continue
+            if any(part.startswith(".") for part in path.relative_to(docs_dir).parts):
+                continue
+            if path.suffix.lower() not in DOCS_SUFFIXES:
+                continue
+            rel = str(path.relative_to(docs_dir)).replace("\\", "/")
+            items.append({
+                "path": rel,
+                "name": path.name,
+                "suffix": path.suffix.lower(),
+                "size": path.stat().st_size,
+                "updated_at": datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).isoformat(),
+            })
+
+        return jsonify({"items": items, "count": len(items)})
+
+    @app.get("/docs/file")
+    def api_docs_file():
+        docs_dir = current_app.config["LOL_DOCS_DIR"].resolve()
+        rel = str(request.args.get("path") or "").strip()
+        if not rel:
+            return jsonify({"error": "path query parameter is required"}), 400
+        if rel.startswith("/") or ".." in rel.replace("\\", "/").split("/"):
+            return jsonify({"error": "invalid docs path"}), 400
+
+        target = (docs_dir / rel).resolve()
+        try:
+            target.relative_to(docs_dir)
+        except ValueError:
+            return jsonify({"error": "invalid docs path"}), 400
+        if not target.exists() or not target.is_file():
+            return jsonify({"error": "document not found"}), 404
+        if target.suffix.lower() not in DOCS_SUFFIXES:
+            return jsonify({"error": "unsupported document type"}), 400
+
+        text = target.read_text(encoding="utf-8", errors="replace")
+        return jsonify({
+            "path": str(target.relative_to(docs_dir)).replace("\\", "/"),
+            "name": target.name,
+            "suffix": target.suffix.lower(),
+            "content": text,
+            "size": target.stat().st_size,
+        })
         
     @app.get("/storage/<path:filename>")
     def api_storage_get(filename: str):
@@ -2273,6 +4824,59 @@ def register_routes(app: Flask) -> None:
         except FileNotFoundError as exc:
             return jsonify({"error": str(exc)}), 404
         return jsonify({"ok": True, "record": updated})
+
+    @app.post("/storage/mirror-foundry-images")
+    def api_storage_mirror_foundry_images():
+        body = request.get_json(force=True, silent=False) or {}
+        filename = str(body.get("filename") or "").strip()
+        if not validate_filename(filename):
+            return jsonify({"error": "invalid filename"}), 400
+
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        try:
+            record = load_saved_result(storage_dir, filename, default_settings=configured_default_settings())
+        except FileNotFoundError as exc:
+            return jsonify({"error": str(exc)}), 404
+
+        result = record.get("result") if isinstance(record.get("result"), dict) else {}
+        metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+        source = str(metadata.get("source") or "").strip().lower()
+        if source not in {"foundryvtt", "foundry_vtt"}:
+            return jsonify({
+                "mirrored": False,
+                "reason": "not_foundry_source",
+                "record": record,
+            })
+
+        before_images = normalize_image_refs(
+            metadata.get("images") if isinstance(metadata.get("images"), list) else []
+        )
+        before_image_url = str(metadata.get("image_url") or "").strip()
+
+        cached_result = cache_foundry_images_for_result(result)
+        cached_meta = cached_result.get("metadata") if isinstance(cached_result.get("metadata"), dict) else {}
+        after_images = normalize_image_refs(
+            cached_meta.get("images") if isinstance(cached_meta.get("images"), list) else []
+        )
+        after_image_url = str(cached_meta.get("image_url") or "").strip()
+
+        changed = (after_images != before_images) or (after_image_url != before_image_url)
+        if not changed:
+            return jsonify({
+                "mirrored": False,
+                "reason": "no_new_local_images",
+                "record": record,
+            })
+
+        updated_record = dict(record)
+        updated_record["result"] = cached_result
+        update_saved_result(storage_dir, filename, updated_record)
+        refreshed = load_saved_result(storage_dir, filename, default_settings=configured_default_settings())
+        return jsonify({
+            "mirrored": True,
+            "reason": "updated",
+            "record": refreshed,
+        })
 
     @app.get("/storage/trash")
     def api_storage_trash_list():
@@ -2463,6 +5067,13 @@ def register_routes(app: Flask) -> None:
         body = request.get_json(force=True, silent=False) or {}
         actor = body.get("actor")
         payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        target_compendium_id = find_foundry_target_compendium_id(payload)
+        if target_compendium_id:
+            payload["compendium_id"] = target_compendium_id
+            if not foundry_sync_enabled_for_compendium(target_compendium_id):
+                response = jsonify({"error": f"sync disabled for compendium '{target_compendium_id}'"})
+                response.status_code = 403
+                return with_foundry_cors_headers(response)
         if not isinstance(actor, dict):
             response = jsonify({"error": "actor object is required"})
             response.status_code = 400
@@ -2501,6 +5112,13 @@ def register_routes(app: Flask) -> None:
         body = request.get_json(force=True, silent=False) or {}
         item = body.get("item")
         payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        target_compendium_id = find_foundry_target_compendium_id(payload)
+        if target_compendium_id:
+            payload["compendium_id"] = target_compendium_id
+            if not foundry_sync_enabled_for_compendium(target_compendium_id):
+                response = jsonify({"error": f"sync disabled for compendium '{target_compendium_id}'"})
+                response.status_code = 403
+                return with_foundry_cors_headers(response)
         if not isinstance(item, dict):
             response = jsonify({"error": "item object is required"})
             response.status_code = 400
@@ -2518,6 +5136,113 @@ def register_routes(app: Flask) -> None:
             return with_foundry_cors_headers(response)
 
         response = jsonify(result)
+        return with_foundry_cors_headers(response)
+
+    @app.route("/plugins/foundryvtt/export/sync", methods=["POST", "OPTIONS"])
+    def api_foundryvtt_export_sync():
+        if request.method == "OPTIONS":
+            response = jsonify({"ok": True})
+            response.status_code = 204
+            return with_foundry_cors_headers(response)
+
+        if not is_plugin_enabled("foundryVTT"):
+            response = jsonify({"error": "foundryVTT plugin is disabled"})
+            response.status_code = 403
+            return with_foundry_cors_headers(response)
+
+        auth_error = foundry_auth_error_response()
+        if auth_error is not None:
+            return auth_error
+
+        body = request.get_json(force=True, silent=False) or {}
+        requested_types = body.get("types")
+        if not isinstance(requested_types, list) or not requested_types:
+            requested_types = ["npc", "creature", "cypher", "artifact"]
+        allowed_types = {"npc", "creature", "cypher", "artifact"}
+        requested = []
+        for row in requested_types:
+            t = str(row or "").strip().lower()
+            if t in allowed_types and t not in requested:
+                requested.append(t)
+        if not requested:
+            response = jsonify({"error": "no supported types requested"})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
+
+        requested_setting = str(body.get("setting") or "").strip().lower()
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        entries: list[dict] = []
+
+        for item_type in requested:
+            summaries = search_saved_results(
+                storage_dir,
+                item_type=item_type,
+                setting=requested_setting or None,
+                default_settings=configured_default_settings(),
+            )
+            for summary in summaries:
+                filename = str(summary.get("filename") or "").strip()
+                if not filename:
+                    continue
+                try:
+                    record = load_saved_result(
+                        storage_dir,
+                        filename,
+                        default_settings=configured_default_settings(),
+                    )
+                except Exception:
+                    continue
+                result = record.get("result") if isinstance(record.get("result"), dict) else {}
+                payload = record.get("payload") if isinstance(record.get("payload"), dict) else {}
+                metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+                source = str(metadata.get("source") or "").strip().lower()
+                if source == "foundryvtt":
+                    continue
+
+                resolved_type = str(result.get("type") or "").strip().lower()
+                if resolved_type not in allowed_types:
+                    continue
+
+                if resolved_type in {"npc", "creature"}:
+                    foundry_data = npc_or_creature_result_to_foundry_actor(result, payload)
+                    doc_type = "Actor"
+                    folder_name = "NPCs" if resolved_type == "npc" else "Creatures"
+                elif resolved_type == "cypher":
+                    foundry_data = cypher_result_to_foundry_item(result, payload)
+                    doc_type = "Item"
+                    folder_name = "Cyphers"
+                else:
+                    foundry_data = artifact_result_to_foundry_item(result, payload)
+                    doc_type = "Item"
+                    folder_name = "Artifacts"
+
+                effective_settings = metadata.get("settings")
+                if not isinstance(effective_settings, list) or not effective_settings:
+                    single = metadata.get("setting")
+                    effective_settings = [single] if single else []
+                effective_setting = str((effective_settings[0] if effective_settings else "") or "").strip().lower()
+                if requested_setting and effective_setting and effective_setting != requested_setting:
+                    continue
+
+                entries.append({
+                    "filename": filename,
+                    "saved_at": record.get("saved_at"),
+                    "type": resolved_type,
+                    "name": str(result.get("name") or "").strip(),
+                    "setting": effective_setting or requested_setting,
+                    "source": "gmtools",
+                    "foundry_doc_type": doc_type,
+                    "foundry_folder": folder_name,
+                    "foundry_data": foundry_data,
+                })
+
+        entries.sort(key=lambda row: str(row.get("saved_at") or ""), reverse=True)
+        response = jsonify({
+            "count": len(entries),
+            "setting": requested_setting,
+            "types": requested,
+            "entries": entries,
+        })
         return with_foundry_cors_headers(response)
 
     @app.get("/foundry/export")
@@ -2935,24 +5660,191 @@ def register_routes(app: Flask) -> None:
             "top_level_keys": sorted(current_app.config["LOL_CONFIG"].keys()),
         })
 
-    @app.get("/settings")
-    def api_settings():
+    def _settings_payload() -> dict[str, Any]:
         config_dir = current_app.config["LOL_CONFIG_DIR"]
         settings = list_setting_descriptors(config_dir)
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        images_root = (project_root / "images").resolve()
+
+        def resolve_cover_url(setting_row: dict) -> str:
+            row = setting_row if isinstance(setting_row, dict) else {}
+            raw = str(row.get("cover_image") or "").strip()
+            sid = str(row.get("id") or "").strip().lower()
+
+            def rel_to_url(rel: str) -> str:
+                value = str(rel or "").strip().replace("\\", "/").lstrip("/")
+                return f"/{value}" if value else ""
+
+            if raw:
+                low = raw.lower()
+                if low.startswith("http://") or low.startswith("https://"):
+                    return raw
+                if raw.startswith("/"):
+                    return raw
+                # Backward compatibility: earlier setting cover saves stored
+                # "uploads/<file>" while media serving lives under /images/*.
+                if low.startswith("uploads/"):
+                    mapped = f"images/{raw.lstrip('/')}"
+                    candidate = (project_root / mapped).resolve()
+                    if candidate.exists() and candidate.is_file():
+                        return rel_to_url(mapped)
+                candidate = (project_root / raw).resolve()
+                try:
+                    rel = str(candidate.relative_to(project_root)).replace("\\", "/")
+                except Exception:
+                    rel = ""
+                if rel and candidate.exists() and candidate.is_file():
+                    if rel.startswith("images/"):
+                        return rel_to_url(rel)
+                    try:
+                        rel_from_images = str(candidate.relative_to(images_root)).replace("\\", "/")
+                    except Exception:
+                        rel_from_images = ""
+                    if rel_from_images:
+                        return rel_to_url(f"images/{rel_from_images}")
+                return rel_to_url(raw)
+
+            # fallback convention: images/book_covers/<setting_id>.<ext>
+            for ext in (".png", ".jpg", ".jpeg", ".webp"):
+                candidate_rel = f"images/book_covers/{sid}{ext}"
+                candidate = project_root / candidate_rel
+                if candidate.exists() and candidate.is_file():
+                    return rel_to_url(candidate_rel)
+            return "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png"
+
+        enriched_settings = []
+        for row in settings:
+            item = dict(row) if isinstance(row, dict) else {"id": str(row)}
+            item["cover_url"] = resolve_cover_url(item)
+            enriched_settings.append(item)
+
         active_setting = current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID")
         default_setting = infer_default_setting_id(config_dir) or infer_default_world_id(config_dir)
-        return jsonify({
+        return {
             "active_world": active_setting,
             "active_setting": active_setting,
             "default_world": default_setting,
             "default_setting": default_setting,
-            "worlds": settings,
-            "settings": settings,
+            "worlds": enriched_settings,
+            "settings": enriched_settings,
+        }
+
+    @app.get("/settings")
+    def settings_page():
+        return render_template("settings.html")
+
+    @app.get("/api/settings")
+    def api_settings():
+        return jsonify(_settings_payload())
+
+    @app.get("/settings/<setting_id>")
+    def settings_detail_page(setting_id: str):
+        sid = _safe_slug(str(setting_id or "").strip().lower())
+        return render_template("settings_detail.html", setting_id=sid)
+
+    @app.get("/api/settings/<setting_id>")
+    def api_setting_detail(setting_id: str):
+        sid = _safe_slug(str(setting_id or "").strip().lower())
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        available = {w["id"] for w in list_setting_descriptors(config_dir)}
+        if sid not in available:
+            return jsonify({"error": f"unknown setting_id '{sid}'"}), 404
+
+        desc = next((w for w in list_setting_descriptors(config_dir) if str(w.get("id") or "").strip().lower() == sid), {})
+        world_layer = load_world_layer(config_dir, sid)
+        world_block = world_layer.get("world") if isinstance(world_layer.get("world"), dict) else {}
+        setting_block = world_layer.get("setting") if isinstance(world_layer.get("setting"), dict) else {}
+        areas = world_layer.get("areas") if isinstance(world_layer.get("areas"), dict) else {}
+        races = world_layer.get("races") if isinstance(world_layer.get("races"), dict) else {}
+        settlements = world_layer.get("settlements") if isinstance(world_layer.get("settlements"), dict) else {}
+        encounters = world_layer.get("encounters") if isinstance(world_layer.get("encounters"), dict) else {}
+        cyphers = world_layer.get("cyphers") if isinstance(world_layer.get("cyphers"), dict) else {}
+        lore_enrichment = world_layer.get("lore_enrichment") if isinstance(world_layer.get("lore_enrichment"), dict) else {}
+
+        def count_obj(value: object) -> int:
+            if isinstance(value, dict):
+                return len(value)
+            if isinstance(value, list):
+                return len(value)
+            return 0
+
+        # Resolve cover URL with same logic as list payload.
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        images_root = (project_root / "images").resolve()
+        raw_cover = str((desc or {}).get("cover_image") or world_block.get("cover_image") or "").strip()
+        cover_url = "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png"
+        if raw_cover:
+            low = raw_cover.lower()
+            if low.startswith("http://") or low.startswith("https://") or raw_cover.startswith("/"):
+                cover_url = raw_cover
+            else:
+                if low.startswith("uploads/"):
+                    mapped_rel = f"images/{raw_cover.lstrip('/')}"
+                    mapped_candidate = (project_root / mapped_rel).resolve()
+                    if mapped_candidate.exists() and mapped_candidate.is_file():
+                        cover_url = f"/{mapped_rel}"
+                candidate = (project_root / raw_cover).resolve()
+                try:
+                    rel = str(candidate.relative_to(project_root)).replace("\\", "/")
+                except Exception:
+                    rel = ""
+                if rel and candidate.exists() and candidate.is_file():
+                    if rel.startswith("images/"):
+                        cover_url = f"/{rel}"
+                    else:
+                        try:
+                            rel_from_images = str(candidate.relative_to(images_root)).replace("\\", "/")
+                        except Exception:
+                            rel_from_images = ""
+                        if rel_from_images:
+                            cover_url = f"/images/{rel_from_images}"
+                        else:
+                            cover_url = f"/{rel}"
+                else:
+                    raw_rel = raw_cover.strip().replace('\\', '/').lstrip('/')
+                    if raw_rel.startswith("uploads/"):
+                        cover_url = f"/images/{raw_rel}"
+                    else:
+                        cover_url = f"/{raw_rel}"
+        else:
+            for ext in (".png", ".jpg", ".jpeg", ".webp"):
+                candidate_rel = f"images/book_covers/{sid}{ext}"
+                candidate = project_root / candidate_rel
+                if candidate.exists() and candidate.is_file():
+                    cover_url = f"/{candidate_rel}"
+                    break
+
+        world_dir = config_dir / "worlds" / sid
+        files = sorted([
+            str(p.relative_to(config_dir)).replace("\\", "/")
+            for p in world_dir.glob("*")
+            if p.is_file()
+        ])
+
+        return jsonify({
+            "id": sid,
+            "label": str(world_block.get("label") or (desc or {}).get("label") or sid),
+            "description": str(world_block.get("description") or (desc or {}).get("description") or ""),
+            "core_genre": str(world_block.get("core_genre") or world_block.get("core_setting") or (desc or {}).get("core_genre") or (desc or {}).get("core_setting") or ""),
+            "summary": str(setting_block.get("summary") or ""),
+            "tone_style": str(setting_block.get("tone_style") or ""),
+            "cover_url": cover_url,
+            "stats": {
+                "races": count_obj(races),
+                "areas": count_obj(areas),
+                "settlements": count_obj(settlements),
+                "encounters": count_obj(encounters),
+                "cyphers": count_obj(cyphers),
+                "lore_areas": count_obj(lore_enrichment.get("areas")) if isinstance(lore_enrichment, dict) else 0,
+                "lore_settlements": count_obj(lore_enrichment.get("settlements")) if isinstance(lore_enrichment, dict) else 0,
+                "lore_encounters": count_obj(lore_enrichment.get("encounters")) if isinstance(lore_enrichment, dict) else 0,
+            },
+            "files": files,
         })
 
     @app.get("/worlds")
     def api_worlds():
-        return api_settings()
+        return jsonify(_settings_payload())
 
     @app.post("/settings/select")
     def api_settings_select():
@@ -2989,6 +5881,144 @@ def register_routes(app: Flask) -> None:
             "worlds": worlds,
             "settings": worlds,
         })
+
+    @app.post("/settings/delete")
+    def api_settings_delete():
+        body = request.get_json(force=True, silent=False) or {}
+        setting_id = _safe_slug(str(body.get("setting_id") or "").strip().lower())
+        if not setting_id:
+            return jsonify({"error": "setting_id is required"}), 400
+        if setting_id == "lands_of_legends":
+            return jsonify({"error": "Refusing to delete protected baseline setting 'lands_of_legends'"}), 403
+
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        world_dir = (config_dir / "worlds" / setting_id).resolve()
+        worlds_root = (config_dir / "worlds").resolve()
+        if not str(world_dir).startswith(str(worlds_root) + os.sep):
+            return jsonify({"error": "invalid setting path"}), 400
+        if not world_dir.exists() or not world_dir.is_dir():
+            return jsonify({"error": f"setting folder not found: {setting_id}"}), 404
+
+        settings_path = config_dir / "02_settings.yaml"
+        settings_data = {}
+        if settings_path.exists():
+            try:
+                settings_data = yaml.safe_load(settings_path.read_text(encoding="utf-8")) or {}
+            except Exception:
+                settings_data = {}
+        if not isinstance(settings_data, dict):
+            settings_data = {}
+
+        def remove_from_catalog(root: dict, list_key: str) -> None:
+            if not isinstance(root, dict):
+                return
+            catalog = root.get("catalog")
+            if not isinstance(catalog, dict):
+                return
+            for _, entry in catalog.items():
+                if not isinstance(entry, dict):
+                    continue
+                values = entry.get(list_key)
+                if not isinstance(values, list):
+                    continue
+                entry[list_key] = [v for v in values if str(v).strip().lower() != setting_id]
+
+        settings_block = settings_data.get("settings")
+        genres_block = settings_data.get("genres")
+        if isinstance(settings_block, dict):
+            remove_from_catalog(settings_block, "worlds")
+            defaults = settings_block.get("defaults")
+            if isinstance(defaults, list):
+                settings_block["defaults"] = [v for v in defaults if str(v).strip().lower() != setting_id]
+        if isinstance(genres_block, dict):
+            remove_from_catalog(genres_block, "settings")
+            defaults = genres_block.get("defaults")
+            if isinstance(defaults, list):
+                genres_block["defaults"] = [v for v in defaults if str(v).strip().lower() != setting_id]
+
+        shutil.rmtree(world_dir)
+        settings_path.write_text(yaml.safe_dump(settings_data, sort_keys=False, allow_unicode=True), encoding="utf-8")
+
+        active_setting = (current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID") or "").strip()
+        if active_setting == setting_id:
+            next_setting = infer_default_setting_id(config_dir) or infer_default_world_id(config_dir)
+            current_app.config["LOL_SETTING_ID"] = next_setting
+            current_app.config["LOL_WORLD_ID"] = next_setting
+
+        current_app.config["LOL_CONFIG"] = load_config_dir(
+            config_dir,
+            setting_id=current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+        )
+        worlds = list_setting_descriptors(config_dir)
+        current_app.config["LOL_AVAILABLE_SETTINGS"] = [w["id"] for w in worlds]
+        current_app.config["LOL_AVAILABLE_SETTING_DESCRIPTORS"] = worlds
+        current_app.config["LOL_AVAILABLE_WORLDS"] = [w["id"] for w in worlds]
+        current_app.config["LOL_AVAILABLE_WORLD_DESCRIPTORS"] = worlds
+
+        return jsonify({
+            "status": "deleted",
+            "deleted_setting": setting_id,
+            "active_world": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+            "active_setting": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+            "worlds": worlds,
+            "settings": worlds,
+        })
+
+    @app.post("/settings/cover")
+    def api_settings_cover():
+        body = request.get_json(force=True, silent=False) or {}
+        setting_id = _safe_slug(str(body.get("setting_id") or "").strip().lower())
+        cover_image = str(body.get("cover_image") or "").strip()
+        if not setting_id:
+            return jsonify({"error": "setting_id is required"}), 400
+
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        world_dir = config_dir / "worlds" / setting_id
+        if not world_dir.exists() or not world_dir.is_dir():
+            return jsonify({"error": f"setting folder not found: {setting_id}"}), 404
+
+        world_file = world_dir / "00_world.yaml"
+        if not world_file.exists():
+            return jsonify({"error": f"missing world file: {world_file}"}), 404
+
+        try:
+            doc = yaml.safe_load(world_file.read_text(encoding="utf-8")) or {}
+        except Exception as exc:
+            return jsonify({"error": f"failed to read world file: {exc}"}), 400
+        if not isinstance(doc, dict):
+            doc = {}
+        world_block = doc.get("world")
+        if not isinstance(world_block, dict):
+            world_block = {}
+            doc["world"] = world_block
+        if cover_image:
+            # Normalize to a stable project-relative path under images/.
+            raw = cover_image.strip().replace("\\", "/")
+            low = raw.lower()
+            if low.startswith("http://") or low.startswith("https://"):
+                normalized = raw
+            else:
+                normalized = raw.lstrip("/")
+                if normalized.startswith("images/"):
+                    pass
+                elif normalized.startswith("uploads/"):
+                    normalized = f"images/{normalized}"
+                else:
+                    project_root = current_app.config["LOL_PROJECT_ROOT"]
+                    images_root = (project_root / "images").resolve()
+                    candidate = (project_root / normalized).resolve()
+                    try:
+                        rel_from_images = str(candidate.relative_to(images_root)).replace("\\", "/")
+                    except Exception:
+                        rel_from_images = ""
+                    if rel_from_images:
+                        normalized = f"images/{rel_from_images}"
+            world_block["cover_image"] = normalized
+        else:
+            world_block.pop("cover_image", None)
+
+        world_file.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True), encoding="utf-8")
+        return jsonify({"status": "ok", "setting_id": setting_id, "cover_image": world_block.get("cover_image", "")})
 
     @app.post("/worlds/select")
     def api_worlds_select():
@@ -3404,6 +6434,7 @@ def register_routes(app: Flask) -> None:
     def api_unified_search():
         storage_dir = current_app.config["LOL_STORAGE_DIR"]
         compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
+        enabled_compendiums = enabled_compendium_ids_for_search()
 
         raw_item_type = str(request.args.get("type") or "").strip().lower()
         item_type_aliases = {
@@ -3442,6 +6473,18 @@ def register_routes(app: Flask) -> None:
             }
             include_official = bool(selected_official_compendiums)
             include_godforsaken = "godforsaken" in selected_official_compendiums
+
+        if "csrd" not in enabled_compendiums:
+            include_csrd = False
+        if FOUNDRY_COMPENDIUM_ID not in enabled_compendiums:
+            include_foundry = False
+        if selected_official_compendiums:
+            selected_official_compendiums = {s for s in selected_official_compendiums if s in enabled_compendiums}
+            include_official = bool(selected_official_compendiums)
+            include_godforsaken = "godforsaken" in selected_official_compendiums
+        elif include_official or include_godforsaken:
+            include_official = bool(enabled_compendiums - {"csrd", FOUNDRY_COMPENDIUM_ID})
+            include_godforsaken = include_godforsaken and ("godforsaken" in enabled_compendiums)
 
         if include_local or include_foundry:
             storage_results = search_saved_results(
@@ -3527,6 +6570,10 @@ def register_routes(app: Flask) -> None:
             normalized_official_results = [x for x in normalized_official_results if x.get("source") != "godforsaken"]
         elif include_godforsaken and not include_official:
             normalized_official_results = [x for x in normalized_official_results if x.get("source") == "godforsaken"]
+        normalized_official_results = [
+            x for x in normalized_official_results
+            if str(x.get("source") or "").strip().lower() in enabled_compendiums
+        ]
 
         normalized_storage_results = normalize_storage_results(storage_results)
         if not include_local:

@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.082548+00:00",
+  "filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Ozella Muller",
+    "sheet": {
+      "name": "Ozella Muller",
+      "sentence": "Ozella Muller is Chaotic who Hunts.",
+      "type": "Trickster With Skills And Knowledge Flavor",
+      "flavor": "",
+      "descriptor": "Chaotic",
+      "focus": "Hunts",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 10,
+          "speed": 15,
+          "intellect": 13
+        },
+        "current": {
+          "might": 10,
+          "speed": 15,
+          "intellect": 13
+        }
+      },
+      "edges": {
+        "might": 0,
+        "speed": 0,
+        "intellect": 1
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Chaotic",
+          "Trained in intellect defense actions",
+          "Light weapons",
+          "Initiative"
+        ],
+        "inabilities": [
+          "Heavy weapons",
+          "Medium weapons",
+          "Your body is a bit worn from occasional excesses"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Attack Flourish",
+        "Encouragement",
+        "Erase Memories",
+        "Inspire Aggression",
+        "Knowledge Skills",
+        "Tracker"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Chaotic",
+          "level": "trained"
+        },
+        {
+          "name": "Trained in intellect defense actions",
+          "level": "trained"
+        },
+        {
+          "name": "Light weapons",
+          "level": "practiced"
+        },
+        {
+          "name": "Heavy weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Medium weapons",
+          "level": "inability"
+        },
+        {
+          "name": "Your body is a bit worn from occasional excesses",
+          "level": "inability"
+        },
+        {
+          "name": "Initiative",
+          "level": "practiced"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Light Weapon",
+          "description": "A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        },
+        {
+          "name": "Punch",
+          "description": "A right jab. Attacks are eased by 1 for Light weapons.",
+          "damage": 2,
+          "weapon_type": "Light",
+          "range": "",
+          "skill_rating": "Practiced"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Eagleseye",
+          "level": "1",
+          "description": "Grants the ability to see ten times as far as normal for one hour per cypher level. (For a more realistic game, the eagleseye cypher could instead give the user two assets on tasks involving seeing to long distances.)"
+        },
+        {
+          "name": "Thieving Strike",
+          "level": "3",
+          "description": "You reach out and strike a foe with an unarmed attack using a free hand. If this attack is successful, you can inflicts damage equal to the cypher level instead of your normal unarmed attack's damage. In addition, if the attack is successful, you can steal one item of your choice that is worn, held, or carried by the target."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Appropriate clothing and a light weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items. Granted from Starting Equipment."
+      ],
+      "notes": "Possible player intrusions based on your character type:\nFriendly NPC\nAn NPC you don't know, someone you don't know that well, or someone you know but who hasn't been particularly friendly in the past chooses to help you, though doesn't necessarily explain why. Maybe they'll ask you for a favor in return afterward, depending on how much trouble they go to.\n\nPerfect Suggestion\nA follower or other already-friendly NPC suggests a course of action with regard to an urgent question, problem, or obstacle you're facing.\n\nUnexpected Gift\nAn NPC hands you a physical gift you were not expecting, one that helps put the situation at ease if things seem strained, or provides you with a new insight for understanding the context of the situation if there's something you're failing to understand or grasp.\n\nTumultuous\n+4 to your Speed Pool.\nGranted from Chaotic\n\nPossible GM intrusion from your focus:\nThe quarry notices the character. The quarry isn't as vulnerable as it seemed.\n\nBackground:\nA Trickster is also known as a Speaker\n\nTrickster\nYou're good with words and good with people. You talk your way past challenges and out of jams, and you get people to do what you want. Speakers are smart and charismatic. They like people and, more important, they understand them. This helps speakers get others to do what needs to be done.\n\nChaotic\nDanger doesn't mean much to you, mainly because you don't think much about repercussions. In fact, you enjoy sowing surprises, just to see what will happen. The more unexpected the result, the happier you are. Sometimes you are particularly manic, and for the sake of your companions, you restrain yourself from taking actions that you know will lead to disaster.\n\nHunts\nYou are a stalking hunter who excels at bringing down your selected quarry.\n\nChoose how you became involved in the adventure:\n- Another PC recruited you while you were on your best behavior, before realizing how chaotic you were.\n- You have reason to believe that being with the other PCs will help you gain control over your erratic behavior.\n- Another PC released you from captivity, and to thank them, you volunteered to help.\n- You have no idea how you joined the PCs. You're just going along with it for now until answers present themselves.\n\nBackground Connection:\nOne of your parents was a famous entertainer in their early years and hoped you would excel in the same medium.\n\nFocus Connection:\nPick one other PC. That character recently mocked you in some fashion that really hurt your feelings. How you deal with this (if at all) is up to you.\n\nChaotic: Once after each ten-hour recovery roll, if you don't like the first result, you can reroll a die roll of your choice. If you do, and regardless of the outcome, the GM presents you with a GM intrusion.\nGranted from Chaotic\nTrained in intellect defense actions: Granted from Chaotic\nLight weapons: Light Weapons\nGranted from Speaker\nHeavy weapons: Heavy Weapons\nGranted from Speaker\nMedium weapons: Medium Weapons\nGranted from Speaker\nYour body is a bit worn from occasional excesses: Might defense tasks are hindered.\nGranted from Chaotic\nAttack Flourish: With your attack, you add stylish moves, entertaining quips, or a certain something that entertains or impresses others. One creature you choose within short range who can see you gains an asset to its next task if taken within a round or two. Enabler.\nGranted from Hunts\nEncouragement: While you maintain this ability through ongoing inspiring oration, your allies within short range ease one of the following task types (your choice): defense tasks, attack tasks, or tasks related to any skill that you are trained or specialized in. Action.\nGranted from Trickster\nErase Memories: You reach into the mind of a creature within immediate range and make an Intellect roll. On a success, you erase up to the last five minutes of its memory. Action.\nGranted from Trickster\nInspire Aggression: Your words twist the mind of a character within short range who is able to understand you, unlocking their more primitive instincts. As a result, they gain an asset on their Might-based attack rolls for one minute. Action to initiate.\nGranted from Trickster\nKnowledge Skills: You are trained in two skills in which you are not already trained. Choose two areas of knowledge such as history, geography, archeology, and so on. You can select this ability multiple times. Each time you select it, you must choose two different skills. Enabler.\nGranted from Skills And Knowledge Flavor\nTracker: You are trained in following and identifying tracks. Enabler.\nGranted from Hunts\nLight Weapon: A light weapon of your choice. Granted from Starting Equipment. Attacks are eased by 1 for Light weapons.\nPunch: A right jab. Attacks are eased by 1 for Light weapons.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Ozella Muller",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "foundry_origin": "http://localhost:30000",
+        "character_type": "Trickster With Skills And Knowledge Flavor",
+        "flavor": "",
+        "descriptor": "Chaotic",
+        "focus": "Hunts",
+        "tier": 1,
+        "xp": 0,
+        "source": "FoundryVTT",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": [],
+        "image_url": "uploads/foundryvtt/mystery-man_20260313T124846_c764f6e7.svg",
+        "images": [
+          "uploads/foundryvtt/mystery-man_20260313T124846_c764f6e7.svg"
+        ],
+        "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Trickster With Skills And Knowledge Flavor",
+      "flavor": "",
+      "descriptor": "Chaotic",
+      "focus": "Hunts",
+      "tier": 1,
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "foundry_origin": "http://localhost:30000",
+      "compendium_id": null,
+      "image_url": "uploads/foundryvtt/mystery-man_20260313T124846_c764f6e7.svg",
+      "images": [
+        "uploads/foundryvtt/mystery-man_20260313T124846_c764f6e7.svg"
+      ],
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/icons/svg/mystery-man.svg"
+    },
+    "description": "Possible player intrusions based on your character type: Friendly NPC An NPC you don't know, someone you don't know that well, or someone you know but who hasn't been particularly friendly in the past chooses to help you, though doesn't necessarily explain why. Maybe they'll ask you for a favor in return afterward, depending on how much trouble they go to. Perfect Suggestion A follower or other already-friendly NPC suggests a course of action with regard to an urgent question, problem, or obsta…"
+  }
+}

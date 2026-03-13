@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Docs Browser — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Docs Browser</h1>
+<p>Read the project documentation from inside the app.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="docs-query">Filter docs</label>
+      <input id="docs-query" placeholder="e.g. roadmap, foundry, vector" />
+    </div>
+    <div class="actions">
+      <button id="docs-refresh-btn" type="button">Refresh</button>
+    </div>
+    <div class="status" id="docs-status">Loading documents...</div>
+    <div class="results" id="docs-list"></div>
+  </div>
+
+  <div class="panel">
+    <div class="output-card">
+      <div class="small">Selected Document</div>
+      <h3 id="doc-name" style="margin-top:8px;">No document selected</h3>
+      <div class="small" id="doc-meta">Choose a file from the left panel.</div>
+    </div>
+    <div class="output-card" style="margin-top:12px;">
+      <pre id="doc-content" style="margin:0; white-space: pre-wrap; word-break: break-word; max-height: 70vh; overflow: auto;">Select a document to view its content.</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const state = {
+    docs: [],
+    selectedPath: null,
+  };
+
+  const els = {
+    query: document.getElementById('docs-query'),
+    refreshBtn: document.getElementById('docs-refresh-btn'),
+    status: document.getElementById('docs-status'),
+    list: document.getElementById('docs-list'),
+    docName: document.getElementById('doc-name'),
+    docMeta: document.getElementById('doc-meta'),
+    docContent: document.getElementById('doc-content'),
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  async function fetchJson(url) {
+    const response = await fetch(url);
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data.error || `Request failed (${response.status})`);
+    }
+    return data;
+  }
+
+  function filteredDocs() {
+    const query = String(els.query.value || '').trim().toLowerCase();
+    if (!query) return state.docs;
+    return state.docs.filter((item) => {
+      const path = String(item.path || '').toLowerCase();
+      const name = String(item.name || '').toLowerCase();
+      return path.includes(query) || name.includes(query);
+    });
+  }
+
+  function renderList() {
+    const items = filteredDocs();
+    if (!items.length) {
+      els.list.innerHTML = '<div class="small">No documents match this filter.</div>';
+      return;
+    }
+    els.list.innerHTML = items.map((item) => {
+      const path = String(item.path || '');
+      const active = state.selectedPath === path ? 'style="border-color: var(--accent);"' : '';
+      const sizeKb = (Number(item.size || 0) / 1024).toFixed(1);
+      return `
+        <button type="button" class="result-item" data-path="${escapeHtml(path)}" ${active}>
+          <strong>${escapeHtml(item.name || path)}</strong>
+          <div class="small">${escapeHtml(path)}</div>
+          <div class="small">${escapeHtml(item.suffix || '')} • ${sizeKb} KB</div>
+        </button>
+      `;
+    }).join('');
+
+    els.list.querySelectorAll('button[data-path]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const path = btn.getAttribute('data-path');
+        if (!path) return;
+        await loadDocument(path);
+      });
+    });
+  }
+
+  async function loadDocument(path) {
+    state.selectedPath = path;
+    renderList();
+    els.status.textContent = `Loading ${path}...`;
+    const data = await fetchJson(`/docs/file?path=${encodeURIComponent(path)}`);
+    els.docName.textContent = data.name || data.path || path;
+    const sizeKb = (Number(data.size || 0) / 1024).toFixed(1);
+    els.docMeta.textContent = `${data.path || path} • ${data.suffix || ''} • ${sizeKb} KB`;
+    els.docContent.textContent = String(data.content || '');
+    els.status.textContent = `Loaded ${data.path || path}.`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function loadDocs() {
+    els.status.textContent = 'Loading documents...';
+    const data = await fetchJson('/docs/list');
+    state.docs = Array.isArray(data.items) ? data.items : [];
+    state.docs.sort((a, b) => String(a.path || '').localeCompare(String(b.path || '')));
+    if (state.selectedPath && !state.docs.some((item) => item.path === state.selectedPath)) {
+      state.selectedPath = null;
+    }
+    renderList();
+    els.status.textContent = `Loaded ${data.count ?? state.docs.length} document(s).`;
+  }
+
+  els.query.addEventListener('input', () => renderList());
+  els.refreshBtn.addEventListener('click', async () => {
+    try {
+      await loadDocs();
+    } catch (err) {
+      els.status.textContent = `Error: ${err.message}`;
+    }
+  });
+
+  loadDocs().catch((err) => {
+    els.status.textContent = `Error: ${err.message}`;
+  });
+</script>
+{% endblock %}

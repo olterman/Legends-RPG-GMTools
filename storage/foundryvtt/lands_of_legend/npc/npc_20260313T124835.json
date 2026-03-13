@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:35.052860+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124835.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Fish, magical",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Fish, magical"
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 6,
+      "armor": 0,
+      "damage": 2,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 2; one magical ability\n\nFish, magical\nLevel 2 (target number 6)\nHealth: 6\nArmor: 0\nDamage: 2",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.JkAAp53JDWQyxQa8",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-journals.n1Ve9K17Pxjvc1yk.JournalEntryPage.IJXYS3XVkU4yrRe8#suggested-magical-abilities-for-animals",
+          "label": "one magical ability"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/magical-beast_20260313T124835_a8662ecc.webp",
+      "images": [
+        "uploads/foundryvtt/magical-beast_20260313T124835_a8662ecc.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/magical-beast.webp"
+    },
+    "description": "Level 2; one magical ability Fish, magical Level 2 (target number 6) Health: 6 Armor: 0 Damage: 2"
+  }
+}

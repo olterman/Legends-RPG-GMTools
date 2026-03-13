@@ -1,0 +1,56 @@
+<form class="legends-gmtools-sync-target-form">
+  <p>
+    Select the GMTools setting bucket for this Foundry world.
+    Synced records will be tagged with this setting and stored under the matching Foundry setting folder in GMTools.
+  </p>
+
+  <div class="form-group">
+    <label>GMTools Base URL</label>
+    <div class="form-fields">
+      <input type="text" value="{{baseUrl}}" disabled />
+    </div>
+  </div>
+
+  {{#if error}}
+  <p class="notes" style="color:#ffb4b4;">
+    Could not load settings list from GMTools: {{error}}
+  </p>
+  {{/if}}
+
+  <div class="form-group">
+    <label>Choose GMTools Setting</label>
+    <div class="form-fields">
+      <select name="gmtools_setting_id">
+        <option value="">-- Select --</option>
+        {{#each options}}
+        <option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.label}} ({{this.id}})</option>
+        {{/each}}
+      </select>
+      <button type="button" data-action="refresh-settings" title="Reload settings list">
+        <i class="fas fa-sync"></i>
+      </button>
+    </div>
+    <p class="notes">List is fetched from GMTools <code>/settings</code>.</p>
+  </div>
+
+  <div class="form-group">
+    <label>Or enter setting manually</label>
+    <div class="form-fields">
+      <input type="text" name="manual_setting_id" placeholder="e.g. lands_of_legends" value="{{selected}}" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Current Effective Setting</label>
+    <div class="form-fields">
+      <input type="text" value="{{effectiveSelected}}" disabled />
+    </div>
+    <p class="notes">Fallback if empty: Foundry world id <code>{{fallbackWorld}}</code>.</p>
+  </div>
+
+  <footer class="sheet-footer flexrow">
+    <button type="submit" name="submit">
+      <i class="fas fa-save"></i> Save Sync Target
+    </button>
+  </footer>
+</form>

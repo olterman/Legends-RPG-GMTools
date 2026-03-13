@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:58.813368+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124958.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Mindshield helmet",
+    "description": "Level: 1d6 + 2 Form: Lightweight cloth, leather, or metal helmet Effect: The wearer gains 3 Armor that protects against Intellect damage only. Further, attempts to affect the wearer’s mind are hindered (or hindered by two steps if the artifact is level 7 or higher). Depletion: —",
+    "sections": {
+      "name": "Mindshield helmet",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Lightweight cloth, leather, or metal helmet\n\nEffect: The wearer gains 3 Armor that protects against Intellect damage only. Further, attempts to affect the wearer’s mind are hindered (or hindered by two steps if the artifact is level 7 or higher).\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Lightweight cloth, leather, or metal helmet\n\nEffect: The wearer gains 3 Armor that protects against Intellect damage only. Further, attempts to affect the wearer’s mind are hindered (or hindered by two steps if the artifact is level 7 or higher).\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124958_27189a5b.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124958_27189a5b.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

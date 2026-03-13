@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:45.479264+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124945_20260313T124945.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Crystal ball",
+    "description": "Level: 1d6 + 3 Form: Melon-sized crystalline or glass orb, with or without a support stand Effect: This allows the user to scry (view) remote locations and creatures. The user must make a difficulty 2 Intellect task to activate the crystal ball, then use an action trying to make it show a person or location they know. The user must succeed at an Intellect task against the level of the target; otherwise, the crystal shows only indistinct or misleading images. The task roll is modified by how fam…",
+    "sections": {
+      "name": "Crystal ball",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Melon-sized crystalline or glass orb, with or without a support stand\n\nEffect: This allows the user to scry (view) remote locations and creatures. The user must make a difficulty 2 Intellect task to activate the crystal ball, then use an action trying to make it show a person or location they know. The user must succeed at an Intellect task against the level of the target; otherwise, the crystal shows only indistinct or misleading images. The task roll is modified by how familiar the target is to the user, how available they are to be viewed, and how far away they are.\n\nFamiliarity\n\nOnly have name or description\nHindered\n\nTarget has been visited\nEased\n\nTarget is well known to the user\nEased\n\nAvailability\n\nTarget is willing\nEased\n\nTarget is unwilling\nHindered\n\nDistance\n\nMore than 1 mile (1.5 km)\nHindered\n\nMore than 10 miles (15 km)\nHindered\n\nMore than 100 miles (150 km)\nHindered\n\nThese modifiers are cumulative, so trying to view a level 4 target who the user knows only by name (+1 step), is unwilling (+1 step), and is 20 miles away (+2 steps) is a difficulty 8 task.\n\nAn unwilling creature’s defenses against magic and Intellect attacks should hinder scrying attempts just as they would against a directly harmful mental spell.\n\nThe crystal shows the creature or area for one minute before the image becomes muddled and the artifact must be activated again.\n\nIn addition to the normal options for using Effort, the user can choose to apply a level of Effort to open two-way communication with the viewed area. All creatures in the area can sense the user’s presence and hear their voice, and the creatures can speak to and be heard by the user.\n\nDepletion: 1 in 1d20",
+      "depletion": "1 in [[/r 1d20 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Melon-sized crystalline or glass orb, with or without a support stand\n\nEffect: This allows the user to scry (view) remote locations and creatures. The user must make a difficulty 2 Intellect task to activate the crystal ball, then use an action trying to make it show a person or location they know. The user must succeed at an Intellect task against the level of the target; otherwise, the crystal shows only indistinct or misleading images. The task roll is modified by how familiar the target is to the user, how available they are to be viewed, and how far away they are.\n\nFamiliarity\n\nOnly have name or description\nHindered\n\nTarget has been visited\nEased\n\nTarget is well known to the user\nEased\n\nAvailability\n\nTarget is willing\nEased\n\nTarget is unwilling\nHindered\n\nDistance\n\nMore than 1 mile (1.5 km)\nHindered\n\nMore than 10 miles (15 km)\nHindered\n\nMore than 100 miles (150 km)\nHindered\n\nThese modifiers are cumulative, so trying to view a level 4 target who the user knows only by name (+1 step), is unwilling (+1 step), and is 20 miles away (+2 steps) is a difficulty 8 task.\n\nAn unwilling creature’s defenses against magic and Intellect attacks should hinder scrying attempts just as they would against a directly harmful mental spell.\n\nThe crystal shows the creature or area for one minute before the image becomes muddled and the artifact must be activated again.\n\nIn addition to the normal options for using Effort, the user can choose to apply a level of Effort to open two-way communication with the viewed area. All creatures in the area can sense the user’s presence and hear their voice, and the creatures can speak to and be heard by the user.\n\nDepletion: 1 in 1d20",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124945_1c71d793.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124945_1c71d793.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

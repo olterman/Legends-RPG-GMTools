@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:51.027963+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124951.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Finding prying eyes",
+    "description": "Level: 1d6 + 3 Effect: Magically discovers if anything is watching or listening to the user right at that moment, and reveals the source. Electronic surveillance devices, long-range scopes, hidden cameras, and magical scrying attempts all trigger this effect. In all these cases, the “source” is the nearest representation. So a hidden microphone is revealed, but not the location of the listener.",
+    "sections": {
+      "name": "Finding prying eyes",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nEffect: Magically discovers if anything is watching or listening to the user right at that moment, and reveals the source. Electronic surveillance devices, long-range scopes, hidden cameras, and magical scrying attempts all trigger this effect. In all these cases, the “source” is the nearest representation. So a hidden microphone is revealed, but not the location of the listener."
+    },
+    "text": "Level: 1d6 + 3\n\nEffect: Magically discovers if anything is watching or listening to the user right at that moment, and reveals the source. Electronic surveillance devices, long-range scopes, hidden cameras, and magical scrying attempts all trigger this effect. In all these cases, the “source” is the nearest representation. So a hidden microphone is revealed, but not the location of the listener.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124951_a1832751.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124951_a1832751.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

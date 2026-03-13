@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:33.992053+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124833_20260313T124833.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Erlking",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Erlking",
+      "environment": "Almost anywhere wooded at night",
+      "motive": "Hungers for flesh and to reclaim stripped titles",
+      "interaction": "An erlking may negotiate if creatures have something it wants, or if targets are armed with silvered or cold iron weapons.",
+      "use": "An erlking is active only by night; by day, it hides beneath a mound of weedy earth indistinguishable from the surrounding terrain.",
+      "gm_intrusion": "A character surprised by an erlking in the darkness must succeed on an Intellect defense task or lose their next action as they faint, run screaming, or stand paralyzed in terror."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 27,
+      "armor": 4,
+      "damage": 6,
+      "movement": "Short; immediate when burrowing",
+      "modifications": [
+        "Stealth tasks as level 7"
+      ],
+      "combat": [
+        "An erlking prefers to attack from hiding, and whisper a child or other creature within short distance from their bed out into the night if the victim fails an Intellect defense task. An affected creature remains under the erlking’s spell for up to an hour or until attacked or otherwise harmed. When it attacks physically, an erlking can attack three times on its turn with root tendrils. A target hit by a tendril must also succeed on a Speed defense roll or become grabbed until they escape. The erlking automatically inflicts 6 points of damage on each grabbed creature each round until they succeed on a Might-based task to escape. Silvered and cold iron weapons ignore an erlking’s Armor. If an erlking’s remains are not burned or otherwise destroyed, it will sprout and grow a new body from its corpse within a day."
+      ],
+      "interaction": [
+        "An erlking may negotiate if creatures have something it wants, or if targets are armed with silvered or cold iron weapons."
+      ],
+      "loot": []
+    },
+    "text": "This vaguely humanoid creature is an animated accumulation of woodland debris—bark, lost teeth, matted weeds, and dirt. It wears a crown of oak leaves and a cloak of mist. Its eyes are knotholes, and its hands are sharpened twigs. An erlking is a greedy spirit of hunger deemed Unseelie by the faerie nobility of that wild and wicked realm. Erlkings love to hunt and eat children, who are particularly susceptible to the promises and glamours that the creatures spin.\n\nAn erlking is a former noble stripped of title, lands, and even form, and exiled into the night for crimes unimaginable in their cruelty. An erlking’s victims are found in the cold sunlight, pale and bloodless, with their vital organs nibbled out.\n\nMotive: Hungers for flesh and to reclaim stripped titles\n\nEnvironment: Almost anywhere wooded at night\n\nHealth: 27\n\nDamage Inflicted: 6 points\n\nArmor: 4\n\nMovement: Short; immediate when burrowing\n\nModifications: Stealth tasks as level 7\n\nCombat: An erlking prefers to attack from hiding, and whisper a child or other creature within short distance from their bed out into the night if the victim fails an Intellect defense task. An affected creature remains under the erlking’s spell for up to an hour or until attacked or otherwise harmed.\n\nWhen it attacks physically, an erlking can attack three times on its turn with root tendrils. A target hit by a tendril must also succeed on a Speed defense roll or become grabbed until they escape. The erlking automatically inflicts 6 points of damage on each grabbed creature each round until they succeed on a Might-based task to escape.\n\nSilvered and cold iron weapons ignore an erlking’s Armor. If an erlking’s remains are not burned or otherwise destroyed, it will sprout and grow a new body from its corpse within a day.\n\nInteraction: An erlking may negotiate if creatures have something it wants, or if targets are armed with silvered or cold iron weapons.\n\nUse: An erlking is active only by night; by day, it hides beneath a mound of weedy earth indistinguishable from the surrounding terrain.\n\nGM Intrusion: A character surprised by an erlking in the darkness must succeed on an Intellect defense task or lose their next action as they faint, run screaming, or stand paralyzed in terror.\n\nErlking\nLevel 6 (target number 18)\nHealth: 27\nArmor: 4\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.dl3XHUj8t7Gm6NEw",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_erlking_20260313T124833_b71aebb6.webp",
+      "images": [
+        "uploads/foundryvtt/creature_erlking_20260313T124833_b71aebb6.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/creature_erlking.webp"
+    },
+    "description": "An erlking is active only by night; by day, it hides beneath a mound of weedy earth indistinguishable from the surrounding terrain."
+  }
+}

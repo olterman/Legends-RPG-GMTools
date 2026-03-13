@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}Plugin Settings — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>Plugin Settings</h1>
+<div id="plugin-settings-status" class="status">Loading plugin settings...</div>
+<div id="plugin-settings-root"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const pluginId = {{ plugin_id|tojson }};
+
+  function escapeHtml(text) {
+    return String(text ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  async function fetchJson(url, init = undefined) {
+    const res = await fetch(url, init);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      throw new Error(data.error || `Request failed: ${res.status}`);
+    }
+    return data;
+  }
+
+  function renderStatusValue(value) {
+    if (value === null || value === undefined) return "<span class='small'>n/a</span>";
+    if (Array.isArray(value)) return `<code>${escapeHtml(value.join(", "))}</code>`;
+    if (typeof value === "object") return `<code>${escapeHtml(JSON.stringify(value))}</code>`;
+    return escapeHtml(String(value));
+  }
+
+  function renderField(field) {
+    const key = String(field.key || "");
+    const label = String(field.label || key);
+    const type = String(field.type || "text");
+    const value = String(field.value ?? "");
+    const help = String(field.help || "");
+    if (type === "checkbox") {
+      const checked = !["0", "false", "off", "no", ""].includes(value.toLowerCase());
+      return `
+        <div class="field">
+          <label style="display:flex; align-items:center; gap:8px;">
+            <input
+              id="field-${escapeHtml(key)}"
+              type="checkbox"
+              data-setting-key="${escapeHtml(key)}"
+              ${checked ? "checked" : ""}
+            />
+            <span>${escapeHtml(label)}</span>
+          </label>
+          ${help ? `<div class="small">${escapeHtml(help)}</div>` : ""}
+        </div>
+      `;
+    }
+    if (type === "textarea") {
+      return `
+        <div class="field">
+          <label for="field-${escapeHtml(key)}">${escapeHtml(label)}</label>
+          <textarea id="field-${escapeHtml(key)}" data-setting-key="${escapeHtml(key)}" rows="4">${escapeHtml(value)}</textarea>
+          ${help ? `<div class="small">${escapeHtml(help)}</div>` : ""}
+        </div>
+      `;
+    }
+    if (type === "select") {
+      const options = Array.isArray(field.options) ? field.options : [];
+      return `
+        <div class="field">
+          <label for="field-${escapeHtml(key)}">${escapeHtml(label)}</label>
+          <select id="field-${escapeHtml(key)}" data-setting-key="${escapeHtml(key)}">
+            ${options.map((opt) => {
+              const selected = String(opt) === value ? "selected" : "";
+              return `<option value="${escapeHtml(String(opt))}" ${selected}>${escapeHtml(String(opt))}</option>`;
+            }).join("")}
+          </select>
+          ${help ? `<div class="small">${escapeHtml(help)}</div>` : ""}
+        </div>
+      `;
+    }
+    return `
+      <div class="field">
+        <label for="field-${escapeHtml(key)}">${escapeHtml(label)}</label>
+        <input
+          id="field-${escapeHtml(key)}"
+          type="${escapeHtml(type === "password" ? "password" : "text")}"
+          data-setting-key="${escapeHtml(key)}"
+          value="${escapeHtml(value)}"
+        />
+        ${help ? `<div class="small">${escapeHtml(help)}</div>` : ""}
+      </div>
+    `;
+  }
+
+  function collectValues(rootEl) {
+    const out = {};
+    rootEl.querySelectorAll("[data-setting-key]").forEach((el) => {
+      const key = String(el.getAttribute("data-setting-key") || "").trim();
+      if (!key) return;
+      if (String(el.type || "").toLowerCase() === "checkbox") {
+        out[key] = el.checked ? "1" : "0";
+      } else {
+        out[key] = String(el.value || "");
+      }
+    });
+    return out;
+  }
+
+  function renderPage(data) {
+    const statusEl = document.getElementById("plugin-settings-status");
+    const root = document.getElementById("plugin-settings-root");
+    const plugin = data.plugin || {};
+    const fields = Array.isArray(data.fields) ? data.fields : [];
+    const runtime = data.status && typeof data.status === "object" ? data.status : {};
+
+    const statusRows = Object.entries(runtime)
+      .map(([k, v]) => `
+        <div class="output-row">
+          <div class="output-label">${escapeHtml(k.replace(/_/g, " "))}</div>
+          <div class="output-value">${renderStatusValue(v)}</div>
+        </div>
+      `).join("");
+
+    root.innerHTML = `
+      <div class="panel">
+        <h2 style="margin-top:0;">${escapeHtml(plugin.name || pluginId)}</h2>
+        <div class="small">${escapeHtml(plugin.summary || "")}</div>
+      </div>
+      <div class="panel" style="margin-top:12px;">
+        <h2 style="margin-top:0;">Status</h2>
+        ${statusRows || '<div class="small">No status available.</div>'}
+      </div>
+      <div class="panel" style="margin-top:12px;">
+        <h2 style="margin-top:0;">Settings</h2>
+        <div id="plugin-settings-form">
+          ${fields.length ? fields.map(renderField).join("") : '<div class="small">No configurable settings for this plugin.</div>'}
+        </div>
+        <div class="actions" style="margin-top:10px;">
+          <button id="plugin-settings-save-btn" type="button">Save Settings</button>
+          <button id="plugin-settings-refresh-btn" type="button" class="secondary">Refresh</button>
+        </div>
+      </div>
+    `;
+
+    const saveBtn = document.getElementById("plugin-settings-save-btn");
+    const refreshBtn = document.getElementById("plugin-settings-refresh-btn");
+    const form = document.getElementById("plugin-settings-form");
+    if (saveBtn && form) {
+      saveBtn.addEventListener("click", async () => {
+        saveBtn.disabled = true;
+        statusEl.textContent = "Saving plugin settings...";
+        try {
+          const values = collectValues(form);
+          await fetchJson(`/plugins/${encodeURIComponent(pluginId)}/settings/save`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ values }),
+          });
+          statusEl.textContent = "Settings saved.";
+          const updated = await fetchJson(`/plugins/${encodeURIComponent(pluginId)}/settings/data`);
+          renderPage(updated);
+        } catch (err) {
+          statusEl.textContent = `Save failed: ${err.message}`;
+        } finally {
+          saveBtn.disabled = false;
+        }
+      });
+    }
+    if (refreshBtn) {
+      refreshBtn.addEventListener("click", async () => {
+        statusEl.textContent = "Refreshing plugin settings...";
+        try {
+          const updated = await fetchJson(`/plugins/${encodeURIComponent(pluginId)}/settings/data`);
+          renderPage(updated);
+          statusEl.textContent = "Refreshed.";
+        } catch (err) {
+          statusEl.textContent = `Refresh failed: ${err.message}`;
+        }
+      });
+    }
+    statusEl.textContent = "";
+  }
+
+  (async () => {
+    const statusEl = document.getElementById("plugin-settings-status");
+    try {
+      const data = await fetchJson(`/plugins/${encodeURIComponent(pluginId)}/settings/data`);
+      renderPage(data);
+    } catch (err) {
+      statusEl.textContent = `Failed to load plugin settings: ${err.message}`;
+    }
+  })();
+</script>
+{% endblock %}

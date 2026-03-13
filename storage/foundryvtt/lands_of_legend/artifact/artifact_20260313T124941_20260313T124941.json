@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:41.771343+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124941_20260313T124941.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Armored cloth",
+    "description": "Level: 1d6 Form: Suit of typical clothing (robe, dress, jerkin and breeches, and so on) Effect: This clothing is soft and flexible, as expected, except when it is struck or crushed with force, at which point it hardens, providing +1 to Armor. It then immediately returns to its normal state (which is in no way encumbering). This clothing cannot be worn with armor of any kind. Depletion: —",
+    "sections": {
+      "name": "Armored cloth",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Suit of typical clothing (robe, dress, jerkin and breeches, and so on)\n\nEffect: This clothing is soft and flexible, as expected, except when it is struck or crushed with force, at which point it hardens, providing +1 to Armor. It then immediately returns to its normal state (which is in no way encumbering).\n\nThis clothing cannot be worn with armor of any kind.\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6\n\nForm: Suit of typical clothing (robe, dress, jerkin and breeches, and so on)\n\nEffect: This clothing is soft and flexible, as expected, except when it is struck or crushed with force, at which point it hardens, providing +1 to Armor. It then immediately returns to its normal state (which is in no way encumbering).\n\nThis clothing cannot be worn with armor of any kind.\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124941_91dfc3af.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124941_91dfc3af.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:45.048063+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124845.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Ninja",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Ninja"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 0,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 3, stealth as level 6\n\nNinja\nLevel 3 (target number 9)\nHealth: 9\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.sWc8DryN22cKTJyj",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/humanoid_mundane_20260313T124845_5e97a7e7.webp",
+      "images": [
+        "uploads/foundryvtt/humanoid_mundane_20260313T124845_5e97a7e7.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/humanoid_mundane.webp"
+    },
+    "description": "Level 3, stealth as level 6 Ninja Level 3 (target number 9) Health: 9 Armor: 0 Damage: 3"
+  }
+}

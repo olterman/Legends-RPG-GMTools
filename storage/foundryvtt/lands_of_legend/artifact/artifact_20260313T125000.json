@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:00.545989+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125000.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Pixie dust",
+    "description": "Level: 1d6 Form: Glass bottle filled with glittering light Effect: Shake the glittering light on a living being and it can fly for ten minutes per artifact level. If the being can already fly, shaking the light on them grounds them, taking away their ability to be airborne for the same amount of time. Depletion: 1 in 1d10",
+    "sections": {
+      "name": "Pixie dust",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Glass bottle filled with glittering light\n\nEffect: Shake the glittering light on a living being and it can fly for ten minutes per artifact level. If the being can already fly, shaking the light on them grounds them, taking away their ability to be airborne for the same amount of time.\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r d10]]"
+    },
+    "text": "Level: 1d6\n\nForm: Glass bottle filled with glittering light\n\nEffect: Shake the glittering light on a living being and it can fly for ten minutes per artifact level. If the being can already fly, shaking the light on them grounds them, taking away their ability to be airborne for the same amount of time.\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125000_e13056ad.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125000_e13056ad.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T11:04:03.824847+00:00",
+  "filename": "foundryvtt/godforsaken/cypher/cypher_20260313T110403.json",
+  "payload": {
+    "setting": "godforsaken",
+    "compendium_id": "godforsaken"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "X",
+    "description": "X",
+    "sections": {
+      "name": "X"
+    },
+    "text": "X",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "",
+      "item_class": "one_shot",
+      "compendium_id": "godforsaken",
+      "settings": [
+        "godforsaken"
+      ],
+      "setting": "godforsaken",
+      "genre": "godforsaken",
+      "genres": [
+        "godforsaken"
+      ]
+    }
+  }
+}

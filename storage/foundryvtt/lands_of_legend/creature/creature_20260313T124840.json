@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:40.149961+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124840.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Inquisitor",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Inquisitor",
+      "environment": "In groups of three to twelve",
+      "motive": "Knowledge",
+      "interaction": "Inquisitors are always eager to “talk,” though they usually end up wanting to know a lot more than characters are willing to divulge.",
+      "use": "An entire freehold on Mars goes missing. Left-behind clues point to inquisitors.",
+      "loot": "Most inquisitors carry a couple of manifest cyphers that have offensive and defensive capabilities.",
+      "gm_intrusion": "The character (or characters) wake after a long rest, only to realize that more than ten hours have passed. They all have strange marks and wounds, but no one remembers why. One character—an NPC or follower—might even be missing."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 18,
+      "armor": 0,
+      "damage": 6,
+      "movement": "Short; short when climbing",
+      "modifications": [
+        "Knowledge-related tasks as level 8"
+      ],
+      "combat": [
+        "Inquisitors can batter and squeeze foes with their tentacles, but they prefer to use advanced items that they always carry, including long-range energy weapons that can inflict damage or, with a flipped setting, induce deep sleep for an hour or more if the victim fails a Might defense task. Usually, inquisitors attempt to cause as little damage as possible to potential subjects, so the sleep setting is used most often. They also carry defensive items, including manifest cyphers that can grant +4 to Armor for a few minutes or throw up a level 8 force field barrier. In case a specimen collection mission goes badly, at least one inquisitor carries a manifest cypher that creates a short-lived teleportation portal for instant transport to a distant and hidden base (which might be a spacecraft or a transdimensional redoubt)."
+      ],
+      "interaction": [
+        "Inquisitors are always eager to “talk,” though they usually end up wanting to know a lot more than characters are willing to divulge."
+      ],
+      "loot": [
+        "Most inquisitors carry a couple of manifest cyphers that have offensive and defensive capabilities."
+      ]
+    },
+    "text": "Inquisitors are aliens who call themselves “inquisitors” when they contact new species. Their preferred method of interaction is to study a given area for its flora and fauna, and attempt to collect a representative sample of any intelligent species they find (such as humans). Collected subjects may be gone for good, but other times they wake with little or no recollection of the experience save for bruises, missing digits or teeth, scabbed-over circular head wounds, and a gap of three or more days in their memory.\n\nInstead of arms, inquisitors sprout three sets of three tentacles like those of a squid, each of which branches into a smaller and finer set of manipulator tendrils. They can manipulate complex machines in a way that a regular human could never hope to. In most settings, inquisitors possess a level of technology and advancement well above that enjoyed by humans.\n\nMotive: Knowledge\n\nEnvironment: In groups of three to twelve\n\nHealth: 18\n\nDamage Inflicted: 6 points\n\nMovement: Short; short when climbing\n\nModifications: Knowledge-related tasks as level 8\n\nCombat: Inquisitors can batter and squeeze foes with their tentacles, but they prefer to use advanced items that they always carry, including long-range energy weapons that can inflict damage or, with a flipped setting, induce deep sleep for an hour or more if the victim fails a Might defense task. Usually, inquisitors attempt to cause as little damage as possible to potential subjects, so the sleep setting is used most often.\n\nThey also carry defensive items, including manifest cyphers that can grant +4 to Armor for a few minutes or throw up a level 8 force field barrier. In case a specimen collection mission goes badly, at least one inquisitor carries a manifest cypher that creates a short-lived teleportation portal for instant transport to a distant and hidden base (which might be a spacecraft or a transdimensional redoubt).\n\nInteraction: Inquisitors are always eager to “talk,” though they usually end up wanting to know a lot more than characters are willing to divulge.\n\nUse: An entire freehold on Mars goes missing. Left-behind clues point to inquisitors.\n\nLoot: Most inquisitors carry a couple of manifest cyphers that have offensive and defensive capabilities.\n\nGM Intrusion: The character (or characters) wake after a long rest, only to realize that more than ten hours have passed. They all have strange marks and wounds, but no one remembers why. One character—an NPC or follower—might even be missing.\n\nInquisitor\nLevel 4 (target number 12)\nHealth: 18\nArmor: 0\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.Fc2jXFr6x1rPX9O5",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_inquisitor_20260313T124840_9613af56.webp",
+      "images": [
+        "uploads/foundryvtt/creature_inquisitor_20260313T124840_9613af56.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_inquisitor.webp"
+    },
+    "description": "An entire freehold on Mars goes missing. Left-behind clues point to inquisitors."
+  }
+}

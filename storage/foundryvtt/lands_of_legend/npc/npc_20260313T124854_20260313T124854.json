@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:54.467521+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124854_20260313T124854.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Unicorn",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Unicorn"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 1,
+      "damage": 4,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 4; Might defense, perception, and attacks as level 5; health 15; Armor 1; makes two attacks as its action; once per hour can teleport up to 1 mile; once per hour can heal a creature for 4 Pool points (or health) and remove poisons up to level 4\n\nUnicorn\nLevel 4 (target number 12)\nHealth: 15\nArmor: 1\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.L1f6zSXMNwQTXynW",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/magical-beast_20260313T124854_65ae344d.webp",
+      "images": [
+        "uploads/foundryvtt/magical-beast_20260313T124854_65ae344d.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/magical-beast.webp"
+    },
+    "description": "Level 4; Might defense, perception, and attacks as level 5; health 15; Armor 1; makes two attacks as its action; once per hour can teleport up to 1 mile; once per hour can heal a creature for 4 Pool points (or health) and remove poisons up to level 4 Unicorn Level 4 (target number 12) Health: 15 Armor: 1 Damage: 4"
+  }
+}

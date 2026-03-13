@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:57.932372+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124857_20260313T124857.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Yeti",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Yeti"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 1,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 3; attacks, perception, and stealth as level 4; Armor 1\n\nYeti\nLevel 3 (target number 9)\nHealth: 9\nArmor: 1\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.pNnJBtVPSBXMcWN7",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/magical-beast_20260313T124857_04b9e098.webp",
+      "images": [
+        "uploads/foundryvtt/magical-beast_20260313T124857_04b9e098.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/magical-beast.webp"
+    },
+    "description": "Level 3; attacks, perception, and stealth as level 4; Armor 1 Yeti Level 3 (target number 9) Health: 9 Armor: 1 Damage: 3"
+  }
+}

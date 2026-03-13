@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:43.967304+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124843_20260313T124843.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Monstrous glowing roach",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Monstrous glowing roach"
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 15,
+      "armor": 2,
+      "damage": 7,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 5, Speed defense as level 4; Armor 2; mandible attack inflicts 7 damage and results in a check on the Glowing Roach Effects table.\n\nGlowing Roach Effects[[/r d6]]\n\nEffect\n\n1\n\nHead wound: Intellect defense tasks hindered\n\n2\n\nWounded leg: Speed defense tasks hindered\n\n3\n\nGut wound: Might defense tasks hindered\n\n4\n\nSpit in eye: Perception tasks hindered\n\n5\n\nLimb numb: Physical tasks hindered\n\n6\n\nLingering radioactive effect: Refer to Radiation in the Real World and possibly Incredible Mutations if your game has such fantastic elements.\n\nMonstrous glowing roach\nLevel 5 (target number 15)\nHealth: 15\nArmor: 2\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.p2ilPXqs1yTMZq07",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-journals.JournalEntry.omVYBwvGCfLyozLU.JournalEntryPage.d6rEaoFtd3oOYxvP#radiation-in-the-real-world",
+          "label": "Radiation in the Real World"
+        },
+        {
+          "target": "Compendium.cyphersystem-compendium.cypher-journals.JournalEntry.omVYBwvGCfLyozLU.JournalEntryPage.d6rEaoFtd3oOYxvP#incredible-mutations",
+          "label": "Incredible Mutations"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/aberration_20260313T124843_f18a885c.webp",
+      "images": [
+        "uploads/foundryvtt/aberration_20260313T124843_f18a885c.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/aberration.webp"
+    },
+    "description": "Level 5, Speed defense as level 4; Armor 2; mandible attack inflicts 7 damage and results in a check on the Glowing Roach Effects table. Glowing Roach Effects[[/r d6]] Effect 1 Head wound: Intellect defense tasks hindered 2 Wounded leg: Speed defense tasks hindered 3 Gut wound: Might defense tasks hindered 4 Spit in eye: Perception tasks hindered 5 Limb numb: Physical tasks hindered 6 Lingering radioactive effect: Refer to Radiation in the Real World and possibly Incredible Mutations if your ga…"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:28.922687+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124828_20260313T124828.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Centaur",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Centaur"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 15,
+      "armor": 0,
+      "damage": 4,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 4; health 15; moves a long distance each round\n\nCentaur\nLevel 4 (target number 12)\nHealth: 15\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.OZxu1n2mjkIPP7Se",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/monstrous-humanoid_20260313T124828_f990acb5.webp",
+      "images": [
+        "uploads/foundryvtt/monstrous-humanoid_20260313T124828_f990acb5.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/monstrous-humanoid.webp"
+    },
+    "description": "Level 4; health 15; moves a long distance each round Centaur Level 4 (target number 12) Health: 15 Armor: 0 Damage: 4"
+  }
+}

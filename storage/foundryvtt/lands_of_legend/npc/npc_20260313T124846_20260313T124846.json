@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.900815+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124846_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Pony",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Pony"
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 6,
+      "armor": 0,
+      "damage": 2,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "A smaller type of horse, suitable for pulling a cart, carrying smaller loads than a full-sized horse, or serving as a mount for a smaller-than-human creature such as a dwarf or halfling.\n\nLevel 2\n\nPony\nLevel 2 (target number 6)\nHealth: 6\nArmor: 0\nDamage: 2",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.fC2XA2ZjjSmQGoRA",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/animal_mundane_20260313T124846_d4dd8a36.webp",
+      "images": [
+        "uploads/foundryvtt/animal_mundane_20260313T124846_d4dd8a36.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/animal_mundane.webp"
+    },
+    "description": "A smaller type of horse, suitable for pulling a cart, carrying smaller loads than a full-sized horse, or serving as a mount for a smaller-than-human creature such as a dwarf or halfling. Level 2 Pony Level 2 (target number 6) Health: 6 Armor: 0 Damage: 2"
+  }
+}

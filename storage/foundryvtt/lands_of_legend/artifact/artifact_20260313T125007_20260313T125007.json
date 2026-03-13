@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:07.924459+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125007_20260313T125007.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Staff of healing",
+    "description": "Level: 1d6 + 4 Form: Wooden staff capped with a golden icon Effect: The staff emits a short-range beam of silvery light that affects only living creatures. A living creature hit by the beam moves up one step on the damage track. A target that is not down on the damage track can immediately make a free recovery roll (or, for NPCs, regain a number of points of health equal to three times their level). Depletion: 1 in 1d10",
+    "sections": {
+      "name": "Staff of healing",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 4\n\nForm: Wooden staff capped with a golden icon\n\nEffect: The staff emits a short-range beam of silvery light that affects only living creatures. A living creature hit by the beam moves up one step on the damage track. A target that is not down on the damage track can immediately make a free recovery roll (or, for NPCs, regain a number of points of health equal to three times their level).\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r 1d10 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Wooden staff capped with a golden icon\n\nEffect: The staff emits a short-range beam of silvery light that affects only living creatures. A living creature hit by the beam moves up one step on the damage track. A target that is not down on the damage track can immediately make a free recovery roll (or, for NPCs, regain a number of points of health equal to three times their level).\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125007_77c186d9.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125007_77c186d9.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

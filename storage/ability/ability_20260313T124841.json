@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:41.375479+00:00",
+  "filename": "ability/ability_20260313T124841.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Kos Udath",
+    "ability_name": "Allergic to sunlight"
+  },
+  "result": {
+    "type": "ability",
+    "name": "Allergic to sunlight",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'Allergic to sunlight'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Kos Udath",
+      "missing_from_compendium": true,
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ]
+    }
+  }
+}

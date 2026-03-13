@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:56.068285+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124856.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Warlord (raider)",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Warlord (raider)",
+      "environment": "Usually in the company of five to twenty raiders",
+      "motive": "Control through fear and brutality",
+      "interaction": "Warlords have lackeys and lieutenants that interact with outsiders. They prefer to make pronouncements and threats from on high.",
+      "use": "The museum, lab, or other important structure the characters wanted to visit to carry out their mission has fallen under the control of a warlord and a dozen or more raiders.",
+      "loot": "A warlord may carry an artifact. Unique Warlord Advantage[[/r d6]] Advantage 1 Rocket launcher (level 7): long‑range weapon inflicts 7 points of damage on targets in an immediate area (depletion: 1–2 in 1d6) 2 Fire thrower (level 7): immediate‑range weapon inflicts 7 points of damage on all targets within immediate range (depletion: 1 in 1d10) 3 Release the beast: Gives the command to “release the beast”; a melted loyal to warlord charges into the fight 4 Force shield (level 5): Static field blocks all incoming attacks against the warlord for one round (depletion: 1–2 in 1d10) 5 Power gauntlet: Warlord’s power gauntlet grabs foe and automatically deals damage from crushing until foe escapes 6 Skystrike: Calls in a “skystrike” from a battered wristband; a round later, a missile launched from a before‑times satellite strikes nearby, inflicting 10 points of damage on all creatures within a short area who fail a Speed defense roll, and 2 points on those who succeed (depletion: automatic)"
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 25,
+      "armor": 3,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Defends as level 6 due to nearby raiders willing to take no actions other than defend the warlord"
+      ],
+      "combat": [
+        "Warlords attack twice each round with bladed or spiked melee weapons or ranged firearms. When possible, they fight from an open canopy vehicle (driven by another raider). A warlord directly leads the raiders they command, fighting at the forefront but also issuing orders. Underlings deal 1 additional point of damage when the warlord can see them and issue commands. Most warlords have a specific additional advantage they can pull out to win a fight. See the table below."
+      ],
+      "interaction": [
+        "Warlords have lackeys and lieutenants that interact with outsiders. They prefer to make pronouncements and threats from on high."
+      ],
+      "loot": [
+        "A warlord may carry an artifact. Unique Warlord Advantage[[/r d6]] Advantage 1 Rocket launcher (level 7): long‑range weapon inflicts 7 points of damage on targets in an immediate area (depletion: 1–2 in 1d6) 2 Fire thrower (level 7): immediate‑range weapon inflicts 7 points of damage on all targets within immediate range (depletion: 1 in 1d10) 3 Release the beast: Gives the command to “release the beast”; a melted loyal to warlord charges into the fight 4 Force shield (level 5): Static field blocks all incoming attacks against the warlord for one round (depletion: 1–2 in 1d10) 5 Power gauntlet: Warlord’s power gauntlet grabs foe and automatically deals damage from crushing until foe escapes 6 Skystrike: Calls in a “skystrike” from a battered wristband; a round later, a missile launched from a before‑times satellite strikes nearby, inflicting 10 points of damage on all creatures within a short area who fail a Speed defense roll, and 2 points on those who succeed (depletion: automatic)"
+      ]
+    },
+    "text": "Stripped of humanity by brutal living conditions and their determination to survive no matter the cost, raiders still look human. But beneath that veneer, they’re feral.\n\nA warlord enjoys supreme authority over other raiders. Brutal rulers, warlords are a living symbol of power and strength where survival is valued above all else. \n\nWarlords caparison themselves in trophies of vanquished enemies—such as gilded skulls or flayed skins. Some wear garish helms designed to intimidate. An impressive weapon, especially something from the before times, is always close at hand. A warlord is rarely encountered without raiders and other lackeys that fight for and serve them.\n\nMotive: Control through fear and brutality \n\nEnvironment: Usually in the company of five to twenty raiders \n\nHealth: 25 \n\nDamage Inflicted: 5 points \n\nArmor: 3 \n\nMovement: Short \n\nModifications: Defends as level 6 due to nearby raiders willing to take no actions other than defend the warlord \n\nCombat: Warlords attack twice each round with bladed or spiked melee weapons or ranged firearms. When possible, they fight from an open canopy vehicle (driven by another raider). \n\nA warlord directly leads the raiders they command, fighting at the forefront but also issuing orders. Underlings deal 1 additional point of damage when the warlord can see them and issue commands. \n\nMost warlords have a specific additional advantage they can pull out to win a fight. See the table below. \n\nInteraction: Warlords have lackeys and lieutenants that interact with outsiders. They prefer to make pronouncements and threats from on high. \n\nUse: The museum, lab, or other important structure the characters wanted to visit to carry out their mission has fallen under the control of a warlord and a dozen or more raiders. \n\nLoot: A warlord may carry an artifact.\n\nUnique Warlord Advantage[[/r d6]]\n\nAdvantage\n\n1\n\nRocket launcher (level 7): long‑range weapon inflicts 7 points of damage on targets in an immediate area (depletion: 1–2 in 1d6)\n\n2\n\nFire thrower (level 7): immediate‑range weapon inflicts 7 points of damage on all targets within immediate range (depletion: 1 in 1d10)\n\n3\n\nRelease the beast: Gives the command to “release the beast”; a melted loyal to warlord charges into the fight\n\n4\n\nForce shield (level 5): Static field blocks all incoming attacks against the warlord for one round (depletion: 1–2 in 1d10)\n\n5\n\nPower gauntlet: Warlord’s power gauntlet grabs foe and automatically deals damage from crushing until foe escapes\n\n6\n\nSkystrike: Calls in a “skystrike” from a battered wristband; a round later, a missile launched from a  before‑times satellite strikes nearby, inflicting 10 points of damage on all creatures within a short area who fail a Speed defense roll, and 2 points on those who succeed (depletion: automatic)\n\nWarlord (raider)\nLevel 5 (target number 15)\nHealth: 25\nArmor: 3\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.yffynrv0rAr6fgD6",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.creatures.Actor.4P9cBcFUQ1znxpFX",
+          "label": "melted"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/creature_warlord_20260313T124856_a1c3f264.webp",
+      "images": [
+        "uploads/foundryvtt/creature_warlord_20260313T124856_a1c3f264.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/post-apocalyptic/creature_warlord.webp"
+    },
+    "description": "The museum, lab, or other important structure the characters wanted to visit to carry out their mission has fallen under the control of a warlord and a dozen or more raiders."
+  }
+}

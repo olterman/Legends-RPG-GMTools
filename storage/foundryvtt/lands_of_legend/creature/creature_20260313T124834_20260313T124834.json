@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:34.807090+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124834_20260313T124834.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Fell rider (raider)",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Fell rider (raider)",
+      "environment": "Groups of four to six roaming the ruins",
+      "motive": "Raid and kill for what they want",
+      "interaction": "If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack.",
+      "use": "The raider encampment has a new leader, a warlord whose presence doubles raider activity.",
+      "loot": "A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 1,
+      "damage": 4,
+      "movement": "Short; long while riding motorcycle",
+      "modifications": [
+        "Motorcycle repair and modification as level 5; stealth tasks as level 0 due to screaming engines"
+      ],
+      "combat": [
+        "Using pikes, spears, or lances welded to the front of their bike, a fell rider typically makes ride‑by attacks against foes from just outside short range. A fell rider is one with their bike, always moving to engage and disengage. If knocked from their bike (possibly a minor effect), a fell rider’s attacks and Speed defenses are hindered until they regain the seat as their action. Some riders use larger four‑wheeled vehicles with open canopies instead of motorcycles. These fell riders have 2 Armor and can attempt a run‑down attack on up to three targets that are next to each other and not in a vehicle, inflicting 8 points of damage. Struck targets that fail a Might defense roll descend one step on the damage track."
+      ],
+      "interaction": [
+        "If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack."
+      ],
+      "loot": [
+        "A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel."
+      ]
+    },
+    "text": "Stripped of humanity by brutal living conditions and their determination to survive no matter the cost, raiders still look human. But beneath that veneer, they’re feral.\n\nMotorcycle riding raiders keep their “motor wheels” alive through constant tinkering and repair. The two wheeled machines are modified with spears, spikes, lances, and sometimes guns and flamethrowers. Fell riders wear heavy protective garments made from fur, salvaged clothing, and leather from past targets. Goggles protect their eyes, and bones are sewn through their wild, greasy hair as decoration.\n\nMotive: Raid and kill for what they want\n\nEnvironment: Groups of four to six roaming the ruins\n\nHealth: 12\n\nDamage Inflicted: 4 points\n\nArmor: 1\n\nMovement: Short; long while riding motorcycle\n\nModifications: Motorcycle repair and modification as level 5; stealth tasks as level 0 due to screaming engines\n\nCombat: Using pikes, spears, or lances welded to the front of their bike, a fell rider typically makes ride‑by attacks against foes from just outside short range. A fell rider is one with their bike, always moving to engage and disengage. If knocked from their bike (possibly a minor effect), a fell rider’s attacks and Speed defenses are hindered until they regain the seat as their action.\n\nSome riders use larger four‑wheeled vehicles with open canopies instead of motorcycles. These fell riders have 2 Armor and can attempt a run‑down attack on up to three targets that are next to each other and not in a vehicle, inflicting 8 points of damage. Struck targets that fail a Might defense roll descend one step on the damage track.\n\nInteraction: If a raider believes a just met survivor has food, water, or shelter, or might prove to be a threat immediately or at any later date, they laugh off any suggestion of parley and attack.\n\nUse: The raider encampment has a new leader, a warlord whose presence doubles raider activity.\n\nLoot: A fell rider’s motorcycle, when repaired, is a useful vehicle with enough gas for miles of travel.\n\nFell rider (raider)\nLevel 3 (target number 9)\nHealth: 12\nArmor: 1\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.OfNv3Ypg6kEj9HGN",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_fell-rider_20260313T124834_ee4dfb8d.webp",
+      "images": [
+        "uploads/foundryvtt/creature_fell-rider_20260313T124834_ee4dfb8d.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/post-apocalyptic/creature_fell-rider.webp"
+    },
+    "description": "The raider encampment has a new leader, a warlord whose presence doubles raider activity."
+  }
+}

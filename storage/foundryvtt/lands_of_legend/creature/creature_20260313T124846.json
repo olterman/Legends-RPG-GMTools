@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:46.427655+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Photonomorph",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Photonomorph",
+      "environment": "Anywhere, alone or attended by three to five servitors appearing as hovering red spheres Servitor: level 4; flies a long distance each round",
+      "motive": "Varies",
+      "interaction": "Photonomorphs are intelligent and paranoid, but not automatically hostile. They have their own self-serving agendas, which often involve elaborate schemes.",
+      "use": "A photonomorph appears, claiming to be a herald of some vastly more powerful cosmic entity or approaching alien vessel.",
+      "gm_intrusion": "The photonomorph uses its ability to create a hard- light object or effect that is perfect for aiding it for the situation at hand."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 22,
+      "armor": 3,
+      "damage": 8,
+      "movement": "Reconstitutes itself anywhere light can reach within long range as part of another action",
+      "modifications": [
+        "Knowledge tasks as level 8"
+      ],
+      "combat": [
+        "Photonomorphs draw upon their own light to manifest effects equal to their level. Effects include the ability to attack creatures at long range with laser-like blasts, create glowing walls (or spheres) of force within an area up to 6 m (20 feet) on a side, become invisible, change its appearance, and create simple objects and devices out of hard light that last for about a minute (unless the photonomorph bleeds a few points of its health into the object to make it last until destroyed). A photonomorph regains 2 points of health each round in areas of bright light. It is hindered in all actions if the only source of light is itself or objects it has created."
+      ],
+      "interaction": [
+        "Photonomorphs are intelligent and paranoid, but not automatically hostile. They have their own self-serving agendas, which often involve elaborate schemes."
+      ],
+      "loot": []
+    },
+    "text": "Hard-light technology, which creates pseudo-matter from modified photons, has made possible all kinds of structures and devices that wouldn’t otherwise exist. One of those, unfortunately, are self-sustaining photonic matter creatures. Sometimes, photonomorphs are enforcers created by much more powerful beings; other times they are the result of some person or AI attempting to ascend into a new state of being. But whatever their origin, photonomorphs are dangerous beings that can create matter from light, granting them an arbitrarily wide swathe of abilities. That includes their own glowing bodies, which they can change with only a little effort. This variability of form, coupled with their vast power, may be why many seem slightly mad.\n\nMotive: Varies\n\nEnvironment: Anywhere, alone or attended by three to five servitors appearing as hovering red spheres\n\nServitor: level 4; flies a long distance each round\n\nHealth: 22\n\nDamage Inflicted: 8 points\n\nArmor: 3\n\nMovement: Reconstitutes itself anywhere light can reach within long range as part of another action\n\nModifications: Knowledge tasks as level 8\n\nCombat: Photonomorphs draw upon their own light to manifest effects equal to their level. Effects include the ability to attack creatures at long range with laser-like blasts, create glowing walls (or spheres) of force within an area up to 6 m (20 feet) on a side, become invisible, change its appearance, and create simple objects and devices out of hard light that last for about a minute (unless the photonomorph bleeds a few points of its health into the object to make it last until destroyed).\n\nA photonomorph regains 2 points of health each round in areas of bright light. It is hindered in all actions if the only source of light is itself or objects it has created.\n\nInteraction: Photonomorphs are intelligent and paranoid, but not automatically hostile. They have their own self-serving agendas, which often involve elaborate schemes.\n\nUse: A photonomorph appears, claiming to be a herald of some vastly more powerful cosmic entity or approaching alien vessel.\n\nGM Intrusion: The photonomorph uses its ability to create a hard- light object or effect that is perfect for aiding it for the situation at hand.\n\nPhotonomorph\nLevel 6 (target number 18)\nHealth: 22\nArmor: 3\nDamage: 8",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.lGszWaI17kKsFBln",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.QUUnfZapLW6wgBSe",
+          "label": "Servitor"
+        }
+      ],
+      "image_url": "uploads/foundryvtt/creature_photonomorph_20260313T124846_73b5b845.webp",
+      "images": [
+        "uploads/foundryvtt/creature_photonomorph_20260313T124846_73b5b845.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_photonomorph.webp"
+    },
+    "description": "A photonomorph appears, claiming to be a herald of some vastly more powerful cosmic entity or approaching alien vessel."
+  }
+}

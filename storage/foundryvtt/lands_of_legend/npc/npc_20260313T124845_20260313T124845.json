@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:45.627742+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124845_20260313T124845.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Occultist",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Occultist",
+      "interaction": "Occultists are deeply concerned with spiritual or demonic matters and see those influences in all things, whether those influences exist or not. That makes them amenable to persuasion and deception, if couched in the language of spiritual influence.",
+      "use": "To find a needed answer, the spirit of a dead person must be questioned. Alternatively, a haunting presence must be banished. Either way, the task requires an occultist.",
+      "loot": "In addition to their clothing and mundane weapons, occultists have currency equivalent to an inexpensive item, a cypher, and possibly an artifact related to their power over spirits or demons.",
+      "gm_intrusion": "A bony hand erupts from the ground at the character’s feet. On a failed Speed defense roll, they are held in place until they succeed on a Might-based task to escape. Each round the character fails to escape, the hand squeezes for 3 points of damage."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 15,
+      "armor": 0,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Knowledge of occult topics and rituals as level 8; ability to detect lies and tricks as level 2"
+      ],
+      "combat": [
+        "An occultist has a charm or device for summoning a level 5 spirit or demon that will do their bidding for ten minutes. Some also have (or instead have) a spell, item, or device that inflicts 5 points of damage on normal creatures within long range, and 10 points of damage on a demon or spirit (or, instead of dealing extra damage, the effect confines the demon or spirit in some way)."
+      ],
+      "interaction": [
+        "Occultists are deeply concerned with spiritual or demonic matters and see those influences in all things, whether those influences exist or not. That makes them amenable to persuasion and deception, if couched in the language of spiritual influence."
+      ],
+      "loot": [
+        "In addition to their clothing and mundane weapons, occultists have currency equivalent to an inexpensive item, a cypher, and possibly an artifact related to their power over spirits or demons."
+      ]
+    },
+    "text": "Paranormal researchers, cultists, secret practitioners of white magic, and coven members might be occultists. Thanks to their study of the metaphysical, occultists learn several magical tricks, including the ability to summon or banish the dead.\n\nHealth: 15\n\nDamage Inflicted: 5 points\n\nMovement: Short\n\nModifications: Knowledge of occult topics and rituals as level 8; ability to detect lies and tricks as level 2\n\nCombat: An occultist has a charm or device for summoning a level 5 spirit or demon that will do their bidding for ten minutes. Some also have (or instead have) a spell, item, or device that inflicts 5 points of damage on normal creatures within long range, and 10 points of damage on a demon or spirit (or, instead of dealing extra damage, the effect confines the demon or spirit in some way).\n\nInteraction: Occultists are deeply concerned with spiritual or demonic matters and see those influences in all things, whether those influences exist or not. That makes them amenable to persuasion and deception, if couched in the language of spiritual influence.\n\nUse: To find a needed answer, the spirit of a dead person must be questioned. Alternatively, a haunting presence must be banished. Either way, the task requires an occultist.\n\nLoot: In addition to their clothing and mundane weapons, occultists have currency equivalent to an inexpensive item, a cypher, and possibly an artifact related to their power over spirits or demons.\n\nGM Intrusion: A bony hand erupts from the ground at the character’s feet. On a failed Speed defense roll, they are held in place until they succeed on a Might-based task to escape. Each round the character fails to escape, the hand squeezes for 3 points of damage.\n\nOccultist\nLevel 5 (target number 15)\nHealth: 15\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.mIkMohVYFvaiNwZB",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_occultist_20260313T124845_bc3becbd.webp",
+      "images": [
+        "uploads/foundryvtt/npc_occultist_20260313T124845_bc3becbd.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/npc_occultist.webp"
+    },
+    "description": "To find a needed answer, the spirit of a dead person must be questioned. Alternatively, a haunting presence must be banished. Either way, the task requires an occultist."
+  }
+}

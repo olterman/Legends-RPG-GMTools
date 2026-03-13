@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:47.933031+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124847_20260313T124847.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Rattlesnake",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Rattlesnake"
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 6,
+      "armor": 0,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 2; bite inflicts 3 points of Speed damage (ignores Armor)\n\nRattlesnake\nLevel 2 (target number 6)\nHealth: 6\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.RxtZyeRliCY3v9In",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/animal_mundane_20260313T124847_330b8f37.webp",
+      "images": [
+        "uploads/foundryvtt/animal_mundane_20260313T124847_330b8f37.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/animal_mundane.webp"
+    },
+    "description": "Level 2; bite inflicts 3 points of Speed damage (ignores Armor) Rattlesnake Level 2 (target number 6) Health: 6 Armor: 0 Damage: 3"
+  }
+}

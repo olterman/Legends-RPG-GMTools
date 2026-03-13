@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:53.852764+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124853_20260313T124853.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Thundering behemoth",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Thundering behemoth",
+      "environment": "Forests, alone or in a hunting group (known as a “crash”) of two or three",
+      "motive": "Fresh meat",
+      "interaction": "Behemoths have a complex communication system among themselves, using their color-changing frills and modulation of the thunder they produce. They think of humans and most other creatures as food.",
+      "use": "The sound of fighting spacecraft has repeatedly spooked human colonists on an alien planet, though they have rarely seen destructive beams or actual spacecraft. Worried that that will soon change, the residents ask the PCs to investigate.",
+      "gm_intrusion": "The character avoids being bitten but is batted away by the behemoth’sattack, tumbling a short distance (and taking 5 points of damage)."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 35,
+      "armor": 2,
+      "damage": 9,
+      "movement": "Short",
+      "modifications": [
+        "Disguise (as trees) as level 8 when unmoving. Deception (sounding as if an attacking spacecraft) as level 8. Speed defense as level 3 due to size."
+      ],
+      "combat": [
+        "A thundering behemoth can attack a group of creatures (within an immediate area of each other) with a single massive bite. Thanks to its long neck, it can make that attack up to 9 m (30 feet) away. One victim must further succeed on a Might defense task or be caught in the creature’s maw, taking 9 additional points of damage each round until it can escape. A thundering behemoth’s ability to replicate threatening noises is often used deceptively at a distance, but the creature can use it to stun all targets within immediate range so they lose their next turn on a failed Might defense roll."
+      ],
+      "interaction": [
+        "Behemoths have a complex communication system among themselves, using their color-changing frills and modulation of the thunder they produce. They think of humans and most other creatures as food."
+      ],
+      "loot": []
+    },
+    "text": "When life is found on other worlds, it’s sometimes large and dangerous, such as the aptly named thundering behemoth. A thundering behemoth might be found on any number of alien planets that feature forests and/or swamps. Towering to treelike heights, these fearless predators are powerful and dangerous hunters, even for those armed with advanced or fantastic weaponry. Behemoths use color-changing frills to help them appear like tall trees while they stand in wait for prey, as still as mighty hardwood trunks, until they break cover and spring an ambush.\n\nBehemoths can produce extraordinarily loud noises, sometimes simply roaring, but often replicating the stuttering scream of an attacking spacecraft. They use their strange “roars” to confuse, lead astray, and, if possible, stampede prey into killing grounds such as regions of soft sand, off cliff tops, or as often as not, into the waiting mouth of another behemoth.\n\nIn the sci-fi setting of Numenera, similar creatures are called rumbling dasipelts.\n\nMotive: Fresh meat\n\nEnvironment: Forests, alone or in a hunting group (known as a “crash”) of two or three\n\nHealth: 35\n\nDamage Inflicted: 9 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: Disguise (as trees) as level 8 when unmoving. Deception (sounding as if an attacking spacecraft) as level 8. Speed defense as level 3 due to size.\n\nCombat: A thundering behemoth can attack a group of creatures (within an immediate area of each other) with a single massive bite. Thanks to its long neck, it can make that attack up to 9 m (30 feet) away. One victim must further succeed on a Might defense task or be caught in the creature’s maw, taking 9 additional points of damage each round until it can escape.\n\nA thundering behemoth’s ability to replicate threatening noises is often used deceptively at a distance, but the creature can use it to stun all targets within immediate range so they lose their next turn on a failed Might defense roll.\n\nInteraction: Behemoths have a complex communication system among themselves, using their color-changing frills and modulation of the thunder they produce. They think of humans and most other creatures as food.\n\nUse: The sound of fighting spacecraft has repeatedly spooked human colonists on an alien planet, though they have rarely seen destructive beams or actual spacecraft. Worried that that will soon change, the residents ask the PCs to investigate.\n\nGM Intrusion: The character avoids being bitten but is batted away by the behemoth’sattack, tumbling a short distance (and taking 5 points of damage).\n\nThundering behemoth\nLevel 7 (target number 21)\nHealth: 35\nArmor: 2\nDamage: 9",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.jtms0hT7NwHuhRuO",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_thundering-behemoth_20260313T124853_280158c1.webp",
+      "images": [
+        "uploads/foundryvtt/creature_thundering-behemoth_20260313T124853_280158c1.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_thundering-behemoth.webp"
+    },
+    "description": "The sound of fighting spacecraft has repeatedly spooked human colonists on an alien planet, though they have rarely seen destructive beams or actual spacecraft. Worried that that will soon change, the residents ask the PCs to investigate."
+  }
+}

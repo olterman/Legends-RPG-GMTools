@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:44.926964+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124944_20260313T124944.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Condition remover",
+    "description": "Level: 1d6 + 3 Effect: Cures one occurrence of one specific health condition of the cypher level or lower. It does not prevent the possibility of future occurrences of the same condition. Roll a [[/r d20]] to determine what it cures. 1Addiction to one substance2Autoimmune disease3Bacterial infection4Bad breath5Blisters6Bloating7Cancer8Chapped lips9Flatus10Hangover11Heartburn12Hiccups13Ingrown hairs14Insomnia15Joint problem16Muscle cramp17Pimples18Psychosis19Stiff neck20Viral infection",
+    "sections": {
+      "name": "Condition remover",
+      "level": "1d6 + 3",
+      "effect": "Level: 1d6 + 3\n\nEffect: Cures one occurrence of one specific health condition of the cypher level or lower. It does not prevent the possibility of future occurrences of the same condition. Roll a [[/r d20]] to determine what it cures.\n\n1Addiction to one substance2Autoimmune disease3Bacterial infection4Bad breath5Blisters6Bloating7Cancer8Chapped lips9Flatus10Hangover11Heartburn12Hiccups13Ingrown hairs14Insomnia15Joint problem16Muscle cramp17Pimples18Psychosis19Stiff neck20Viral infection"
+    },
+    "text": "Level: 1d6 + 3\n\nEffect: Cures one occurrence of one specific health condition of the cypher level or lower. It does not prevent the possibility of future occurrences of the same condition. Roll a [[/r d20]] to determine what it cures.\n\n1Addiction to one substance2Autoimmune disease3Bacterial infection4Bad breath5Blisters6Bloating7Cancer8Chapped lips9Flatus10Hangover11Heartburn12Hiccups13Ingrown hairs14Insomnia15Joint problem16Muscle cramp17Pimples18Psychosis19Stiff neck20Viral infection",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124944_f34b2517.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124944_f34b2517.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

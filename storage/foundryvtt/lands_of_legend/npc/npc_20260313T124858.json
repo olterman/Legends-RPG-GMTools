@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:58.339134+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124858.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Zombie sprinter",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Zombie sprinter"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 0,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 3, initiative as level 5; moves a long distance each round; three bites per round inflict 3 damage each; retains 1 health if attack roll result that would have downed it was an even number\n\nZombie sprinter\nLevel 3 (target number 9)\nHealth: 12\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.RsflMNUV4kD89deV",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/undead_oblivious_20260313T124858_f8280797.webp",
+      "images": [
+        "uploads/foundryvtt/undead_oblivious_20260313T124858_f8280797.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/undead_oblivious.webp"
+    },
+    "description": "Level 3, initiative as level 5; moves a long distance each round; three bites per round inflict 3 damage each; retains 1 health if attack roll result that would have downed it was an even number Zombie sprinter Level 3 (target number 9) Health: 12 Armor: 0 Damage: 3"
+  }
+}

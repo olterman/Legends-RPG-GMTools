@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:44.682941+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124844_20260313T124844.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Naiad",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Naiad"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 0,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "These water nymphs inhabit rivers, springs, waterfalls, and other bodies of fresh water. Typically appearing as beautiful young women with long limbs and flowing hair, naiads are considered protectors, for they guard their land fiercely. However, they are easily provoked and their wrath is fierce.\n\nLevel 4; can cause water to boil, inflicting 3 points of heat damage on foes; can unleash flash floods that sweep all foes back a very long distance and inflict 2 points of ambient damage (ignores Armor)\n\nNaiad\nLevel 4 (target number 12)\nHealth: 12\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.GzZZWlV4KuIaiEhK",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/fey_humanoid_20260313T124844_469615cc.webp",
+      "images": [
+        "uploads/foundryvtt/fey_humanoid_20260313T124844_469615cc.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/fey_humanoid.webp"
+    },
+    "description": "These water nymphs inhabit rivers, springs, waterfalls, and other bodies of fresh water. Typically appearing as beautiful young women with long limbs and flowing hair, naiads are considered protectors, for they guard their land fiercely. However, they are easily provoked and their wrath is fierce. Level 4; can cause water to boil, inflicting 3 points of heat damage on foes; can unleash flash floods that sweep all foes back a very long distance and inflict 2 points of ambient damage (ignores Arm…"
+  }
+}

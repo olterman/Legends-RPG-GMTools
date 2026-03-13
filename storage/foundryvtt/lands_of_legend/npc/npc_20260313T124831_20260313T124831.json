@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:31.989296+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124831_20260313T124831.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Dog, guard",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Dog, guard"
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 0,
+      "damage": 3,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "A dog specially trained to guard. Better suited for watching or patrolling an area against thieves and intruders than it is for accompanying adventurers into dangerous locations.\n\nLevel 3, attacks and perception as level 4\n\nDog, guard\nLevel 3 (target number 9)\nHealth: 9\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.vmvgLdR7JKdsukCW",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/animal_mundane_20260313T124831_10c6f76e.webp",
+      "images": [
+        "uploads/foundryvtt/animal_mundane_20260313T124831_10c6f76e.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/animal_mundane.webp"
+    },
+    "description": "A dog specially trained to guard. Better suited for watching or patrolling an area against thieves and intruders than it is for accompanying adventurers into dangerous locations. Level 3, attacks and perception as level 4 Dog, guard Level 3 (target number 9) Health: 9 Armor: 0 Damage: 3"
+  }
+}

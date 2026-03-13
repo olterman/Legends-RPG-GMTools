@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:53.037051+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124853.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Television thoughtform",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Television thoughtform",
+      "environment": "Anywhere their fictional self would feel comfortable",
+      "motive": "Acceptance; adjustment to the real world",
+      "interaction": "A thoughtform that’s ignorant of their true nature acts exactly as their fictional self would. An aware thoughtform develops their own personality over time, which might be similar to their fictional persona or radically different as a rebellion against how they were “forced” to act.",
+      "use": "Thoughtforms create quirky, interesting, and misleading encounters where PCs and NPCs mistake them for cosplayers, famous actors, people experiencing delusions (about a fictional city or a “hologram program\"), or odd local residents (such as a hard-boiled detective or a high-school sports hero or bully). They sometimes know secret information about the media they’re from.",
+      "loot": "Although a dead thoughtform and their equipment slowly fades away into nothingness, sometimes they leave behind an interesting cypher."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 1,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Intellect defense as level 4; assuming their fictional role as level 5"
+      ],
+      "combat": [
+        "Television thoughtforms attack using whatever methods are appropriate for their character. For most people, this means improvised weapons like chairs and baseball bats, inflicting 3 points of damage. Battle-competent characters such as police officers, sci-fi soldiers, and fantasy heroes tend to use lethal weapons like pistols and swords, inflicting 6 points of damage. Thoughtforms can incidentally alter their own reality in small ways relevant to their fictional self, such as suddenly changing outfits to match the situation, producing useful equipment (like a weapon or mobile phone) out of nothing, or instantly recovering 3 points of health. The thoughtform usually hand-waves how they were able to do this; pressing them on these abilities eventually leads to them learning that they’re a thoughtform. These abilities might happen automatically as part of the thoughtform’s action, or they might use an action to duck out of sight and return after the change has happened."
+      ],
+      "interaction": [
+        "A thoughtform that’s ignorant of their true nature acts exactly as their fictional self would. An aware thoughtform develops their own personality over time, which might be similar to their fictional persona or radically different as a rebellion against how they were “forced” to act."
+      ],
+      "loot": [
+        "Although a dead thoughtform and their equipment slowly fades away into nothingness, sometimes they leave behind an interesting cypher."
+      ]
+    },
+    "text": "A television thoughtform is a nexus of images and videos from TV programming, brought to life—usually accidentally—by unconscious or deliberate magic. Typically, the thoughtform looks like a specific television character in the real world, but objects and even locations have been known to manifest as thoughtforms. The thoughtform isn’t initially aware that they’re a manifestation of a fictional television program, but over time they usually come to realize their artificial origin and that the “world” they lived in and the people they knew there weren’t real. Most thoughtforms adapt to their new situation, but some have a traumatic response to their new reality and become dangerous.\n\nA thoughtform is a thought or idea made real, usually through intense belief, concentration, or magic. Buddhist philosophy has a similar concept called a “tulpa.\"\n\nIt’s possible to create a thoughtform of a real person out of documentary footage, newscasts, interviews, or other media where the person on the screen is portraying themselves. These thoughtforms tend to have a poor time adjusting to a reality where they are an artificial copy of a real person, rejected by their friends and loved ones.\n\nMotive: Acceptance; adjustment to the real world\n\nEnvironment: Anywhere their fictional self would feel comfortable\n\nHealth: 9\n\nDamage Inflicted: 3 or 6 points (see below)\n\nArmor: 1\n\nMovement: Short\n\nModifications: Intellect defense as level 4; assuming their fictional role as level 5\n\nCombat: Television thoughtforms attack using whatever methods are appropriate for their character. For most people, this means improvised weapons like chairs and baseball bats, inflicting 3 points of damage. Battle-competent characters such as police officers, sci-fi soldiers, and fantasy heroes tend to use lethal weapons like pistols and swords, inflicting 6 points of damage.\n\nThoughtforms can incidentally alter their own reality in small ways relevant to their fictional self, such as suddenly changing outfits to match the situation, producing useful equipment (like a weapon or mobile phone) out of nothing, or instantly recovering 3 points of health. The thoughtform usually hand-waves how they were able to do this; pressing them on these abilities eventually leads to them learning that they’re a thoughtform. These abilities might happen automatically as part of the thoughtform’s action, or they might use an action to duck out of sight and return after the change has happened.\n\nInteraction: A thoughtform that’s ignorant of their true nature acts exactly as their fictional self would. An aware thoughtform develops their own personality over time, which might be similar to their fictional persona or radically different as a rebellion against how they were “forced” to act.\n\nUse: Thoughtforms create quirky, interesting, and misleading encounters where PCs and NPCs mistake them for cosplayers, famous actors, people experiencing delusions (about a fictional city or a “hologram program\"), or odd local residents (such as a hard-boiled detective or a high-school sports hero or bully). They sometimes know secret information about the media they’re from.\n\nLoot: Although a dead thoughtform and their equipment slowly fades away into nothingness, sometimes they leave behind an interesting cypher.\n\nTelevision thoughtform\nLevel 3 (target number 9)\nHealth: 9\nArmor: 1\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.RRaHVA9ZJevXSL49",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_television-thoughtforn_20260313T124853_de131a78.webp",
+      "images": [
+        "uploads/foundryvtt/creature_television-thoughtforn_20260313T124853_de131a78.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/modern-fantasy/creature_television-thoughtforn.webp"
+    },
+    "description": "Thoughtforms create quirky, interesting, and misleading encounters where PCs and NPCs mistake them for cosplayers, famous actors, people experiencing delusions (about a fictional city or a “hologram program\"), or odd local residents (such as a hard-boiled detective or a high-school sports hero or bully). They sometimes know secret information about the media they’re from."
+  }
+}

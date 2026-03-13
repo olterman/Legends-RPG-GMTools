@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:25.176763+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124825.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "AI zombie",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "AI zombie",
+      "environment": "Almost anywhere, in groups of five to seven, or in hordes of tens to hundreds",
+      "motive": "Follow dictates of AI that created or that controls them",
+      "interaction": "AI zombies often serve some distant AI and may sometimes speak with its voice. But if cut off from its intelligence source, the zombie itself becomes a food seeking monster, more likely to eat someone than to represent an artificial mind.",
+      "use": "The characters are asked to salvage supplies from an abandoned airplane hangar—abandoned, that is, except for lingering AI zombies."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 0,
+      "damage": 3,
+      "movement": "Immediate",
+      "modifications": [
+        "Speed defense as level 2; perception tasks as level 7"
+      ],
+      "combat": [
+        "AI zombies fight on, no matter the odds, usually attacking by biting. When AI zombies attack in groups of five to seven individuals, they can make a single attack roll against one target as one level 5 creature, inflicting 5 points of damage. AI zombies are hard to finish off because self repairing nanotech stitched into their flesh restores 1 point of health each round. If reduced to 0 health, there is a 50% chance that the nanotech continues to function on the zombie’s turn, allowing the creature to shudder back to life, skin crawling with miniscule “healing” robots. (If an AI zombie is cut off from ambient radio signals, they do not regain health each round.) That same nanotech makes AI zombies infectious. Their bites spread a level 6 (or, in some cases, level 8) disease due to miniscule machines that move a target down one step on the damage track each day a Might defense roll is failed. Targets killed by the process later animate as AI zombies, compelled to serve an AI instance."
+      ],
+      "interaction": [
+        "AI zombies often serve some distant AI and may sometimes speak with its voice. But if cut off from its intelligence source, the zombie itself becomes a food seeking monster, more likely to eat someone than to represent an artificial mind."
+      ],
+      "loot": []
+    },
+    "text": "An artificial intelligence that permanently installs itself onto the wetware (in this case, the brain) of a human or other sapient creature creates an AI zombie. The AI replaces the person’s personality and motivations, turning them into a shambling creature who only does the AI’s bidding, even as their body decays and falls apart (though most keep shambling because of an injection of nano repair bots). \n\nAI zombies are driven by a single, simple motive implanted by the original artificial intelligence—usually related to destroying resources before competing AI instances can use them. They aren’t intelligent enough to direct themselves or problem solve outside of this goal, unless the AI takes direct control, using a particular AI zombie as a remote “terminal” from which to act and observe the world.\n\nMotive: Follow dictates of AI that created or that controls them \n\nEnvironment: Almost anywhere, in groups of five to seven, or in hordes of tens to hundreds \n\nHealth: 12 \n\nDamage Inflicted: 3 points \n\nMovement: Immediate \n\nModifications: Speed defense as level 2; perception tasks as level 7 \n\nCombat: AI zombies fight on, no matter the odds, usually attacking by biting. \n\nWhen AI zombies attack in groups of five to seven individuals, they can make a single attack roll against one target as one level 5 creature, inflicting 5 points of damage. \n\nAI zombies are hard to finish off because self repairing nanotech stitched into their flesh restores 1 point of health each round. If reduced to 0 health, there is a 50% chance that the nanotech continues to function on the zombie’s turn, allowing the creature to shudder back to life, skin crawling with miniscule “healing” robots. (If an AI zombie is cut off from ambient radio signals, they do not regain health each round.) \n\nThat same nanotech makes AI zombies infectious. Their bites spread a level 6 (or, in some cases, level 8) disease due to miniscule machines that move a target down one step on the damage track each day a Might defense roll is failed. Targets killed by the process later animate as AI zombies, compelled to serve an AI instance. \n\nInteraction: AI zombies often serve some distant AI and may sometimes speak with its voice. But if cut off from its intelligence source, the zombie itself becomes a food seeking monster, more likely to eat someone than to represent an artificial mind. \n\nUse: The characters are asked to salvage supplies from an abandoned airplane hangar—abandoned, that is, except for lingering AI zombies.\n\nAI zombie\nLevel 3 (target number 9)\nHealth: 12\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.bnRphCGUcIw6hah2",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_ai-zombie_20260313T124825_790c6666.webp",
+      "images": [
+        "uploads/foundryvtt/creature_ai-zombie_20260313T124825_790c6666.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/post-apocalyptic/creature_ai-zombie.webp"
+    },
+    "description": "The characters are asked to salvage supplies from an abandoned airplane hangar—abandoned, that is, except for lingering AI zombies."
+  }
+}

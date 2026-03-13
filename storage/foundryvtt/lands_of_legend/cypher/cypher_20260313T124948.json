@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:48.173218+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124948.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Diadem of death",
+    "description": "Level: 1d6 + 4 Form: Crown made of feathers, bits of bone, burnt hair, and old teeth Effect: When worn on someone’s head, looped over a limb, or otherwise placed upon their person, the crown inflicts damage equal to its level.",
+    "sections": {
+      "name": "Diadem of death",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: Crown made of feathers, bits of bone, burnt hair, and old teeth\n\nEffect: When worn on someone’s head, looped over a limb, or otherwise placed upon their person, the crown inflicts damage equal to its level."
+    },
+    "text": "Level: 1d6 + 4\n\nForm: Crown made of feathers, bits of bone, burnt hair, and old teeth\n\nEffect: When worn on someone’s head, looped over a limb, or otherwise placed upon their person, the crown inflicts damage equal to its level.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124948_c22e8692.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124948_c22e8692.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

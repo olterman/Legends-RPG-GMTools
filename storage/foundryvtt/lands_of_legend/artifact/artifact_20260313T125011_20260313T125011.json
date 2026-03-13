@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:11.657532+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125011_20260313T125011.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Vicious tankard",
+    "description": "Level: 1d6 + 2 Form: Hefty ale tankard carved of stone Effect: In addition to serving as a convenient means to drink a variety of liquids, if the tankard is topped off with good ale or spirits, it can be used as a medium weapon that inflicts +2 damage (for a total of 6 points of damage). Anyone who picks up the tankard is practiced in using it in this fashion. Surprisingly, using the tankard as a melee weapon does not cause more than a modicum of good ale or spirits to slosh out. Depletion: 1 i…",
+    "sections": {
+      "name": "Vicious tankard",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Hefty ale tankard carved of stone\n\nEffect: In addition to serving as a convenient means to drink a variety of liquids, if the tankard is topped off with good ale or spirits, it can be used as a medium weapon that inflicts +2 damage (for a total of 6 points of damage). Anyone who picks up the tankard is practiced in using it in this fashion. Surprisingly, using the tankard as a melee weapon does not cause more than a modicum of good ale or spirits to slosh out.\n\nDepletion: 1 in 1d20 (check each fight)",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Hefty ale tankard carved of stone\n\nEffect: In addition to serving as a convenient means to drink a variety of liquids, if the tankard is topped off with good ale or spirits, it can be used as a medium weapon that inflicts +2 damage (for a total of 6 points of damage). Anyone who picks up the tankard is practiced in using it in this fashion. Surprisingly, using the tankard as a melee weapon does not cause more than a modicum of good ale or spirits to slosh out.\n\nDepletion: 1 in 1d20 (check each fight)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125011_5db7fb97.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125011_5db7fb97.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

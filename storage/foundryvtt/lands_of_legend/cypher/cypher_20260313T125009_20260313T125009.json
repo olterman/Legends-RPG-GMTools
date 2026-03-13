@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:09.934008+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125009_20260313T125009.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Time dilation (defensive)",
+    "description": "Level: 1d6 Effect: For the next twenty-four hours, when the user is attacked, they move in rapid, seemingly random jumps, a few inches to one side or the other. This is an asset that modifies the user’s defense rolls by two steps (three steps if the cypher is level 6 or higher).",
+    "sections": {
+      "name": "Time dilation (defensive)",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: For the next twenty-four hours, when the user is attacked, they move in rapid, seemingly random jumps, a few inches to one side or the other. This is an asset that modifies the user’s defense rolls by two steps (three steps if the cypher is level 6 or higher)."
+    },
+    "text": "Level: 1d6\n\nEffect: For the next twenty-four hours, when the user is attacked, they move in rapid, seemingly random jumps, a few inches to one side or the other. This is an asset that modifies the user’s defense rolls by two steps (three steps if the cypher is level 6 or higher).",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125009_2307d35e.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125009_2307d35e.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

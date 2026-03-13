@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:12.023135+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125012.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Vorpal sword",
+    "description": "Level: 1d6 + 3 Form: Long sword that sometimes whispers and snickers aloud Effect: The vorpal sword cuts through any material of a level lower than its own. It is a medium weapon that ignores Armor of a level lower than its own. On a natural attack roll of 19 or 20, the suggested minor or major effect is decapitation if the artifact is higher level than the foe (use this only if the foe has a head; otherwise, choose a different effect). Depletion: 1–2 in 1d100 (check each decapitation and speci…",
+    "sections": {
+      "name": "Vorpal sword",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Long sword that sometimes whispers and snickers aloud\n\nEffect: The vorpal sword cuts through any material of a level lower than its own. It is a medium weapon that ignores Armor of a level lower than its own. On a natural attack roll of 19 or 20, the suggested minor or major effect is decapitation if the artifact is higher level than the foe (use this only if the foe has a head; otherwise, choose a different effect).\n\nDepletion: 1–2 in 1d100 (check each decapitation and specific attempt to cut through solid material)",
+      "depletion": "1–2 in [[/r 1d100 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Long sword that sometimes whispers and snickers aloud\n\nEffect: The vorpal sword cuts through any material of a level lower than its own. It is a medium weapon that ignores Armor of a level lower than its own. On a natural attack roll of 19 or 20, the suggested minor or major effect is decapitation if the artifact is higher level than the foe (use this only if the foe has a head; otherwise, choose a different effect).\n\nDepletion: 1–2 in 1d100 (check each decapitation and specific attempt to cut through solid material)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125012_49f3a3b7.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125012_49f3a3b7.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

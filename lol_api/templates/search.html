@@ -12,6 +12,11 @@
       <label for="filter-q">Search</label>
       <input id="filter-q" placeholder="e.g. cyclops, fire, fenmir, mirror" />
     </div>
+    <div class="actions">
+      <button id="search-btn" type="button">Search</button>
+      <button id="reset-btn" type="button" class="secondary">Reset</button>
+      <button id="trash-toggle-btn" type="button" class="secondary">Trash Bin</button>
+    </div>
 
     <div class="field">
       <label for="filter-type">Type</label>
@@ -110,15 +115,40 @@
       </select>
     </div>
 
-    <div class="actions">
-      <button id="search-btn" type="button">Search</button>
-      <button id="reset-btn" type="button" class="secondary">Reset</button>
-      <button id="trash-toggle-btn" type="button" class="secondary">Trash Bin</button>
+    <div class="field">
+      <label for="semantic-q">Semantic Search</label>
+      <input id="semantic-q" placeholder="e.g. haunted black dog omen at crossroads" />
+      <div class="actions" style="margin-top:8px;">
+        <button id="semantic-search-btn" type="button" class="secondary">Semantic Query</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="ollama-q">AI RAG Query</label>
+      <select id="ai-provider" style="margin-bottom:8px;">
+        <option value="ollama_local">Ollama Local</option>
+        <option value="openai_remote">OpenAI Remote</option>
+      </select>
+      <input id="ollama-q" placeholder="Ask with vector-grounded context..." />
+      <div class="actions" style="margin-top:8px;">
+        <button id="ollama-ask-btn" type="button" class="secondary">Ask AI</button>
+      </div>
     </div>
 
     <div class="status" id="status">Loading filters...</div>
 
     <div class="results" id="results"></div>
+    <div class="output-card" id="semantic-panel" style="margin-top:10px;">
+      <strong>Semantic Results</strong>
+      <div class="small" id="semantic-status">No semantic query run yet.</div>
+      <div class="results" id="semantic-results"></div>
+    </div>
+    <div class="output-card" id="ollama-panel" style="margin-top:10px;">
+      <strong>AI Answer</strong>
+      <div class="small" id="ollama-status">No AI query run yet.</div>
+      <div id="ollama-answer" class="small" style="margin-top:6px; white-space:pre-wrap;"></div>
+      <div class="results" id="ollama-citations"></div>
+    </div>
     <div class="output-card hidden" id="trash-panel">
       <div class="actions" style="margin-bottom:8px;">
         <strong>Trash Bin</strong>
@@ -147,11 +177,24 @@
     meta: null,
     selectedResultKey: null,
     compendiums: [],
-    compendiumById: {}
+    compendiumById: {},
+    semanticItems: [],
+    ollamaCitations: [],
+    ollamaLastAnswer: ""
   };
 
   const els = {
     q: document.getElementById('filter-q'),
+    semanticQ: document.getElementById('semantic-q'),
+    semanticSearchBtn: document.getElementById('semantic-search-btn'),
+    semanticStatus: document.getElementById('semantic-status'),
+    semanticResults: document.getElementById('semantic-results'),
+    aiProvider: document.getElementById('ai-provider'),
+    ollamaQ: document.getElementById('ollama-q'),
+    ollamaAskBtn: document.getElementById('ollama-ask-btn'),
+    ollamaStatus: document.getElementById('ollama-status'),
+    ollamaAnswer: document.getElementById('ollama-answer'),
+    ollamaCitations: document.getElementById('ollama-citations'),
     type: document.getElementById('filter-type'),
     setting: document.getElementById('filter-setting'),
     environment: document.getElementById('filter-environment'),
@@ -392,9 +435,22 @@
   }
 
   function compactText(value, limit = 280) {
-    const text = String(value ?? "").replace(/\s+/g, " ").trim();
+    const text = stripImageArtifacts(value).replace(/\s+/g, " ").trim();
     if (!text) return "";
     return text.length > limit ? `${text.slice(0, limit - 1).trim()}…` : text;
+  }
+
+  function stripImageArtifacts(value) {
+    let text = String(value ?? "");
+    if (!text) return "";
+    text = text.replace(/!\[[^\]]*]\([^)\n]*\)/g, " ");
+    text = text.replace(/<img\b[^>]*>/gi, " ");
+    text = text.replace(/^\s*\[[^\]]+]:\s*\S+\.(png|jpe?g|gif|webp|svg)(\s+["'][^"']*["'])?\s*$/gim, " ");
+    text = text.replace(/\{\{[^}]*\.(png|jpe?g|gif|webp|svg)[^}]*\}\}/gi, " ");
+    text = text.replace(/^\s*(figure|fig|image)\s*[:#-]?\s*\d+[^\n]*$/gim, " ");
+    text = text.replace(/[ \t]+\n/g, "\n");
+    text = text.replace(/\n{3,}/g, "\n\n");
+    return text.trim();
   }
 
   function pickDescription(item) {
@@ -560,6 +616,237 @@
 
   function scrollToPageTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderSemanticResults(items) {
+    if (!Array.isArray(items) || !items.length) {
+      state.semanticItems = [];
+      els.semanticResults.innerHTML = `<div class="small">No semantic matches.</div>`;
+      els.results.innerHTML = `
+        <div class="output-card empty-state-card">
+          <div class="empty-text">No semantic matches for the current query/filter.</div>
+        </div>
+      `;
+      return;
+    }
+    state.semanticItems = items;
+    els.semanticResults.innerHTML = `<div class="small">Showing semantic matches in main results list.</div>`;
+    els.results.innerHTML = items.map((item, idx) => {
+      const cid = String(item.compendium_id || "").trim().toLowerCase();
+      const sourcePath = String(item.source_path || "").trim();
+      const heading = String(item.heading || "Section").trim();
+      const score = Number(item.score || 0).toFixed(3);
+      const text = compactText(String(item.text || ""), 260);
+      return `
+        <div class="result-card semantic-result-card"
+             data-semantic-index="${idx}">
+          <div class="result-top">
+            <div>
+              <div class="result-heading">${escapeHtml(`#${idx + 1} ${heading}`)} - Semantic Match</div>
+              <div class="source-badge source-official">${escapeHtml(sourceLabel(cid || "official_pdf"))}</div>
+            </div>
+          </div>
+          <div class="result-description">${escapeHtml(text || "No excerpt.")}</div>
+          <div class="result-meta">${escapeHtml(`Score: ${score} • ${sourcePath || "n/a"}`)}</div>
+        </div>
+      `;
+    }).join("");
+
+    document.querySelectorAll('.semantic-result-card').forEach(card => {
+      card.addEventListener('click', async () => {
+        document.querySelectorAll('.result-card.selected').forEach(el => el.classList.remove('selected'));
+        card.classList.add('selected');
+        const idx = Number(card.getAttribute('data-semantic-index') || -1);
+        const item = state.semanticItems[idx];
+        if (!item) return;
+        const cid = String(item.compendium_id || "").trim();
+        const sourcePath = String(item.source_path || "").trim();
+        const heading = String(item.heading || "Chunk").trim();
+        const score = Number(item.score || 0).toFixed(3);
+        const text = String(item.text || "").trim();
+        const rawUrl = cid && sourcePath
+          ? `/compendiums/${encodeURIComponent(cid)}/raw-text?path=${encodeURIComponent(sourcePath)}`
+          : "";
+        els.viewer.innerHTML = `
+          <div class="viewer-header">
+            <h2>${escapeHtml(heading)}</h2>
+            <p>Semantic Result</p>
+          </div>
+          <div class="output-card">
+            ${renderOutputRow("Compendium", cid)}
+            ${renderOutputRow("Source", sourcePath)}
+            ${renderOutputRow("Score", score)}
+            ${rawUrl ? `<div class="actions"><a href="${escapeHtml(rawUrl)}" target="_blank" rel="noopener">Open Raw Text</a></div>` : ""}
+          </div>
+          <div class="output-card">
+            <h3>Chunk Text</h3>
+            <div class="output-value">${escapeHtml(text)}</div>
+          </div>
+        `;
+        state.selectedResultKey = `semantic:${idx}`;
+        scrollToPageTop();
+      });
+      const idx = Number(card.getAttribute('data-semantic-index') || -1);
+      if (state.selectedResultKey === `semantic:${idx}`) {
+        card.classList.add('selected');
+      }
+    });
+  }
+
+  async function semanticSearch() {
+    const query = String(els.semanticQ?.value || "").trim();
+    if (!query) {
+      els.semanticStatus.textContent = "Enter a semantic query first.";
+      els.semanticResults.innerHTML = "";
+      return;
+    }
+    els.semanticStatus.textContent = "Running semantic query...";
+    const params = new URLSearchParams();
+    params.set("q", query);
+    params.set("k", "10");
+    const selectedCompendiums = getSelectedCompendiumIds();
+    if (selectedCompendiums.length === 1) {
+      params.set("compendium_id", selectedCompendiums[0]);
+    }
+    try {
+      const data = await fetchJson(`/vector/query?${params.toString()}`);
+      const items = Array.isArray(data.items) ? data.items : [];
+      renderSemanticResults(items);
+      els.semanticStatus.textContent = `Semantic matches: ${items.length}.`;
+      scrollToPageTop();
+    } catch (err) {
+      els.semanticStatus.textContent = `Semantic query failed: ${err.message}`;
+      els.semanticResults.innerHTML = "";
+    }
+  }
+
+  function renderOllamaCitations(citations) {
+    if (!Array.isArray(citations) || !citations.length) {
+      state.ollamaCitations = [];
+      els.ollamaCitations.innerHTML = `<div class="small">No citations returned.</div>`;
+      els.results.innerHTML = `
+        <div class="output-card empty-state-card">
+          <div class="empty-text">No Ollama citations returned for this query.</div>
+        </div>
+      `;
+      return;
+    }
+    state.ollamaCitations = citations;
+    els.ollamaCitations.innerHTML = `<div class="small">Showing Ollama citations in main results list.</div>`;
+    els.results.innerHTML = citations.map((c, idx) => {
+      const n = Number(c.n || 0);
+      const cid = String(c.compendium_id || "").trim();
+      const sourcePath = String(c.source_path || "").trim();
+      const heading = String(c.heading || "").trim();
+      const score = Number(c.score || 0).toFixed(3);
+      return `
+        <div class="result-card ollama-result-card"
+             data-ollama-index="${idx}">
+          <div class="result-top">
+            <div>
+              <div class="result-heading">${escapeHtml(`[${n}] ${heading || "Chunk"}`)} - Ollama Citation</div>
+              <div class="source-badge source-official">${escapeHtml(sourceLabel(cid || "official_pdf"))}</div>
+            </div>
+          </div>
+          <div class="result-meta">${escapeHtml(`${cid} • ${sourcePath} • score ${score}`)}</div>
+        </div>
+      `;
+    }).join("");
+
+    document.querySelectorAll('.ollama-result-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.result-card.selected').forEach(el => el.classList.remove('selected'));
+        card.classList.add('selected');
+        const idx = Number(card.getAttribute('data-ollama-index') || -1);
+        const c = state.ollamaCitations[idx];
+        if (!c) return;
+        const n = Number(c.n || 0);
+        const cid = String(c.compendium_id || "").trim();
+        const sourcePath = String(c.source_path || "").trim();
+        const heading = String(c.heading || "Chunk").trim();
+        const score = Number(c.score || 0).toFixed(3);
+        const rawUrl = cid && sourcePath
+          ? `/compendiums/${encodeURIComponent(cid)}/raw-text?path=${encodeURIComponent(sourcePath)}`
+          : "";
+        const vectorItems = Array.isArray(c._vector_items) ? c._vector_items : [];
+        const matched = vectorItems.find((x) => Number(x.n || x._n || 0) === n)
+          || vectorItems.find((x) => String(x.source_path || "") === sourcePath && String(x.heading || "") === heading)
+          || null;
+        const snippet = matched ? String(matched.text || "") : "";
+        els.viewer.innerHTML = `
+          <div class="viewer-header">
+            <h2>${escapeHtml(heading)}</h2>
+            <p>Ollama Citation</p>
+          </div>
+          <div class="output-card">
+            <h3>Answer</h3>
+            <div class="output-value">${escapeHtml(state.ollamaLastAnswer || "")}</div>
+          </div>
+          <div class="output-card">
+            ${renderOutputRow("Compendium", cid)}
+            ${renderOutputRow("Source", sourcePath)}
+            ${renderOutputRow("Score", score)}
+            ${rawUrl ? `<div class="actions"><a href="${escapeHtml(rawUrl)}" target="_blank" rel="noopener">Open Raw Text</a></div>` : ""}
+          </div>
+          ${snippet ? `<div class="output-card"><h3>Chunk Text</h3><div class="output-value">${escapeHtml(snippet)}</div></div>` : ""}
+        `;
+        state.selectedResultKey = `ollama:${idx}`;
+        scrollToPageTop();
+      });
+      const idx = Number(card.getAttribute('data-ollama-index') || -1);
+      if (state.selectedResultKey === `ollama:${idx}`) {
+        card.classList.add('selected');
+      }
+    });
+  }
+
+  async function ollamaAsk() {
+    const q = String(els.ollamaQ?.value || "").trim();
+    if (!q) {
+      els.ollamaStatus.textContent = "Enter a question first.";
+      return;
+    }
+    const provider = String(els.aiProvider?.value || "ollama_local").trim().toLowerCase();
+    const endpoint = provider === "openai_remote" ? "/plugins/openai-remote/query" : "/plugins/ollama-local/query";
+    const providerLabel = provider === "openai_remote" ? "OpenAI" : "Ollama";
+    els.ollamaStatus.textContent = `Querying ${providerLabel}...`;
+    els.ollamaAnswer.textContent = "";
+    els.ollamaCitations.innerHTML = "";
+    const selectedCompendiums = getSelectedCompendiumIds();
+    const body = {
+      q,
+      k: 8,
+    };
+    if (selectedCompendiums.length === 1) {
+      body.compendium_id = selectedCompendiums[0];
+    }
+    try {
+      const data = await fetchJson(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      state.ollamaLastAnswer = String(data.answer || "");
+      els.ollamaAnswer.textContent = "";
+      const citations = Array.isArray(data.citations) ? data.citations : [];
+      const vectorItems = Array.isArray(data.vector_items) ? data.vector_items : [];
+      const enrich = citations.map((c) => ({ ...c, _vector_items: vectorItems }));
+      renderOllamaCitations(enrich);
+      els.ollamaStatus.textContent = `Answered with ${providerLabel}: ${data.model || "model"} @ ${data.base_url || providerLabel.toLowerCase()}.`;
+      els.viewer.innerHTML = `
+        <div class="viewer-header">
+          <h2>${providerLabel} Answer</h2>
+          <p>RAG Response</p>
+        </div>
+        <div class="output-card">
+          <h3>Answer</h3>
+          <div class="output-value">${escapeHtml(state.ollamaLastAnswer)}</div>
+        </div>
+      `;
+      scrollToPageTop();
+    } catch (err) {
+      els.ollamaStatus.textContent = `${providerLabel} query failed: ${err.message}`;
+    }
   }
 
   async function fetchJson(url, init = undefined) {
@@ -941,10 +1228,12 @@
 
   function renderOutputRow(label, value) {
     if (!value) return "";
+    const cleaned = stripImageArtifacts(value);
+    if (!cleaned) return "";
     return `
       <div class="output-row">
         <div class="output-label">${escapeHtml(label)}</div>
-        <div class="output-value">${escapeHtml(value)}</div>
+        <div class="output-value">${escapeHtml(cleaned)}</div>
       </div>
     `;
   }
@@ -958,10 +1247,12 @@
 
   function renderOutputRowHighlighted(label, value) {
     if (!value) return "";
+    const cleaned = stripImageArtifacts(value);
+    if (!cleaned) return "";
     return `
       <div class="output-row">
         <div class="output-label">${escapeHtml(label)}</div>
-        <div class="output-value">${formatKeyedText(value)}</div>
+        <div class="output-value">${formatKeyedText(cleaned)}</div>
       </div>
     `;
   }
@@ -972,7 +1263,7 @@
       .map(([key, value]) => `
         <div class="output-row">
           <div class="output-label">${escapeHtml(titleCase(key))}</div>
-          <div class="output-value">${escapeHtml(value)}</div>
+          <div class="output-value">${escapeHtml(stripImageArtifacts(value))}</div>
         </div>
       `)
       .join("");
@@ -2244,7 +2535,7 @@
       const cardClassBase = images.length ? "result-card card-with-images" : "result-card";
       const cardClass = [
         cardClassBase,
-        isStorage ? "with-corner-actions" : "",
+        (isStorage || isOfficialLike) ? "with-corner-actions" : "",
         item.source === "foundryvtt" ? "foundry-source" : "",
         item.source === "compendium" ? "csrd-source" : "",
         isOfficialLike ? "official-import" : "",
@@ -2282,8 +2573,8 @@
               ${pagesLabel ? `<span class="tag-badge"><span class="k">Page</span>${escapeHtml(pagesLabel)}</span>` : ""}
             </div>
           ` : ""}
-          ${item.subtitle ? `<div class="result-meta">${escapeHtml(item.subtitle)}</div>` : ""}
-          <div class="small" style="margin-top:8px;">${escapeHtml(item.url || "")}</div>
+          ${item.subtitle ? `<div class="result-meta">${escapeHtml(stripImageArtifacts(item.subtitle))}</div>` : ""}
+          ${!isOfficialLike && item.url ? `<div class="small" style="margin-top:8px;">${escapeHtml(item.url || "")}</div>` : ""}
           ${(isStorage || isOfficialLike || canArtPrompt) ? `<div class="result-corner-actions">
             ${canArtPrompt ? `<button type="button" class="icon-btn"
                     data-action="copy-art-prompt"
@@ -2683,13 +2974,7 @@
     const allCompendiumIds = (state.compendiums || [])
       .map(item => String(item.id || "").trim().toLowerCase())
       .filter(Boolean);
-    if (allCompendiumIds.length && selectedCompendiums.length === 0) {
-      // Explicitly disable all compendium-like sources when none are selected.
-      params.set('include_csrd', '0');
-      params.set('include_official', '0');
-      params.set('include_foundry', '0');
-      params.set('include_godforsaken', '0');
-    } else if (selectedCompendiums.length > 0 && selectedCompendiums.length < allCompendiumIds.length) {
+    if (selectedCompendiums.length > 0 && selectedCompendiums.length < allCompendiumIds.length) {
       // Only send explicit compendium filter when user selected a subset.
       params.set('compendiums', selectedCompendiums.join(','));
     }
@@ -2700,7 +2985,11 @@
 
   async function loadCompendiumFilters() {
     const data = await fetchJson('/compendiums');
-    const items = Array.isArray(data.items) ? data.items : [];
+    const items = (Array.isArray(data.items) ? data.items : []).filter((item) => (
+      item
+      && item.enabled !== false
+      && item.searchable !== false
+    ));
     state.compendiums = items;
     state.compendiumById = {};
     items.forEach((item) => {
@@ -2752,9 +3041,43 @@
     els.status.textContent = `Found ${data.count ?? 0} item(s).`;
   }
 
+  async function maybeMirrorFoundryImagesOnLoad(source, data) {
+    if (!data || typeof data !== "object") return data;
+    if (source !== "storage" && source !== "foundryvtt" && source !== "foundry_vtt") return data;
+
+    const filename = String(data.filename || "").trim();
+    const result = (data && typeof data.result === "object" && data.result) ? data.result : {};
+    const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const src = String(metadata.source || "").trim().toLowerCase();
+    if (src !== "foundryvtt" && src !== "foundry_vtt") return data;
+    if (!filename) return data;
+
+    const refs = normalizeImageRefs([
+      ...(Array.isArray(metadata.images) ? metadata.images : []),
+      metadata.image_url || "",
+    ]);
+    const hasRemoteRef = refs.some(ref => /^https?:\/\//i.test(String(ref || "").trim()));
+    if (!hasRemoteRef) return data;
+
+    try {
+      const mirrored = await fetchJson('/storage/mirror-foundry-images', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename }),
+      });
+      if (mirrored && mirrored.mirrored && mirrored.record) {
+        return mirrored.record;
+      }
+    } catch (_err) {
+      // Non-fatal: keep rendering with remote refs if mirroring fails.
+    }
+    return data;
+  }
+
   async function loadResult(source, url) {
     els.status.textContent = `Loading ${url}...`;
-    const data = await fetchJson(url);
+    let data = await fetchJson(url);
+    data = await maybeMirrorFoundryImagesOnLoad(source, data);
     if (data && typeof data === "object") {
       data._ui_source = source;
     }
@@ -2861,6 +3184,8 @@
   }
 
   els.searchBtn.addEventListener('click', search);
+  els.semanticSearchBtn?.addEventListener('click', semanticSearch);
+  els.ollamaAskBtn?.addEventListener('click', ollamaAsk);
   els.resetBtn.addEventListener('click', resetFilters);
   els.filtersSelectAllBtn?.addEventListener('click', () => {
     setAllCheckboxFilters(true);
@@ -2890,6 +3215,18 @@
     if (event.key === 'Enter') {
       event.preventDefault();
       search();
+    }
+  });
+  els.semanticQ?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      semanticSearch();
+    }
+  });
+  els.ollamaQ?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      ollamaAsk();
     }
   });
 

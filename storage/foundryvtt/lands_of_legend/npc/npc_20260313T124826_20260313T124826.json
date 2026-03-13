@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:26.912737+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124826_20260313T124826.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Bard",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Bard",
+      "motive": "Entertainment, interaction, and novel experiences",
+      "interaction": "Bards are personable and easy to talk to, but they have a sharp wit and a sharper tongue when it comes to critics and tyrants. A bard would rather escape from a dangerous situation than fight to the death.",
+      "use": "A bard ally often has useful information about the current situation, drawn from songs and folk tales. In a pinch, they can make do as a scout or spy, especially in an urban setting. An unfriendly bard mocks the characters and turns the will of a crowd against them.",
+      "loot": "In addition to a musical instrument and a nice outfit for performing, bards usually have currency equivalent to a moderately priced item and one or two cyphers."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 10,
+      "armor": 0,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Music, oration, persuasion, stealth, and Speed defense as level 4"
+      ],
+      "combat": [
+        "Bards prefer weapons that rely on speed and agility, like daggers, rapiers, and small bows. Every other round, a bard can create a blast of pure sound that inflicts 3 points of damage (ignores Armor) to one target within short range. A bard knows several spells, such as adding +1 to recovery rolls of nearby creatures, making an indifferent creature friendly (or a hostile one indifferent) for a few minutes, deafening one opponent for hours, easing a physical task by two steps, turning invisible for a minute, or negating sound for a minute."
+      ],
+      "interaction": [
+        "Bards are personable and easy to talk to, but they have a sharp wit and a sharper tongue when it comes to critics and tyrants. A bard would rather escape from a dangerous situation than fight to the death."
+      ],
+      "loot": [
+        "In addition to a musical instrument and a nice outfit for performing, bards usually have currency equivalent to a moderately priced item and one or two cyphers."
+      ]
+    },
+    "text": "A bard uses the power of words and music to create magic that inspires and influences others. A typical bard plays a musical instrument and weaves song-spells that rival the magic of wizards and priests, but some use their voices, creating fascinating tales and dramatic speeches.\n\nMotive: Entertainment, interaction, and novel experiences\n\nHealth: 10\n\nDamage Inflicted: 3 points\n\nMovement: Short\n\nModifications: Music, oration, persuasion, stealth, and Speed defense as level 4\n\nCombat: Bards prefer weapons that rely on speed and agility, like daggers, rapiers, and small bows. Every other round, a bard can create a blast of pure sound that inflicts 3 points of damage (ignores Armor) to one target within short range.\n\nA bard knows several spells, such as adding +1 to recovery rolls of nearby creatures, making an indifferent creature friendly (or a hostile one indifferent) for a few minutes, deafening one opponent for hours, easing a physical task by two steps, turning invisible for a minute, or negating sound for a minute.\n\nInteraction: Bards are personable and easy to talk to, but they have a sharp wit and a sharper tongue when it comes to critics and tyrants. A bard would rather escape from a dangerous situation than fight to the death.\n\nUse: A bard ally often has useful information about the current situation, drawn from songs and folk tales. In a pinch, they can make do as a scout or spy, especially in an urban setting. An unfriendly bard mocks the characters and turns the will of a crowd against them.\n\nLoot: In addition to a musical instrument and a nice outfit for performing, bards usually have currency equivalent to a moderately priced item and one or two cyphers.\n\nBard\nLevel 3 (target number 9)\nHealth: 10\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.h8EAo0zXOPo68NsR",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/npc_bard_20260313T124826_89c1afd1.webp",
+      "images": [
+        "uploads/foundryvtt/npc_bard_20260313T124826_89c1afd1.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/npc_bard.webp"
+    },
+    "description": "A bard ally often has useful information about the current situation, drawn from songs and folk tales. In a pinch, they can make do as a scout or spy, especially in an urban setting. An unfriendly bard mocks the characters and turns the will of a crowd against them."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:56.966992+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124956_20260313T124956.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Lightning wall",
+    "description": "Level: 1d6 + 2 Effect: Creates a wall of electric bolts up to 30 feet by 30 feet by 1 foot (9 m by 9 m by 30 cm) that inflicts damage equal to the cypher’s level on anything that passes through it. The wall conforms to the space available. It lasts for ten minutes.",
+    "sections": {
+      "name": "Lightning wall",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nEffect: Creates a wall of electric bolts up to 30 feet by 30 feet by 1 foot (9 m by 9 m by 30 cm) that inflicts damage equal to the cypher’s level on anything that passes through it. The wall conforms to the space available. It lasts for ten minutes."
+    },
+    "text": "Level: 1d6 + 2\n\nEffect: Creates a wall of electric bolts up to 30 feet by 30 feet by 1 foot (9 m by 9 m by 30 cm) that inflicts damage equal to the cypher’s level on anything that passes through it. The wall conforms to the space available. It lasts for ten minutes.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124956_63e91697.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124956_63e91697.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

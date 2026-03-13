@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:06.216993+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125006.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Smooth-stepping boots",
+    "description": "Level: 1d6 + 1 Form: Pair of boots Effect: When the boots are activated, for the next hour the wearer can move across rough or difficult terrain at normal speed, walk up walls, and even walk across liquids. In areas of low or no gravity, the wearer can walk along hard surfaces (even vertically or upside down) as if under normal gravity. Depletion: 1 in 1d100",
+    "sections": {
+      "name": "Smooth-stepping boots",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Pair of boots\n\nEffect: When the boots are activated, for the next hour the wearer can move across rough or difficult terrain at normal speed, walk up walls, and even walk across liquids. In areas of low or no gravity, the wearer can walk along hard surfaces (even vertically or upside down) as if under normal gravity.\n\nDepletion: 1 in 1d100",
+      "depletion": "1 in [[/r 1d100 # Depletion roll]]"
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Pair of boots\n\nEffect: When the boots are activated, for the next hour the wearer can move across rough or difficult terrain at normal speed, walk up walls, and even walk across liquids. In areas of low or no gravity, the wearer can walk along hard surfaces (even vertically or upside down) as if under normal gravity.\n\nDepletion: 1 in 1d100",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125006_f02d0e48.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125006_f02d0e48.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

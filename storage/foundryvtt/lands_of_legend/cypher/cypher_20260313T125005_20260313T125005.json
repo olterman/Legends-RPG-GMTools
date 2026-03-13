@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:05.881614+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T125005_20260313T125005.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Skill boost",
+    "description": "Level: 1d6 Effect: Dramatically but temporarily alters the user’s mind and body so they can ease one specific kind of physical action by three steps. Once activated, this boost can be used a number of times equal to the cypher’s level, but only within a twenty-four-hour period. The boost takes effect each time the action is performed. For example, a level 3 cypher boosts the first three times that action is attempted. Roll a [[/r d100]] to determine the action. 01–15Melee attack16–30Ranged atta…",
+    "sections": {
+      "name": "Skill boost",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: Dramatically but temporarily alters the user’s mind and body so they can ease one specific kind of physical action by three steps. Once activated, this boost can be used a number of times equal to the cypher’s level, but only within a twenty-four-hour period. The boost takes effect each time the action is performed. For example, a level 3 cypher boosts the first three times that action is attempted. Roll a [[/r d100]] to determine the action.\n\n01–15Melee attack16–30Ranged attack31–40Speed defense41–50Might defense51–60Intellect defense61–68Jumping69–76Climbing77–84Running85–92Swimming93–94Sneaking95–96Balancing97–98Perceiving99Carrying00Escaping"
+    },
+    "text": "Level: 1d6\n\nEffect: Dramatically but temporarily alters the user’s mind and body so they can ease one specific kind of physical action by three steps. Once activated, this boost can be used a number of times equal to the cypher’s level, but only within a twenty-four-hour period. The boost takes effect each time the action is performed. For example, a level 3 cypher boosts the first three times that action is attempted. Roll a [[/r d100]] to determine the action.\n\n01–15Melee attack16–30Ranged attack31–40Speed defense41–50Might defense51–60Intellect defense61–68Jumping69–76Climbing77–84Running85–92Swimming93–94Sneaking95–96Balancing97–98Perceiving99Carrying00Escaping",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T125005_fb8d62c6.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T125005_fb8d62c6.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

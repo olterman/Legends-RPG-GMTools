@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:59.050924+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124959.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Monohorn",
+    "description": "Level: 1d6 + 3 Effect: The user gains a horn in the center of their forehead. The horn is deadly sharp and strong, and it spirals down to a solid base where it fuses with their flesh and bone. The user is specialized in making melee attacks with the horn, which is considered a medium weapon. The horn lasts for a number of hours equal to the cypher’s level. Sometimes a monohorn cypher covers the user in a thin sheen of black hide-like material, which disguises their identity but doesn’t interfer…",
+    "sections": {
+      "name": "Monohorn",
+      "level": "1d6 + 3",
+      "effect": "Level: 1d6 + 3\n\nEffect: The user gains a horn in the center of their forehead. The horn is deadly sharp and strong, and it spirals down to a solid base where it fuses with their flesh and bone. The user is specialized in making melee attacks with the horn, which is considered a medium weapon. The horn lasts for a number of hours equal to the cypher’s level.\n\nSometimes a monohorn cypher covers the user in a thin sheen of black hide-like material, which disguises their identity but doesn’t interfere with their senses."
+    },
+    "text": "Level: 1d6 + 3\n\nEffect: The user gains a horn in the center of their forehead. The horn is deadly sharp and strong, and it spirals down to a solid base where it fuses with their flesh and bone. The user is specialized in making melee attacks with the horn, which is considered a medium weapon. The horn lasts for a number of hours equal to the cypher’s level.\n\nSometimes a monohorn cypher covers the user in a thin sheen of black hide-like material, which disguises their identity but doesn’t interfere with their senses.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124959_7c670429.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124959_7c670429.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

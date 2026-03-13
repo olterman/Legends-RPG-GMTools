@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:52.087925+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124952.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Fortunate’s purse",
+    "description": "Level: 1d6 Form: Elegant knapsack that shifts colors to hide in plain sight Effect: Any object put inside the sack cannot be detected by physical senses or magic. The sack can hold a single item, of any size and shape, at a time. Cyphers in Fortunate’s purse do not count against the user’s cypher limit. Depletion: 1 in 1d20 (check each time an item is added to the knapsack) Magic bags come in many forms, such as coin purses, sacks, packs, and pockets. Some can be used to hide someone safely out…",
+    "sections": {
+      "name": "Fortunate’s purse",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Elegant knapsack that shifts colors to hide in plain sight\n\nEffect: Any object put inside the sack cannot be detected by physical senses or magic. The sack can hold a single item, of any size and shape, at a time. Cyphers in Fortunate’s purse do not count against the user’s cypher limit.\n\nDepletion: 1 in 1d20 (check each time an item is added to the knapsack)\n\nMagic bags come in many forms, such as coin purses, sacks, packs, and pockets. Some can be used to hide someone safely out of sight, provide an endless supply of gold or riches, or grant wishes. They are most often given as rewards for doing great kindnesses or completing a difficult task.",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 1d6\n\nForm: Elegant knapsack that shifts colors to hide in plain sight\n\nEffect: Any object put inside the sack cannot be detected by physical senses or magic. The sack can hold a single item, of any size and shape, at a time. Cyphers in Fortunate’s purse do not count against the user’s cypher limit.\n\nDepletion: 1 in 1d20 (check each time an item is added to the knapsack)\n\nMagic bags come in many forms, such as coin purses, sacks, packs, and pockets. Some can be used to hide someone safely out of sight, provide an endless supply of gold or riches, or grant wishes. They are most often given as rewards for doing great kindnesses or completing a difficult task.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124952_446bb414.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124952_446bb414.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

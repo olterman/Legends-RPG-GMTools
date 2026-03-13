@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:03.054273+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125003.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Red cap",
+    "description": "Level: 1d6 + 3 Form: Woolen cap soaked in human blood Effect: The wearer gains an extra recovery roll each day that is not an action and does not count toward their daily limit. Once the wearer uses this recovery roll, they can’t do so again until after they make a ten-hour recovery roll and soak the hat in fresh human blood. Depletion: 1 in 1d20 (check each day of use)",
+    "sections": {
+      "name": "Red cap",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Woolen cap soaked in human blood\n\nEffect: The wearer gains an extra recovery roll each day that is not an action and does not count toward their daily limit. Once the wearer uses this recovery roll, they can’t do so again until after they make a ten-hour recovery roll and soak the hat in fresh human blood.\n\nDepletion: 1 in 1d20 (check each day of use)",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Woolen cap soaked in human blood\n\nEffect: The wearer gains an extra recovery roll each day that is not an action and does not count toward their daily limit. Once the wearer uses this recovery roll, they can’t do so again until after they make a ten-hour recovery roll and soak the hat in fresh human blood.\n\nDepletion: 1 in 1d20 (check each day of use)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125003_8db9618f.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125003_8db9618f.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

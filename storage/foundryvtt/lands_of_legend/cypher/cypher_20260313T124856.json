@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:56.743136+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124856.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Rejuvenator",
+    "level": "7",
+    "sections": {
+      "name": "Rejuvenator",
+      "level": "7",
+      "effect": "<p><strong>Level:</strong> 1d6 + 2</p><p><strong>Effect:</strong> Restores a number of points equal to the cypher’s level to one random stat Pool. Roll a [[/r d100]] to determine the stat Pool.</p><table class=\"roll-table\"><colgroup><col><col></colgroup><tbody><tr><td>01–50</td><td>Might Pool</td></tr><tr><td>51–75</td><td>Speed Pool</td></tr><tr><td>76–00</td><td>Intellect Pool</td></tr></tbody></table>"
+    },
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "owner_character_name": "Willem",
+      "owner_character_filename": "foundryvtt/lands_of_legend/character_sheet/character_sheet_20260313T124856.json",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124856_23c84627.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124856_23c84627.svg"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

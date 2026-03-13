@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:50:03.991462+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T125003_20260313T125003.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Ring of dragon’s flight",
+    "description": "Level: 1d6 + 2 Form: Green iron ring that appears like a dragon wound around the finger Effect: When the wearer activates the ring, dragon wings unfurl from their back, and for one minute the wearer can fly up to long range. The ring does not confer the ability to hover or make fine adjustments while in flight. Depletion: 1 in 1d10",
+    "sections": {
+      "name": "Ring of dragon’s flight",
+      "level": "1d6 + 2",
+      "effect": "Level: 1d6 + 2\n\nForm: Green iron ring that appears like a dragon wound around the finger\n\nEffect: When the wearer activates the ring, dragon wings unfurl from their back, and for one minute the wearer can fly up to long range. The ring does not confer the ability to hover or make fine adjustments while in flight.\n\nDepletion: 1 in 1d10",
+      "depletion": "1 in [[/r 1d10]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Green iron ring that appears like a dragon wound around the finger\n\nEffect: When the wearer activates the ring, dragon wings unfurl from their back, and for one minute the wearer can fly up to long range. The ring does not confer the ability to hover or make fine adjustments while in flight.\n\nDepletion: 1 in 1d10",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T125003_b27dee62.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T125003_b27dee62.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

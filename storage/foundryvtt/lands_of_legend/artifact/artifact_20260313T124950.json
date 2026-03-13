@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:50.011565+00:00",
+  "filename": "foundryvtt/lands_of_legend/artifact/artifact_20260313T124950.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Enchanted axe",
+    "description": "Level: 7 Form: Axe Effect: Inflicts 7 points of damage; can be activated to move a long distance away from the wielder and attack a foe as an action. Depletion: 1 in 1d20 (check each activation)",
+    "sections": {
+      "name": "Enchanted axe",
+      "level": "7",
+      "effect": "Level: 7\n\nForm: Axe\n\nEffect: Inflicts 7 points of damage; can be activated to move a long distance away from the wielder and attack a foe as an action.\n\nDepletion: 1 in 1d20 (check each activation)",
+      "depletion": "1 in [[/r d20]]"
+    },
+    "text": "Level: 7\n\nForm: Axe\n\nEffect: Inflicts 7 points of damage; can be activated to move a long distance away from the wielder and attack a foe as an action.\n\nDepletion: 1 in 1d20 (check each activation)",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/artifact_20260313T124950_892570c3.svg",
+      "images": [
+        "uploads/foundryvtt/artifact_20260313T124950_892570c3.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+    }
+  }
+}

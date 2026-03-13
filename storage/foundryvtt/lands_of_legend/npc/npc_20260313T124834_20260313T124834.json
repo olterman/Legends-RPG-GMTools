@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:34.970180+00:00",
+  "filename": "foundryvtt/lands_of_legend/npc/npc_20260313T124834_20260313T124834.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Fiendish beast",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Fiendish beast"
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 0,
+      "damage": 4,
+      "movement": "short",
+      "modifications": [],
+      "combat": [],
+      "interaction": [],
+      "loot": []
+    },
+    "text": "Level 4, stealth as level 5, Might and Intellect defense as level 5\n\nFiendish beast\nLevel 4 (target number 12)\nHealth: 12\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.Actor.hNNftDYKI2GokIgq",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/magical-beast_20260313T124834_cc39a763.webp",
+      "images": [
+        "uploads/foundryvtt/magical-beast_20260313T124834_cc39a763.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/tokens/magical-beast.webp"
+    },
+    "description": "Level 4, stealth as level 5, Might and Intellect defense as level 5 Fiendish beast Level 4 (target number 12) Health: 12 Armor: 0 Damage: 4"
+  }
+}

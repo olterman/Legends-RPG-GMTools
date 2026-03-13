@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:49:53.819333+00:00",
+  "filename": "foundryvtt/lands_of_legend/cypher/cypher_20260313T124953_20260313T124953.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Green spectacles",
+    "description": "Level: 1d6 Form: Pair of glasses with bright green lenses Effect: Once activated, protects the wearer from being blinded or having their vision affected in other ways for one day. The wearer can see through illusions of the cypher level or lower and can see in the dark as if it were daylight.",
+    "sections": {
+      "name": "Green spectacles",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nForm: Pair of glasses with bright green lenses\n\nEffect: Once activated, protects the wearer from being blinded or having their vision affected in other ways for one day. The wearer can see through illusions of the cypher level or lower and can see in the dark as if it were daylight."
+    },
+    "text": "Level: 1d6\n\nForm: Pair of glasses with bright green lenses\n\nEffect: Once activated, protects the wearer from being blinded or having their vision affected in other ways for one day. The wearer can see through illusions of the cypher level or lower and can see in the dark as if it were daylight.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "uploads/foundryvtt/cypher_20260313T124953_c2ea99ba.svg",
+      "images": [
+        "uploads/foundryvtt/cypher_20260313T124953_c2ea99ba.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+    }
+  }
+}

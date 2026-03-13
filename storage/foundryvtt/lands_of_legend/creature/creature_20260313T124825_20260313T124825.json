@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:25.906082+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124825_20260313T124825.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Artificial Intelligence (AI) (sci-fi)",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Artificial Intelligence (AI) (sci-fi)",
+      "environment": "Almost anywhere",
+      "motive": "Varies",
+      "interaction": "Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human.",
+      "use": "The characters are contacted by an AI sympathetic to biological beings. It wants them to accomplish a task on a moon of Jupiter: assassinate a security officer who the AI calculates as being a nexus of future disaster if he isn’t removed from the equation.",
+      "loot": "An AI might have access to [[/r 1d6]] cyphers and possibly an artifact or two.",
+      "gm_intrusion": "The AI knows a phrase and series of images to flash at a particular PC to stun them for around as it attempts to upload an instance of itself into their mind."
+    },
+    "stat_block": {
+      "level": 8,
+      "target_number": 24,
+      "health": 33,
+      "armor": 2,
+      "damage": 10,
+      "movement": "Immediate",
+      "modifications": [
+        "Speed defense as level 2, knowledge tasks as level 9"
+      ],
+      "combat": [
+        "An electrical discharge—or in some cases precisely pulsed sequences of lights, each designed for a specific creature to see—can affect all targets within short range of the AI (or the AI’s local terminal), inflicting 10 points of damage from electricity (or 10 points of Intellect damage, which ignores Armor). Some AIs can take an action to absorb matter around them (such as walls, floor, equipment, unresisting living creatures, and so on), regaining 5 points of health. An AI is likely able to deploy cyphers and artifacts in combat and also relies on guardians (such as synthetic people made to its own design) to aid it. Unless a particular AI uses a computer core, damage to an AI may just be damage done to a “terminal,” so even if an AI is seemingly destroyed, it might exist as another instance somewhere else."
+      ],
+      "interaction": [
+        "Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human."
+      ],
+      "loot": [
+        "An AI might have access to [[/r 1d6]] cyphers and possibly an artifact or two."
+      ]
+    },
+    "text": "If a supercomputer can think independently, it’s a strong AI (an artificial intelligence). Though not as advanced as godminds, AIs can develop inscrutable goals.\n\nAIs take many forms. Some are distributed across a vast network. Others are encoded into a singular “computer core.” A few are machines with organic parts. All are entities of extreme intelligence able to adapt to new situations, and most act on some kind of plan, whether long-acting, or newly concocted to fit the situation at hand.\n\nMotive: Varies\n\nEnvironment: Almost anywhere\n\nHealth: 33\n\nDamage Inflicted: 10\n\nArmor: 2\n\nMovement: Immediate\n\nModifications: Speed defense as level 2, knowledge tasks as level 9\n\nCombat: An electrical discharge—or in some cases precisely pulsed sequences of lights, each designed for a specific creature to see—can affect all targets within short range of the AI (or the AI’s local terminal), inflicting 10 points of damage from electricity (or 10 points of Intellect damage, which ignores Armor).\n\nSome AIs can take an action to absorb matter around them (such as walls, floor, equipment, unresisting living creatures, and so on), regaining 5 points of health.\n\nAn AI is likely able to deploy cyphers and artifacts in combat and also relies on guardians (such as synthetic people made to its own design) to aid it.\n\nUnless a particular AI uses a computer core, damage to an AI may just be damage done to a “terminal,” so even if an AI is seemingly destroyed, it might exist as another instance somewhere else.\n\nInteraction: Some AIs enjoy negotiation. Others simply ignore humans as unworthy of their time and attention. An AI’s voice often sounds surprisingly human.\n\nUse: The characters are contacted by an AI sympathetic to biological beings. It wants them to accomplish a task on a moon of Jupiter: assassinate a security officer who the AI calculates as being a nexus of future disaster if he isn’t removed from the equation.\n\nLoot: An AI might have access to [[/r 1d6]] cyphers and possibly an artifact or two.\n\nGM Intrusion: The AI knows a phrase and series of images to flash at a particular PC to stun them for around as it attempts to upload an instance of itself into their mind.\n\nArtificial Intelligence (AI) (sci-fi)\nLevel 8 (target number 24)\nHealth: 33\nArmor: 2\nDamage: 10",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.Hl0QNJX5e9Esdbzd",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_ai_20260313T124825_3e23fa57.webp",
+      "images": [
+        "uploads/foundryvtt/creature_ai_20260313T124825_3e23fa57.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_ai.webp"
+    },
+    "description": "The characters are contacted by an AI sympathetic to biological beings. It wants them to accomplish a task on a moon of Jupiter: assassinate a security officer who the AI calculates as being a nexus of future disaster if he isn’t removed from the equation."
+  }
+}

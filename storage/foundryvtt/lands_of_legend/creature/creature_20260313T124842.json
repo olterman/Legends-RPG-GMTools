@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:42.436157+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124842.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Malware, fatal",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Malware, fatal",
+      "environment": "Any electronic system able to run code can host one or more instances",
+      "motive": "Corruption and destruction",
+      "interaction": "Fatal malware isn’t really sentient and thus can’t really be negotiated with; some instances could mimic intelligence to draw humans into a trap.",
+      "use": "An instance of fatal malware has gotten into a shipmind, which is making the normally trustworthy AI act out in unexpectedly dangerous ways. The shipmind itself doesn’t know it’s infected.",
+      "gm_intrusion": "The fatal malware divides into a second instance and attempts to override and control another piece of equipment carried by the character, especially a character with cybernetic implants."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 18,
+      "armor": 0,
+      "damage": 5,
+      "movement": "As the system it infects",
+      "modifications": [
+        "Knowledge tasks related to computers and other electronic systems as level 6"
+      ],
+      "combat": [
+        "An instance of fatal malware that physically touches (or electrically connects with) a powered device of up to level 6 can attempt to seize control of it. It can then use that device to attack living targets. If the controlled system is a computer, smartphone, AR glasses, or some other piece of equipment that doesn’t have any intrinsic movement, the malware attempts to electrocute a user, or if a smart weapon, cause some kind of fatal accident with it. A compromised computer or shipmind voice can dangerously mislead victims. Fatal malware duplicates itself, creating many instances, and those that survive are usually slightly better at avoiding being erased than the previous generations."
+      ],
+      "interaction": [
+        "Fatal malware isn’t really sentient and thus can’t really be negotiated with; some instances could mimic intelligence to draw humans into a trap."
+      ],
+      "loot": []
+    },
+    "text": "This purely malefic program has aggressive machine learning capabilities, allowing it to accomplish truly innovative and nasty tricks. Fatal malware may have originated as a simple virus or spyware coded for a specific purpose, but corruption and lightning-quick electronic evolution has turned it into something that exists purely to infect orderly electronic systems, spacecraft, space stations, smart weapons, and anything else with an operating system. Infected objects turn against living people.\n\nAn instance often has the form of the system it’s infected, but occasionally fatal malware physically manifests as a metallic “cancer” of wires and self-assembling circuits hanging like a tumor across a server room, shipmind core, or data center, having perverted the original machine’s self-repair functions. Sometimes 4D printers are also compromised.\n\nMotive: Corruption and destruction\n\nEnvironment: Any electronic system able to run code can host one or more instances\n\nHealth: 18\n\nDamage Inflicted: 5 points\n\nMovement: As the system it infects\n\nModifications: Knowledge tasks related to computers and other electronic systems as level 6\n\nCombat: An instance of fatal malware that physically touches (or electrically connects with) a powered device of up to level 6 can attempt to seize control of it. It can then use that device to attack living targets. If the controlled system is a computer, smartphone, AR glasses, or some other piece of equipment that doesn’t have any intrinsic movement, the malware attempts to electrocute a user, or if a smart weapon, cause some kind of fatal accident with it. A compromised computer or shipmind voice can dangerously mislead victims.\n\nFatal malware duplicates itself, creating many instances, and those that survive are usually slightly better at avoiding being erased than the previous generations.\n\nInteraction: Fatal malware isn’t really sentient and thus can’t really be negotiated with; some instances could mimic intelligence to draw humans into a trap.\n\nUse: An instance of fatal malware has gotten into a shipmind, which is making the normally trustworthy AI act out in unexpectedly dangerous ways. The shipmind itself doesn’t know it’s infected.\n\nGM Intrusion: The fatal malware divides into a second instance and attempts to override and control another piece of equipment carried by the character, especially a character with cybernetic implants.\n\nMalware, fatal\nLevel 4 (target number 12)\nHealth: 18\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.8t19c7Qqpss2gQ9U",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_malware-fatal_20260313T124842_08f74ee0.webp",
+      "images": [
+        "uploads/foundryvtt/creature_malware-fatal_20260313T124842_08f74ee0.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_malware-fatal.webp"
+    },
+    "description": "An instance of fatal malware has gotten into a shipmind, which is making the normally trustworthy AI act out in unexpectedly dangerous ways. The shipmind itself doesn’t know it’s infected."
+  }
+}

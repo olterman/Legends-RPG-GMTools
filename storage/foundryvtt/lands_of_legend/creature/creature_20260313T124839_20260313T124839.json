@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T12:48:39.987372+00:00",
+  "filename": "foundryvtt/lands_of_legend/creature/creature_20260313T124839_20260313T124839.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Infovore",
+    "sections": {
+      "setting": "lands_of_legend",
+      "character": "Infovore",
+      "environment": "Anywhere powered devices are found",
+      "motive": "Hungers for information",
+      "interaction": "Infovores are fractured, fragmented beings. Characters who can talk to machines might be able to keep one from “spinning up” to become a threat and learn something valuable, but only for a short period.",
+      "use": "Among the devices collected from trade, salvage, archeological dig, or some other unique source, one was actually an inactive infovore, quiescent until plugged in or scanned.",
+      "loot": "An infovore that has undergone spontaneous disassembly leaves one or two manifest cyphers; however, there’s a chance that one of those cyphers is actually the infovore seed.",
+      "gm_intrusion": "The character must succeed on a Speed defense task or lose a powered piece of equipment (an artifact) or a manifest cypher as it’s pulledinto the self-assembling infovore. The infovore gains an additional attack each round."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 9,
+      "armor": 3,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Attacks and defends at an ever-escalating level"
+      ],
+      "combat": [
+        "A newly animate infovore (level 3) has a rough but articulated form that it uses to batter and cut targets who carry powered devices on them. Unless destroyed, on each subsequent round it draws nearby inert mechanisms, unattended metallic and synthetic matter, and ambient energy, and its effective level increases by one. This level advancement completely heals all previous damage it has taken and advances it to the amount of health consistent with a creature of the next higher level. Damage, attacks, and defense continue to ramp up as well, continuing each round until the creature is either destroyed or it reaches level 10. After being active for one round at level 10, it spontaneously disassembles, falling back into so many scattered pieces of junk. Finding the “seed” device amid this junk is a difficulty 6 Intellect-based task."
+      ],
+      "interaction": [
+        "Infovores are fractured, fragmented beings. Characters who can talk to machines might be able to keep one from “spinning up” to become a threat and learn something valuable, but only for a short period."
+      ],
+      "loot": [
+        "An infovore that has undergone spontaneous disassembly leaves one or two manifest cyphers; however, there’s a chance that one of those cyphers is actually the infovore seed."
+      ]
+    },
+    "text": "Entities of information with an affinity for technology, infovores are nothing but stored information without a bit of mechanism to inhabit. But once one gains control of a device, computer system, or other powered item, it self-assembles over the course of a few rounds, becoming stronger and more dangerous as each second passes. Luckily, an infovore seems unable to hold this form for long, and whether defeated or not, it eventually falls back into so much scattered junk. But in one of those objects, the core of the infovore remains, waiting to come into close enough proximity to another fresh mechanism to begin the rebirth process again.\n\nInfovores have also been called ghost fabricators and aterics\n\nMotive: Hungers for information\n\nEnvironment: Anywhere powered devices are found\n\nHealth: 9\n\nDamage Inflicted: 3–10 points\n\nArmor: 3\n\nMovement: Short\n\nModifications: Attacks and defends at an ever-escalating level\n\nCombat: A newly animate infovore (level 3) has a rough but articulated form that it uses to batter and cut targets who carry powered devices on them. Unless destroyed, on each subsequent round it draws nearby inert mechanisms, unattended metallic and synthetic matter, and ambient energy, and its effective level increases by one. This level advancement completely heals all previous damage it has taken and advances it to the amount of health consistent with a creature of the next higher level. Damage, attacks, and defense continue to ramp up as well, continuing each round until the creature is either destroyed or it reaches level 10. After being active for one round at level 10, it spontaneously disassembles, falling back into so many scattered pieces of junk. Finding the “seed” device amid this junk is a difficulty 6 Intellect-based task.\n\nInteraction: Infovores are fractured, fragmented beings. Characters who can talk to machines might be able to keep one from “spinning up” to become a threat and learn something valuable, but only for a short period.\n\nUse: Among the devices collected from trade, salvage, archeological dig, or some other unique source, one was actually an inactive infovore, quiescent until plugged in or scanned.\n\nLoot: An infovore that has undergone spontaneous disassembly leaves one or two manifest cyphers; however, there’s a chance that one of those cyphers is actually the infovore seed.\n\nGM Intrusion: The character must succeed on a Speed defense task or lose a powered piece of equipment (an artifact) or a manifest cypher as it’s pulledinto the self-assembling infovore. The infovore gains an additional attack each round.\n\nInfovore\nLevel 3 (target number 9)\nHealth: 9\nArmor: 3\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.bAR11Ysdt8foBn7k",
+      "foundry_internal_links": [],
+      "image_url": "uploads/foundryvtt/creature_infovore_20260313T124839_8180c5f5.webp",
+      "images": [
+        "uploads/foundryvtt/creature_infovore_20260313T124839_8180c5f5.webp"
+      ],
+      "settings": [
+        "lands_of_legend"
+      ],
+      "setting": "lands_of_legend",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ],
+      "foundry_remote_image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/sci-fi/creature_infovore.webp"
+    },
+    "description": "Among the devices collected from trade, salvage, archeological dig, or some other unique source, one was actually an inactive infovore, quiescent until plugged in or scanned."
+  }
+}

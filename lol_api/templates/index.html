@@ -79,6 +79,26 @@
 
   .compendium-grid {
     display: grid;
+    gap: 14px;
+  }
+
+  .compendium-section {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+    padding: 10px;
+  }
+
+  .compendium-section h3 {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .compendium-section-grid {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 12px;
   }
@@ -108,6 +128,20 @@
     border-color: rgba(84, 214, 214, 0.38);
     background:
       linear-gradient(180deg, rgba(84,214,214,0.15), rgba(84,214,214,0.04)),
+      var(--panel-2);
+  }
+
+  .compendium-card.core-card {
+    border-color: rgba(240, 171, 78, 0.38);
+    background:
+      linear-gradient(180deg, rgba(240,171,78,0.15), rgba(240,171,78,0.04)),
+      var(--panel-2);
+  }
+
+  .compendium-card.settings-card {
+    border-color: rgba(126, 163, 255, 0.36);
+    background:
+      linear-gradient(180deg, rgba(126,163,255,0.14), rgba(126,163,255,0.04)),
       var(--panel-2);
   }
 
@@ -200,6 +234,24 @@
     margin-bottom: 8px;
   }
 
+  .source-badge.taxonomy-core {
+    border-color: rgba(240, 171, 78, 0.36);
+    color: #f6cc83;
+    background: rgba(240, 171, 78, 0.14);
+  }
+
+  .source-badge.taxonomy-genre {
+    border-color: rgba(131, 179, 255, 0.34);
+    color: #b3d2ff;
+    background: rgba(131, 179, 255, 0.12);
+  }
+
+  .source-badge.taxonomy-setting {
+    border-color: rgba(164, 132, 255, 0.34);
+    color: #cfb8ff;
+    background: rgba(164, 132, 255, 0.12);
+  }
+
   .compendium-stats {
     display: flex;
     flex-wrap: wrap;
@@ -233,6 +285,7 @@
     border-radius: 12px;
     background: var(--panel-2);
     padding: 12px;
+    position: relative;
   }
 
   .plugin-head {
@@ -265,6 +318,22 @@
   .plugin-toggle input {
     width: auto;
     transform: scale(1.15);
+  }
+
+  .plugin-settings-link {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    font-size: 0.95rem;
   }
 </style>
 {% endblock %}
@@ -443,31 +512,44 @@
       if (!response.ok) {
         throw new Error(data.error || `Request failed: ${response.status}`);
       }
-      const items = Array.isArray(data.items) ? data.items : [];
+      const items = (Array.isArray(data.items) ? data.items : []).filter((item) => item && item.enabled !== false);
       if (!items.length) {
         statusEl.textContent = 'No compendiums available.';
         gridEl.innerHTML = '';
         return;
       }
       statusEl.textContent = `${items.length} compendium${items.length === 1 ? '' : 's'} available.`;
-      gridEl.innerHTML = items.map(item => {
+      function renderCompendiumCard(item) {
         const stats = item && typeof item.stats === 'object' && item.stats ? item.stats : {};
-        const itemId = String(item.id || '').toLowerCase();
         const sourceKind = String(item.source_kind || '').toLowerCase();
         const bookCardClass = officialBookClassFromName(item.name || item.id || '');
         const cardClass = sourceKind === 'csrd'
           ? 'compendium-card csrd-card'
           : (sourceKind === 'foundry'
             ? 'compendium-card foundry-card'
-            : `compendium-card official-card ${bookCardClass}`.trim());
+            : (sourceKind === 'core_pdf'
+              ? 'compendium-card core-card'
+              : (sourceKind === 'settings_catalog'
+                ? 'compendium-card settings-card'
+                : `compendium-card official-card ${bookCardClass}`.trim())));
         const sourceBadge = sourceKind === 'csrd'
           ? `<span class="source-badge source-csrd">CSRD</span>`
           : (sourceKind === 'foundry'
             ? `<span class="source-badge source-foundry">FoundryVTT</span>`
-            : `<span class="source-badge source-official">Official PDF</span>`);
+            : (sourceKind === 'core_pdf'
+              ? `<span class="source-badge source-csrd">Core Rules</span>`
+              : (sourceKind === 'settings_catalog'
+                ? `<span class="source-badge source-house">Settings</span>`
+                : `<span class="source-badge source-official">Official PDF</span>`)));
         const bookBadge = sourceKind !== 'official'
           ? ''
           : `<span class="source-badge book-badge ${escapeHtml(officialBookBadgeFromName(item.name || item.id || ''))}">${escapeHtml(item.name || 'Book')}</span>`;
+        const tags = item && typeof item.tags === 'object' && item.tags ? item.tags : {};
+        const taxonomyBadges = [
+          tags.core_rules ? `<span class="source-badge taxonomy-core">${escapeHtml(`Core: ${tags.core_rules}`)}</span>` : '',
+          tags.genre ? `<span class="source-badge taxonomy-genre">${escapeHtml(`Genre: ${tags.genre}`)}</span>` : '',
+          tags.setting ? `<span class="source-badge taxonomy-setting">${escapeHtml(`Setting: ${tags.setting}`)}</span>` : '',
+        ].join('');
         const statBadges = Object.entries(stats)
           .filter(([, value]) => Number(value || 0) > 0)
           .map(([key, value]) => `
@@ -488,12 +570,59 @@
                 <div class="compendium-subtitle">${escapeHtml(item.subtitle || '')}</div>
               </div>
             </div>
-            <div class="compendium-badges">${sourceBadge}${bookBadge}</div>
+            <div class="compendium-badges">${sourceBadge}${bookBadge}${taxonomyBadges}</div>
             <div class="compendium-stats">${statBadges || '<span class="small">No indexed stats yet.</span>'}</div>
             <a href="${escapeHtml(item.landing_url || item.search_url || '/search')}">Open Compendium</a>
           </div>
         `;
-      }).join('');
+      }
+
+      const coreRules = [];
+      const genreBooks = [];
+      const settingBooks = [];
+      const other = [];
+      const genreBookIds = new Set([
+        "godforsaken",
+        "claim_the_sky",
+        "the_stars_are_fire",
+        "its_only_magic",
+        "high_noon_at_midnight",
+        "neon_rain",
+        "rust_and_redemption",
+        "stay_alive",
+        "we_are_all_mad_here",
+      ]);
+
+      items.forEach((item) => {
+        const itemId = String(item.id || '').toLowerCase();
+        const sourceKind = String(item.source_kind || '').toLowerCase();
+        const pdfRel = String(item.pdf_relative_path || '').replaceAll('\\', '/');
+        if (sourceKind === 'csrd' || sourceKind === 'core_pdf') {
+          coreRules.push(item);
+        } else if (genreBookIds.has(itemId) || pdfRel.startsWith('Genre_Books/')) {
+          genreBooks.push(item);
+        } else if (pdfRel.startsWith('Setting_Books/')) {
+          settingBooks.push(item);
+        } else {
+          other.push(item);
+        }
+      });
+
+      const sections = [
+        { title: 'Core Rules', items: coreRules },
+        { title: 'Genre Books', items: genreBooks },
+        { title: 'Setting Books', items: settingBooks },
+        { title: 'Other Sources', items: other },
+      ].filter(section => Array.isArray(section.items) && section.items.length);
+
+      gridEl.innerHTML = sections.map(section => `
+        <section class="compendium-section">
+          <h3>${escapeHtml(section.title)}</h3>
+          <div class="compendium-section-grid">
+            ${section.items.map(renderCompendiumCard).join('')}
+          </div>
+        </section>
+      `).join('');
     } catch (err) {
       statusEl.textContent = `Failed to load compendiums: ${err.message}`;
       gridEl.innerHTML = '';
@@ -525,7 +654,10 @@
               <span>${item.enabled ? 'Enabled' : 'Disabled'}</span>
             </label>
           </div>
+          ${item.summary ? `<div class="small" style="margin-bottom:6px;">${escapeHtml(item.summary)}</div>` : ''}
           <div class="plugin-path">${escapeHtml(item.path || '')}</div>
+          ${item.docs_url ? `<div class="small" style="margin-top:6px;">Docs: ${escapeHtml(item.docs_url)}</div>` : ''}
+          <a class="plugin-settings-link" href="/plugins/${encodeURIComponent(String(item.id || ""))}/settings" title="Plugin settings" aria-label="Plugin settings">⚙</a>
         </div>
       `).join('');
 

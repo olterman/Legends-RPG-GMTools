@@ -13,3 +13,4 @@ services:
       - ./lore:/app/lore
       - ./images:/app/images
       - ./config:/app/config
+      - ./PDF_Repository:/app/PDF_Repository

@@ -32,6 +32,18 @@
     <div class="field">
       <label for="ai-brief">Prompt / Brief</label>
       <textarea id="ai-brief" rows="12" placeholder="Describe what you want generated..."></textarea>
+      <div class="small" style="margin-top:6px;">You can use text, an image, or both. Image-only guidance is tuned for encounter, NPC, artifact, cypher, landmark, and settlement.</div>
+    </div>
+    <div class="field">
+      <label for="ai-image">Reference Image</label>
+      <input id="ai-image" type="file" accept="image/*" />
+      <div class="actions" style="margin-top:8px;">
+        <button id="ai-image-clear-btn" type="button" class="secondary">Clear Image</button>
+      </div>
+      <div id="ai-image-meta" class="small" style="margin-top:8px;">No image selected.</div>
+      <div id="ai-image-preview-wrap" style="display:none; margin-top:10px;">
+        <img id="ai-image-preview" alt="AI generate preview" style="max-width:100%; max-height:280px; border-radius:10px; border:1px solid rgba(255,255,255,0.15);" />
+      </div>
     </div>
     <div class="field">
       <label>Allowed Sources</label>
@@ -85,6 +97,11 @@
     provider: document.getElementById('ai-provider'),
     type: document.getElementById('ai-type'),
     brief: document.getElementById('ai-brief'),
+    imageInput: document.getElementById('ai-image'),
+    imageClearBtn: document.getElementById('ai-image-clear-btn'),
+    imageMeta: document.getElementById('ai-image-meta'),
+    imagePreviewWrap: document.getElementById('ai-image-preview-wrap'),
+    imagePreview: document.getElementById('ai-image-preview'),
     sources: document.getElementById('ai-sources'),
     compendiums: document.getElementById('ai-compendiums'),
     schema: document.getElementById('ai-schema'),
@@ -106,6 +123,8 @@
     parsedCard: null,
     lastType: 'free_text',
     lastRawAnswer: '',
+    imageDataUrl: '',
+    imageName: '',
   };
 
   const TYPE_CONFIG = {
@@ -271,6 +290,10 @@
 
   function renderSchema(type) {
     els.schema.textContent = JSON.stringify(schemaForType(type), null, 2);
+  }
+
+  function imageSupportedForType(type) {
+    return ['encounter', 'npc', 'artifact', 'cypher', 'landmark', 'settlement'].includes(String(type || '').toLowerCase());
   }
 
   function setSaveEnabled(enabled) {
@@ -612,46 +635,61 @@
     }).join('');
   }
 
+  function updateImageUi() {
+    if (state.imageDataUrl) {
+      els.imageMeta.textContent = imageSupportedForType(els.type?.value)
+        ? `Selected image: ${state.imageName || 'uploaded image'}. Ollama will use llama3.2-vision for this generation.`
+        : `Selected image: ${state.imageName || 'uploaded image'}. The image will still be sent, but this type has less specialized visual prompting.`;
+      els.imagePreviewWrap.style.display = '';
+      els.imagePreview.src = state.imageDataUrl;
+      return;
+    }
+    els.imageMeta.textContent = 'No image selected.';
+    els.imagePreviewWrap.style.display = 'none';
+    els.imagePreview.removeAttribute('src');
+  }
+
+  function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ''));
+      reader.onerror = () => reject(new Error('Failed to read image.'));
+      reader.readAsDataURL(file);
+    });
+  }
+
   async function doGenerate() {
     const brief = String(els.brief?.value || '').trim();
     const type = String(els.type?.value || 'free_text');
-    if (!brief) {
-      els.status.textContent = 'Enter a prompt first.';
+    if (!brief && !state.imageDataUrl) {
+      els.status.textContent = 'Enter a prompt or select an image first.';
       return;
     }
     const schema = schemaForType(type);
     const allowedCompendiumIds = selectedCompendiumIds();
-    const finalPrompt = [
-      `Generate Cypher System content of type: ${labelForType(type)}.`,
-      'Return ONLY a valid JSON object.',
-      'Do not include markdown fences, commentary, or any text outside JSON.',
-      'JSON MUST include an explicit `type` field.',
-      'Write richer descriptions by default: usually 3-6 sentences with concrete sensory/world details.',
-      'For `description` fields, avoid one-liners unless the user explicitly asks for brevity.',
-      type === 'landmark'
-        ? 'For landmark output, set `type` to `location` and include `location_category_type: "landmark"`.'
-        : '',
-      `Follow this JSON shape exactly (keys may be added if useful):\n${JSON.stringify(schema, null, 2)}`,
-      `Allowed vector sources/compendiums: ${allowedCompendiumIds.length ? allowedCompendiumIds.join(', ') : 'all indexed sources'}`,
-      '',
-      'User brief:',
-      brief,
-    ].join('\n');
-
     const provider = String(els.provider?.value || 'ollama_local').trim().toLowerCase();
-    const endpoint = provider === 'openai_remote' ? '/plugins/openai-remote/query' : '/plugins/ollama-local/query';
     const providerLabel = provider === 'openai_remote' ? 'OpenAI' : 'Ollama';
 
-    els.status.textContent = `Generating with ${providerLabel}...`;
+    els.status.textContent = state.imageDataUrl
+      ? `Generating with ${providerLabel} from image${brief ? ' + brief' : ''}...`
+      : `Generating with ${providerLabel}...`;
     state.parsedCard = null;
     setSaveEnabled(false);
     els.output.textContent = '';
     els.citations.textContent = '';
     try {
-      const data = await fetchJson(endpoint, {
+      const data = await fetchJson('/ai-generate/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q: finalPrompt, k: 12, compendium_ids: allowedCompendiumIds }),
+        body: JSON.stringify({
+          provider,
+          content_type: type,
+          brief,
+          schema,
+          k: 12,
+          compendium_ids: allowedCompendiumIds,
+          image_data_url: state.imageDataUrl,
+        }),
       });
       const answer = String(data.answer || '').trim();
       state.lastType = type;
@@ -669,7 +707,10 @@
         setSaveEnabled(false);
       }
       renderCitations(data.citations || []);
-      els.status.textContent = `Done with ${data.model || 'model'}.`;
+      const modelInfo = String(data.model || 'model');
+      els.status.textContent = data.image_used
+        ? `Done with ${modelInfo} using image analysis.`
+        : `Done with ${modelInfo}.`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       els.status.textContent = `Generation failed: ${err.message}`;
@@ -709,10 +750,15 @@
           content_type: state.lastType || String(els.type?.value || 'free_text'),
           card: state.parsedCard,
           payload,
+          image_data_url: state.imageDataUrl,
+          image_name: state.imageName,
         }),
       });
       const filename = String(data?.result?.storage?.filename || '');
-      els.status.textContent = filename ? `Saved: ${filename}` : 'Saved.';
+      const imagePath = String(data?.result?.image?.path || data?.result?.metadata?.image_url || '');
+      els.status.textContent = filename
+        ? `Saved: ${filename}${imagePath ? ` with image ${imagePath}` : ''}`
+        : 'Saved.';
     } catch (err) {
       els.status.textContent = `Save failed: ${err.message}`;
     }
@@ -722,6 +768,12 @@
     els.brief.value = '';
     state.parsedCard = null;
     state.lastRawAnswer = '';
+    state.imageDataUrl = '';
+    state.imageName = '';
+    if (els.imageInput) {
+      els.imageInput.value = '';
+    }
+    updateImageUi();
     setSaveEnabled(false);
     els.output.textContent = '';
     els.rendered.innerHTML = '';
@@ -731,6 +783,7 @@
 
   els.type?.addEventListener('change', () => {
     renderSchema(String(els.type?.value || 'free_text'));
+    updateImageUi();
   });
   els.generateBtn?.addEventListener('click', doGenerate);
   els.saveBtn?.addEventListener('click', saveCard);
@@ -740,6 +793,36 @@
   els.sourcesNoneBtn?.addEventListener('click', () => setAllBySelector('.ai-source-checkbox', false));
   els.compAllBtn?.addEventListener('click', () => setAllBySelector('.ai-comp-checkbox', true));
   els.compNoneBtn?.addEventListener('click', () => setAllBySelector('.ai-comp-checkbox', false));
+  els.imageClearBtn?.addEventListener('click', () => {
+    state.imageDataUrl = '';
+    state.imageName = '';
+    if (els.imageInput) {
+      els.imageInput.value = '';
+    }
+    updateImageUi();
+    els.status.textContent = 'Image cleared.';
+  });
+  els.imageInput?.addEventListener('change', async (event) => {
+    const input = event.currentTarget;
+    const file = input?.files && input.files[0] ? input.files[0] : null;
+    if (!file) {
+      state.imageDataUrl = '';
+      state.imageName = '';
+      updateImageUi();
+      return;
+    }
+    try {
+      state.imageDataUrl = await readFileAsDataUrl(file);
+      state.imageName = String(file.name || 'uploaded image');
+      updateImageUi();
+      els.status.textContent = `Loaded image: ${state.imageName}`;
+    } catch (err) {
+      state.imageDataUrl = '';
+      state.imageName = '';
+      updateImageUi();
+      els.status.textContent = err.message || 'Failed to load image.';
+    }
+  });
   els.brief?.addEventListener('keydown', (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
       event.preventDefault();
@@ -748,6 +831,7 @@
   });
   renderSchema(String(els.type?.value || 'free_text'));
   setSaveEnabled(false);
+  updateImageUi();
   loadCompendiums().catch((err) => {
     els.sources.textContent = `Failed to load sources: ${err.message}`;
     els.compendiums.textContent = `Failed to load compendiums: ${err.message}`;

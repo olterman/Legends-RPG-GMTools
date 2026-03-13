@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import base64
 import json
 import html
 import os
@@ -117,7 +118,97 @@ from Plugins.docling.vector_index import (
     query_index as vector_query_index,
     stats_index as vector_stats_index,
 )
- 
+
+
+def plugin_roots_from_project_root(project_root: Path) -> list[Path]:
+    roots: list[Path] = []
+    for name in ("plugins", "Plugins"):
+        path = project_root / name
+        if path.exists() and path.is_dir():
+            roots.append(path)
+    return roots
+
+
+def discover_plugins_from_roots(
+    roots: list[Path],
+    *,
+    project_root: Path,
+    state: dict[str, bool] | None = None,
+) -> list[dict]:
+    plugin_state = state or {}
+    seen: set[str] = set()
+    items: list[dict] = []
+    for root in roots:
+        for child in sorted(root.iterdir(), key=lambda p: p.name.lower()):
+            if not child.is_dir():
+                continue
+            if child.name.startswith(".") or child.name == "__pycache__":
+                continue
+            metadata_path = child / "plugin.json"
+            package_marker = child / "__init__.py"
+            if not metadata_path.exists() and not package_marker.exists():
+                continue
+            plugin_id = child.name
+            if plugin_id in seen:
+                continue
+            seen.add(plugin_id)
+            metadata: dict = {}
+            if metadata_path.exists():
+                try:
+                    parsed = json.loads(metadata_path.read_text(encoding="utf-8"))
+                    if isinstance(parsed, dict):
+                        metadata = parsed
+                except Exception:
+                    metadata = {}
+            items.append({
+                "id": plugin_id,
+                "name": str(metadata.get("name") or plugin_id),
+                "summary": str(metadata.get("summary") or "").strip(),
+                "docs_url": str(metadata.get("docs_url") or "").strip(),
+                "path": str(child.relative_to(project_root)).replace("\\", "/"),
+                "enabled": plugin_state.get(plugin_id, True),
+            })
+    return items
+
+
+AI_GENERATE_VISION_TYPES = {"encounter", "npc", "artifact", "cypher", "landmark", "settlement"}
+OLLAMA_VISION_MODEL = "llama3.2-vision"
+
+
+def ai_generate_vision_prompt(content_type: str) -> str:
+    content_type_normalized = str(content_type or "").strip().lower()
+    prompts = {
+        "encounter": (
+            "Analyze the image as an RPG encounter seed. Identify the scene, threats, factions, mood, terrain, "
+            "points of tension, and what is about to happen. Convert what you infer into a playable Cypher System encounter."
+        ),
+        "npc": (
+            "Analyze the image as a character portrait or scene reference. Infer the subject's role, demeanor, status, gear, "
+            "motivation, likely environment, and how they would interact with players. Convert those cues into a playable Cypher System NPC."
+        ),
+        "artifact": (
+            "Analyze the image as a strange magical, numenera, occult, or rare item reference. Infer what the object looks like, "
+            "how it is carried or activated, what it likely does, and what makes it dangerous or valuable. Convert that into a Cypher System artifact."
+        ),
+        "cypher": (
+            "Analyze the image as inspiration for a one-use Cypher item. Infer the object's form, material, activation style, and a concise but flavorful effect. "
+            "Convert the visual cues into a Cypher System cypher."
+        ),
+        "landmark": (
+            "Analyze the image as a world landmark or notable site. Infer the location type, visible features, atmosphere, history hints, danger signs, and adventure potential. "
+            "Convert those cues into a Cypher System landmark entry."
+        ),
+        "settlement": (
+            "Analyze the image as a settlement, outpost, district, village, city, or inhabited location. Infer how people live there, the settlement type, economy, social tone, "
+            "architecture, local landmark, and current tension. Convert those cues into a Cypher System settlement."
+        ),
+    }
+    return prompts.get(
+        content_type_normalized,
+        "Analyze the image carefully and convert the visible cues into useful Cypher System worldbuilding content.",
+    )
+
+
 def register_routes(app: Flask) -> None:
     ## Helpers 
     IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"}
@@ -148,13 +239,7 @@ def register_routes(app: Flask) -> None:
         return settings_nav_model(current_app.config["LOL_CONFIG"])
 
     def plugin_roots() -> list[Path]:
-        project_root = current_app.config["LOL_PROJECT_ROOT"]
-        roots = []
-        for name in ("plugins", "Plugins"):
-            path = project_root / name
-            if path.exists() and path.is_dir():
-                roots.append(path)
-        return roots
+        return plugin_roots_from_project_root(current_app.config["LOL_PROJECT_ROOT"])
 
     def private_compendium_root() -> Path:
         return current_app.config["LOL_PROJECT_ROOT"] / "PDF_Repository" / "private_compendium"
@@ -167,8 +252,10 @@ def register_routes(app: Flask) -> None:
         profiles_dir = compendium_profiles_dir()
         profiles: dict[str, dict] = {}
         if not profiles_dir.exists():
-            return profiles
-        for path in sorted(profiles_dir.glob("*.json")):
+            profiles_dir_files: list[Path] = []
+        else:
+            profiles_dir_files = sorted(profiles_dir.glob("*.json"))
+        for path in profiles_dir_files:
             try:
                 payload = json.loads(path.read_text(encoding="utf-8"))
             except Exception:
@@ -179,6 +266,32 @@ def register_routes(app: Flask) -> None:
             payload["id"] = profile_id
             payload["profile_path"] = str(path.relative_to(project_root)).replace("\\", "/")
             profiles[profile_id] = payload
+
+        pdf_root = project_root / "PDF_Repository"
+        auto_scan_roots = [
+            ("Genre_Books", "official"),
+            ("Setting_Books", "official"),
+            ("Core_Rules", "core_pdf"),
+        ]
+        for folder_name, source_kind in auto_scan_roots:
+            folder = pdf_root / folder_name
+            if not folder.exists() or not folder.is_dir():
+                continue
+            for path in sorted(folder.glob("*.pdf")):
+                profile_id = _safe_slug(path.stem)
+                if not profile_id or profile_id in profiles:
+                    continue
+                pretty_name = re.sub(r"[_\-]+", " ", path.stem).strip()
+                pretty_name = re.sub(r"\s+", " ", pretty_name)
+                profiles[profile_id] = {
+                    "id": profile_id,
+                    "name": pretty_name.title() if pretty_name else path.stem,
+                    "subtitle": "Auto-discovered PDF sourcebook",
+                    "pdf_relative_path": str(path.relative_to(pdf_root)).replace("\\", "/"),
+                    "profile_path": "",
+                    "source_kind": source_kind,
+                    "book_title": pretty_name.title() if pretty_name else path.stem,
+                }
         return profiles
 
     def _official_compendium_default_genre(compendium_id: str) -> str:
@@ -974,39 +1087,11 @@ def register_routes(app: Flask) -> None:
         path.write_text(json.dumps(serializable, indent=2, ensure_ascii=False), encoding="utf-8")
 
     def discover_plugins() -> list[dict]:
-        state = load_plugin_state()
-        seen: set[str] = set()
-        items: list[dict] = []
-        for root in plugin_roots():
-            for child in sorted(root.iterdir(), key=lambda p: p.name.lower()):
-                if not child.is_dir():
-                    continue
-                if child.name.startswith(".") or child.name == "__pycache__":
-                    continue
-                if not (child / "__init__.py").exists():
-                    continue
-                plugin_id = child.name
-                if plugin_id in seen:
-                    continue
-                seen.add(plugin_id)
-                metadata_path = child / "plugin.json"
-                metadata: dict = {}
-                if metadata_path.exists():
-                    try:
-                        parsed = json.loads(metadata_path.read_text(encoding="utf-8"))
-                        if isinstance(parsed, dict):
-                            metadata = parsed
-                    except Exception:
-                        metadata = {}
-                items.append({
-                    "id": plugin_id,
-                    "name": str(metadata.get("name") or plugin_id),
-                    "summary": str(metadata.get("summary") or "").strip(),
-                    "docs_url": str(metadata.get("docs_url") or "").strip(),
-                    "path": str(child.relative_to(current_app.config["LOL_PROJECT_ROOT"])).replace("\\", "/"),
-                    "enabled": state.get(plugin_id, True),
-                })
-        return items
+        return discover_plugins_from_roots(
+            plugin_roots(),
+            project_root=current_app.config["LOL_PROJECT_ROOT"],
+            state=load_plugin_state(),
+        )
 
     def is_plugin_enabled(plugin_id: str) -> bool:
         for item in discover_plugins():
@@ -2770,6 +2855,105 @@ def register_routes(app: Flask) -> None:
     def ai_generate():
         return render_template("ai_generate.html")
 
+    @app.post("/ai-generate/run")
+    def api_ai_generate_run():
+        body = request.get_json(force=True, silent=False) or {}
+        provider = str(body.get("provider") or "ollama_local").strip().lower()
+        content_type = str(body.get("content_type") or "free_text").strip().lower()
+        brief = str(body.get("brief") or "").strip()
+        schema = body.get("schema") if isinstance(body.get("schema"), dict) else {}
+        image_data_url = str(body.get("image_data_url") or "").strip()
+        allowed_compendium_ids_raw = body.get("compendium_ids")
+        allowed_compendium_ids: list[str] = []
+        if isinstance(allowed_compendium_ids_raw, list):
+            for value in allowed_compendium_ids_raw:
+                cid = str(value or "").strip().lower()
+                if cid and cid not in allowed_compendium_ids:
+                    allowed_compendium_ids.append(cid)
+
+        if provider == "openai_remote":
+            if not is_plugin_enabled("openai_remote"):
+                return jsonify({"error": "openai_remote plugin is disabled"}), 403
+        else:
+            if not is_plugin_enabled("ollama_local"):
+                return jsonify({"error": "ollama_local plugin is disabled"}), 403
+
+        image_bytes: bytes | None = None
+        image_mime_type = ""
+        if image_data_url:
+            try:
+                image_mime_type, image_bytes = _parse_image_data_url(image_data_url)
+            except ValueError as exc:
+                return jsonify({"error": str(exc)}), 400
+
+        if not brief and image_bytes is None:
+            return jsonify({"error": "either brief or image_data_url is required"}), 400
+
+        query_text = brief
+        if not query_text:
+            query_text = f"{content_type.replace('_', ' ')} visual reference"
+
+        k_raw = body.get("k")
+        try:
+            k = max(1, min(20, int(k_raw))) if k_raw is not None else 12
+        except Exception:
+            k = 12
+
+        items: list[dict] = []
+        citations: list[dict] = []
+        grounded_context = "No vector context available."
+        if brief:
+            try:
+                items, citations, grounded_context = _build_vector_context(
+                    query_text,
+                    compendium_ids=allowed_compendium_ids,
+                    k=k,
+                )
+            except FileNotFoundError as exc:
+                return jsonify({"error": str(exc)}), 404
+            except ValueError as exc:
+                return jsonify({"error": str(exc)}), 400
+
+        prompt = _ai_generate_prompt(
+            content_type=content_type,
+            schema=schema,
+            brief=brief,
+            allowed_compendium_ids=allowed_compendium_ids,
+            image_supplied=image_bytes is not None,
+        )
+
+        try:
+            answer, model, base_url = _ai_generate_with_provider(
+                provider=provider,
+                prompt=prompt,
+                vector_context=grounded_context,
+                image_data_url=image_data_url,
+                image_bytes=image_bytes,
+            )
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        except Exception as exc:
+            provider_label = "OpenAI" if provider == "openai_remote" else "Ollama"
+            return jsonify({
+                "error": f"{provider_label} request failed: {exc}",
+                "model": OLLAMA_VISION_MODEL if image_bytes is not None and provider != "openai_remote" else "",
+            }), 502
+
+        return jsonify({
+            "answer": answer,
+            "provider": provider,
+            "content_type": content_type,
+            "base_url": base_url,
+            "model": model,
+            "image_used": image_bytes is not None,
+            "image_mime_type": image_mime_type,
+            "k": k,
+            "compendium_ids": allowed_compendium_ids,
+            "citation_count": len(citations),
+            "citations": citations,
+            "vector_items": items,
+        })
+
     @app.get("/setting-wizard")
     def setting_wizard():
         return render_template("setting_wizard.html")
@@ -2801,6 +2985,252 @@ def register_routes(app: Flask) -> None:
             except Exception:
                 pass
         return None
+
+    def _parse_image_data_url(value: object) -> tuple[str, bytes]:
+        raw = str(value or "").strip()
+        match = re.match(r"^data:(image/[a-zA-Z0-9.+-]+);base64,(.+)$", raw, flags=re.DOTALL)
+        if not match:
+            raise ValueError("image must be a base64 data URL")
+        mime_type = match.group(1).strip().lower()
+        encoded = re.sub(r"\s+", "", match.group(2) or "")
+        if not encoded:
+            raise ValueError("image data is empty")
+        try:
+            decoded = base64.b64decode(encoded, validate=True)
+        except Exception as exc:
+            raise ValueError("image data is not valid base64") from exc
+        if not decoded:
+            raise ValueError("image data is empty")
+        return mime_type, decoded
+
+    def _image_suffix_for_mime_type(mime_type: str) -> str:
+        normalized = str(mime_type or "").strip().lower()
+        explicit = {
+            "image/jpeg": ".jpg",
+            "image/jpg": ".jpg",
+            "image/png": ".png",
+            "image/webp": ".webp",
+            "image/gif": ".gif",
+            "image/svg+xml": ".svg",
+        }
+        if normalized in explicit:
+            return explicit[normalized]
+        guessed = mimetypes.guess_extension(normalized) or ""
+        if guessed == ".jpe":
+            guessed = ".jpg"
+        return guessed if guessed in IMAGE_SUFFIXES else ""
+
+    def persist_uploaded_image_data(
+        image_data_url: object,
+        *,
+        friendly_name: str = "",
+        tags: list[str] | None = None,
+        notes: str = "",
+        upload_subdir: str = "uploads/ai_generate",
+    ) -> dict[str, str | list[str]]:
+        mime_type, decoded = _parse_image_data_url(image_data_url)
+        suffix = _image_suffix_for_mime_type(mime_type)
+        if suffix not in IMAGE_SUFFIXES:
+            raise ValueError(f"unsupported image type '{mime_type or 'unknown'}'")
+
+        images_dir = current_app.config["LOL_IMAGES_DIR"]
+        upload_dir = images_dir / upload_subdir
+        upload_dir.mkdir(parents=True, exist_ok=True)
+
+        safe_name = secure_filename(friendly_name or "")
+        stem = Path(safe_name).stem or "ai_generate"
+        final_name = f"{stem}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex[:8]}{suffix}"
+        path = upload_dir / final_name
+        path.write_bytes(decoded)
+
+        rel = str(path.relative_to(images_dir)).replace("\\", "/")
+        normalized_tags = sorted(set(
+            str(tag or "").strip().lower().replace(" ", "_")
+            for tag in (tags or [])
+            if str(tag or "").strip()
+        ))
+        catalog = load_image_catalog()
+        catalog[rel] = {
+            "friendly_name": str(friendly_name or "").strip(),
+            "tags": normalized_tags,
+            "notes": str(notes or "").strip(),
+        }
+        save_image_catalog(catalog)
+        return {
+            "path": rel,
+            "url": f"/images/{rel}",
+            "name": path.name,
+            "friendly_name": str(friendly_name or "").strip(),
+            "tags": normalized_tags,
+            "notes": str(notes or "").strip(),
+        }
+
+    def _build_vector_context(query: str, *, compendium_id: str = "", compendium_ids: list[str] | None = None, k: int = 8) -> tuple[list[dict], list[dict], str]:
+        selected_ids = [str(cid or "").strip().lower() for cid in (compendium_ids or []) if str(cid or "").strip()]
+        selected_ids = list(dict.fromkeys(selected_ids))
+        solo_id = str(compendium_id or "").strip().lower()
+        if solo_id and solo_id not in selected_ids:
+            selected_ids.append(solo_id)
+
+        try:
+            if selected_ids:
+                merged_items: list[dict] = []
+                seen_keys: set[str] = set()
+                for cid in selected_ids:
+                    vec_part = vector_query_index(
+                        output_root=vector_index_root(),
+                        query=query,
+                        k=k,
+                        compendium_id=cid,
+                    )
+                    part_items = vec_part.get("items") if isinstance(vec_part, dict) else []
+                    part_items = part_items if isinstance(part_items, list) else []
+                    for item in part_items:
+                        if not isinstance(item, dict):
+                            continue
+                        key = (
+                            f"{str(item.get('compendium_id') or '')}|"
+                            f"{str(item.get('source_path') or '')}|"
+                            f"{str(item.get('heading') or '')}|"
+                            f"{str(item.get('text') or '')[:160]}"
+                        )
+                        if key in seen_keys:
+                            continue
+                        seen_keys.add(key)
+                        merged_items.append(item)
+                merged_items.sort(key=lambda row: float(row.get("score") or 0.0), reverse=True)
+                items = merged_items[:k]
+            else:
+                vec = vector_query_index(
+                    output_root=vector_index_root(),
+                    query=query,
+                    k=k,
+                    compendium_id=solo_id,
+                )
+                part_items = vec.get("items") if isinstance(vec, dict) else []
+                items = part_items if isinstance(part_items, list) else []
+        except FileNotFoundError:
+            raise
+        except Exception as exc:
+            raise ValueError(f"vector query failed: {exc}") from exc
+
+        citations = []
+        context_lines = []
+        for idx, item in enumerate(items, start=1):
+            if not isinstance(item, dict):
+                continue
+            source_path = str(item.get("source_path") or "").strip()
+            heading = str(item.get("heading") or "").strip()
+            snippet = str(item.get("text") or "").strip()
+            score = float(item.get("score") or 0.0)
+            citations.append({
+                "n": idx,
+                "compendium_id": str(item.get("compendium_id") or ""),
+                "source_path": source_path,
+                "heading": heading,
+                "score": score,
+            })
+            context_lines.append(f"[{idx}] source={source_path} heading={heading}\n{snippet}")
+
+        grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
+        return items, citations, grounded_context
+
+    def _ai_generate_prompt(
+        *,
+        content_type: str,
+        schema: dict | None,
+        brief: str,
+        allowed_compendium_ids: list[str],
+        image_supplied: bool,
+    ) -> str:
+        ctype = str(content_type or "free_text").strip().lower()
+        schema_text = json.dumps(schema or {}, indent=2, ensure_ascii=False)
+        prompt_lines = [
+            f"Generate Cypher System content of type: {ctype.replace('_', ' ').title()}.",
+            "Return ONLY a valid JSON object.",
+            "Do not include markdown fences, commentary, or any text outside JSON.",
+            "JSON MUST include an explicit `type` field.",
+            "Write richer descriptions by default: usually 3-6 sentences with concrete sensory/world details.",
+            "For `description` fields, avoid one-liners unless the user explicitly asks for brevity.",
+        ]
+        if ctype == "landmark":
+            prompt_lines.append("For landmark output, set `type` to `location` and include `location_category_type: \"landmark\"`.")
+        if image_supplied and ctype in AI_GENERATE_VISION_TYPES:
+            prompt_lines.append(ai_generate_vision_prompt(ctype))
+            prompt_lines.append("Base your answer on the image evidence first, then fill small gaps with restrained RPG inference.")
+        elif image_supplied:
+            prompt_lines.append("Use the uploaded image as a primary source of inspiration for the generated content.")
+        prompt_lines.extend([
+            f"Follow this JSON shape exactly (keys may be added if useful):\n{schema_text}",
+            f"Allowed vector sources/compendiums: {allowed_compendium_ids if allowed_compendium_ids else 'all indexed sources'}",
+        ])
+        if brief:
+            prompt_lines.extend(["", "User brief:", brief])
+        elif image_supplied:
+            prompt_lines.extend(["", "User brief:", "No text brief provided. Infer the concept from the image."])
+        return "\n".join(prompt_lines)
+
+    def _ai_generate_with_provider(
+        *,
+        provider: str,
+        prompt: str,
+        vector_context: str,
+        image_data_url: str = "",
+        image_bytes: bytes | None = None,
+    ) -> tuple[str, str, str]:
+        provider_norm = str(provider or "ollama_local").strip().lower()
+        image_present = bool(image_data_url and image_bytes)
+        if provider_norm == "openai_remote":
+            model = openai_default_model()
+            base_url = openai_base_url()
+            api_key = openai_api_key()
+            if not api_key:
+                raise ValueError("api_key is required in plugin settings or request")
+            system_prompt = openai_system_prompt()
+            messages: list[dict] = []
+            if system_prompt:
+                messages.append({"role": "system", "content": system_prompt})
+            if image_present:
+                user_content: list[dict] = [{"type": "text", "text": f"{prompt}\n\nContext:\n{vector_context}\n\nAnswer:"}]
+                user_content.append({"type": "image_url", "image_url": {"url": image_data_url}})
+                messages.append({"role": "user", "content": user_content})
+            else:
+                messages.append({"role": "user", "content": f"{prompt}\n\nContext:\n{vector_context}\n\nAnswer:"})
+            reply = openai_post_json(
+                base_url,
+                "/v1/chat/completions",
+                {
+                    "model": model,
+                    "messages": messages,
+                    "temperature": 0.2,
+                },
+                api_key=api_key,
+                timeout=300,
+            )
+            choices = reply.get("choices") if isinstance(reply, dict) else []
+            answer = ""
+            if isinstance(choices, list) and choices:
+                first = choices[0] if isinstance(choices[0], dict) else {}
+                message = first.get("message") if isinstance(first.get("message"), dict) else {}
+                answer = str(message.get("content") or "").strip()
+            return answer, model, base_url
+
+        model = OLLAMA_VISION_MODEL if image_present else ollama_default_model()
+        base_url = ollama_base_url()
+        keep_alive = ollama_keep_alive()
+        system_prompt = ollama_system_prompt()
+        payload = {
+            "model": model,
+            "prompt": f"{system_prompt}\n\n{prompt}\n\nContext:\n{vector_context}\n\nAnswer:".strip() if system_prompt else f"{prompt}\n\nContext:\n{vector_context}\n\nAnswer:",
+            "stream": False,
+            "keep_alive": keep_alive,
+            "options": {"temperature": 0.2},
+        }
+        if image_present and image_bytes is not None:
+            payload["images"] = [base64.b64encode(image_bytes).decode("ascii")]
+        reply = ollama_post_json(base_url, "/api/generate", payload, timeout=300)
+        answer = str(reply.get("response") or "").strip()
+        return answer, model, base_url
 
     def _setting_wizard_skeleton_files(setting_id: str, setting_label: str, genre_id: str, brief: str) -> dict[str, str]:
         summary = brief.strip() or f"A new {genre_id.replace('_', ' ')} setting."
@@ -3350,6 +3780,8 @@ def register_routes(app: Flask) -> None:
         content_type = str(body.get("content_type") or "").strip().lower()
         card = body.get("card")
         payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        image_data_url = str(body.get("image_data_url") or "").strip()
+        image_name = str(body.get("image_name") or "").strip()
         if not content_type:
             return jsonify({"error": "content_type is required"}), 400
         if not isinstance(card, dict):
@@ -3421,6 +3853,32 @@ def register_routes(app: Flask) -> None:
                 sections.setdefault("content_type", "landmark")
             result["metadata"]["subtype"] = "landmark"
             result["metadata"]["location_category_type"] = "landmark"
+
+        if image_data_url:
+            try:
+                stored_image = persist_uploaded_image_data(
+                    image_data_url,
+                    friendly_name=image_name or name,
+                    tags=["ai_generate", content_type, result_type],
+                    notes=f"Saved from AI Generate for {name}",
+                )
+            except ValueError as exc:
+                return jsonify({"error": str(exc)}), 400
+            image_ref = str(stored_image.get("path") or "").strip()
+            if image_ref:
+                result["metadata"]["image_url"] = image_ref
+                result["metadata"]["images"] = [image_ref]
+                sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
+                if isinstance(sections, dict):
+                    meta = sections.get("metadata") if isinstance(sections.get("metadata"), dict) else {}
+                    meta["image_url"] = image_ref
+                    meta["images"] = [image_ref]
+                    sections["metadata"] = meta
+                result["image"] = {
+                    "path": image_ref,
+                    "url": str(stored_image.get("url") or ""),
+                    "name": str(stored_image.get("name") or ""),
+                }
 
         stored = persist_result(payload, result)
         return jsonify({

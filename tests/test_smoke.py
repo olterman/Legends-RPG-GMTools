@@ -31,6 +31,55 @@ from lol_api.storage import (
 
 
 class SmokeTests(unittest.TestCase):
+    def test_plugin_discovery_accepts_metadata_only_folders(self) -> None:
+        try:
+            from lol_api.api import discover_plugins_from_roots
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"plugin discovery test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            plugins_dir = root / "Plugins"
+            plugins_dir.mkdir(parents=True, exist_ok=True)
+
+            metadata_only = plugins_dir / "openai_remote"
+            metadata_only.mkdir()
+            (metadata_only / "plugin.json").write_text(
+                json.dumps(
+                    {
+                        "name": "OpenAI Remote RAG",
+                        "summary": "Queries OpenAI API with vector-indexed private compendium context.",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            package_only = plugins_dir / "foundryVTT"
+            package_only.mkdir()
+            (package_only / "__init__.py").write_text("", encoding="utf-8")
+
+            items = discover_plugins_from_roots([plugins_dir], project_root=root)
+
+            by_id = {item["id"]: item for item in items}
+            self.assertIn("openai_remote", by_id)
+            self.assertEqual(by_id["openai_remote"]["name"], "OpenAI Remote RAG")
+            self.assertIn("foundryVTT", by_id)
+
+    def test_ai_generate_vision_prompt_and_model_constants(self) -> None:
+        try:
+            from lol_api.api import AI_GENERATE_VISION_TYPES, OLLAMA_VISION_MODEL, ai_generate_vision_prompt
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"ai generate vision test requires app dependencies: {exc}")
+
+        self.assertEqual(OLLAMA_VISION_MODEL, "llama3.2-vision")
+        self.assertEqual(
+            AI_GENERATE_VISION_TYPES,
+            {"encounter", "npc", "artifact", "cypher", "landmark", "settlement"},
+        )
+        self.assertIn("RPG encounter seed", ai_generate_vision_prompt("encounter"))
+        self.assertIn("character portrait", ai_generate_vision_prompt("npc"))
+        self.assertIn("settlement", ai_generate_vision_prompt("settlement").lower())
+
     def test_setting_world_filtering(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)

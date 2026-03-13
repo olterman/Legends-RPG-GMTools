@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:22:25.979583+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232225.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Demon lord",
+    "sections": {
+      "character": "Demon lord",
+      "environment": "Any hell dimension, sometimes called by mortal magic",
+      "motive": "Power, conquest, souls",
+      "interaction": "Demon lords are willing to bargain with mortals if it leads to the mortal’s corruption or advances the demon’s agenda in some way. They sometimes respond to flattery or bribes of powerful souls or magic items.",
+      "use": "A mad cult wants to summon a demon lord in order to end the world. A mysterious stranger offers aid in exchange for a favor to be named later.",
+      "loot": "A demon lord often has an artifact relating to some aspect of its nature or interests, such as a weapon, ring, or armor, as well as [[/r 1d6]] cyphers. GM Intrusions: The demon lord offers the character something so tempting (an artifact, immortality, and soon) that they lose their next action and must make an Intellect defense roll to resist trying to bargain for it. The demon lord creates a portal and retreats to its own dimension; the portal remains open for one round."
+    },
+    "stat_block": {
+      "level": 9,
+      "target_number": 27,
+      "health": 100,
+      "armor": 5,
+      "damage": 12,
+      "movement": "Short; long when flying",
+      "modifications": [
+        "History and magical knowledge as level 10"
+      ],
+      "combat": [
+        "A demon lord attacks with a bolt of evil energy or fire up to a long distance away, inflicting 12 points of damage on one target or 9 points of damage on all targets within short range of the primary target. Targets caught in the area attack who succeed on a Speed defense roll still suffer 5 points of damage. A demon lord can make melee attacks on all targets within immediate range as an action. They can also call on a variety of other magical abilities that mimic the effect of any cypher of level 5 or lower—usually destructive, painful, and transformative effects. A demon lord automatically regains 3 points of health per round. They typically have the following abilities: Change Shape: The demon lord can take the form of a human or similar humanoid as its action, or return to its regular shape. When so changed, its disguise is nearly impenetrable without special knowledge. As a human, the demon lord is a level 7 creature. Possession: The demon lord can possess a creature and still use its own abilities. Summon Demon: Summon a demon or devil to serve it for one day. Wish: The demon lord can grant a mortal a wish (up to level 9) in exchange for an appropriate payment or service, but the wish is often twisted or has hidden consequences."
+      ],
+      "interaction": [
+        "Demon lords are willing to bargain with mortals if it leads to the mortal’s corruption or advances the demon’s agenda in some way. They sometimes respond to flattery or bribes of powerful souls or magic items."
+      ],
+      "loot": [
+        "A demon lord often has an artifact relating to some aspect of its nature or interests, such as a weapon, ring, or armor, as well as [[/r 1d6]] cyphers. GM Intrusions: The demon lord offers the character something so tempting (an artifact, immortality, and soon) that they lose their next action and must make an Intellect defense roll to resist trying to bargain for it. The demon lord creates a portal and retreats to its own dimension; the portal remains open for one round."
+      ]
+    },
+    "text": "Demon lords are mighty demons, commanding hundreds of lesser fiends and often ruling an entire hellscape dimension. No mere brutes, they are smart, wield powerful magic, make centuries-long plans of conquest against rival demons, and seek to corrupt and enslave powerful mortals. Some are nearly as powerful as gods and are worshipped as such by cultists or evil creatures, claiming ownership of a concept like murder, rot, undeath, or seduction. A few are known to mate with mortals to produce cambion offspring.\n\nMotive: Power, conquest, souls\n\nEnvironment: Any hell dimension, sometimes called by mortal magic\n\nHealth: 100\n\nDamage Inflicted: 12 points\n\nArmor: 5\n\nMovement: Short; long when flying\n\nModifications: History and magical knowledge as level 10\n\nCombat: A demon lord attacks with a bolt of evil energy or fire up to a long distance away, inflicting 12 points of damage on one target or 9 points of damage on all targets within short range of the primary target. Targets caught in the area attack who succeed on a Speed defense roll still suffer 5 points of damage. A demon lord can make melee attacks on all targets within immediate range as an action.\n\nThey can also call on a variety of other magical abilities that mimic the effect of any cypher of level 5 or lower—usually destructive, painful, and transformative effects.\n\nA demon lord automatically regains 3 points of health per round. They typically have the following abilities:\n\nChange Shape: The demon lord can take the form of a human or similar humanoid as its action, or return to its regular shape. When so changed, its disguise is nearly impenetrable without special knowledge. As a human, the demon lord is a level 7 creature.\nPossession: The demon lord can possess a creature and still use its own abilities.\nSummon Demon: Summon a demon or devil to serve it for one day.\nWish: The demon lord can grant a mortal a wish (up to level 9) in exchange for an appropriate payment or service, but the wish is often twisted or has hidden consequences.\n\nInteraction: Demon lords are willing to bargain with mortals if it leads to the mortal’s corruption or advances the demon’s agenda in some way. They sometimes respond to flattery or bribes of powerful souls or magic items.\n\nUse: A mad cult wants to summon a demon lord in order to end the world. A mysterious stranger offers aid in exchange for a favor to be named later.\n\nLoot: A demon lord often has an artifact relating to some aspect of its nature or interests, such as a weapon, ring, or armor, as well as [[/r 1d6]] cyphers.\n\nGM Intrusions: The demon lord offers the character something so tempting (an artifact, immortality, and soon) that they lose their next action and must make an Intellect defense roll to resist trying to bargain for it.\n\nThe demon lord creates a portal and retreats to its own dimension; the portal remains open for one round.\n\nDemon lord\nLevel 9 (target number 27)\nHealth: 100\nArmor: 5\nDamage: 12",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.ZCO7xDg7qRKXzHqs",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_demon-lord.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_demon-lord.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "A mad cult wants to summon a demon lord in order to end the world. A mysterious stranger offers aid in exchange for a favor to be named later."
+  }
+}

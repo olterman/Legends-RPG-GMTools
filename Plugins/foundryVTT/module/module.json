@@ -1,0 +1,29 @@
+{
+  "id": "legends-gmtools-bridge",
+  "title": "Legends GM-Tools Bridge",
+  "description": "Handshake bridge between Foundry VTT and Legends RPG GMTools.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Legends RPG GMTools"
+    }
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "cyphersystem",
+        "type": "system"
+      }
+    ]
+  },
+  "url": "https://example.invalid/legends-gmtools-bridge",
+  "manifest": "https://example.invalid/legends-gmtools-bridge/module.json",
+  "download": "https://example.invalid/legends-gmtools-bridge.zip"
+  }

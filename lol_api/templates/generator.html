@@ -90,6 +90,65 @@
       </div>
     </div>
 
+    <div class="panel" style="margin-top: 12px;">
+      <h3>Raw Text Parser</h3>
+      <p class="small">Paste compendium-style text, select type, and save a parsed local entry.</p>
+      <form id="raw-parse-form">
+        <div class="row">
+          <div class="field">
+            <label for="raw-type">Parsed type</label>
+            <select id="raw-type" name="raw-type">
+              <option value="auto">auto</option>
+              <option value="cypher">cypher</option>
+              <option value="artifact">artifact</option>
+              <option value="npc">npc</option>
+              <option value="creature">creature</option>
+              <option value="monster">monster</option>
+              <option value="character">character</option>
+              <option value="settlement">settlement</option>
+              <option value="encounter">encounter</option>
+              <option value="inn">inn</option>
+              <option value="location">location</option>
+              <option value="lore">lore</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="raw-setting">Genre/Setting tag (optional)</label>
+            <input id="raw-setting" name="raw-setting" placeholder="e.g. fantasy or lands_of_legends" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="raw-area">Area (optional)</label>
+            <input id="raw-area" name="raw-area" placeholder="e.g. fenmir_highlands" />
+          </div>
+          <div class="field">
+            <label for="raw-location">Location (optional)</label>
+            <input id="raw-location" name="raw-location" placeholder="e.g. Broken Hearth Tavern" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="raw-sourcebook">Sourcebook (optional)</label>
+            <input id="raw-sourcebook" name="raw-sourcebook" placeholder="e.g. Godforsaken" />
+          </div>
+          <div class="field">
+            <label for="raw-pages">Page(s) (optional)</label>
+            <input id="raw-pages" name="raw-pages" placeholder="e.g. 142 or 142-143" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="raw-text">Raw text</label>
+          <textarea id="raw-text" name="raw-text" rows="12" placeholder="Paste raw text here..."></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit">Parse Preview</button>
+          <span class="status" id="raw-status">Ready.</span>
+        </div>
+      </form>
+      <div id="raw-preview" class="results" style="margin-top:10px;"></div>
+    </div>
+
   <script>
     const state = {
       meta: null,
@@ -97,6 +156,10 @@
       allEnvironments: [],
       monsterEnvironments: [],
       artifactDepletionTable: [],
+      rawPreview: {
+        payload: null,
+        items: [],
+      },
     };
 
     const els = {
@@ -116,6 +179,16 @@
       monsterFields: document.getElementById('monster-fields'),
       monsterFamily: document.getElementById('monster-family'),
       monsterRole: document.getElementById('monster-role'),
+      rawForm: document.getElementById('raw-parse-form'),
+      rawType: document.getElementById('raw-type'),
+      rawSetting: document.getElementById('raw-setting'),
+      rawArea: document.getElementById('raw-area'),
+      rawLocation: document.getElementById('raw-location'),
+      rawSourcebook: document.getElementById('raw-sourcebook'),
+      rawPages: document.getElementById('raw-pages'),
+      rawText: document.getElementById('raw-text'),
+      rawStatus: document.getElementById('raw-status'),
+      rawPreview: document.getElementById('raw-preview'),
     };
 
     function fillSelect(select, values, includeBlank = false) {
@@ -435,10 +508,124 @@
       els.status.textContent = 'Copied to clipboard.';
     }
 
+    async function submitRawParse(event) {
+      event.preventDefault();
+      const rawText = (els.rawText.value || '').trim();
+      if (!rawText) {
+        els.rawStatus.textContent = 'Paste raw text first.';
+        return;
+      }
+      const payload = {
+        type: els.rawType.value,
+        raw_text: rawText,
+      };
+      if (els.rawSetting.value.trim()) payload.setting = els.rawSetting.value.trim();
+      if (els.rawArea.value.trim()) payload.area = els.rawArea.value.trim();
+      if (els.rawLocation.value.trim()) payload.location = els.rawLocation.value.trim();
+      if (els.rawSourcebook.value.trim()) payload.sourcebook = els.rawSourcebook.value.trim();
+      if (els.rawPages.value.trim()) payload.pages = els.rawPages.value.trim();
+
+      els.rawStatus.textContent = 'Parsing preview...';
+      els.rawPreview.innerHTML = '';
+      try {
+        const res = await fetch('/generate/parse-raw/preview', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+        const items = Array.isArray(data.items) ? data.items : [];
+        state.rawPreview = { payload, items };
+        renderRawPreview();
+        els.rawStatus.textContent = `Parsed ${items.length} item(s). Save individually below.`;
+      } catch (err) {
+        els.rawStatus.textContent = `Error: ${err.message}`;
+      }
+    }
+
+    function renderRawPreview() {
+      const items = (state.rawPreview && state.rawPreview.items) || [];
+      if (!items.length) {
+        els.rawPreview.innerHTML = `<div class="output-card"><div class="output-value">No parsable items found.</div></div>`;
+        return;
+      }
+      els.rawPreview.innerHTML = items.map((item, idx) => {
+        const sections = item.sections || {};
+        const level = sections.level || item.level || "";
+        const keyBits = [
+          sections.manifestation ? `Manifestation: ${sections.manifestation}` : "",
+          sections.appearance ? `Appearance: ${sections.appearance}` : "",
+          sections.effect ? `Effect: ${sections.effect}` : "",
+          sections.depletion ? `Depletion: ${sections.depletion}` : "",
+          sections.limitation ? `Limitation: ${sections.limitation}` : "",
+        ].filter(Boolean).join(" • ");
+        return `
+          <div class="output-card" data-raw-index="${idx}">
+            <div class="output-row">
+              <div class="output-label">Parsed #${idx + 1}</div>
+              <div class="output-value">${escapeHtml(item.name || "Unnamed")} (${escapeHtml(item.type || "item")}${level ? `, Lvl ${escapeHtml(String(level))}` : ""})</div>
+            </div>
+            ${item.description ? `<div class="output-row"><div class="output-label">Description</div><div class="output-value">${escapeHtml(item.description)}</div></div>` : ""}
+            ${keyBits ? `<div class="small" style="margin-top:8px;">${escapeHtml(keyBits)}</div>` : ""}
+            <div class="actions" style="margin-top:10px;">
+              <button type="button" class="secondary" data-action="inspect-parsed" data-index="${idx}">Inspect</button>
+              <button type="button" data-action="save-parsed" data-index="${idx}">Save</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      els.rawPreview.querySelectorAll('button[data-action="inspect-parsed"]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.getAttribute('data-index') || '-1');
+          const item = state.rawPreview.items[idx];
+          if (item) {
+            renderResult(item);
+            els.status.textContent = `Inspecting parsed item #${idx + 1}.`;
+          }
+        });
+      });
+
+      els.rawPreview.querySelectorAll('button[data-action="save-parsed"]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const idx = Number(btn.getAttribute('data-index') || '-1');
+          const item = state.rawPreview.items[idx];
+          if (!item) return;
+          btn.disabled = true;
+          try {
+            const res = await fetch('/generate/parse-raw/save', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                payload: state.rawPreview.payload || {},
+                parsed: item,
+              }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+            const filename = data && data.storage ? data.storage.filename : '';
+            btn.textContent = 'Saved';
+            btn.classList.add('secondary');
+            btn.disabled = true;
+            renderResult(data);
+            els.rawStatus.textContent = filename
+              ? `Saved item #${idx + 1}: ${filename}`
+              : `Saved item #${idx + 1}.`;
+            els.status.textContent = data.name ? `Saved: ${data.name}` : 'Saved.';
+          } catch (err) {
+            btn.disabled = false;
+            els.rawStatus.textContent = `Error saving item #${idx + 1}: ${err.message}`;
+          }
+        });
+      });
+    }
+
     els.type.addEventListener('change', updateVisibleFields);
     els.race.addEventListener('change', updateVariantOptions);
     els.form.addEventListener('submit', submitForm);
     els.copyBtn.addEventListener('click', copyOutput);
+    els.rawForm.addEventListener('submit', submitRawParse);
 
     loadBootData().catch(err => {
       els.status.textContent = `Error loading metadata: ${err.message}`;

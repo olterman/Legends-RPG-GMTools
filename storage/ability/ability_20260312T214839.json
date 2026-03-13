@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T21:48:39.220469+00:00",
+  "filename": "ability/ability_20260312T214839.json",
+  "payload": {
+    "origin": "character_sheet_save",
+    "character_name": "Willem",
+    "ability_name": "All social interactions"
+  },
+  "result": {
+    "type": "ability",
+    "name": "All social interactions",
+    "sections": {
+      "summary": "Auto-created local ability placeholder.",
+      "details": "Created from Character Studio because no exact compendium entry exists for 'All social interactions'."
+    },
+    "metadata": {
+      "source": "character_studio",
+      "character_name": "Willem",
+      "missing_from_compendium": true,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

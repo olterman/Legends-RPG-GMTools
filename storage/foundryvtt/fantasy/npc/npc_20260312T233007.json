@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:30:07.091398+00:00",
+  "filename": "foundryvtt/fantasy/npc/npc_20260312T233007.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Guard",
+    "sections": {
+      "character": "Guard",
+      "motive": "Keep the peace; follow orders",
+      "interaction": "Interacting with a guard typically involves one issue: does the PC want to do something that the guard has been told to prevent? If so, the PC could have a difficult time.",
+      "use": "To the PCs, guards can be allies, obstacles, or both. Guards who serve the public good have their own duties and aren’t interested in doing the characters’ work for them.",
+      "loot": "A guard has currency equivalent to an inexpensive item in addition to weapons, armor, and basic gear.",
+      "gm_intrusion": "[[/r 1d6]] local citizens intervene on the guard’s behalf, calling for more guards or even fighting the guard’s foes."
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 8,
+      "armor": 1,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Perception as level 3"
+      ],
+      "combat": [
+        "Guards are not often wily, but they understand strength in numbers. If two or more guards attack the same target with at least one melee attack in the same round, the target’s Speed defense roll against those attacks is hindered."
+      ],
+      "interaction": [
+        "Interacting with a guard typically involves one issue: does the PC want to do something that the guard has been told to prevent? If so, the PC could have a difficult time."
+      ],
+      "loot": [
+        "A guard has currency equivalent to an inexpensive item in addition to weapons, armor, and basic gear."
+      ]
+    },
+    "text": "Guards keep the peace but don’t usually show much initiative. Ultimately, they do as they’re ordered by their superiors, regardless of legality. A guard might be a star trooper dressed in intimidating armor, a mall security guard, a beat police officer, or a mafia goon.\n\n(When attacked, guards always call for the help of other guards, if possible.)\n\nMotive: Keep the peace; follow orders\n\nHealth: 8\n\nDamage Inflicted: 3 points\n\nArmor: 1 or 2\n\nMovement: Short\n\nModifications: Perception as level 3\n\nCombat: Guards are not often wily, but they understand strength in numbers. If two or more guards attack the same target with at least one melee attack in the same round, the target’s Speed defense roll against those attacks is hindered.\n\nInteraction: Interacting with a guard typically involves one issue: does the PC want to do something that the guard has been told to prevent? If so, the PC could have a difficult time.\n\nUse: To the PCs, guards can be allies, obstacles, or both. Guards who serve the public good have their own duties and aren’t interested in doing the characters’ work for them.\n\nLoot: A guard has currency equivalent to an inexpensive item in addition to weapons, armor, and basic gear.\n\nGM Intrusion: [[/r 1d6]] local citizens intervene on the guard’s behalf, calling for more guards or even fighting the guard’s foes.\n\nGuard\nLevel 2 (target number 6)\nHealth: 8\nArmor: 1\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.vamqtdZeooEZTvVA",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/npc_guard.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/npc_guard.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "To the PCs, guards can be allies, obstacles, or both. Guards who serve the public good have their own duties and aren’t interested in doing the characters’ work for them."
+  }
+}

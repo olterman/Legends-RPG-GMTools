@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:29:33.048683+00:00",
+  "filename": "foundryvtt/fantasy/npc/npc_20260312T232933.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Robber/thief",
+    "sections": {
+      "character": "Robber/thief",
+      "environment": "Anywhere there’s something to be stolen",
+      "motive": "What’s yours is mine",
+      "interaction": "Most robbers have a moral code of some sort—it just may not be the code that others abide by. Still, they are willing to listen to reason (and particularly the sound of sliding coins). Robbers are often willing to be hired for jobs that are too difficult for others.",
+      "use": "Robbers happen upon the place where the characters have made camp, and ask to join them. A group of robbers arrives to steal a thing that the characters are just about to steal themselves.",
+      "loot": "Depending on whether they’ve just robbed someone or not, robbers may have anywhere from nothing (other than their weapons and clothing) up to the currency equivalent of a very expensive item.",
+      "gm_intrusion": "The robber’s arrow manages to hit two foes in a single attack, or the robber shoots two arrows at multiple foes."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 1,
+      "damage": 2,
+      "movement": "Short",
+      "modifications": [
+        "Stealth, including sneaking, stealing, hiding, and deception, as level 5; attacking from hiding as level 5"
+      ],
+      "combat": [
+        "Robbers typically prefer light and medium weapons, particularly bows and small blades."
+      ],
+      "interaction": [
+        "Most robbers have a moral code of some sort—it just may not be the code that others abide by. Still, they are willing to listen to reason (and particularly the sound of sliding coins). Robbers are often willing to be hired for jobs that are too difficult for others."
+      ],
+      "loot": [
+        "Depending on whether they’ve just robbed someone or not, robbers may have anywhere from nothing (other than their weapons and clothing) up to the currency equivalent of a very expensive item."
+      ]
+    },
+    "text": "Robbers, thieves, highwaymen, robin hoods—whatever name you call them, they want what you have, and they’re willing to get it any way they can. Some robbers are honorable, stealing only from the rich or the evil. Others will take anything that isn’t nailed down or magically protected.\n\nRobbers often travel in pairs or small groups of dedicated friends and fellow robbers.\n\nMotive: What’s yours is mine\n\nEnvironment: Anywhere there’s something to be stolen\n\nHealth: 12\n\nDamage Inflicted: 2 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Stealth, including sneaking, stealing, hiding, and deception, as level 5; attacking from hiding as level 5\n\nCombat: Robbers typically prefer light and medium weapons, particularly bows and small blades.\n\nInteraction: Most robbers have a moral code of some sort—it just may not be the code that others abide by. Still, they are willing to listen to reason (and particularly the sound of sliding coins). Robbers are often willing to be hired for jobs that are too difficult for others.\n\nUse: Robbers happen upon the place where the characters have made camp, and ask to join them. A group of robbers arrives to steal a thing that the characters are just about to steal themselves.\n\nLoot: Depending on whether they’ve just robbed someone or not, robbers may have anywhere from nothing (other than their weapons and clothing) up to the currency equivalent of a very expensive item.\n\nGM Intrusion: The robber’s arrow manages to hit two foes in a single attack, or the robber shoots two arrows at multiple foes.\n\nRobber/thief\nLevel 4 (target number 12)\nHealth: 12\nArmor: 1\nDamage: 2",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.DJ6OgXKZPJIlQ6fZ",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/npc_robber-thief.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/npc_robber-thief.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Robbers happen upon the place where the characters have made camp, and ask to join them. A group of robbers arrives to steal a thing that the characters are just about to steal themselves."
+  }
+}

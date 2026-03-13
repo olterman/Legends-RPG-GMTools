@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:29:38.765058+00:00",
+  "filename": "foundryvtt/fantasy/npc/npc_20260312T232938.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Scholar",
+    "sections": {
+      "character": "Scholar",
+      "environment": "Schools, libraries, the royal study, laboratories, and anywhere there are sources of information",
+      "motive": "Find answers, seek knowledge",
+      "interaction": "Most scholars are helpful and full of information (whether or not it’s useful or true information varies from scholar to scholar). What they don’t know, they may be willing to learn or study, if given the proper tools and incentive. However, some scholars are secretive, hoarding their knowledge for their own personal uses.",
+      "use": "Scholars can be incredible allies, offering clues, hints, and information that can help the characters. However, they may be reclusive and hard to find, hidden away in ancient libraries or secret laboratories.",
+      "loot": "Most scholars have currency equivalent to a very expensive item and one or two cyphers.",
+      "gm_intrusion": "Something the scholar is studying comes alive, creating havoc and disarray throughout the area."
+    },
+    "stat_block": {
+      "level": 2,
+      "target_number": 6,
+      "health": 6,
+      "armor": 0,
+      "damage": 3,
+      "movement": "Short",
+      "modifications": [
+        "Intuition, persuasion, detecting falsehoods, and most knowledge tasks as level 4"
+      ],
+      "combat": [
+        "Scholars prefer to avoid a fight. If they must fight, a scholar tries to deduce a foe’s weaknesses (if any) and exploit them in combat. Some scholars might have learned spells or abilities from those they’ve studied. Others might be examining a useful cypher or artifact, and will use it on their attackers."
+      ],
+      "interaction": [
+        "Most scholars are helpful and full of information (whether or not it’s useful or true information varies from scholar to scholar). What they don’t know, they may be willing to learn or study, if given the proper tools and incentive. However, some scholars are secretive, hoarding their knowledge for their own personal uses."
+      ],
+      "loot": [
+        "Most scholars have currency equivalent to a very expensive item and one or two cyphers."
+      ]
+    },
+    "text": "Scholars might be librarians, sages, wise women, crones, experts, or soothsayers. Typically, scholars seek knowledge above all else, and many also are willing to share it with others (sometimes for a price, sometimes just for the joy of sharing knowledge). A scholar’s expertise might be general or specific—they may study the world at large or home in on a specific type of magic or fey being, for example.\n\nMotive: Find answers, seek knowledge\n\nEnvironment: Schools, libraries, the royal study, laboratories, and anywhere there are sources of information\n\nHealth: 6\n\nDamage Inflicted: 3 points\n\nMovement: Short\n\nModifications: Intuition, persuasion, detecting falsehoods, and most knowledge tasks as level 4\n\nCombat: Scholars prefer to avoid a fight. If they must fight, a scholar tries to deduce a foe’s weaknesses (if any) and exploit them in combat. Some scholars might have learned spells or abilities from those they’ve studied. Others might be examining a useful cypher or artifact, and will use it on their attackers.\n\nInteraction: Most scholars are helpful and full of information (whether or not it’s useful or true information varies from scholar to scholar). What they don’t know, they may be willing to learn or study, if given the proper tools and incentive. However, some scholars are secretive, hoarding their knowledge for their own personal uses.\n\nUse: Scholars can be incredible allies, offering clues, hints, and information that can help the characters. However, they may be reclusive and hard to find, hidden away in ancient libraries or secret laboratories.\n\nLoot: Most scholars have currency equivalent to a very expensive item and one or two cyphers.\n\nGM Intrusion: Something the scholar is studying comes alive, creating havoc and disarray throughout the area.\n\nScholar\nLevel 2 (target number 6)\nHealth: 6\nArmor: 0\nDamage: 3",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.zuIZxopJiJL4VBVh",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/npc_scholar.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/npc_scholar.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Scholars can be incredible allies, offering clues, hints, and information that can help the characters. However, they may be reclusive and hard to find, hidden away in ancient libraries or secret laboratories."
+  }
+}

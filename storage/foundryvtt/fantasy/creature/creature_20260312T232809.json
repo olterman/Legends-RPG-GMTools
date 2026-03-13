@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:28:09.157215+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232809.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Wyvern",
+    "sections": {
+      "character": "Wyvern",
+      "environment": "Mountains, hills, and plains where large prey is plentiful",
+      "motive": "Hungers for flesh",
+      "use": "Hungry wyverns are known to swoop in and carry off livestock and travelers near a particular road or field. A gang of crafty bandits has managed to train a couple of wyverns as mounts and use them as flying cavalry for their troops on the ground.",
+      "loot": "Wyverns do not collect treasure, but their nest might have a few cyphers from previous victims. If carefully extracted, an intact venom gland from a dead wyvern can be used to poison one weapon (if sold, it is the equivalent of an expensive item). GM Intrusions: As part of its attack, the wyvern grabs hold of the character and flies a short distance away. The character can escape with a Might or Speed defense roll (which probably means they fall to the ground and land prone). The wyvern uses a wing or its tail to slam a character so they are thrown a short distance away and land prone."
+    },
+    "stat_block": {
+      "level": 6,
+      "target_number": 18,
+      "health": 35,
+      "armor": 1,
+      "damage": 5,
+      "movement": "Short; long when flying",
+      "modifications": [
+        "Perception as level 7; Speed defense as level 5 due to size"
+      ],
+      "combat": [
+        "Wyverns prefer to attack from the air, moving up to a short distance and making three attacks (bite, venomous stinger, claws) as their action. If a wyvern has to fight on the ground, it can attack only with its bite and stinger on its turn. The stinger injects poison, dealing an additional 5 points of Speed damage (ignores Armor) if the opponent fails a Might defense roll. Because the wyvern hunts primarily out of hunger, it usually focuses its attacks on one creature, weakening the prey so the wyvern can carry it away and eat in peace. Interaction: Wyverns lack the intelligence of true dragons. They are relatively smart animals (on par with large reptiles such as crocodiles) but can be distracted by easy prey. Allowing one to catch a pig, pony, or riding horse can give characters enough time to get safely away."
+      ],
+      "interaction": [],
+      "loot": [
+        "Wyverns do not collect treasure, but their nest might have a few cyphers from previous victims. If carefully extracted, an intact venom gland from a dead wyvern can be used to poison one weapon (if sold, it is the equivalent of an expensive item). GM Intrusions: As part of its attack, the wyvern grabs hold of the character and flies a short distance away. The character can escape with a Might or Speed defense roll (which probably means they fall to the ground and land prone). The wyvern uses a wing or its tail to slam a character so they are thrown a short distance away and land prone."
+      ]
+    },
+    "text": "Wyverns are aggressive lesser cousins of dragons. Their bodies are about the size of a heavy horse but their wingspan makes them seem much larger. Lacking a dragon’s fiery breath or other magical abilities, wyverns rely on their strong flight and deadly stinger to catch and kill their prey, typically humanoids or large animals. Wyverns have four limbs— two legs used for clumsy walking and two arm-wings used for flight and balance.\n\nMotive: Hungers for flesh\n\nEnvironment: Mountains, hills, and plains where large prey is plentiful\n\nHealth: 35\n\nDamage Inflicted: 5 points\n\nArmor: 1\n\nMovement: Short; long when flying\n\nModifications: Perception as level 7; Speed defense as level 5 due to size\n\nCombat: Wyverns prefer to attack from the air, moving up to a short distance and making three attacks (bite, venomous stinger, claws) as their action. If a wyvern has to fight on the ground, it can attack only with its bite and stinger on its turn.\n\nThe stinger injects poison, dealing an additional 5 points of Speed damage (ignores Armor) if the opponent fails a Might defense roll. Because the wyvern hunts primarily out of hunger, it usually focuses its attacks on one creature, weakening the prey so the wyvern can carry it away and eat in peace. Interaction: Wyverns lack the intelligence of true dragons. They are relatively smart animals (on par with large reptiles such as crocodiles) but can be distracted by easy prey. Allowing one to catch a pig, pony, or riding horse can give characters enough time to get safely away.\n\nUse: Hungry wyverns are known to swoop in and carry off livestock and travelers near a particular road or field. A gang of crafty bandits has managed to train a couple of wyverns as mounts and use them as flying cavalry for their troops on the ground.\n\nLoot: Wyverns do not collect treasure, but their nest might have a few cyphers from previous victims. If carefully extracted, an intact venom gland from a dead wyvern can be used to poison one weapon (if sold, it is the equivalent of an expensive item).\n\nGM Intrusions: As part of its attack, the wyvern grabs hold of the character and flies a short distance away. The character can escape with a Might or Speed defense roll (which probably means they fall to the ground and land prone).\n\nThe wyvern uses a wing or its tail to slam a character so they are thrown a short distance away and land prone.\n\nWyvern\nLevel 6 (target number 18)\nHealth: 35\nArmor: 1\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.d8OmBWnzanrnPDdO",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_wyvern.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_wyvern.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Hungry wyverns are known to swoop in and carry off livestock and travelers near a particular road or field. A gang of crafty bandits has managed to train a couple of wyverns as mounts and use them as flying cavalry for their troops on the ground."
+  }
+}

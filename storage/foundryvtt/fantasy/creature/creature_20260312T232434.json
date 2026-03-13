@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:24:34.091184+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232434.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Gorgon",
+    "sections": {
+      "character": "Gorgon",
+      "environment": "Alone, sequestered in the isolated ruins of old cities and castles",
+      "motive": "Isolation, defense",
+      "interaction": "Bitterness consumes gorgons. They lead lonely lives, cut off from everyone they have loved. Negotiating with one would be something of a feat.",
+      "use": "A gorgon’s head retains its power to petrify for several days after being cut from the creature. The PCs might brave the gorgon so they can use its head to defeat an even more powerful foe.",
+      "loot": "A gorgon typically has a few cyphers and may have an artifact as well.",
+      "gm_intrusion": "A character glimpses a gorgon’s eyes, and a sheen of stone covers their body for one minute, during which time they gain +1 to Armor but can’t move farther than an immediate distance in one round."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 12,
+      "armor": 0,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [],
+      "combat": [
+        "A gorgon has a long-range bow attack. Since creatures that see the gorgon often turn to stone, it must take down its prey at long range so it can get fresh meat. In close combat, a gorgon lashes out with a long dagger or, rarely, a sword. As part of the action the gorgon uses to attack, the serpents on its head can also attack one target within immediate distance. A target that fails its Speed defense roll takes 2 points of damage from the bite and must immediately make a Might defense roll to resist the poison (which deals 4 additional points of Speed damage that ignores Armor). Anyone within short range of a gorgon who meets its gaze and fails a Might defense roll turns to stone. In combat, when a character within short distance attacks the gorgon, they must avert their gaze (which hinders the attack by two steps) or make a Might defense roll. On a failure, they take 5 points of ambient damage as their flesh partly mineralizes. If the character is killed by this damage, they are turned to stone. Some gorgons carry a couple of cyphers and perhaps an artifact that they can use in combat."
+      ],
+      "interaction": [
+        "Bitterness consumes gorgons. They lead lonely lives, cut off from everyone they have loved. Negotiating with one would be something of a feat."
+      ],
+      "loot": [
+        "A gorgon typically has a few cyphers and may have an artifact as well."
+      ]
+    },
+    "text": "Statues littering the grounds outside a ruin are meant to deter savvy robbers and explorers. The statues, ranging in size from birds to warriors astride steeds, all depict creatures in states of fright and pain, the final image of death. These pieces are not the work of a fevered mind, but the fates of those who braved a gorgon’s lair.\n\nGorgons were humans once. After they offended the gods with their vanity, they were transformed into hideous monsters. A gorgon has the upper body of a human of perfect form and physique, but the lower body of a giant serpent, complete with rattling tail. One who dares look at a gorgon’s face can see traces of the old beauty beneath a weary veneer, darkened by hatred. Instead of hair, serpents crown a gorgon’s head, snapping and hissing at anyone who draws near. Yet the most terrible aspect of a gorgon is its gaze, which can turn any creature to stone.\n\nMotive: Isolation, defense\n\nEnvironment: Alone, sequestered in the isolated ruins of old cities and castles\n\nHealth: 12\n\nDamage Inflicted: 5 points\n\nMovement: Short\n\nCombat: A gorgon has a long-range bow attack. Since creatures that see the gorgon often turn to stone, it must take down its prey at long range so it can get fresh meat.\n\nIn close combat, a gorgon lashes out with a long dagger or, rarely, a sword. As part of the action the gorgon uses to attack, the serpents on its head can also attack one target within immediate distance. A target that fails its Speed defense roll takes 2 points of damage from the bite and must immediately make a Might defense roll to resist the poison (which deals 4 additional points of Speed damage that ignores Armor).\n\nAnyone within short range of a gorgon who meets its gaze and fails a Might defense roll turns to stone. In combat, when a character within short distance attacks the gorgon, they must avert their gaze (which hinders the attack by two steps) or make a Might defense roll. On a failure, they take 5 points of ambient damage as their flesh partly mineralizes. If the character is killed by this damage, they are turned to stone.\n\nSome gorgons carry a couple of cyphers and perhaps an artifact that they can use in combat.\n\nInteraction: Bitterness consumes gorgons. They lead lonely lives, cut off from everyone they have loved. Negotiating with one would be something of a feat.\n\nUse: A gorgon’s head retains its power to petrify for several days after being cut from the creature. The PCs might brave the gorgon so they can use its head to defeat an even more powerful foe.\n\nLoot: A gorgon typically has a few cyphers and may have an artifact as well.\n\nGM Intrusion: A character glimpses a gorgon’s eyes, and a sheen of stone covers their body for one minute, during which time they gain +1 to Armor but can’t move farther than an immediate distance in one round.\n\nGorgon\nLevel 5 (target number 15)\nHealth: 12\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.hW6Sn6NsGdd2KyhK",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_gorgon.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_gorgon.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "A gorgon’s head retains its power to petrify for several days after being cut from the creature. The PCs might brave the gorgon so they can use its head to defeat an even more powerful foe."
+  }
+}

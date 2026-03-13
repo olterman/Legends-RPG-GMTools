@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:23:10.109986+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232310.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Elemental, earth",
+    "sections": {
+      "character": "Elemental, earth",
+      "environment": "Anywhere solid or earthen",
+      "motive": "Crumble and break, reduce things to earth",
+      "interaction": "Although brooding and slow to respond if encountered as immobile stone, earth elementals are intelligent. The ones that are summoned with a spell have about a 5% chance of breaking the geas and turning on their summoner.",
+      "use": "Oddly articulated monoliths were discovered high in the mountains around a shrine containing an ancient treasure. A merchant wants someone to investigate the monoliths in case they represent a trap. In fact, the monoliths are inactive earth elementals.",
+      "gm_intrusion": "A character within range of the earth elemental’s earthquake attack must succeed on a Speed defense roll or be covered in an avalanche from a collapsing structure or cliff face."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 30,
+      "armor": 3,
+      "damage": 6,
+      "movement": "Immediate; short when burrowing",
+      "modifications": [],
+      "combat": [
+        "Earth elementals batter foes with heavy fists. They can also create earthquakes (no more than once every other round) that affect the ground within short range. Creatures standing in the area fall to the ground and take 5 points of damage on a failed Might defense roll. An earth elemental is vulnerable to water. Any damage it takes while standing in or being doused in water ignores its Armor."
+      ],
+      "interaction": [
+        "Although brooding and slow to respond if encountered as immobile stone, earth elementals are intelligent. The ones that are summoned with a spell have about a 5% chance of breaking the geas and turning on their summoner."
+      ],
+      "loot": []
+    },
+    "text": "An excavation, a meteor fall, a still-shuddering earthquake—all these events can summon an earth elemental to take shape and expand the destruction further.\n\nMotive: Crumble and break, reduce things to earth\n\nEnvironment: Anywhere solid or earthen\n\nHealth: 30\n\nDamage Inflicted: 6 points\n\nArmor: 3\n\nMovement: Immediate; short when burrowing\n\nCombat: Earth elementals batter foes with heavy fists. They can also create earthquakes (no more than once every other round) that affect the ground within short range. Creatures standing in the area fall to the ground and take 5 points of damage on a failed Might defense roll.\n\nAn earth elemental is vulnerable to water. Any damage it takes while standing in or being doused in water ignores its Armor.\n\nInteraction: Although brooding and slow to respond if encountered as immobile stone, earth elementals are intelligent. The ones that are summoned with a spell have about a 5% chance of breaking the geas and turning on their summoner.\n\nUse: Oddly articulated monoliths were discovered high in the mountains around a shrine containing an ancient treasure. A merchant wants someone to investigate the monoliths in case they represent a trap. In fact, the monoliths are inactive earth elementals.\n\nGM Intrusion: A character within range of the earth elemental’s earthquake attack must succeed on a Speed defense roll or be covered in an avalanche from a collapsing structure or cliff face.\n\nElemental, earth\nLevel 5 (target number 15)\nHealth: 30\nArmor: 3\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.li1H57vGnKM9EY61",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_elemental-earth.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_elemental-earth.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Oddly articulated monoliths were discovered high in the mountains around a shrine containing an ancient treasure. A merchant wants someone to investigate the monoliths in case they represent a trap. In fact, the monoliths are inactive earth elementals."
+  }
+}

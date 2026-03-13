@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:21:48.868102+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232148.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Corrupt mage",
+    "sections": {
+      "character": "Corrupt mage",
+      "environment": "Almost anywhere, usually with fleshbeast minions Fleshbeast: level 4, attacks as level 5; health 15; Armor 1",
+      "motive": "Magical knowledge at all costs",
+      "interaction": "Corrupt mages generally can’t be trusted and see other creatures as things to experiment on and vivisect. They might negotiate with someone who brings them a rare specimen or spell. Many are mentally disturbed by their research and self-alterations and may fluctuate between calm clarity, obsession, paranoia, and rage.",
+      "use": "The strange hybrid monsters emerging from the forest are said to be the creations of a corrupt mage. A corrupt mage in a calm state presents themselves as a neutral or benevolent wizard seeking assistance on a task.",
+      "loot": "A corrupt mage has 1d6 cyphers and perhaps a wizardly artifact. GM Intrusions: A desperate or dying corrupt mage transforms their own body into several new fleshbeasts, which retain fragments of the mage’s intelligence and immediately attack. The mage’s attack spell is incredibly painful, stunning the character for one round if they fail a Might defense roll."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 35,
+      "armor": 3,
+      "damage": 7,
+      "movement": "Short",
+      "modifications": [
+        "All tasks related to knowledge of arcane lore, demons, and altering bodies as level 8"
+      ],
+      "combat": [
+        "Corrupt mages blast opponents with beams of energy that blister, slash, and rot flesh, attacking up to three creatures as an action. Many of them have given themselves long claws and teeth that they can use to make up to three melee attacks per action. A corrupt mage knows many spells, such as the following:"
+      ],
+      "interaction": [
+        "Corrupt mages generally can’t be trusted and see other creatures as things to experiment on and vivisect. They might negotiate with someone who brings them a rare specimen or spell. Many are mentally disturbed by their research and self-alterations and may fluctuate between calm clarity, obsession, paranoia, and rage."
+      ],
+      "loot": [
+        "A corrupt mage has 1d6 cyphers and perhaps a wizardly artifact. GM Intrusions: A desperate or dying corrupt mage transforms their own body into several new fleshbeasts, which retain fragments of the mage’s intelligence and immediately attack. The mage’s attack spell is incredibly painful, stunning the character for one round if they fail a Might defense roll."
+      ]
+    },
+    "text": "Some wizards and sorcerers are tempted by dark magic, inevitably damning their souls and corrupting their flesh as they cut corners and delve into forbidden lore. Their research and experimentation create new kinds of rampaging monsters and turn people into misshapen horrors. They sometimes modify their own bodies in order to gain demonic or draconic powers, or make pacts with such creatures for knowledge and magical ingredients.\n\nMotive: Magical knowledge at all costs\n\nEnvironment: Almost anywhere, usually with fleshbeast minions\n\nFleshbeast: level 4, attacks as level 5; health 15; Armor 1\n\nHealth: 35\n\nDamage Inflicted: 7 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: All tasks related to knowledge of arcane lore, demons, and altering bodies as level 8\n\nCombat: Corrupt mages blast opponents with beams of energy that blister, slash, and rot flesh, attacking up to three creatures as an action. Many of them have given themselves long claws and teeth that they can use to make up to three melee attacks per action.\n\nA corrupt mage knows many spells, such as the following:\n\nArmor: Covers a creature with ugly scales, granting them +3 to Armor for an hour.\nMadness: Wracks the brain of one creature within short range for one hour, reducing them to a babbling catatonic state in which they can’t recognize friend or foe. If disturbed or harmed, the creature is likely to lash out with lethal force at what it perceives as its tormentors.\nOrgan Request: Extracts a handful of internal organs from an opponent within short range, moving the creature one step down the damage track if it fails a Might defense roll.\nPolymorph: Transforms one foe within short range into a tiny, helpless creature such as a cockroach, fish, or snail for one hour.\nSummon Demon: Summons a demon to serve the mage for one hour.\nTeleport: Moves the mage up to 100 miles (160 km) away, or less far if they bring additional creatures with them.\nTwist Flesh: Reshapes the flesh of a creature within close range, turning it into a hideous monstrosity for one hour. The transformed creature’s actions are hindered, but its physical attacks inflict +3 points of damage. The mage’s control over the creature is limited to indicating which target it should attack.\n\nA corrupt mage usually has several cyphers useful in combat and perhaps an artifact as well.\n\nInteraction: Corrupt mages generally can’t be trusted and see other creatures as things to experiment on and vivisect. They might negotiate with someone who brings them a rare specimen or spell. Many are mentally disturbed by their research and self-alterations and may fluctuate between calm clarity, obsession, paranoia, and rage.\n\nUse: The strange hybrid monsters emerging from the forest are said to be the creations of a corrupt mage. A corrupt mage in a calm state presents themselves as a neutral or benevolent wizard seeking assistance on a task.\n\nLoot: A corrupt mage has 1d6 cyphers and perhaps a wizardly artifact.\n\nGM Intrusions: A desperate or dying corrupt mage transforms their own body into several new fleshbeasts, which retain fragments of the mage’s intelligence and immediately attack.\n\nThe mage’s attack spell is incredibly painful, stunning the character for one round if they fail a Might defense roll.\n\nCorrupt mage\nLevel 7 (target number 21)\nHealth: 35\nArmor: 3\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.GW0KfoHrpq6SVVzb",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.eS7xksxLNRu4oNhL",
+          "label": "Fleshbeast"
+        }
+      ],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_corrupt-mage.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_corrupt-mage.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "The strange hybrid monsters emerging from the forest are said to be the creations of a corrupt mage. A corrupt mage in a calm state presents themselves as a neutral or benevolent wizard seeking assistance on a task."
+  }
+}

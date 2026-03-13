@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:00:59.530413+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T230059.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Abomination",
+    "sections": {
+      "character": "Abomination",
+      "environment": "Almost anywhere, hunting alone or in pairs",
+      "motive": "Hungers for flesh",
+      "interaction": "Most abominations can speak and have vague memories of the people they were before transforming. However, those memories, motivations, and hopes are usually submerged in a hunger that can never be sated.",
+      "use": "Abominations hunt ravaged wastelands and bombed-out spacecraft hulks, lurk in basements where mad scientists have conducted illicit experiments, and haunt the dreams of children who’ve gotten in over their heads.",
+      "gm_intrusion": "The abomination isn’t dead; it stands up on the following round at full health."
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 22,
+      "armor": 2,
+      "damage": 6,
+      "movement": "Short",
+      "modifications": [
+        "Might defense as level 6; sees through deception as level 3"
+      ],
+      "combat": [
+        "Abominations use scavenged weapons to attack prey at range, but probably switch to biting targets within immediate range. Targets damaged by a bite must also succeed on a Might defense task or descend one step on the damage track as the abomination tears off a big piece of flesh and gulps it down. Those who survive an attack must succeed on a Might defense task a day later when they come down with flu-like symptoms. Those who fail begin the process of transforming into a fresh abomination. Abominations regain 2 points of health per round and have +5 Armor against damage inflicted by energy (radiation, X-rays, gamma rays, and so on)."
+      ],
+      "interaction": [
+        "Most abominations can speak and have vague memories of the people they were before transforming. However, those memories, motivations, and hopes are usually submerged in a hunger that can never be sated."
+      ],
+      "loot": []
+    },
+    "text": "An abomination is a hideous bestial humanoid covered with thickened plates of scarlet flesh. Their eyes shine with the stagnant glow of toxic waste dumps. Standing at least 7 feet (2 m) tall, abominations are drawn to movement. Always famished, they consume living prey in great tearing bites.\n\nMotive: Hungers for flesh\n\nEnvironment: Almost anywhere, hunting alone or in pairs\n\nHealth: 22\n\nDamage Inflicted: 6 points\n\nArmor: 2\n\nMovement: Short\n\nModifications: Might defense as level 6; sees through deception as level 3\n\nCombat: Abominations use scavenged weapons to attack prey at range, but probably switch to biting targets within immediate range. Targets damaged by a bite must also succeed on a Might defense task or descend one step on the damage track as the abomination tears off a big piece of flesh and gulps it down. Those who survive an attack must succeed on a Might defense task a day later when they come down with flu-like symptoms. Those who fail begin the process of transforming into a fresh abomination.\n\nAbominations regain 2 points of health per round and have +5 Armor against damage inflicted by energy (radiation, X-rays, gamma rays, and so on).\n\nInteraction: Most abominations can speak and have vague memories of the people they were before transforming. However, those memories, motivations, and hopes are usually submerged in a hunger that can never be sated.\n\nUse: Abominations hunt ravaged wastelands and bombed-out spacecraft hulks, lurk in basements where mad scientists have conducted illicit experiments, and haunt the dreams of children who’ve gotten in over their heads.\n\nGM Intrusion: The abomination isn’t dead; it stands up on the following round at full health.\n\nAbomination\nLevel 5 (target number 15)\nHealth: 22\nArmor: 2\nDamage: 6",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.GcRpFtcOQDpGvU4H",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_abomination.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_abomination.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Abominations hunt ravaged wastelands and bombed-out spacecraft hulks, lurk in basements where mad scientists have conducted illicit experiments, and haunt the dreams of children who’ve gotten in over their heads."
+  }
+}

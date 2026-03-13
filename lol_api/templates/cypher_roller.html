@@ -1,0 +1,680 @@
+{% extends "base.html" %}
+
+{% block title %}Cypher Roller — OLT Cypher System GM-Tools{% endblock %}
+
+{% block head_extra %}
+<style>
+  .cypher-roller-hero {
+    border: 1px solid rgba(122, 162, 255, 0.24);
+    border-radius: 18px;
+    padding: 20px;
+    background:
+      radial-gradient(circle at top left, rgba(122,162,255,0.14), transparent 42%),
+      radial-gradient(circle at bottom right, rgba(155,36,219,0.16), transparent 40%),
+      var(--panel);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .cypher-roller-shell {
+    display: grid;
+    grid-template-columns: minmax(340px, 430px) minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .cypher-roller-output {
+    display: grid;
+    gap: 16px;
+  }
+
+  .cypher-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .cypher-stat {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .cypher-stat .k {
+    color: var(--muted);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .cypher-stat .v {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text);
+  }
+
+  .cypher-stat .sub {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.84rem;
+  }
+
+  .cypher-result-banner {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(122,162,255,0.12), rgba(122,162,255,0.03));
+  }
+
+  .cypher-result-banner.success {
+    border-color: rgba(96, 214, 148, 0.34);
+    background: linear-gradient(180deg, rgba(96,214,148,0.16), rgba(96,214,148,0.04));
+  }
+
+  .cypher-result-banner.failure {
+    border-color: rgba(228, 104, 122, 0.34);
+    background: linear-gradient(180deg, rgba(228,104,122,0.15), rgba(228,104,122,0.04));
+  }
+
+  .cypher-result-banner.cost-only {
+    border-color: rgba(239, 179, 74, 0.34);
+    background: linear-gradient(180deg, rgba(239,179,74,0.14), rgba(239,179,74,0.04));
+  }
+
+  .cypher-banner-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .cypher-banner-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--text);
+  }
+
+  .cypher-banner-state {
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .cypher-breakdown-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .cypher-breakdown-row {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .cypher-breakdown-row strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--accent);
+  }
+
+  .cypher-history-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .cypher-history-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .cypher-empty {
+    min-height: 260px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border: 1px dashed rgba(122, 162, 255, 0.22);
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at center, rgba(122,162,255,0.08), transparent 58%),
+      rgba(255,255,255,0.02);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cypher-empty::before {
+    content: "17 18 19 20";
+    position: absolute;
+    inset: auto 18px 14px auto;
+    font-size: 3.4rem;
+    line-height: 1;
+    color: rgba(255,255,255,0.04);
+    font-weight: 900;
+    text-align: right;
+    pointer-events: none;
+  }
+
+  .cypher-hint-list {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 1080px) {
+    .cypher-roller-shell {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="cypher-roller-hero">
+  <h1>Cypher Roller</h1>
+  <p>Run a Cypher-style all-in-one roll with difficulty, skill, assets, Effort, pool spend, target number, d20 result, and damage in one pass.</p>
+</div>
+
+<div class="cypher-roller-shell">
+  <div class="panel">
+    <div class="field">
+      <label for="cypher-title">Roll Title</label>
+      <input id="cypher-title" type="text" placeholder="Attack, stealth check, climbing, persuasion..." />
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-difficulty">Base Difficulty</label>
+        <select id="cypher-difficulty">
+          {% for n in range(0, 11) %}
+          <option value="{{ n }}" {% if n == 4 %}selected{% endif %}>{{ n }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="cypher-pool">Pool</label>
+        <select id="cypher-pool">
+          <option value="Might">Might</option>
+          <option value="Speed">Speed</option>
+          <option value="Intellect">Intellect</option>
+          <option value="Pool" selected>Pool</option>
+          <option value="XP">XP</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-skill">Skill</label>
+        <select id="cypher-skill">
+          <option value="Inability">Inability</option>
+          <option value="Practiced" selected>Practiced</option>
+          <option value="Trained">Trained</option>
+          <option value="Specialized">Specialized</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cypher-assets">Assets</label>
+        <select id="cypher-assets">
+          <option value="0" selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-effort-task">Effort on Task</label>
+        <select id="cypher-effort-task">
+          {% for n in range(0, 7) %}
+          <option value="{{ n }}" {% if n == 0 %}selected{% endif %}>{{ n }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="cypher-effort-other">Effort for Other Uses</label>
+        <select id="cypher-effort-other">
+          {% for n in range(0, 7) %}
+          <option value="{{ n }}" {% if n == 0 %}selected{% endif %}>{{ n }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-modifier">Steps Eased / Hindered</label>
+        <input id="cypher-modifier" type="number" min="-10" max="10" step="1" value="0" />
+      </div>
+      <div class="field">
+        <label for="cypher-bonus">Roll Bonus / Penalty</label>
+        <input id="cypher-bonus" type="number" min="-99" max="99" step="1" value="0" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-edge">Edge</label>
+        <input id="cypher-edge" type="number" min="0" max="99" step="1" value="0" />
+      </div>
+      <div class="field">
+        <label for="cypher-pool-cost">Additional Pool Cost</label>
+        <input id="cypher-pool-cost" type="number" min="0" max="99" step="1" value="0" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-damage">Base Damage</label>
+        <input id="cypher-damage" type="number" min="0" max="99" step="1" value="0" />
+      </div>
+      <div class="field">
+        <label for="cypher-effort-damage">Effort for Extra Damage</label>
+        <select id="cypher-effort-damage">
+          {% for n in range(0, 7) %}
+          <option value="{{ n }}" {% if n == 0 %}selected{% endif %}>{{ n }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cypher-damage-per-level">Damage per Effort Level</label>
+        <input id="cypher-damage-per-level" type="number" min="0" max="20" step="1" value="3" />
+      </div>
+      <div class="field">
+        <label for="cypher-no-roll">Mode</label>
+        <select id="cypher-no-roll">
+          <option value="0" selected>Roll d20</option>
+          <option value="1">Cost Only / No Roll</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="cypher-roll-btn" type="button">Roll</button>
+      <button id="cypher-reroll-btn" type="button" class="secondary">Re-Roll Last</button>
+      <button id="cypher-reset-btn" type="button" class="secondary">Reset</button>
+    </div>
+    <div class="status" id="cypher-status">Ready. This first version is standalone and not yet linked to a loaded character sheet.</div>
+
+    <div class="panel" style="margin-top:16px; padding:14px;">
+      <h3 style="margin-top:0;">Rules Assumptions</h3>
+      <div class="cypher-hint-list">
+        <div>Skill steps: Inability = hindered 1, Practiced = 0, Trained = eased 1, Specialized = eased 2.</div>
+        <div>Pool cost uses standard Effort pricing: first level = 3, additional levels = 2 each, then reduced by Edge.</div>
+        <div>Final difficulty is clamped between 0 and 10.</div>
+        <div>Natural 17-20 results show Cypher special-result reminders.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cypher-roller-output">
+    <div class="panel" id="cypher-result-panel">
+      <div class="cypher-empty">
+        <div>
+          <strong>No Cypher roll yet</strong>
+          Set the task details and roll when ready.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 style="margin-top:0;">Recent Cypher Rolls</h2>
+      <div class="status" id="cypher-history-status">No stored rolls yet.</div>
+      <div class="cypher-history-list" id="cypher-history-list"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const HISTORY_KEY = "gmtools.cypher_roller.history";
+  const MAX_HISTORY = 20;
+
+  const els = {
+    title: document.getElementById("cypher-title"),
+    difficulty: document.getElementById("cypher-difficulty"),
+    pool: document.getElementById("cypher-pool"),
+    skill: document.getElementById("cypher-skill"),
+    assets: document.getElementById("cypher-assets"),
+    effortTask: document.getElementById("cypher-effort-task"),
+    effortOther: document.getElementById("cypher-effort-other"),
+    modifier: document.getElementById("cypher-modifier"),
+    bonus: document.getElementById("cypher-bonus"),
+    edge: document.getElementById("cypher-edge"),
+    poolCost: document.getElementById("cypher-pool-cost"),
+    damage: document.getElementById("cypher-damage"),
+    effortDamage: document.getElementById("cypher-effort-damage"),
+    damagePerLevel: document.getElementById("cypher-damage-per-level"),
+    noRoll: document.getElementById("cypher-no-roll"),
+    rollBtn: document.getElementById("cypher-roll-btn"),
+    rerollBtn: document.getElementById("cypher-reroll-btn"),
+    resetBtn: document.getElementById("cypher-reset-btn"),
+    status: document.getElementById("cypher-status"),
+    resultPanel: document.getElementById("cypher-result-panel"),
+    historyStatus: document.getElementById("cypher-history-status"),
+    historyList: document.getElementById("cypher-history-list"),
+  };
+
+  let lastPayload = null;
+
+  function escapeHtml(text) {
+    return String(text ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function toInt(value, fallback = 0) {
+    const parsed = Number.parseInt(String(value ?? "").trim(), 10);
+    return Number.isFinite(parsed) ? parsed : fallback;
+  }
+
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function randomD20() {
+    return Math.floor(Math.random() * 20) + 1;
+  }
+
+  function skillStep(skill) {
+    const key = String(skill || "").trim().toLowerCase();
+    if (key === "inability") return -1;
+    if (key === "trained") return 1;
+    if (key === "specialized") return 2;
+    return 0;
+  }
+
+  function specialRollText(rawRoll, baseDamage) {
+    if (rawRoll === 1) return "Natural 1: GM intrusion.";
+    if (rawRoll === 17) return baseDamage > 0 ? "Natural 17: +1 damage or a minor effect." : "Natural 17: minor effect.";
+    if (rawRoll === 18) return baseDamage > 0 ? "Natural 18: +2 damage or a minor effect." : "Natural 18: minor effect.";
+    if (rawRoll === 19) return baseDamage > 0 ? "Natural 19: +3 damage or a major effect." : "Natural 19: major effect.";
+    if (rawRoll === 20) return baseDamage > 0 ? "Natural 20: +4 damage and a major effect." : "Natural 20: major effect.";
+    return "";
+  }
+
+  function loadHistory() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (_err) {
+      return [];
+    }
+  }
+
+  function saveHistory(items) {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(0, MAX_HISTORY)));
+  }
+
+  function buildPayload() {
+    return {
+      title: String(els.title.value || "").trim(),
+      difficulty: clamp(toInt(els.difficulty.value, 0), 0, 10),
+      pool: String(els.pool.value || "Pool"),
+      skill: String(els.skill.value || "Practiced"),
+      assets: clamp(toInt(els.assets.value, 0), 0, 2),
+      effortTask: clamp(toInt(els.effortTask.value, 0), 0, 6),
+      effortOther: clamp(toInt(els.effortOther.value, 0), 0, 6),
+      modifier: clamp(toInt(els.modifier.value, 0), -20, 20),
+      bonus: clamp(toInt(els.bonus.value, 0), -99, 99),
+      edge: clamp(toInt(els.edge.value, 0), 0, 99),
+      poolCost: clamp(toInt(els.poolCost.value, 0), 0, 99),
+      damage: clamp(toInt(els.damage.value, 0), 0, 999),
+      effortDamage: clamp(toInt(els.effortDamage.value, 0), 0, 6),
+      damagePerLevel: clamp(toInt(els.damagePerLevel.value, 3), 0, 20),
+      noRoll: String(els.noRoll.value || "0") === "1",
+    };
+  }
+
+  function evaluateCypherRoll(payload) {
+    const skillSteps = skillStep(payload.skill);
+    const taskEase = payload.assets + payload.effortTask + Math.max(payload.modifier, 0) + Math.max(skillSteps, 0);
+    const taskHinder = Math.max(-payload.modifier, 0) + Math.max(-skillSteps, 0);
+    const finalDifficulty = clamp(payload.difficulty - taskEase + taskHinder, 0, 10);
+    const targetNumber = finalDifficulty * 3;
+    const totalEffort = payload.effortTask + payload.effortOther + payload.effortDamage;
+    const effortCost = totalEffort > 0 ? 3 + Math.max(0, totalEffort - 1) * 2 : 0;
+    const rawPoolCost = payload.poolCost + effortCost;
+    const finalPoolCost = Math.max(0, rawPoolCost - payload.edge);
+    const totalDamage = payload.damage + (payload.effortDamage * payload.damagePerLevel);
+
+    let rawRoll = null;
+    let modifiedRoll = null;
+    let success = null;
+    let specialText = "";
+
+    if (!payload.noRoll) {
+      rawRoll = randomD20();
+      modifiedRoll = rawRoll + payload.bonus;
+      success = finalDifficulty === 0 ? true : modifiedRoll >= targetNumber;
+      specialText = specialRollText(rawRoll, totalDamage);
+    }
+
+    return {
+      ...payload,
+      skillSteps,
+      taskEase,
+      taskHinder,
+      finalDifficulty,
+      targetNumber,
+      totalEffort,
+      effortCost,
+      rawPoolCost,
+      finalPoolCost,
+      totalDamage,
+      rawRoll,
+      modifiedRoll,
+      success,
+      specialText,
+      rolledAt: new Date().toISOString(),
+    };
+  }
+
+  function formatTimestamp(value) {
+    try {
+      return new Date(value).toLocaleString();
+    } catch (_err) {
+      return String(value || "");
+    }
+  }
+
+  function renderResult(result) {
+    if (!result) {
+      els.resultPanel.innerHTML = `
+        <div class="cypher-empty">
+          <div>
+            <strong>No Cypher roll yet</strong>
+            Set the task details and roll when ready.
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const stateClass = result.noRoll ? "cost-only" : (result.success ? "success" : "failure");
+    const stateLabel = result.noRoll
+      ? "Cost Only"
+      : (result.success ? "Success" : "Failure");
+    const title = result.title || "Cypher Roll";
+    const modifiedDisplay = result.rawRoll == null ? "No d20 rolled" : `${result.rawRoll}${result.bonus ? ` ${result.bonus > 0 ? "+" : "-"} ${Math.abs(result.bonus)}` : ""} = ${result.modifiedRoll}`;
+
+    els.resultPanel.innerHTML = `
+      <div class="cypher-result-banner ${stateClass}">
+        <div class="cypher-banner-top">
+          <div class="cypher-banner-title">${escapeHtml(title)}</div>
+          <div class="cypher-banner-state">${escapeHtml(stateLabel)}</div>
+        </div>
+        <div class="small">${escapeHtml(result.pool)} • ${escapeHtml(result.skill)} • ${escapeHtml(formatTimestamp(result.rolledAt))}</div>
+        <div class="cypher-summary-grid">
+          <div class="cypher-stat">
+            <div class="k">Base Difficulty</div>
+            <div class="v">${escapeHtml(String(result.difficulty))}</div>
+            <div class="sub">Final ${escapeHtml(String(result.finalDifficulty))}</div>
+          </div>
+          <div class="cypher-stat">
+            <div class="k">Target Number</div>
+            <div class="v">${escapeHtml(String(result.targetNumber))}</div>
+            <div class="sub">${result.finalDifficulty === 0 ? "Routine / automatic" : "Roll this or higher"}</div>
+          </div>
+          <div class="cypher-stat">
+            <div class="k">d20 Result</div>
+            <div class="v">${escapeHtml(result.rawRoll == null ? "—" : String(result.rawRoll))}</div>
+            <div class="sub">${escapeHtml(modifiedDisplay)}</div>
+          </div>
+          <div class="cypher-stat">
+            <div class="k">Pool Cost</div>
+            <div class="v">${escapeHtml(String(result.finalPoolCost))}</div>
+            <div class="sub">${escapeHtml(`${result.rawPoolCost} before Edge ${result.edge}`)}</div>
+          </div>
+          <div class="cypher-stat">
+            <div class="k">Damage</div>
+            <div class="v">${escapeHtml(String(result.totalDamage))}</div>
+            <div class="sub">${escapeHtml(`${result.damage} base + ${result.effortDamage} Effort`)}</div>
+          </div>
+        </div>
+      </div>
+      <div class="cypher-breakdown-list">
+        <div class="cypher-breakdown-row">
+          <strong>Difficulty Breakdown</strong>
+          Base difficulty ${escapeHtml(String(result.difficulty))}, eased by ${escapeHtml(String(result.taskEase))} step(s), hindered by ${escapeHtml(String(result.taskHinder))} step(s), resulting in final difficulty ${escapeHtml(String(result.finalDifficulty))}.
+        </div>
+        <div class="cypher-breakdown-row">
+          <strong>Effort and Cost</strong>
+          Total Effort levels: ${escapeHtml(String(result.totalEffort))}. Effort cost: ${escapeHtml(String(result.effortCost))}. Additional cost: ${escapeHtml(String(result.poolCost))}. Edge applied: ${escapeHtml(String(result.edge))}. Final cost: ${escapeHtml(String(result.finalPoolCost))}.
+        </div>
+        <div class="cypher-breakdown-row">
+          <strong>Roll Notes</strong>
+          ${result.noRoll
+            ? "No d20 roll was made. This was resolved as a cost-only action."
+            : `${escapeHtml(`Rolled ${result.modifiedRoll} against target number ${result.targetNumber}.`)} ${result.specialText ? escapeHtml(result.specialText) : ""}`}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderHistory() {
+    const history = loadHistory();
+    if (!history.length) {
+      els.historyStatus.textContent = "No stored rolls yet.";
+      els.historyList.innerHTML = "";
+      return;
+    }
+    els.historyStatus.textContent = `${history.length} stored Cypher roll${history.length === 1 ? "" : "s"}.`;
+    els.historyList.innerHTML = history.map((entry, index) => `
+      <div class="cypher-history-item">
+        <div class="cypher-banner-top" style="margin-bottom:6px;">
+          <div class="cypher-banner-title" style="font-size:1rem;">${escapeHtml(entry.title || "Cypher Roll")}</div>
+          <div class="cypher-banner-state">${escapeHtml(entry.noRoll ? "Cost Only" : (entry.success ? "Success" : "Failure"))}</div>
+        </div>
+        <div class="small">${escapeHtml(`Difficulty ${entry.finalDifficulty} • Target ${entry.targetNumber} • Cost ${entry.finalPoolCost}`)}</div>
+        <div class="small" style="margin-top:6px;">${escapeHtml(formatTimestamp(entry.rolledAt))}</div>
+        <button type="button" class="secondary" data-history-index="${index}" style="margin-top:10px;">Load + Roll Again</button>
+      </div>
+    `).join("");
+
+    els.historyList.querySelectorAll("[data-history-index]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const history = loadHistory();
+        const entry = history[Number(button.getAttribute("data-history-index"))];
+        if (!entry) return;
+        applyPayload(entry);
+        handleRoll();
+      });
+    });
+  }
+
+  function pushHistory(result) {
+    const history = loadHistory();
+    history.unshift(result);
+    saveHistory(history);
+    renderHistory();
+  }
+
+  function applyPayload(payload) {
+    els.title.value = payload.title || "";
+    els.difficulty.value = String(payload.difficulty ?? 4);
+    els.pool.value = payload.pool || "Pool";
+    els.skill.value = payload.skill || "Practiced";
+    els.assets.value = String(payload.assets ?? 0);
+    els.effortTask.value = String(payload.effortTask ?? 0);
+    els.effortOther.value = String(payload.effortOther ?? 0);
+    els.modifier.value = String(payload.modifier ?? 0);
+    els.bonus.value = String(payload.bonus ?? 0);
+    els.edge.value = String(payload.edge ?? 0);
+    els.poolCost.value = String(payload.poolCost ?? 0);
+    els.damage.value = String(payload.damage ?? 0);
+    els.effortDamage.value = String(payload.effortDamage ?? 0);
+    els.damagePerLevel.value = String(payload.damagePerLevel ?? 3);
+    els.noRoll.value = payload.noRoll ? "1" : "0";
+  }
+
+  function resetForm() {
+    applyPayload({
+      title: "",
+      difficulty: 4,
+      pool: "Pool",
+      skill: "Practiced",
+      assets: 0,
+      effortTask: 0,
+      effortOther: 0,
+      modifier: 0,
+      bonus: 0,
+      edge: 0,
+      poolCost: 0,
+      damage: 0,
+      effortDamage: 0,
+      damagePerLevel: 3,
+      noRoll: false,
+    });
+  }
+
+  function handleRoll() {
+    const payload = buildPayload();
+    lastPayload = payload;
+    const result = evaluateCypherRoll(payload);
+    renderResult(result);
+    pushHistory(result);
+    els.status.textContent = result.noRoll
+      ? `Computed pool cost ${result.finalPoolCost} without rolling.`
+      : `Rolled ${result.modifiedRoll} against target ${result.targetNumber}: ${result.success ? "success" : "failure"}.`;
+  }
+
+  els.rollBtn.addEventListener("click", handleRoll);
+  els.rerollBtn.addEventListener("click", () => {
+    if (!lastPayload) {
+      els.status.textContent = "No previous Cypher roll available yet.";
+      return;
+    }
+    applyPayload(lastPayload);
+    handleRoll();
+  });
+  els.resetBtn.addEventListener("click", () => {
+    resetForm();
+    renderResult(null);
+    els.status.textContent = "Cypher roller reset to defaults.";
+  });
+
+  renderHistory();
+  resetForm();
+</script>
+{% endblock %}

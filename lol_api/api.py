@@ -1,12 +1,16 @@
 from __future__ import annotations
 
 import json
+import re
 import uuid
+import mimetypes
 from io import BytesIO
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
 
-from flask import Flask, current_app, jsonify, request, render_template, send_from_directory, send_file
+from flask import Flask, current_app, jsonify, request, render_template, send_from_directory, send_file, redirect
 from werkzeug.utils import secure_filename
 from .storage import (
     STORAGE_SCHEMA_VERSION,
@@ -26,6 +30,8 @@ from .config_loader import (
     load_config_dir,
     list_world_descriptors,
     infer_default_world_id,
+    list_setting_descriptors,
+    infer_default_setting_id,
 )
 from .generator import (
     deterministic_rng,
@@ -37,6 +43,8 @@ from .generator import (
     generate_encounter,
     generate_inn,
     generate_settlement,
+    parse_raw_text_entry,
+    parse_raw_text_entries,
 )
 
 from .compendium import (
@@ -45,6 +53,13 @@ from .compendium import (
     load_compendium_item,
     search_compendium,
     SUPPORTED_COMPENDIUM_TYPES,
+)
+from .official_compendium import (
+    load_official_compendium_index,
+    list_official_items,
+    load_official_item,
+    search_official_compendium,
+    SUPPORTED_OFFICIAL_COMPENDIUM_TYPES,
 )
 from .lore import (
     LOCATION_CATEGORY_PRIORITY,
@@ -78,7 +93,11 @@ from .settings import (
     settings_catalog,
     settings_nav_model,
 )
-from Plugins.foundryVTT.importer import foundry_actor_to_character_sheet, foundry_actor_to_npc_result
+from Plugins.foundryVTT.importer import (
+    foundry_actor_to_character_sheet,
+    foundry_actor_to_npc_result,
+    foundry_item_to_result,
+)
 from Plugins.foundryVTT.exporter import (
     character_sheet_result_to_foundry_actor,
     npc_or_creature_result_to_foundry_actor,
@@ -87,6 +106,15 @@ from Plugins.foundryVTT.exporter import (
 def register_routes(app: Flask) -> None:
     ## Helpers 
     IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"}
+    FOUNDRY_COMPENDIUM_ID = "foundryvtt"
+
+    def normalize_source_key(value: object) -> str:
+        text = str(value or "").strip().lower()
+        return re.sub(r"[^a-z0-9]+", "", text)
+
+    def is_foundry_source(value: object) -> bool:
+        key = normalize_source_key(value)
+        return key in {"foundryvtt", "foundry"}
 
     def configured_settings_catalog() -> list[str]:
         return settings_catalog(current_app.config["LOL_CONFIG"])
@@ -162,6 +190,59 @@ def register_routes(app: Flask) -> None:
                 return bool(item.get("enabled"))
         return False
 
+    def foundry_api_token() -> str:
+        return str(current_app.config.get("LOL_FOUNDRYVTT_API_TOKEN") or "").strip()
+
+    def foundry_allowed_origins() -> list[str]:
+        values = current_app.config.get("LOL_FOUNDRYVTT_ALLOWED_ORIGINS") or []
+        if isinstance(values, list):
+            return [str(v).strip() for v in values if str(v).strip()]
+        if isinstance(values, str):
+            return [v.strip() for v in values.split(",") if v.strip()]
+        return []
+
+    def with_foundry_cors_headers(response):
+        origin = str(request.headers.get("Origin") or "").strip()
+        allowed = foundry_allowed_origins()
+        if not allowed:
+            # Safe default for local dev: reflect explicit origin when present.
+            if origin:
+                response.headers["Access-Control-Allow-Origin"] = origin
+        elif "*" in allowed:
+            response.headers["Access-Control-Allow-Origin"] = "*"
+        elif origin and origin in allowed:
+            response.headers["Access-Control-Allow-Origin"] = origin
+
+        if response.headers.get("Access-Control-Allow-Origin"):
+            response.headers["Vary"] = "Origin"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Foundry-Token"
+        return response
+
+    def foundry_auth_error_response():
+        token = foundry_api_token()
+        if not token:
+            return None
+
+        auth_header = str(request.headers.get("Authorization") or "").strip()
+        bearer = ""
+        if auth_header.lower().startswith("bearer "):
+            bearer = auth_header[7:].strip()
+        x_token = str(request.headers.get("X-Foundry-Token") or "").strip()
+
+        body_token = ""
+        if request.is_json:
+            body = request.get_json(force=False, silent=True) or {}
+            if isinstance(body, dict):
+                body_token = str(body.get("token") or "").strip()
+
+        provided = bearer or x_token or body_token
+        if provided != token:
+            response = jsonify({"error": "unauthorized"})
+            response.status_code = 401
+            return with_foundry_cors_headers(response)
+        return None
+
     def resolve_project_relative_path(raw: str, *, default: str) -> Path:
         project_root = current_app.config["LOL_PROJECT_ROOT"]
         value = (raw or "").strip() or default
@@ -203,6 +284,42 @@ def register_routes(app: Flask) -> None:
         if text.startswith("images/"):
             text = text[len("images/"):]
         return text.strip("/")
+
+    def collect_foundry_compendium_rows() -> list[dict]:
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        foundry_root = storage_dir / "foundryvtt"
+        rows: list[dict] = []
+        if not foundry_root.exists():
+            return rows
+        for path in sorted(foundry_root.rglob("*.json"), reverse=True):
+            if ".trash" in path.parts or ".locks" in path.parts:
+                continue
+            try:
+                payload = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            result = payload.get("result") if isinstance(payload.get("result"), dict) else {}
+            metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+            item_type = str(result.get("type") or "").strip().lower()
+            if not item_type:
+                continue
+            rows.append({
+                "type": item_type,
+                "name": str(result.get("name") or "").strip(),
+                "metadata": metadata,
+            })
+        return rows
+
+    def foundry_counts_by_type() -> dict[str, int]:
+        counts: dict[str, int] = {}
+        for row in collect_foundry_compendium_rows():
+            item_type = str(row.get("type") or "").strip().lower()
+            if not item_type:
+                continue
+            counts[item_type] = counts.get(item_type, 0) + 1
+        if counts.get("monster"):
+            counts["creature"] = counts.get("creature", 0) + counts.get("monster", 0)
+        return counts
 
     def image_catalog_path() -> Path:
         return current_app.config["LOL_IMAGES_DIR"] / "_index.json"
@@ -251,6 +368,120 @@ def register_routes(app: Flask) -> None:
             if ref and ref not in refs:
                 refs.append(ref)
         return refs
+
+    def mirror_remote_image(
+        url: str,
+        *,
+        friendly_name: str = "",
+        tags: list[str] | None = None,
+        notes: str = "",
+    ) -> str | None:
+        raw_url = str(url or "").strip()
+        if not raw_url.lower().startswith(("http://", "https://")):
+            return None
+
+        images_dir = current_app.config["LOL_IMAGES_DIR"]
+        upload_dir = images_dir / "uploads" / "foundryvtt"
+        upload_dir.mkdir(parents=True, exist_ok=True)
+
+        req = Request(raw_url, headers={"User-Agent": "Legends-GMTools/1.0"})
+        try:
+            with urlopen(req, timeout=10) as response:
+                content_type = str(response.headers.get("Content-Type") or "").split(";")[0].strip().lower()
+                if content_type and not content_type.startswith("image/"):
+                    return None
+                payload = response.read()
+        except Exception:
+            return None
+
+        if not payload:
+            return None
+
+        parsed = urlparse(raw_url)
+        guessed_ext = Path(parsed.path).suffix.lower()
+        if guessed_ext not in IMAGE_SUFFIXES:
+            guessed_ext = str(mimetypes.guess_extension(content_type or "") or "").lower()
+        if guessed_ext == ".jpe":
+            guessed_ext = ".jpg"
+        if guessed_ext not in IMAGE_SUFFIXES:
+            guessed_ext = ".jpg"
+
+        stem = secure_filename(Path(parsed.path).stem or friendly_name or "foundry_image") or "foundry_image"
+        final_name = f"{stem}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex[:8]}{guessed_ext}"
+        path = upload_dir / final_name
+        path.write_bytes(payload)
+
+        rel = str(path.relative_to(images_dir)).replace("\\", "/")
+        catalog = load_image_catalog()
+        catalog[rel] = {
+            "friendly_name": str(friendly_name or "").strip(),
+            "tags": sorted(set(str(x).strip().lower().replace(" ", "_") for x in (tags or []) if str(x).strip())),
+            "notes": str(notes or "").strip(),
+        }
+        save_image_catalog(catalog)
+        return rel
+
+    def cache_foundry_images_for_result(result: dict) -> dict:
+        if not isinstance(result, dict):
+            return result
+
+        metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+        if str(metadata.get("source") or "").strip().lower() not in {"foundryvtt", "foundry_vtt"}:
+            return result
+
+        candidate_urls: list[str] = []
+        for value in (
+            metadata.get("image_url"),
+            *(metadata.get("images") if isinstance(metadata.get("images"), list) else []),
+        ):
+            text = str(value or "").strip()
+            if text and text not in candidate_urls:
+                candidate_urls.append(text)
+
+        if not candidate_urls:
+            return result
+
+        tags = [
+            str(metadata.get("source") or "").strip(),
+            str(metadata.get("genre") or "").strip(),
+            str(metadata.get("setting") or "").strip(),
+            str(metadata.get("area") or metadata.get("environment") or "").strip(),
+            str(metadata.get("location") or "").strip(),
+        ]
+        local_images: list[str] = []
+        for image_url in candidate_urls:
+            local_ref = mirror_remote_image(
+                image_url,
+                friendly_name=str(result.get("name") or metadata.get("friendly_name") or "").strip(),
+                tags=tags,
+                notes="Mirrored from FoundryVTT during sync import.",
+            )
+            if local_ref and local_ref not in local_images:
+                local_images.append(local_ref)
+
+        if not local_images:
+            return result
+
+        next_metadata = dict(metadata)
+        next_metadata["foundry_remote_image_url"] = str(metadata.get("image_url") or candidate_urls[0] or "").strip()
+        next_metadata["image_url"] = local_images[0]
+        next_metadata["images"] = local_images
+
+        next_result = dict(result)
+        next_result["metadata"] = next_metadata
+
+        sheet = next_result.get("sheet") if isinstance(next_result.get("sheet"), dict) else None
+        if sheet:
+          next_sheet = dict(sheet)
+          sheet_meta = next_sheet.get("metadata") if isinstance(next_sheet.get("metadata"), dict) else {}
+          next_sheet_meta = dict(sheet_meta)
+          next_sheet_meta["foundry_remote_image_url"] = next_metadata.get("foundry_remote_image_url")
+          next_sheet_meta["image_url"] = local_images[0]
+          next_sheet_meta["images"] = local_images
+          next_sheet["metadata"] = next_sheet_meta
+          next_result["sheet"] = next_sheet
+
+        return next_result
 
     def resolve_image_ref_path(ref: str) -> Path:
         images_dir = current_app.config["LOL_IMAGES_DIR"].resolve()
@@ -413,9 +644,86 @@ def register_routes(app: Flask) -> None:
         storage_dir = current_app.config["LOL_STORAGE_DIR"]
         path = save_generated_result(storage_dir, result, payload)
         result["storage"] = {
-            "filename": path.name,
+            "filename": str(path.relative_to(storage_dir)).replace("\\", "/"),
             "saved": True,
         }
+        return result
+
+    def import_foundry_actor_to_storage(actor: dict, payload: dict | None = None) -> dict:
+        payload = payload or {}
+        actor_type = str(actor.get("type") or "").strip().lower() or "pc"
+
+        if actor_type == "pc":
+            sheet = foundry_actor_to_character_sheet(actor, payload)
+
+            metadata = sheet.get("metadata") if isinstance(sheet.get("metadata"), dict) else {}
+            result = {
+                "type": "character_sheet",
+                "name": str(sheet.get("name") or "Imported Character").strip() or "Imported Character",
+                "sheet": sheet,
+                "metadata": {
+                    "setting": metadata.get("setting") or payload.get("setting"),
+                    "settings": metadata.get("settings") or payload.get("settings"),
+                    "area": metadata.get("area") or payload.get("area") or payload.get("environment"),
+                    "location": metadata.get("location") or payload.get("location"),
+                    "environment": metadata.get("environment") or metadata.get("area") or payload.get("environment") or payload.get("area"),
+                    "race": metadata.get("race") or payload.get("race"),
+                    "profession": metadata.get("profession") or payload.get("profession"),
+                    "character_type": metadata.get("character_type"),
+                    "flavor": metadata.get("flavor"),
+                    "descriptor": metadata.get("descriptor"),
+                    "focus": metadata.get("focus"),
+                    "tier": metadata.get("tier") or sheet.get("tier"),
+                    "source": "FoundryVTT",
+                    "origin": "foundry_import",
+                    "foundry_actor_type": metadata.get("foundry_actor_type") or actor_type,
+                    "foundry_actor_uuid": metadata.get("foundry_actor_uuid"),
+                    "foundry_origin": metadata.get("foundry_origin") or payload.get("foundry_origin"),
+                    "image_url": metadata.get("image_url"),
+                    "images": metadata.get("images") or [],
+                },
+            }
+            result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
+            result = cache_foundry_images_for_result(result)
+            created_local_abilities = create_missing_local_abilities(
+                sheet,
+                str(sheet.get("name") or "Imported Character"),
+                parent_settings=result.get("metadata", {}).get("settings"),
+            )
+            result = persist_result(payload, result)
+            owner_filename = (result.get("storage") or {}).get("filename")
+            if owner_filename and "/" not in str(owner_filename):
+                owner_filename = f"character_sheet/{owner_filename}"
+            foundry_created = create_foundry_import_records(
+                actor,
+                payload=payload,
+                owner_name=str(sheet.get("name") or "Imported Character"),
+                owner_filename=owner_filename,
+                parent_settings=result.get("metadata", {}).get("settings"),
+            )
+            if created_local_abilities:
+                result["local_abilities_created"] = created_local_abilities
+            if foundry_created.get("cyphers"):
+                result["local_cyphers_created"] = foundry_created["cyphers"]
+            if foundry_created.get("attacks"):
+                result["local_attacks_created"] = foundry_created["attacks"]
+            return result
+
+        if actor_type == "npc":
+            result = foundry_actor_to_npc_result(actor, payload)
+            result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
+            result = cache_foundry_images_for_result(result)
+            result = persist_result(payload, result)
+            return result
+
+        raise ValueError(f"unsupported Foundry actor type '{actor_type}'. Supported: pc, npc.")
+
+    def import_foundry_item_to_storage(item: dict, payload: dict | None = None) -> dict:
+        payload = payload or {}
+        result = foundry_item_to_result(item, payload)
+        result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
+        result = cache_foundry_images_for_result(result)
+        result = persist_result(payload, result)
         return result
 
     def create_missing_local_abilities(
@@ -519,6 +827,7 @@ def register_routes(app: Flask) -> None:
             item_system = item.get("system") if isinstance(item.get("system"), dict) else {}
             basic_data = item_system.get("basic") if isinstance(item_system.get("basic"), dict) else {}
             description = str(item_system.get("description") or "").strip()
+            item_img = str(item.get("img") or "").strip()
 
             if item_type == "cypher":
                 cypher_result = {
@@ -531,11 +840,14 @@ def register_routes(app: Flask) -> None:
                         "effect": description,
                     },
                     "metadata": {
-                        "source": "foundry_vtt",
+                        "source": "FoundryVTT",
                         "origin": "foundry_import",
                         "owner_character_name": owner_name,
                         "owner_character_filename": owner_filename,
                         "settings": list(parent_settings or []),
+                        "foundry_origin": str(payload.get("foundry_origin") or ""),
+                        "image_url": item_img,
+                        "images": [item_img] if item_img else [],
                     },
                 }
                 cypher_result = attach_settings_metadata(
@@ -543,6 +855,7 @@ def register_routes(app: Flask) -> None:
                     payload,
                     current_app.config["LOL_CONFIG"],
                 )
+                cypher_result = cache_foundry_images_for_result(cypher_result)
                 path = save_generated_result(storage_dir, cypher_result, payload)
                 created_cyphers.append({
                     "name": item_name,
@@ -561,11 +874,14 @@ def register_routes(app: Flask) -> None:
                         "skill_rating": str(basic_data.get("skillRating") or ""),
                     },
                     "metadata": {
-                        "source": "foundry_vtt",
+                        "source": "FoundryVTT",
                         "origin": "foundry_import",
                         "owner_character_name": owner_name,
                         "owner_character_filename": owner_filename,
                         "settings": list(parent_settings or []),
+                        "foundry_origin": str(payload.get("foundry_origin") or ""),
+                        "image_url": item_img,
+                        "images": [item_img] if item_img else [],
                     },
                 }
                 attack_result = attach_settings_metadata(
@@ -573,6 +889,7 @@ def register_routes(app: Flask) -> None:
                     payload,
                     current_app.config["LOL_CONFIG"],
                 )
+                attack_result = cache_foundry_images_for_result(attack_result)
                 path = save_generated_result(storage_dir, attack_result, payload)
                 created_attacks.append({
                     "name": item_name,
@@ -615,6 +932,7 @@ def register_routes(app: Flask) -> None:
 
         for item in items:
             meta = item.get("metadata", {}) or {}
+            source_key = FOUNDRY_COMPENDIUM_ID if is_foundry_source(meta.get("source")) else "storage"
             parts = []
 
             if meta.get("environment"):
@@ -641,7 +959,7 @@ def register_routes(app: Flask) -> None:
                 parts.append(f"csrd_slug: {meta['compendium_slug']}")
 
             normalized.append({
-                "source": "storage",
+                "source": source_key,
                 "type": item.get("type"),
                 "title": item.get("name") or item.get("filename"),
                 "description": extract_storage_description(item),
@@ -706,6 +1024,76 @@ def register_routes(app: Flask) -> None:
                 "raw": item,
             })
 
+        return normalized
+
+    def normalize_official_compendium_results(items: list[dict]) -> list[dict]:
+        def compact_text(value: object, limit: int = 260) -> str:
+            text = " ".join(str(value or "").strip().split())
+            if len(text) > limit:
+                return text[: limit - 1].rstrip() + "…"
+            return text
+
+        def slugify_text(value: object) -> str:
+            text = re.sub(r"[^a-z0-9]+", "_", str(value or "").strip().lower())
+            text = re.sub(r"_+", "_", text).strip("_")
+            return text
+
+        normalized = []
+        for item in items:
+            parts = []
+            book_value = str(item.get("book") or "").strip()
+            source_value = slugify_text(book_value) or "official_pdf"
+            if item.get("book"):
+                parts.append(f"book: {item['book']}")
+            if item.get("pages"):
+                parts.append(f"pages: {item['pages']}")
+            if item.get("settings"):
+                parts.append(f"settings: {', '.join(item['settings'])}")
+            normalized.append({
+                "source": source_value,
+                "type": item.get("type"),
+                "title": item.get("title") or item.get("slug"),
+                "description": compact_text(item.get("description") or ""),
+                "book": item.get("book"),
+                "pages": item.get("pages"),
+                "subtitle": " • ".join(parts),
+                "slug": item.get("slug"),
+                "url": f"/official-compendium/{item.get('type')}/{item.get('slug')}",
+                "raw": item,
+            })
+        return normalized
+
+    def normalize_lore_results(items: list[dict]) -> list[dict]:
+        def compact_text(value: object, limit: int = 260) -> str:
+            text = " ".join(str(value or "").strip().split())
+            if len(text) > limit:
+                return text[: limit - 1].rstrip() + "…"
+            return text
+
+        normalized = []
+        for item in items:
+            settings = item.get("settings") or []
+            categories = item.get("categories") or []
+            parts = []
+            if item.get("area") or item.get("environment"):
+                parts.append(f"area: {item.get('area') or item.get('environment')}")
+            if item.get("location"):
+                parts.append(f"location: {item.get('location')}")
+            if categories:
+                parts.append(f"categories: {', '.join([str(x) for x in categories if str(x).strip()])}")
+            if settings:
+                parts.append(f"settings: {', '.join([str(x) for x in settings if str(x).strip()])}")
+
+            normalized.append({
+                "source": "lore",
+                "type": "lore",
+                "title": item.get("title") or item.get("slug"),
+                "description": compact_text(item.get("description") or item.get("excerpt") or ""),
+                "subtitle": " • ".join(parts),
+                "slug": item.get("slug"),
+                "url": f"/lore/{item.get('slug')}",
+                "raw": item,
+            })
         return normalized
 
     def build_local_variant_from_compendium(
@@ -1151,6 +1539,14 @@ def register_routes(app: Flask) -> None:
     def map_tools():
         return render_template("map_tools.html")
 
+    @app.get("/dice-roller")
+    def dice_roller():
+        return render_template("dice_roller.html")
+
+    @app.get("/cypher-roller")
+    def cypher_roller():
+        return render_template("cypher_roller.html")
+
     @app.get("/plugins")
     def api_plugins_list():
         plugins = discover_plugins()
@@ -1172,6 +1568,427 @@ def register_routes(app: Flask) -> None:
         state[plugin_id] = enabled
         save_plugin_state(state)
         return jsonify({"ok": True, "id": plugin_id, "enabled": enabled})
+
+    @app.route("/plugins/foundryvtt/health", methods=["GET", "OPTIONS"])
+    def api_foundryvtt_health():
+        if request.method == "OPTIONS":
+            response = jsonify({"ok": True})
+            response.status_code = 204
+            return with_foundry_cors_headers(response)
+
+        if not is_plugin_enabled("foundryVTT"):
+            response = jsonify({"error": "foundryVTT plugin is disabled"})
+            response.status_code = 403
+            return with_foundry_cors_headers(response)
+
+        response = jsonify({
+            "status": "ok",
+            "plugin": "foundryVTT",
+            "api_version": "1.0.0",
+            "auth_required": bool(foundry_api_token()),
+            "active_setting": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+            "time_utc": datetime.now(timezone.utc).isoformat(),
+        })
+        return with_foundry_cors_headers(response)
+
+    @app.route("/plugins/foundryvtt/handshake", methods=["POST", "OPTIONS"])
+    def api_foundryvtt_handshake():
+        if request.method == "OPTIONS":
+            response = jsonify({"ok": True})
+            response.status_code = 204
+            return with_foundry_cors_headers(response)
+
+        if not is_plugin_enabled("foundryVTT"):
+            response = jsonify({"error": "foundryVTT plugin is disabled"})
+            response.status_code = 403
+            return with_foundry_cors_headers(response)
+
+        auth_error = foundry_auth_error_response()
+        if auth_error is not None:
+            return auth_error
+
+        body = request.get_json(force=True, silent=True) or {}
+        client = body if isinstance(body, dict) else {}
+
+        response = jsonify({
+            "status": "ok",
+            "message": "handshake accepted",
+            "api_version": "1.0.0",
+            "auth_required": bool(foundry_api_token()),
+            "server": {
+                "name": "Legends RPG GMTools",
+                "active_setting": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+                "time_utc": datetime.now(timezone.utc).isoformat(),
+            },
+            "capabilities": {
+                "import_actor": True,
+                "export_actor": True,
+                "import_item": False,
+                "import_journal": False,
+            },
+            "client_echo": {
+                "module_id": str(client.get("module_id") or "").strip(),
+                "module_version": str(client.get("module_version") or "").strip(),
+                "foundry_version": str(client.get("foundry_version") or "").strip(),
+                "system_id": str(client.get("system_id") or "").strip(),
+                "system_version": str(client.get("system_version") or "").strip(),
+                "world_id": str(client.get("world_id") or "").strip(),
+            },
+        })
+        return with_foundry_cors_headers(response)
+
+    @app.get("/compendiums")
+    def api_compendiums_list():
+        compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+
+        def bucket_count(value: object) -> int:
+            if value is None:
+                return 0
+            if isinstance(value, int):
+                return value
+            if isinstance(value, (list, tuple, set, dict)):
+                return len(value)
+            return 0
+
+        csrd_index = load_compendium_index(compendium_dir) or {}
+        csrd_stats = {
+            "foci": bucket_count(csrd_index.get("foci")),
+            "types": bucket_count(csrd_index.get("types")),
+            "descriptors": bucket_count(csrd_index.get("descriptors")),
+            "creatures": bucket_count(csrd_index.get("creatures")),
+            "cyphers": bucket_count(csrd_index.get("cyphers")),
+            "artifacts": bucket_count(csrd_index.get("artifacts")),
+        }
+
+        def load_compendium_profiles() -> dict[str, dict]:
+            profiles_dir = project_root / "PDF_Repository" / "private_compendium" / "compendiums"
+            profiles: dict[str, dict] = {}
+            if not profiles_dir.exists():
+                return profiles
+            for path in sorted(profiles_dir.glob("*.json")):
+                try:
+                    payload = json.loads(path.read_text(encoding="utf-8"))
+                except Exception:
+                    continue
+                profile_id = str(payload.get("id") or path.stem).strip().lower()
+                if not profile_id:
+                    continue
+                payload["id"] = profile_id
+                payload["profile_path"] = str(path.relative_to(project_root)).replace("\\", "/")
+                profiles[profile_id] = payload
+            return profiles
+
+        def book_stats(items: list[dict], book_title: str) -> dict[str, int]:
+            wanted = str(book_title or "").strip().lower()
+            subset = [row for row in items if str(row.get("book") or "").strip().lower() == wanted]
+            counts: dict[str, int] = {}
+            for row in subset:
+                t = str(row.get("type") or "").strip().lower()
+                if not t:
+                    continue
+                counts[t] = counts.get(t, 0) + 1
+            return {
+                "npcs": int(counts.get("npc") or 0),
+                "creatures": int(counts.get("creature") or 0),
+                "foci": int(counts.get("focus") or 0),
+                "descriptors": int(counts.get("descriptor") or 0),
+                "cyphers": int(counts.get("cypher") or 0),
+                "artifacts": int(counts.get("artifact") or 0),
+            }
+
+        def foundry_stats() -> dict[str, int]:
+            counts = foundry_counts_by_type()
+            return {
+                "characters": int(counts.get("character") or 0),
+                "character_sheets": int(counts.get("character_sheet") or 0),
+                "npcs": int(counts.get("npc") or 0),
+                "creatures": int(counts.get("creature") or 0),
+                "cyphers": int(counts.get("cypher") or 0),
+                "artifacts": int(counts.get("artifact") or 0),
+                "attacks": int(counts.get("attack") or 0),
+                "abilities": int(counts.get("ability") or 0),
+                "skills": int(counts.get("skill") or 0),
+                "equipment": int(counts.get("equipment") or 0),
+            }
+
+        official_index = load_official_compendium_index(official_dir) or {}
+        official_items = official_index.get("items") or []
+        profiles = load_compendium_profiles()
+        csrd_profile = profiles.get("csrd", {})
+        items = [
+            {
+                "id": "csrd",
+                "name": csrd_profile.get("name") or "CSRD",
+                "subtitle": csrd_profile.get("subtitle") or "Cypher System Reference Document",
+                "thumbnail_url": csrd_profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+                "stats": csrd_stats,
+                "landing_url": "/compendiums/csrd",
+                "search_url": "/search?include_local=0&include_lore=0&compendiums=csrd",
+                "profile_path": csrd_profile.get("profile_path") or "",
+                "source_kind": "csrd",
+            },
+        ]
+        official_profiles = [
+            p for pid, p in sorted(profiles.items(), key=lambda kv: kv[1].get("name", kv[0]).lower())
+            if pid not in {"csrd", FOUNDRY_COMPENDIUM_ID}
+        ]
+        for profile in official_profiles:
+            pid = str(profile.get("id") or "").strip().lower()
+            if not pid:
+                continue
+            book_title = str(profile.get("book_title") or profile.get("name") or "").strip()
+            stats = book_stats(official_items, book_title)
+            items.append({
+                "id": pid,
+                "name": profile.get("name") or pid.title(),
+                "subtitle": profile.get("subtitle") or "Official Sourcebook (Private Import)",
+                "thumbnail_url": profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+                "stats": stats,
+                "landing_url": f"/compendiums/{pid}",
+                "search_url": f"/search?include_local=0&include_lore=0&compendiums={pid}",
+                "profile_path": profile.get("profile_path") or "",
+                "source_kind": "official",
+            })
+
+        foundry_profile = profiles.get(FOUNDRY_COMPENDIUM_ID, {})
+        items.append({
+            "id": FOUNDRY_COMPENDIUM_ID,
+            "name": foundry_profile.get("name") or "FoundryVTT",
+            "subtitle": foundry_profile.get("subtitle") or "Synced Foundry imports",
+            "thumbnail_url": foundry_profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+            "stats": foundry_stats(),
+            "landing_url": f"/compendiums/{FOUNDRY_COMPENDIUM_ID}",
+            "search_url": f"/search?include_local=0&include_lore=0&include_csrd=0&include_official=0&include_foundry=1&compendiums={FOUNDRY_COMPENDIUM_ID}",
+            "profile_path": foundry_profile.get("profile_path") or "",
+            "source_kind": "foundry",
+        })
+
+        return jsonify({"items": items, "count": len(items)})
+
+    @app.get("/compendiums/<compendium_id>")
+    def compendium_landing_page(compendium_id: str):
+        cid = str(compendium_id or "").strip().lower()
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        profile_path = project_root / "PDF_Repository" / "private_compendium" / "compendiums" / f"{cid}.json"
+        if cid not in {"csrd", FOUNDRY_COMPENDIUM_ID} and not profile_path.exists():
+            return jsonify({"error": f"unknown compendium '{compendium_id}'"}), 404
+        return render_template("compendium_landing.html", compendium_id=cid)
+
+    @app.get("/compendiums/<compendium_id>/details")
+    def api_compendium_details(compendium_id: str):
+        cid = str(compendium_id or "").strip().lower()
+        project_root = current_app.config["LOL_PROJECT_ROOT"]
+        compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+
+        def load_profile(profile_id: str) -> dict:
+            path = project_root / "PDF_Repository" / "private_compendium" / "compendiums" / f"{profile_id}.json"
+            if not path.exists():
+                return {}
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                return {}
+            if not isinstance(data, dict):
+                return {}
+            data["profile_path"] = str(path.relative_to(project_root)).replace("\\", "/")
+            return data
+
+        def file_url_if_exists(rel_path: str) -> str:
+            rel = str(rel_path or "").strip().replace("\\", "/").lstrip("/")
+            path = (project_root / "PDF_Repository" / rel).resolve()
+            root = (project_root / "PDF_Repository").resolve()
+            if not str(path).startswith(str(root)) or not path.exists():
+                return ""
+            return f"/pdf-repository/{rel}"
+
+        if cid == "csrd":
+            profile = load_profile("csrd")
+            csrd_index = load_compendium_index(compendium_dir) or {}
+            stats = {
+                "abilities": int(csrd_index.get("abilities") or 0),
+                "skills": int(csrd_index.get("skills") or 0),
+                "foci": int(csrd_index.get("foci") or 0),
+                "descriptors": int(csrd_index.get("descriptors") or 0),
+                "types": int(csrd_index.get("types") or 0),
+                "flavors": int(csrd_index.get("flavors") or 0),
+                "creatures": int(csrd_index.get("creatures") or 0),
+                "cyphers": int(csrd_index.get("cyphers") or 0),
+                "artifacts": int(csrd_index.get("artifacts") or 0),
+            }
+            summary = profile.get("summary") or [
+                "The CSRD compendium contains core Cypher System reference material organized by rules category.",
+                "Use this as the baseline source for abilities, skills, foci, descriptors, creatures, cyphers, and artifacts.",
+            ]
+            contents = profile.get("contents") or [
+                {"label": "Rules Content", "items": ["Abilities", "Skills", "Types", "Flavors", "Descriptors", "Foci"]},
+                {"label": "Game Elements", "items": ["Creatures", "Cyphers", "Artifacts"]},
+            ]
+            return jsonify({
+                "id": "csrd",
+                "name": profile.get("name") or "CSRD",
+                "subtitle": profile.get("subtitle") or "Cypher System Reference Document",
+                "thumbnail_url": profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+                "stats": stats,
+                "summary": summary,
+                "contents": contents,
+                "pdf_url": file_url_if_exists(
+                    str(profile.get("pdf_relative_path") or "Core_Rules/Cypher_System_Rulebook_Revised-Hyperlinked_and_Bookmarked-2023-05-12-1.pdf")
+                ),
+                "search_url": "/search?include_local=0&include_lore=0&compendiums=csrd",
+                "profile_path": profile.get("profile_path") or "",
+            })
+
+        if cid == FOUNDRY_COMPENDIUM_ID:
+            profile = load_profile(FOUNDRY_COMPENDIUM_ID)
+            foundry_items = collect_foundry_compendium_rows()
+            counts_by_type = foundry_counts_by_type()
+            names_by_type: dict[str, list[str]] = {}
+            for row in foundry_items:
+                item_type = str(row.get("type") or "").strip().lower()
+                title = str(row.get("name") or "").strip()
+                if not item_type:
+                    continue
+                if title:
+                    names_by_type.setdefault(item_type, []).append(title)
+                    if item_type == "monster":
+                        names_by_type.setdefault("creature", []).append(title)
+
+            for key in names_by_type:
+                names_by_type[key] = sorted(names_by_type[key])[:12]
+
+            stats = {
+                "characters": int(counts_by_type.get("character") or 0),
+                "character_sheets": int(counts_by_type.get("character_sheet") or 0),
+                "npcs": int(counts_by_type.get("npc") or 0),
+                "creatures": int(counts_by_type.get("creature") or 0),
+                "cyphers": int(counts_by_type.get("cypher") or 0),
+                "artifacts": int(counts_by_type.get("artifact") or 0),
+                "attacks": int(counts_by_type.get("attack") or 0),
+                "abilities": int(counts_by_type.get("ability") or 0),
+                "skills": int(counts_by_type.get("skill") or 0),
+                "equipment": int(counts_by_type.get("equipment") or 0),
+            }
+
+            type_label_map = {
+                "character": "Characters",
+                "character_sheet": "Character Sheets",
+                "npc": "NPCs",
+                "creature": "Creatures",
+                "cypher": "Cyphers",
+                "artifact": "Artifacts",
+                "attack": "Attacks",
+                "ability": "Abilities",
+                "skill": "Skills",
+                "equipment": "Equipment",
+            }
+            contents = []
+            for key in ("character", "character_sheet", "npc", "creature", "cypher", "artifact", "attack", "ability", "skill", "equipment"):
+                entries = names_by_type.get(key) or []
+                if entries:
+                    contents.append({"label": type_label_map.get(key, key.title()), "items": entries})
+
+            summary = profile.get("summary") or [
+                "FoundryVTT sync imports are stored as a private compendium inside GMTools.",
+                "Use this source to search and manage data imported from your Foundry world.",
+            ]
+            return jsonify({
+                "id": FOUNDRY_COMPENDIUM_ID,
+                "name": profile.get("name") or "FoundryVTT",
+                "subtitle": profile.get("subtitle") or "Synced Foundry imports",
+                "thumbnail_url": profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+                "stats": stats,
+                "summary": summary,
+                "contents": profile.get("contents") or contents,
+                "pdf_url": "",
+                "search_url": f"/search?include_local=0&include_lore=0&include_csrd=0&include_official=0&include_foundry=1&compendiums={FOUNDRY_COMPENDIUM_ID}",
+                "profile_path": profile.get("profile_path") or "",
+                "source_kind": "foundry",
+            })
+
+        if cid != "csrd":
+            profile = load_profile(cid)
+            if not profile:
+                return jsonify({"error": f"unknown compendium '{compendium_id}'"}), 404
+            official_index = load_official_compendium_index(official_dir) or {}
+            items = official_index.get("items") or []
+            book_title = str(profile.get("book_title") or profile.get("name") or "").strip()
+            items = [
+                row for row in items
+                if str(row.get("book") or "").strip().lower() == book_title.lower()
+            ]
+            counts_by_type: dict[str, int] = {}
+            for row in items:
+                t = str(row.get("type") or "").strip().lower()
+                if not t:
+                    continue
+                counts_by_type[t] = counts_by_type.get(t, 0) + 1
+            by_type: dict[str, list[str]] = {}
+            for row in items:
+                item_type = str(row.get("type") or "").strip().lower()
+                title = str(row.get("title") or "").strip()
+                if not item_type or not title:
+                    continue
+                by_type.setdefault(item_type, []).append(title)
+            for key in by_type:
+                by_type[key] = sorted(by_type[key])[:12]
+
+            stats = {
+                "npcs": int(counts_by_type.get("npc") or 0),
+                "creatures": int(counts_by_type.get("creature") or 0),
+                "foci": int(counts_by_type.get("focus") or 0),
+                "descriptors": int(counts_by_type.get("descriptor") or 0),
+                "cyphers": int(counts_by_type.get("cypher") or 0),
+                "artifacts": int(counts_by_type.get("artifact") or 0),
+            }
+            contents = []
+            type_label_map = {
+                "npc": "NPCs",
+                "creature": "Creatures",
+                "focus": "Foci",
+                "descriptor": "Descriptors",
+                "cypher": "Cyphers",
+                "artifact": "Artifacts",
+            }
+            for key in ("npc", "creature", "focus", "descriptor", "cypher", "artifact"):
+                names = by_type.get(key) or []
+                if names:
+                    contents.append({"label": type_label_map.get(key, key.title()), "items": names})
+
+            summary = profile.get("summary") or [
+                f"{book_title} is an official sourcebook imported into private local storage.",
+                "Entries remain local and are searchable alongside house and CSRD sources.",
+            ]
+            return jsonify({
+                "id": cid,
+                "name": profile.get("name") or book_title,
+                "subtitle": profile.get("subtitle") or "Official Fantasy Sourcebook (Private Import)",
+                "thumbnail_url": profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
+                "stats": stats,
+                "summary": summary,
+                "contents": profile.get("contents") or contents,
+                "pdf_url": file_url_if_exists(str(profile.get("pdf_relative_path") or "")),
+                "search_url": f"/search?include_local=0&include_lore=0&compendiums={cid}",
+                "profile_path": profile.get("profile_path") or "",
+                "source_kind": "official",
+            })
+
+        return jsonify({"error": f"unknown compendium '{compendium_id}'"}), 404
+
+    @app.get("/pdf-repository/<path:filename>")
+    def pdf_repository_file(filename: str):
+        rel = str(filename or "").replace("\\", "/").lstrip("/")
+        if not rel.lower().endswith(".pdf"):
+            return jsonify({"error": "only PDF files are supported"}), 400
+        root = (current_app.config["LOL_PROJECT_ROOT"] / "PDF_Repository").resolve()
+        target = (root / rel).resolve()
+        if not str(target).startswith(str(root)) or not target.exists():
+            return jsonify({"error": "pdf not found"}), 404
+        return send_from_directory(root, rel)
 
     @app.get("/character-studio")
     def character_studio():
@@ -1396,10 +2213,14 @@ def register_routes(app: Flask) -> None:
             "types": ["character", "character_sheet", "npc", "creature", "monster", "settlement", "encounter", "cypher", "artifact", "attack", "inn", "skill"],
             "genders": genders,
             "settings": configured_settings_catalog(),
+            "genres": configured_settings_catalog(),
             "settings_nav": configured_settings_nav(),
-            "active_world": current_app.config.get("LOL_WORLD_ID"),
+            "active_world": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
+            "active_setting": current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
             "available_worlds": current_app.config.get("LOL_AVAILABLE_WORLDS", []),
+            "available_settings": current_app.config.get("LOL_AVAILABLE_SETTINGS", current_app.config.get("LOL_AVAILABLE_WORLDS", [])),
             "available_world_descriptors": current_app.config.get("LOL_AVAILABLE_WORLD_DESCRIPTORS", []),
+            "available_setting_descriptors": current_app.config.get("LOL_AVAILABLE_SETTING_DESCRIPTORS", current_app.config.get("LOL_AVAILABLE_WORLD_DESCRIPTORS", [])),
             "races": sorted(list(config.get("races", {}).keys())),
             "professions": sorted(list(config.get("professions", {}).keys())),
             "areas": all_areas,
@@ -1421,7 +2242,7 @@ def register_routes(app: Flask) -> None:
         })
     @app.get("/library")
     def library():
-        return render_template("library.html")
+        return redirect("/search")
 
     @app.get("/trash")
     def trash():
@@ -1508,6 +2329,22 @@ def register_routes(app: Flask) -> None:
         except FileNotFoundError as exc:
             return jsonify({"error": str(exc)}), 404
         return jsonify({"ok": True, **result})
+
+    @app.post("/storage/trash/empty")
+    def api_storage_trash_empty():
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        items = list_trashed_results(storage_dir)
+        expunged: list[str] = []
+        for item in items:
+            filename = str(item.get("filename") or "").strip()
+            if not validate_filename(filename):
+                continue
+            try:
+                expunge_trashed_result(storage_dir, filename)
+                expunged.append(filename)
+            except FileNotFoundError:
+                continue
+        return jsonify({"ok": True, "count": len(expunged), "items": expunged})
 
     @app.get("/character-sheet/<path:filename>")
     def api_character_sheet_get(filename: str):
@@ -1599,76 +2436,89 @@ def register_routes(app: Flask) -> None:
 
         if not isinstance(actor, dict):
             return jsonify({"error": "actor object is required"}), 400
+        try:
+            result = import_foundry_actor_to_storage(actor, payload)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        except Exception as exc:
+            return jsonify({"error": f"failed to parse Foundry actor: {exc}"}), 400
+        return jsonify(result)
 
-        actor_type = str(actor.get("type") or "").strip().lower() or "pc"
+    @app.route("/plugins/foundryvtt/import/actor", methods=["POST", "OPTIONS"])
+    def api_foundryvtt_import_actor():
+        if request.method == "OPTIONS":
+            response = jsonify({"ok": True})
+            response.status_code = 204
+            return with_foundry_cors_headers(response)
 
-        if actor_type == "pc":
-            try:
-                sheet = foundry_actor_to_character_sheet(actor, payload)
-            except Exception as exc:
-                return jsonify({"error": f"failed to parse Foundry PC actor: {exc}"}), 400
+        if not is_plugin_enabled("foundryVTT"):
+            response = jsonify({"error": "foundryVTT plugin is disabled"})
+            response.status_code = 403
+            return with_foundry_cors_headers(response)
 
-            metadata = sheet.get("metadata") if isinstance(sheet.get("metadata"), dict) else {}
-            result = {
-                "type": "character_sheet",
-                "name": str(sheet.get("name") or "Imported Character").strip() or "Imported Character",
-                "sheet": sheet,
-                "metadata": {
-                    "setting": metadata.get("setting") or payload.get("setting"),
-                    "settings": metadata.get("settings") or payload.get("settings"),
-                    "area": metadata.get("area") or payload.get("area") or payload.get("environment"),
-                    "location": metadata.get("location") or payload.get("location"),
-                    "environment": metadata.get("environment") or metadata.get("area") or payload.get("environment") or payload.get("area"),
-                    "race": metadata.get("race") or payload.get("race"),
-                    "profession": metadata.get("profession") or payload.get("profession"),
-                    "character_type": metadata.get("character_type"),
-                    "flavor": metadata.get("flavor"),
-                    "descriptor": metadata.get("descriptor"),
-                    "focus": metadata.get("focus"),
-                    "tier": metadata.get("tier") or sheet.get("tier"),
-                    "source": "foundry_vtt",
-                    "origin": "foundry_import",
-                    "foundry_actor_type": metadata.get("foundry_actor_type") or actor_type,
-                    "foundry_actor_uuid": metadata.get("foundry_actor_uuid"),
-                },
-            }
-            result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
-            created_local_abilities = create_missing_local_abilities(
-                sheet,
-                str(sheet.get("name") or "Imported Character"),
-                parent_settings=result.get("metadata", {}).get("settings"),
-            )
-            result = persist_result(payload, result)
-            owner_filename = (result.get("storage") or {}).get("filename")
-            if owner_filename and "/" not in str(owner_filename):
-                owner_filename = f"character_sheet/{owner_filename}"
-            foundry_created = create_foundry_import_records(
-                actor,
-                payload=payload,
-                owner_name=str(sheet.get("name") or "Imported Character"),
-                owner_filename=owner_filename,
-                parent_settings=result.get("metadata", {}).get("settings"),
-            )
-            if created_local_abilities:
-                result["local_abilities_created"] = created_local_abilities
-            if foundry_created.get("cyphers"):
-                result["local_cyphers_created"] = foundry_created["cyphers"]
-            if foundry_created.get("attacks"):
-                result["local_attacks_created"] = foundry_created["attacks"]
-            return jsonify(result)
+        auth_error = foundry_auth_error_response()
+        if auth_error is not None:
+            return auth_error
 
-        if actor_type == "npc":
-            try:
-                result = foundry_actor_to_npc_result(actor, payload)
-            except Exception as exc:
-                return jsonify({"error": f"failed to parse Foundry NPC actor: {exc}"}), 400
-            result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
-            result = persist_result(payload, result)
-            return jsonify(result)
+        body = request.get_json(force=True, silent=False) or {}
+        actor = body.get("actor")
+        payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        if not isinstance(actor, dict):
+            response = jsonify({"error": "actor object is required"})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
 
-        return jsonify({
-            "error": f"unsupported Foundry actor type '{actor_type}'. Supported: pc, npc."
-        }), 400
+        try:
+            result = import_foundry_actor_to_storage(actor, payload)
+        except ValueError as exc:
+            response = jsonify({"error": str(exc)})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
+        except Exception as exc:
+            response = jsonify({"error": f"failed to parse Foundry actor: {exc}"})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
+
+        response = jsonify(result)
+        return with_foundry_cors_headers(response)
+
+    @app.route("/plugins/foundryvtt/import/item", methods=["POST", "OPTIONS"])
+    def api_foundryvtt_import_item():
+        if request.method == "OPTIONS":
+            response = jsonify({"ok": True})
+            response.status_code = 204
+            return with_foundry_cors_headers(response)
+
+        if not is_plugin_enabled("foundryVTT"):
+            response = jsonify({"error": "foundryVTT plugin is disabled"})
+            response.status_code = 403
+            return with_foundry_cors_headers(response)
+
+        auth_error = foundry_auth_error_response()
+        if auth_error is not None:
+            return auth_error
+
+        body = request.get_json(force=True, silent=False) or {}
+        item = body.get("item")
+        payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        if not isinstance(item, dict):
+            response = jsonify({"error": "item object is required"})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
+
+        try:
+            result = import_foundry_item_to_storage(item, payload)
+        except ValueError as exc:
+            response = jsonify({"error": str(exc)})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
+        except Exception as exc:
+            response = jsonify({"error": f"failed to parse Foundry item: {exc}"})
+            response.status_code = 400
+            return with_foundry_cors_headers(response)
+
+        response = jsonify(result)
+        return with_foundry_cors_headers(response)
 
     @app.get("/foundry/export")
     def api_foundry_export():
@@ -1890,6 +2740,38 @@ def register_routes(app: Flask) -> None:
         result = persist_result(payload, result)
         return jsonify(result)
 
+    @app.post("/generate/parse-raw")
+    def api_generate_parse_raw():
+        config = current_app.config["LOL_CONFIG"]
+        payload = request.get_json(force=True, silent=False) or {}
+        # Backward-compatible single-save endpoint: save first parsed item.
+        parsed = parse_raw_text_entries(payload, config)
+        if not parsed:
+            return jsonify({"error": "No parsable items found"}), 400
+        result = parsed[0]
+        result = persist_result(payload, result)
+        return jsonify(result)
+
+    @app.post("/generate/parse-raw/preview")
+    def api_generate_parse_raw_preview():
+        config = current_app.config["LOL_CONFIG"]
+        payload = request.get_json(force=True, silent=False) or {}
+        items = parse_raw_text_entries(payload, config)
+        return jsonify({
+            "count": len(items),
+            "items": items,
+        })
+
+    @app.post("/generate/parse-raw/save")
+    def api_generate_parse_raw_save():
+        body = request.get_json(force=True, silent=False) or {}
+        payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+        parsed = body.get("parsed") if isinstance(body.get("parsed"), dict) else {}
+        if not parsed:
+            return jsonify({"error": "parsed item is required"}), 400
+        result = persist_result(payload, parsed)
+        return jsonify(result)
+
     @app.post("/character-sheet/save")
     def api_character_sheet_save():
         body = request.get_json(force=True, silent=False) or {}
@@ -2039,57 +2921,78 @@ def register_routes(app: Flask) -> None:
     @app.post("/reload")
     def api_reload_config():
         config_dir = current_app.config["LOL_CONFIG_DIR"]
-        current_app.config["LOL_AVAILABLE_WORLDS"] = [
-            w["id"] for w in list_world_descriptors(config_dir)
-        ]
-        current_app.config["LOL_AVAILABLE_WORLD_DESCRIPTORS"] = list_world_descriptors(config_dir)
+        settings_descriptors = list_setting_descriptors(config_dir)
+        current_app.config["LOL_AVAILABLE_SETTINGS"] = [w["id"] for w in settings_descriptors]
+        current_app.config["LOL_AVAILABLE_SETTING_DESCRIPTORS"] = settings_descriptors
+        current_app.config["LOL_AVAILABLE_WORLDS"] = [w["id"] for w in settings_descriptors]
+        current_app.config["LOL_AVAILABLE_WORLD_DESCRIPTORS"] = settings_descriptors
         current_app.config["LOL_CONFIG"] = load_config_dir(
             config_dir,
-            world_id=current_app.config.get("LOL_WORLD_ID"),
+            setting_id=current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID"),
         )
         return jsonify({
             "status": "reloaded",
             "top_level_keys": sorted(current_app.config["LOL_CONFIG"].keys()),
         })
 
-    @app.get("/worlds")
-    def api_worlds():
+    @app.get("/settings")
+    def api_settings():
         config_dir = current_app.config["LOL_CONFIG_DIR"]
-        worlds = list_world_descriptors(config_dir)
+        settings = list_setting_descriptors(config_dir)
+        active_setting = current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID")
+        default_setting = infer_default_setting_id(config_dir) or infer_default_world_id(config_dir)
         return jsonify({
-            "active_world": current_app.config.get("LOL_WORLD_ID"),
-            "default_world": infer_default_world_id(config_dir),
-            "worlds": worlds,
+            "active_world": active_setting,
+            "active_setting": active_setting,
+            "default_world": default_setting,
+            "default_setting": default_setting,
+            "worlds": settings,
+            "settings": settings,
         })
 
-    @app.post("/worlds/select")
-    def api_worlds_select():
+    @app.get("/worlds")
+    def api_worlds():
+        return api_settings()
+
+    @app.post("/settings/select")
+    def api_settings_select():
         body = request.get_json(force=True, silent=False) or {}
-        world_id_raw = body.get("world_id")
+        world_id_raw = body.get("setting_id")
+        if world_id_raw is None:
+            world_id_raw = body.get("world_id")
         world_id = str(world_id_raw or "").strip() or None
 
         config_dir = current_app.config["LOL_CONFIG_DIR"]
-        available = {w["id"] for w in list_world_descriptors(config_dir)}
+        available = {w["id"] for w in list_setting_descriptors(config_dir)}
         if world_id is not None and world_id not in available:
-            return jsonify({"error": f"unknown world_id '{world_id}'"}), 400
+            return jsonify({"error": f"unknown setting_id '{world_id}'"}), 400
 
-        # If world_id is omitted/blank, fall back to inferred default world.
-        target_world = world_id or infer_default_world_id(config_dir)
+        # If setting_id is omitted/blank, fall back to inferred default setting.
+        target_world = world_id or infer_default_setting_id(config_dir) or infer_default_world_id(config_dir)
 
+        current_app.config["LOL_SETTING_ID"] = target_world
         current_app.config["LOL_WORLD_ID"] = target_world
         current_app.config["LOL_CONFIG"] = load_config_dir(
             config_dir,
-            world_id=target_world,
+            setting_id=target_world,
         )
-        worlds = list_world_descriptors(config_dir)
+        worlds = list_setting_descriptors(config_dir)
+        current_app.config["LOL_AVAILABLE_SETTINGS"] = [w["id"] for w in worlds]
+        current_app.config["LOL_AVAILABLE_SETTING_DESCRIPTORS"] = worlds
         current_app.config["LOL_AVAILABLE_WORLDS"] = [w["id"] for w in worlds]
         current_app.config["LOL_AVAILABLE_WORLD_DESCRIPTORS"] = worlds
 
         return jsonify({
             "status": "ok",
             "active_world": target_world,
+            "active_setting": target_world,
             "worlds": worlds,
+            "settings": worlds,
         })
+
+    @app.post("/worlds/select")
+    def api_worlds_select():
+        return api_settings_select()
 
     @app.get("/compendium")
     def api_compendium_index():
@@ -2181,17 +3084,115 @@ def register_routes(app: Flask) -> None:
             },
         })
 
+    @app.get("/official-compendium")
+    def api_official_compendium_index():
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        return jsonify(load_official_compendium_index(official_dir))
+
+    @app.get("/official-compendium/<item_type>")
+    def api_official_compendium_list(item_type: str):
+        if item_type not in SUPPORTED_OFFICIAL_COMPENDIUM_TYPES:
+            allowed = ", ".join(sorted(SUPPORTED_OFFICIAL_COMPENDIUM_TYPES))
+            return jsonify({"error": f"type must be one of: {allowed}"}), 400
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        items = list_official_items(official_dir, item_type)
+        return jsonify({"type": item_type, "count": len(items), "items": items})
+
+    @app.get("/official-compendium/<item_type>/<slug>")
+    def api_official_compendium_get(item_type: str, slug: str):
+        if item_type not in SUPPORTED_OFFICIAL_COMPENDIUM_TYPES:
+            allowed = ", ".join(sorted(SUPPORTED_OFFICIAL_COMPENDIUM_TYPES))
+            return jsonify({"error": f"type must be one of: {allowed}"}), 400
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        return jsonify(load_official_item(official_dir, item_type, slug))
+
+    @app.get("/official-compendium/search")
+    def api_official_compendium_search():
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        item_type = request.args.get("type")
+        setting = request.args.get("setting")
+        query = request.args.get("q")
+        results = search_official_compendium(
+            official_dir,
+            item_type=item_type,
+            setting=setting,
+            query=query,
+        )
+        return jsonify({
+            "items": results,
+            "count": len(results),
+            "filters": {
+                "type": item_type,
+                "setting": setting,
+                "q": query,
+            },
+        })
+
+    @app.post("/official-compendium/make-local")
+    def api_official_compendium_make_local():
+        body = request.get_json(force=True, silent=False) or {}
+        item_type = str(body.get("type") or "").strip()
+        slug = str(body.get("slug") or "").strip()
+
+        if item_type not in SUPPORTED_OFFICIAL_COMPENDIUM_TYPES:
+            allowed = ", ".join(sorted(SUPPORTED_OFFICIAL_COMPENDIUM_TYPES))
+            return jsonify({"error": f"type must be one of: {allowed}"}), 400
+        if not slug:
+            return jsonify({"error": "slug is required"}), 400
+
+        official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+        entry = load_official_item(official_dir, item_type, slug)
+
+        requested_setting = str(body.get("setting") or "").strip()
+        requested_area = str(body.get("area") or body.get("environment") or "").strip()
+        requested_location = str(body.get("location") or "").strip()
+
+        payload: dict = {
+            "origin": "official_compendium_variant",
+            "setting": requested_setting,
+            "settings": [requested_setting] if requested_setting else [],
+            "area": requested_area,
+            "environment": requested_area,
+            "location": requested_location,
+        }
+        result = build_local_variant_from_compendium(
+            entry,
+            item_type=item_type,
+            slug=slug,
+            payload=payload,
+        )
+        metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+        metadata["origin"] = "official_compendium_variant"
+        metadata["source"] = "house"
+        metadata["from_official_pdf"] = True
+        metadata["official_type"] = item_type
+        metadata["official_slug"] = slug
+        metadata["official_title"] = str(entry.get("title") or slug)
+        metadata["official_book"] = str(entry.get("book") or "")
+        metadata["official_backlink"] = f"/official-compendium/{item_type}/{slug}"
+        metadata.pop("from_csrd", None)
+        metadata.pop("compendium_type", None)
+        metadata.pop("compendium_slug", None)
+        metadata.pop("compendium_title", None)
+        metadata.pop("compendium_backlink", None)
+        result["metadata"] = metadata
+        result = attach_settings_metadata(result, payload, current_app.config["LOL_CONFIG"])
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        path = save_generated_result(storage_dir, result, payload)
+        result["storage"] = {"filename": str(path.relative_to(storage_dir)).replace("\\", "/"), "saved": True}
+        return jsonify(result)
+
     @app.get("/compendium-browser")
     def compendium_browser():
-        return render_template("compendium_browser.html")
+        return redirect("/search")
 
     @app.get("/lore-browser")
     def lore_browser():
-        return render_template("lore_browser.html")
+        return redirect("/search")
 
     @app.get("/prompt-browser")
     def prompt_browser():
-        return render_template("prompt_browser.html")
+        return redirect("/search")
 
     @app.get("/lore")
     def api_lore_index():
@@ -2404,7 +3405,12 @@ def register_routes(app: Flask) -> None:
         storage_dir = current_app.config["LOL_STORAGE_DIR"]
         compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
 
-        item_type = request.args.get("type")
+        raw_item_type = str(request.args.get("type") or "").strip().lower()
+        item_type_aliases = {
+            "artifacts": "artifact",
+            "cyphers": "cypher",
+        }
+        item_type = item_type_aliases.get(raw_item_type, raw_item_type) or None
         q = request.args.get("q")
         area = request.args.get("area")
         location = request.args.get("location")
@@ -2412,42 +3418,134 @@ def register_routes(app: Flask) -> None:
         race = request.args.get("race")
         profession = request.args.get("profession")
         setting = request.args.get("setting")
+        include_local = str(request.args.get("include_local", "1")).strip().lower() not in {"0", "false", "no", "off"}
+        include_lore = str(request.args.get("include_lore", "1")).strip().lower() not in {"0", "false", "no", "off"}
+        include_csrd = str(request.args.get("include_csrd", "1")).strip().lower() not in {"0", "false", "no", "off"}
+        include_official = str(request.args.get("include_official", "1")).strip().lower() not in {"0", "false", "no", "off"}
+        include_foundry = str(request.args.get("include_foundry", "1")).strip().lower() not in {"0", "false", "no", "off"}
+        include_godforsaken = str(request.args.get("include_godforsaken", "1")).strip().lower() not in {"0", "false", "no", "off"}
+        compendiums_raw = str(request.args.get("compendiums") or "").strip()
+        selected_compendiums: list[str] | None = None
+        selected_official_compendiums: set[str] = set()
+        if compendiums_raw:
+            selected = [
+                part.strip().lower()
+                for part in compendiums_raw.split(",")
+                if part.strip()
+            ]
+            selected_compendiums = list(dict.fromkeys(selected))
+            include_csrd = "csrd" in selected_compendiums
+            include_foundry = FOUNDRY_COMPENDIUM_ID in selected_compendiums
+            selected_official_compendiums = {
+                s for s in selected_compendiums
+                if s not in {"csrd", FOUNDRY_COMPENDIUM_ID}
+            }
+            include_official = bool(selected_official_compendiums)
+            include_godforsaken = "godforsaken" in selected_official_compendiums
 
-        storage_results = search_saved_results(
-            storage_dir,
-            item_type=item_type,
-            setting=setting,
-            area=area,
-            location=location,
-            environment=environment,
-            race=race,
-            profession=profession,
-            name_contains=q,
-            default_settings=configured_default_settings(),
-        ) or []
+        if include_local or include_foundry:
+            storage_results = search_saved_results(
+                storage_dir,
+                item_type=item_type,
+                setting=setting,
+                area=area,
+                location=location,
+                environment=environment,
+                race=race,
+                profession=profession,
+                name_contains=q,
+                default_settings=configured_default_settings(),
+            ) or []
+        else:
+            storage_results = []
 
-        if item_type:
-            # If user selected a non-compendium type (e.g. character_sheet),
-            # do not include compendium results.
-            if item_type in SUPPORTED_COMPENDIUM_TYPES:
+        if include_csrd:
+            if item_type:
+                # If user selected a non-compendium type (e.g. character_sheet),
+                # do not include compendium results.
+                if item_type in SUPPORTED_COMPENDIUM_TYPES:
+                    compendium_results = search_compendium(
+                        compendium_dir,
+                        item_type=item_type,
+                        setting=setting,
+                        query=q,
+                    ) or []
+                else:
+                    compendium_results = []
+            else:
+                # No explicit type filter: include all compendium types.
                 compendium_results = search_compendium(
                     compendium_dir,
-                    item_type=item_type,
+                    item_type=None,
                     setting=setting,
                     query=q,
                 ) or []
-            else:
-                compendium_results = []
         else:
-            # No explicit type filter: include all compendium types.
-            compendium_results = search_compendium(
-                compendium_dir,
-                item_type=None,
-                setting=setting,
-                query=q,
-            ) or []
+            compendium_results = []
 
-        items = normalize_storage_results(storage_results) + normalize_compendium_results(compendium_results)
+        if include_lore and (not item_type or item_type == "lore"):
+            lore_dir = current_app.config["LOL_LORE_DIR"]
+            lore_results = search_lore(
+                lore_dir,
+                query=q,
+                setting=setting,
+                location=location,
+                default_settings=configured_default_settings(),
+            ) or []
+        else:
+            lore_results = []
+
+        if include_official or include_godforsaken:
+            official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
+            if item_type:
+                if item_type in SUPPORTED_OFFICIAL_COMPENDIUM_TYPES:
+                    official_results = search_official_compendium(
+                        official_dir,
+                        item_type=item_type,
+                        setting=setting,
+                        query=q,
+                    ) or []
+                else:
+                    official_results = []
+            else:
+                official_results = search_official_compendium(
+                    official_dir,
+                    item_type=None,
+                    setting=setting,
+                    query=q,
+                ) or []
+        else:
+            official_results = []
+
+        normalized_official_results = normalize_official_compendium_results(official_results)
+        if selected_compendiums is not None:
+            normalized_official_results = [
+                x for x in normalized_official_results
+                if str(x.get("source") or "").strip().lower() in selected_official_compendiums
+            ]
+        elif include_official and not include_godforsaken:
+            normalized_official_results = [x for x in normalized_official_results if x.get("source") != "godforsaken"]
+        elif include_godforsaken and not include_official:
+            normalized_official_results = [x for x in normalized_official_results if x.get("source") == "godforsaken"]
+
+        normalized_storage_results = normalize_storage_results(storage_results)
+        if not include_local:
+            normalized_storage_results = [
+                x for x in normalized_storage_results
+                if str(x.get("source") or "").strip().lower() == FOUNDRY_COMPENDIUM_ID
+            ]
+        if not include_foundry:
+            normalized_storage_results = [
+                x for x in normalized_storage_results
+                if str(x.get("source") or "").strip().lower() == "storage"
+            ]
+
+        items = (
+            normalized_storage_results
+            + normalize_lore_results(lore_results)
+            + normalize_compendium_results(compendium_results)
+            + normalized_official_results
+        )
 
         return jsonify({
             "items": items,
@@ -2461,6 +3559,13 @@ def register_routes(app: Flask) -> None:
                 "environment": environment,
                 "race": race,
                 "profession": profession,
+                "include_local": include_local,
+                "include_lore": include_lore,
+                "include_csrd": include_csrd,
+                "include_official": include_official,
+                "include_foundry": include_foundry,
+                "include_godforsaken": include_godforsaken,
+                "compendiums": selected_compendiums or [],
             },
         })
     

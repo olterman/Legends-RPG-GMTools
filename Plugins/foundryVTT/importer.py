@@ -56,6 +56,48 @@ def _parse_skill_level(value: str) -> str:
     return mapping.get(raw, "trained")
 
 
+def _parse_labeled_blocks(text: str, labels: list[str]) -> dict[str, str]:
+    lines = str(text or "").replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    wanted = {str(label or "").strip().lower(): str(label or "").strip() for label in labels}
+    starts: list[tuple[int, str, str]] = []
+    for idx, line in enumerate(lines):
+        match = re.match(r"^\s*([A-Za-z][A-Za-z ]{1,40}):\s*(.*)$", str(line or ""))
+        if not match:
+            continue
+        raw_label = str(match.group(1) or "").strip()
+        key = raw_label.lower()
+        if key not in wanted:
+            continue
+        starts.append((idx, wanted[key], str(match.group(2) or "").strip()))
+
+    if not starts:
+        return {}
+
+    out: dict[str, str] = {}
+    for i, (start_idx, label, first) in enumerate(starts):
+        end_idx = starts[i + 1][0] if i + 1 < len(starts) else len(lines)
+        chunk = [first] if first else []
+        for j in range(start_idx + 1, end_idx):
+            row = str(lines[j] or "").strip()
+            if not row:
+                continue
+            chunk.append(row)
+        value = " ".join(chunk).strip()
+        if value:
+            out[label] = re.sub(r"\s+", " ", value)
+    return out
+
+
+def _extract_first_int(value: str, fallback: int) -> int:
+    match = re.search(r"(\d+)", str(value or ""))
+    if not match:
+        return fallback
+    try:
+        return int(match.group(1))
+    except Exception:
+        return fallback
+
+
 def foundry_actor_to_character_sheet(actor: dict[str, Any], payload: dict[str, Any] | None = None) -> dict[str, Any]:
     payload = payload or {}
     system = actor.get("system") if isinstance(actor.get("system"), dict) else {}
@@ -218,17 +260,22 @@ def foundry_actor_to_character_sheet(actor: dict[str, Any], payload: dict[str, A
         "profession": str(payload.get("profession") or ""),
         "area": str(payload.get("area") or payload.get("environment") or ""),
         "location": str(payload.get("location") or ""),
+        "foundry_origin": str(payload.get("foundry_origin") or ""),
         "character_type": type_title,
         "flavor": "",
         "descriptor": descriptor,
         "focus": focus,
         "tier": tier,
         "xp": basic.get("xp"),
-        "source": "foundry_vtt",
+        "source": "FoundryVTT",
         "foundry_actor_type": str(actor.get("type") or ""),
         "foundry_actor_uuid": foundry_uuid,
         "foundry_internal_links": foundry_internal_links,
     }
+    actor_img = str(actor.get("img") or "").strip()
+    if actor_img:
+        metadata["image_url"] = actor_img
+        metadata["images"] = [actor_img]
 
     return {
         "name": name,
@@ -308,6 +355,21 @@ def foundry_actor_to_npc_result(actor: dict[str, Any], payload: dict[str, Any] |
     notes = _html_to_plain_text(raw_notes)
     description = _html_to_plain_text(raw_description)
     full_text = "\n\n".join(part for part in [description, notes] if part).strip()
+    parsed = _parse_labeled_blocks(full_text, [
+        "Motive",
+        "Environment",
+        "Health",
+        "Damage Inflicted",
+        "Armor",
+        "Movement",
+        "Modifications",
+        "Combat",
+        "Interaction",
+        "Use",
+        "Loot",
+        "GM intrusion",
+        "GM Intrusion",
+    ])
 
     attacks: list[str] = []
     loot: list[str] = []
@@ -326,20 +388,39 @@ def foundry_actor_to_npc_result(actor: dict[str, Any], payload: dict[str, Any] |
     sections = {
         "setting": str(payload.get("setting") or ""),
         "character": name,
-        "environment": str(payload.get("area") or payload.get("environment") or ""),
+        "environment": str(
+            parsed.get("Environment")
+            or payload.get("area")
+            or payload.get("environment")
+            or ""
+        ),
+        "motive": str(parsed.get("Motive") or ""),
+        "interaction": str(parsed.get("Interaction") or ""),
+        "use": str(parsed.get("Use") or ""),
+        "loot": str(parsed.get("Loot") or ""),
+        "gm_intrusion": str(parsed.get("GM intrusion") or parsed.get("GM Intrusion") or ""),
     }
+
+    parsed_health = _extract_first_int(str(parsed.get("Health") or ""), health)
+    parsed_armor = _extract_first_int(str(parsed.get("Armor") or ""), armor)
+    parsed_damage = _extract_first_int(str(parsed.get("Damage Inflicted") or ""), damage)
+    parsed_movement = str(parsed.get("Movement") or "").strip() or "short"
+    parsed_modifications = str(parsed.get("Modifications") or "").strip()
+    parsed_combat = str(parsed.get("Combat") or "").strip()
+    parsed_interaction = str(parsed.get("Interaction") or "").strip()
+    parsed_loot = str(parsed.get("Loot") or "").strip()
 
     stat_block = {
         "level": level,
         "target_number": level * 3,
-        "health": health,
-        "armor": armor,
-        "damage": damage,
-        "movement": "short",
-        "modifications": [],
-        "combat": attacks,
-        "interaction": [],
-        "loot": loot,
+        "health": parsed_health,
+        "armor": parsed_armor,
+        "damage": parsed_damage,
+        "movement": parsed_movement,
+        "modifications": [parsed_modifications] if parsed_modifications else [],
+        "combat": ([parsed_combat] if parsed_combat else []) + attacks,
+        "interaction": [parsed_interaction] if parsed_interaction else [],
+        "loot": ([parsed_loot] if parsed_loot else []) + loot,
     }
 
     compendium_source = ""
@@ -355,12 +436,17 @@ def foundry_actor_to_npc_result(actor: dict[str, Any], payload: dict[str, Any] |
         "area": str(payload.get("area") or payload.get("environment") or ""),
         "environment": str(payload.get("environment") or payload.get("area") or ""),
         "location": str(payload.get("location") or ""),
-        "source": "foundry_vtt",
+        "foundry_origin": str(payload.get("foundry_origin") or ""),
+        "source": "FoundryVTT",
         "origin": "foundry_import",
         "foundry_actor_type": str(actor.get("type") or ""),
         "foundry_compendium_source": compendium_source,
         "foundry_internal_links": notes_links + description_links,
     }
+    actor_img = str(actor.get("img") or "").strip()
+    if actor_img:
+        metadata["image_url"] = actor_img
+        metadata["images"] = [actor_img]
     if isinstance(stats, dict):
         export_source = stats.get("exportSource")
         if isinstance(export_source, dict):
@@ -379,3 +465,91 @@ def foundry_actor_to_npc_result(actor: dict[str, Any], payload: dict[str, Any] |
         "text": "\n\n".join(text_chunks).strip(),
         "metadata": metadata,
     }
+
+
+def foundry_item_to_result(item: dict[str, Any], payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    payload = payload or {}
+    item_type_raw = str(item.get("type") or "").strip().lower()
+    name = str(item.get("name") or "Imported Item").strip() or "Imported Item"
+
+    type_map = {
+        "cypher": "cypher",
+        "artifact": "artifact",
+        "attack": "attack",
+        "equipment": "equipment",
+        "ability": "ability",
+        "skill": "skill",
+        "descriptor": "descriptor",
+        "focus": "focus",
+        "type": "character_type",
+        "flavor": "flavor",
+    }
+    result_type = type_map.get(item_type_raw, "equipment")
+
+    system = item.get("system") if isinstance(item.get("system"), dict) else {}
+    basic = system.get("basic") if isinstance(system.get("basic"), dict) else {}
+    raw_desc, desc_links = _strip_foundry_uuid_links(str(system.get("description") or ""))
+    description = _html_to_plain_text(raw_desc)
+
+    sections: dict[str, str] = {}
+    if result_type in {"cypher", "artifact"}:
+        level = str(basic.get("level") or "").strip()
+        depletion = str(basic.get("depletion") or "").strip()
+        effect = description
+        sections = {
+            "name": name,
+            "level": level,
+            "effect": effect,
+        }
+        if result_type == "artifact" and depletion:
+            sections["depletion"] = depletion
+    elif result_type == "attack":
+        sections = {
+            "description": description,
+            "weapon_type": str(basic.get("type") or "").strip(),
+            "damage": str(basic.get("damage") or "").strip(),
+            "range": str(basic.get("range") or "").strip(),
+            "skill_rating": str(basic.get("skillRating") or "").strip(),
+        }
+    elif result_type == "skill":
+        sections = {
+            "description": description,
+            "rating": _parse_skill_level(str(basic.get("rating") or "")),
+        }
+    else:
+        sections = {"description": description}
+
+    metadata: dict[str, Any] = {
+        "source": "FoundryVTT",
+        "origin": "foundry_import",
+        "foundry_item_type": item_type_raw,
+        "foundry_internal_links": desc_links,
+        "area": str(payload.get("area") or payload.get("environment") or ""),
+        "environment": str(payload.get("environment") or payload.get("area") or ""),
+        "location": str(payload.get("location") or ""),
+        "foundry_origin": str(payload.get("foundry_origin") or ""),
+    }
+    item_img = str(item.get("img") or "").strip()
+    if item_img:
+        metadata["image_url"] = item_img
+        metadata["images"] = [item_img]
+
+    flags = item.get("flags") if isinstance(item.get("flags"), dict) else {}
+    core = flags.get("core") if isinstance(flags.get("core"), dict) else {}
+    source_id = str(core.get("sourceId") or "").strip()
+    if source_id:
+        metadata["foundry_source_id"] = source_id
+
+    result = {
+        "type": result_type,
+        "name": name,
+        "description": description,
+        "sections": {k: v for k, v in sections.items() if str(v).strip()},
+        "text": description or name,
+        "metadata": metadata,
+    }
+    if result_type == "cypher":
+        result["metadata"]["item_class"] = "one_shot"
+    if result_type == "artifact":
+        result["metadata"]["item_class"] = "persistent"
+    return result

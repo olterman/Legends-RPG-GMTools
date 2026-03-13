@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:25:56.488633+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232556.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Ogre",
+    "sections": {
+      "character": "Ogre",
+      "environment": "Anywhere, usually alone or (rarely) in a band of three or four",
+      "motive": "Hungers for flesh, sadistic",
+      "interaction": "Ogres are stupid and cruel. They speak whatever language is most common in the area in which they live, but their vocabulary is extremely limited. They don’t like conversation, even with their own kind. Reasoning with them is difficult at best, but sometimes they can be fooled.",
+      "use": "A solitary ogre is an excellent encounter for a group of first-tier characters. A number of ogres, particularly well-equipped and well-trained warriors, make excellent troops or guards in the service of a powerful master. Evil wizards and warlords like to enslave ogres and place them at the forefront of their armies. In these cases, the ogres are typically bribed, ensorcelled, or intimidated by great force.",
+      "loot": "Some ogres hoard gold or other valuables in their lairs, but they rarely have use for magic or cyphers.",
+      "gm_intrusion": "The ogre’s mighty blow (whether it strikes a foe or not) hits the ground or the wall, causing major structural damage and a possible collapse, cave-in, or landslide. It might also expose a hidden underground cave or chamber."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 20,
+      "armor": 1,
+      "damage": 8,
+      "movement": "Short",
+      "modifications": [
+        "Feats of raw strength as level 6; Intellect defense and seeing through deception as level 3; Speed defense as level 3 due to size"
+      ],
+      "combat": [
+        "Ogres usually use clubs or large, two-handed weapons with great power. Since they are accustomed to fighting smaller creatures, they are adept at using their size and strength to their advantage. If an ogre strikes a foe smaller than itself, either the victim is knocked back up to 5 feet (1.5 m), or it is dazed, which hinders its next action. Ogres can also swing their huge weapons in wide arcs, attacking all foes within close range. Defending against this attack is hindered and the attack inflicts 5 points of damage. Ogres rarely flee from a fight, and only a foe of overwhelming power can force them to surrender."
+      ],
+      "interaction": [
+        "Ogres are stupid and cruel. They speak whatever language is most common in the area in which they live, but their vocabulary is extremely limited. They don’t like conversation, even with their own kind. Reasoning with them is difficult at best, but sometimes they can be fooled."
+      ],
+      "loot": [
+        "Some ogres hoard gold or other valuables in their lairs, but they rarely have use for magic or cyphers."
+      ]
+    },
+    "text": "A bestial brute, the ogre is a sadistic, 8-foot (2 m) tall, cannibalistic fiend that preys upon other creatures in the woods, mountains, or other wilderness areas. This often pits them against sylvan beings like elves and fey. Ogres dwelling in more civilized lands are also the enemy of humans, but these ogres usually come no closer to civilization than its very fringes.\n\nOgres typically dress in ragged, piecemeal clothing or nothing at all.\n\nMotive: Hungers for flesh, sadistic\n\nEnvironment: Anywhere, usually alone or (rarely) in a band of three or four\n\nHealth: 20\n\nDamage Inflicted: 8 points\n\nArmor: 1\n\nMovement: Short\n\nModifications: Feats of raw strength as level 6; Intellect defense and seeing through deception as level 3; Speed defense as level 3 due to size\n\nCombat: Ogres usually use clubs or large, two-handed weapons with great power. Since they are accustomed to fighting smaller creatures, they are adept at using their size and strength to their advantage. If an ogre strikes a foe smaller than itself, either the victim is knocked back up to 5 feet (1.5 m), or it is dazed, which hinders its next action.\n\nOgres can also swing their huge weapons in wide arcs, attacking all foes within close range. Defending against this attack is hindered and the attack inflicts 5 points of damage.\n\nOgres rarely flee from a fight, and only a foe of overwhelming power can force them to surrender.\n\nInteraction: Ogres are stupid and cruel. They speak whatever language is most common in the area in which they live, but their vocabulary is extremely limited. They don’t like conversation, even with their own kind. Reasoning with them is difficult at best, but sometimes they can be fooled.\n\nUse: A solitary ogre is an excellent encounter for a group of first-tier characters. A number of ogres, particularly well-equipped and well-trained warriors, make excellent troops or guards in the service of a powerful master. Evil wizards and warlords like to enslave ogres and place them at the forefront of their armies. In these cases, the ogres are typically bribed, ensorcelled, or intimidated by great force.\n\nLoot: Some ogres hoard gold or other valuables in their lairs, but they rarely have use for magic or cyphers.\n\nGM Intrusion: The ogre’s mighty blow (whether it strikes a foe or not) hits the ground or the wall, causing major structural damage and a possible collapse, cave-in, or landslide. It might also expose a hidden underground cave or chamber.\n\nOgre\nLevel 4 (target number 12)\nHealth: 20\nArmor: 1\nDamage: 8",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.Jo0ULIISkFpZDV85",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_ogre.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_ogre.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "A solitary ogre is an excellent encounter for a group of first-tier characters. A number of ogres, particularly well-equipped and well-trained warriors, make excellent troops or guards in the service of a powerful master. Evil wizards and warlords like to enslave ogres and place them at the forefront of their armies. In these cases, the ogres are typically bribed, ensorcelled, or intimidated by great force."
+  }
+}

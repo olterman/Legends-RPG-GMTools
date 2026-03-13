@@ -17,10 +17,18 @@ def _normalize_image_refs(values: Any) -> list[str]:
     refs: list[str] = []
     for value in values:
         text = str(value or "").strip().replace("\\", "/")
+        if text.lower().startswith(("http://", "https://", "data:")):
+            if text not in refs:
+                refs.append(text)
+            continue
         if text.startswith("/images/"):
             text = text[len("/images/"):]
         if text.startswith("images/"):
             text = text[len("images/"):]
+        elif text.startswith("/"):
+            if text not in refs:
+                refs.append(text)
+            continue
         text = text.strip("/")
         if not text:
             continue
@@ -41,6 +49,15 @@ def storage_subdir_for_result(result: dict[str, Any]) -> str:
     Store records by high-level type to keep storage manageable.
     """
     item_type = safe_slug(str(result.get("type", "item")))
+    metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+    source_raw = str(metadata.get("source") or "").strip().lower()
+    source_norm = re.sub(r"[^a-z0-9]+", "", source_raw)
+    if source_norm == "foundryvtt":
+        settings = normalize_settings_values(metadata.get("settings"))
+        if not settings:
+            settings = normalize_settings_values(metadata.get("setting"))
+        setting_slug = safe_slug(settings[0]) if settings else "unsorted"
+        return f"foundryvtt/{setting_slug}/{item_type}"
     return item_type
 
 

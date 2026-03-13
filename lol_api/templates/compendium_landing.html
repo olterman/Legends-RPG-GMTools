@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Compendium — Lands of Legends GM-Tools{% endblock %}
+
+{% block head_extra %}
+<style>
+  .comp-hero {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .comp-thumb {
+    width: 120px;
+    height: 160px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    display: grid;
+    place-items: center;
+  }
+
+  .comp-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .comp-stats {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .comp-stat {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.03);
+    font-size: 0.82rem;
+  }
+
+  .comp-stat .k {
+    color: var(--muted);
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+  }
+
+  .contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .contents-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel-2);
+    padding: 12px;
+  }
+
+  .contents-card h3 {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .contents-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .contents-list li {
+    margin: 4px 0;
+    color: var(--text);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Compendium</h1>
+<div id="compendium-status" class="status">Loading compendium...</div>
+<div id="compendium-root"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const compendiumId = {{ compendium_id|tojson }};
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatStatLabel(key) {
+    return String(key || '')
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  async function loadCompendium() {
+    const statusEl = document.getElementById('compendium-status');
+    const root = document.getElementById('compendium-root');
+    try {
+      const res = await fetch(`/compendiums/${encodeURIComponent(compendiumId)}/details`);
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || `Request failed: ${res.status}`);
+      }
+
+      const stats = data && typeof data.stats === 'object' && data.stats ? data.stats : {};
+      const statBadges = Object.entries(stats)
+        .filter(([, v]) => Number(v || 0) > 0)
+        .map(([k, v]) => `
+          <span class="comp-stat"><span class="k">${escapeHtml(formatStatLabel(k))}</span><span class="v">${escapeHtml(String(v))}</span></span>
+        `).join('');
+
+      const summary = Array.isArray(data.summary) ? data.summary : [];
+      const contents = Array.isArray(data.contents) ? data.contents : [];
+
+      root.innerHTML = `
+        <div class="comp-hero">
+          <div class="comp-thumb">
+            ${data.thumbnail_url ? `<img src="${escapeHtml(data.thumbnail_url)}" alt="${escapeHtml(data.name || 'Compendium')}" loading="lazy" />` : '<span class="small">No cover</span>'}
+          </div>
+          <div>
+            <h2 style="margin:0;">${escapeHtml(data.name || 'Compendium')}</h2>
+            <div class="small" style="margin-top:4px;">${escapeHtml(data.subtitle || '')}</div>
+            <div class="comp-stats">${statBadges || '<span class="small">No stats available.</span>'}</div>
+            <div class="actions" style="margin-top:10px;">
+              ${data.search_url ? `<a href="${escapeHtml(data.search_url)}">Open in Search</a>` : ''}
+              ${data.pdf_url ? `<a href="${escapeHtml(data.pdf_url)}" target="_blank" rel="noopener">Open PDF</a>` : ''}
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 style="margin-top:0;">Summary</h2>
+          ${summary.length ? summary.map(line => `<p>${escapeHtml(line)}</p>`).join('') : '<p class="small">No summary available.</p>'}
+        </div>
+
+        <div class="panel" style="margin-top:12px;">
+          <h2 style="margin-top:0;">Contents</h2>
+          <div class="contents-grid">
+            ${contents.length ? contents.map(group => `
+              <div class="contents-card">
+                <h3>${escapeHtml(group.label || 'Section')}</h3>
+                <ul class="contents-list">
+                  ${(Array.isArray(group.items) ? group.items : []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+                </ul>
+              </div>
+            `).join('') : '<div class="small">No indexed contents available.</div>'}
+          </div>
+        </div>
+      `;
+      statusEl.textContent = '';
+    } catch (err) {
+      statusEl.textContent = `Failed to load compendium: ${err.message}`;
+      root.innerHTML = '';
+    }
+  }
+
+  loadCompendium();
+</script>
+{% endblock %}

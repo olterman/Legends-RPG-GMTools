@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:01:26.444081+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T230126.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Áine, Fairy Queen of Light and Love",
+    "sections": {
+      "character": "Áine, Fairy Queen of Light and Love",
+      "environment": "She shares a fairy realm with her sister, Gráinne, where she rules in the summer months.",
+      "motive": "To be just and true, to protect her realm",
+      "interaction": "Just, true, and kind, Áine makes a powerful ally, provided that she does not feel that she or her realm are threatened. Those who wish harm on others or who she sees as malevolent in action or thought are more likely to find themselves on the wrong end of the Bright One’s anger.",
+      "use": "Characters who wish for something important in their lives to change may ask Áine to grant them a boon. She sometimes helps those in need without them asking for it (but, of course, only for a price). If the characters attend a fairy ball or feast, they may encounter Áine as an honored guest.",
+      "loot": "Áine wears a crown of glass, but it is not visible unless she chooses it to be (she rarely does) or she dies. She carries little else, for she is a person of deeds, not items.",
+      "gm_intrusion": "One of Áine’s ardent followers believes a character is threatening their beloved queen."
+    },
+    "stat_block": {
+      "level": 9,
+      "target_number": 27,
+      "health": 99,
+      "armor": 5,
+      "damage": 12,
+      "movement": "Short; very long when shapeshifted",
+      "modifications": [],
+      "combat": [
+        "Áine rarely engages in combat herself, as she prefers to leave that role to her son Geroid and his army. However, if she’s attacked or feels the need to defend her realm or someone in it, she will not hesitate to step in. She attacks using the power of the sun, focusing light into a narrow beam that inflicts 12 points of damage on the target. In addition, Áine has the power of chlorokineses—she can manipulate plants and flowers within very long range, causing them to grow to enormous proportions. She can use them as weapons that grab and hold multiple victims (level 7 Might task to break free) or that do damage via strangulation or thorns (7 points of damage). Any bees in the area act to help the queen. Queen’s bees: level 3; sting victims for 3 points of damage and paralyze them for one round. She can also shapeshift into a red mare as she chooses. As a mare, she inflicts 6 points of damage with her hooves or bite, can become immaterial as an action (makes it impossible to successfully attack her, but she cannot attack in this form), and can move to a spot within long range instantaneously (does not require an action)."
+      ],
+      "interaction": [
+        "Just, true, and kind, Áine makes a powerful ally, provided that she does not feel that she or her realm are threatened. Those who wish harm on others or who she sees as malevolent in action or thought are more likely to find themselves on the wrong end of the Bright One’s anger."
+      ],
+      "loot": [
+        "Áine wears a crown of glass, but it is not visible unless she chooses it to be (she rarely does) or she dies. She carries little else, for she is a person of deeds, not items."
+      ]
+    },
+    "text": "Áine is the fairy queen of summer and the sun, and is known by many names: the Fairy Queen of Light and Love, Bright One, Sun Goddess, and Sweetheart of the Fairies. She is a kind, true, and benevolent ruler, and is loved by nearly everyone. Known for making just and fair bargains with humans, she is often sought after for blessings and boons.\n\nMotive: To be just and true, to protect her realm\n\nEnvironment: She shares a fairy realm with her sister, Gráinne, where she rules in the summer months.\n\nHealth: 99\n\nDamage Inflicted: 12 points\n\nArmor: 5\n\nMovement: Short; very long when shapeshifted\n\nCombat: Áine rarely engages in combat herself, as she prefers to leave that role to her son Geroid and his army. However, if she’s attacked or feels the need to defend her realm or someone in it, she will not hesitate to step in. She attacks using the power of the sun, focusing light into a narrow beam that inflicts 12 points of damage on the target.\n\nIn addition, Áine has the power of chlorokineses—she can manipulate plants and flowers within very long range, causing them to grow to enormous proportions. She can use them as weapons that grab and hold multiple victims (level 7 Might task to break free) or that do damage via strangulation or thorns (7 points of damage). Any bees in the area act to help the queen.\n\nQueen’s bees: level 3; sting victims for 3 points of damage and paralyze them for one round.\n\nShe can also shapeshift into a red mare as she chooses. As a mare, she inflicts 6 points of damage with her hooves or bite, can become immaterial as an action (makes it impossible to successfully attack her, but she cannot attack in this form), and can move to a spot within long range instantaneously (does not require an action).\n\nInteraction: Just, true, and kind, Áine makes a powerful ally, provided that she does not feel that she or her realm are threatened. Those who wish harm on others or who she sees as malevolent in action or thought are more likely to find themselves on the wrong end of the Bright One’s anger.\n\nUse: Characters who wish for something important in their lives to change may ask Áine to grant them a boon. She sometimes helps those in need without them asking for it (but, of course, only for a price). If the characters attend a fairy ball or feast, they may encounter Áine as an honored guest.\n\nLoot: Áine wears a crown of glass, but it is not visible unless she chooses it to be (she rarely does) or she dies. She carries little else, for she is a person of deeds, not items.\n\nGM Intrusion: One of Áine’s ardent followers believes a character is threatening their beloved queen.\n\nÁine, Fairy Queen of Light and Love\nLevel 9 (target number 27)\nHealth: 99\nArmor: 5\nDamage: 12",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.OwHciEIZNpcjocEu",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.xR4yTiuenE7BH4n5",
+          "label": "Queen’s bees"
+        }
+      ],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/creature_aine.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fairy-tales/creature_aine.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Characters who wish for something important in their lives to change may ask Áine to grant them a boon. She sometimes helps those in need without them asking for it (but, of course, only for a price). If the characters attend a fairy ball or feast, they may encounter Áine as an honored guest."
+  }
+}

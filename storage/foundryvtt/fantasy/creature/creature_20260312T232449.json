@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:24:49.444540+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232449.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Hollow knight",
+    "sections": {
+      "character": "Hollow knight",
+      "environment": "Anywhere",
+      "motive": "Obedience to its master",
+      "interaction": "Hollow knights cannot speak. They obey any orders given to them by their creators.",
+      "use": "The necromancer or other magician that binds the spirit to the armor also imbues the armor with specific commands—tasks the knight must carry out until destroyed. Some knights may stand guard at citadels or mansions, keeping a vigil until their armor finally falls apart. Others are more active and may function as the core of a dark wizard’s army.",
+      "gm_intrusion": "When a hollow knight is destroyed, a gauntlet flies up, grabs a character, and won’t let go. A difficulty 7 Might task is required to pry it loose."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 12,
+      "armor": 3,
+      "damage": 5,
+      "movement": "Short; long while mounted on a skeletal steed Skeletal steed: level 4",
+      "modifications": [
+        "Resists fear and intimidation as level 10"
+      ],
+      "combat": [
+        "A hollow knight usually fights with a sword or mace. When mounted on a steed, a hollow knight charges its enemies whenever possible. As an action, its steed moves a short distance, and the hollow knight can make a single attack at any point during this movement. When attacking in this way, the knight inflicts 7 points of damage. A hollow knight is fearless and fights until destroyed or ordered to pull back. The magic animating its armor is slow to fade, so armor components may continue to twitch and jerk even after the knight has fallen. Usually, when defeated, the suit of armor falls apart, and wisps of grey smoke curl up from the remains."
+      ],
+      "interaction": [
+        "Hollow knights cannot speak. They obey any orders given to them by their creators."
+      ],
+      "loot": []
+    },
+    "text": "In haunted castles and among the armies mustered by those with power over life and death, sometimes walk hollow knights. These animated suits of armor move just like living people, and many who encounter these dread revenants mistake them for living foes only to realize in horror that there’s nothing inside except for the memory of the warrior that once donned the suit.\n\nBrought into being by binding the spirit of a dead warrior to its panoply, hollow knights behave in much the same way they did in life—disciplined, loyal, and battle ready. Clad head to toe in full plate armor, with battered shields strapped to their arms and rusty swords gripped in lobster gauntlets, the knights stand ready to face any foe, heedless of the danger, driven to serve the necromancer that made them.\n\nHollow knights might ride on the backs of skeletal steeds and wield lances.\n\nMotive: Obedience to its master\n\nEnvironment: Anywhere\n\nHealth: 12\n\nDamage Inflicted: 5 points\n\nArmor: 3\n\nMovement: Short; long while mounted on a skeletal steed\n\nSkeletal steed: level 4\n\nModifications: Resists fear and intimidation as level 10\n\nCombat: A hollow knight usually fights with a sword or mace.\n\nWhen mounted on a steed, a hollow knight charges its enemies whenever possible. As an action, its steed moves a short distance, and the hollow knight can make a single attack at any point during this movement. When attacking in this way, the knight inflicts 7 points of damage.\n\nA hollow knight is fearless and fights until destroyed or ordered to pull back. The magic animating its armor is slow to fade, so armor components may continue to twitch and jerk even after the knight has fallen. Usually, when defeated, the suit of armor falls apart, and wisps of grey smoke curl up from the remains.\n\nInteraction: Hollow knights cannot speak. They obey any orders given to them by their creators.\n\nUse: The necromancer or other magician that binds the spirit to the armor also imbues the armor with specific commands—tasks the knight must carry out until destroyed. Some knights may stand guard at citadels or mansions, keeping a vigil until their armor finally falls apart. Others are more active and may function as the core of a dark wizard’s army.\n\nGM Intrusion: When a hollow knight is destroyed, a gauntlet flies up, grabs a character, and won’t let go. A difficulty 7 Might task is required to pry it loose.\n\nHollow knight\nLevel 4 (target number 12)\nHealth: 12\nArmor: 3\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.5mcFf43wou6sSsLx",
+      "foundry_internal_links": [
+        {
+          "target": "Compendium.cyphersystem-compendium.basic-creatures-and-npcs.eGZ5ouFZkwJEkOPt",
+          "label": "Skeletal steed"
+        }
+      ],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_hollow-knight.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_hollow-knight.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "The necromancer or other magician that binds the spirit to the armor also imbues the armor with specific commands—tasks the knight must carry out until destroyed. Some knights may stand guard at citadels or mansions, keeping a vigil until their armor finally falls apart. Others are more active and may function as the core of a dark wizard’s army."
+  }
+}

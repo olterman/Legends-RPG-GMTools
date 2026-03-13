@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:11:59.628611+00:00",
+  "filename": "foundryvtt/fantasy/artifact/artifact_20260312T231159.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Boundless bag",
+    "description": "Level: 1d6 + 2 Form: Small bag with two handles and a clasp Effect: Any nonliving item held in the bag becomes a slightly more valuable item. For example, an inexpensive item becomes a moderately priced item, while a moderate item becomes an expensive item. The bag has no effect on items that are very expensive or exorbitant. The change takes a full day to take effect, during which time the item cannot leave the bag and the bag should not be opened. If the bag is opened, the process is canceled…",
+    "sections": {
+      "name": "Boundless bag",
+      "level": "1d6+2",
+      "effect": "Level: 1d6 + 2\n\nForm: Small bag with two handles and a clasp\n\nEffect: Any nonliving item held in the bag becomes a slightly more valuable item. For example, an inexpensive item becomes a moderately priced item, while a moderate item becomes an expensive item. The bag has no effect on items that are very expensive or exorbitant. The change takes a full day to take effect, during which time the item cannot leave the bag and the bag should not be opened. If the bag is opened, the process is canceled and must be started over.\n\nDepletion: 1 in 1d6. When the effect depletes, it can still be used as a normal bag.\n\nPutting all or part of a living thing into a boundless bag is always risky, as more than one person has had their hand or head turned to gold (which might sound lovely, but typically isn’t). Also, doing so often causes the boundless bag to revert to a normal bag.\n\nItems that create wealth in any fashion are particularly sought after. So much so that some items are believed to be cursed, due to the number of people who have met their untimely fate while in possession of a wealth-making artifact.",
+      "depletion": "1 in [[/r d6]]"
+    },
+    "text": "Level: 1d6 + 2\n\nForm: Small bag with two handles and a clasp\n\nEffect: Any nonliving item held in the bag becomes a slightly more valuable item. For example, an inexpensive item becomes a moderately priced item, while a moderate item becomes an expensive item. The bag has no effect on items that are very expensive or exorbitant. The change takes a full day to take effect, during which time the item cannot leave the bag and the bag should not be opened. If the bag is opened, the process is canceled and must be started over.\n\nDepletion: 1 in 1d6. When the effect depletes, it can still be used as a normal bag.\n\nPutting all or part of a living thing into a boundless bag is always risky, as more than one person has had their hand or head turned to gold (which might sound lovely, but typically isn’t). Also, doing so often causes the boundless bag to revert to a normal bag.\n\nItems that create wealth in any fashion are particularly sought after. So much so that some items are believed to be cursed, due to the number of people who have met their untimely fate while in possession of a wealth-making artifact.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg",
+      "images": [
+        "http://localhost:30000/systems/cyphersystem/icons/items/artifact.svg"
+      ],
+      "item_class": "persistent",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

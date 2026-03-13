@@ -10,6 +10,7 @@
   <div class="panel">
     <div class="actions">
       <button id="refresh-btn" type="button">Refresh</button>
+      <button id="empty-trash-btn" type="button" class="secondary">Empty Trash Bin</button>
     </div>
     <div class="status" id="status">Loading trash...</div>
     <div class="results" id="results"></div>
@@ -29,6 +30,7 @@
 <script>
   const els = {
     refreshBtn: document.getElementById('refresh-btn'),
+    emptyTrashBtn: document.getElementById('empty-trash-btn'),
     status: document.getElementById('status'),
     results: document.getElementById('results'),
     viewer: document.getElementById('viewer'),
@@ -135,6 +137,27 @@
     loadTrash().catch(err => {
       els.status.textContent = `Error: ${err.message}`;
     });
+  });
+
+  els.emptyTrashBtn.addEventListener('click', async () => {
+    if (!window.confirm('Permanently expunge everything in the trash bin? This cannot be undone.')) return;
+    try {
+      const data = await fetchJson('/storage/trash/empty', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+      els.viewer.innerHTML = `
+        <div class="output-card">
+          <h3>Trash Viewer</h3>
+          <div class="output-value">Trash bin emptied. Expunged ${escapeHtml(String(data.count ?? 0))} item(s).</div>
+        </div>
+      `;
+      await loadTrash();
+      els.status.textContent = `Trash bin emptied. Expunged ${data.count ?? 0} item(s).`;
+    } catch (err) {
+      els.status.textContent = `Error: ${err.message}`;
+    }
   });
 
   loadTrash().catch(err => {

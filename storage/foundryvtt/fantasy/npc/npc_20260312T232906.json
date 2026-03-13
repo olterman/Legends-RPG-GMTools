@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:29:06.194489+00:00",
+  "filename": "foundryvtt/fantasy/npc/npc_20260312T232906.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "npc",
+    "name": "Berserker",
+    "sections": {
+      "character": "Berserker",
+      "motive": "Glory in battle",
+      "interaction": "Berserkers are the elites of some warrior cultures and enjoy physical competitions such as wrestling, throwing heavy items, and feasting. They dislike weak and cowardly folk, and do not tolerate insults to their strength or honor.",
+      "use": "A group of warriors is led by a mighty berserker looking for a challenging fight. A group of berserkers enters town and picks fights with the local toughs.",
+      "loot": "In addition to their weapons and light armor, a berserker has one or two moderately priced items. The leader of a group might have a cypher that enhances strength or toughness."
+    },
+    "stat_block": {
+      "level": 3,
+      "target_number": 9,
+      "health": 12,
+      "armor": 1,
+      "damage": 4,
+      "movement": "Short",
+      "modifications": [
+        "Climbing, jumping, running, and Speed defense as level 4"
+      ],
+      "combat": [
+        "Berserkers prefer large, heavy weapons such as axes, hammers, and greatswords, but they may use bows if they can’t easily get close to their foes. A berserker can enter a state of rage as part of their action. When raging, they gain +1 to Armor (including against fire), their melee attacks inflict an additional 2 points of damage, and their attacks, Might defense, and actions relying on strength (such as climbing and jumping) are eased by two steps. However, their Speed defense is hindered. A raging berserker fights only with melee weapons and won’t retreat from battle."
+      ],
+      "interaction": [
+        "Berserkers are the elites of some warrior cultures and enjoy physical competitions such as wrestling, throwing heavy items, and feasting. They dislike weak and cowardly folk, and do not tolerate insults to their strength or honor."
+      ],
+      "loot": [
+        "In addition to their weapons and light armor, a berserker has one or two moderately priced items. The leader of a group might have a cypher that enhances strength or toughness."
+      ]
+    },
+    "text": "A berserker is a fierce warrior who can fly into a rage, greatly increasing their strength and hardiness. Many of them choose an animal such as a bear, wolf, or boar as their spiritual kin, wearing the skin of that animal and fighting like wild beasts.\n\nMotive: Glory in battle\n\nHealth: 12\n\nDamage Inflicted: 4 points\n\nArmor: 1 (or 3 when berserk)\n\nMovement: Short\n\nModifications: Climbing, jumping, running, and Speed defense as level 4\n\nCombat: Berserkers prefer large, heavy weapons such as axes, hammers, and greatswords, but they may use bows if they can’t easily get close to their foes.\n\nA berserker can enter a state of rage as part of their action. When raging, they gain +1 to Armor (including against fire), their melee attacks inflict an additional 2 points of damage, and their attacks, Might defense, and actions relying on strength (such as climbing and jumping) are eased by two steps. However, their Speed defense is hindered. A raging berserker fights only with melee weapons and won’t retreat from battle.\n\nInteraction: Berserkers are the elites of some warrior cultures and enjoy physical competitions such as wrestling, throwing heavy items, and feasting. They dislike weak and cowardly folk, and do not tolerate insults to their strength or honor.\n\nUse: A group of warriors is led by a mighty berserker looking for a challenging fight. A group of berserkers enters town and picks fights with the local toughs.\n\nLoot: In addition to their weapons and light armor, a berserker has one or two moderately priced items. The leader of a group might have a cypher that enhances strength or toughness.\n\nBerserker\nLevel 3 (target number 9)\nHealth: 12\nArmor: 1\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.npcs.Actor.XqO0yaE6PKE3vrZz",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/npc_berserker.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/npc_berserker.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "A group of warriors is led by a mighty berserker looking for a challenging fight. A group of berserkers enters town and picks fights with the local toughs."
+  }
+}

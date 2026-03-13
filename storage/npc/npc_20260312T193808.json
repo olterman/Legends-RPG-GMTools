@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T19:38:08.726265+00:00",
+  "filename": "npc/npc_20260312T193808.json",
+  "payload": {
+    "type": "auto",
+    "raw_text": "BLACK DOG\n6 (18)\nBlack dogs go by many names: hellhounds, bearers of death, black hounds of destiny, and\ndevil dogs, just to name a few. Typically they are spectral or demonic entities that show up\nat night. They are often sinister, malevolent, or purposefully harmful (such as the Barghest\nand Black Shuck). Occasionally, black dogs are helpful and benevolent, guarding people\nfrom danger, helping them find the correct path, or signifying the death of someone nearby.\nBlack dogs are usually large, shaggy, and as black as night, with long ears and tails.\nHowever, despite their name, they can be any color. The real distinction is that they are\ndefinitely not regular, living dogs. Some have eyes like fire, some howl with a ghostly,\nethereal song, and still others have telltale witches’ marks upon their chest or back.\nBlack dogs can see ghosts, witches, and other magical entities not typically visible to other\ncreatures. They are sometimes a portent of death, but not always. Many carry with them an\ninherent sense of sadness and despair, which they can pass on to those around them.\nMotive: Bring harm and pain; help and guard\nEnvironment: Crossroads, places of execution, and ancient paths\nHealth: 20\nDamage Inflicted: 8 points\nArmor: 2\nMovement: Long; very long when running\nModifications: Sneaking, hiding, and attacking from surprise or advantage as level 7\nCombat: Malevolent black dogs will attack from a position of surprise or advantage,\ninflicting 8 points of damage with their spectral teeth and claws.\nSome black dogs cause such a deep feeling of despair and sadness, just by being nearby,\nthat they inflict 2 points of Intellect damage each round on everyone who can see them\nor otherwise sense their presence.\nInteraction: Running, at least from the malevolent ones, is typically the best course\nof action. Dealing with helpful black dogs is often an interesting and unexpected\nexperience, as they don’t talk and don’t explain who they choose to help or why.\nUse: The characters are fighting an extremely tough foe when a black dog steps in to\nhelp them out (or to help their foe). The characters are lost in the woods, and a large,\nmenacing black dog steps out of the forest and leads them back to safety.\nLoot: Black dogs rarely have anything valuable on them. However, killing a black dog causes\nit to haunt whoever dealt it the fatal blow. That person feels such deep anxiety and\ndespair that all their actions are hindered for at least one day, and often longer.",
+    "setting": "We Are All Mad Here",
+    "sourcebook": "We Are All Mad Here",
+    "pages": "107"
+  },
+  "result": {
+    "type": "npc",
+    "name": "inherent sense of sadness and despair, which they can pass on to those around them.",
+    "description": "The characters are fighting an extremely tough foe when a black dog steps in to help them out (or to help their foe). The characters are lost in the woods, and a large, menacing black dog steps out of the forest and leads them back to safety.",
+    "sections": {
+      "motive": "Bring harm and pain; help and guard",
+      "environment": "Crossroads, places of execution, and ancient paths",
+      "health": "20",
+      "damage_inflicted": "8 points",
+      "armor": "2",
+      "movement": "Long; very long when running",
+      "modifications": "Sneaking, hiding, and attacking from surprise or advantage as level 7",
+      "combat": "Malevolent black dogs will attack from a position of surprise or advantage, inflicting 8 points of damage with their spectral teeth and claws. Some black dogs cause such a deep feeling of despair and sadness, just by being nearby, that they inflict 2 points of Intellect damage each round on everyone who can see them or otherwise sense their presence.",
+      "interaction": "Running, at least from the malevolent ones, is typically the best course of action. Dealing with helpful black dogs is often an interesting and unexpected experience, as they don’t talk and don’t explain who they choose to help or why.",
+      "use": "The characters are fighting an extremely tough foe when a black dog steps in to help them out (or to help their foe). The characters are lost in the woods, and a large, menacing black dog steps out of the forest and leads them back to safety.",
+      "loot": "Black dogs rarely have anything valuable on them. However, killing a black dog causes it to haunt whoever dealt it the fatal blow. That person feels such deep anxiety and despair that all their actions are hindered for at least one day, and often longer."
+    },
+    "text": "inherent sense of sadness and despair, which they can pass on to those around them.\nMotive: Bring harm and pain; help and guard\nEnvironment: Crossroads, places of execution, and ancient paths\nHealth: 20\nDamage Inflicted: 8 points\nArmor: 2\nMovement: Long; very long when running\nModifications: Sneaking, hiding, and attacking from surprise or advantage as level 7\nCombat: Malevolent black dogs will attack from a position of surprise or advantage,\ninflicting 8 points of damage with their spectral teeth and claws.\nSome black dogs cause such a deep feeling of despair and sadness, just by being nearby,\nthat they inflict 2 points of Intellect damage each round on everyone who can see them\nor otherwise sense their presence.\nInteraction: Running, at least from the malevolent ones, is typically the best course\nof action. Dealing with helpful black dogs is often an interesting and unexpected\nexperience, as they don’t talk and don’t explain who they choose to help or why.\nUse: The characters are fighting an extremely tough foe when a black dog steps in to\nhelp them out (or to help their foe). The characters are lost in the woods, and a large,\nmenacing black dog steps out of the forest and leads them back to safety.\nLoot: Black dogs rarely have anything valuable on them. However, killing a black dog causes\nit to haunt whoever dealt it the fatal blow. That person feels such deep anxiety and\ndespair that all their actions are hindered for at least one day, and often longer.",
+    "metadata": {
+      "origin": "raw_text_parser",
+      "sourcebook": "We Are All Mad Here",
+      "book": "We Are All Mad Here",
+      "pages": "107",
+      "settings": [
+        "we_are_all_mad_here"
+      ],
+      "setting": "we_are_all_mad_here",
+      "genre": "we_are_all_mad_here",
+      "genres": [
+        "we_are_all_mad_here"
+      ]
+    }
+  }
+}

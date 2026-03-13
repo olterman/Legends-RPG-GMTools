@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:24:05.842621+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232405.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Ghoul",
+    "sections": {
+      "character": "Ghoul",
+      "environment": "Anywhere above ground at night, usually in groups of three or more, or in subterranean lairs",
+      "motive": "Hunger for dead flesh; knowledge (in certain rare cases)",
+      "interaction": "Common ghouls can’t be negotiated with, though a rare civilized ghoul is an excellent linguist. These latter are willing to deal in return for the body of someone who was knowledgeable or who kept valuable secrets in life.",
+      "use": "If a PC needs a piece of information not otherwise obtainable, a trip down into a ghoul city might be worthwhile, for the creatures are rumored to keep lightless libraries below the earth that store knowledge once known by humans.",
+      "loot": "If the PCs defeat a group of civilized ghouls, they might find a cypher and a few sets of black goggles that allow the wearer to look directly at the sun and see it as a pale circle.",
+      "gm_intrusion": "The ghoul spits in the character’s eye, directly introducing the paralytic into the victim’s bloodstream. The victim’s Might defense roll to avoid becoming paralyzed is hindered."
+    },
+    "stat_block": {
+      "level": 1,
+      "target_number": 3,
+      "health": 12,
+      "armor": 0,
+      "damage": 5,
+      "movement": "Short",
+      "modifications": [
+        "Two areas of knowledge as level 5"
+      ],
+      "combat": [
+        "Ghoul saliva contains a paralytic agent. Ghoul bites (and weapons used by ghouls) inflict damage and, on a failed Might defense roll, render the target paralyzed for one minute. A paralyzed target can attempt a Might-based task each round to regain mobility, but for the next minute, attacks, defenses, and movement tasks are hindered. Ghouls can see in the dark. They’re blind in full daylight, but civilized ghouls who travel to the surface carry lenses that cover their eyes, allowing them to see without penalty in full sunlight."
+      ],
+      "interaction": [
+        "Common ghouls can’t be negotiated with, though a rare civilized ghoul is an excellent linguist. These latter are willing to deal in return for the body of someone who was knowledgeable or who kept valuable secrets in life."
+      ],
+      "loot": [
+        "If the PCs defeat a group of civilized ghouls, they might find a cypher and a few sets of black goggles that allow the wearer to look directly at the sun and see it as a pale circle."
+      ]
+    },
+    "text": "Ghouls spend almost as much time beneath the ground as corpses do, but ghouls are very much alive. Their bodies are hairless and so porcelain-smooth that their faces are sometimes mistaken for masks, albeit gore-smeared masks. Ghouls come to the surface at night to gather humanoid remains or steal those recently interred from their graves, though many prefer to eat from still-living victims.\n\nMost ghouls are orgiastic eaters of human flesh, but a rare few ghoul populations are more refined. These wear clothes, have language and sophisticated customs, live in grand subterranean cities of their own design, and fight with milk-white blades of bone. These civilized ghouls claim to hold dominion over the remains of all humans, according to ancient custom, even if they only sometimes assert that privilege. They eat the dead in order to absorb residual memories left in the corpses.\n\nMotive: Hunger for dead flesh; knowledge (in certain rare cases)\n\nEnvironment: Anywhere above ground at night, usually in groups of three or more, or in subterranean lairs\n\nHealth: 12\n\nDamage Inflicted: 5 points\n\nMovement: Short\n\nModifications: Two areas of knowledge as level 5\n\nCombat: Ghoul saliva contains a paralytic agent. Ghoul bites (and weapons used by ghouls) inflict damage and, on a failed Might defense roll, render the target paralyzed for one minute. A paralyzed target can attempt a Might-based task each round to regain mobility, but for the next minute, attacks, defenses, and movement tasks are hindered.\n\nGhouls can see in the dark. They’re blind in full daylight, but civilized ghouls who travel to the surface carry lenses that cover their eyes, allowing them to see without penalty in full sunlight.\n\nInteraction: Common ghouls can’t be negotiated with, though a rare civilized ghoul is an excellent linguist. These latter are willing to deal in return for the body of someone who was knowledgeable or who kept valuable secrets in life.\n\nUse: If a PC needs a piece of information not otherwise obtainable, a trip down into a ghoul city might be worthwhile, for the creatures are rumored to keep lightless libraries below the earth that store knowledge once known by humans.\n\nLoot: If the PCs defeat a group of civilized ghouls, they might find a cypher and a few sets of black goggles that allow the wearer to look directly at the sun and see it as a pale circle.\n\nGM Intrusion: The ghoul spits in the character’s eye, directly introducing the paralytic into the victim’s bloodstream. The victim’s Might defense roll to avoid becoming paralyzed is hindered.\n\nGhoul\nLevel 1 (target number 3)\nHealth: 12\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.92AH6pnL8Mknw6ok",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_ghoul.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_ghoul.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "If a PC needs a piece of information not otherwise obtainable, a trip down into a ghoul city might be worthwhile, for the creatures are rumored to keep lightless libraries below the earth that store knowledge once known by humans."
+  }
+}

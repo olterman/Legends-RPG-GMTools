@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:27:29.624891+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232729.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Werewolf",
+    "sections": {
+      "character": "Werewolf",
+      "environment": "Anywhere dark, usually alone but sometimes as part of a small pack of two to five",
+      "motive": "Slaughter when transformed; searching for answers when human",
+      "interaction": "In human form, werewolves have the goals and aspirations of normal people, and they often don’t recall what they did while transformed or even realize that they suffer the curse of lycanthropy. In half- or full-lupine form, there’s no negotiating with one.",
+      "use": "When the moon is full, werewolves hunt",
+      "gm_intrusion": "A PC who moves down one step on the damage track due to damage inflicted by a werewolf must succeed on a Might defense roll or be afflicted with the curse of lycanthropy."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 24,
+      "armor": 0,
+      "damage": 5,
+      "movement": "Short; long when in wolf form",
+      "modifications": [
+        "Attacks as level 6 when half lupine; Speed defense as level 6 when full lupine; perception as level 7 when half or full lupine"
+      ],
+      "combat": [
+        "In normal human form, a werewolf has no natural attacks, though it may use a weapon. It also lacks the abilities described below; its only power is to transform into a half-lupine form or full-lupine form, which takes [[/r 1d6]] agonizing rounds. A handful of werewolves can control their transformation, but most change at night in response to moon-related cues. Half Lupine: A half-lupine werewolf is part humanoid and part wolf, but completely terrifying. It attacks with its claws. Full Lupine: A full-lupine werewolf is a particularly large and vicious-looking wolf. It normally bites foes and deals 2 additional points of damage (7 points total) but can also use its claws. Half and Full Lupine: Half-lupine and full-lupine werewolves both enjoy enhanced senses and regain 2 points of health per round. However, a werewolf that takes damage from a silver weapon or bullet stops regenerating for several minutes."
+      ],
+      "interaction": [
+        "In human form, werewolves have the goals and aspirations of normal people, and they often don’t recall what they did while transformed or even realize that they suffer the curse of lycanthropy. In half- or full-lupine form, there’s no negotiating with one."
+      ],
+      "loot": []
+    },
+    "text": "The curse of lycanthropy begins as nightmares about being chased or, somehow more terrifying, chasing someone else. As the dreams grow more fierce and each night’s sleep provides less rest, victims begin to wonder about the bloodstains on their clothing, the strange claw marks in their homes, and eventually, the mutilated bodies they find buried in their backyards.\n\nWhen not transformed, many who suffer the curse seem like completely normal people, if emotionally traumatized by the fact that most of their friends and family have been brutally slaughtered over the preceding months. Some few, however, realize the truth of their condition, and depending on their natures, they either kill themselves before their next transformation or learn to revel in the butchery.\n\nMotive: Slaughter when transformed; searching for answers when human\n\nEnvironment: Anywhere dark, usually alone but sometimes as part of a small pack of two to five\n\nHealth: 24\n\nDamage Inflicted: 5 points\n\nMovement: Short; long when in wolf form\n\nModifications: Attacks as level 6 when half lupine; Speed defense as level 6 when full lupine; perception as level 7 when half or full lupine\n\nCombat: In normal human form, a werewolf has no natural attacks, though it may use a weapon. It also lacks the abilities described below; its only power is to transform into a half-lupine form or full-lupine form, which takes [[/r 1d6]] agonizing rounds. A handful of werewolves can control their transformation, but most change at night in response to moon-related cues.\n\nHalf Lupine: A half-lupine werewolf is part humanoid and part wolf, but completely terrifying. It attacks with its claws.\n\nFull Lupine: A full-lupine werewolf is a particularly large and vicious-looking wolf. It normally bites foes and deals 2 additional points of damage (7 points total) but can also use its claws.\n\nHalf and Full Lupine: Half-lupine and full-lupine werewolves both enjoy enhanced senses and regain 2 points of health per round. However, a werewolf that takes damage from a silver weapon or bullet stops regenerating for several minutes.\n\nInteraction: In human form, werewolves have the goals and aspirations of normal people, and they often don’t recall what they did while transformed or even realize that they suffer the curse of lycanthropy. In half- or full-lupine form, there’s no negotiating with one.\n\nUse: When the moon is full, werewolves hunt\n\nGM Intrusion: A PC who moves down one step on the damage track due to damage inflicted by a werewolf must succeed on a Might defense roll or be afflicted with the curse of lycanthropy.\n\nWerewolf\nLevel 4 (target number 12)\nHealth: 24\nArmor: 0\nDamage: 5",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.3jAoNYaS0CHUjkqS",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_werewolf.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/core-rules/creature_werewolf.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "When the moon is full, werewolves hunt"
+  }
+}

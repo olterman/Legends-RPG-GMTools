@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T22:18:42.906028+00:00",
+  "filename": "foundryvtt/fantasy/cypher/cypher_20260312T221842.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": ""
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Apple of discord",
+    "description": "Level: 1d6 + 1 Form: Beautiful golden apple that catches the eye of all who see it Effect: When tossed up to a long distance away, it affects all foes in short range of the apple, causing them to attempt to take it for themselves. Foes spend their next two actions doing nothing but fighting among themselves for possession of the apple.",
+    "sections": {
+      "name": "Apple of discord",
+      "level": "1d6+1",
+      "effect": "Level: 1d6 + 1\n\nForm: Beautiful golden apple that catches the eye of all who see it\n\nEffect: When tossed up to a long distance away, it affects all foes in short range of the apple, causing them to attempt to take it for themselves. Foes spend their next two actions doing nothing but fighting among themselves for possession of the apple."
+    },
+    "text": "Level: 1d6 + 1\n\nForm: Beautiful golden apple that catches the eye of all who see it\n\nEffect: When tossed up to a long distance away, it affects all foes in short range of the apple, causing them to attempt to take it for themselves. Foes spend their next two actions doing nothing but fighting among themselves for possession of the apple.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "item_class": "one_shot",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

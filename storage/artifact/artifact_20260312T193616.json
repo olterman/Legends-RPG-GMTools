@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T19:36:16.945386+00:00",
+  "filename": "artifact/artifact_20260312T193616.json",
+  "payload": {
+    "raw_text": "Seven-League Boots\nLevel: 1d6 + 3\nForm: boots\nEffect: jump far\nDepletion: 1 in 1d20\n\nCrystal Ball\nLevel: 1d6+2\nForm: orb\nEffect: scrying\nDepletion: 1 in 1d20",
+    "type": "auto"
+  },
+  "result": {
+    "description": "jump far",
+    "level": 1,
+    "metadata": {
+      "depletion": "1 in 1d20",
+      "item_class": "persistent",
+      "level": "1d6 + 3",
+      "origin": "raw_text_parser",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "name": "Seven-League Boots",
+    "sections": {
+      "depletion": "1 in 1d20",
+      "effect": "jump far",
+      "level": "1d6 + 3",
+      "manifestation": "boots",
+      "name": "Seven-League Boots"
+    },
+    "text": "Seven-League Boots\nLevel: 1d6 + 3\nForm: boots\nEffect: jump far\nDepletion: 1 in 1d20",
+    "type": "artifact"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:26:58.885466+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232658.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Sphinx",
+    "sections": {
+      "character": "Sphinx",
+      "environment": "Deserts, plains, and mountains",
+      "motive": "Defense, riddles",
+      "interaction": "Sphinxes are very intelligent and speak several languages (including at least one ancient or obscure language). If their demands are met (such as by answering a riddle or performing a service), they can be quite talkative, if arrogant.",
+      "use": "A sphinx guards the main road into the city, killing anyone who fails to answer its riddle. A sphinx approaches, offering secret lore if the characters can direct it to a suitable mate or an abandoned temple it can restore and guard.",
+      "loot": "A sphinx usually has one or two cyphers and perhaps a small artifact it can wear and use.",
+      "gm_intrusion": "The sphinx leaps onto its opponent, attacking with all four claws as its action."
+    },
+    "stat_block": {
+      "level": 7,
+      "target_number": 21,
+      "health": 25,
+      "armor": 2,
+      "damage": 7,
+      "movement": "Short; long when flying",
+      "modifications": [
+        "Intellect defense and magical lore as level 8"
+      ],
+      "combat": [
+        "A sphinx attacks with its lion claws, making two swipes as its action. A sphinx also has the following magical abilities: Curse: Curse a creature within long range, hindering all their physical actions by two steps until some other magic lifts the curse. Heal: Restore 10 health to an NPC, or allow a PC to use their next action to make a recovery roll that does not count toward their normal allotment. Can be used three times per day. Riddle: A creature within long range must make an Intellect defense roll to answer a difficult riddle; failure means the creature stands confused for one minute even if they are attacked. Spellbreaker: End an ongoing magical effect within short range, such as a curse or protective spell. If there are multiple effects, the sphinx chooses which one to end. It can target an immediate area instead of a specific effect (such as an area where it suspects an invisible enemy is hiding). Teleport: Instantaneously move a very long distance. Can be used once per day."
+      ],
+      "interaction": [
+        "Sphinxes are very intelligent and speak several languages (including at least one ancient or obscure language). If their demands are met (such as by answering a riddle or performing a service), they can be quite talkative, if arrogant."
+      ],
+      "loot": [
+        "A sphinx usually has one or two cyphers and perhaps a small artifact it can wear and use."
+      ]
+    },
+    "text": "A sphinx is a magical creature with a large lionlike body, feathered wings, and a head that is like that of a human or some kind of animal (typically a hawk or ram). Wise and fierce, sphinxes have a connection to the divine and are often found guarding temples or persons of great interest to the gods (although whether they serve good or evil depends on the individual sphinx). No matter what their head looks like, a sphinx can devour creatures as easily and quickly as a lion.\n\nMotive: Defense, riddles\n\nEnvironment: Deserts, plains, and mountains\n\nHealth: 25\n\nDamage Inflicted: 7 points\n\nArmor: 2\n\nMovement: Short; long when flying\n\nModifications: Intellect defense and magical lore as level 8\n\nCombat: A sphinx attacks with its lion claws, making two swipes as its action. A sphinx also has the following magical abilities:\n\nCurse: Curse a creature within long range, hindering all their physical actions by two steps until some other magic lifts the curse.\nHeal: Restore 10 health to an NPC, or allow a PC to use their next action to make a recovery roll that does not count toward their normal allotment. Can be used three times per day.\nRiddle: A creature within long range must make an Intellect defense roll to answer a difficult riddle; failure means the creature stands confused for one minute even if they are attacked.\nSpellbreaker: End an ongoing magical effect within short range, such as a curse or protective spell. If there are multiple effects, the sphinx chooses which one to end. It can target an immediate area instead of a specific effect (such as an area where it suspects an invisible enemy is hiding).\nTeleport: Instantaneously move a very long distance. Can be used once per day.\n\nInteraction: Sphinxes are very intelligent and speak several languages (including at least one ancient or obscure language). If their demands are met (such as by answering a riddle or performing a service), they can be quite talkative, if arrogant.\n\nUse: A sphinx guards the main road into the city, killing anyone who fails to answer its riddle. A sphinx approaches, offering secret lore if the characters can direct it to a suitable mate or an abandoned temple it can restore and guard.\n\nLoot: A sphinx usually has one or two cyphers and perhaps a small artifact it can wear and use.\n\nGM Intrusion: The sphinx leaps onto its opponent, attacking with all four claws as its action.\n\nSphinx\nLevel 7 (target number 21)\nHealth: 25\nArmor: 2\nDamage: 7",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.pWlIgXkaev2kpxE8",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_sphinx.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_sphinx.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "A sphinx guards the main road into the city, killing anyone who fails to answer its riddle. A sphinx approaches, offering secret lore if the characters can direct it to a suitable mate or an abandoned temple it can restore and guard."
+  }
+}

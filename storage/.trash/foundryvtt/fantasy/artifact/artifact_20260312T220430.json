@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T22:04:30.801140+00:00",
+  "filename": "foundryvtt/fantasy/artifact/artifact_20260312T220430.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": ""
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Adamantine rope",
+    "description": "Level: 1d6 + 4 Form: A 50-foot (15 m) length of black rope Effect: This length of rope has the flexibility of ordinary rope but a hardness greater than steel. It is impervious to damage (including attempts to cut it) from anything less than the artifact’s level. Depletion: —",
+    "sections": {
+      "name": "Adamantine rope",
+      "level": "1d6+4",
+      "effect": "Level: 1d6 + 4\n\nForm: A 50-foot (15 m) length of black rope\n\nEffect: This length of rope has the flexibility of ordinary rope but a hardness greater than steel. It is impervious to damage (including attempts to cut it) from anything less than the artifact’s level.\n\nDepletion: —",
+      "depletion": "—"
+    },
+    "text": "Level: 1d6 + 4\n\nForm: A 50-foot (15 m) length of black rope\n\nEffect: This length of rope has the flexibility of ordinary rope but a hardness greater than steel. It is impervious to damage (including attempts to cut it) from anything less than the artifact’s level.\n\nDepletion: —",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "artifact",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "item_class": "persistent",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

@@ -55,3 +55,64 @@ settings:
   defaults:
     - fantasy
     - lands_of_legends
+
+# New terminology alias:
+# genres = old settings
+# settings (nested in catalog) = old worlds
+genres:
+  core:
+    - fantasy
+    - modern
+    - modern_magic
+    - cyberpunk
+    - science_fiction
+    - horror
+    - romance
+    - superheroes
+    - post_apocalyptic
+    - fairy_tale
+    - historical
+    - weird_west
+
+  catalog:
+    fantasy:
+      label: Fantasy
+      settings:
+        - lands_of_legends
+    modern:
+      label: Modern
+      settings: []
+    modern_magic:
+      label: Modern Magic
+      settings: []
+    cyberpunk:
+      label: Cyberpunk
+      settings: []
+    science_fiction:
+      label: Science Fiction
+      settings: []
+    horror:
+      label: Horror
+      settings: []
+    romance:
+      label: Romance
+      settings: []
+    superheroes:
+      label: Superheroes
+      settings: []
+    post_apocalyptic:
+      label: Post-Apocalyptic
+      settings: []
+    fairy_tale:
+      label: Fairy Tale
+      settings: []
+    historical:
+      label: Historical
+      settings: []
+    weird_west:
+      label: Weird West
+      settings: []
+
+  defaults:
+    - fantasy
+    - lands_of_legends

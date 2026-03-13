@@ -13,18 +13,19 @@
 ## Small Tweaks
 - Search result cards: render image thumbnails under the type label.
 - Uploaded images: auto-resize to web-safe dimensions and support click-to-open full-size popup preview.
-- Upload defaults: auto-set image `friendly_name` from attached entity name and auto-tag with `area`, `setting`, and selected `world`.
+- Upload defaults: auto-set image `friendly_name` from attached entity name and auto-tag with `area`, `genre`, and selected `setting`.
 - Standardize canonical `description` support across core entity types and all result cards.
 - Keep compact card action icons (edit/trash) anchored in the lower-right corner for consistency.
 - Evaluate consolidating Library, Lore, CSRD, and Unified search into one search experience (proposal only).
 
 ## Near Term (0-6 weeks)
 
-### 1) Settings and World Data Model (Top Priority)
-- Enforce setting-aware tagging across all content types: character, lore, cypher/artifact, ability, skill, focus, settlement, encounter, map data.
-- Keep support for multi-setting records.
-- Ensure search, browse, and generation all honor active `setting/world` context consistently.
-- Establish baseline core settings:
+### 1) Genre and Setting Data Model (Top Priority)
+- Reference draft plan: `docs/SETTINGS_WORLDS_BASE_DRAFT.md`
+- Enforce genre-aware tagging across all content types: character, lore, cypher/artifact, ability, skill, focus, settlement, encounter, map data.
+- Keep support for multi-tag records (`settings` list).
+- Ensure search, browse, and generation all honor active `genre/setting` context consistently.
+- Establish baseline core genres:
   - Fantasy
   - Modern
   - Modern Magic
@@ -38,9 +39,48 @@
   - Historical
   - Weird West
 - Done when:
-  - All generated and saved content includes valid setting metadata.
-  - World/core setting selection consistently filters generation and search endpoints.
+  - All generated and saved content includes valid genre/setting metadata.
+  - Setting/core genre selection consistently filters generation and search endpoints.
   - Config and storage use `area` as canonical geography key (`environment` remains alias-only).
+
+### Genre/Setting Implementation Checklist
+#### Phase A: Registry and Validation
+- [ ] Add `scripts/validate_settings_worlds.py`.
+- [ ] Validate `config/02_settings.yaml` IDs and referential integrity.
+- [ ] Validate every setting in `config/worlds/*/00_world.yaml` has a parent genre.
+- [ ] Validate every setting folder has required minimum files.
+- [ ] Fail CI/local smoke checks on invalid genre/setting references.
+
+#### Phase B: Canonical Metadata Enforcement
+- [ ] Enforce `metadata.setting` and `metadata.settings` for all canonical categories on save/update.
+- [ ] Enforce `metadata.genre` alongside `metadata.setting` (with backward-compatible aliases).
+- [ ] Ensure parser/generator/import flows write `area` as canonical key and keep `environment` as alias.
+- [ ] Backfill missing genre/setting tags for existing local records via migration script.
+- [ ] Add migration report output: scanned/updated/skipped/error counts.
+
+#### Phase C: Search and Filtering
+- [ ] Make genre/setting filter behavior consistent in unified search, lore, and imported content.
+- [ ] Add sourcebook/page-aware filtering hooks for imported records.
+- [ ] Ensure compendium filters and genre/setting filters compose correctly.
+- [ ] Add smoke tests for combined filters (`genre + setting + source + type`).
+
+#### Phase D: Import Mapping From World Books
+- [ ] Add import mapping file (`config/import_map.yaml`) for `sourcebook -> genre/setting tags`.
+- [ ] Apply mapping automatically in official importer and raw-text parser.
+- [ ] Preserve `sourcebook` and `pages` in metadata and show badges in results.
+- [ ] Add reclassification/audit pass after import and rebuild index automatically.
+
+#### Phase E: Bootstrap Scaffolding
+- [ ] Add scaffold command for new genre and setting folder templates.
+- [ ] Generate starter files with placeholders for styles/professions/areas/races/cyphers.
+- [ ] Auto-register new genre/setting in `config/02_settings.yaml`.
+- [ ] Add docs page for “create genre/setting in < 10 minutes”.
+
+#### Phase F: UX and Observability
+- [ ] Add a “Settings Health” panel on index page with counts per genre/setting.
+- [ ] Add “untagged items” warning badge when metadata is missing.
+- [ ] Add quick fix actions for missing `genre/setting` tags.
+- [ ] Add weekly integrity report command for genre/setting coverage.
 
 ### 2) Content Management UX
 - Finalize edit/delete/recover/expunge across:
@@ -86,11 +126,11 @@
 ### 1) Character Studio v2
 - Optional second descriptor (for ancestry/race model).
 - Equipment selection during creation.
-- Profession pipelines by setting/type/flavor.
+- Profession pipelines by genre/type/flavor.
 - Export character sheets to fillable PDF.
 - Done when:
   - Character creation includes optional second descriptor and equipment flow.
-  - Profession choices are setting-aware and type/flavor-aware.
+  - Profession choices are genre-aware and type/flavor-aware.
   - Fillable PDF export works for current sheet state.
 
 ### 2) Cypher/Artifact Domain Split
@@ -103,10 +143,10 @@
 
 ### 3) Equipment and Item Expansion
 - Add baseline fantasy equipment set.
-- Introduce setting-aware item packs (not fantasy-only assumptions).
+- Introduce genre-aware item packs (not fantasy-only assumptions).
 - Done when:
   - Baseline fantasy equipment is complete and searchable.
-  - Additional setting packs can be added without schema changes.
+  - Additional genre packs can be added without schema changes.
 
 ### 4) PDF and Rulebook Navigation
 - Add official PDF repository integration.
@@ -123,15 +163,25 @@
   - Re-ingest preserves stable slugs and updates index safely.
   - Markdown parsing handles common Logseq block patterns reliably.
 
+### 6) Vector Knowledge Index
+- Reference roadmap: `docs/VECTOR_DATABASE_WORLD_FILES_ROADMAP.md`
+- Build a local vector database pipeline from world/config/lore files.
+- Support semantic retrieval filtered by genre, setting, type, area, and source.
+- Integrate semantic retrieval into search and generation context workflows.
+- Done when:
+  - Index build is incremental and deterministic.
+  - Query endpoint returns cited chunks with source metadata.
+  - Semantic search is available in UI and usable for content generation context.
+
 ## Future (4+ months)
 
-### 1) World Creation Wizard
-- Guided creation of new world profiles under core settings.
+### 1) Setting Creation Wizard
+- Guided creation of new setting profiles under core genres.
 - Bootstrap config files, default prompts, and starter lore taxonomy.
-- Validation checks to prevent broken world setups.
+- Validation checks to prevent broken setting setups.
 - Done when:
-  - New world creation is wizard-driven and produces valid config bundles.
-  - New world is immediately selectable in UI without manual file edits.
+  - New setting creation is wizard-driven and produces valid config bundles.
+  - New setting is immediately selectable in UI without manual file edits.
 
 ### 2) Media and Map Layer
 - Attach images to cyphers, artifacts, locations, NPCs, and characters.
@@ -150,11 +200,36 @@
   - Generation jobs are traceable with status, retry, and result history.
 
 ### 4) Foundry VTT Integration
-- Import/export for characters, cyphers, NPCs, lore, and possibly encounters.
-- Stable schema contract and migration strategy between tool and module versions.
+- Prioritize Foundry -> GMTools sync before GMTools -> Foundry export.
+- Phase 1: inbound sync for PCs, NPCs, creatures, items, scenes, and journal-driven lore.
+- Phase 2: outbound export from GMTools into Foundry for characters, NPCs/creatures, and selected items.
+- Maintain a stable schema contract and migration strategy between tool and module versions.
 - Done when:
-  - Import/export covers core entity types without manual transformations.
+  - Foundry -> GMTools sync covers core actor/content types without manual transformations.
+  - GMTools -> Foundry export is implemented as a later, explicit workflow after inbound sync is stable.
   - Version negotiation and migration path are documented and tested.
+
+### Foundry VTT Integration Checklist
+#### Phase A: Foundry -> GMTools Sync First
+- [ ] Bulk sync actors from Foundry into GMTools (PCs, NPCs, creatures).
+- [ ] Add bulk item sync for cyphers, artifacts, attacks, equipment, abilities, and skills.
+- [ ] Add scene sync into GMTools location/area-aware records.
+- [ ] Add journal entry sync into GMTools lore records.
+- [ ] Add sync status markers (`synced from FoundryVTT`) consistently across result cards and detail views.
+- [ ] Add duplicate/conflict handling for repeated syncs.
+
+#### Phase B: Stabilize the Bridge
+- [ ] Define versioned payload contracts for actors, items, scenes, and journals.
+- [ ] Add migration handling for older Foundry-imported records.
+- [ ] Add per-sync reporting: created, updated, skipped, failed.
+- [ ] Add smoke tests for Foundry actor/item import paths.
+
+#### Phase C: GMTools -> Foundry Export Later
+- [ ] Export `character_sheet` to Foundry PC actor.
+- [ ] Export `npc` and `creature` to Foundry NPC actor.
+- [ ] Export selected item types (cypher, artifact, attack, equipment) to Foundry items.
+- [ ] Add create-vs-update flow for exports targeting existing Foundry entities.
+- [ ] Add safe round-trip metadata/backlinks before enabling true two-way sync.
 
 ## Suggestions (Execution)
 - Keep this roadmap updated weekly from merged work, not planned work.

@@ -10,7 +10,7 @@ from typing import Any
 from difflib import SequenceMatcher
 
 import yaml
-from lol_api.config_loader import load_config_dir, infer_default_world_id
+from lol_api.config_loader import load_config_dir, infer_default_setting_id
 
 RACE_HINTS = {
     "race",
@@ -531,8 +531,8 @@ def merge_snippets(items: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def load_base_config(config_dir: Path) -> dict[str, Any]:
-    default_world = infer_default_world_id(config_dir)
-    return load_config_dir(config_dir, world_id=default_world)
+    default_setting = infer_default_setting_id(config_dir)
+    return load_config_dir(config_dir, setting_id=default_setting)
 
 
 def ai_prompt(candidates_path: Path, output_path: Path) -> None:

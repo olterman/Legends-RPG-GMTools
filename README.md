@@ -29,10 +29,11 @@ Open: `http://localhost:5000`
 
 - `/` - Main generator
 - `/map-tools` - Settlement/encounter/cypher/inn tools
-- `/library` - Saved generated results
-- `/compendium-browser` - Compendium browser
-- `/lore-browser` - Lore browser (prompt-stripped lore text)
-- `/prompt-browser` - Prompt browser (lore/art prompts)
+- `/search` - Unified Search (Local/Lore/CSRD with source filters)
+- `/library` - Legacy alias to `/search`
+- `/compendium-browser` - Legacy alias to `/search`
+- `/lore-browser` - Legacy alias to `/search`
+- `/prompt-browser` - Legacy alias to `/search`
 - `/config-enrichment` - Curated lore-to-config review/apply UI
 
 ## API Docs
@@ -58,10 +59,10 @@ Configuration is layered and loaded at startup:
 
 - Global registry: `config/02_settings.yaml`
 - Core shared: `config/core/*.yaml`
-- Setting shared: `config/settings/<core_setting>/*.yaml`
-- World overrides: `config/worlds/<world_id>/*.yaml`
+- Genre shared: `config/settings/<genre_id>/*.yaml`
+- Setting overrides: `config/worlds/<setting_id>/*.yaml`
 
-Current active world examples:
+Current active setting examples:
 - `config/core/14_monster_roles.yaml`
 - `config/settings/fantasy/11_professions.yaml`
 - `config/worlds/lands_of_legends/10_races.yaml`

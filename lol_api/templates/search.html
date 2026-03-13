@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Unified Search — Lands of Legends GM-Tools{% endblock %}
+{% block title %}Search — Lands of Legends GM-Tools{% endblock %}
 
 {% block content %}
-<h1>Unified Search</h1>
-<p>Search saved generated content and the official compendium from one place.</p>
+<h1>Search</h1>
+<p>Search House, FoundryVTT, Lore, CSRD, and official compendium content from one place.</p>
 
 <div class="layout">
   <div class="panel">
@@ -25,6 +25,7 @@
         <option value="encounter">encounter</option>
         <option value="cypher">cypher</option>
         <option value="artifact">artifact</option>
+        <option value="artifacts">artifacts</option>
         <option value="attack">attack</option>
         <option value="inn">inn</option>
         <option value="creature">creature</option>
@@ -34,11 +35,51 @@
         <option value="focus">focus</option>
         <option value="ability">ability</option>
         <option value="skill">skill</option>
+        <option value="lore">lore</option>
       </select>
     </div>
 
     <div class="field">
-      <label for="filter-setting">Setting</label>
+      <label>Sources</label>
+      <div class="actions">
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input id="include-local" type="checkbox" checked style="width:auto;" />
+          Local
+        </label>
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input id="include-lore" type="checkbox" checked style="width:auto;" />
+          Lore
+        </label>
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input id="include-foundry" type="checkbox" checked style="width:auto;" />
+          FoundryVTT
+        </label>
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input id="include-csrd" type="checkbox" checked style="width:auto;" />
+          CSRD
+        </label>
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input id="include-official" type="checkbox" checked style="width:auto;" />
+          Official PDF
+        </label>
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input id="include-godforsaken" type="checkbox" checked style="width:auto;" />
+          Godforsaken
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Compendiums</label>
+      <div class="actions" id="compendium-filters"></div>
+      <div class="actions" style="margin-top:8px;">
+        <button id="filters-select-all-btn" type="button" class="secondary">Select All Filters</button>
+        <button id="filters-deselect-all-btn" type="button" class="secondary">Deselect All Filters</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="filter-setting">Genre / Setting</label>
       <select id="filter-setting">
         <option value="">All</option>
       </select>
@@ -90,14 +131,10 @@
 
   <div class="panel">
     <div class="viewer" id="viewer">
-      <div class="viewer-header">
-        <div class="eyebrow">Selection</div>
-        <div class="title">Result Viewer</div>
-        <div class="subtitle">Select a search result to inspect full details and stat blocks.</div>
-      </div>
-      <div class="output-card">
-        <h3>No Result Selected</h3>
-        <div class="output-value">Click any result in the left panel to display its full output here.</div>
+      <div class="output-card empty-state-card" style="min-height: 360px;">
+        <div class="empty-text">
+          Select a search result in the left panel to inspect details here.
+        </div>
       </div>
     </div>
   </div>
@@ -108,7 +145,9 @@
 <script>
   const state = {
     meta: null,
-    selectedResultKey: null
+    selectedResultKey: null,
+    compendiums: [],
+    compendiumById: {}
   };
 
   const els = {
@@ -119,6 +158,15 @@
     location: document.getElementById('filter-location'),
     race: document.getElementById('filter-race'),
     profession: document.getElementById('filter-profession'),
+    includeLocal: document.getElementById('include-local'),
+    includeLore: document.getElementById('include-lore'),
+    includeFoundry: document.getElementById('include-foundry'),
+    includeCsrd: document.getElementById('include-csrd'),
+    includeOfficial: document.getElementById('include-official'),
+    includeGodforsaken: document.getElementById('include-godforsaken'),
+    compendiumFilters: document.getElementById('compendium-filters'),
+    filtersSelectAllBtn: document.getElementById('filters-select-all-btn'),
+    filtersDeselectAllBtn: document.getElementById('filters-deselect-all-btn'),
     searchBtn: document.getElementById('search-btn'),
     resetBtn: document.getElementById('reset-btn'),
     trashToggleBtn: document.getElementById('trash-toggle-btn'),
@@ -147,6 +195,49 @@
     });
   }
 
+  function getCompendiumCheckboxes() {
+    if (!els.compendiumFilters) return [];
+    return Array.from(els.compendiumFilters.querySelectorAll('input[data-compendium-id]'));
+  }
+
+  function getSelectedCompendiumIds() {
+    return getCompendiumCheckboxes()
+      .filter(cb => cb.checked)
+      .map(cb => String(cb.dataset.compendiumId || "").trim().toLowerCase())
+      .filter(Boolean);
+  }
+
+  function setSelectedCompendiumIds(ids) {
+    const wanted = new Set((Array.isArray(ids) ? ids : []).map(v => String(v || "").trim().toLowerCase()).filter(Boolean));
+    getCompendiumCheckboxes().forEach((cb) => {
+      cb.checked = wanted.size ? wanted.has(String(cb.dataset.compendiumId || "").toLowerCase()) : true;
+    });
+  }
+
+  function setAllCheckboxFilters(checked) {
+    [
+      els.includeLocal,
+      els.includeLore,
+      els.includeFoundry,
+      els.includeCsrd,
+      els.includeOfficial,
+      els.includeGodforsaken,
+    ].forEach((input) => {
+      if (input) input.checked = checked;
+    });
+    getCompendiumCheckboxes().forEach((cb) => {
+      cb.checked = checked;
+    });
+  }
+
+  function syncLegacySourceTogglesFromCompendiums() {
+    // Intentionally no-op: source toggles and compendium toggles are independent controls.
+  }
+
+  function syncCompendiumsFromLegacySourceToggles() {
+    // Intentionally no-op: source toggles and compendium toggles are independent controls.
+  }
+
   function escapeHtml(text) {
     return String(text ?? '')
       .replace(/&/g, "&amp;")
@@ -166,6 +257,7 @@
       monster: "Monster",
       cypher: "Cypher",
       artifact: "Artifact",
+      artifacts: "Artifacts",
       attack: "Attack",
       inn: "Inn",
       encounter: "Encounter",
@@ -178,21 +270,125 @@
       descriptor: "Descriptor",
       focus: "Focus",
       ability: "Ability",
-      skill: "Skill"
+      skill: "Skill",
+      lore: "Lore"
     };
     return labels[value] || titleCase(value || "item");
   }
 
   function sourceLabel(value) {
+    const key = String(value || "").trim().toLowerCase();
+    const compendium = state.compendiumById[key];
+    if (compendium && compendium.name) {
+      return String(compendium.name);
+    }
     const labels = {
       storage: "House",
-      compendium: "CSRD"
+      lore: "Lore",
+      compendium: "CSRD",
+      foundryvtt: "FoundryVTT",
+      foundry_vtt: "FoundryVTT",
+      godforsaken: "Godforsaken",
+      official_pdf: "Official PDF"
     };
-    return labels[value] || titleCase(value || "source");
+    return labels[key] || titleCase(key || "source");
+  }
+
+  function normalizeTypeValue(value) {
+    const raw = String(value || "").trim().toLowerCase();
+    if (raw === "artifacts") return "artifact";
+    if (raw === "cyphers") return "cypher";
+    return raw;
+  }
+
+  function isOfficialCompendiumSource(value) {
+    const key = String(value || "").trim().toLowerCase();
+    if (!key || key === "compendium" || key === "storage" || key === "lore") return false;
+    if (key === "official_pdf" || key === "godforsaken") return true;
+    const compendium = state.compendiumById[key];
+    return Boolean(compendium && compendium.source_kind === "official");
   }
 
   function sourceBadgeClass(value) {
-    return value === "compendium" ? "source-csrd" : "source-house";
+    const key = String(value || "").trim().toLowerCase();
+    if (key === "compendium") return "source-csrd";
+    if (key === "foundryvtt" || key === "foundry_vtt") return "source-foundry";
+    const bySource = {
+      godforsaken: "book-badge book-godforsaken",
+      claim_the_sky: "book-badge book-claim-the-sky",
+      the_stars_are_fire: "book-badge book-stars-are-fire",
+      its_only_magic: "book-badge book-its-only-magic",
+      high_noon_at_midnight: "book-badge book-high-noon-at-midnight",
+      neon_rain: "book-badge book-neon-rain",
+      rust_and_redemption: "book-badge book-rust-and-redemption",
+      stay_alive: "book-badge book-stay-alive",
+      we_are_all_mad_here: "book-badge book-we-are-all-mad-here",
+      first_responders: "book-badge book-first-responders",
+    };
+    if (bySource[key]) return bySource[key];
+    if (key === "official_pdf" || isOfficialCompendiumSource(key)) return "source-official";
+    return "source-house";
+  }
+
+  function isFoundrySourceValue(value) {
+    const key = String(value || "").trim().toLowerCase();
+    return key === "foundryvtt" || key === "foundry_vtt";
+  }
+
+  function foundrySyncBadge(label = "Synced from FoundryVTT") {
+    return `<span class="tag-badge tag-badge-foundry-sync"><span class="k">Synced</span>${escapeHtml(label)}</span>`;
+  }
+
+  function slugifyText(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function officialBookLabel(item) {
+    const raw = item && item.raw ? item.raw : {};
+    return String((item && item.book) || raw.book || "").trim();
+  }
+
+  function officialPagesLabel(item) {
+    const raw = item && item.raw ? item.raw : {};
+    return String((item && item.pages) || raw.pages || "").trim();
+  }
+
+  function officialBookBadgeClass(bookLabel) {
+    const key = slugifyText(bookLabel);
+    const paletteByBook = {
+      "godforsaken": "book-godforsaken",
+      "claim-the-sky": "book-claim-the-sky",
+      "the-stars-are-fire": "book-stars-are-fire",
+      "its-only-magic": "book-its-only-magic",
+      "high-noon-at-midnight": "book-high-noon-at-midnight",
+      "neon-rain": "book-neon-rain",
+      "rust-and-redemption": "book-rust-and-redemption",
+      "stay-alive": "book-stay-alive",
+      "we-are-all-mad-here": "book-we-are-all-mad-here",
+      "first-responders": "book-first-responders"
+    };
+    if (paletteByBook[key]) return paletteByBook[key];
+    return "book-badge";
+  }
+
+  function officialBookCardClass(bookLabel) {
+    const key = slugifyText(bookLabel);
+    const map = {
+      "godforsaken": "official-book-godforsaken",
+      "claim-the-sky": "official-book-claim-the-sky",
+      "the-stars-are-fire": "official-book-stars-are-fire",
+      "its-only-magic": "official-book-its-only-magic",
+      "high-noon-at-midnight": "official-book-high-noon-at-midnight",
+      "neon-rain": "official-book-neon-rain",
+      "rust-and-redemption": "official-book-rust-and-redemption",
+      "stay-alive": "official-book-stay-alive",
+      "we-are-all-mad-here": "official-book-we-are-all-mad-here"
+    };
+    return map[key] || "";
   }
 
   function compactText(value, limit = 280) {
@@ -221,6 +417,147 @@
     );
   }
 
+  function canCopyArtPrompt(itemType) {
+    const t = String(itemType || "").trim().toLowerCase();
+    return new Set([
+      "npc",
+      "character",
+      "character_sheet",
+      "artifact",
+      "cypher",
+      "location",
+      "area",
+      "settlement",
+      "lore",
+    ]).has(t);
+  }
+
+  function pickFirstNonEmpty(...values) {
+    for (const v of values) {
+      const s = String(v || "").trim();
+      if (s) return s;
+    }
+    return "";
+  }
+
+  function compactPromptText(value, limit = 600) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    if (!text) return "";
+    return text.length > limit ? `${text.slice(0, limit - 1).trim()}…` : text;
+  }
+
+  function inferStylePrompt({ itemType, setting }) {
+    const t = String(itemType || "").toLowerCase();
+    const s = String(setting || "").toLowerCase();
+    const isFantasy = s.includes("fantasy") || s.includes("godforsaken");
+    const legendBase = isFantasy
+      ? "Legend style fantasy concept art, painterly realism, rich atmospheric storytelling"
+      : "Cinematic concept art, high-detail illustration, dramatic composition";
+
+    if (["npc", "character", "character_sheet"].includes(t)) {
+      return `${legendBase}, character portrait and full-body design, expressive pose, grounded details`;
+    }
+    if (["artifact", "cypher"].includes(t)) {
+      return `${legendBase}, item concept render, clean silhouette, material readability, showcase lighting`;
+    }
+    if (["location", "area", "settlement", "lore"].includes(t)) {
+      return `${legendBase}, environment concept art, strong sense of place, layered depth`;
+    }
+    return `${legendBase}, polished concept illustration`;
+  }
+
+  function buildArtPromptFromData({ source, itemType, data, cardTitle = "" }) {
+    const t = String(itemType || "").toLowerCase();
+    const isStorage = source === "storage";
+    const root = (isStorage && data && data.result) ? data.result : (data || {});
+    const meta = (root && typeof root.metadata === "object" && root.metadata) ? root.metadata : {};
+    const sections = (root && typeof root.sections === "object" && root.sections) ? root.sections : {};
+    const sheet = (root && typeof root.sheet === "object" && root.sheet) ? root.sheet : {};
+
+    const name = pickFirstNonEmpty(
+      root.name,
+      root.title,
+      sheet.name,
+      cardTitle,
+      "Unnamed Subject"
+    );
+    const setting = pickFirstNonEmpty(
+      (Array.isArray(meta.settings) ? meta.settings.join(", ") : ""),
+      meta.setting,
+      (Array.isArray(root.settings) ? root.settings.join(", ") : ""),
+      root.setting
+    );
+    const environment = pickFirstNonEmpty(
+      meta.area_description,
+      root.area_description,
+      meta.area,
+      meta.environment,
+      root.area,
+      root.environment,
+      (data && data.location) || ""
+    );
+    const description = compactPromptText(pickFirstNonEmpty(
+      root.description,
+      sections.description,
+      sections.character,
+      sections.summary,
+      root.summary,
+      data?.description,
+      data?.excerpt,
+      sheet.notes
+    ), 700);
+    const propsArmor = compactPromptText([
+      sections.weapons_props,
+      sections.clothing,
+      root.armor,
+      root.weapons,
+      root.combat,
+      Array.isArray(root.equipment) ? root.equipment.join(", ") : "",
+      Array.isArray(sheet.equipment) ? sheet.equipment.join(", ") : ""
+    ].filter(Boolean).join("; "), 420);
+    const style = inferStylePrompt({ itemType: t, setting });
+
+    const lines = [
+      `${name}.`,
+      description ? `Description: ${description}.` : "",
+      environment ? `Environment: ${environment}.` : "",
+      setting ? `Genre/Setting: ${setting}.` : "",
+      propsArmor ? `Props and armor: ${propsArmor}.` : "",
+      `Style: ${style}.`,
+      "Optimized for Atomic Pro image generation, high detail, cohesive lighting, no text, no watermark."
+    ].filter(Boolean);
+
+    return lines.join(" ");
+  }
+
+  async function copyTextToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "readonly");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+  }
+
+  async function copyArtPromptForCard({ source, url, itemType, title }) {
+    const full = await fetchJson(url);
+    const prompt = buildArtPromptFromData({
+      source,
+      itemType,
+      data: full,
+      cardTitle: title || "",
+    });
+    await copyTextToClipboard(prompt);
+    els.status.textContent = "Copied AI art prompt to clipboard.";
+  }
+
   function scrollToPageTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -239,24 +576,54 @@
     const out = [];
     raw.forEach(value => {
       let text = String(value || "").trim().replaceAll("\\", "/");
+      const lower = text.toLowerCase();
+      if (lower.startsWith("http://") || lower.startsWith("https://") || lower.startsWith("data:")) {
+        if (text && !out.includes(text)) out.push(text);
+        return;
+      }
       if (text.startsWith("/images/")) text = text.slice("/images/".length);
-      if (text.startsWith("images/")) text = text.slice("images/".length);
+      else if (text.startsWith("images/")) text = text.slice("images/".length);
+      else if (text.startsWith("/")) {
+        if (text && !out.includes(text)) out.push(text);
+        return;
+      }
       text = text.replace(/^\/+/, "");
       if (text && !out.includes(text)) out.push(text);
     });
     return out;
   }
 
-  function imageUrl(ref) {
+  function imageUrl(ref, originHint = "") {
     const clean = normalizeImageRefs([ref])[0];
-    return clean ? `/images/${clean}` : "";
+    if (!clean) return "";
+    const lower = clean.toLowerCase();
+    if (lower.startsWith("http://") || lower.startsWith("https://") || lower.startsWith("data:") || clean.startsWith("/")) {
+      return clean;
+    }
+    const origin = String(originHint || "").trim().replace(/\/+$/, "");
+    if (origin && /^(modules|systems|icons|assets)\//i.test(clean)) {
+      return `${origin}/${clean}`;
+    }
+    if (/^(modules|systems|icons|assets)\//i.test(clean)) {
+      return "";
+    }
+    return `/images/${clean}`;
   }
 
-  function renderImageCollage(images) {
+  function renderImageCollage(images, originHint = "", options = {}) {
     const refs = normalizeImageRefs(images).slice(0, 4);
-    if (!refs.length) return "";
-    const klass = refs.length === 1 ? "card-image-collage one" : "card-image-collage";
-    return `<div class="${klass}">${refs.map(ref => `<img src="${escapeHtml(imageUrl(ref))}" data-image-popup="1" data-fullsrc="${escapeHtml(imageUrl(ref))}" alt="${escapeHtml(ref)}" loading="lazy" />`).join("")}</div>`;
+    const resolved = refs
+      .map(ref => ({ ref, src: imageUrl(ref, originHint) }))
+      .filter(item => item.src);
+    if (!resolved.length) return "";
+    const klass = [
+      "card-image-collage",
+      resolved.length === 1 ? "one" : "",
+      options.circleMask ? "card-image-collage--circle" : "",
+    ].filter(Boolean).join(" ");
+    return `<div class="${klass}">${resolved.map(({ ref, src }) => {
+      return `<img src="${escapeHtml(src)}" data-image-popup="1" data-fullsrc="${escapeHtml(src)}" alt="${escapeHtml(ref)}" loading="lazy" />`;
+    }).join("")}</div>`;
   }
 
   async function resizeImageForWeb(file, { maxWidth = 1600, maxHeight = 1600, quality = 0.86 } = {}) {
@@ -339,6 +706,35 @@
     }
   }
 
+  async function ensureLocalVariantForImported({ source, itemType, slug }) {
+    const endpoint = isOfficialCompendiumSource(source)
+      ? "/official-compendium/make-local"
+      : "/compendium/make-local";
+    const body = {
+      type: itemType,
+      slug,
+      setting: els.setting?.value || "",
+      area: els.environment?.value || "",
+      location: els.location?.value || "",
+    };
+    return fetchJson(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+  }
+
+  async function quickUploadImportedResultImage({ source, itemType, slug }) {
+    if (!source || !itemType || !slug) return;
+    els.status.textContent = "Preparing local variant for image attachment...";
+    const created = await ensureLocalVariantForImported({ source, itemType, slug });
+    const filename = created?.storage?.filename || "";
+    if (!filename) {
+      throw new Error("failed to create local variant for image attachment");
+    }
+    await quickUploadStorageResultImage(filename);
+  }
+
   function deriveDefaultImageMeta(context) {
     const meta = (context && typeof context.metadata === "object" && context.metadata) ? context.metadata : {};
     const name = String((context && context.name) || "").trim();
@@ -349,9 +745,14 @@
     };
     push(meta.area || meta.environment || "");
     (Array.isArray(meta.settings) ? meta.settings : [meta.setting]).forEach(push);
-    if (window.lolSettingContext && typeof window.lolSettingContext.getWorldSetting === "function") {
-      const world = window.lolSettingContext.getWorldSetting() || "";
-      push(world);
+    if (window.lolSettingContext) {
+      const getSettingFn = (typeof window.lolSettingContext.getSetting === "function")
+        ? window.lolSettingContext.getSetting
+        : (typeof window.lolSettingContext.getWorldSetting === "function"
+          ? window.lolSettingContext.getWorldSetting
+          : null);
+      const setting = getSettingFn ? (getSettingFn() || "") : "";
+      push(setting);
     }
     return { friendlyName: name, tags };
   }
@@ -584,17 +985,24 @@
     `;
   }
 
-  function renderStatBlockCard(statBlock) {
-    const top = `
+  function renderStatBlockCard(statBlock, options = {}) {
+    const includeNarrativeLists = options.includeNarrativeLists !== false;
+    const chipData = [
+      ["Level", statBlock.level],
+      ["Target Number", statBlock.target_number],
+      ["Health", statBlock.health],
+      ["Armor", statBlock.armor],
+      ["Damage", statBlock.damage],
+      ["Movement", statBlock.movement],
+    ].filter(([, value]) => String(value ?? "").trim() !== "");
+
+    const top = chipData.length ? `
       <div class="stat-grid">
-        <div class="stat-chip"><div class="k">Level</div><div class="v">${escapeHtml(statBlock.level ?? "")}</div></div>
-        <div class="stat-chip"><div class="k">Target Number</div><div class="v">${escapeHtml(statBlock.target_number ?? "")}</div></div>
-        <div class="stat-chip"><div class="k">Health</div><div class="v">${escapeHtml(statBlock.health ?? "")}</div></div>
-        <div class="stat-chip"><div class="k">Armor</div><div class="v">${escapeHtml(statBlock.armor ?? "")}</div></div>
-        <div class="stat-chip"><div class="k">Damage</div><div class="v">${escapeHtml(statBlock.damage ?? "")}</div></div>
-        <div class="stat-chip"><div class="k">Movement</div><div class="v">${escapeHtml(statBlock.movement ?? "")}</div></div>
+        ${chipData.map(([label, value]) => `
+          <div class="stat-chip"><div class="k">${escapeHtml(label)}</div><div class="v">${escapeHtml(value)}</div></div>
+        `).join("")}
       </div>
-    `;
+    ` : "";
 
     const renderList = (label, items) => {
       if (!Array.isArray(items) || !items.length) return "";
@@ -608,25 +1016,397 @@
       `;
     };
 
+    const hasLists = includeNarrativeLists && Boolean(
+      (Array.isArray(statBlock.modifications) && statBlock.modifications.length) ||
+      (Array.isArray(statBlock.combat) && statBlock.combat.length) ||
+      (Array.isArray(statBlock.interaction) && statBlock.interaction.length) ||
+      (Array.isArray(statBlock.loot) && statBlock.loot.length)
+    );
+
+    if (!top && !hasLists) return "";
+
     return `
       <div class="output-card">
         <h3>Stat Block</h3>
         ${top}
-        ${renderList("Modifications", statBlock.modifications)}
-        ${renderList("Combat", statBlock.combat)}
-        ${renderList("Interaction", statBlock.interaction)}
-        ${renderList("Loot", statBlock.loot)}
+        ${includeNarrativeLists ? renderList("Modifications", statBlock.modifications) : ""}
+        ${includeNarrativeLists ? renderList("Combat", statBlock.combat) : ""}
+        ${includeNarrativeLists ? renderList("Interaction", statBlock.interaction) : ""}
+        ${includeNarrativeLists ? renderList("Loot", statBlock.loot) : ""}
       </div>
     `;
   }
 
-  function renderCypherCard(data) {
+  function extractOfficialEntryText(fullText, title) {
+    const text = String(fullText || "").replace(/\r\n/g, "\n");
+    const titleText = String(title || "").trim();
+    if (!text || !titleText) return text;
+    const lines = text.split("\n");
+    const normalize = (value) => String(value || "")
+      .toUpperCase()
+      .replace(/[^A-Z0-9]+/g, " ")
+      .trim();
+    const normTitle = normalize(titleText);
+    if (!normTitle) return text;
+
+    const looksLikeHeading = (line) => {
+      const t = String(line || "").trim();
+      if (!t || t.includes(":")) return false;
+      if (t.length < 3 || t.length > 80) return false;
+      if (/[a-z]/.test(t)) return false;
+      return /[A-Z]/.test(t);
+    };
+
+    let start = -1;
+    for (let i = 0; i < lines.length; i += 1) {
+      const n = normalize(lines[i]);
+      if (!n) continue;
+      if (n === normTitle || n.startsWith(`${normTitle} `) || n.includes(` ${normTitle} `)) {
+        start = i;
+        break;
+      }
+    }
+    if (start < 0) return text;
+
+    let end = lines.length;
+    for (let i = start + 1; i < lines.length; i += 1) {
+      const current = String(lines[i] || "").trim();
+      const n = normalize(current);
+      if (!n) continue;
+      if (n === normTitle || n.startsWith(normTitle)) continue;
+      if (looksLikeHeading(current)) {
+        end = i;
+        break;
+      }
+    }
+    return lines.slice(start, end).join("\n").trim();
+  }
+
+  function parseLabeledBlocks(text, labels) {
+    const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
+    const canonicalByLower = {};
+    labels.forEach((label) => {
+      const original = String(label || "").trim();
+      if (!original) return;
+      canonicalByLower[original.toLowerCase()] = original;
+    });
+    const starts = [];
+    for (let i = 0; i < lines.length; i += 1) {
+      const m = lines[i].match(/^\s*([A-Za-z][A-Za-z ]{1,40}):\s*(.*)$/);
+      if (!m) continue;
+      const labelRaw = String(m[1] || "").trim();
+      const key = labelRaw.toLowerCase();
+      const canonical = canonicalByLower[key];
+      if (canonical) starts.push({ i, label: canonical, first: String(m[2] || "").trim() });
+    }
+    if (!starts.length) return {};
+
+    const out = {};
+    for (let idx = 0; idx < starts.length; idx += 1) {
+      const curr = starts[idx];
+      const next = starts[idx + 1];
+      const until = next ? next.i : lines.length;
+      const chunk = [curr.first];
+      for (let j = curr.i + 1; j < until; j += 1) {
+        const row = String(lines[j] || "").trim();
+        if (!row) continue;
+        chunk.push(row);
+      }
+      out[curr.label] = chunk.join(" ").replace(/\s+/g, " ").trim();
+    }
+    return out;
+  }
+
+  function parseOfficialCypherArtifact(data) {
+    const rawText = extractOfficialEntryText(data.text || data.description || "", data.title || data.name || "");
+    const parsed = parseLabeledBlocks(rawText, ["Level", "Effect", "Depletion", "Limitation", "Manifestation", "Appearance", "Quirk"]);
+    return {
+      level: parsed.Level || "",
+      effect: parsed.Effect || "",
+      depletion: parsed.Depletion || "",
+      limitation: parsed.Limitation || "",
+      manifestation: parsed.Manifestation || "",
+      appearance: parsed.Appearance || "",
+      quirk: parsed.Quirk || "",
+      excerpt: rawText,
+    };
+  }
+
+  function stripLabeledLines(text, labels) {
+    const labelSet = new Set((labels || []).map(x => String(x || "").toLowerCase()));
+    return String(text || "")
+      .replace(/\r\n/g, "\n")
+      .split("\n")
+      .filter((line) => {
+        const m = String(line || "").match(/^\s*([A-Za-z][A-Za-z ]{1,40}):\s*(.*)$/);
+        if (!m) return true;
+        const label = String(m[1] || "").trim().toLowerCase();
+        return !labelSet.has(label);
+      })
+      .join("\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
+  function parseGenericCypherArtifact(data) {
+    const sections = data && typeof data.sections === "object" ? data.sections : {};
+    const text = String(
+      sections.effect ||
+      sections.description ||
+      data.effect ||
+      data.description ||
+      data.text ||
+      ""
+    );
+    const labels = [
+      "Level",
+      "Effect",
+      "Depletion",
+      "Limitation",
+      "Manifestation",
+      "Appearance",
+      "Quirk",
+      "Form"
+    ];
+    const parsed = parseLabeledBlocks(text, labels);
+    // Handle inline format like:
+    // "Level: 1d6 Form: crystal ring Effect: ..."
+    const inlineParsed = {};
+    const labelAlternation = labels.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+    const inlineRegex = new RegExp(`\\b(${labelAlternation})\\s*:\\s*`, "gi");
+    const starts = [];
+    let m;
+    while ((m = inlineRegex.exec(text)) !== null) {
+      starts.push({
+        label: String(m[1] || "").trim(),
+        labelStart: m.index,
+        valueStart: inlineRegex.lastIndex,
+      });
+    }
+    for (let i = 0; i < starts.length; i += 1) {
+      const current = starts[i];
+      const next = starts[i + 1];
+      const end = next ? next.labelStart : text.length;
+      const raw = text.slice(current.valueStart, end >= current.valueStart ? end : text.length).trim();
+      if (raw) inlineParsed[current.label] = raw;
+    }
+    const merged = { ...inlineParsed, ...parsed };
+    const cleaned = stripLabeledLines(text, [
+      "Level",
+      "Depletion",
+      "Limitation",
+      "Manifestation",
+      "Appearance",
+      "Quirk",
+      "Form"
+    ]);
+    return {
+      level: merged.Level || "",
+      effect: merged.Effect || cleaned || text,
+      depletion: merged.Depletion || "",
+      limitation: merged.Limitation || "",
+      manifestation: merged.Manifestation || merged.Form || "",
+      appearance: merged.Appearance || "",
+      quirk: merged.Quirk || "",
+    };
+  }
+
+  function cleanupStructuredEffect(value) {
+    let text = String(value || "").trim();
+    if (!text) return "";
+    if (/\bEffect\s*:/i.test(text) && /\b(Level|Form|Manifestation|Appearance|Limitation|Depletion|Quirk)\s*:/i.test(text)) {
+      text = text.replace(/^[\s\S]*?\bEffect\s*:\s*/i, "");
+    }
+    text = stripLabeledLines(text, [
+      "Level",
+      "Form",
+      "Manifestation",
+      "Appearance",
+      "Limitation",
+      "Depletion",
+      "Quirk",
+    ]);
+    return text.trim();
+  }
+
+  function buildOfficialNpcHouseView(item) {
+    const entryText = extractOfficialEntryText(item.text || item.description || "", item.title || item.slug || "");
+    const parsed = parseLabeledBlocks(entryText, [
+      "Motive", "Health", "Damage Inflicted", "Armor", "Movement",
+      "Environment", "Modifications", "Combat", "Interaction", "Use", "Loot", "GM intrusion", "GM Intrusion"
+    ]);
+    const intro = entryText
+      .split("\n")
+      .map(x => x.trim())
+      .filter(Boolean)
+      .find(x => !/^[A-Za-z][A-Za-z ]{1,40}:/.test(x) && !/^[A-Z0-9][A-Z0-9 ()'-]+$/.test(x)) || item.description || "";
+
+    const headingLine = entryText
+      .split("\n")
+      .map(x => x.trim())
+      .find(x => {
+        const upper = String(x || "").toUpperCase();
+        return upper.includes(String(item.title || "").toUpperCase()) && /\d+\s*\(/.test(x);
+      }) || "";
+    const levelMatch = headingLine.match(/\b(\d+)\s*\(/);
+    const level = levelMatch ? Number(levelMatch[1]) : undefined;
+    const healthFromHeadingMatch = headingLine.match(/\((\d+)\)/);
+    const healthFromHeading = healthFromHeadingMatch ? Number(healthFromHeadingMatch[1]) : undefined;
+    const numericHealth = Number(String(parsed["Health"] || "").match(/\d+/)?.[0] || 0) || undefined;
+    const numericArmor = Number(String(parsed["Armor"] || "").match(/\d+/)?.[0] || 0);
+    const numericDamage = Number(String(parsed["Damage Inflicted"] || "").match(/\d+/)?.[0] || 0) || undefined;
+    const targetNumber = level ? level * 3 : undefined;
+
+    const houseLikeResult = {
+      type: "npc",
+      name: item.title || item.slug || "NPC",
+      description: intro,
+      sections: {
+        character: intro,
+        appearance: parsed["Interaction"] || "",
+        clothing: parsed["Armor"] ? `Armor: ${parsed["Armor"]}` : "",
+        weapons_props: parsed["Combat"] || "",
+        motive: parsed["Motive"] || "",
+        environment: parsed["Environment"] || "",
+        interaction: parsed["Interaction"] || "",
+        use: parsed["Use"] || "",
+        loot: parsed["Loot"] || "",
+        gm_intrusion: parsed["GM intrusion"] || parsed["GM Intrusion"] || "",
+      },
+      metadata: {
+        images: Array.isArray(item.images) ? item.images : [],
+      },
+      stat_block: {
+        level,
+        target_number: targetNumber,
+        health: numericHealth || healthFromHeading,
+        armor: Number.isFinite(numericArmor) ? numericArmor : undefined,
+        damage: numericDamage,
+        movement: parsed["Movement"] || "",
+        modifications: parsed["Modifications"] ? [parsed["Modifications"]] : [],
+        combat: parsed["Combat"] ? [parsed["Combat"]] : [],
+        interaction: parsed["Interaction"] ? [parsed["Interaction"]] : [],
+        loot: parsed["Loot"] ? [parsed["Loot"]] : [],
+      },
+    };
+
+    return {
+      result: houseLikeResult,
+      parsed,
+    };
+  }
+
+  function parseNpcNarrativeFields(text) {
+    const parsed = parseLabeledBlocks(String(text || ""), [
+      "Motive",
+      "Environment",
+      "Health",
+      "Damage Inflicted",
+      "Armor",
+      "Movement",
+      "Modifications",
+      "Combat",
+      "Interaction",
+      "Use",
+      "Loot",
+      "GM intrusion",
+      "GM Intrusion",
+    ]);
+    return {
+      motive: parsed["Motive"] || "",
+      environment: parsed["Environment"] || "",
+      movement: parsed["Movement"] || "",
+      modifications: parsed["Modifications"] || "",
+      combat: parsed["Combat"] || "",
+      interaction: parsed["Interaction"] || "",
+      use: parsed["Use"] || "",
+      loot: parsed["Loot"] || "",
+      gm_intrusion: parsed["GM intrusion"] || parsed["GM Intrusion"] || "",
+    };
+  }
+
+  function renderCypherCard(data, imageRefs = null) {
     const sections = data.sections || {};
-    const level = sections.level || data.level || (data.metadata && data.metadata.level) || "";
+    const metadata = (data && typeof data.metadata === "object" && data.metadata) ? data.metadata : {};
+    const parsedGeneric = parseGenericCypherArtifact(data);
+    const level = pickFirstNonEmpty(
+      sections.level,
+      data.level,
+      parsedGeneric.level,
+      data.metadata && data.metadata.level
+    );
     const isArtifact = data.type === "artifact";
     const name = data.name || sections.name || data.title || (isArtifact ? "Unnamed Artifact" : "Unnamed Cypher");
-    const limitLabel = isArtifact ? "Depletion" : "Limitation";
-    const limitValue = sections.depletion || sections.limitation || data.depletion;
+    const typeName = isArtifact ? "Artifact" : "Cypher";
+    const sourceKey = String(data._ui_source || data.source || "").toLowerCase();
+    const parsedOfficial = isOfficialCompendiumSource(sourceKey)
+      ? parseOfficialCypherArtifact(data)
+      : null;
+    const fallbackOfficialEffect = parsedOfficial
+      ? String(parsedOfficial.excerpt || "")
+          .split("\n")
+          .map(x => x.trim())
+          .filter(Boolean)
+          .slice(0, 2)
+          .join(" ")
+      : "";
+    const rawEffect = pickFirstNonEmpty(sections.effect, data.effect);
+    const rawLooksStructured = /\b(Level|Form|Manifestation|Appearance|Limitation|Depletion|Quirk)\s*:/i.test(String(rawEffect || ""));
+    const effect = cleanupStructuredEffect(
+      (
+      (rawLooksStructured ? parsedGeneric.effect : "") ||
+      rawEffect ||
+      (parsedOfficial && parsedOfficial.effect) ||
+      parsedGeneric.effect ||
+      fallbackOfficialEffect ||
+      data.description ||
+      ""
+      )
+    );
+    const category = pickFirstNonEmpty(data.category, sections.category);
+    const manifestation = pickFirstNonEmpty(
+      sections.manifestation,
+      sections.form,
+      data.form,
+      parsedOfficial && parsedOfficial.manifestation,
+      parsedGeneric.manifestation
+    );
+    const appearance = pickFirstNonEmpty(
+      sections.appearance,
+      parsedOfficial && parsedOfficial.appearance,
+      parsedGeneric.appearance
+    );
+    const quirk = pickFirstNonEmpty(
+      sections.quirk,
+      parsedOfficial && parsedOfficial.quirk,
+      parsedGeneric.quirk
+    );
+    const depletion = pickFirstNonEmpty(
+      sections.depletion,
+      data.depletion,
+      parsedOfficial && parsedOfficial.depletion,
+      parsedGeneric.depletion
+    );
+    const limitation = pickFirstNonEmpty(
+      sections.limitation,
+      parsedOfficial && parsedOfficial.limitation,
+      parsedGeneric.limitation
+    );
+    const primaryLimitLabel = isArtifact ? "Depletion" : (limitation ? "Limitation" : "Depletion");
+    const primaryLimitValue = isArtifact ? depletion : (limitation || depletion);
+    const areaTag = String(data.area || data.environment || metadata.area || metadata.environment || "").trim();
+    const sourceKeyForTag = String(data._ui_source || data.source || metadata.source || (metadata.from_csrd ? "compendium" : "storage")).trim().toLowerCase();
+    const isFoundrySource = isFoundrySourceValue(sourceKeyForTag);
+    const bookLabel = String(data.book || "").trim();
+    const sourceTag = isOfficialCompendiumSource(sourceKeyForTag)
+      ? (bookLabel || sourceLabel(sourceKeyForTag))
+      : sourceLabel(sourceKeyForTag);
+    const images = normalizeImageRefs(
+      Array.isArray(imageRefs)
+        ? imageRefs
+        : ((data.metadata && data.metadata.images) || data.images || [])
+    );
+    const foundryOrigin = String(metadata.foundry_origin || "").trim();
 
     const field = (label, value) => {
       if (!value) return "";
@@ -638,24 +1418,55 @@
       `;
     };
 
+    const chip = (label, value, extraClass = "") => {
+      if (!value) return "";
+      return `
+        <div class="cypher-chip ${extraClass}">
+          <span class="k">${escapeHtml(label)}</span>
+          <span class="v">${escapeHtml(value)}</span>
+        </div>
+      `;
+    };
+
     return `
-      <div class="cypher-card">
+      <div class="cypher-card cypher-card-enhanced ${images.length ? "has-corner-images" : ""}">
+        ${renderImageCollage(images, foundryOrigin, { circleMask: isFoundrySource })}
         <div class="cypher-header">
-          <div class="cypher-title">${escapeHtml(name)}</div>
-          <div class="cypher-badge">
-            <span class="k">LEVEL</span>
-            <span class="v">${escapeHtml(level)}</span>
+          <div>
+            <div class="cypher-title">${escapeHtml(name)}${level ? ` <span class="cypher-level-inline">Lv ${escapeHtml(level)}</span>` : ""}</div>
+            <div class="cypher-kind">${escapeHtml(typeName)}</div>
+          </div>
+          <div class="cypher-badges">
+            ${isArtifact ? chip(primaryLimitLabel, primaryLimitValue, "is-limit") : ""}
           </div>
         </div>
 
-        <div class="cypher-grid">
-          ${field("Category", data.category)}
-          ${field("Manifestation", sections.manifestation)}
-          ${field("Form", data.form)}
-          ${field("Appearance", sections.appearance)}
-          ${field("Effect", sections.effect || data.effect)}
-          ${field(limitLabel, limitValue)}
-          ${field("Quirk", sections.quirk)}
+        ${effect ? `
+          <div class="cypher-effect">
+            <div class="label">Effect</div>
+            <div class="value">${escapeHtml(effect)}</div>
+          </div>
+        ` : ""}
+
+        <div class="cypher-meta-row">
+          ${chip("Category", category)}
+          ${isArtifact ? chip("Manifestation", manifestation) : ""}
+          ${isArtifact ? chip("Appearance", appearance) : ""}
+        </div>
+
+        <div class="cypher-grid cypher-grid-two">
+          ${!isArtifact ? field("Manifestation", manifestation) : ""}
+          ${!isArtifact ? field("Appearance", appearance) : ""}
+          ${!isArtifact ? field("Limitation", limitation) : ""}
+          ${field("Quirk", quirk)}
+          ${isArtifact ? field("Appearance", appearance) : ""}
+          ${field("Depletion", depletion)}
+        </div>
+
+        <div class="tag-row" style="margin-top:12px;">
+          <span class="tag-badge"><span class="k">Type</span>${escapeHtml(typeName)}</span>
+          <span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceTag)}</span>
+          ${areaTag ? `<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaTag)}</span>` : ""}
         </div>
       </div>
     `;
@@ -664,53 +1475,229 @@
   function resolveNpcImage(record, result) {
     const metadata = (result && typeof result.metadata === 'object' && result.metadata) ? result.metadata : {};
     const candidates = [
+      ...(Array.isArray(metadata.images) ? metadata.images : []),
       result.image,
       result.image_url,
       result.portrait,
       result.portrait_url,
       metadata.image,
       metadata.image_url,
-      ...(Array.isArray(metadata.images) ? metadata.images : []),
-      result.sections?.image,
-      record.payload?.image,
-      record.payload?.image_url
+      result.sections?.image
     ];
 
     const imageValue = candidates.find(value => typeof value === 'string' && value.trim());
     const normalized = normalizeImageRefs([imageValue])[0] || '';
     if (!normalized) return '';
-    if (normalized.startsWith('http://') || normalized.startsWith('https://') || normalized.startsWith('/')) {
-      return normalized;
-    }
-    return imageUrl(normalized);
+    return imageUrl(normalized, metadata.foundry_origin);
   }
 
-  function renderTagBadges(metadata) {
+  function renderTagBadges(result, metadata) {
     const tags = [];
-    if (metadata.environment) tags.push(`<span class="tag-badge"><span class="k">Area</span>${escapeHtml(metadata.environment)}</span>`);
+    const resultType = String(result?.type || "").trim();
+    const sourceText = sourceLabel(metadata.source || "storage");
+    const settingText = pickFirstNonEmpty(
+      Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "",
+      metadata.setting,
+      Array.isArray(result?.settings) ? result.settings.join(", ") : "",
+      result?.setting
+    );
+    const areaText = pickFirstNonEmpty(metadata.area, metadata.environment, result?.area, result?.environment);
+    const locationText = pickFirstNonEmpty(metadata.location, result?.location);
+    if (resultType) tags.push(`<span class="tag-badge"><span class="k">Type</span>${escapeHtml(typeLabel(resultType))}</span>`);
+    if (sourceText) tags.push(`<span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceText)}</span>`);
+    if (isFoundrySourceValue(metadata.source)) tags.push(foundrySyncBadge());
+    if (settingText) tags.push(`<span class="tag-badge"><span class="k">Genre/Setting</span>${escapeHtml(settingText)}</span>`);
+    if (areaText) tags.push(`<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaText)}</span>`);
+    if (locationText) tags.push(`<span class="tag-badge"><span class="k">Location</span>${escapeHtml(locationText)}</span>`);
     if (metadata.race) tags.push(`<span class="tag-badge"><span class="k">Race</span>${escapeHtml(metadata.race)}</span>`);
     if (metadata.profession) tags.push(`<span class="tag-badge"><span class="k">Profession</span>${escapeHtml(metadata.profession)}</span>`);
     if (!tags.length) return '';
     return `<div class="output-card"><h3>Tags</h3><div class="tag-row">${tags.join('')}</div></div>`;
   }
 
+  function normalizedOutputTypes() {
+    return new Set(["location", "area", "settlement", "monster", "creature", "inn", "encounter"]);
+  }
+
+  function collectDescriptionRows(result) {
+    const sections = (result && typeof result.sections === "object" && result.sections) ? result.sections : {};
+    const itemType = String(result?.type || "").toLowerCase();
+    const rows = [];
+    const push = (label, value) => {
+      const text = compactText(value, 1200);
+      if (!text) return;
+      rows.push({ label, value: text });
+    };
+
+    if (itemType === "settlement") {
+      const pick = (...values) => pickFirstNonEmpty(...values);
+      push("Settlement Type", pick(result.settlement_type, sections.settlement_type, sections.type));
+      push("Environment", pick(result.environment, result.area, sections.environment, sections.area));
+      push("Visual Feature", pick(result.visual_feature, sections.visual_feature, sections.visuals));
+      push("Landmark", pick(result.landmark, sections.landmark));
+      push("Economy / Survival Basis", pick(
+        result.economy_survival_basis,
+        sections.economy_survival_basis,
+        result.economy,
+        sections.economy,
+        sections.survival_basis
+      ));
+      push("Current Tension", pick(result.current_tension, sections.current_tension, sections.tension));
+      push("Atmosphere", pick(result.atmosphere, sections.atmosphere));
+      push("Local Inn or Tavern", pick(
+        result.local_inn_or_tavern,
+        sections.local_inn_or_tavern,
+        result.inn,
+        sections.inn,
+        sections.tavern
+      ));
+    }
+
+    if (["npc", "creature", "monster"].includes(itemType)) {
+      const parsed = parseNpcNarrativeFields(result.text || result.description || "");
+      const pick = (...values) => pickFirstNonEmpty(...values);
+      push("Motive", pick(sections.motive, result.motive, parsed.motive));
+      push("Environment", pick(sections.environment, sections.area, result.environment, result.area, parsed.environment));
+      push("Movement", pick(result.movement, sections.movement, parsed.movement));
+      push("Modifications", pick(sections.modifications, result.modifications, parsed.modifications));
+      push("Combat", pick(sections.combat, result.combat, parsed.combat));
+      push("Interaction", pick(sections.interaction, result.interaction, parsed.interaction));
+      push("Use", pick(sections.use, result.use, parsed.use));
+      push("Loot", pick(sections.loot, result.loot, parsed.loot));
+      push("GM Intrusion", pick(sections.gm_intrusion, sections.gmIntrusion, result.gm_intrusion, result.gmIntrusion, parsed.gm_intrusion));
+    }
+
+    push("Description", result.description);
+    const sectionOrder = [
+      ["Summary", sections.summary],
+      ["Details", sections.details],
+      ["Appearance", sections.appearance],
+      ["Environment", sections.environment],
+      ["Area", sections.area],
+      ["History", sections.history],
+      ["Culture", sections.culture],
+      ["Situation", sections.situation],
+      ["Combat", sections.combat],
+      ["Interaction", sections.interaction],
+      ["Use", sections.use],
+      ["Loot", sections.loot],
+      ["GM Intrusion", sections.gm_intrusion || sections.gmIntrusion],
+    ];
+    sectionOrder.forEach(([label, value]) => push(label, value));
+    if (!rows.length) push("Description", result.text || "");
+    return rows;
+  }
+
+  function renderNormalizedTagRow({ result, metadata = {}, source = "storage", book = "", pages = "" }) {
+    const sourceText = sourceLabel(source);
+    const settingText = pickFirstNonEmpty(
+      Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "",
+      metadata.setting,
+      Array.isArray(result.settings) ? result.settings.join(", ") : "",
+      result.setting
+    );
+    const areaText = pickFirstNonEmpty(metadata.area, metadata.environment, result.area, result.environment);
+    const locationText = pickFirstNonEmpty(metadata.location, result.location);
+    const tags = [
+      `<span class="tag-badge"><span class="k">Type</span>${escapeHtml(typeLabel(result.type || "item"))}</span>`,
+      `<span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceText)}</span>`,
+      isFoundrySourceValue(source) ? foundrySyncBadge() : "",
+      settingText ? `<span class="tag-badge"><span class="k">Genre/Setting</span>${escapeHtml(settingText)}</span>` : "",
+      areaText ? `<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaText)}</span>` : "",
+      locationText ? `<span class="tag-badge"><span class="k">Location</span>${escapeHtml(locationText)}</span>` : "",
+      book ? `<span class="tag-badge"><span class="k">Book</span>${escapeHtml(book)}</span>` : "",
+      pages ? `<span class="tag-badge"><span class="k">Page</span>${escapeHtml(pages)}</span>` : "",
+    ].filter(Boolean);
+    return `<div class="output-card"><h3>Tags</h3><div class="tag-row">${tags.join("")}</div></div>`;
+  }
+
+  function renderNormalizedEntityOutput({ name, result, metadata = {}, images = [], source = "storage", book = "", pages = "" }) {
+    const foundryOrigin = String(metadata.foundry_origin || "").trim();
+    const isFoundrySource = isFoundrySourceValue(source);
+    const normalizedType = String(result?.type || "").trim().toLowerCase();
+    const useFoundryPortrait = isFoundrySource && (normalizedType === "creature" || normalizedType === "monster") && images.length > 0;
+    const primaryImage = useFoundryPortrait ? imageUrl(images[0], foundryOrigin) : "";
+    const rows = collectDescriptionRows(result);
+    return `
+      <div class="output-card ${images.length && !useFoundryPortrait ? "has-corner-images" : ""} ${useFoundryPortrait ? "output-card--floating-image" : ""}">
+        ${useFoundryPortrait
+          ? `<div class="npc-image npc-image--foundry"><img src="${escapeHtml(primaryImage)}" data-image-popup="1" data-fullsrc="${escapeHtml(primaryImage)}" alt="${escapeHtml(name || "Portrait")}" loading="lazy" /></div>`
+          : renderImageCollage(images, foundryOrigin, { circleMask: isFoundrySource })}
+        <h3>${escapeHtml(name || "Unnamed")}</h3>
+        ${rows.length
+          ? rows.map(row => renderOutputRow(row.label, row.value)).join("")
+          : `<div class="empty-state-card"><div class="empty-text">No detailed text found for this entry yet.</div></div>`}
+      </div>
+      ${result.stat_block ? renderStatBlockCard(result.stat_block, { includeNarrativeLists: false }) : ""}
+      ${renderNormalizedTagRow({ result, metadata, source, book, pages })}
+    `;
+  }
+
   function renderNpcOverviewCard(record, result) {
     const sections = result.sections || {};
+    const stat = (result && typeof result.stat_block === "object" && result.stat_block) ? result.stat_block : {};
+    const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const parsedText = parseNpcNarrativeFields(result.text || result.description || "");
     const imageSrc = resolveNpcImage(record, result);
+    const environment = pickFirstNonEmpty(sections.environment, result.environment, result.area, parsedText.environment);
+    const motive = pickFirstNonEmpty(sections.motive, result.motive, parsedText.motive);
+    const movement = pickFirstNonEmpty(stat.movement, result.movement, parsedText.movement);
+    const modifications = pickFirstNonEmpty(
+      Array.isArray(stat.modifications) ? stat.modifications.join("; ") : "",
+      sections.modifications,
+      result.modifications,
+      parsedText.modifications
+    );
+    const combat = pickFirstNonEmpty(
+      Array.isArray(stat.combat) ? stat.combat.join("; ") : "",
+      sections.combat,
+      result.combat,
+      parsedText.combat
+    );
+    const interaction = pickFirstNonEmpty(
+      sections.interaction,
+      Array.isArray(stat.interaction) ? stat.interaction.join("; ") : "",
+      result.interaction,
+      parsedText.interaction
+    );
+    const use = pickFirstNonEmpty(sections.use, result.use, parsedText.use);
+    const loot = pickFirstNonEmpty(
+      sections.loot,
+      Array.isArray(stat.loot) ? stat.loot.join("; ") : "",
+      result.loot,
+      parsedText.loot
+    );
+    const gmIntrusion = pickFirstNonEmpty(
+      sections.gm_intrusion,
+      sections.gmIntrusion,
+      result.gm_intrusion,
+      result.gmIntrusion,
+      parsedText.gm_intrusion
+    );
+    const isFoundrySource = isFoundrySourceValue(metadata.source);
     const imageBlock = imageSrc
-      ? `<div class="npc-image"><img src="${escapeHtml(imageSrc)}" alt="${escapeHtml(result.name || 'NPC portrait')}" loading="lazy" /></div>`
-      : `<div class="npc-image npc-image--empty"><div class="small">No NPC image available in this record.</div></div>`;
+      ? `<div class="npc-image ${isFoundrySource ? "npc-image--foundry" : ""}"><img src="${escapeHtml(imageSrc)}" data-image-popup="1" data-fullsrc="${escapeHtml(imageSrc)}" alt="${escapeHtml(result.name || 'NPC portrait')}" loading="lazy" /></div>`
+      : "";
 
     return `
       <div class="npc-overview">
+        ${imageBlock}
         <div>
           <h3>${escapeHtml(result.name || 'Unnamed NPC')}</h3>
           ${renderOutputRow("Character", sections.character)}
           ${renderOutputRow("Appearance", sections.appearance)}
           ${renderOutputRow("Clothing", sections.clothing)}
           ${renderOutputRow("Weapons & Props", sections.weapons_props)}
+          ${renderOutputRow("Motive", motive)}
+          ${renderOutputRow("Environment", environment)}
+          ${renderOutputRow("Movement", movement)}
+          ${renderOutputRow("Modifications", modifications)}
+          ${renderOutputRow("Combat", combat)}
+          ${renderOutputRow("Interaction", interaction)}
+          ${renderOutputRow("Use", use)}
+          ${renderOutputRow("Loot", loot)}
+          ${renderOutputRow("GM Intrusion", gmIntrusion)}
         </div>
-        ${imageBlock}
       </div>
     `;
   }
@@ -882,7 +1869,12 @@
 
   function renderCharacterSheetViewCard(record) {
     const sheet = normalizeSheet(record.result?.sheet || {});
-    const images = normalizeImageRefs(record.result?.metadata?.images || []);
+    const metadata = (record.result && typeof record.result.metadata === "object" && record.result.metadata) ? record.result.metadata : {};
+    const images = normalizeImageRefs(metadata.images || []);
+    const foundryOrigin = String(metadata.foundry_origin || "").trim();
+    const isFoundrySource = isFoundrySourceValue(metadata.source);
+    const useFoundryPortrait = isFoundrySource && images.length > 0;
+    const primaryImage = useFoundryPortrait ? imageUrl(images[0], foundryOrigin) : "";
     const links = [
       sheet.type ? `<a href="${searchHref('character_type', sheet.type)}" target="_blank" rel="noopener">${escapeHtml(sheet.type)}</a>` : '',
       sheet.flavor ? `<a href="${searchHref('flavor', sheet.flavor)}" target="_blank" rel="noopener">${escapeHtml(sheet.flavor)}</a>` : '',
@@ -910,8 +1902,11 @@
       'None used';
 
     return `
-      <div class="cypher-card ${images.length ? "has-corner-images" : ""}">
-        ${renderImageCollage(images)}
+      <div class="cypher-card ${images.length && !useFoundryPortrait ? "has-corner-images" : ""} ${useFoundryPortrait ? "output-card--floating-image" : ""}">
+        ${useFoundryPortrait
+          ? `<div class="npc-image npc-image--foundry"><img src="${escapeHtml(primaryImage)}" data-image-popup="1" data-fullsrc="${escapeHtml(primaryImage)}" alt="${escapeHtml(sheet.name || record.result?.name || 'Character portrait')}" loading="lazy" /></div>`
+          : renderImageCollage(images, foundryOrigin, { circleMask: false })}
+        ${isFoundrySource ? `<div class="import-meta-row" style="margin-bottom:8px;">${foundrySyncBadge()}</div>` : ""}
         <div class="output-row">
           <div class="output-label">Saved Character Sheet</div>
           <div class="output-value">${escapeHtml(record.filename || '')}</div>
@@ -949,6 +1944,8 @@
 
   function renderStorageRecord(record) {
     const result = record.result || {};
+    const isCypherLike = result.type === "cypher" || result.type === "artifact";
+    const isNormalizedType = normalizedOutputTypes().has(String(result.type || "").toLowerCase());
     const metadata = result.metadata || {};
     const settingsText = Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "";
     const areaText = metadata.area || metadata.environment || "";
@@ -958,20 +1955,44 @@
         : ""
     );
     const images = normalizeImageRefs(metadata.images);
+    const isFoundryRecord = isFoundrySourceValue(metadata.source);
     if (result.type === "character_sheet" && result.sheet) {
       els.viewer.innerHTML = renderCharacterSheetViewCard(record);
       return;
     }
     let html = `
-      <div class="viewer-header">
+      <div class="viewer-header ${isFoundryRecord ? "viewer-header--foundry" : ""}">
         <div class="eyebrow">Selected Result</div>
         <div class="title">${escapeHtml(result.name || record.filename || "Unnamed")}</div>
         <div class="subtitle">${escapeHtml(typeLabel(result.type || "item"))} · Saved Record</div>
       </div>
     `;
+    if (isFoundryRecord) {
+      html += `
+        <div class="import-highlight" style="border-color: rgba(86,214,214,0.34); background: linear-gradient(180deg, rgba(86,214,214,0.16), rgba(86,214,214,0.05));">
+          <div class="title" style="color:#bff8f8;">FoundryVTT Sync Record</div>
+          <div class="small" style="color:#c9eeee;">This entry was synced from FoundryVTT and is stored in the private Foundry compendium.</div>
+        </div>
+      `;
+    }
+
+    if (isNormalizedType) {
+      html += renderNormalizedEntityOutput({
+        name: result.name || record.filename || "Unnamed",
+        result,
+        metadata,
+        images,
+        source: isFoundrySourceValue(metadata.source) ? "foundryvtt" : "storage",
+      });
+      els.viewer.innerHTML = html;
+      return;
+    }
 
     if (result.type === "npc") {
       html += renderNpcOverviewCard(record, result);
+    } else if (isCypherLike) {
+      // Cypher/artifact view is intentionally minimal: card-first, no record metadata block.
+      html += "";
     } else {
       html += `
         <div class="output-card">
@@ -988,18 +2009,18 @@
       `;
     }
 
-    if (result.type === "cypher") {
-      html += renderCypherCard(result);
+    if (isCypherLike) {
+      html += renderCypherCard(result, images);
     }
 
     if (result.type === "npc") {
       if (result.stat_block) {
-        html += renderStatBlockCard(result.stat_block);
+        html += renderStatBlockCard(result.stat_block, { includeNarrativeLists: false });
       }
-      html += renderTagBadges(metadata);
-      if (result.sections) {
-        html += renderSectionsCard("Generated Content", result.sections);
-      }
+      html += renderTagBadges(result, metadata);
+      // NPC view is intentionally streamlined; hide generated-content section.
+    } else if (isCypherLike) {
+      // Hide generated sections/stat blocks for cypher/artifact to keep the view clean.
     } else {
       if (result.sections) {
         html += renderSectionsCard("Generated Content", result.sections);
@@ -1009,7 +2030,7 @@
       }
     }
 
-    if (record.payload) {
+    if (record.payload && !isCypherLike && result.type !== "npc") {
       html += `
         <div class="output-card">
           <h3>Original Payload</h3>
@@ -1018,7 +2039,7 @@
       `;
     }
 
-    if (!result.sections && !result.stat_block && result.text) {
+    if (!isCypherLike && !result.sections && !result.stat_block && result.text) {
       html += `
         <div class="output-card">
           <h3>Raw Text</h3>
@@ -1031,25 +2052,114 @@
   }
 
   function renderCompendiumEntry(item) {
+    const itemType = String(item.type || "").trim().toLowerCase();
+    const sourceKey = String(item._ui_source || item.source || "").trim().toLowerCase();
+    const book = String(item.book || "").trim();
+    const pages = String(item.pages || "").trim();
+    const isOfficialLike = isOfficialCompendiumSource(sourceKey) || Boolean(book);
+    const isNpcType = itemType === "npc";
+    const isArtifactType = itemType === "artifact" || itemType === "artifacts";
+    const isNormalizedType = normalizedOutputTypes().has(itemType);
+    const sourceName = isOfficialLike
+      ? (book || sourceLabel(sourceKey))
+      : "Compendium";
+    const subtitleSuffix = pages ? ` · p. ${pages}` : "";
+    const hideEntryInfo = isArtifactType || isNormalizedType || (isOfficialLike && isNpcType);
     let html = `
-      <div class="viewer-header">
+      <div class="viewer-header ${isFoundrySourceValue(sourceKey) ? "viewer-header--foundry" : ""}">
         <div class="eyebrow">Selected Result</div>
         <div class="title">${escapeHtml(item.title || item.slug || "Compendium Entry")}</div>
-        <div class="subtitle">${escapeHtml(typeLabel(item.type || "item"))} · Compendium</div>
+        <div class="subtitle">${escapeHtml(typeLabel(item.type || "item"))} · ${escapeHtml(sourceName + subtitleSuffix)}</div>
       </div>
-      <div class="output-card">
-        <h3>Entry Info</h3>
-        ${renderOutputRow("Title", item.title)}
-        ${renderOutputRow("Type", typeLabel(item.type))}
-        ${renderOutputRow("Slug", item.slug)}
-        ${renderOutputRow("Source", item.source)}
-      </div>
+      ${isOfficialLike ? `
+        <div class="import-highlight">
+          <div class="title">Official Import</div>
+          <div class="small">${escapeHtml(book || "Official Source")} ${pages ? `· page ${escapeHtml(pages)}` : ""}</div>
+        </div>
+      ` : ""}
+      ${!hideEntryInfo ? `
+        <div class="output-card">
+          <h3>Entry Info</h3>
+          ${renderOutputRow("Title", item.title)}
+          ${renderOutputRow("Type", typeLabel(item.type))}
+          ${renderOutputRow("Slug", item.slug)}
+          ${renderOutputRow("Source", item.source)}
+          ${renderOutputRow("Book", book)}
+          ${renderOutputRow("Pages", pages)}
+        </div>
+      ` : ""}
     `;
 
-    if (item.type === "cypher" || item.type === "artifact") {
+    if (itemType === "cypher" || isArtifactType) {
       html += renderCypherCard(item);
-    } else if (item.type === "creature") {
-      html += renderCompendiumCreatureCard(item);
+    } else if (isNpcType && isOfficialLike) {
+      const houseLike = buildOfficialNpcHouseView(item);
+      html += renderNpcOverviewCard({}, houseLike.result);
+      if (houseLike.result.stat_block) {
+        html += renderStatBlockCard(houseLike.result.stat_block, { includeNarrativeLists: false });
+      }
+      const sourceTag = sourceLabel(item.source);
+      const settingTag = Array.isArray(item.settings) ? item.settings.filter(Boolean).join(", ") : (item.setting || "");
+      const areaTag = item.area || item.environment || "";
+      html += `
+        <div class="output-card">
+          <h3>Tags</h3>
+          <div class="tag-row">
+            <span class="tag-badge"><span class="k">Type</span>NPC</span>
+            <span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceTag)}</span>
+            ${book ? `<span class="tag-badge"><span class="k">Book</span>${escapeHtml(book)}</span>` : ""}
+            ${pages ? `<span class="tag-badge"><span class="k">Page</span>${escapeHtml(pages)}</span>` : ""}
+            ${settingTag ? `<span class="tag-badge"><span class="k">Genre/Setting</span>${escapeHtml(settingTag)}</span>` : ""}
+            ${areaTag ? `<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaTag)}</span>` : ""}
+          </div>
+        </div>
+      `;
+    } else if (isNormalizedType) {
+      const statBlockCandidate = {
+        level: item.level,
+        target_number: item.target_number,
+        health: item.health,
+        armor: item.armor,
+        damage: item.damage_inflicted || item.damage,
+        movement: item.movement,
+        modifications: item.modifications ? [item.modifications] : [],
+        combat: item.combat ? [item.combat] : [],
+        interaction: item.interaction ? [item.interaction] : [],
+        loot: item.loot ? [item.loot] : [],
+      };
+      const hasStatData = ["level", "target_number", "health", "armor", "damage", "movement"]
+        .some(key => String(statBlockCandidate[key] ?? "").trim()) ||
+        (statBlockCandidate.modifications && statBlockCandidate.modifications.length) ||
+        (statBlockCandidate.combat && statBlockCandidate.combat.length) ||
+        (statBlockCandidate.interaction && statBlockCandidate.interaction.length) ||
+        (statBlockCandidate.loot && statBlockCandidate.loot.length);
+      const normalizedResult = {
+        type: itemType,
+        description: item.description || item.summary || "",
+        area: item.area || item.environment || "",
+        environment: item.environment || item.area || "",
+        settings: item.settings || [],
+        stat_block: hasStatData ? statBlockCandidate : null,
+        sections: {
+          summary: item.summary || "",
+          details: item.details || "",
+          environment: item.area || item.environment || "",
+          combat: item.combat || "",
+          interaction: item.interaction || "",
+          use: item.use || "",
+          loot: item.loot || "",
+          gm_intrusion: item.gm_intrusion || "",
+        },
+      };
+      html += renderNormalizedEntityOutput({
+        name: item.title || item.slug || "Unnamed",
+        result: normalizedResult,
+        metadata: {},
+        images: normalizeImageRefs(item.images || []),
+        source: sourceKey || "compendium",
+        book,
+        pages,
+      });
     } else if (item.type === "character_type") {
       html += renderCompendiumCharacterTypeCard(item);
     } else if (item.type === "flavor") {
@@ -1074,11 +2184,41 @@
     els.viewer.innerHTML = html;
   }
 
+  function renderLoreEntry(item) {
+    const categories = Array.isArray(item.categories) ? item.categories.join(", ") : "";
+    const settings = Array.isArray(item.settings) ? item.settings.join(", ") : (item.setting || "");
+    const area = item.area || item.environment || "";
+    const location = item.location || "";
+    const locationType = item.location_type || "";
+    const images = normalizeImageRefs(item.images || []);
+    els.viewer.innerHTML = `
+      <div class="viewer-header">
+        <div class="eyebrow">Selected Result</div>
+        <div class="title">${escapeHtml(item.title || item.slug || "Lore Entry")}</div>
+        <div class="subtitle">Lore</div>
+      </div>
+      <div class="output-card ${images.length ? "has-corner-images" : ""}">
+        ${renderImageCollage(images)}
+        ${renderOutputRow("Slug", item.slug)}
+        ${renderOutputRow("Source Path", item.source_path)}
+        ${renderOutputRow("Location", location ? `${location}${locationType ? ` (${locationType})` : ""}` : "")}
+        ${renderOutputRow("Area", area)}
+        ${renderOutputRow("Genre/Setting Tags", settings)}
+        ${renderOutputRow("Categories", categories)}
+        ${renderOutputRow("Description", item.description || item.excerpt || "")}
+      </div>
+      <div class="output-card">
+        <h3>Content</h3>
+        <div class="output-value">${escapeHtml(item.content_markdown || "")}</div>
+      </div>
+    `;
+  }
+
   function renderResults(items) {
     if (!items.length) {
       els.results.innerHTML = `
-        <div class="output-card">
-          <div class="output-value">No results found.</div>
+        <div class="output-card empty-state-card">
+          <div class="empty-text">No results found for the current filters.</div>
         </div>
       `;
       return;
@@ -1086,9 +2226,15 @@
 
     els.results.innerHTML = items.map(item => {
       const badgeClass = sourceBadgeClass(item.source);
-      const isStorage = item.source === "storage";
+      const isOfficialLike = isOfficialCompendiumSource(item.source) || Boolean(officialBookLabel(item));
+      const isStorage = item.source === "storage" || item.source === "foundryvtt" || item.source === "foundry_vtt";
+      const canArtPrompt = canCopyArtPrompt(item.type);
       const filename = isStorage ? (item.slug || "") : "";
       const raw = item.raw || {};
+      const bookLabel = officialBookLabel(item);
+      const pagesLabel = officialPagesLabel(item);
+      const bookBadgeClass = officialBookBadgeClass(bookLabel);
+      const officialBookClass = officialBookCardClass(bookLabel);
       const images = normalizeImageRefs(
         isStorage
           ? ((raw.metadata && raw.metadata.images) || [])
@@ -1096,7 +2242,14 @@
       );
       const description = pickDescription(item);
       const cardClassBase = images.length ? "result-card card-with-images" : "result-card";
-      const cardClass = isStorage ? `${cardClassBase} with-corner-actions` : cardClassBase;
+      const cardClass = [
+        cardClassBase,
+        isStorage ? "with-corner-actions" : "",
+        item.source === "foundryvtt" ? "foundry-source" : "",
+        item.source === "compendium" ? "csrd-source" : "",
+        isOfficialLike ? "official-import" : "",
+        isOfficialLike && officialBookClass ? officialBookClass : ""
+      ].filter(Boolean).join(" ");
 
       return `
         <div class="${cardClass}"
@@ -1109,44 +2262,95 @@
             <div>
               <div class="result-heading">${escapeHtml(item.title || item.slug || "Unnamed")} - ${escapeHtml(typeLabel(item.type || "unknown"))}</div>
               <div class="source-badge ${badgeClass}">${escapeHtml(sourceLabel(item.source))}</div>
+              ${isOfficialLike && bookLabel ? `<div class="source-badge book-badge ${escapeHtml(bookBadgeClass)}">${escapeHtml(bookLabel)}</div>` : ""}
+              ${isOfficialLike && pagesLabel ? `<div class="source-badge source-page">p. ${escapeHtml(pagesLabel)}</div>` : ""}
             </div>
           </div>
           <div class="result-description ${images.length ? "with-image" : ""}">
-            ${images.length ? renderImageCollage(images) : ""}
+            ${images.length ? renderImageCollage(images, isStorage ? String((raw.metadata && raw.metadata.foundry_origin) || "") : "", { circleMask: isFoundrySourceValue(item.source) }) : ""}
             ${escapeHtml(description || "No description yet.")}
           </div>
+          ${isFoundrySourceValue(item.source) ? `
+            <div class="import-meta-row">
+              ${foundrySyncBadge()}
+            </div>
+          ` : ""}
+          ${isOfficialLike ? `
+            <div class="import-meta-row">
+              <span class="tag-badge"><span class="k">Imported</span>Official PDF</span>
+              ${bookLabel ? `<span class="tag-badge"><span class="k">Book</span>${escapeHtml(bookLabel)}</span>` : ""}
+              ${pagesLabel ? `<span class="tag-badge"><span class="k">Page</span>${escapeHtml(pagesLabel)}</span>` : ""}
+            </div>
+          ` : ""}
           ${item.subtitle ? `<div class="result-meta">${escapeHtml(item.subtitle)}</div>` : ""}
           <div class="small" style="margin-top:8px;">${escapeHtml(item.url || "")}</div>
-          ${isStorage ? `<div class="result-corner-actions">
-            <button type="button" class="icon-btn"
+          ${(isStorage || isOfficialLike || canArtPrompt) ? `<div class="result-corner-actions">
+            ${canArtPrompt ? `<button type="button" class="icon-btn"
+                    data-action="copy-art-prompt"
+                    title="Copy AI art prompt"
+                    aria-label="Copy AI art prompt">
+              &#127912;
+            </button>` : ""}
+            ${(isStorage || isOfficialLike) ? `<button type="button" class="icon-btn"
                     data-action="upload-image"
                     data-filename="${escapeHtml(filename)}"
                     title="Upload and attach image"
                     aria-label="Upload and attach image">
               &#128247;
-            </button>
-            <button type="button" class="icon-btn"
+            </button>` : ""}
+            ${isStorage ? `<button type="button" class="icon-btn"
                     data-action="edit"
                     data-filename="${escapeHtml(filename)}"
                     title="Edit"
                     aria-label="Edit"
                     >
               &#9998;
-            </button>
-            <button type="button" class="icon-btn danger"
+            </button>` : ""}
+            ${isStorage ? `<button type="button" class="icon-btn danger"
                     data-action="delete"
                     data-filename="${escapeHtml(filename)}"
                     title="Move to trash"
                     aria-label="Move to trash">
               &#128465;
-            </button>
+            </button>` : ""}
           </div>` : ""}
         </div>
       `;
     }).join("");
 
     document.querySelectorAll('.result-card').forEach(card => {
-      card.addEventListener('click', async () => {
+      card.addEventListener('click', async (event) => {
+        const button = event.target.closest('button[data-action]');
+        if (button) {
+          event.preventDefault();
+          event.stopPropagation();
+          const action = button.getAttribute('data-action');
+          const filename = button.getAttribute('data-filename');
+          if (action === 'upload-image') {
+            if (filename) {
+              await quickUploadStorageResultImage(filename);
+            } else {
+              const source = card.getAttribute('data-source') || '';
+              const itemType = card.getAttribute('data-type') || '';
+              const slug = card.getAttribute('data-slug') || '';
+              await quickUploadImportedResultImage({ source, itemType, slug });
+            }
+          } else if (action === 'copy-art-prompt') {
+            const source = card.getAttribute('data-source') || '';
+            const url = card.getAttribute('data-url') || '';
+            const itemType = card.getAttribute('data-type') || '';
+            const title = card.querySelector('.result-heading')?.textContent || '';
+            if (!url) return;
+            await copyArtPromptForCard({ source, url, itemType, title });
+          } else if (action === 'edit') {
+            if (!filename) return;
+            await editStorageRecord(filename);
+          } else if (action === 'delete') {
+            if (!filename) return;
+            await trashStorageRecord(filename);
+          }
+          return;
+        }
         document.querySelectorAll('.result-card.selected').forEach(el => el.classList.remove('selected'));
         card.classList.add('selected');
         const source = card.getAttribute('data-source');
@@ -1162,23 +2366,376 @@
     });
   }
 
+  async function editStorageRecord(filename) {
+    els.status.textContent = `Loading ${filename} for edit...`;
+    const record = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
+    const result = (record && typeof record.result === "object" && record.result) ? record.result : {};
+    const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const settingsValue = Array.isArray(metadata.settings) ? metadata.settings.join(", ") : (metadata.setting || "");
+    let currentImages = normalizeImageRefs(metadata.images);
+    els.viewer.innerHTML = `
+      <div class="output-card">
+        <h3>Edit House Record</h3>
+        <div class="small">Structured editor for common fields. Advanced JSON fields are optional.</div>
+        <div class="field" style="margin-top:10px;">
+          <label for="storage-edit-name">Name</label>
+          <input id="storage-edit-name" value="${escapeHtml(result.name || "")}" />
+        </div>
+        <div class="field">
+          <label for="storage-edit-description">Description</label>
+          <textarea id="storage-edit-description" rows="4">${escapeHtml(result.description || metadata.description || "")}</textarea>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-type">Type</label>
+            <input id="storage-edit-type" value="${escapeHtml(result.type || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-settings">Settings (comma-separated)</label>
+            <input id="storage-edit-settings" value="${escapeHtml(settingsValue)}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-area">Area</label>
+            <input id="storage-edit-area" value="${escapeHtml(metadata.area || metadata.environment || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-location">Location</label>
+            <input id="storage-edit-location" value="${escapeHtml(metadata.location || "")}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-race">Race</label>
+            <input id="storage-edit-race" value="${escapeHtml(metadata.race || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-profession">Profession</label>
+            <input id="storage-edit-profession" value="${escapeHtml(metadata.profession || "")}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="storage-edit-family">Family</label>
+            <input id="storage-edit-family" value="${escapeHtml(metadata.family || "")}" />
+          </div>
+          <div class="field">
+            <label for="storage-edit-role">Role</label>
+            <input id="storage-edit-role" value="${escapeHtml(metadata.role || "")}" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="storage-edit-text">Text</label>
+          <textarea id="storage-edit-text" rows="6">${escapeHtml(result.text || "")}</textarea>
+        </div>
+        <div class="field">
+          <label for="storage-edit-sections">Sections JSON (optional)</label>
+          <textarea id="storage-edit-sections" rows="8">${escapeHtml(JSON.stringify(result.sections || {}, null, 2))}</textarea>
+          <div class="small" id="storage-edit-sections-hint">Checking JSON...</div>
+        </div>
+        <div class="field">
+          <label for="storage-edit-statblock">Stat Block JSON (optional)</label>
+          <textarea id="storage-edit-statblock" rows="8">${escapeHtml(JSON.stringify(result.stat_block || {}, null, 2))}</textarea>
+          <div class="small" id="storage-edit-statblock-hint">Checking JSON...</div>
+        </div>
+        <div class="field">
+          <label for="storage-edit-payload">Payload JSON (optional)</label>
+          <textarea id="storage-edit-payload" rows="8">${escapeHtml(JSON.stringify(record.payload || {}, null, 2))}</textarea>
+          <div class="small" id="storage-edit-payload-hint">Checking JSON...</div>
+        </div>
+        <div id="storage-image-manager"></div>
+        <div class="actions">
+          <button id="storage-save-btn" type="button" class="result-action">Save</button>
+          <button id="storage-cancel-btn" type="button" class="secondary result-action">Cancel</button>
+        </div>
+      </div>
+    `;
+
+    const saveBtn = document.getElementById('storage-save-btn');
+    const cancelBtn = document.getElementById('storage-cancel-btn');
+    const nameEl = document.getElementById('storage-edit-name');
+    const descriptionEl = document.getElementById('storage-edit-description');
+    const typeEl = document.getElementById('storage-edit-type');
+    const settingsEl = document.getElementById('storage-edit-settings');
+    const areaEl = document.getElementById('storage-edit-area');
+    const locationEl = document.getElementById('storage-edit-location');
+    const raceEl = document.getElementById('storage-edit-race');
+    const professionEl = document.getElementById('storage-edit-profession');
+    const familyEl = document.getElementById('storage-edit-family');
+    const roleEl = document.getElementById('storage-edit-role');
+    const textEl = document.getElementById('storage-edit-text');
+    const sectionsEl = document.getElementById('storage-edit-sections');
+    const statBlockEl = document.getElementById('storage-edit-statblock');
+    const payloadEl = document.getElementById('storage-edit-payload');
+
+    const wireJsonValidation = (textarea, hintEl, label) => {
+      const validate = () => {
+        const raw = String(textarea.value || "").trim();
+        if (!raw) {
+          hintEl.textContent = `${label}: empty (will save as empty object).`;
+          hintEl.style.color = "var(--muted)";
+          return true;
+        }
+        try {
+          JSON.parse(raw);
+          hintEl.textContent = `${label}: valid JSON.`;
+          hintEl.style.color = "#80d39b";
+          return true;
+        } catch (err) {
+          hintEl.textContent = `${label}: invalid JSON (${err.message}).`;
+          hintEl.style.color = "#ff8ea1";
+          return false;
+        }
+      };
+      textarea.addEventListener('input', validate);
+      return validate;
+    };
+    const validateSections = wireJsonValidation(
+      sectionsEl,
+      document.getElementById('storage-edit-sections-hint'),
+      'Sections JSON'
+    );
+    const validateStatBlock = wireJsonValidation(
+      statBlockEl,
+      document.getElementById('storage-edit-statblock-hint'),
+      'Stat Block JSON'
+    );
+    const validatePayload = wireJsonValidation(
+      payloadEl,
+      document.getElementById('storage-edit-payload-hint'),
+      'Payload JSON'
+    );
+    const refreshSaveEnabled = () => {
+      saveBtn.disabled = !(validateSections() && validateStatBlock() && validatePayload());
+    };
+    sectionsEl.addEventListener('input', refreshSaveEnabled);
+    statBlockEl.addEventListener('input', refreshSaveEnabled);
+    payloadEl.addEventListener('input', refreshSaveEnabled);
+    refreshSaveEnabled();
+
+    await wireImageManager({
+      mountId: "storage-image-manager",
+      target: "storage",
+      id: filename,
+      initialImages: currentImages,
+      defaultMeta: deriveDefaultImageMeta({ name: result.name || "", metadata }),
+      onImagesChanged: (nextImages) => {
+        currentImages = normalizeImageRefs(nextImages);
+      },
+    });
+
+    saveBtn.addEventListener('click', async () => {
+      try {
+        if (!validateSections() || !validateStatBlock() || !validatePayload()) {
+          throw new Error("Fix invalid JSON fields before saving.");
+        }
+        const settings = settingsEl.value.split(",").map(x => x.trim()).filter(Boolean);
+        const areaValue = areaEl.value.trim();
+        const sections = sectionsEl.value.trim() ? JSON.parse(sectionsEl.value) : {};
+        const statBlock = statBlockEl.value.trim() ? JSON.parse(statBlockEl.value) : {};
+        const payload = payloadEl.value.trim() ? JSON.parse(payloadEl.value) : {};
+
+        const parsed = {
+          ...record,
+          filename,
+          payload,
+          result: {
+            ...result,
+            type: typeEl.value.trim() || result.type || "item",
+            name: nameEl.value.trim() || "Unnamed",
+            description: descriptionEl.value.trim(),
+            text: textEl.value,
+            sections,
+            stat_block: statBlock,
+            metadata: {
+              ...metadata,
+              description: descriptionEl.value.trim(),
+              settings,
+              setting: settings[0] || "",
+              area: areaValue,
+              environment: areaValue,
+              location: locationEl.value.trim(),
+              race: raceEl.value.trim(),
+              profession: professionEl.value.trim(),
+              family: familyEl.value.trim(),
+              role: roleEl.value.trim(),
+              images: currentImages,
+            },
+          },
+        };
+        await fetchJson('/storage/update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename, record: parsed }),
+        });
+        els.status.textContent = `Saved ${filename}.`;
+        await search();
+      } catch (err) {
+        els.status.textContent = `Save failed: ${err.message}`;
+      }
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      loadResult('storage', `/storage/${encodeURIComponent(filename)}`).catch(err => {
+        els.status.textContent = `Error: ${err.message}`;
+      });
+    });
+    els.status.textContent = `Editing ${filename}.`;
+  }
+
+  async function trashStorageRecord(filename) {
+    if (!window.confirm(`Move ${filename} to trash?`)) return;
+    await fetchJson('/storage/trash', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename }),
+    });
+    els.status.textContent = `Moved ${filename} to trash.`;
+    await search();
+    if (!els.trashPanel.classList.contains('hidden')) {
+      await loadTrash();
+    }
+  }
+
+  function renderTrash(items) {
+    if (!items.length) {
+      els.trashResults.innerHTML = `<div class="small">Trash is empty.</div>`;
+      return;
+    }
+
+    els.trashResults.innerHTML = items.map(item => `
+      <div class="result-card">
+        <div class="result-top">
+          <div>
+            <div class="result-name">${escapeHtml(item.name || item.filename || "Unnamed")}</div>
+            <div class="source-badge source-house">House</div>
+          </div>
+          <div class="result-type">${escapeHtml(typeLabel(item.type || "unknown"))}</div>
+        </div>
+        <div class="small">${escapeHtml(item.filename || "")}</div>
+        <div class="result-actions">
+          <button type="button" class="secondary result-action"
+                  data-trash-action="restore"
+                  data-trash-filename="${escapeHtml(item.filename || "")}">
+            Recover
+          </button>
+          <button type="button" class="result-action danger"
+                  data-trash-action="expunge"
+                  data-trash-filename="${escapeHtml(item.filename || "")}">
+            Expunge
+          </button>
+        </div>
+      </div>
+    `).join("");
+
+    els.trashResults.querySelectorAll('button[data-trash-action]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const action = btn.getAttribute('data-trash-action');
+        const trashFilename = btn.getAttribute('data-trash-filename');
+        if (!trashFilename) return;
+        if (action === 'restore') {
+          await fetchJson('/storage/trash/restore', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: trashFilename }),
+          });
+          els.status.textContent = `Recovered ${trashFilename}.`;
+        } else {
+          if (!window.confirm(`Permanently delete ${trashFilename}?`)) return;
+          await fetchJson('/storage/trash/expunge', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: trashFilename }),
+          });
+          els.status.textContent = `Expunged ${trashFilename}.`;
+        }
+        await loadTrash();
+        await search();
+      });
+    });
+  }
+
+  async function loadTrash() {
+    const data = await fetchJson('/storage/trash');
+    renderTrash(data.items || []);
+    els.trashStatus.textContent = `Trash contains ${data.count ?? 0} item(s).`;
+  }
+
   function buildSearchUrl() {
     const params = new URLSearchParams();
 
     if (els.q.value.trim()) params.set('q', els.q.value.trim());
-    if (els.type.value) params.set('type', els.type.value);
+    const normalizedType = normalizeTypeValue(els.type.value);
+    if (normalizedType) params.set('type', normalizedType);
     if (els.setting.value) params.set('setting', els.setting.value);
     if (els.environment.value) params.set('area', els.environment.value);
     if (els.location.value.trim()) params.set('location', els.location.value.trim());
     if (els.race.value) params.set('race', els.race.value);
     if (els.profession.value) params.set('profession', els.profession.value);
+    if (!els.includeLocal.checked) params.set('include_local', '0');
+    if (!els.includeLore.checked) params.set('include_lore', '0');
+    if (!els.includeFoundry.checked) params.set('include_foundry', '0');
+    if (!els.includeCsrd.checked) params.set('include_csrd', '0');
+    if (!els.includeOfficial.checked) params.set('include_official', '0');
+    if (!els.includeGodforsaken.checked) params.set('include_godforsaken', '0');
+    const selectedCompendiums = getSelectedCompendiumIds();
+    const allCompendiumIds = (state.compendiums || [])
+      .map(item => String(item.id || "").trim().toLowerCase())
+      .filter(Boolean);
+    if (allCompendiumIds.length && selectedCompendiums.length === 0) {
+      // Explicitly disable all compendium-like sources when none are selected.
+      params.set('include_csrd', '0');
+      params.set('include_official', '0');
+      params.set('include_foundry', '0');
+      params.set('include_godforsaken', '0');
+    } else if (selectedCompendiums.length > 0 && selectedCompendiums.length < allCompendiumIds.length) {
+      // Only send explicit compendium filter when user selected a subset.
+      params.set('compendiums', selectedCompendiums.join(','));
+    }
 
     const qs = params.toString();
     return qs ? `/unified-search?${qs}` : `/unified-search`;
   }
 
+  async function loadCompendiumFilters() {
+    const data = await fetchJson('/compendiums');
+    const items = Array.isArray(data.items) ? data.items : [];
+    state.compendiums = items;
+    state.compendiumById = {};
+    items.forEach((item) => {
+      const id = String(item.id || "").trim().toLowerCase();
+      if (!id) return;
+      state.compendiumById[id] = item;
+    });
+
+    if (!els.compendiumFilters) return;
+    if (!items.length) {
+      els.compendiumFilters.innerHTML = `<div class="small">No compendiums available.</div>`;
+      return;
+    }
+
+    els.compendiumFilters.innerHTML = items.map((item) => {
+      const id = escapeHtml(String(item.id || "").trim().toLowerCase());
+      const name = escapeHtml(String(item.name || item.id || "Compendium"));
+      return `
+        <label style="display:inline-flex;align-items:center;gap:6px;margin:0;">
+          <input type="checkbox" data-compendium-id="${id}" checked style="width:auto;" />
+          ${name}
+        </label>
+      `;
+    }).join("");
+
+    getCompendiumCheckboxes().forEach((cb) => {
+      cb.addEventListener('change', () => {});
+    });
+  }
+
   async function loadFilters() {
-    const meta = await fetchJson('/meta');
+    const [meta] = await Promise.all([
+      fetchJson('/meta'),
+      loadCompendiumFilters(),
+    ]);
     state.meta = meta;
 
     fillSelect(els.setting, meta.settings || [], true);
@@ -1198,10 +2755,17 @@
   async function loadResult(source, url) {
     els.status.textContent = `Loading ${url}...`;
     const data = await fetchJson(url);
+    if (data && typeof data === "object") {
+      data._ui_source = source;
+    }
 
     if (source === "storage") {
       renderStorageRecord(data);
-    } else if (source === "compendium") {
+    } else if (source === "foundryvtt" || source === "foundry_vtt") {
+      renderStorageRecord(data);
+    } else if (source === "lore") {
+      renderLoreEntry(data);
+    } else if (source === "compendium" || isOfficialCompendiumSource(source)) {
       renderCompendiumEntry(data);
     } else {
       els.viewer.innerHTML = `
@@ -1224,30 +2788,91 @@
     els.location.value = '';
     els.race.value = '';
     els.profession.value = '';
+    els.includeLocal.checked = true;
+    els.includeLore.checked = true;
+    els.includeFoundry.checked = true;
+    els.includeCsrd.checked = true;
+    els.includeOfficial.checked = true;
+    els.includeGodforsaken.checked = true;
+    setSelectedCompendiumIds([]);
     search();
   }
 
   function applyUrlFilters() {
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q') || '';
-    const type = params.get('type') || '';
+    const type = normalizeTypeValue(params.get('type') || '');
     const setting = params.get('setting') || '';
     const environment = params.get('area') || params.get('environment') || '';
     const location = params.get('location') || '';
     const race = params.get('race') || '';
     const profession = params.get('profession') || '';
+    const includeLocal = params.get('include_local');
+    const includeLore = params.get('include_lore');
+    const includeFoundry = params.get('include_foundry');
+    const includeCsrd = params.get('include_csrd');
+    const includeOfficial = params.get('include_official');
+    const includeGodforsaken = params.get('include_godforsaken');
+    const compendiums = params.get('compendiums') || '';
 
     if (q) els.q.value = q;
-    if (type) els.type.value = type;
+    if (type) {
+      const exact = Array.from(els.type.options).find(opt => opt.value === type);
+      if (exact) {
+        els.type.value = type;
+      } else if (type === "artifact") {
+        els.type.value = "artifacts";
+      } else if (type === "cypher") {
+        const cypherOpt = Array.from(els.type.options).find(opt => opt.value === "cypher");
+        if (cypherOpt) els.type.value = "cypher";
+      }
+    }
     if (setting) els.setting.value = setting;
     if (environment) els.environment.value = environment;
     if (location) els.location.value = location;
     if (race) els.race.value = race;
     if (profession) els.profession.value = profession;
+    if (includeLocal !== null) els.includeLocal.checked = !["0", "false", "no", "off"].includes(String(includeLocal).toLowerCase());
+    if (includeLore !== null) els.includeLore.checked = !["0", "false", "no", "off"].includes(String(includeLore).toLowerCase());
+    if (includeFoundry !== null) els.includeFoundry.checked = !["0", "false", "no", "off"].includes(String(includeFoundry).toLowerCase());
+    if (includeCsrd !== null) els.includeCsrd.checked = !["0", "false", "no", "off"].includes(String(includeCsrd).toLowerCase());
+    if (includeOfficial !== null) els.includeOfficial.checked = !["0", "false", "no", "off"].includes(String(includeOfficial).toLowerCase());
+    if (includeGodforsaken !== null) els.includeGodforsaken.checked = !["0", "false", "no", "off"].includes(String(includeGodforsaken).toLowerCase());
+    if (compendiums) {
+      const selected = compendiums
+        .split(',')
+        .map(v => String(v || '').trim().toLowerCase())
+        .filter(Boolean);
+      setSelectedCompendiumIds(selected);
+    } else {
+      const selected = [];
+      if (els.includeFoundry.checked) selected.push("foundryvtt");
+      if (els.includeCsrd.checked) selected.push("csrd");
+      if (els.includeOfficial.checked) {
+        state.compendiums.forEach((item) => {
+          const id = String(item.id || "").trim().toLowerCase();
+          if (id && !["csrd", "foundryvtt"].includes(id)) selected.push(id);
+        });
+      } else if (els.includeGodforsaken.checked) {
+        selected.push("godforsaken");
+      }
+      setSelectedCompendiumIds(selected);
+    }
   }
 
   els.searchBtn.addEventListener('click', search);
   els.resetBtn.addEventListener('click', resetFilters);
+  els.filtersSelectAllBtn?.addEventListener('click', () => {
+    setAllCheckboxFilters(true);
+    search();
+  });
+  els.filtersDeselectAllBtn?.addEventListener('click', () => {
+    setAllCheckboxFilters(false);
+    search();
+  });
+  [els.includeFoundry, els.includeCsrd, els.includeOfficial, els.includeGodforsaken].forEach((input) => {
+    input.addEventListener('change', syncCompendiumsFromLegacySourceToggles);
+  });
   els.trashToggleBtn.addEventListener('click', () => {
     const hidden = els.trashPanel.classList.toggle('hidden');
     if (!hidden) {

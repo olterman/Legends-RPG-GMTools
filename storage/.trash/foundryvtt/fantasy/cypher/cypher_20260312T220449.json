@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T22:04:49.122732+00:00",
+  "filename": "foundryvtt/fantasy/cypher/cypher_20260312T220449.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": ""
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Adderstone",
+    "description": "Level: 1d6 + 3 Form: Stone with a hole in the middle Effect: For the next day, provides the character with one of the following benefits. Roll a [[/r d20]] or choose from the table. 1–3 When looking through the hole, the user gains an asset to seeing things that are normally invisible to the eye, including doorways, beings, spirits, magical effects, and so on. 4–6 When worn on the finger as a ring, wards off spirits of the dead (grants +1 Armor against attacks from ghosts, haunts, and other spi…",
+    "sections": {
+      "name": "Adderstone",
+      "level": "1d6+3",
+      "effect": "Level: 1d6 + 3\n\nForm: Stone with a hole in the middle\n\nEffect: For the next day, provides the character with one of the following benefits. Roll a [[/r d20]] or choose from the table.\n\n1–3\n\nWhen looking through the hole, the user gains an asset to seeing things that are normally invisible to the eye, including doorways, beings, spirits, magical effects, and so on.\n\n4–6\n\nWhen worn on the finger as a ring, wards off spirits of the dead (grants +1 Armor against attacks from ghosts, haunts, and other spirits of the dead).\n\n7–9\n\nWhen attached to physical armor, adds 1 to the Armor it provides (adds 2 to the Armor if the cypher is level 6 or higher).\n\n10–12\n\nWhen held in the mouth, protects against poisons (up to the level of the cypher).\n\n13–15\n\nWhen placed on the finger of another with good intent, it adds 1 to the recovery rolls of both the user and the wearer.\n\n16–18\n\nWhen worn on a string around the neck, provides training in two noncombat skills of the user’s choice that they are not already trained in.\n\n19–20\n\nWhen tied in the hair, eases all defense tasks against curses by two steps."
+    },
+    "text": "Level: 1d6 + 3\n\nForm: Stone with a hole in the middle\n\nEffect: For the next day, provides the character with one of the following benefits. Roll a [[/r d20]] or choose from the table.\n\n1–3\n\nWhen looking through the hole, the user gains an asset to seeing things that are normally invisible to the eye, including doorways, beings, spirits, magical effects, and so on.\n\n4–6\n\nWhen worn on the finger as a ring, wards off spirits of the dead (grants +1 Armor against attacks from ghosts, haunts, and other spirits of the dead).\n\n7–9\n\nWhen attached to physical armor, adds 1 to the Armor it provides (adds 2 to the Armor if the cypher is level 6 or higher).\n\n10–12\n\nWhen held in the mouth, protects against poisons (up to the level of the cypher).\n\n13–15\n\nWhen placed on the finger of another with good intent, it adds 1 to the recovery rolls of both the user and the wearer.\n\n16–18\n\nWhen worn on a string around the neck, provides training in two noncombat skills of the user’s choice that they are not already trained in.\n\n19–20\n\nWhen tied in the hair, eases all defense tasks against curses by two steps.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "item_class": "one_shot",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

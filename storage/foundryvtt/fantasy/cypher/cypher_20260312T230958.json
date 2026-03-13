@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:09:58.851163+00:00",
+  "filename": "foundryvtt/fantasy/cypher/cypher_20260312T230958.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Adhesion",
+    "description": "Level: 1d6 Effect: Allows for automatic climbing of any surface, even horizontal ones. Lasts for ten minutes per cypher level.",
+    "sections": {
+      "name": "Adhesion",
+      "level": "1d6",
+      "effect": "Level: 1d6\n\nEffect: Allows for automatic climbing of any surface, even horizontal ones. Lasts for ten minutes per cypher level."
+    },
+    "text": "Level: 1d6\n\nEffect: Allows for automatic climbing of any surface, even horizontal ones. Lasts for ten minutes per cypher level.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg",
+      "images": [
+        "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

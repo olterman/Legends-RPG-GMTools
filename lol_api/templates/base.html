@@ -17,8 +17,22 @@
       --accent: #7aa2ff;
       --accent-2: #9b24db;
       --border: #31394a;
-      --source-csrd: #66a7ff;
+      --source-csrd: #f0ab4e;
       --source-house: #ff4fe0;
+      --source-official: #efb34a;
+      --source-foundry: #56d6d6;
+      --source-csrd-ink: #2b1a0d;
+      --book-generic: #e8d39b;
+      --book-godforsaken: #d6c385;
+      --book-stars-are-fire: #7cc9ef;
+      --book-stay-alive: #c97f6a;
+      --book-we-are-all-mad-here: #9ecf7a;
+      --book-first-responders: #f0b86e;
+      --book-claim-the-sky: #79b7ff;
+      --book-its-only-magic: #caa8ff;
+      --book-high-noon-at-midnight: #d89b64;
+      --book-neon-rain: #4ec6d9;
+      --book-rust-and-redemption: #c58a63;
     }
 
     * { box-sizing: border-box; }
@@ -259,6 +273,81 @@
       box-shadow: 0 0 0 1px rgba(122,162,255,0.3), 0 10px 28px rgba(0,0,0,0.25);
     }
 
+    .result-card.official-import {
+      border-color: rgba(239, 179, 74, 0.35);
+      background:
+        linear-gradient(180deg, rgba(239,179,74,0.14), rgba(239,179,74,0.03)),
+        var(--panel-2);
+    }
+
+    .result-card.official-import:hover {
+      border-color: rgba(239, 179, 74, 0.6);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.24), 0 0 0 1px rgba(239,179,74,0.22);
+    }
+
+    .result-card.official-book-godforsaken {
+      border-color: color-mix(in oklab, var(--book-godforsaken), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-godforsaken), transparent 84%), rgba(239,179,74,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-stars-are-fire {
+      border-color: color-mix(in oklab, var(--book-stars-are-fire), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-stars-are-fire), transparent 84%), rgba(124,201,239,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-stay-alive {
+      border-color: color-mix(in oklab, var(--book-stay-alive), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-stay-alive), transparent 84%), rgba(201,127,106,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-we-are-all-mad-here {
+      border-color: color-mix(in oklab, var(--book-we-are-all-mad-here), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-we-are-all-mad-here), transparent 84%), rgba(158,207,122,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-claim-the-sky {
+      border-color: color-mix(in oklab, var(--book-claim-the-sky), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-claim-the-sky), transparent 84%), rgba(121,183,255,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-its-only-magic {
+      border-color: color-mix(in oklab, var(--book-its-only-magic), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-its-only-magic), transparent 84%), rgba(202,168,255,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-high-noon-at-midnight {
+      border-color: color-mix(in oklab, var(--book-high-noon-at-midnight), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-high-noon-at-midnight), transparent 84%), rgba(216,155,100,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-neon-rain {
+      border-color: color-mix(in oklab, var(--book-neon-rain), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-neon-rain), transparent 84%), rgba(78,198,217,0.02)),
+        var(--panel-2);
+    }
+
+    .result-card.official-book-rust-and-redemption {
+      border-color: color-mix(in oklab, var(--book-rust-and-redemption), #000 45%);
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--book-rust-and-redemption), transparent 84%), rgba(197,138,99,0.02)),
+        var(--panel-2);
+    }
+
     .result-top {
       display: flex;
       justify-content: space-between;
@@ -333,6 +422,16 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .card-image-collage--circle.one {
+      border-radius: 999px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+
+    .card-image-collage--circle.one img {
+      border-radius: 999px;
     }
 
     .result-description {
@@ -506,14 +605,178 @@
 
     .source-csrd {
       color: var(--source-csrd);
-      border-color: rgba(102, 167, 255, 0.35);
-      background: rgba(102, 167, 255, 0.14);
+      border-color: rgba(240, 171, 78, 0.4);
+      background: rgba(240, 171, 78, 0.16);
+      text-shadow: 0 0 10px rgba(240, 171, 78, 0.2);
+    }
+
+    .result-card.csrd-source {
+      border-color: rgba(240, 171, 78, 0.34);
+      background:
+        linear-gradient(180deg, rgba(240,171,78,0.12), rgba(240,171,78,0.03)),
+        var(--panel-2);
+    }
+
+    .result-card.csrd-source:hover {
+      border-color: rgba(240, 171, 78, 0.6);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.24), 0 0 0 1px rgba(240,171,78,0.18);
+    }
+
+    .result-card.foundry-source {
+      border-color: rgba(86, 214, 214, 0.36);
+      background:
+        linear-gradient(180deg, rgba(86,214,214,0.14), rgba(86,214,214,0.03)),
+        var(--panel-2);
+      box-shadow: inset 0 1px 0 rgba(169, 246, 246, 0.08);
+    }
+
+    .result-card.foundry-source:hover {
+      border-color: rgba(86, 214, 214, 0.62);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.24), 0 0 0 1px rgba(86,214,214,0.2);
     }
 
     .source-house {
       color: var(--source-house);
       border-color: rgba(255, 79, 224, 0.35);
       background: rgba(255, 79, 224, 0.12);
+    }
+
+    .source-official {
+      color: var(--source-official);
+      border-color: rgba(239, 179, 74, 0.38);
+      background: rgba(239, 179, 74, 0.14);
+    }
+
+    .source-foundry {
+      color: var(--source-foundry);
+      border-color: rgba(86, 214, 214, 0.42);
+      background: rgba(86, 214, 214, 0.14);
+    }
+
+    .tag-badge.tag-badge-foundry-sync {
+      color: #bff8f8;
+      border-color: rgba(86, 214, 214, 0.46);
+      background: linear-gradient(180deg, rgba(86,214,214,0.18), rgba(86,214,214,0.08));
+      box-shadow: 0 0 0 1px rgba(86,214,214,0.08);
+    }
+
+    .viewer-header.viewer-header--foundry {
+      border-color: rgba(86, 214, 214, 0.34);
+      background:
+        linear-gradient(135deg, rgba(86,214,214,0.18), rgba(86,214,214,0.03) 48%, rgba(255,255,255,0.02)),
+        var(--panel);
+      box-shadow: inset 0 1px 0 rgba(173, 244, 244, 0.08);
+    }
+
+    .viewer-header.viewer-header--foundry .eyebrow {
+      color: #7ef0f0;
+    }
+
+    .viewer-header.viewer-header--foundry .title {
+      text-shadow: 0 0 18px rgba(86, 214, 214, 0.12);
+    }
+
+    .viewer-header.viewer-header--foundry .subtitle {
+      color: #b4dede;
+    }
+
+    .source-page {
+      color: #ffe2b3;
+      border-color: rgba(255, 218, 158, 0.35);
+      background: rgba(255, 218, 158, 0.1);
+    }
+
+    .import-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .import-highlight {
+      border: 1px solid rgba(239, 179, 74, 0.36);
+      border-radius: 12px;
+      padding: 12px;
+      background: linear-gradient(180deg, rgba(239,179,74,0.14), rgba(239,179,74,0.05));
+      margin-bottom: 12px;
+    }
+
+    .import-highlight .title {
+      font-weight: 800;
+      color: #ffd790;
+      margin-bottom: 4px;
+    }
+
+    .import-highlight .small {
+      color: #ebd2aa;
+    }
+
+    .book-badge {
+      color: var(--book-generic);
+      border-color: color-mix(in oklab, var(--book-generic), #000 45%);
+      background: color-mix(in oklab, var(--book-generic), transparent 86%);
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    .book-godforsaken {
+      color: var(--book-godforsaken);
+      border-color: color-mix(in oklab, var(--book-godforsaken), #000 45%);
+      background: color-mix(in oklab, var(--book-godforsaken), transparent 84%);
+    }
+
+    .book-stars-are-fire {
+      color: var(--book-stars-are-fire);
+      border-color: color-mix(in oklab, var(--book-stars-are-fire), #000 45%);
+      background: color-mix(in oklab, var(--book-stars-are-fire), transparent 84%);
+    }
+
+    .book-stay-alive {
+      color: var(--book-stay-alive);
+      border-color: color-mix(in oklab, var(--book-stay-alive), #000 45%);
+      background: color-mix(in oklab, var(--book-stay-alive), transparent 84%);
+    }
+
+    .book-we-are-all-mad-here {
+      color: var(--book-we-are-all-mad-here);
+      border-color: color-mix(in oklab, var(--book-we-are-all-mad-here), #000 45%);
+      background: color-mix(in oklab, var(--book-we-are-all-mad-here), transparent 84%);
+    }
+
+    .book-first-responders {
+      color: var(--book-first-responders);
+      border-color: color-mix(in oklab, var(--book-first-responders), #000 45%);
+      background: color-mix(in oklab, var(--book-first-responders), transparent 84%);
+    }
+
+    .book-claim-the-sky {
+      color: var(--book-claim-the-sky);
+      border-color: color-mix(in oklab, var(--book-claim-the-sky), #000 45%);
+      background: color-mix(in oklab, var(--book-claim-the-sky), transparent 84%);
+    }
+
+    .book-its-only-magic {
+      color: var(--book-its-only-magic);
+      border-color: color-mix(in oklab, var(--book-its-only-magic), #000 45%);
+      background: color-mix(in oklab, var(--book-its-only-magic), transparent 84%);
+    }
+
+    .book-high-noon-at-midnight {
+      color: var(--book-high-noon-at-midnight);
+      border-color: color-mix(in oklab, var(--book-high-noon-at-midnight), #000 45%);
+      background: color-mix(in oklab, var(--book-high-noon-at-midnight), transparent 84%);
+    }
+
+    .book-neon-rain {
+      color: var(--book-neon-rain);
+      border-color: color-mix(in oklab, var(--book-neon-rain), #000 45%);
+      background: color-mix(in oklab, var(--book-neon-rain), transparent 84%);
+    }
+
+    .book-rust-and-redemption {
+      color: var(--book-rust-and-redemption);
+      border-color: color-mix(in oklab, var(--book-rust-and-redemption), #000 45%);
+      background: color-mix(in oklab, var(--book-rust-and-redemption), transparent 84%);
     }
 
     .result-actions {
@@ -624,10 +887,22 @@
       border-radius: 12px;
       background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
       padding: 14px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 220px;
-      gap: 14px;
-      align-items: start;
+      display: block;
+    }
+
+    .npc-overview::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .npc-overview h3 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: 0.01em;
     }
 
     .npc-image {
@@ -635,10 +910,12 @@
       border-radius: 12px;
       overflow: hidden;
       background: rgba(0,0,0,0.16);
-      width: 100%;
+      width: 220px;
       aspect-ratio: 3/4;
       display: grid;
       place-items: center;
+      float: right;
+      margin: 0 0 12px 14px;
     }
 
     .npc-image img {
@@ -646,6 +923,18 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .npc-image.npc-image--foundry {
+      width: 220px;
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(80, 187, 255, 0.16), rgba(0, 0, 0, 0.12));
+      box-shadow: 0 0 0 1px rgba(114, 187, 255, 0.18), 0 18px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .npc-image.npc-image--foundry img {
+      border-radius: 999px;
     }
 
     .npc-image .small {
@@ -690,10 +979,43 @@
       padding: 14px;
     }
 
+    .output-card--floating-image::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
     .output-card h3 {
       margin: 0 0 10px;
       font-size: 1rem;
       color: var(--accent);
+    }
+
+    .empty-state-card {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .empty-state-card::before {
+      content: "🔍";
+      position: absolute;
+      font-size: 5.4rem;
+      opacity: 0.16;
+      line-height: 1;
+      filter: saturate(0.7);
+      transform: translateY(-6px);
+      pointer-events: none;
+    }
+
+    .empty-state-card .empty-text {
+      position: relative;
+      z-index: 1;
+      max-width: 34ch;
     }
 
     .output-row {
@@ -746,6 +1068,15 @@
       line-height: 1.2;
     }
 
+    .cypher-level-inline {
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--accent-2);
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
     .cypher-badge {
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.04);
@@ -776,6 +1107,91 @@
       gap: 10px;
     }
 
+    .cypher-grid-two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cypher-kind {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      font-weight: 700;
+    }
+
+    .cypher-badges {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .cypher-chip {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: rgba(255,255,255,0.035);
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .cypher-chip .k {
+      color: var(--muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+
+    .cypher-chip .v {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .cypher-chip.is-level .v {
+      color: var(--accent-2);
+    }
+
+    .cypher-chip.is-limit .v {
+      color: #ffd589;
+    }
+
+    .cypher-effect {
+      margin-bottom: 12px;
+      border: 1px solid rgba(122, 162, 255, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      background: linear-gradient(180deg, rgba(122,162,255,0.12), rgba(122,162,255,0.03));
+    }
+
+    .cypher-effect .label {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+    }
+
+    .cypher-effect .value {
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    .cypher-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
     .cypher-field {
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -796,6 +1212,21 @@
       color: var(--text);
       white-space: pre-wrap;
       line-height: 1.45;
+    }
+
+    @media (max-width: 720px) {
+      .cypher-grid-two {
+        grid-template-columns: 1fr;
+      }
+
+      .cypher-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cypher-badges {
+        justify-content: flex-start;
+      }
     }
 
     .stat-grid {
@@ -873,6 +1304,8 @@
     .npc-image.npc-image--empty {
       aspect-ratio: auto;
       min-height: 120px;
+      border-style: dashed;
+      background: rgba(255,255,255,0.02);
     }
 
     @media (max-width: 900px) {
@@ -881,7 +1314,14 @@
       }
 
       .npc-overview {
-        grid-template-columns: 1fr;
+        display: block;
+      }
+
+      .npc-image {
+        float: none;
+        margin: 0 0 12px;
+        width: 100%;
+        max-width: 280px;
       }
 
       .nav-group {
@@ -928,25 +1368,23 @@
       <details class="nav-group">
         <summary class="nav-toggle">Search & Browse</summary>
         <div class="nav-menu">
-          <a href="/search">Unified Search</a>
-          <a href="/library">Local Library</a>
+          <a href="/search">Search</a>
+          <a href="/dice-roller">Quick Roller</a>
+          <a href="/cypher-roller">Cypher Roller</a>
           <a href="/trash">Trash Bin</a>
-          <a href="/lore-browser">Lore Browser</a>
-          <a href="/prompt-browser">Prompt Browser</a>
           <a href="/image-browser">Image Browser</a>
-          <a href="/compendium-browser">CSRD Compendium</a>
         </div>
       </details>
-      <div class="nav-context" aria-label="Global setting filters">
-        <span class="k">Loaded World</span>
+      <div class="nav-context" aria-label="Global genre/setting filters">
+        <span class="k">Loaded Setting</span>
         <select id="nav-active-world">
           <option value="">Default</option>
         </select>
-        <span class="k">Setting</span>
+        <span class="k">Genre</span>
         <select id="nav-core-setting">
-          <option value="all_settings">All Settings</option>
+          <option value="all_settings">All Genres</option>
         </select>
-        <span class="k nav-world hidden" id="nav-world-label">World</span>
+        <span class="k nav-world hidden" id="nav-world-label">Setting</span>
         <select id="nav-world-setting" class="nav-world hidden"></select>
       </div>
     </div>
@@ -980,7 +1418,11 @@
 
   <script>
     (() => {
-      const CORE_KEY = "lol_core_setting";
+      const CORE_KEY = "lol_genre";
+      const SETTING_KEY = "lol_setting";
+      const LEGACY_CORE_KEY = "lol_core_setting";
+      const LEGACY_WORLD_KEY = "lol_world_setting";
+      const GENRE_KEY = "lol_genre";
       const WORLD_KEY = "lol_world_setting";
       const SEARCH_PATHS = new Set([
         "/storage/search",
@@ -998,9 +1440,9 @@
 
       const listeners = [];
       const state = {
-        core: localStorage.getItem(CORE_KEY) || "all_settings",
-        world: localStorage.getItem(WORLD_KEY) || "",
-        model: { core_options: [{ value: "all_settings", label: "All Settings" }], worlds_by_core: {} },
+        core: localStorage.getItem(GENRE_KEY) || localStorage.getItem(CORE_KEY) || localStorage.getItem(LEGACY_CORE_KEY) || "all_settings",
+        world: localStorage.getItem(SETTING_KEY) || localStorage.getItem(WORLD_KEY) || localStorage.getItem(LEGACY_WORLD_KEY) || "",
+        model: { core_options: [{ value: "all_settings", label: "All Genres" }], settings_by_genre: {} },
       };
 
       const emit = () => {
@@ -1023,7 +1465,7 @@
         if (includeBlank) {
           const blank = document.createElement("option");
           blank.value = "";
-          blank.textContent = "All Worlds";
+          blank.textContent = "All Settings";
           el.appendChild(blank);
         }
         for (const opt of options || []) {
@@ -1039,7 +1481,7 @@
         activeWorldSelect.innerHTML = "";
         const defaultOpt = document.createElement("option");
         defaultOpt.value = "";
-        defaultOpt.textContent = "Default World";
+        defaultOpt.textContent = "Default Setting";
         activeWorldSelect.appendChild(defaultOpt);
 
         for (const world of worlds || []) {
@@ -1052,7 +1494,7 @@
       };
 
       const updateWorldUI = () => {
-        const worlds = (state.model.worlds_by_core && state.model.worlds_by_core[state.core]) || [];
+        const worlds = (state.model.settings_by_genre && state.model.settings_by_genre[state.core]) || [];
         const hasWorlds = state.core !== "all_settings" && worlds.length > 0;
 
         worldSelect.classList.toggle("hidden", !hasWorlds);
@@ -1062,6 +1504,7 @@
           state.world = "";
           worldSelect.innerHTML = "";
           localStorage.removeItem(WORLD_KEY);
+          localStorage.removeItem(SETTING_KEY);
           return;
         }
 
@@ -1077,6 +1520,8 @@
       window.lolSettingContext = {
         getCoreSetting: () => state.core,
         getWorldSetting: () => state.world,
+        getGenre: () => state.core,
+        getSetting: () => state.world,
         getEffectiveSetting,
         onChange: (fn) => {
           if (typeof fn === "function") listeners.push(fn);
@@ -1090,6 +1535,7 @@
       coreSelect.addEventListener("change", () => {
         state.core = coreSelect.value || "all_settings";
         localStorage.setItem(CORE_KEY, state.core);
+        localStorage.setItem(GENRE_KEY, state.core);
         updateWorldUI();
         emit();
       });
@@ -1098,16 +1544,16 @@
         const worldId = activeWorldSelect.value || null;
         try {
           activeWorldSelect.disabled = true;
-          const res = await fetch("/worlds/select", {
+          const res = await fetch("/settings/select", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ world_id: worldId }),
+            body: JSON.stringify({ setting_id: worldId }),
           });
           const data = await res.json();
-          if (!res.ok) throw new Error(data.error || `World switch failed: ${res.status}`);
+          if (!res.ok) throw new Error(data.error || `Setting switch failed: ${res.status}`);
           window.location.reload();
         } catch (err) {
-          alert(`World switch failed: ${err.message || err}`);
+          alert(`Setting switch failed: ${err.message || err}`);
           activeWorldSelect.disabled = false;
         }
       });
@@ -1116,8 +1562,10 @@
         state.world = worldSelect.value || "";
         if (state.world) {
           localStorage.setItem(WORLD_KEY, state.world);
+          localStorage.setItem(SETTING_KEY, state.world);
         } else {
           localStorage.removeItem(WORLD_KEY);
+          localStorage.removeItem(SETTING_KEY);
         }
         emit();
       });
@@ -1153,22 +1601,24 @@
         .then((res) => res.json())
         .then(async (meta) => {
           try {
-            const worldsRes = await fetch("/worlds");
+            const worldsRes = await fetch("/settings");
             const worldsData = await worldsRes.json();
             if (worldsRes.ok) {
-              fillWorldProfileSelect(worldsData.worlds || [], worldsData.active_world || "");
+              fillWorldProfileSelect(worldsData.settings || worldsData.worlds || [], worldsData.active_setting || worldsData.active_world || "");
             }
           } catch (_) {
             fillWorldProfileSelect([], "");
           }
 
           const navModel = meta.settings_nav || {};
-          const coreOptions = Array.isArray(navModel.core_options) && navModel.core_options.length
+          const coreOptions = Array.isArray(navModel.genre_options) && navModel.genre_options.length
+            ? navModel.genre_options
+            : Array.isArray(navModel.core_options) && navModel.core_options.length
             ? navModel.core_options
-            : [{ value: "all_settings", label: "All Settings" }];
+            : [{ value: "all_settings", label: "All Genres" }];
           state.model = {
             core_options: coreOptions,
-            worlds_by_core: navModel.worlds_by_core || {},
+            settings_by_genre: navModel.settings_by_genre || navModel.worlds_by_core || {},
           };
 
           fillSelect(coreSelect, state.model.core_options, false);
@@ -1178,12 +1628,13 @@
             state.core = "all_settings";
             coreSelect.value = "all_settings";
             localStorage.setItem(CORE_KEY, state.core);
+            localStorage.setItem(GENRE_KEY, state.core);
           }
           updateWorldUI();
           emit();
         })
         .catch(() => {
-          fillSelect(coreSelect, [{ value: "all_settings", label: "All Settings" }], false);
+          fillSelect(coreSelect, [{ value: "all_settings", label: "All Genres" }], false);
           coreSelect.value = "all_settings";
           state.core = "all_settings";
           state.world = "";

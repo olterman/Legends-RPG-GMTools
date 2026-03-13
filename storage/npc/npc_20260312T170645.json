@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T17:06:45.332333+00:00",
+  "filename": "npc/npc_20260312T170645.json",
+  "payload": {
+    "origin": "official_compendium_variant",
+    "setting": "fantasy",
+    "settings": [
+      "fantasy"
+    ],
+    "area": "",
+    "environment": "",
+    "location": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Paladin",
+    "description": "Holy warrior devoted to smiting evil, protecting innocents, and channeling divine power.",
+    "metadata": {
+      "source": "house",
+      "origin": "official_compendium_variant",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "settings": [
+        "fantasy"
+      ],
+      "setting": "fantasy",
+      "from_official_pdf": true,
+      "official_type": "npc",
+      "official_slug": "paladin",
+      "official_title": "Paladin",
+      "official_book": "Godforsaken",
+      "official_backlink": "/official-compendium/npc/paladin"
+    },
+    "base_entry": {
+      "slug": "paladin",
+      "title": "Paladin",
+      "type": "npc",
+      "source": "official_pdf",
+      "book": "Godforsaken",
+      "pages": "138",
+      "description": "Holy warrior devoted to smiting evil, protecting innocents, and channeling divine power.",
+      "text": "136\nGODFORSAKEN\nHALFLING  3 (9)\nA halfling is fond of the comforts of home, but adventures and exploration are the fodder \nof great stories told over tea or dinner, or in a fireside chat. Quick, resourceful, and easy \nto get along with, halflings fit right in with brave big folk as scouts, burglars, and loyal \ncompanions.\nMotive: Defense, comfort\nHealth: 9\nDamage Inflicted: 3 points\nArmor: 0 or 1\nMovement: Short\nModifications: Intellect defense, pleasant social interactions, and stealth as level 4\nCombat: Halflings are remarkably skilled with knives, clubs, slings, and small bows. They \nprefer not to fight larger creatures head on; instead they stay at range, plan ambushes \nto quickly overwhelm opponents, or team up with a larger ally so they can attack a foe’s \nback and legs.\nInteraction: Halflings enjoy the company of larger folks as long as they aren’t mocked for \ntheir size. They’re brave and determined when they need to be, though some might \ncomplain about wanting to go home.\nUse: A young halfling wants to have some adventures before settling down. The local \nthieves’ guild is said to employ halflings as lookouts and cutpurses, sometimes \ndisguised as human children.\nLoot: In addition to their weapons (and perhaps some light armor) and food, a halfling \nmight have an interesting cypher or two. Most carry several useful moderately priced \nitems, or an expensive item such as an heirloom snuff box or a nice bag of tools.\nPALADIN 4 (12)\nPaladins are heroes who swear a holy oath to vanquish evil. Their power and righteousness \nare a gift and a heavy burden, and most of them expect to die in battle against an evil foe.\nMotive: Protecting the innocent, destroying evil\nHealth: 15\nDamage Inflicted: 5 points\nArmor: 2 or 3\nMovement: Short\nModifications: Attacks and Might defense as level 5 \nCombat: Paladins like flashy weapons and shiny armor, which help them show their \ndevotion to the ideals of goodness and draw the attention of evil foes. Many choose a \ntwo-handed weapon, but some prefer using a shield in their off hand (defense-oriented \npaladins like these inflict only 4 points of damage with their attacks but gain an asset on \nSpeed defense).\nBlessed by the powers of good, paladins can draw on innate holy magic for several \npurposes, such as detecting the presence of supernatural evil (demons, evil dragons, \nundead, and so on), restoring 4 health to themselves or a touched creature, smiting an \nevil foe to inflict an additional 4 points of damage, or breaking free of mind control.\nInteraction: Paladins have big personalities and strongly believe in their purpose and goals. \nThey have no tolerance for evil acts and are unwilling to look the other way when their \nallies want to bend the rules or take advantage of a “grey area.” However, they are not \nfools and won’t throw away their lives for nothing. \nUse: A paladin lays claim to a foe the characters are seeking or have captured. An old \npaladin is looking for one last villain to smite.\nLoot: In addition to their weapons and armor, paladins might have one or two cyphers. More \nexperienced ones might be lucky enough to have an artifact (usually a weapon or armor).\nA master thief or assassin \nhalfling uses the stats \nfor an assassin.\nGM intrusion: The \nhalfling ducks between \nor around the character’s \nlegs, immediately making \na melee attack and \nhindering the character’s \nnext attack against \nthem by two steps.\nGM intrusion: The \npaladin channels holy \npower into an attack, \ninflicting +2 points of \ndamage and healing \nthemselves for 4 points of \nhealth at the same time.\nAssassin, page 373",
+      "settings": [
+        "fantasy"
+      ],
+      "setting": "fantasy",
+      "metadata": {
+        "copyright_restricted": true,
+        "do_not_sync": true,
+        "pdf_path": "/home/olterman/Projects/Legends-RPG-GMTools/PDF_Repository/Setting_Books/Godforsaken.pdf"
+      }
+    },
+    "text": "{\n  \"slug\": \"paladin\",\n  \"title\": \"Paladin\",\n  \"type\": \"npc\",\n  \"source\": \"official_pdf\",\n  \"book\": \"Godforsaken\",\n  \"pages\": \"138\",\n  \"description\": \"Holy warrior devoted to smiting evil, protecting innocents, and channeling divine power.\",\n  \"text\": \"136\\nGODFORSAKEN\\nHALFLING  3 (9)\\nA halfling is fond of the comforts of home, but adventures and exploration are the fodder \\nof great stories told over tea or dinner, or in a fireside chat. Quick, resourceful, and easy \\nto get along with, halflings fit right in with brave big folk as scouts, burglars, and loyal \\ncompanions.\\nMotive: Defense, comfort\\nHealth: 9\\nDamage Inflicted: 3 points\\nArmor: 0 or 1\\nMovement: Short\\nModifications: Intellect defense, pleasant social interactions, and stealth as level 4\\nCombat: Halflings are remarkably skilled with knives, clubs, slings, and small bows. They \\nprefer not to fight larger creatures head on; instead they stay at range, plan ambushes \\nto quickly overwhelm opponents, or team up with a larger ally so they can attack a foe’s \\nback and legs.\\nInteraction: Halflings enjoy the company of larger folks as long as they aren’t mocked for \\ntheir size. They’re brave and determined when they need to be, though some might \\ncomplain about wanting to go home.\\nUse: A young halfling wants to have some adventures before settling down. The local \\nthieves’ guild is said to employ halflings as lookouts and cutpurses, sometimes \\ndisguised as human children.\\nLoot: In addition to their weapons (and perhaps some light armor) and food, a halfling \\nmight have an interesting cypher or two. Most carry several useful moderately priced \\nitems, or an expensive item such as an heirloom snuff box or a nice bag of tools.\\nPALADIN 4 (12)\\nPaladins are heroes who swear a holy oath to vanquish evil. Their power and righteousness \\nare a gift and a heavy burden, and most of them expect to die in battle against an evil foe.\\nMotive: Protecting the innocent, destroying evil\\nHealth: 15\\nDamage Inflicted: 5 points\\nArmor: 2 or 3\\nMovement: Short\\nModifications: Attacks and Might defense as level 5 \\nCombat: Paladins like flashy weapons and shiny armor, which help them show their \\ndevotion to the ideals of goodness and draw the attention of evil foes. Many choose a \\ntwo-handed weapon, but some prefer using a shield in their off hand (defense-oriented \\npaladins like these inflict only 4 points of damage with their attacks but gain an asset on \\nSpeed defense).\\nBlessed by the powers of good, paladins can draw on innate holy magic for several \\npurposes, such as detecting the presence of supernatural evil (demons, evil dragons, \\nundead, and so on), restoring 4 health to themselves or a touched creature, smiting an \\nevil foe to inflict an additional 4 points of damage, or breaking free of mind control.\\nInteraction: Paladins have big personalities and strongly believe in their purpose and goals. \\nThey have no tolerance for evil acts and are unwilling to look the other way when their \\nallies want to bend the rules or take advantage of a “grey area.” However, they are not \\nfools and won’t throw away their lives for nothing. \\nUse: A paladin lays claim to a foe the characters are seeking or have captured. An old \\npaladin is looking for one last villain to smite.\\nLoot: In addition to their weapons and armor, paladins might have one or two cyphers. More \\nexperienced ones might be lucky enough to have an artifact (usually a weapon or armor).\\nA master thief or assassin \\nhalfling uses the stats \\nfor an assassin.\\nGM intrusion: The \\nhalfling ducks between \\nor around the character’s \\nlegs, immediately making \\na melee attack and \\nhindering the character’s \\nnext attack against \\nthem by two steps.\\nGM intrusion: The \\npaladin channels holy \\npower into an attack, \\ninflicting +2 points of \\ndamage and healing \\nthemselves for 4 points of \\nhealth at the same time.\\nAssassin, page 373\",\n  \"settings\": [\n    \"fantasy\"\n  ],\n  \"setting\": \"fantasy\",\n  \"metadata\": {\n    \"copyright_restricted\": true,\n    \"do_not_sync\": true,\n    \"pdf_path\": \"/home/olterman/Projects/Legends-RPG-GMTools/PDF_Repository/Setting_Books/Godforsaken.pdf\"\n  }\n}"
+  }
+}

@@ -50,6 +50,240 @@ def title_from_text(text: str, max_words: int = 6) -> str:
     return " ".join(words[:max_words]).title()
 
 
+def _snake_key(value: str) -> str:
+    key = re.sub(r"[^a-z0-9]+", "_", str(value or "").strip().lower())
+    key = re.sub(r"_+", "_", key).strip("_")
+    return key
+
+
+def _extract_first_int(value: str) -> int | None:
+    m = re.search(r"\d+", str(value or ""))
+    if not m:
+        return None
+    try:
+        return int(m.group(0))
+    except Exception:
+        return None
+
+
+def parse_raw_text_entry(payload: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
+    item_type = str(payload.get("type") or "").strip().lower()
+    raw_text = str(payload.get("raw_text") or payload.get("text") or "").strip()
+    if not raw_text:
+        raise ValueError("raw_text is required")
+
+    lines = [line.rstrip() for line in raw_text.replace("\r\n", "\n").split("\n")]
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    while lines and not lines[-1].strip():
+        lines.pop()
+    if not lines:
+        raise ValueError("raw_text is empty")
+
+    explicit_name = clean_text(str(payload.get("name") or ""))
+    inferred_name = clean_text(lines[0])
+    name = explicit_name or inferred_name or "Unnamed Entry"
+
+    field_aliases = {
+        "form": "manifestation",
+        "appearance": "appearance",
+        "effect": "effect",
+        "limitation": "limitation",
+        "depletion": "depletion",
+        "level": "level",
+        "description": "description",
+        "gm intrusion": "gm_intrusion",
+        "combat": "combat",
+        "motive": "motive",
+        "use": "use",
+        "loot": "loot",
+    }
+    compact_statline_re = re.compile(r"^\s*(\d+)\s*\(\s*(\d+)\s*\)\s*$")
+
+    parsed_fields: dict[str, str] = {}
+    current_key: str | None = None
+    after_name = lines[1:] if inferred_name else lines
+    for line in after_name:
+        s = line.strip()
+        if not s:
+            current_key = None
+            continue
+        compact = compact_statline_re.match(s)
+        if compact:
+            # Common NPC/creature heading form: "6 (18)" == level + target number.
+            parsed_fields.setdefault("level", compact.group(1))
+            parsed_fields.setdefault("target_number", compact.group(2))
+            current_key = None
+            continue
+        m = re.match(r"^([A-Za-z][A-Za-z0-9 /'’\-\(\)]{1,40}):\s*(.*)$", s)
+        if m:
+            raw_key = clean_text(m.group(1))
+            key = field_aliases.get(raw_key.lower(), _snake_key(raw_key))
+            value = clean_text(m.group(2))
+            parsed_fields[key] = value
+            current_key = key
+            continue
+        if current_key:
+            merged = join_nonempty([parsed_fields.get(current_key, ""), s], sep=" ")
+            parsed_fields[current_key] = merged
+        else:
+            parsed_fields["description"] = join_nonempty([parsed_fields.get("description", ""), s], sep=" ")
+
+    if item_type in {"", "auto"}:
+        if parsed_fields.get("depletion"):
+            item_type = "artifact"
+        elif parsed_fields.get("effect") or parsed_fields.get("manifestation") or parsed_fields.get("limitation"):
+            item_type = "cypher"
+        elif parsed_fields.get("combat") or parsed_fields.get("motive") or parsed_fields.get("gm_intrusion"):
+            item_type = "npc"
+        else:
+            item_type = "lore"
+
+    # Reasonable default descriptions for cards/search snippets.
+    description = clean_text(
+        parsed_fields.get("description")
+        or parsed_fields.get("effect")
+        or parsed_fields.get("use")
+        or ""
+    )
+    if not description:
+        remaining = "\n".join(after_name).strip()
+        description = clean_text(remaining[:400]) if remaining else ""
+
+    sections = {}
+    if item_type in {"cypher", "artifact"}:
+        sections = nonempty_sections(
+            name=name,
+            level=parsed_fields.get("level", ""),
+            manifestation=parsed_fields.get("manifestation", ""),
+            appearance=parsed_fields.get("appearance", ""),
+            effect=parsed_fields.get("effect", ""),
+            limitation=parsed_fields.get("limitation", ""),
+            depletion=parsed_fields.get("depletion", ""),
+            quirk=parsed_fields.get("quirk", ""),
+        )
+    else:
+        sections = nonempty_sections(**parsed_fields)
+
+    metadata: dict[str, Any] = {
+        "origin": "raw_text_parser",
+    }
+    sourcebook = str(payload.get("sourcebook") or payload.get("book") or "").strip()
+    pages = str(payload.get("pages") or payload.get("page") or "").strip()
+    if sourcebook:
+        metadata["sourcebook"] = sourcebook
+        metadata["book"] = sourcebook
+    if pages:
+        metadata["pages"] = pages
+    if payload.get("area") or payload.get("environment"):
+        metadata["area"] = str(payload.get("area") or payload.get("environment") or "").strip()
+        metadata["environment"] = metadata["area"]
+    if payload.get("location"):
+        metadata["location"] = str(payload.get("location") or "").strip()
+    if parsed_fields.get("level"):
+        metadata["level"] = parsed_fields.get("level")
+    if item_type == "cypher":
+        metadata["item_class"] = "one_shot"
+    if item_type == "artifact":
+        metadata["item_class"] = "persistent"
+        if parsed_fields.get("depletion"):
+            metadata["depletion"] = parsed_fields.get("depletion")
+
+    result = {
+        "type": item_type,
+        "name": name,
+        "description": description,
+        "sections": sections,
+        "text": raw_text,
+        "metadata": metadata,
+    }
+
+    level_value = parsed_fields.get("level", "")
+    if item_type in {"cypher", "artifact"} and level_value:
+        numeric_level = _extract_first_int(level_value)
+        result["level"] = numeric_level if numeric_level is not None else level_value
+
+    return result
+
+
+def parse_raw_text_entries(payload: dict[str, Any], config: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = str(payload.get("raw_text") or payload.get("text") or "").replace("\r\n", "\n")
+    if not raw_text.strip():
+        raise ValueError("raw_text is required")
+
+    # Split into blocks at lines that look like item starts.
+    # We intentionally keep this conservative to avoid treating prose lines as titles.
+    lines = raw_text.split("\n")
+    starts: list[int] = []
+    marker_re = re.compile(r"^\s*(level|form|effect|depletion|limitation|motive|combat|gm intrusion)\s*:", re.I)
+    compact_statline_re = re.compile(r"^\s*\d+\s*\(\s*\d+\s*\)\s*$")
+
+    def looks_like_title_line(value: str) -> bool:
+        text = str(value or "").strip()
+        if not text:
+            return False
+        if ":" in text:
+            return False
+        if text.endswith("."):
+            return False
+        if len(text) > 80:
+            return False
+        words = re.findall(r"[A-Za-z0-9'’\-]+", text)
+        if not words or len(words) > 12:
+            return False
+        # Accept obvious all-caps headers (BLACK DOG) and normal title-like names.
+        alpha_chars = [c for c in text if c.isalpha()]
+        upper_ratio = (
+            sum(1 for c in alpha_chars if c.isupper()) / len(alpha_chars)
+            if alpha_chars else 0.0
+        )
+        if upper_ratio >= 0.7:
+            return True
+        titled_words = sum(1 for w in words if w[:1].isupper())
+        if titled_words >= max(1, int(len(words) * 0.7)):
+            return True
+        return False
+
+    # First non-empty line is always a valid start for single-entry text.
+    for i, line in enumerate(lines):
+        if line.strip():
+            starts.append(i)
+            break
+
+    for i in range(0, len(lines) - 1):
+        title = lines[i].strip()
+        nxt = lines[i + 1].strip()
+        if not looks_like_title_line(title):
+            continue
+        if marker_re.match(nxt):
+            starts.append(i)
+            continue
+        # Also support entries that put compact statline right under the title (e.g. "6 (18)")
+        # and introduce keyed sections shortly after.
+        if compact_statline_re.match(nxt):
+            lookahead = "\n".join(lines[i + 2 : i + 10])
+            if marker_re.search(lookahead):
+                starts.append(i)
+
+    chunks: list[str] = []
+    if not starts:
+        chunks = [raw_text.strip()]
+    else:
+        starts = sorted(set(starts))
+        for idx, start in enumerate(starts):
+            end = starts[idx + 1] if idx + 1 < len(starts) else len(lines)
+            chunk = "\n".join(lines[start:end]).strip()
+            if chunk:
+                chunks.append(chunk)
+
+    items: list[dict[str, Any]] = []
+    for chunk in chunks:
+        entry_payload = dict(payload)
+        entry_payload["raw_text"] = chunk
+        items.append(parse_raw_text_entry(entry_payload, config))
+    return items
+
+
 def deterministic_rng(payload: dict[str, Any], global_seed: str | None = None) -> random.Random:
     explicit_seed = str(payload.get("seed", "")).strip()
 

@@ -77,6 +77,157 @@
     gap: 12px;
   }
 
+  .compendium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .compendium-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel-2);
+    padding: 12px;
+  }
+
+  .compendium-card.csrd-card {
+    border-color: rgba(240, 171, 78, 0.34);
+    background:
+      linear-gradient(180deg, rgba(240,171,78,0.12), rgba(240,171,78,0.03)),
+      var(--panel-2);
+  }
+
+  .compendium-card.official-card {
+    border-color: rgba(239, 179, 74, 0.34);
+    background:
+      linear-gradient(180deg, rgba(239,179,74,0.12), rgba(239,179,74,0.03)),
+      var(--panel-2);
+  }
+
+  .compendium-card.foundry-card {
+    border-color: rgba(84, 214, 214, 0.38);
+    background:
+      linear-gradient(180deg, rgba(84,214,214,0.15), rgba(84,214,214,0.04)),
+      var(--panel-2);
+  }
+
+  .compendium-card.official-book-godforsaken {
+    border-color: color-mix(in oklab, var(--book-godforsaken), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-godforsaken), transparent 84%), rgba(239,179,74,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-claim-the-sky {
+    border-color: color-mix(in oklab, var(--book-claim-the-sky), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-claim-the-sky), transparent 84%), rgba(121,183,255,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-stars-are-fire {
+    border-color: color-mix(in oklab, var(--book-stars-are-fire), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-stars-are-fire), transparent 84%), rgba(124,201,239,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-its-only-magic {
+    border-color: color-mix(in oklab, var(--book-its-only-magic), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-its-only-magic), transparent 84%), rgba(202,168,255,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-high-noon-at-midnight {
+    border-color: color-mix(in oklab, var(--book-high-noon-at-midnight), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-high-noon-at-midnight), transparent 84%), rgba(216,155,100,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-neon-rain {
+    border-color: color-mix(in oklab, var(--book-neon-rain), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-neon-rain), transparent 84%), rgba(78,198,217,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-rust-and-redemption {
+    border-color: color-mix(in oklab, var(--book-rust-and-redemption), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-rust-and-redemption), transparent 84%), rgba(197,138,99,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-stay-alive {
+    border-color: color-mix(in oklab, var(--book-stay-alive), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-stay-alive), transparent 84%), rgba(201,127,106,0.02)), var(--panel-2);
+  }
+  .compendium-card.official-book-we-are-all-mad-here {
+    border-color: color-mix(in oklab, var(--book-we-are-all-mad-here), #000 45%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--book-we-are-all-mad-here), transparent 84%), rgba(158,207,122,0.02)), var(--panel-2);
+  }
+
+  .compendium-head {
+    display: grid;
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .compendium-thumb {
+    width: 68px;
+    height: 90px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 6px;
+  }
+
+  .compendium-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .compendium-name {
+    font-weight: 800;
+    color: var(--accent);
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+
+  .compendium-subtitle {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .compendium-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .compendium-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 10px;
+  }
+
+  .compendium-stat {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 8px;
+    background: rgba(255,255,255,0.03);
+    font-size: 0.78rem;
+  }
+
+  .compendium-stat .k {
+    color: var(--muted);
+    margin-right: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+  }
+
+  .compendium-stat .v {
+    color: var(--text);
+    font-weight: 700;
+  }
+
   .plugin-card {
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -164,29 +315,39 @@
       <a href="/character-studio">Open Character Studio</a>
     </div>
     <div class="toc-card">
-      <h3>Local Library</h3>
-      <p>Browse and filter locally saved generated content.</p>
-      <a href="/library">Open Local Library</a>
-    </div>
-    <div class="toc-card">
-      <h3>Unified Search</h3>
-      <p>Search local content and compendium records from one place.</p>
+      <h3>Search</h3>
+      <p>Single search surface for House, FoundryVTT, Lore, CSRD, and official sources with source filters.</p>
       <a href="/search">Open Search</a>
     </div>
     <div class="toc-card">
-      <h3>Lore Browser</h3>
-      <p>Read lore entries and navigate your world material by category and setting.</p>
-      <a href="/lore-browser">Open Lore Browser</a>
+      <h3>Quick Roller</h3>
+      <p>Throw common dice expressions fast with breakdowns and a small recent-roll history.</p>
+      <a href="/dice-roller">Open Quick Roller</a>
     </div>
     <div class="toc-card">
-      <h3>Prompt Browser</h3>
-      <p>Review extracted lore/art prompt blocks.</p>
-      <a href="/prompt-browser">Open Prompt Browser</a>
+      <h3>Cypher Roller</h3>
+      <p>Resolve Cypher task rolls with skill, assets, Effort, pool cost, target number, and damage in one place.</p>
+      <a href="/cypher-roller">Open Cypher Roller</a>
     </div>
     <div class="toc-card">
-      <h3>CSRD Compendium</h3>
-      <p>Browse parsed Cypher System reference entries.</p>
-      <a href="/compendium-browser">Open Compendium</a>
+      <h3>Search Local</h3>
+      <p>Jump to Search with only local house records enabled.</p>
+      <a href="/search?include_local=1&include_foundry=0&include_lore=0&include_csrd=0&include_official=0">Open Local Search</a>
+    </div>
+    <div class="toc-card">
+      <h3>Search FoundryVTT</h3>
+      <p>Jump to Search with only synced FoundryVTT records enabled.</p>
+      <a href="/search?include_local=0&include_foundry=1&include_lore=0&include_csrd=0&include_official=0&compendiums=foundryvtt">Open FoundryVTT Search</a>
+    </div>
+    <div class="toc-card">
+      <h3>Search Lore</h3>
+      <p>Jump to Search with only lore entries enabled.</p>
+      <a href="/search?include_local=0&include_foundry=0&include_lore=1&include_csrd=0&include_official=0">Open Lore Search</a>
+    </div>
+    <div class="toc-card">
+      <h3>Search CSRD</h3>
+      <p>Jump to Search with only CSRD compendium entries enabled.</p>
+      <a href="/search?include_local=0&include_foundry=0&include_lore=0&include_csrd=1&include_official=0">Open CSRD Search</a>
     </div>
     <div class="toc-card">
       <h3>Config Enrichment</h3>
@@ -199,6 +360,13 @@
       <a href="/map-tools">Open Map Tools</a>
     </div>
   </div>
+</div>
+
+<div class="panel" style="margin-top:16px;">
+  <h2 style="margin-top:0;">Compendiums</h2>
+  <p style="margin-top:0;">Active compendium sources currently available in Search.</p>
+  <div id="compendiums-status" class="status">Loading compendiums...</div>
+  <div id="compendiums-grid" class="compendium-grid"></div>
 </div>
 
 <div class="panel" style="margin-top:16px;">
@@ -218,6 +386,118 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
+  }
+
+  function formatStatLabel(key) {
+    return String(key || '')
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function slugifyText(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function officialBookClassFromName(name) {
+    const key = slugifyText(name);
+    const map = {
+      'godforsaken': 'official-book-godforsaken',
+      'claim-the-sky': 'official-book-claim-the-sky',
+      'the-stars-are-fire': 'official-book-stars-are-fire',
+      'its-only-magic': 'official-book-its-only-magic',
+      'high-noon-at-midnight': 'official-book-high-noon-at-midnight',
+      'neon-rain': 'official-book-neon-rain',
+      'rust-and-redemption': 'official-book-rust-and-redemption',
+      'stay-alive': 'official-book-stay-alive',
+      'we-are-all-mad-here': 'official-book-we-are-all-mad-here',
+    };
+    return map[key] || '';
+  }
+
+  function officialBookBadgeFromName(name) {
+    const key = slugifyText(name);
+    const map = {
+      'godforsaken': 'book-godforsaken',
+      'claim-the-sky': 'book-claim-the-sky',
+      'the-stars-are-fire': 'book-stars-are-fire',
+      'its-only-magic': 'book-its-only-magic',
+      'high-noon-at-midnight': 'book-high-noon-at-midnight',
+      'neon-rain': 'book-neon-rain',
+      'rust-and-redemption': 'book-rust-and-redemption',
+      'stay-alive': 'book-stay-alive',
+      'we-are-all-mad-here': 'book-we-are-all-mad-here',
+    };
+    return map[key] || 'book-badge';
+  }
+
+  async function loadCompendiums() {
+    const statusEl = document.getElementById('compendiums-status');
+    const gridEl = document.getElementById('compendiums-grid');
+    try {
+      const response = await fetch('/compendiums');
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || `Request failed: ${response.status}`);
+      }
+      const items = Array.isArray(data.items) ? data.items : [];
+      if (!items.length) {
+        statusEl.textContent = 'No compendiums available.';
+        gridEl.innerHTML = '';
+        return;
+      }
+      statusEl.textContent = `${items.length} compendium${items.length === 1 ? '' : 's'} available.`;
+      gridEl.innerHTML = items.map(item => {
+        const stats = item && typeof item.stats === 'object' && item.stats ? item.stats : {};
+        const itemId = String(item.id || '').toLowerCase();
+        const sourceKind = String(item.source_kind || '').toLowerCase();
+        const bookCardClass = officialBookClassFromName(item.name || item.id || '');
+        const cardClass = sourceKind === 'csrd'
+          ? 'compendium-card csrd-card'
+          : (sourceKind === 'foundry'
+            ? 'compendium-card foundry-card'
+            : `compendium-card official-card ${bookCardClass}`.trim());
+        const sourceBadge = sourceKind === 'csrd'
+          ? `<span class="source-badge source-csrd">CSRD</span>`
+          : (sourceKind === 'foundry'
+            ? `<span class="source-badge source-foundry">FoundryVTT</span>`
+            : `<span class="source-badge source-official">Official PDF</span>`);
+        const bookBadge = sourceKind !== 'official'
+          ? ''
+          : `<span class="source-badge book-badge ${escapeHtml(officialBookBadgeFromName(item.name || item.id || ''))}">${escapeHtml(item.name || 'Book')}</span>`;
+        const statBadges = Object.entries(stats)
+          .filter(([, value]) => Number(value || 0) > 0)
+          .map(([key, value]) => `
+            <span class="compendium-stat">
+              <span class="k">${escapeHtml(formatStatLabel(key))}</span>
+              <span class="v">${escapeHtml(String(value))}</span>
+            </span>
+          `).join('');
+        const thumb = item.thumbnail_url
+          ? `<img src="${escapeHtml(item.thumbnail_url)}" alt="${escapeHtml(item.name || 'Compendium')}" loading="lazy" />`
+          : `<span>${escapeHtml(item.name || 'Book')}</span>`;
+        return `
+          <div class="${cardClass}">
+            <div class="compendium-head">
+              <div class="compendium-thumb">${thumb}</div>
+              <div>
+                <div class="compendium-name">${escapeHtml(item.name || 'Compendium')}</div>
+                <div class="compendium-subtitle">${escapeHtml(item.subtitle || '')}</div>
+              </div>
+            </div>
+            <div class="compendium-badges">${sourceBadge}${bookBadge}</div>
+            <div class="compendium-stats">${statBadges || '<span class="small">No indexed stats yet.</span>'}</div>
+            <a href="${escapeHtml(item.landing_url || item.search_url || '/search')}">Open Compendium</a>
+          </div>
+        `;
+      }).join('');
+    } catch (err) {
+      statusEl.textContent = `Failed to load compendiums: ${err.message}`;
+      gridEl.innerHTML = '';
+    }
   }
 
   async function loadPlugins() {
@@ -282,6 +562,7 @@
     }
   }
 
+  loadCompendiums();
   loadPlugins();
 </script>
 {% endblock %}

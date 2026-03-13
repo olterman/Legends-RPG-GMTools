@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T21:48:39.221670+00:00",
+  "filename": "character_sheet/character_sheet_20260312T214839.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": ""
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Willem",
+    "sheet": {
+      "name": "Willem",
+      "sentence": "Willem is Charming Lilim who Throws with deadly accuracy.",
+      "type": "Explorer with Combat flavor",
+      "flavor": "",
+      "descriptor": "Charming Lilim",
+      "focus": "Throws with deadly accuracy",
+      "effort": 1,
+      "cypher_limit": 3,
+      "weapons": "",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 14,
+          "intellect": 12
+        },
+        "current": {
+          "might": 12,
+          "speed": 14,
+          "intellect": 12
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 0,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "All social interactions",
+          "Using special abilities that influence the minds of others"
+        ],
+        "inabilities": [
+          "Figuring out puzzles or problems, memorizing things, or using lore",
+          "Resisting mental attacks",
+          "Lore, knowledge, or understanding",
+          "Obeying or following orders"
+        ],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [],
+      "chosen_abilities": [
+        "Magical being - Arcane",
+        "Precision",
+        "Practiced in Armor",
+        "Block",
+        "Endurance",
+        "Danger Sense",
+        "Vindictive Performance"
+      ],
+      "chosen_skills": [
+        {
+          "name": "All social interactions",
+          "level": "trained"
+        },
+        {
+          "name": "Using special abilities that influence the minds of others",
+          "level": "trained"
+        },
+        {
+          "name": "Figuring out puzzles or problems, memorizing things, or using lore",
+          "level": "inability"
+        },
+        {
+          "name": "Resisting mental attacks",
+          "level": "inability"
+        },
+        {
+          "name": "Lore, knowledge, or understanding",
+          "level": "inability"
+        },
+        {
+          "name": "Obeying or following orders",
+          "level": "inability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Throwing daggers",
+          "description": "",
+          "damage": 4,
+          "weapon_type": "light weapon",
+          "range": "Near",
+          "skill_rating": "Trained"
+        },
+        {
+          "name": "Elaborate Swept-hilt Rapier",
+          "description": "",
+          "damage": 2,
+          "weapon_type": "light weapon",
+          "range": "immediate",
+          "skill_rating": "Trained"
+        }
+      ],
+      "cyphers": [
+        {
+          "name": "Rejuvenator",
+          "level": "7",
+          "description": "Level: 1d6 + 2\n\nEffect: Restores a number of points equal to the cypher’s level to one random stat Pool. Roll a [[/r d100]] to determine the stat Pool.\n\n01–50Might Pool51–75Speed Pool76–00Intellect Pool"
+        },
+        {
+          "name": "Blinking",
+          "level": 4,
+          "description": "Level: 1d6\n\nEffect: For the next day, each time the user is struck hard enough to take damage (but not more than once per round), they teleport an immediate distance in a random direction (not up or down). Since the user is prepared for this effect and their foe is not, the user’s defenses are eased for one round after they teleport."
+        },
+        {
+          "name": "Teleporter (traveler)",
+          "level": 6,
+          "description": "Level: 1d6 + 4\n\nEffect: User teleports up to 100 × the cypher level in miles to a location they have previously visited or seen. They arrive safely with their possessions but cannot take anything else with them."
+        }
+      ],
+      "artifacts": [],
+      "equipment": [
+        "Leather Pouch",
+        "Backpack",
+        "Rope (50 ft/15 m)",
+        "Tinder and flint"
+      ],
+      "notes": "Magical being - Arcane: You are inately magical. As a result, you ease any task involved in the use of Arcane Magic. Enabler.\nPrecision: You deal 2 additional points of damage with attacks using weapons that you throw. Enabler.\nPracticed in Armor: You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler.\nBlock: You automatically block the next melee attack made against you within the next minute. Action to initiate.\nEndurance: Any duration dealing with physical actions is either doubled or halved, whichever is better for you. For example, if the typical person can hold their breath for thirty seconds, you can hold it for one minute. If the typical person can march for four hours without stopping, you can do so for eight hours. In terms of harmful effects, if a poison paralyzes its victims for one minute, you are paralyzed for thirty seconds. The minimum duration is always one round. Enabler.\nDanger Sense: Your initiative task is eased. You pay the cost each time the ability is used. Enabler.\nVindictive Performance: When you tell a joke, perform a song or poem, draw a picture, relate an anecdote, or otherwise provide entertainment, you can select one individual from the audience who is able to understand you. During your performance, you heap indirect but biting derision on this target. If you succeed, the target doesn’t realize that they’ve become the victim of your performance until you wrap up the entertainment at a moment you choose in a way that strikes home. The target suffers 6 points of Intellect damage (ignores Armor) and loses their next turn. One or more actions to initiate.",
+      "generated": null,
+      "wizard_completed": true,
+      "metadata": {
+        "name": "Willem",
+        "race": "",
+        "profession": "",
+        "area": "",
+        "location": "",
+        "character_type": "Explorer with Combat flavor",
+        "flavor": "",
+        "descriptor": "Charming Lilim",
+        "focus": "Throws with deadly accuracy",
+        "tier": 1,
+        "xp": 5,
+        "source": "foundry_vtt",
+        "foundry_actor_type": "pc",
+        "foundry_actor_uuid": "",
+        "foundry_internal_links": []
+      }
+    },
+    "metadata": {
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": null,
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "character_type": "Explorer with Combat flavor",
+      "flavor": "",
+      "descriptor": "Charming Lilim",
+      "focus": "Throws with deadly accuracy",
+      "tier": 1,
+      "source": "foundry_vtt",
+      "origin": "foundry_import",
+      "foundry_actor_type": "pc",
+      "foundry_actor_uuid": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Magical being - Arcane: You are inately magical. As a result, you ease any task involved in the use of Arcane Magic. Enabler. Precision: You deal 2 additional points of damage with attacks using weapons that you throw. Enabler. Practiced in Armor: You can wear armor for long periods of time without tiring and can compensate for slowed reactions from wearing armor. You reduce the Speed cost for wearing armor by 1. You start the game with a type of armor of your choice. Enabler. Block: You automa…"
+  }
+}

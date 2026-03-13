@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:23:00.078501+00:00",
+  "filename": "foundryvtt/fantasy/creature/creature_20260312T232300.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "creature",
+    "name": "Elemental, water",
+    "sections": {
+      "character": "Elemental, water",
+      "environment": "Anywhere there is flowing water",
+      "motive": "Flood, drown, and wash away",
+      "interaction": "Water elementals are somewhat intelligent but think very differently from humans, so they often seem distracted and dull. They are generally compliant when summoned with magic, but there is about a 5 percent chance that they break free of the spell and lash out against their summoner.",
+      "use": "Offerings left at a sacred pond have gone missing, and the water itself seems threatening. Garbage or dead bodies have polluted a water source, spawning an angry elemental that attacks everyone until the mess is cleaned up.",
+      "gm_intrusion": "The force of the elemental’s attack knocks over a character, sweeps them a short distance away, or both."
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 24,
+      "armor": 0,
+      "damage": 4,
+      "movement": "Short; long if swimming",
+      "modifications": [
+        "Swimming and aquatic maneuvers as level 6; stealth as level 6 when in water"
+      ],
+      "combat": [
+        "Water elementals bash opponents with heavy limbs of water or spray jets of water out to short range. Instead of a bashing attack, a water elemental can use its action to attempt to envelop, smother, and crush one opponent, who can resist with a Might defense roll. If the opponent fails, it takes 4 points of damage immediately and every round on the elemental’s turn. Each following turn, the enveloped character must attempt a new Might defense roll every round or move one step down the damage track from drowning as the elemental forces itself into the creature’s lungs. The creature can free itself with a Might defense roll. An elemental with an enveloped opponent can move up to a short distance as its action; a common tactic is to dive deep, release their opponent to drown normally, then return to its previous position to fight other opponents. Any attack that inflicts 6 or more points of cold damage hinders a water elemental’s actions on its next turn."
+      ],
+      "interaction": [
+        "Water elementals are somewhat intelligent but think very differently from humans, so they often seem distracted and dull. They are generally compliant when summoned with magic, but there is about a 5 percent chance that they break free of the spell and lash out against their summoner."
+      ],
+      "loot": []
+    },
+    "text": "Water elementals are animate masses of water. When swimming, they are nearly indistinguishable from their surroundings, but when they have to move on dry land, they usually take the form of a curling wave, amorphous blob, or large puddle. They can spontaneously appear in locations with pristine salt or fresh water.\n\nMotive: Flood, drown, and wash away\n\nEnvironment: Anywhere there is flowing water\n\nHealth: 24\n\nDamage Inflicted: 4 points\n\nMovement: Short; long if swimming\n\nModifications: Swimming and aquatic maneuvers as level 6; stealth as level 6 when in water\n\nCombat: Water elementals bash opponents with heavy limbs of water or spray jets of water out to short range.\n\nInstead of a bashing attack, a water elemental can use its action to attempt to envelop, smother, and crush one opponent, who can resist with a Might defense roll. If the opponent fails, it takes 4 points of damage immediately and every round on the elemental’s turn. Each following turn, the enveloped character must attempt a new Might defense roll every round or move one step down the damage track from drowning as the elemental forces itself into the creature’s lungs. The creature can free itself with a Might defense roll. An elemental with an enveloped opponent can move up to a short distance as its action; a common tactic is to dive deep, release their opponent to drown normally, then return to its previous position to fight other opponents.\n\nAny attack that inflicts 6 or more points of cold damage hinders a water elemental’s actions on its next turn.\n\nInteraction: Water elementals are somewhat intelligent but think very differently from humans, so they often seem distracted and dull. They are generally compliant when summoned with magic, but there is about a 5 percent chance that they break free of the spell and lash out against their summoner.\n\nUse: Offerings left at a sacred pond have gone missing, and the water itself seems threatening. Garbage or dead bodies have polluted a water source, spawning an angry elemental that attacks everyone until the mess is cleaned up.\n\nGM Intrusion: The force of the elemental’s attack knocks over a character, sweeps them a short distance away, or both.\n\nElemental, water\nLevel 4 (target number 12)\nHealth: 24\nArmor: 0\nDamage: 4",
+    "metadata": {
+      "race": "",
+      "profession": "",
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_actor_type": "npc",
+      "foundry_compendium_source": "Compendium.cyphersystem-compendium.creatures.Actor.1djsTbgsAQCBqinq",
+      "foundry_internal_links": [],
+      "image_url": "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_elemental-water.webp",
+      "images": [
+        "http://localhost:30000/modules/cyphersystem-compendium/img/csrd-tokens/webp/fantasy/creature_elemental-water.webp"
+      ],
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "description": "Offerings left at a sacred pond have gone missing, and the water itself seems threatening. Garbage or dead bodies have polluted a water source, spawning an angry elemental that attacks everyone until the mess is cleaned up."
+  }
+}

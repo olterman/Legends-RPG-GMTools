@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-12T23:10:24.170860+00:00",
+  "filename": "foundryvtt/fantasy/cypher/cypher_20260312T231024.json",
+  "payload": {
+    "setting": "",
+    "area": "",
+    "location": "",
+    "foundry_origin": "http://localhost:30000"
+  },
+  "result": {
+    "type": "cypher",
+    "name": "Age taker",
+    "description": "Level: 1d6 + 4 Effect: Begins a process of rejuvenation that removes years from the wearer’s physiological age. Over the course of the next seven days, the wearer sheds a number of years equal to three times the cypher’s level. The cypher doesn’t regress physiological age past the age of twenty-three.",
+    "sections": {
+      "name": "Age taker",
+      "level": "1d6 + 4",
+      "effect": "Level: 1d6 + 4\n\nEffect: Begins a process of rejuvenation that removes years from the wearer’s physiological age. Over the course of the next seven days, the wearer sheds a number of years equal to three times the cypher’s level. The cypher doesn’t regress physiological age past the age of twenty-three."
+    },
+    "text": "Level: 1d6 + 4\n\nEffect: Begins a process of rejuvenation that removes years from the wearer’s physiological age. Over the course of the next seven days, the wearer sheds a number of years equal to three times the cypher’s level. The cypher doesn’t regress physiological age past the age of twenty-three.",
+    "metadata": {
+      "source": "FoundryVTT",
+      "origin": "foundry_import",
+      "foundry_item_type": "cypher",
+      "foundry_internal_links": [],
+      "area": "",
+      "environment": "",
+      "location": "",
+      "foundry_origin": "http://localhost:30000",
+      "image_url": "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg",
+      "images": [
+        "http://localhost:30000/systems/cyphersystem/icons/items/cypher.svg"
+      ],
+      "item_class": "one_shot",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

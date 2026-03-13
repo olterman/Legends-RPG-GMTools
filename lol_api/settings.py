@@ -4,6 +4,36 @@ import re
 from typing import Any
 
 
+def _taxonomy_root(config: dict[str, Any]) -> dict[str, Any]:
+    """
+    Compatibility layer:
+    - legacy key: settings
+    - new terminology key: genres
+    """
+    root = config.get("genres")
+    if isinstance(root, dict):
+        return root
+    root = config.get("settings")
+    if isinstance(root, dict):
+        return root
+    return {}
+
+
+def _catalog_block(root: dict[str, Any]) -> dict[str, Any]:
+    raw = root.get("catalog", {})
+    return raw if isinstance(raw, dict) else {}
+
+
+def _child_settings(details: dict[str, Any]) -> list[str]:
+    """
+    Child settings under a genre (legacy field name: worlds).
+    """
+    values = normalize_settings_values(details.get("settings"))
+    if values:
+        return values
+    return normalize_settings_values(details.get("worlds"))
+
+
 def normalize_setting_token(value: Any) -> str:
     text = str(value or "").strip().lower()
     if not text:
@@ -54,7 +84,9 @@ def settings_catalog(config: dict[str, Any]) -> list[str]:
             if token not in catalog:
                 catalog.append(token)
 
-    raw = config.get("settings")
+    raw = config.get("genres")
+    if not isinstance(raw, (list, dict)):
+        raw = config.get("settings")
     if isinstance(raw, list):
         add_many(raw)
     elif isinstance(raw, dict):
@@ -76,8 +108,8 @@ def settings_catalog(config: dict[str, Any]) -> list[str]:
 
 
 def settings_worlds_map(config: dict[str, Any]) -> dict[str, list[str]]:
-    settings_cfg = config.get("settings", {}) or {}
-    catalog = settings_cfg.get("catalog", {}) if isinstance(settings_cfg, dict) else {}
+    settings_cfg = _taxonomy_root(config)
+    catalog = _catalog_block(settings_cfg)
     worlds_map: dict[str, list[str]] = {}
     if not isinstance(catalog, dict):
         return worlds_map
@@ -86,26 +118,26 @@ def settings_worlds_map(config: dict[str, Any]) -> dict[str, list[str]]:
         core = normalize_setting_token(core_key)
         if not core:
             continue
-        worlds = normalize_settings_values((details or {}).get("worlds") if isinstance(details, dict) else None)
+        worlds = _child_settings(details or {}) if isinstance(details, dict) else []
         worlds_map[core] = worlds
 
     return worlds_map
 
 
 def core_settings(config: dict[str, Any]) -> list[str]:
-    settings_cfg = config.get("settings", {}) or {}
+    settings_cfg = _taxonomy_root(config)
     if isinstance(settings_cfg, dict) and isinstance(settings_cfg.get("core"), list):
         return normalize_settings_values(settings_cfg.get("core"))
     return [k for k in settings_worlds_map(config).keys()]
 
 
 def settings_nav_model(config: dict[str, Any]) -> dict[str, Any]:
-    settings_cfg = config.get("settings", {}) or {}
-    catalog = settings_cfg.get("catalog", {}) if isinstance(settings_cfg, dict) else {}
+    settings_cfg = _taxonomy_root(config)
+    catalog = _catalog_block(settings_cfg)
     worlds_map = settings_worlds_map(config)
 
     options: list[dict[str, str]] = [
-        {"value": "all_settings", "label": "All Settings"},
+        {"value": "all_settings", "label": "All Genres"},
     ]
 
     for core in core_settings(config):
@@ -123,6 +155,10 @@ def settings_nav_model(config: dict[str, Any]) -> dict[str, Any]:
     }
 
     return {
+        # New terminology
+        "genre_options": options,
+        "settings_by_genre": worlds_by_core,
+        # Legacy aliases
         "core_options": options,
         "worlds_by_core": worlds_by_core,
     }
@@ -130,7 +166,7 @@ def settings_nav_model(config: dict[str, Any]) -> dict[str, Any]:
 
 def default_settings(config: dict[str, Any]) -> list[str]:
     values: list[str] = []
-    settings_cfg = config.get("settings", {}) or {}
+    settings_cfg = _taxonomy_root(config)
 
     raw_defaults = settings_cfg.get("defaults") if isinstance(settings_cfg, dict) else None
     for token in normalize_settings_values(raw_defaults):
@@ -156,15 +192,16 @@ def default_settings(config: dict[str, Any]) -> list[str]:
 
 def expand_related_settings(base_settings: list[str], config: dict[str, Any]) -> list[str]:
     values = list(base_settings)
-    settings_cfg = config.get("settings", {}) or {}
-    catalog = settings_cfg.get("catalog", {}) if isinstance(settings_cfg, dict) else {}
+    settings_cfg = _taxonomy_root(config)
+    catalog = _catalog_block(settings_cfg)
     if not isinstance(catalog, dict):
         return values
 
     world_to_core: dict[str, str] = {}
     for core_key, details in catalog.items():
         core = normalize_setting_token(core_key)
-        for world in normalize_settings_values((details or {}).get("worlds") if isinstance(details, dict) else None):
+        child_settings = _child_settings(details or {}) if isinstance(details, dict) else []
+        for world in child_settings:
             if world and core:
                 world_to_core[world] = core
 
@@ -193,8 +230,12 @@ def resolve_item_settings(
 
     add_many(payload.get("settings"))
     add_many(payload.get("setting"))
+    add_many(payload.get("genres"))
+    add_many(payload.get("genre"))
     add_many(metadata.get("settings"))
     add_many(metadata.get("setting"))
+    add_many(metadata.get("genres"))
+    add_many(metadata.get("genre"))
 
     # Ensure every item is tied to at least one setting tag.
     if not values:
@@ -213,13 +254,19 @@ def attach_settings_metadata(
     metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
     settings = resolve_item_settings(payload, metadata, config)
     preferred_primary = normalize_setting_token(metadata.get("setting"))
-    settings_cfg = config.get("settings", {}) or {}
-    catalog = settings_cfg.get("catalog", {}) if isinstance(settings_cfg, dict) else {}
+    settings_cfg = _taxonomy_root(config)
+    catalog = _catalog_block(settings_cfg)
     world_tags: set[str] = set()
+    world_to_genre: dict[str, str] = {}
     if isinstance(catalog, dict):
-        for details in catalog.values():
+        for core_key, details in catalog.items():
             if isinstance(details, dict):
-                world_tags.update(normalize_settings_values(details.get("worlds")))
+                genre = normalize_setting_token(core_key)
+                child_settings = _child_settings(details)
+                world_tags.update(child_settings)
+                for world in child_settings:
+                    if world and genre:
+                        world_to_genre[world] = genre
 
     if settings:
         metadata["settings"] = settings
@@ -235,6 +282,9 @@ def attach_settings_metadata(
             primary = next((tag for tag in settings if tag in world_tags), settings[0])
 
         metadata["setting"] = primary or settings[0]
+        chosen = metadata["setting"]
+        metadata["genre"] = world_to_genre.get(chosen, chosen)
+        metadata["genres"] = [metadata["genre"]]
 
     result["metadata"] = metadata
     return result

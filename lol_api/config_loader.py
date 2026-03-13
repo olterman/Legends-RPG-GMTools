@@ -36,6 +36,10 @@ def list_world_ids(config_dir: Path) -> list[str]:
     return ids
 
 
+def list_setting_ids(config_dir: Path) -> list[str]:
+    return list_world_ids(config_dir)
+
+
 def load_world_layer(config_dir: Path, world_id: str) -> dict[str, Any]:
     world_dir = config_dir / "worlds" / world_id
     if not world_dir.exists():
@@ -48,6 +52,10 @@ def load_world_layer(config_dir: Path, world_id: str) -> dict[str, Any]:
     return merged_world
 
 
+def load_setting_layer(config_dir: Path, setting_id: str) -> dict[str, Any]:
+    return load_world_layer(config_dir, setting_id)
+
+
 def infer_default_world_id(config_dir: Path) -> str | None:
     world_ids = set(list_world_ids(config_dir))
     if not world_ids:
@@ -57,7 +65,11 @@ def infer_default_world_id(config_dir: Path) -> str | None:
     if settings_file.exists():
         try:
             data = load_yaml_file(settings_file)
-            settings = data.get("settings", {}) if isinstance(data, dict) else {}
+            settings = (
+                data.get("genres")
+                if isinstance(data, dict) and isinstance(data.get("genres"), dict)
+                else data.get("settings", {}) if isinstance(data, dict) else {}
+            )
             defaults = settings.get("defaults", []) if isinstance(settings, dict) else []
             if isinstance(defaults, list):
                 for value in defaults:
@@ -72,6 +84,10 @@ def infer_default_world_id(config_dir: Path) -> str | None:
     return None
 
 
+def infer_default_setting_id(config_dir: Path) -> str | None:
+    return infer_default_world_id(config_dir)
+
+
 def infer_core_setting_for_world(config_dir: Path, world_id: str) -> str | None:
     try:
         merged_world = load_world_layer(config_dir, world_id)
@@ -79,21 +95,36 @@ def infer_core_setting_for_world(config_dir: Path, world_id: str) -> str | None:
         return None
 
     world_block = merged_world.get("world", {}) if isinstance(merged_world, dict) else {}
-    core_setting = world_block.get("core_setting") if isinstance(world_block, dict) else None
+    core_setting = None
+    if isinstance(world_block, dict):
+        core_setting = world_block.get("core_genre") or world_block.get("core_setting")
     token = str(core_setting or "").strip()
     return token or None
+
+
+def infer_core_genre_for_setting(config_dir: Path, setting_id: str) -> str | None:
+    return infer_core_setting_for_world(config_dir, setting_id)
 
 
 def describe_world(config_dir: Path, world_id: str) -> dict[str, Any]:
     merged_world = load_world_layer(config_dir, world_id)
     world_block = merged_world.get("world", {}) if isinstance(merged_world, dict) else {}
 
+    core_value = None
+    if isinstance(world_block, dict):
+        core_value = world_block.get("core_genre") or world_block.get("core_setting")
+
     return {
         "id": world_id,
         "label": str(world_block.get("label") or world_id).strip(),
-        "core_setting": str(world_block.get("core_setting") or "").strip() or None,
+        "core_setting": str(core_value or "").strip() or None,
+        "core_genre": str(core_value or "").strip() or None,
         "description": str(world_block.get("description") or "").strip() or None,
     }
+
+
+def describe_setting(config_dir: Path, setting_id: str) -> dict[str, Any]:
+    return describe_world(config_dir, setting_id)
 
 
 def list_world_descriptors(config_dir: Path) -> list[dict[str, Any]]:
@@ -111,7 +142,16 @@ def list_world_descriptors(config_dir: Path) -> list[dict[str, Any]]:
     return worlds
 
 
-def load_config_dir(config_dir: Path, *, world_id: str | None = None) -> dict[str, Any]:
+def list_setting_descriptors(config_dir: Path) -> list[dict[str, Any]]:
+    return list_world_descriptors(config_dir)
+
+
+def load_config_dir(
+    config_dir: Path,
+    *,
+    world_id: str | None = None,
+    setting_id: str | None = None,
+) -> dict[str, Any]:
     merged: dict[str, Any] = {}
 
     # Legacy flat config remains supported during migration.
@@ -126,8 +166,8 @@ def load_config_dir(config_dir: Path, *, world_id: str | None = None) -> dict[st
             data = load_yaml_file(path)
             _merge_top_level(merged, data, path)
 
-    # Optional setting layer, selected via world.core_setting.
-    active_world = (world_id or "").strip()
+    # Optional genre layer (legacy name: setting), selected via world.core_genre / world.core_setting.
+    active_world = (setting_id or world_id or "").strip()
     active_core_setting: str | None = None
     if active_world:
         active_core_setting = infer_core_setting_for_world(config_dir, active_world)

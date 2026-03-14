@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T03:28:04.778551+00:00",
+  "filename": "npc/npc_20260314T032804.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "The Salty Seagull",
+    "race": "human",
+    "variant": "caldoran",
+    "gender": "female",
+    "profession": "innkeeper",
+    "culture": "human",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Mira Lark",
+    "description": "Mira Lark runs The Salty Seagull with a hearty laugh that echoes through the tavern, her presence as comforting as the warm stew she serves. The walls of the inn are adorned with fishing nets and nautical memorabilia, creating a vibrant atmosphere that reflects the village's maritime spirit. Known for her storytelling prowess, she captivates patrons with tales of the sea, while her keen eye ensures that the tavern remains a safe haven for all. Despite the occasional storm that rattles the villa…",
+    "sections": {
+      "type": "npc",
+      "name": "Mira Lark",
+      "race": "human",
+      "variant": "caldoran",
+      "gender": "female",
+      "profession": "innkeeper",
+      "culture": "human",
+      "level": 4,
+      "health": 14,
+      "armor": 1,
+      "damage_inflicted": 5,
+      "movement": "short",
+      "modifications": "",
+      "motive": "To foster community and share the stories of the sea.",
+      "environment": "The bustling tavern of The Salty Seagull, filled with the scent of grilled fish and the sounds of laughter.",
+      "combat": "Mira prefers to defuse conflicts with her wit and charm, but she is not afraid to stand her ground if necessary.",
+      "interaction": "Mira is warm and inviting, often engaging patrons with stories and laughter, making everyone feel at home.",
+      "use": "Mira can serve as a source of local lore, quests, or information about the sea and its dangers.",
+      "gm_intrusion": "If Mira feels threatened, she may reveal a hidden talent for persuasion, turning the tide of a confrontation.",
+      "loot": "Mira may offer a unique seafood recipe or a small token from the sea as a reward for helping her with a problem.",
+      "description": "Mira Lark runs The Salty Seagull with a hearty laugh that echoes through the tavern, her presence as comforting as the warm stew she serves. The walls of the inn are adorned with fishing nets and nautical memorabilia, creating a vibrant atmosphere that reflects the village's maritime spirit. Known for her storytelling prowess, she captivates patrons with tales of the sea, while her keen eye ensures that the tavern remains a safe haven for all. Despite the occasional storm that rattles the village, Mira's resilience and community spirit shine through, making her an integral part of life in Harbor's Edge."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "caldor_island",
+      "location": "The Salty Seagull",
+      "environment": "caldor_island",
+      "race": "human",
+      "variant": "caldoran",
+      "gender": "female",
+      "profession": "innkeeper",
+      "culture": "human",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

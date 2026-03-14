@@ -542,6 +542,150 @@ def _upsert_rows_for_source(
     return inserted, updated, removed
 
 
+def _remove_source_path(conn: sqlite3.Connection, *, source_path: str) -> int:
+    existing = conn.execute(
+        "SELECT id FROM documents WHERE source_path = ?",
+        (source_path,),
+    ).fetchall()
+    stale_ids = [int(r["id"]) for r in existing]
+    if not stale_ids:
+        return 0
+    conn.executemany("DELETE FROM vectors WHERE doc_id = ?", [(sid,) for sid in stale_ids])
+    conn.executemany("DELETE FROM documents WHERE id = ?", [(sid,) for sid in stale_ids])
+    return len(stale_ids)
+
+
+def _storage_source_path_for_file(storage_root: Path, card_path: Path) -> str:
+    rel = str(card_path.relative_to(storage_root)).replace("\\", "/")
+    return f"storage/{rel}"
+
+
+def sync_single_storage_card(
+    *,
+    storage_root: Path,
+    card_path: Path,
+    output_root: Path,
+    dim: int = DEFAULT_DIM,
+) -> dict[str, int | str]:
+    output_root.mkdir(parents=True, exist_ok=True)
+    db_path = output_root / DEFAULT_DB_NAME
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    ensure_schema(conn)
+
+    rows = _chunk_rows_for_json_card(card_path, root=storage_root, source_kind="storage")
+    if not rows:
+        source_path = _storage_source_path_for_file(storage_root, card_path)
+        removed = _remove_source_path(conn, source_path=source_path)
+        conn.commit()
+        conn.close()
+        return {
+            "status": "ok",
+            "source_path": source_path,
+            "inserted": 0,
+            "updated": 0,
+            "removed": int(removed),
+        }
+
+    source_path = rows[0].source_path
+    inserted, updated, removed = _upsert_rows_for_source(conn, source_path=source_path, rows=rows, dim=dim)
+    conn.execute(
+        "INSERT OR REPLACE INTO index_meta(key, value) VALUES (?, ?)",
+        ("last_built_at", datetime.now(timezone.utc).isoformat()),
+    )
+    conn.commit()
+    conn.close()
+    return {
+        "status": "ok",
+        "source_path": source_path,
+        "inserted": int(inserted),
+        "updated": int(updated),
+        "removed": int(removed),
+    }
+
+
+def remove_single_storage_card(
+    *,
+    storage_root: Path,
+    relative_filename: str,
+    output_root: Path,
+) -> dict[str, int | str]:
+    output_root.mkdir(parents=True, exist_ok=True)
+    db_path = output_root / DEFAULT_DB_NAME
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    ensure_schema(conn)
+    rel = str(relative_filename or "").replace("\\", "/").lstrip("/")
+    source_path = f"storage/{rel}"
+    removed = _remove_source_path(conn, source_path=source_path)
+    conn.execute(
+        "INSERT OR REPLACE INTO index_meta(key, value) VALUES (?, ?)",
+        ("last_built_at", datetime.now(timezone.utc).isoformat()),
+    )
+    conn.commit()
+    conn.close()
+    return {
+        "status": "ok",
+        "source_path": source_path,
+        "removed": int(removed),
+    }
+
+
+def sync_storage_index(
+    *,
+    storage_root: Path,
+    output_root: Path,
+    dim: int = DEFAULT_DIM,
+) -> dict[str, int | str]:
+    output_root.mkdir(parents=True, exist_ok=True)
+    db_path = output_root / DEFAULT_DB_NAME
+    storage_cards = discover_storage_json(storage_root)
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    ensure_schema(conn)
+
+    inserted = 0
+    updated = 0
+    removed = 0
+    current_sources: set[str] = set()
+
+    for card_path in storage_cards:
+        rows = _chunk_rows_for_json_card(card_path, root=storage_root, source_kind="storage")
+        if not rows:
+            continue
+        source_path = rows[0].source_path
+        current_sources.add(source_path)
+        i, u, r = _upsert_rows_for_source(conn, source_path=source_path, rows=rows, dim=dim)
+        inserted += i
+        updated += u
+        removed += r
+
+    existing_sources = conn.execute(
+        "SELECT DISTINCT source_path FROM documents WHERE source_path LIKE 'storage/%'"
+    ).fetchall()
+    stale_sources = [
+        str(row["source_path"])
+        for row in existing_sources
+        if str(row["source_path"]) not in current_sources
+    ]
+    for source_path in stale_sources:
+        removed += _remove_source_path(conn, source_path=source_path)
+
+    conn.execute(
+        "INSERT OR REPLACE INTO index_meta(key, value) VALUES (?, ?)",
+        ("last_built_at", datetime.now(timezone.utc).isoformat()),
+    )
+    conn.commit()
+    conn.close()
+    return {
+        "status": "ok",
+        "storage_cards_processed": len(storage_cards),
+        "inserted": int(inserted),
+        "updated": int(updated),
+        "removed": int(removed),
+    }
+
+
 def build_index(
     *,
     docling_root: Path,

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T02:42:50.784833+00:00",
+  "filename": "npc/npc_20260314T024250.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "xanthir",
+    "environment": "xanthir",
+    "location": "",
+    "race": "human",
+    "variant": "xanthir",
+    "gender": "male",
+    "profession": "priest",
+    "culture": "human",
+    "sourcebook": "local_library",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Caius Varn",
+    "description": "Caius Varn stands tall, his bald head gleaming under the flickering light of the temple. Clad in a deep crimson robe adorned with symbols of his faith, he exudes authority and a sense of unwavering resolve. His piercing gaze seems to weigh the souls of those who approach him, and the ornate staff he wields is both a weapon and a symbol of his divine connection. In the sacred halls, he is a figure of both reverence and fear, embodying the strict moral code of the Xanthir people.",
+    "sections": {
+      "type": "npc",
+      "name": "Caius Varn",
+      "race": "human",
+      "variant": "xanthir",
+      "gender": "male",
+      "profession": "priest",
+      "culture": "human",
+      "level": 5,
+      "health": 16,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "short",
+      "modifications": "intimidating presence as level 5",
+      "motive": "To uphold the tenets of his faith and maintain order in the community.",
+      "environment": "Temple or sacred site, often surrounded by followers or those seeking guidance.",
+      "combat": "Uses a ceremonial staff to strike foes, relying on intimidation and authority rather than brute force.",
+      "interaction": "Caius is stern and uncompromising, often demanding respect and adherence to his beliefs. He may offer guidance but expects obedience in return.",
+      "use": "As a powerful figure in the community, Caius can serve as an ally or antagonist, depending on the players' actions and beliefs.",
+      "gm_intrusion": "Caius may call upon divine intervention in critical moments, altering the course of events dramatically.",
+      "loot": "Possesses a ceremonial staff that can be used as a weapon, along with various religious artifacts.",
+      "description": "Caius Varn stands tall, his bald head gleaming under the flickering light of the temple. Clad in a deep crimson robe adorned with symbols of his faith, he exudes authority and a sense of unwavering resolve. His piercing gaze seems to weigh the souls of those who approach him, and the ornate staff he wields is both a weapon and a symbol of his divine connection. In the sacred halls, he is a figure of both reverence and fear, embodying the strict moral code of the Xanthir people.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg",
+        "images": [
+          "uploads/ai_generate/df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "xanthir",
+      "location": "",
+      "environment": "xanthir",
+      "race": "human",
+      "variant": "xanthir",
+      "gender": "male",
+      "profession": "priest",
+      "culture": "human",
+      "sourcebook": "local_library",
+      "page": "",
+      "image_url": "uploads/ai_generate/df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg",
+      "images": [
+        "uploads/ai_generate/df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg",
+      "url": "/images/uploads/ai_generate/df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg",
+      "name": "df6043c7afc5aa1651dfdeaa788c3ab9_20260314T024250_ddde4f99.jpg"
+    }
+  }
+}

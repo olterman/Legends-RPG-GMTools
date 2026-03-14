@@ -22,15 +22,15 @@
       <label for="filter-type">Type</label>
       <select id="filter-type">
         <option value="">All</option>
-        <option value="character">character</option>
-        <option value="character_sheet">character_sheet</option>
+        <option value="player_character">player_character</option>
         <option value="npc">npc</option>
         <option value="monster">monster</option>
         <option value="settlement">settlement</option>
         <option value="encounter">encounter</option>
+        <option value="landmark">landmark</option>
+        <option value="rollable_table">rollable_table</option>
         <option value="cypher">cypher</option>
         <option value="artifact">artifact</option>
-        <option value="artifacts">artifacts</option>
         <option value="attack">attack</option>
         <option value="inn">inn</option>
         <option value="creature">creature</option>
@@ -294,6 +294,18 @@
       .replace(/\b\w/g, c => c.toUpperCase());
   }
 
+  function compactBookLabel(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    const key = raw
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "");
+    if (key.includes("old_gods_of_appalachia")) return "Old Gods";
+    if (key.includes("cypher_system") && (key.includes("core_rulebook") || key.includes("rulebook"))) return "Core Rulebook";
+    return raw;
+  }
+
   function typeLabel(value) {
     const labels = {
       npc: "NPC",
@@ -305,8 +317,10 @@
       inn: "Inn",
       encounter: "Encounter",
       settlement: "Settlement",
-      character: "Character",
-      character_sheet: "Character Sheet",
+      rollable_table: "Rollable Table",
+      player_character: "Player Character",
+      character: "Player Character",
+      character_sheet: "Player Character",
       creature: "Creature",
       character_type: "Character Type",
       flavor: "Flavor",
@@ -323,7 +337,7 @@
     const key = String(value || "").trim().toLowerCase();
     const compendium = state.compendiumById[key];
     if (compendium && compendium.name) {
-      return String(compendium.name);
+      return compactBookLabel(compendium.name);
     }
     const labels = {
       storage: "House",
@@ -334,7 +348,7 @@
       godforsaken: "Godforsaken",
       official_pdf: "Official PDF"
     };
-    return labels[key] || titleCase(key || "source");
+    return labels[key] || compactBookLabel(titleCase(key || "source"));
   }
 
   function normalizeTypeValue(value) {
@@ -392,7 +406,7 @@
 
   function officialBookLabel(item) {
     const raw = item && item.raw ? item.raw : {};
-    return String((item && item.book) || raw.book || "").trim();
+    return compactBookLabel((item && item.book) || raw.book || "");
   }
 
   function officialPagesLabel(item) {
@@ -816,9 +830,15 @@
     const body = {
       q,
       k: 8,
+      include_local: Boolean(els.includeLocal?.checked),
+      include_lore: Boolean(els.includeLore?.checked),
+      setting: String(els.setting?.value || '').trim(),
+      location: String(els.location?.value || '').trim(),
     };
     if (selectedCompendiums.length === 1) {
       body.compendium_id = selectedCompendiums[0];
+    } else if (selectedCompendiums.length > 1) {
+      body.compendium_ids = selectedCompendiums;
     }
     try {
       const data = await fetchJson(endpoint, {
@@ -1755,9 +1775,9 @@
         </div>
 
         <div class="tag-row" style="margin-top:12px;">
-          <span class="tag-badge"><span class="k">Type</span>${escapeHtml(typeName)}</span>
-          <span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceTag)}</span>
-          ${areaTag ? `<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaTag)}</span>` : ""}
+          ${renderSearchTag("Type", typeName, "type")}
+          ${renderSearchTag("Source", sourceTag, "source")}
+          ${areaTag ? renderSearchTag("Area", areaTag, "area") : ""}
         </div>
       </div>
     `;
@@ -1782,6 +1802,57 @@
     return imageUrl(normalized, metadata.foundry_origin);
   }
 
+  function renderSearchTag(label, value, kind = "") {
+    const text = String(value || "").trim();
+    if (!text) return "";
+    const filterKind = String(kind || label || "").trim().toLowerCase();
+    return `<button type="button" class="tag-badge clickable-tag" data-tag-kind="${escapeHtml(filterKind)}" data-tag-value="${escapeHtml(text)}"><span class="k">${escapeHtml(label)}</span>${escapeHtml(text)}</button>`;
+  }
+
+  async function applyTagSearch(kind, value) {
+    const filterKind = String(kind || "").trim().toLowerCase();
+    const rawValue = String(value || "").trim();
+    if (!rawValue) return;
+
+    els.q.value = '';
+    els.type.value = '';
+    els.setting.value = '';
+    els.environment.value = '';
+    els.location.value = '';
+    els.race.value = '';
+    els.profession.value = '';
+
+    const selectValueIfPresent = (select, nextValue) => {
+      if (!select) return false;
+      const normalizedTarget = String(nextValue || "").trim().toLowerCase();
+      const matching = Array.from(select.options).find((opt) => String(opt.value || "").trim().toLowerCase() === normalizedTarget);
+      if (matching) {
+        select.value = matching.value;
+        return true;
+      }
+      return false;
+    };
+
+    if (filterKind === "type") {
+      const normalized = normalizeTypeValue(rawValue);
+      if (!selectValueIfPresent(els.type, normalized)) els.q.value = rawValue;
+    } else if (filterKind === "genre/setting" || filterKind === "setting") {
+      if (!selectValueIfPresent(els.setting, rawValue)) els.q.value = rawValue;
+    } else if (filterKind === "area") {
+      if (!selectValueIfPresent(els.environment, rawValue)) els.q.value = rawValue;
+    } else if (filterKind === "location") {
+      els.location.value = rawValue;
+    } else if (filterKind === "race") {
+      if (!selectValueIfPresent(els.race, rawValue)) els.q.value = rawValue;
+    } else if (filterKind === "profession") {
+      if (!selectValueIfPresent(els.profession, rawValue)) els.q.value = rawValue;
+    } else {
+      els.q.value = rawValue;
+    }
+
+    await search();
+  }
+
   function renderTagBadges(result, metadata) {
     const tags = [];
     const resultType = String(result?.type || "").trim();
@@ -1794,14 +1865,15 @@
     );
     const areaText = pickFirstNonEmpty(metadata.area, metadata.environment, result?.area, result?.environment);
     const locationText = pickFirstNonEmpty(metadata.location, result?.location);
-    if (resultType) tags.push(`<span class="tag-badge"><span class="k">Type</span>${escapeHtml(typeLabel(resultType))}</span>`);
-    if (sourceText) tags.push(`<span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceText)}</span>`);
+    if (resultType) tags.push(renderSearchTag("Type", typeLabel(resultType), "type"));
+    if (sourceText) tags.push(renderSearchTag("Source", sourceText, "source"));
     if (isFoundrySourceValue(metadata.source)) tags.push(foundrySyncBadge());
-    if (settingText) tags.push(`<span class="tag-badge"><span class="k">Genre/Setting</span>${escapeHtml(settingText)}</span>`);
-    if (areaText) tags.push(`<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaText)}</span>`);
-    if (locationText) tags.push(`<span class="tag-badge"><span class="k">Location</span>${escapeHtml(locationText)}</span>`);
-    if (metadata.race) tags.push(`<span class="tag-badge"><span class="k">Race</span>${escapeHtml(metadata.race)}</span>`);
-    if (metadata.profession) tags.push(`<span class="tag-badge"><span class="k">Profession</span>${escapeHtml(metadata.profession)}</span>`);
+    if (settingText) tags.push(renderSearchTag("Genre/Setting", settingText, "setting"));
+    if (areaText) tags.push(renderSearchTag("Area", areaText, "area"));
+    if (locationText) tags.push(renderSearchTag("Location", locationText, "location"));
+    if (metadata.race) tags.push(renderSearchTag("Race", metadata.race, "race"));
+    if (metadata.culture) tags.push(renderSearchTag("Culture", metadata.culture, "culture"));
+    if (metadata.profession) tags.push(renderSearchTag("Profession", metadata.profession, "profession"));
     if (!tags.length) return '';
     return `<div class="output-card"><h3>Tags</h3><div class="tag-row">${tags.join('')}</div></div>`;
   }
@@ -1842,6 +1914,17 @@
         sections.inn,
         sections.tavern
       ));
+    }
+
+    if (itemType === "inn") {
+      const pick = (...values) => pickFirstNonEmpty(...values);
+      push("Inn Type", pick(result.inn_type, sections.inn_type, sections.type));
+      push("Atmosphere", pick(result.atmosphere, sections.atmosphere));
+      push("Clientele", pick(result.clientele, sections.clientele));
+      push("Notable Feature", pick(result.notable_feature, sections.notable_feature, sections.feature));
+      push("Proprietor", pick(result.proprietor, sections.proprietor, sections.innkeeper, sections.owner));
+      push("Rumor or Hook", pick(result.rumor_or_hook, sections.rumor_or_hook, sections.rumor, sections.hook));
+      push("Environment", pick(result.environment, result.area, sections.environment, sections.area));
     }
 
     if (["npc", "creature", "monster"].includes(itemType)) {
@@ -1890,16 +1973,102 @@
     const areaText = pickFirstNonEmpty(metadata.area, metadata.environment, result.area, result.environment);
     const locationText = pickFirstNonEmpty(metadata.location, result.location);
     const tags = [
-      `<span class="tag-badge"><span class="k">Type</span>${escapeHtml(typeLabel(result.type || "item"))}</span>`,
-      `<span class="tag-badge"><span class="k">Source</span>${escapeHtml(sourceText)}</span>`,
+      renderSearchTag("Type", typeLabel(result.type || "item"), "type"),
+      renderSearchTag("Source", sourceText, "source"),
       isFoundrySourceValue(source) ? foundrySyncBadge() : "",
-      settingText ? `<span class="tag-badge"><span class="k">Genre/Setting</span>${escapeHtml(settingText)}</span>` : "",
-      areaText ? `<span class="tag-badge"><span class="k">Area</span>${escapeHtml(areaText)}</span>` : "",
-      locationText ? `<span class="tag-badge"><span class="k">Location</span>${escapeHtml(locationText)}</span>` : "",
-      book ? `<span class="tag-badge"><span class="k">Book</span>${escapeHtml(book)}</span>` : "",
-      pages ? `<span class="tag-badge"><span class="k">Page</span>${escapeHtml(pages)}</span>` : "",
+      settingText ? renderSearchTag("Genre/Setting", settingText, "setting") : "",
+      areaText ? renderSearchTag("Area", areaText, "area") : "",
+      locationText ? renderSearchTag("Location", locationText, "location") : "",
+      book ? renderSearchTag("Book", book, "book") : "",
+      pages ? renderSearchTag("Page", pages, "page") : "",
     ].filter(Boolean);
     return `<div class="output-card"><h3>Tags</h3><div class="tag-row">${tags.join("")}</div></div>`;
+  }
+
+  function isLocationLikeResult(result, metadata = {}) {
+    const resultType = String(result?.type || "").trim().toLowerCase();
+    const subtype = String(metadata?.subtype || metadata?.location_category_type || result?.location_category_type || result?.content_type || "").trim().toLowerCase();
+    return ["location", "area", "settlement", "inn"].includes(resultType)
+      || ["landmark", "city", "settlement", "inn", "mountain", "river", "lake"].includes(subtype);
+  }
+
+  function renderRelatedLocationSection(locationName) {
+    const name = String(locationName || "").trim();
+    if (!name) return "";
+    return `
+      <div class="output-card" id="related-location-card">
+        <h3>Cards At This Location</h3>
+        <div class="small" id="related-location-status">Loading cards tagged with ${escapeHtml(name)}...</div>
+        <div id="related-location-results" style="margin-top:10px;"></div>
+      </div>
+    `;
+  }
+
+  function renderRelatedLocationItems(items) {
+    const rows = Array.isArray(items) ? items : [];
+    if (!rows.length) {
+      return `<div class="small">No saved cards are tagged with this location yet.</div>`;
+    }
+    return rows.map((item) => {
+      const metadata = item?.metadata || {};
+      const filename = String(item?.filename || "").trim();
+      const title = String(item?.name || filename || "Unnamed").trim();
+      const type = typeLabel(String(item?.type || "").trim() || "item");
+      const area = String(metadata.area || metadata.environment || "").trim();
+      const profession = String(metadata.profession || "").trim();
+      const race = String(metadata.race || "").trim();
+      const tags = [
+        area ? renderSearchTag("Area", area, "area") : "",
+        race ? renderSearchTag("Race", race, "race") : "",
+        profession ? renderSearchTag("Profession", profession, "profession") : "",
+      ].filter(Boolean).join("");
+      return `
+        <div class="result-card" style="margin-bottom:10px;">
+          <div class="result-top">
+            <div>
+              <div class="result-heading">${escapeHtml(title)} - ${escapeHtml(type)}</div>
+              <div class="source-badge storage">Storage</div>
+            </div>
+            ${filename ? `<button type="button" class="secondary related-location-open-btn" data-filename="${escapeHtml(filename)}">Open</button>` : ""}
+          </div>
+          <div class="result-description">${escapeHtml(String(item?.description || "").trim() || "No description yet.")}</div>
+          ${tags ? `<div class="tag-row" style="margin-top:8px;">${tags}</div>` : ""}
+        </div>
+      `;
+    }).join("");
+  }
+
+  async function loadRelatedLocationCards({ locationName = "", setting = "", area = "", excludeFilename = "" } = {}) {
+    const statusEl = document.getElementById("related-location-status");
+    const resultsEl = document.getElementById("related-location-results");
+    const normalizedLocation = String(locationName || "").trim();
+    if (!statusEl || !resultsEl || !normalizedLocation) return;
+    statusEl.textContent = `Loading cards tagged with ${normalizedLocation}...`;
+    try {
+      const params = new URLSearchParams();
+      params.set("location", normalizedLocation);
+      if (setting) params.set("setting", setting);
+      if (area) params.set("area", area);
+      const data = await fetchJson(`/storage/search?${params.toString()}`);
+      const items = (Array.isArray(data?.items) ? data.items : []).filter((item) => {
+        const filename = String(item?.filename || "").trim();
+        return !excludeFilename || filename !== excludeFilename;
+      });
+      statusEl.textContent = `${items.length} related card${items.length === 1 ? "" : "s"} tagged with ${normalizedLocation}.`;
+      resultsEl.innerHTML = renderRelatedLocationItems(items);
+      resultsEl.querySelectorAll(".related-location-open-btn").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const filename = String(button.getAttribute("data-filename") || "").trim();
+          if (!filename) return;
+          const data = await fetchJson(`/storage/${encodeURIComponent(filename)}`);
+          state.selectedResultKey = `storage:/storage/${encodeURIComponent(filename)}`;
+          renderStorageRecord(data);
+        });
+      });
+    } catch (err) {
+      statusEl.textContent = `Related card lookup failed: ${err.message}`;
+      resultsEl.innerHTML = "";
+    }
   }
 
   function renderNormalizedEntityOutput({ name, result, metadata = {}, images = [], source = "storage", book = "", pages = "" }) {
@@ -1921,6 +2090,7 @@
       </div>
       ${result.stat_block ? renderStatBlockCard(result.stat_block, { includeNarrativeLists: false }) : ""}
       ${renderNormalizedTagRow({ result, metadata, source, book, pages })}
+      ${isLocationLikeResult(result, metadata) ? renderRelatedLocationSection(name) : ""}
     `;
   }
 
@@ -2233,9 +2403,205 @@
     `;
   }
 
+  function effectiveResultType(result) {
+    const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const primarycategory = String(metadata.primarycategory || metadata.subtype || "").trim().toLowerCase();
+    if (primarycategory === "rollable_table") return "rollable_table";
+    if (primarycategory === "landmark") return "landmark";
+    return String(result?.type || "").trim().toLowerCase();
+  }
+
+  function cardRefUrl(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    if (raw.startsWith("/storage/") || raw.startsWith("/official-compendium/") || raw.startsWith("/compendium/") || raw.startsWith("/lore/")) {
+      return raw;
+    }
+    if (raw.startsWith("storage/")) {
+      const rel = raw.slice("storage/".length);
+      return `/storage/${rel.split("/").map(part => encodeURIComponent(part)).join("/")}`;
+    }
+    if (raw.endsWith(".json")) {
+      return `/storage/${raw.split("/").map(part => encodeURIComponent(part)).join("/")}`;
+    }
+    return "";
+  }
+
+  async function openCardRef(value) {
+    const url = cardRefUrl(value);
+    if (!url) {
+      els.status.textContent = "Linked card reference is invalid.";
+      return;
+    }
+    await loadResult("storage", url);
+  }
+
+  function wireCardRefButtons(root = els.viewer) {
+    if (!root) return;
+    root.querySelectorAll("[data-card-ref]").forEach((btn) => {
+      btn.addEventListener("click", async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const ref = btn.getAttribute("data-card-ref") || "";
+        await openCardRef(ref);
+      });
+    });
+  }
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function parseSimpleDiceExpression(expression) {
+    const raw = String(expression || "").trim().toLowerCase().replace(/\s+/g, "");
+    const match = raw.match(/^(\d*)d(\d+)([+-]\d+)?$/);
+    if (!match) {
+      throw new Error("Unsupported dice expression.");
+    }
+    const count = Number(match[1] || 1);
+    const sides = Number(match[2] || 0);
+    const modifier = Number(match[3] || 0);
+    if (!Number.isFinite(count) || !Number.isFinite(sides) || count < 1 || sides < 2) {
+      throw new Error("Dice expression is invalid.");
+    }
+    const rolls = Array.from({ length: count }, () => randomInt(1, sides));
+    const total = rolls.reduce((sum, value) => sum + value, 0) + modifier;
+    return { expression: raw, count, sides, modifier, rolls, total };
+  }
+
+  function parseRollTableBound(value, maxValue) {
+    const raw = String(value || "").trim();
+    if (!raw) return NaN;
+    if (raw === "00") return Number(maxValue || 100);
+    const parsed = Number(raw);
+    return Number.isFinite(parsed) ? parsed : NaN;
+  }
+
+  function rowMatchesRoll(row, rolledValue, maxValue) {
+    const raw = String(row?.roll || "").trim();
+    if (!raw) return false;
+    const normalized = raw.replace(/\s+/g, "");
+    if (normalized.includes("-")) {
+      const [startRaw, endRaw] = normalized.split("-", 2);
+      const start = parseRollTableBound(startRaw, maxValue);
+      const end = parseRollTableBound(endRaw, maxValue);
+      if (!Number.isFinite(start) || !Number.isFinite(end)) return false;
+      const low = Math.min(start, end);
+      const high = Math.max(start, end);
+      return rolledValue >= low && rolledValue <= high;
+    }
+    const direct = parseRollTableBound(normalized, maxValue);
+    return Number.isFinite(direct) ? rolledValue === direct : false;
+  }
+
+  function findRollableTableRow(rows, rolledValue, maxValue) {
+    return (Array.isArray(rows) ? rows : []).find((row) => rowMatchesRoll(row, rolledValue, maxValue)) || null;
+  }
+
+  function wireRollableTableButtons(result, root = els.viewer) {
+    if (!root || !result || typeof result !== "object") return;
+    const trigger = root.querySelector("[data-rolltable-trigger]");
+    const output = root.querySelector("[data-rolltable-output]");
+    if (!trigger || !output) return;
+    const sections = (result && typeof result.sections === "object" && result.sections) ? result.sections : {};
+    const rows = Array.isArray(sections.rows) ? sections.rows : [];
+    const dice = String(sections.dice || result.dice || "").trim();
+    trigger.addEventListener("click", () => {
+      try {
+        const rolled = parseSimpleDiceExpression(dice || "d20");
+        const matched = findRollableTableRow(rows, rolled.total, rolled.sides);
+        output.innerHTML = matched
+          ? `
+            <div class="output-row">
+              <div class="output-label">Roll</div>
+              <div class="output-value">${escapeHtml(`${rolled.expression} -> [${rolled.rolls.join(", ")}]${rolled.modifier ? ` ${rolled.modifier > 0 ? "+" : "-"} ${Math.abs(rolled.modifier)}` : ""} = ${rolled.total}`)}</div>
+            </div>
+            <div class="output-row">
+              <div class="output-label">Matched Row</div>
+              <div class="output-value">${escapeHtml(String(matched.roll || ""))}</div>
+            </div>
+            <div class="output-row">
+              <div class="output-label">Result</div>
+              <div class="output-value">${escapeHtml(String(matched.result || ""))}</div>
+            </div>
+            ${(matched.card_ref || matched.ref || matched.target_ref)
+              ? `<div class="actions" style="margin-top:10px;">
+                  <button type="button"
+                          class="secondary"
+                          data-card-ref="${escapeHtml(String(matched.card_ref || matched.ref || matched.target_ref || ""))}"
+                          style="width:auto; padding:6px 10px;">
+                    ${escapeHtml(String(matched.card_label || matched.label || "Open linked card"))}
+                  </button>
+                </div>`
+              : ""}
+          `
+          : `
+            <div class="output-row">
+              <div class="output-label">Roll</div>
+              <div class="output-value">${escapeHtml(`${rolled.expression} -> [${rolled.rolls.join(", ")}]${rolled.modifier ? ` ${rolled.modifier > 0 ? "+" : "-"} ${Math.abs(rolled.modifier)}` : ""} = ${rolled.total}`)}</div>
+            </div>
+            <div class="small">No matching row for that result.</div>
+          `;
+        wireCardRefButtons(output);
+      } catch (err) {
+        output.innerHTML = `<div class="small">${escapeHtml(err.message || "Failed to roll table.")}</div>`;
+      }
+    });
+  }
+
+  function renderRollableTableCard(result) {
+    const sections = (result && typeof result.sections === "object" && result.sections) ? result.sections : {};
+    const rows = Array.isArray(sections.rows) ? sections.rows : [];
+    const dice = String(sections.dice || result.dice || "").trim();
+    return `
+      <div class="output-card">
+        <h3>${escapeHtml(result.name || sections.name || "Rollable Table")}</h3>
+        ${dice ? renderOutputRow("Dice", dice) : ""}
+        <div class="actions" style="margin-bottom:10px;">
+          <button type="button" data-rolltable-trigger style="width:auto;">Roll Table</button>
+        </div>
+        <div class="output-card" data-rolltable-output style="margin-bottom:12px;">
+          <div class="small">Roll the table to get a result.</div>
+        </div>
+        ${rows.length ? `
+          <table style="width:100%; border-collapse: collapse; margin-top:8px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,0.15); padding:6px;">Roll</th>
+                <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,0.15); padding:6px;">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((row) => `
+                <tr>
+                  <td style="padding:6px; vertical-align:top;">${escapeHtml(String(row?.roll || ""))}</td>
+                  <td style="padding:6px;">
+                    <div>${escapeHtml(String(row?.result || ""))}</div>
+                    ${(row?.card_ref || row?.ref || row?.target_ref)
+                      ? `<div style="margin-top:6px;">
+                          <button type="button"
+                                  class="secondary"
+                                  data-card-ref="${escapeHtml(String(row?.card_ref || row?.ref || row?.target_ref || ""))}"
+                                  style="width:auto; padding:6px 10px;">
+                            ${escapeHtml(String(row?.card_label || row?.label || "Open linked card"))}
+                          </button>
+                        </div>`
+                      : ""}
+                  </td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        ` : `<div class="small">No rows saved yet.</div>`}
+      </div>
+    `;
+  }
+
   function renderStorageRecord(record) {
     const result = record.result || {};
+    const displayType = effectiveResultType(result);
     const isCypherLike = result.type === "cypher" || result.type === "artifact";
+    const isRollableTable = displayType === "rollable_table";
     const isNormalizedType = normalizedOutputTypes().has(String(result.type || "").toLowerCase());
     const metadata = result.metadata || {};
     const settingsText = Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "";
@@ -2255,7 +2621,7 @@
       <div class="viewer-header ${isFoundryRecord ? "viewer-header--foundry" : ""}">
         <div class="eyebrow">Selected Result</div>
         <div class="title">${escapeHtml(result.name || record.filename || "Unnamed")}</div>
-        <div class="subtitle">${escapeHtml(typeLabel(result.type || "item"))} · Saved Record</div>
+        <div class="subtitle">${escapeHtml(typeLabel(displayType || result.type || "item"))} · Saved Record</div>
       </div>
     `;
     if (isFoundryRecord) {
@@ -2276,6 +2642,14 @@
         source: isFoundrySourceValue(metadata.source) ? "foundryvtt" : "storage",
       });
       els.viewer.innerHTML = html;
+      if (isLocationLikeResult(result, metadata)) {
+        void loadRelatedLocationCards({
+          locationName: result.name || record.filename || "",
+          setting: (Array.isArray(metadata.settings) ? metadata.settings[0] : metadata.setting) || "",
+          area: metadata.area || metadata.environment || "",
+          excludeFilename: record.filename || "",
+        });
+      }
       return;
     }
 
@@ -2284,10 +2658,12 @@
     } else if (isCypherLike) {
       // Cypher/artifact view is intentionally minimal: card-first, no record metadata block.
       html += "";
+    } else if (isRollableTable) {
+      html += renderRollableTableCard(result);
     } else {
       html += `
         <div class="output-card">
-          <h3>${escapeHtml(typeLabel(result.type))} Record</h3>
+          <h3>${escapeHtml(typeLabel(displayType || result.type))} Record</h3>
           ${renderOutputRow("Name", result.name || "Unnamed")}
           ${renderOutputRow("Saved At", record.saved_at)}
           ${renderOutputRow("Filename", record.filename)}
@@ -2310,7 +2686,7 @@
       }
       html += renderTagBadges(result, metadata);
       // NPC view is intentionally streamlined; hide generated-content section.
-    } else if (isCypherLike) {
+    } else if (isCypherLike || isRollableTable) {
       // Hide generated sections/stat blocks for cypher/artifact to keep the view clean.
     } else {
       if (result.sections) {
@@ -2340,6 +2716,18 @@
     }
 
     els.viewer.innerHTML = html;
+    if (isRollableTable) {
+      wireRollableTableButtons(result);
+    }
+    wireCardRefButtons();
+    if (isLocationLikeResult(result, metadata)) {
+      void loadRelatedLocationCards({
+        locationName: result.name || record.filename || "",
+        setting: (Array.isArray(metadata.settings) ? metadata.settings[0] : metadata.setting) || "",
+        area: metadata.area || metadata.environment || "",
+        excludeFilename: record.filename || "",
+      });
+    }
   }
 
   function renderCompendiumEntry(item) {
@@ -2473,6 +2861,13 @@
     }
 
     els.viewer.innerHTML = html;
+    if (isLocationLikeResult(normalizedResult, {})) {
+      void loadRelatedLocationCards({
+        locationName: item.title || item.slug || "",
+        setting: Array.isArray(item.settings) ? item.settings[0] : (item.setting || ""),
+        area: item.area || item.environment || "",
+      });
+    }
   }
 
   function renderLoreEntry(item) {
@@ -2502,7 +2897,15 @@
         <h3>Content</h3>
         <div class="output-value">${escapeHtml(item.content_markdown || "")}</div>
       </div>
+      ${location ? renderRelatedLocationSection(location) : ""}
     `;
+    if (location) {
+      void loadRelatedLocationCards({
+        locationName: location,
+        setting: Array.isArray(item.settings) ? item.settings[0] : (item.setting || ""),
+        area,
+      });
+    }
   }
 
   function renderResults(items) {
@@ -2702,11 +3105,19 @@
             <input id="storage-edit-race" value="${escapeHtml(metadata.race || "")}" />
           </div>
           <div class="field">
+            <label for="storage-edit-variant">Variant</label>
+            <input id="storage-edit-variant" value="${escapeHtml(metadata.variant || "")}" />
+          </div>
+          <div class="field">
             <label for="storage-edit-profession">Profession</label>
             <input id="storage-edit-profession" value="${escapeHtml(metadata.profession || "")}" />
           </div>
         </div>
         <div class="row">
+          <div class="field">
+            <label for="storage-edit-culture">Culture</label>
+            <input id="storage-edit-culture" value="${escapeHtml(metadata.culture || "")}" />
+          </div>
           <div class="field">
             <label for="storage-edit-family">Family</label>
             <input id="storage-edit-family" value="${escapeHtml(metadata.family || "")}" />
@@ -2752,7 +3163,9 @@
     const areaEl = document.getElementById('storage-edit-area');
     const locationEl = document.getElementById('storage-edit-location');
     const raceEl = document.getElementById('storage-edit-race');
+    const variantEl = document.getElementById('storage-edit-variant');
     const professionEl = document.getElementById('storage-edit-profession');
+    const cultureEl = document.getElementById('storage-edit-culture');
     const familyEl = document.getElementById('storage-edit-family');
     const roleEl = document.getElementById('storage-edit-role');
     const textEl = document.getElementById('storage-edit-text');
@@ -2826,6 +3239,32 @@
         const sections = sectionsEl.value.trim() ? JSON.parse(sectionsEl.value) : {};
         const statBlock = statBlockEl.value.trim() ? JSON.parse(statBlockEl.value) : {};
         const payload = payloadEl.value.trim() ? JSON.parse(payloadEl.value) : {};
+        const nextSections = (sections && typeof sections === "object" && !Array.isArray(sections)) ? { ...sections } : {};
+        const typeValue = typeEl.value.trim() || result.type || "item";
+        const nameValue = nameEl.value.trim() || "Unnamed";
+        const descriptionValue = descriptionEl.value.trim();
+        const locationValue = locationEl.value.trim();
+        const raceValue = raceEl.value.trim();
+        const variantValue = variantEl.value.trim();
+        const professionValue = professionEl.value.trim();
+        const cultureValue = cultureEl.value.trim();
+        const familyValue = familyEl.value.trim();
+        const roleValue = roleEl.value.trim();
+
+        Object.assign(nextSections, {
+          type: nextSections.type || typeValue,
+          name: nameValue,
+          description: descriptionValue,
+          area: areaValue,
+          environment: areaValue,
+          location: locationValue,
+          race: raceValue,
+          variant: variantValue,
+          profession: professionValue,
+          culture: cultureValue,
+          family: familyValue,
+          role: roleValue,
+        });
 
         const parsed = {
           ...record,
@@ -2833,24 +3272,26 @@
           payload,
           result: {
             ...result,
-            type: typeEl.value.trim() || result.type || "item",
-            name: nameEl.value.trim() || "Unnamed",
-            description: descriptionEl.value.trim(),
+            type: typeValue,
+            name: nameValue,
+            description: descriptionValue,
             text: textEl.value,
-            sections,
+            sections: nextSections,
             stat_block: statBlock,
             metadata: {
               ...metadata,
-              description: descriptionEl.value.trim(),
+              description: descriptionValue,
               settings,
               setting: settings[0] || "",
               area: areaValue,
               environment: areaValue,
-              location: locationEl.value.trim(),
-              race: raceEl.value.trim(),
-              profession: professionEl.value.trim(),
-              family: familyEl.value.trim(),
-              role: roleEl.value.trim(),
+              location: locationValue,
+              race: raceValue,
+              variant: variantValue,
+              profession: professionValue,
+              culture: cultureValue,
+              family: familyValue,
+              role: roleValue,
               images: currentImages,
             },
           },
@@ -2862,6 +3303,8 @@
         });
         els.status.textContent = `Saved ${filename}.`;
         await search();
+        state.selectedResultKey = `storage:/storage/${encodeURIComponent(filename)}`;
+        await loadResult('storage', `/storage/${encodeURIComponent(filename)}`);
       } catch (err) {
         els.status.textContent = `Save failed: ${err.message}`;
       }
@@ -3036,6 +3479,14 @@
 
   async function search() {
     els.status.textContent = 'Searching...';
+    state.semanticItems = [];
+    state.ollamaCitations = [];
+    state.ollamaLastAnswer = "";
+    els.semanticResults.innerHTML = '';
+    els.semanticStatus.textContent = 'No semantic query run yet.';
+    els.ollamaCitations.innerHTML = '';
+    els.ollamaAnswer.textContent = '';
+    els.ollamaStatus.textContent = 'No AI query run yet.';
     const data = await fetchJson(buildSearchUrl());
     renderResults(data.items || []);
     els.status.textContent = `Found ${data.count ?? 0} item(s).`;
@@ -3105,6 +3556,8 @@
 
   function resetFilters() {
     els.q.value = '';
+    els.semanticQ.value = '';
+    els.ollamaQ.value = '';
     els.type.value = '';
     els.setting.value = '';
     els.environment.value = '';
@@ -3143,8 +3596,6 @@
       const exact = Array.from(els.type.options).find(opt => opt.value === type);
       if (exact) {
         els.type.value = type;
-      } else if (type === "artifact") {
-        els.type.value = "artifacts";
       } else if (type === "cypher") {
         const cypherOpt = Array.from(els.type.options).find(opt => opt.value === "cypher");
         if (cypherOpt) els.type.value = "cypher";
@@ -3187,6 +3638,18 @@
   els.semanticSearchBtn?.addEventListener('click', semanticSearch);
   els.ollamaAskBtn?.addEventListener('click', ollamaAsk);
   els.resetBtn.addEventListener('click', resetFilters);
+  els.viewer?.addEventListener('click', async (event) => {
+    const tag = event.target.closest('.clickable-tag');
+    if (!tag) return;
+    event.preventDefault();
+    const kind = String(tag.getAttribute('data-tag-kind') || '').trim();
+    const value = String(tag.getAttribute('data-tag-value') || '').trim();
+    try {
+      await applyTagSearch(kind, value);
+    } catch (err) {
+      els.status.textContent = `Tag search failed: ${err.message}`;
+    }
+  });
   els.filtersSelectAllBtn?.addEventListener('click', () => {
     setAllCheckboxFilters(true);
     search();

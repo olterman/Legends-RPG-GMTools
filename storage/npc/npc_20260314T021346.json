@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T02:13:46.635331+00:00",
+  "filename": "npc/npc_20260314T021346.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "shadowed",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Kethra",
+    "description": "Kethra is a lithe, spotted fellic with striking yellow eyes that seem to glow in the dim light of the forest. His fur is a mix of white and grey, blending seamlessly with the snowy landscape of the fenmir highlands. Dressed in rugged leather armor adorned with small trophies from his hunts, he moves with a grace that belies his predatory nature. Perched on a branch, he surveys his surroundings, always alert for intruders or potential prey.",
+    "sections": {
+      "type": "npc",
+      "name": "Kethra",
+      "race": "fellic",
+      "variant": "cat",
+      "gender": "Male",
+      "profession": "hunter",
+      "culture": "fenmir",
+      "level": 4,
+      "health": 12,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "long",
+      "modifications": "stealth as level 4",
+      "motive": "To protect his territory and hunt for sustenance.",
+      "environment": "fenmir_highlands, often found in wooded areas or rocky outcrops.",
+      "combat": "Prefers ambush tactics, using the environment to his advantage.",
+      "interaction": "Cautious but curious; he may offer assistance to those who respect his domain.",
+      "use": "Can serve as a guide through the highlands or a source of local lore.",
+      "gm_intrusion": "Kethra becomes suspicious of the party's intentions, leading to a tense standoff.",
+      "loot": "Fur pelts, small hunting traps, and a unique talisman that enhances stealth.",
+      "description": "Kethra is a lithe, spotted fellic with striking yellow eyes that seem to glow in the dim light of the forest. His fur is a mix of white and grey, blending seamlessly with the snowy landscape of the fenmir highlands. Dressed in rugged leather armor adorned with small trophies from his hunts, he moves with a grace that belies his predatory nature. Perched on a branch, he surveys his surroundings, always alert for intruders or potential prey.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg",
+        "images": [
+          "uploads/ai_generate/2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "shadowed",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg",
+      "images": [
+        "uploads/ai_generate/2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg",
+      "url": "/images/uploads/ai_generate/2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg",
+      "name": "2e2824097bd70305f0bde0a0e0e92a3f_20260314T021346_34f56a12.jpg"
+    }
+  }
+}

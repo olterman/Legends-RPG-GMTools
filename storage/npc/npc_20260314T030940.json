@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T03:09:40.758944+00:00",
+  "filename": "npc/npc_20260314T030940.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "Freeport",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "human",
+    "sourcebook": "local_library",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Rokkan the Sea Sage",
+    "description": "Rokkan sits comfortably on the deck of his ship, a pipe resting between his lips as he gazes out at the horizon. His weathered skin is adorned with intricate tattoos that tell stories of the sea, while his attire is practical yet colorful, reflecting the vibrant culture of Freeport. With a calm demeanor and a twinkle in his eye, he embodies the spirit of adventure and the wisdom of the waves.",
+    "sections": {
+      "type": "npc",
+      "name": "Rokkan the Sea Sage",
+      "race": "fellic",
+      "variant": "turtle",
+      "gender": "male",
+      "profession": "wayfinder",
+      "culture": "human",
+      "level": 4,
+      "health": 14,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "short",
+      "modifications": "",
+      "motive": "To guide lost sailors and share tales of the sea.",
+      "environment": "Coastal waters and bustling ports of Freeport.",
+      "combat": "Rokkan prefers to avoid conflict, using his knowledge of the sea to outsmart foes rather than engage directly.",
+      "interaction": "He is friendly and wise, often sharing stories and advice with travelers, but can become stern if disrespected.",
+      "use": "Rokkan can serve as a guide for players navigating the waters or as a source of local lore and quests.",
+      "gm_intrusion": "If players anger Rokkan, he may mislead them or summon a storm to test their resolve.",
+      "loot": "Players may find rare shells, navigational charts, or sea-themed trinkets among his possessions.",
+      "description": "Rokkan sits comfortably on the deck of his ship, a pipe resting between his lips as he gazes out at the horizon. His weathered skin is adorned with intricate tattoos that tell stories of the sea, while his attire is practical yet colorful, reflecting the vibrant culture of Freeport. With a calm demeanor and a twinkle in his eye, he embodies the spirit of adventure and the wisdom of the waves.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg",
+        "images": [
+          "uploads/ai_generate/3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "Freeport",
+      "environment": "fenmir_free_cities",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "human",
+      "sourcebook": "local_library",
+      "page": "",
+      "image_url": "uploads/ai_generate/3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg",
+      "images": [
+        "uploads/ai_generate/3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg",
+      "url": "/images/uploads/ai_generate/3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg",
+      "name": "3fa37eb6a2a3482051087874bf37f453_20260314T030940_eb2ac441.jpg"
+    }
+  }
+}

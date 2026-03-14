@@ -39,6 +39,7 @@ from .config_loader import (
     load_config_dir,
     list_world_descriptors,
     infer_default_world_id,
+    infer_core_genre_for_setting,
     list_setting_descriptors,
     infer_default_setting_id,
     load_world_layer,
@@ -115,6 +116,9 @@ from Plugins.foundryVTT.exporter import (
     artifact_result_to_foundry_item,
 )
 from Plugins.docling.vector_index import (
+    remove_single_storage_card,
+    sync_single_storage_card,
+    sync_storage_index,
     query_index as vector_query_index,
     stats_index as vector_stats_index,
 )
@@ -171,7 +175,7 @@ def discover_plugins_from_roots(
     return items
 
 
-AI_GENERATE_VISION_TYPES = {"encounter", "npc", "artifact", "cypher", "landmark", "settlement"}
+AI_GENERATE_VISION_TYPES = {"encounter", "npc", "creature", "player_character", "artifact", "cypher", "landmark", "settlement", "inn"}
 OLLAMA_VISION_MODEL = "llama3.2-vision"
 
 
@@ -180,32 +184,54 @@ def ai_generate_vision_prompt(content_type: str) -> str:
     prompts = {
         "encounter": (
             "Analyze the image as an RPG encounter seed. Identify the scene, threats, factions, mood, terrain, "
-            "points of tension, and what is about to happen. Convert what you infer into a playable Cypher System encounter."
+            "points of tension, and what is about to happen. Reconcile visible details with any retrieved local lore before inventing new facts. "
+            "Convert what you infer into a playable Cypher System encounter."
         ),
         "npc": (
             "Analyze the image as a character portrait or scene reference. Infer the subject's role, demeanor, status, gear, "
-            "motivation, likely environment, and how they would interact with players. Convert those cues into a playable Cypher System NPC."
+            "motivation, likely environment, and how they would interact with players. Infer likely gender, profession, race, and culture from visible cues when possible, "
+            "but stay restrained if the evidence is weak. Anchor those cues in retrieved local lore whenever possible. "
+            "Convert those cues into a playable Cypher System NPC."
+        ),
+        "creature": (
+            "Analyze the image as a creature, beast, monster, or supernatural threat reference. Infer anatomy, movement, habitat, hunting or defensive behavior, "
+            "temperament, and the sort of danger it presents in play. Reconcile what you see with retrieved local lore so the result feels like a native creature of the setting "
+            "instead of a generic monster. Convert those cues into a playable Cypher System creature."
+        ),
+        "player_character": (
+            "Analyze the image as a player character portrait or concept reference. Infer the subject's archetype, demeanor, gear, fighting style, "
+            "social role, and the sort of tier 1 abilities they would plausibly begin with. Infer likely gender, profession, race, and culture from visible cues when possible, "
+            "but stay restrained if the evidence is weak. Reconcile what you see with retrieved local lore, ancestry, "
+            "profession, area, and culture context so the result feels like a real local pregen rather than a generic fantasy hero. Convert those cues into a complete "
+            "Cypher System player character with attacks and starting equipment."
         ),
         "artifact": (
             "Analyze the image as a strange magical, numenera, occult, or rare item reference. Infer what the object looks like, "
-            "how it is carried or activated, what it likely does, and what makes it dangerous or valuable. Convert that into a Cypher System artifact."
+            "how it is carried or activated, what it likely does, and what makes it dangerous or valuable. Match the item to local setting history, factions, "
+            "materials, or traditions if the retrieved lore supports that. Convert that into a Cypher System artifact."
         ),
         "cypher": (
             "Analyze the image as inspiration for a one-use Cypher item. Infer the object's form, material, activation style, and a concise but flavorful effect. "
+            "Where possible, tie it to retrieved local lore instead of making it feel generic. "
             "Convert the visual cues into a Cypher System cypher."
         ),
         "landmark": (
             "Analyze the image as a world landmark or notable site. Infer the location type, visible features, atmosphere, history hints, danger signs, and adventure potential. "
-            "Convert those cues into a Cypher System landmark entry."
+            "Prioritize local lore continuity when interpreting the site's history, names, and significance. Convert those cues into a Cypher System landmark entry."
         ),
         "settlement": (
             "Analyze the image as a settlement, outpost, district, village, city, or inhabited location. Infer how people live there, the settlement type, economy, social tone, "
-            "architecture, local landmark, and current tension. Convert those cues into a Cypher System settlement."
+            "architecture, local landmark, and current tension. Make the result feel native to the retrieved local lore, not like a generic fantasy settlement. "
+            "Convert those cues into a Cypher System settlement."
+        ),
+        "inn": (
+            "Analyze the image as an inn, tavern, roadhouse, hostel, or public house. Infer its atmosphere, clientele, social role, notable features, proprietor vibe, and local rumors. "
+            "Anchor the result in retrieved local lore and culture-specific naming patterns so it feels like a real establishment of the setting rather than a generic fantasy tavern."
         ),
     }
     return prompts.get(
         content_type_normalized,
-        "Analyze the image carefully and convert the visible cues into useful Cypher System worldbuilding content.",
+        "Analyze the image carefully and convert the visible cues into useful Cypher System worldbuilding content, preferring retrieved local lore over generic invention.",
     )
 
 
@@ -325,6 +351,42 @@ def register_routes(app: Flask) -> None:
             "unmasked": "Unmasked",
         }
         return str(defaults.get(cid) or "")
+
+    def _display_sourcebook_label(value: object) -> str:
+        raw = str(value or "").strip()
+        if not raw:
+            return ""
+        key = _safe_slug(raw)
+        if "old_gods_of_appalachia" in key:
+            return "Old Gods"
+        if "cypher_system" in key and ("core_rulebook" in key or "rulebook" in key):
+            return "Core Rulebook"
+        return raw
+
+    def _with_display_sourcebook_label(entry: dict | None) -> dict:
+        if not isinstance(entry, dict):
+            return {}
+        out = dict(entry)
+        if "book" in out:
+            out["book"] = _display_sourcebook_label(out.get("book"))
+        return out
+
+    def _storage_card_ref_exists(storage_dir: Path, value: object) -> bool:
+        raw = str(value or "").strip().replace("\\", "/")
+        if not raw:
+            return False
+        rel = raw
+        if raw.startswith("/storage/"):
+            rel = raw[len("/storage/"):]
+        elif raw.startswith("storage/"):
+            rel = raw[len("storage/"):]
+        if not rel.endswith(".json"):
+            return False
+        target = (storage_dir / rel).resolve()
+        root = storage_dir.resolve()
+        if not str(target).startswith(str(root) + "/") and target != root:
+            return False
+        return target.exists() and target.is_file()
 
     def _is_official_genre_book(compendium_id: str) -> bool:
         cid = str(compendium_id or "").strip().lower()
@@ -568,6 +630,27 @@ def register_routes(app: Flask) -> None:
         path = private_compendium_root() / "_vector"
         path.mkdir(parents=True, exist_ok=True)
         return path
+
+    def sync_saved_record_to_vector(filename: str) -> dict[str, int | str]:
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
+        path = (storage_dir / filename).resolve()
+        root = storage_dir.resolve()
+        if not str(path).startswith(str(root) + "/") and path != root:
+            raise FileNotFoundError(f"No saved result named '{filename}'")
+        if not path.exists():
+            raise FileNotFoundError(f"No saved result named '{filename}'")
+        return sync_single_storage_card(
+            storage_root=storage_dir,
+            card_path=path,
+            output_root=vector_index_root(),
+        )
+
+    def remove_saved_record_from_vector(filename: str) -> dict[str, int | str]:
+        return remove_single_storage_card(
+            storage_root=current_app.config["LOL_STORAGE_DIR"],
+            relative_filename=filename,
+            output_root=vector_index_root(),
+        )
 
     def vector_jobs_dir() -> Path:
         path = private_compendium_root() / "_vector_jobs"
@@ -1933,6 +2016,158 @@ def register_routes(app: Flask) -> None:
                 break
         return result
 
+    def _compact_text(value: object, limit: int = 500) -> str:
+        text = " ".join(str(value or "").strip().split())
+        if len(text) > limit:
+            return text[: limit - 1].rstrip() + "…"
+        return text
+
+    def _coerce_player_character_attacks(values: Any) -> list[str]:
+        if not isinstance(values, list):
+            return []
+        attacks: list[str] = []
+        for value in values:
+            if isinstance(value, dict):
+                name = str(value.get("name") or "").strip()
+                weapon_type = str(value.get("weapon_type") or "").strip()
+                damage = str(value.get("damage") or "").strip()
+                attack_range = str(value.get("range") or "").strip()
+                skill_rating = str(value.get("skill_rating") or "").strip()
+                details = [
+                    part for part in [
+                        weapon_type,
+                        f"{damage} damage" if damage else "",
+                        attack_range,
+                        skill_rating,
+                    ] if part
+                ]
+                text = f"{name} ({', '.join(details)})" if name and details else name or ", ".join(details)
+            else:
+                text = str(value or "").strip()
+            text = text.strip()
+            if text:
+                attacks.append(text)
+        return attacks
+
+    def _coerce_player_character_skills(values: Any) -> list[dict[str, str]]:
+        if not isinstance(values, list):
+            return []
+        skills: list[dict[str, str]] = []
+        for value in values:
+            if isinstance(value, dict):
+                name = str(value.get("name") or "").strip()
+                level = str(value.get("level") or "").strip().lower() or "trained"
+            else:
+                name = str(value or "").strip()
+                level = "trained"
+            if name:
+                skills.append({"name": name, "level": level})
+        return skills
+
+    def _build_player_character_description(sheet: dict[str, Any]) -> str:
+        description = _compact_text(sheet.get("description"))
+        if description:
+            return description
+
+        sentence = _compact_text(sheet.get("sentence"), limit=220)
+        attacks = _coerce_player_character_attacks(sheet.get("attacks"))
+        equipment = [
+            str(item or "").strip()
+            for item in (sheet.get("starting_equipment") if isinstance(sheet.get("starting_equipment"), list) else [])
+            if str(item or "").strip()
+        ]
+        notes = _compact_text(sheet.get("notes"), limit=220)
+        parts = [part for part in [sentence, attacks[0] if attacks else "", equipment[0] if equipment else "", notes] if part]
+        return _compact_text(". ".join(parts), limit=500)
+
+    def _normalize_ai_generated_player_character(card: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
+        metadata = card.get("metadata") if isinstance(card.get("metadata"), dict) else {}
+        name = str(card.get("name") or card.get("character_name") or metadata.get("name") or "AI Generated Character").strip() or "AI Generated Character"
+        tier = card.get("tier")
+        if tier in (None, ""):
+            tier = metadata.get("tier") or 1
+
+        description = _build_player_character_description(card)
+        sheet_metadata = {
+            "name": name,
+            "race": metadata.get("race") or payload.get("race"),
+            "variant": metadata.get("variant") or payload.get("variant"),
+            "gender": metadata.get("gender") or payload.get("gender"),
+            "profession": metadata.get("profession") or payload.get("profession"),
+            "culture": metadata.get("culture") or payload.get("culture"),
+            "area": metadata.get("area") or payload.get("area") or metadata.get("environment") or payload.get("environment"),
+            "location": metadata.get("location") or payload.get("location"),
+            "setting": metadata.get("setting") or payload.get("setting"),
+            "settings": metadata.get("settings") or payload.get("settings"),
+            "character_type": metadata.get("character_type") or card.get("type"),
+            "flavor": metadata.get("flavor") or card.get("flavor"),
+            "descriptor": metadata.get("descriptor") or card.get("descriptor"),
+            "focus": metadata.get("focus") or card.get("focus"),
+            "tier": tier,
+            "source": "AI Generate",
+            "origin": "ai_generate",
+            "content_type": "player_character",
+            "ai_generated": "true",
+            "description": description,
+        }
+        sheet = dict(card)
+        sheet["name"] = name
+        sheet.setdefault("sentence", f"{name} is a {sheet_metadata['descriptor'] or 'capable adventurer'} who {sheet_metadata['focus'] or 'faces the unknown'}.")
+        sheet.setdefault("effort", 1)
+        sheet.setdefault("cypher_limit", 2)
+        sheet.setdefault("damage_track", "Hale")
+        sheet.setdefault("recovery_rolls_used", {
+            "action": False,
+            "ten_minutes": False,
+            "one_hour": False,
+            "ten_hours": False,
+        })
+        sheet["chosen_skills"] = _coerce_player_character_skills(sheet.get("chosen_skills"))
+        sheet["attacks"] = _coerce_player_character_attacks(sheet.get("attacks"))
+        sheet["starting_equipment"] = [
+            str(item or "").strip()
+            for item in (sheet.get("starting_equipment") if isinstance(sheet.get("starting_equipment"), list) else [])
+            if str(item or "").strip()
+        ]
+        sheet["equipment"] = [
+            str(item or "").strip()
+            for item in (sheet.get("equipment") if isinstance(sheet.get("equipment"), list) else [])
+            if str(item or "").strip()
+        ]
+        sheet["wizard_completed"] = True
+        sheet["generated"] = "ai_generate"
+        sheet["tier"] = tier
+        sheet["metadata"] = sheet_metadata
+
+        return {
+            "type": "character_sheet",
+            "name": name,
+            "description": description,
+            "sheet": sheet,
+            "metadata": {
+                "source": "House",
+                "origin": "ai_generate",
+                "content_type": "player_character",
+                "ai_generated": "true",
+                "setting": sheet_metadata.get("setting"),
+                "settings": sheet_metadata.get("settings"),
+                "area": sheet_metadata.get("area"),
+                "location": sheet_metadata.get("location"),
+                "environment": metadata.get("environment") or sheet_metadata.get("area"),
+                "race": sheet_metadata.get("race"),
+                "variant": sheet_metadata.get("variant"),
+                "gender": sheet_metadata.get("gender"),
+                "profession": sheet_metadata.get("profession"),
+                "culture": sheet_metadata.get("culture"),
+                "character_type": sheet_metadata.get("character_type"),
+                "flavor": sheet_metadata.get("flavor"),
+                "descriptor": sheet_metadata.get("descriptor"),
+                "focus": sheet_metadata.get("focus"),
+                "tier": tier,
+                "description": description,
+            },
+        }
+
     def persist_result(payload, result):
         result = ensure_result_description(result)
         result = attach_settings_metadata(
@@ -1946,6 +2181,17 @@ def register_routes(app: Flask) -> None:
             "filename": str(path.relative_to(storage_dir)).replace("\\", "/"),
             "saved": True,
         }
+        try:
+            result["vector_sync"] = sync_single_storage_card(
+                storage_root=storage_dir,
+                card_path=path,
+                output_root=vector_index_root(),
+            )
+        except Exception as exc:
+            result["vector_sync"] = {
+                "status": "error",
+                "error": str(exc),
+            }
         return result
 
     def import_foundry_actor_to_storage(actor: dict, payload: dict | None = None) -> dict:
@@ -2249,6 +2495,11 @@ def register_routes(app: Flask) -> None:
         for item in items:
             meta = item.get("metadata", {}) or {}
             source_key = FOUNDRY_COMPENDIUM_ID if is_foundry_source(meta.get("source")) else "storage"
+            display_type = (
+                str(meta.get("primarycategory") or "").strip().lower()
+                or str(meta.get("subtype") or "").strip().lower()
+                or str(item.get("type") or "").strip().lower()
+            )
             parts = []
 
             if meta.get("environment"):
@@ -2276,7 +2527,7 @@ def register_routes(app: Flask) -> None:
 
             normalized.append({
                 "source": source_key,
-                "type": item.get("type"),
+                "type": display_type or item.get("type"),
                 "title": item.get("name") or item.get("filename"),
                 "description": extract_storage_description(item),
                 "subtitle": " • ".join(parts),
@@ -2358,9 +2609,10 @@ def register_routes(app: Flask) -> None:
         for item in items:
             parts = []
             book_value = str(item.get("book") or "").strip()
+            book_display = _display_sourcebook_label(book_value)
             source_value = slugify_text(book_value) or "official_pdf"
             if item.get("book"):
-                parts.append(f"book: {item['book']}")
+                parts.append(f"book: {book_display}")
             if item.get("pages"):
                 parts.append(f"pages: {item['pages']}")
             if item.get("settings"):
@@ -2370,7 +2622,7 @@ def register_routes(app: Flask) -> None:
                 "type": item.get("type"),
                 "title": item.get("title") or item.get("slug"),
                 "description": compact_text(item.get("description") or ""),
-                "book": item.get("book"),
+                "book": book_display,
                 "pages": item.get("pages"),
                 "subtitle": " • ".join(parts),
                 "slug": item.get("slug"),
@@ -2861,15 +3113,36 @@ def register_routes(app: Flask) -> None:
         provider = str(body.get("provider") or "ollama_local").strip().lower()
         content_type = str(body.get("content_type") or "free_text").strip().lower()
         brief = str(body.get("brief") or "").strip()
+        setting_id = str(body.get("setting") or "").strip()
+        area_id = str(body.get("area") or "").strip()
+        location_id = str(body.get("location") or "").strip()
+        sourcebook_id = str(body.get("sourcebook") or "").strip()
         schema = body.get("schema") if isinstance(body.get("schema"), dict) else {}
         image_data_url = str(body.get("image_data_url") or "").strip()
+        recent_examples_raw = body.get("recent_examples") if isinstance(body.get("recent_examples"), dict) else {}
+        recent_examples = {
+            "names": [str(value or "").strip() for value in (recent_examples_raw.get("names") or []) if str(value or "").strip()],
+            "name_roots": [str(value or "").strip() for value in (recent_examples_raw.get("name_roots") or []) if str(value or "").strip()],
+            "surname_roots": [str(value or "").strip() for value in (recent_examples_raw.get("surname_roots") or []) if str(value or "").strip()],
+            "description_openers": [str(value or "").strip() for value in (recent_examples_raw.get("description_openers") or []) if str(value or "").strip()],
+        }
+        generation_preferences_raw = body.get("generation_preferences") if isinstance(body.get("generation_preferences"), dict) else {}
+        generation_preferences = {
+            "race": str(generation_preferences_raw.get("race") or "").strip(),
+            "variant": str(generation_preferences_raw.get("variant") or "").strip(),
+            "gender": str(generation_preferences_raw.get("gender") or "").strip(),
+            "profession": str(generation_preferences_raw.get("profession") or "").strip(),
+            "culture": str(generation_preferences_raw.get("culture") or "").strip(),
+        }
         allowed_compendium_ids_raw = body.get("compendium_ids")
-        allowed_compendium_ids: list[str] = []
+        allowed_compendium_ids: list[str] | None = None
         if isinstance(allowed_compendium_ids_raw, list):
+            allowed_compendium_ids = []
             for value in allowed_compendium_ids_raw:
                 cid = str(value or "").strip().lower()
                 if cid and cid not in allowed_compendium_ids:
                     allowed_compendium_ids.append(cid)
+        allowed_compendium_ids = _ai_generate_allowed_compendium_ids(allowed_compendium_ids, setting_id=setting_id)
 
         if provider == "openai_remote":
             if not is_plugin_enabled("openai_remote"):
@@ -2889,9 +3162,25 @@ def register_routes(app: Flask) -> None:
         if not brief and image_bytes is None:
             return jsonify({"error": "either brief or image_data_url is required"}), 400
 
+        preference_terms = [
+            str(generation_preferences.get("race") or "").strip(),
+            str(generation_preferences.get("variant") or "").strip(),
+            str(generation_preferences.get("profession") or "").strip(),
+            str(generation_preferences.get("culture") or "").strip(),
+        ]
         query_text = brief
         if not query_text:
-            query_text = f"{content_type.replace('_', ' ')} visual reference"
+            query_text = " ".join(
+                bit for bit in [
+                    content_type.replace("_", " "),
+                    setting_id,
+                    area_id,
+                    location_id,
+                    sourcebook_id,
+                    *preference_terms,
+                    "visual reference",
+                ] if bit
+            ).strip() or f"{content_type.replace('_', ' ')} visual reference"
 
         k_raw = body.get("k")
         try:
@@ -2901,11 +3190,23 @@ def register_routes(app: Flask) -> None:
 
         items: list[dict] = []
         citations: list[dict] = []
+        lore_items: list[dict] = []
+        lore_citations: list[dict] = []
         grounded_context = "No vector context available."
-        if brief:
+        vector_query_text = " ".join(
+            bit for bit in [
+                brief,
+                setting_id,
+                area_id,
+                location_id,
+                sourcebook_id,
+                *preference_terms,
+            ] if bit
+        ).strip()
+        if vector_query_text:
             try:
                 items, citations, grounded_context = _build_vector_context(
-                    query_text,
+                    vector_query_text,
                     compendium_ids=allowed_compendium_ids,
                     k=k,
                 )
@@ -2913,6 +3214,20 @@ def register_routes(app: Flask) -> None:
                 return jsonify({"error": str(exc)}), 404
             except ValueError as exc:
                 return jsonify({"error": str(exc)}), 400
+            try:
+                lore_items, lore_citations, lore_context = _build_lore_context(
+                    vector_query_text,
+                    setting=setting_id,
+                    location=location_id or area_id,
+                    k=max(2, min(6, k // 2 or 2)),
+                )
+            except Exception:
+                lore_items, lore_citations, lore_context = [], [], "No lore context available."
+            if lore_context != "No lore context available.":
+                if grounded_context == "No vector context available.":
+                    grounded_context = lore_context
+                else:
+                    grounded_context = f"{lore_context}\n\n{grounded_context}"
 
         prompt = _ai_generate_prompt(
             content_type=content_type,
@@ -2920,6 +3235,12 @@ def register_routes(app: Flask) -> None:
             brief=brief,
             allowed_compendium_ids=allowed_compendium_ids,
             image_supplied=image_bytes is not None,
+            generation_preferences=generation_preferences,
+            setting_id=setting_id,
+            area_id=area_id,
+            location_id=location_id,
+            sourcebook_id=sourcebook_id,
+            recent_examples=recent_examples,
         )
 
         try:
@@ -2939,8 +3260,21 @@ def register_routes(app: Flask) -> None:
                 "model": OLLAMA_VISION_MODEL if image_bytes is not None and provider != "openai_remote" else "",
             }), 502
 
+        parsed_answer = _extract_first_json_object(answer)
+        normalized_card = None
+        if isinstance(parsed_answer, dict):
+            normalized_card = _normalize_ai_generated_card(
+                parsed_answer,
+                content_type=content_type,
+                setting_id=setting_id,
+                area_id=area_id,
+                generation_preferences=generation_preferences,
+            )
+            answer = json.dumps(normalized_card, ensure_ascii=False, indent=2)
+
         return jsonify({
             "answer": answer,
+            "normalized_card": normalized_card,
             "provider": provider,
             "content_type": content_type,
             "base_url": base_url,
@@ -2949,9 +3283,152 @@ def register_routes(app: Flask) -> None:
             "image_mime_type": image_mime_type,
             "k": k,
             "compendium_ids": allowed_compendium_ids,
-            "citation_count": len(citations),
-            "citations": citations,
-            "vector_items": items,
+            "citation_count": len(citations) + len(lore_citations),
+            "citations": lore_citations + citations,
+            "vector_items": lore_items + items,
+        })
+
+    @app.post("/ai-generate/detect-character")
+    def api_ai_generate_detect_character():
+        body = request.get_json(force=True, silent=False) or {}
+        provider = str(body.get("provider") or "ollama_local").strip().lower()
+        content_type = str(body.get("content_type") or "npc").strip().lower()
+        image_data_url = str(body.get("image_data_url") or "").strip()
+        brief = str(body.get("brief") or "").strip()
+        setting = str(body.get("setting") or "").strip()
+        area = str(body.get("area") or "").strip()
+        location = str(body.get("location") or "").strip()
+        sourcebook = str(body.get("sourcebook") or "").strip()
+        allowed_compendium_ids_raw = body.get("compendium_ids")
+        allowed_compendium_ids: list[str] | None = None
+        if isinstance(allowed_compendium_ids_raw, list):
+            allowed_compendium_ids = []
+            for value in allowed_compendium_ids_raw:
+                cid = str(value or "").strip().lower()
+                if cid and cid not in allowed_compendium_ids:
+                    allowed_compendium_ids.append(cid)
+        allowed_compendium_ids = _ai_generate_allowed_compendium_ids(allowed_compendium_ids, setting_id=setting)
+
+        if content_type not in {"npc", "player_character"}:
+            return jsonify({"error": "content_type must be npc or player_character"}), 400
+        if provider == "openai_remote":
+            if not is_plugin_enabled("openai_remote"):
+                return jsonify({"error": "openai_remote plugin is disabled"}), 403
+        else:
+            if not is_plugin_enabled("ollama_local"):
+                return jsonify({"error": "ollama_local plugin is disabled"}), 403
+        if not image_data_url:
+            return jsonify({"error": "image_data_url is required"}), 400
+
+        try:
+            image_mime_type, image_bytes = _parse_image_data_url(image_data_url)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+
+        query_bits = [
+            content_type.replace("_", " "),
+            "portrait",
+            setting,
+            area,
+            location,
+            sourcebook,
+            brief,
+        ]
+        query_text = " ".join(bit for bit in query_bits if bit).strip() or f"{content_type} portrait"
+
+        try:
+            items, citations, grounded_context = _build_vector_context(
+                query_text,
+                compendium_ids=allowed_compendium_ids,
+                k=8,
+            )
+        except FileNotFoundError as exc:
+            return jsonify({"error": str(exc)}), 404
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        try:
+            lore_items, lore_citations, lore_context = _build_lore_context(
+                query_text,
+                setting=setting,
+                location=location or area,
+                k=4,
+            )
+        except Exception:
+            lore_items, lore_citations, lore_context = [], [], "No lore context available."
+        if lore_context != "No lore context available.":
+            if grounded_context == "No vector context available.":
+                grounded_context = lore_context
+            else:
+                grounded_context = f"{lore_context}\n\n{grounded_context}"
+
+        label = "player character" if content_type == "player_character" else "npc"
+        prompt = (
+            f"Analyze the supplied image as a {label} portrait and return ONLY valid JSON.\n"
+            "Do not include markdown fences, explanations, or extra text.\n"
+            "Infer best-fit values from visible cues plus local lore context.\n"
+            "Be restrained when evidence is weak; prefer empty strings over confident invention.\n"
+            "Use local lore and area/setting context to map the portrait toward likely race, culture, and profession.\n"
+            "JSON shape:\n"
+            "{\n"
+            "  \"race\": \"best-fit race or empty string\",\n"
+            "  \"variant\": \"best-fit race variant or empty string\",\n"
+            "  \"gender\": \"best-fit gender or empty string\",\n"
+            "  \"profession\": \"best-fit profession or empty string\",\n"
+            "  \"culture\": \"best-fit culture or empty string\",\n"
+            "  \"appearance_summary\": \"1-2 sentence portrait read grounded in the setting\",\n"
+            "  \"confidence\": \"low|medium|high\"\n"
+            "}\n"
+            f"Current context: setting={setting or '(none)'}, area={area or '(none)'}, location={location or '(none)'}, sourcebook={sourcebook or '(none)'}.\n"
+            f"User note: {brief or '(none)'}"
+        )
+
+        try:
+            answer, model, base_url = _ai_generate_with_provider(
+                provider=provider,
+                prompt=prompt,
+                vector_context=grounded_context,
+                image_data_url=image_data_url,
+                image_bytes=image_bytes,
+            )
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        except Exception as exc:
+            provider_label = "OpenAI" if provider == "openai_remote" else "Ollama"
+            return jsonify({"error": f"{provider_label} request failed: {exc}"}), 502
+
+        parsed = _extract_first_json_object(answer)
+        if not isinstance(parsed, dict):
+            return jsonify({"error": "model did not return valid JSON", "answer": answer}), 502
+
+        detection = {
+            "race": str(parsed.get("race") or "").strip(),
+            "variant": str(parsed.get("variant") or "").strip(),
+            "gender": str(parsed.get("gender") or "").strip(),
+            "profession": str(parsed.get("profession") or "").strip(),
+            "culture": str(parsed.get("culture") or "").strip(),
+            "appearance_summary": str(parsed.get("appearance_summary") or "").strip(),
+            "confidence": str(parsed.get("confidence") or "").strip().lower(),
+        }
+        detection = _normalize_ai_generated_identity_fields(
+            detection,
+            content_type=content_type,
+            setting_id=setting,
+            area_id=area,
+            generation_preferences={},
+        )
+        return jsonify({
+            "ok": True,
+            "detection": detection,
+            "answer": answer,
+            "provider": provider,
+            "content_type": content_type,
+            "base_url": base_url,
+            "model": model,
+            "image_used": True,
+            "image_mime_type": image_mime_type,
+            "citation_count": len(citations) + len(lore_citations),
+            "citations": lore_citations + citations,
+            "vector_items": lore_items + items,
         })
 
     @app.get("/setting-wizard")
@@ -3020,6 +3497,48 @@ def register_routes(app: Flask) -> None:
             guessed = ".jpg"
         return guessed if guessed in IMAGE_SUFFIXES else ""
 
+    def _remote_image_name_from_url(image_url: str, mime_type: str) -> str:
+        parsed = urlparse(image_url)
+        candidate = secure_filename(Path(parsed.path or "").name)
+        suffix = _image_suffix_for_mime_type(mime_type)
+        stem = Path(candidate).stem or "remote_image"
+        final_suffix = Path(candidate).suffix or suffix
+        if final_suffix.lower() == ".jpe":
+            final_suffix = ".jpg"
+        if final_suffix.lower() not in IMAGE_SUFFIXES:
+            final_suffix = suffix or ".jpg"
+        return f"{stem}{final_suffix}"
+
+    def _download_image_as_data_url(image_url: object) -> tuple[str, str, str]:
+        raw_url = str(image_url or "").strip()
+        if not raw_url:
+            raise ValueError("url is required")
+        parsed = urlparse(raw_url)
+        if parsed.scheme not in {"http", "https"}:
+            raise ValueError("url must start with http:// or https://")
+        req = Request(
+            raw_url,
+            headers={
+                "User-Agent": "LandsOfLegends-GMTools/1.0",
+                "Accept": "image/*,*/*;q=0.8",
+            },
+        )
+        with urlopen(req, timeout=15) as resp:
+            mime_type = str(resp.headers.get_content_type() or "").strip().lower()
+            if not mime_type.startswith("image/"):
+                raise ValueError("URL did not return an image")
+            decoded = resp.read()
+        if not decoded:
+            raise ValueError("downloaded image is empty")
+        if len(decoded) > 10 * 1024 * 1024:
+            raise ValueError("downloaded image is too large (max 10 MB)")
+        suffix = _image_suffix_for_mime_type(mime_type)
+        if suffix not in IMAGE_SUFFIXES:
+            raise ValueError(f"unsupported image type '{mime_type or 'unknown'}'")
+        data_url = f"data:{mime_type};base64,{base64.b64encode(decoded).decode('ascii')}"
+        image_name = _remote_image_name_from_url(raw_url, mime_type)
+        return data_url, image_name, mime_type
+
     def persist_uploaded_image_data(
         image_data_url: object,
         *,
@@ -3072,6 +3591,12 @@ def register_routes(app: Flask) -> None:
         if solo_id and solo_id not in selected_ids:
             selected_ids.append(solo_id)
 
+        def source_priority(row: dict) -> tuple[int, float]:
+            cid = str(row.get("compendium_id") or "").strip().lower()
+            if cid == "local_library":
+                return (0, -float(row.get("score") or 0.0))
+            return (2, -float(row.get("score") or 0.0))
+
         try:
             if selected_ids:
                 merged_items: list[dict] = []
@@ -3098,7 +3623,7 @@ def register_routes(app: Flask) -> None:
                             continue
                         seen_keys.add(key)
                         merged_items.append(item)
-                merged_items.sort(key=lambda row: float(row.get("score") or 0.0), reverse=True)
+                merged_items.sort(key=source_priority)
                 items = merged_items[:k]
             else:
                 vec = vector_query_index(
@@ -3119,21 +3644,507 @@ def register_routes(app: Flask) -> None:
         for idx, item in enumerate(items, start=1):
             if not isinstance(item, dict):
                 continue
+            compendium_id = str(item.get("compendium_id") or "").strip()
             source_path = str(item.get("source_path") or "").strip()
             heading = str(item.get("heading") or "").strip()
             snippet = str(item.get("text") or "").strip()
             score = float(item.get("score") or 0.0)
             citations.append({
                 "n": idx,
-                "compendium_id": str(item.get("compendium_id") or ""),
+                "compendium_id": compendium_id,
                 "source_path": source_path,
                 "heading": heading,
                 "score": score,
             })
-            context_lines.append(f"[{idx}] source={source_path} heading={heading}\n{snippet}")
+            source_label = "local_lore" if compendium_id == "local_library" else compendium_id or "unknown"
+            context_lines.append(f"[{idx}] compendium={source_label} source={source_path} heading={heading}\n{snippet}")
 
         grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
         return items, citations, grounded_context
+
+    def _build_lore_context(query: str, *, setting: str = "", location: str = "", k: int = 4) -> tuple[list[dict], list[dict], str]:
+        lore_dir = current_app.config["LOL_LORE_DIR"]
+
+        def lore_blob(item: dict) -> str:
+            if not isinstance(item, dict):
+                return ""
+            slug = str(item.get("slug") or "").strip()
+            full_item = item
+            if slug:
+                try:
+                    loaded = load_lore_item(lore_dir, slug, default_settings=configured_default_settings())
+                    if isinstance(loaded, dict):
+                        full_item = loaded
+                except Exception:
+                    full_item = item
+            return " ".join([
+                str(full_item.get("title", "")),
+                str(full_item.get("description", "")),
+                str(full_item.get("excerpt", "")),
+                str(full_item.get("content_markdown", "")),
+                " ".join(full_item.get("categories", []) or []),
+                " ".join(full_item.get("settings", []) or []),
+                str(full_item.get("location", "")),
+                str(full_item.get("location_type", "")),
+                str(full_item.get("area", "")),
+                str(full_item.get("source_path", "")),
+            ]).strip()
+
+        try:
+            direct_matches = search_lore(
+                lore_dir,
+                query=query,
+                setting=setting,
+                location=location,
+                default_settings=configured_default_settings(),
+            ) or []
+            if direct_matches:
+                lore_items = direct_matches
+            else:
+                stopwords = {
+                    "a", "an", "and", "are", "as", "at", "about", "be", "by", "for", "from", "how",
+                    "in", "into", "is", "it", "me", "of", "on", "or", "tell", "that", "the", "their",
+                    "there", "they", "this", "to", "what", "where", "who",
+                }
+                query_tokens = [
+                    token for token in re.findall(r"[a-z0-9_]+", str(query or "").lower())
+                    if len(token) >= 3 and token not in stopwords
+                ]
+                scored_items: list[tuple[int, dict]] = []
+                for item in list_lore_items(lore_dir, default_settings=configured_default_settings()):
+                    if not isinstance(item, dict):
+                        continue
+                    item_settings = [
+                        str(value or "").strip().lower()
+                        for value in (item.get("settings") or [])
+                        if str(value or "").strip()
+                    ]
+                    if setting and str(setting).strip().lower() not in item_settings:
+                        continue
+                    item_location = " ".join([
+                        str(item.get("location") or ""),
+                        str(item.get("title") or ""),
+                        str(item.get("area") or ""),
+                    ]).strip().lower()
+                    if location and str(location).strip().lower() not in item_location:
+                        continue
+                    hay = lore_blob(item).lower()
+                    score = 0
+                    for token in query_tokens:
+                        if token in hay:
+                            score += 3 if token in str(item.get("title", "")).lower() else 1
+                    if score > 0:
+                        scored_items.append((score, item))
+                scored_items.sort(key=lambda row: row[0], reverse=True)
+                lore_items = [item for _, item in scored_items]
+        except Exception:
+            lore_items = []
+
+        selected_items = lore_items[:max(0, int(k or 0))]
+        citations: list[dict] = []
+        context_lines: list[str] = []
+        normalized_items: list[dict] = []
+        for idx, item in enumerate(selected_items, start=1):
+            if not isinstance(item, dict):
+                continue
+            slug = str(item.get("slug") or "").strip()
+            title = str(item.get("title") or item.get("name") or slug or f"Lore {idx}").strip()
+            full_blob = lore_blob(item)
+            snippet = re.sub(r"\s+", " ", full_blob).strip()
+            if len(snippet) > 1600:
+                snippet = f"{snippet[:1597].rstrip()}..."
+            source_path = f"/lore/{slug}" if slug else "/lore"
+            citations.append({
+                "n": idx,
+                "compendium_id": "lore",
+                "source_path": source_path,
+                "heading": title,
+                "score": 1.0,
+            })
+            context_lines.append(f"[L{idx}] source={source_path} heading={title}\n{snippet}")
+            normalized_items.append({
+                "compendium_id": "lore",
+                "source_path": source_path,
+                "heading": title,
+                "text": snippet,
+                "score": 1.0,
+            })
+
+        grounded_context = "\n\n".join(context_lines) if context_lines else "No lore context available."
+        return normalized_items, citations, grounded_context
+
+    def _ai_generate_allowed_compendium_ids(requested_ids: list[str] | None, *, setting_id: str = "") -> list[str]:
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        active_setting = _safe_slug(setting_id or current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID") or "")
+        active_genre = _safe_slug(infer_core_genre_for_setting(config_dir, active_setting) or active_setting)
+        allowed: list[str] = []
+        if active_setting:
+            allowed.append("local_library")
+        profiles = load_compendium_profiles()
+        for cid in ["csrd", "core_rulebook"]:
+            if cid == "csrd" or cid in profiles:
+                if cid not in allowed:
+                    allowed.append(cid)
+        for cid, profile in profiles.items():
+            compendium_id = str(cid or "").strip().lower()
+            if not compendium_id or compendium_id in {"csrd", FOUNDRY_COMPENDIUM_ID}:
+                continue
+            source_kind = compendium_source_kind(compendium_id, profile)
+            if source_kind not in {"official", "core_pdf"}:
+                continue
+            tags = compendium_taxonomy_tags(profile, source_kind=source_kind, compendium_id=compendium_id)
+            tag_genre = _safe_slug(str(tags.get("genre") or "").strip().lower())
+            tag_setting = _safe_slug(str(tags.get("setting") or "").strip().lower())
+            if (active_genre and tag_genre == active_genre) or (active_setting and tag_setting == active_setting):
+                if compendium_id not in allowed:
+                    allowed.append(compendium_id)
+        if requested_ids is None:
+            return allowed
+        return [cid for cid in requested_ids if cid in allowed]
+
+    def _ai_generate_setting_config(setting_id: str = "") -> dict:
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        active_setting = _safe_slug(setting_id or current_app.config.get("LOL_SETTING_ID") or current_app.config.get("LOL_WORLD_ID") or "")
+        if active_setting:
+            try:
+                return load_config_dir(config_dir, setting_id=active_setting)
+            except Exception:
+                pass
+        return current_app.config.get("LOL_CONFIG", {}) or {}
+
+    def _ai_generate_identity_vocab(*, setting_id: str = "", area_id: str = "") -> dict[str, object]:
+        config = _ai_generate_setting_config(setting_id)
+        races_obj = config.get("races") if isinstance(config.get("races"), dict) else {}
+        professions_obj = config.get("professions") if isinstance(config.get("professions"), dict) else {}
+        areas_obj = config.get("areas") if isinstance(config.get("areas"), dict) else {}
+
+        races = sorted(str(key).strip() for key in races_obj.keys() if str(key).strip())
+        professions = sorted(str(key).strip() for key in professions_obj.keys() if str(key).strip())
+        variants_by_race: dict[str, list[str]] = {}
+        variant_to_race: dict[str, str] = {}
+        cultures: set[str] = set()
+
+        for race_key, race_value in races_obj.items():
+            race_id = str(race_key or "").strip()
+            if not race_id:
+                continue
+            cultures.add(race_id)
+            variants_obj = race_value.get("variants") if isinstance(race_value, dict) and isinstance(race_value.get("variants"), dict) else {}
+            variant_ids = sorted(str(key).strip() for key in variants_obj.keys() if str(key).strip())
+            variants_by_race[race_id] = variant_ids
+            for variant_id in variant_ids:
+                variant_to_race[_safe_slug(variant_id)] = race_id
+                cultures.add(variant_id)
+
+        for area_value in areas_obj.values():
+            if not isinstance(area_value, dict):
+                continue
+            culture_id = str(area_value.get("culture") or "").strip()
+            if culture_id:
+                cultures.add(culture_id)
+
+        area_culture = ""
+        area_id_norm = str(area_id or "").strip()
+        if area_id_norm and isinstance(areas_obj.get(area_id_norm), dict):
+            area_culture = str(areas_obj[area_id_norm].get("culture") or "").strip()
+
+        return {
+            "races": races,
+            "professions": professions,
+            "variants_by_race": variants_by_race,
+            "variant_to_race": variant_to_race,
+            "cultures": sorted(culture for culture in cultures if culture),
+            "area_culture": area_culture,
+        }
+
+    def _ai_generate_place_name_vocab(*, setting_id: str = "", area_id: str = "") -> dict[str, object]:
+        config = _ai_generate_setting_config(setting_id)
+        names_obj = config.get("names") if isinstance(config.get("names"), dict) else {}
+        settlement_names_obj = names_obj.get("settlement_names") if isinstance(names_obj.get("settlement_names"), dict) else {}
+        inn_names_obj = names_obj.get("inn_names") if isinstance(names_obj.get("inn_names"), dict) else {}
+        identity_vocab = _ai_generate_identity_vocab(setting_id=setting_id, area_id=area_id)
+        area_culture = str(identity_vocab.get("area_culture") or "").strip()
+
+        def flatten_name_values(source: object) -> list[str]:
+            values: list[str] = []
+            if isinstance(source, list):
+                values.extend(str(item).strip() for item in source if str(item).strip())
+            elif isinstance(source, dict):
+                for item in source.values():
+                    values.extend(flatten_name_values(item))
+            elif isinstance(source, str) and str(source).strip():
+                values.append(str(source).strip())
+            return values
+
+        def names_for_culture(source_obj: dict[str, object], culture_id: str) -> list[str]:
+            if not culture_id:
+                return []
+            for key, value in source_obj.items():
+                if _safe_slug(key) == _safe_slug(culture_id):
+                    return flatten_name_values(value)[:12]
+            return []
+
+        return {
+            "area_culture": area_culture,
+            "settlement_names": names_for_culture(settlement_names_obj, area_culture),
+            "inn_names": names_for_culture(inn_names_obj, area_culture),
+        }
+
+    def _ai_generate_match_allowed_value(raw_value: str, allowed_values: list[str]) -> str:
+        raw = str(raw_value or "").strip()
+        if not raw:
+            return ""
+        raw_slug = _safe_slug(raw)
+        for allowed in allowed_values:
+            if raw_slug == _safe_slug(allowed):
+                return allowed
+        return ""
+
+    def _ai_generate_apply_identity_aliases(*, race: str = "", variant: str = "", profession: str = "", culture: str = "") -> dict[str, str]:
+        race_slug = _safe_slug(race)
+        variant_slug = _safe_slug(variant)
+        profession_slug = _safe_slug(profession)
+        culture_slug = _safe_slug(culture)
+
+        race_aliases = {
+            "elf": {"race": "alfirin"},
+            "high_elf": {"race": "alfirin", "variant": "sky_children", "culture": "alfirin"},
+            "sun_elf": {"race": "alfirin", "variant": "sky_children", "culture": "alfirin"},
+            "wood_elf": {"race": "alfirin", "variant": "galadhrim", "culture": "alfirin_galadhrim"},
+            "forest_elf": {"race": "alfirin", "variant": "galadhrim", "culture": "alfirin_galadhrim"},
+            "dark_elf": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "shadow_elf": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "shadowed_elf": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "drow": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "sea_elf": {"race": "alfirin", "variant": "falthrim", "culture": "falthrim"},
+        }
+        culture_aliases = {
+            "umbral_elves": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "umbral_kin": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "shadowed_kin": {"race": "alfirin", "variant": "duathrim", "culture": "alfirin_duathrim"},
+            "forest_kin": {"race": "alfirin", "variant": "galadhrim", "culture": "alfirin_galadhrim"},
+        }
+        profession_aliases = {
+            "rogue": "thief",
+            "ranger": "hunter",
+            "barbarian": "warrior",
+        }
+
+        result = {"race": race, "variant": variant, "profession": profession, "culture": culture}
+        if race_slug in race_aliases:
+            result.update({key: value for key, value in race_aliases[race_slug].items() if value})
+        if variant_slug in race_aliases:
+            result.update({key: value for key, value in race_aliases[variant_slug].items() if value})
+        if culture_slug in culture_aliases:
+            result.update({key: value for key, value in culture_aliases[culture_slug].items() if value})
+        if profession_slug in profession_aliases:
+            result["profession"] = profession_aliases[profession_slug]
+        return result
+
+    def _ai_generate_parse_int(raw_value, *, minimum: int | None = None, maximum: int | None = None) -> int | None:
+        if raw_value is None:
+            return None
+        if isinstance(raw_value, bool):
+            value = int(raw_value)
+        elif isinstance(raw_value, (int, float)):
+            value = int(raw_value)
+        else:
+            match = re.search(r"-?\d+", str(raw_value or "").strip())
+            if not match:
+                return None
+            value = int(match.group(0))
+        if minimum is not None:
+            value = max(minimum, value)
+        if maximum is not None:
+            value = min(maximum, value)
+        return value
+
+    def _normalize_ai_generated_identity_fields(
+        card: dict,
+        *,
+        content_type: str = "",
+        setting_id: str = "",
+        area_id: str = "",
+        generation_preferences: dict[str, str] | None = None,
+    ) -> dict:
+        if not isinstance(card, dict):
+            return card
+        prefs = generation_preferences or {}
+        vocab = _ai_generate_identity_vocab(setting_id=setting_id, area_id=area_id)
+        allowed_races = [str(x) for x in vocab.get("races", []) if str(x)]
+        allowed_professions = [str(x) for x in vocab.get("professions", []) if str(x)]
+        variants_by_race = vocab.get("variants_by_race", {}) if isinstance(vocab.get("variants_by_race"), dict) else {}
+        variant_to_race = vocab.get("variant_to_race", {}) if isinstance(vocab.get("variant_to_race"), dict) else {}
+        allowed_cultures = [str(x) for x in vocab.get("cultures", []) if str(x)]
+        area_culture = str(vocab.get("area_culture") or "").strip()
+
+        raw_race = str(card.get("race") or "").strip()
+        raw_variant = str(card.get("variant") or "").strip()
+        raw_profession = str(card.get("profession") or "").strip()
+        raw_culture = str(card.get("culture") or "").strip()
+        aliased = _ai_generate_apply_identity_aliases(
+            race=raw_race,
+            variant=raw_variant,
+            profession=raw_profession,
+            culture=raw_culture,
+        )
+
+        race = _ai_generate_match_allowed_value(str(prefs.get("race") or "").strip(), allowed_races)
+        if not race:
+            race = _ai_generate_match_allowed_value(aliased.get("race") or raw_race, allowed_races)
+        if not race and raw_variant:
+            mapped_race = str(variant_to_race.get(_safe_slug(aliased.get("variant") or raw_variant)) or "")
+            if mapped_race in allowed_races:
+                race = mapped_race
+
+        allowed_variants = [str(x) for x in variants_by_race.get(race, []) if str(x)] if race else []
+        variant = _ai_generate_match_allowed_value(str(prefs.get("variant") or "").strip(), allowed_variants)
+        if not variant:
+            variant = _ai_generate_match_allowed_value(aliased.get("variant") or raw_variant, allowed_variants)
+
+        profession = _ai_generate_match_allowed_value(str(prefs.get("profession") or "").strip(), allowed_professions)
+        if not profession:
+            profession = _ai_generate_match_allowed_value(aliased.get("profession") or raw_profession, allowed_professions)
+        if not profession and str(content_type or "").strip().lower() == "npc":
+            profession = str(prefs.get("profession") or "").strip()
+        if not profession and str(content_type or "").strip().lower() == "npc":
+            profession = str(aliased.get("profession") or raw_profession or "").strip()
+
+        culture = _ai_generate_match_allowed_value(str(prefs.get("culture") or "").strip(), allowed_cultures)
+        if not culture:
+            culture = _ai_generate_match_allowed_value(aliased.get("culture") or raw_culture, allowed_cultures)
+        if not culture and area_culture and area_culture not in {"mixed", "unknown", "ancient"}:
+            culture = area_culture
+        if not culture and variant:
+            culture = _ai_generate_match_allowed_value(variant, allowed_cultures)
+        if not culture and race:
+            culture = _ai_generate_match_allowed_value(race, allowed_cultures)
+
+        next_card = dict(card)
+        next_card["race"] = race
+        next_card["variant"] = variant
+        next_card["profession"] = profession
+        next_card["culture"] = culture
+        return next_card
+
+    def _ai_generate_role_hint(card: dict) -> str:
+        if not isinstance(card, dict):
+            return ""
+        parts = [
+            str(card.get("profession") or "").strip(),
+            str(card.get("motive") or "").strip(),
+            str(card.get("combat") or "").strip(),
+            str(card.get("description") or "").strip(),
+            str(card.get("interaction") or "").strip(),
+        ]
+        return " ".join(part for part in parts if part).lower()
+
+    def _normalize_ai_generated_modifications(card: dict, *, content_type: str) -> dict:
+        if not isinstance(card, dict):
+            return card
+        if content_type not in {"npc", "creature"}:
+            return card
+        level = _ai_generate_parse_int(card.get("level"), minimum=1, maximum=10)
+        raw_mods = card.get("modifications")
+        if not raw_mods:
+            return card
+
+        if isinstance(raw_mods, list):
+            mod_items = [str(item or "").strip() for item in raw_mods if str(item or "").strip()]
+            join_back_as_list = True
+        else:
+            text = str(raw_mods or "").strip()
+            mod_items = [part.strip() for part in re.split(r"\s*;\s*|\s*,\s*(?=[A-Za-z])", text) if part.strip()]
+            join_back_as_list = False
+
+        role_hint = _ai_generate_role_hint(card)
+        severe_cues = {"stern", "grim", "cold", "harsh", "cruel", "threat", "menacing", "evil", "ruthless", "zealot", "fanatic"}
+        filtered: list[str] = []
+        for item in mod_items:
+            item_text = str(item or "").strip()
+            item_lower = item_text.lower()
+            mod_level = _ai_generate_parse_int(item_text, minimum=1, maximum=10)
+            if level is not None and mod_level is not None and mod_level <= level and " as level " in item_lower:
+                if any(term in item_lower for term in ["pleasant interaction", "interaction", "persuasion", "charm", "deception"]):
+                    continue
+            if "pleasant interaction" in item_lower and any(cue in role_hint for cue in severe_cues):
+                continue
+            filtered.append(item_text)
+
+        next_card = dict(card)
+        if join_back_as_list:
+            next_card["modifications"] = filtered
+        else:
+            next_card["modifications"] = "; ".join(filtered)
+        return next_card
+
+    def _normalize_ai_generated_cypher_stats(card: dict, *, content_type: str) -> dict:
+        if not isinstance(card, dict):
+            return card
+        next_card = dict(card)
+        level = _ai_generate_parse_int(next_card.get("level"), minimum=1, maximum=10)
+        if level is None and content_type == "npc":
+            role_hint = _ai_generate_role_hint(next_card)
+            if any(token in role_hint for token in ["captain", "priest", "witch", "judge", "mayor", "scholar", "veteran"]):
+                level = 3
+            else:
+                level = 2
+        if level is not None:
+            next_card["level"] = level
+        if content_type not in {"npc", "creature"}:
+            return next_card
+
+        next_card["armor"] = _ai_generate_parse_int(next_card.get("armor"), minimum=0, maximum=5) or 0
+
+        damage = _ai_generate_parse_int(next_card.get("damage_inflicted"), minimum=1, maximum=12)
+        if damage is None and level is not None:
+            damage = max(1, min(10, level))
+        if damage is not None:
+            next_card["damage_inflicted"] = damage
+
+        health = _ai_generate_parse_int(next_card.get("health"), minimum=1, maximum=60)
+        if level is not None:
+            role_hint = _ai_generate_role_hint(next_card)
+            target_health = level * 3
+            if any(token in role_hint for token in ["thief", "burglar", "scout", "hunter", "assassin", "shadowblade", "stealth", "ambush"]):
+                target_health -= 2
+            elif any(token in role_hint for token in ["guard", "soldier", "warrior", "knight", "champion", "paladin"]):
+                target_health += 2
+            elif any(token in role_hint for token in ["wizard", "witch", "priest", "oracle", "seer", "mystic"]):
+                target_health -= 1
+            target_health = max(3, min(60, target_health))
+            min_health = max(1, target_health - 2)
+            max_health = min(60, target_health + 2)
+            health = target_health if health is None else max(min_health, min(max_health, health))
+        if health is not None:
+            next_card["health"] = health
+        if not str(next_card.get("movement") or "").strip():
+            next_card["movement"] = "Short"
+        return next_card
+
+    def _normalize_ai_generated_card(
+        card: dict,
+        *,
+        content_type: str,
+        setting_id: str = "",
+        area_id: str = "",
+        generation_preferences: dict[str, str] | None = None,
+    ) -> dict:
+        if not isinstance(card, dict):
+            return card
+        next_card = dict(card)
+        if content_type in {"npc", "player_character"}:
+            next_card = _normalize_ai_generated_identity_fields(
+                next_card,
+                content_type=content_type,
+                setting_id=setting_id,
+                area_id=area_id,
+                generation_preferences=generation_preferences,
+            )
+        if content_type in {"npc", "creature"}:
+            next_card = _normalize_ai_generated_cypher_stats(next_card, content_type=content_type)
+            next_card = _normalize_ai_generated_modifications(next_card, content_type=content_type)
+        return next_card
 
     def _ai_generate_prompt(
         *,
@@ -3142,24 +4153,181 @@ def register_routes(app: Flask) -> None:
         brief: str,
         allowed_compendium_ids: list[str],
         image_supplied: bool,
+        generation_preferences: dict[str, str] | None = None,
+        setting_id: str = "",
+        area_id: str = "",
+        location_id: str = "",
+        sourcebook_id: str = "",
+        recent_examples: dict[str, list[str]] | None = None,
     ) -> str:
         ctype = str(content_type or "free_text").strip().lower()
         schema_text = json.dumps(schema or {}, indent=2, ensure_ascii=False)
+        prefs = generation_preferences or {}
+        identity_vocab = _ai_generate_identity_vocab(setting_id=setting_id, area_id=area_id)
+        place_name_vocab = _ai_generate_place_name_vocab(setting_id=setting_id, area_id=area_id)
+        recent = recent_examples or {}
         prompt_lines = [
             f"Generate Cypher System content of type: {ctype.replace('_', ' ').title()}.",
             "Return ONLY a valid JSON object.",
             "Do not include markdown fences, commentary, or any text outside JSON.",
             "JSON MUST include an explicit `type` field.",
+            "If the user brief explicitly provides a name for a person, place, inn, settlement, or other generated entity, preserve that exact name in the returned `name` field unless the user explicitly asks for variants.",
+            "Use Cypher System conventions, not D&D, Pathfinder, or 5e conventions.",
+            "Do not output D&D-style classes, AC logic, hit dice, proficiency bonuses, challenge ratings, spell slots, or dice-form damage expressions such as `1d8+2` for NPCs or creatures.",
+            "For Cypher NPCs and creatures, `level` should anchor the statline, `armor` should normally be a small numeric value, and `damage_inflicted` should normally be a flat numeric value rather than a die roll.",
+            "Keep health, armor, and damage in tune with Cypher expectations for the chosen level and role instead of inflating them with off-system fantasy assumptions.",
             "Write richer descriptions by default: usually 3-6 sentences with concrete sensory/world details.",
             "For `description` fields, avoid one-liners unless the user explicitly asks for brevity.",
+            "Avoid stock fantasy openings and repeated phrasing such as `is a striking figure`, `piercing gaze`, or other canned portrait-description filler.",
+            "Vary sentence openings and lead with specific local, visual, or behavioral details instead of generic fantasy admiration language.",
+            "Treat retrieved local lore as the highest-priority grounding for names, places, factions, history, materials, customs, and tone.",
+            "If local lore and broader compendium material differ, prefer the local lore unless the user explicitly asks otherwise.",
+            "Use broader compendium knowledge only to support or extend the local lore, not to overwrite it with generic content.",
+            "When the context is thin, make restrained inferences that still feel consistent with the local lore and current setting.",
         ]
+        if setting_id or area_id or location_id or sourcebook_id:
+            prompt_lines.append(
+                f"Current generation context: setting={setting_id or '(none)'}, area={area_id or '(none)'}, location={location_id or '(none)'}, sourcebook={sourcebook_id or '(none)' }."
+            )
+        selected_identity = []
+        for key in ["race", "variant", "profession", "culture"]:
+            value = str(prefs.get(key) or "").strip()
+            if value:
+                selected_identity.append(f"{key}={value}")
+        if selected_identity:
+            prompt_lines.append(f"Selected identity anchors: {', '.join(selected_identity)}.")
+            prompt_lines.append("Use these selected identity anchors to pull in the matching local lore, naming patterns, religious context, and social details rather than treating them as cosmetic tags.")
+        recent_names = [str(x).strip() for x in (recent.get("names") or []) if str(x).strip()]
+        recent_name_roots = [str(x).strip() for x in (recent.get("name_roots") or []) if str(x).strip()]
+        recent_surname_roots = [str(x).strip() for x in (recent.get("surname_roots") or []) if str(x).strip()]
+        recent_openers = [str(x).strip() for x in (recent.get("description_openers") or []) if str(x).strip()]
+        if recent_names:
+            prompt_lines.append(f"Avoid reusing these recent names: {', '.join(recent_names[:12])}.")
+        if recent_name_roots:
+            prompt_lines.append(f"Avoid repeating these recent first names or name stems: {', '.join(recent_name_roots[:12])}.")
+        if recent_surname_roots:
+            prompt_lines.append(f"Avoid repeating these recent surnames or family-name stems: {', '.join(recent_surname_roots[:12])}.")
+        if recent_openers:
+            prompt_lines.append(f"Avoid repeating these recent description openings or beats: {'; '.join(recent_openers[:8])}.")
         if ctype == "landmark":
             prompt_lines.append("For landmark output, set `type` to `location` and include `location_category_type: \"landmark\"`.")
+        if ctype in {"settlement", "inn"}:
+            area_culture = str(place_name_vocab.get("area_culture") or "").strip()
+            settlement_names = [str(x) for x in (place_name_vocab.get("settlement_names") or []) if str(x)]
+            inn_names = [str(x) for x in (place_name_vocab.get("inn_names") or []) if str(x)]
+            if area_culture:
+                prompt_lines.append(f"Area culture for place naming and social texture: {area_culture}.")
+            if settlement_names:
+                prompt_lines.append(f"Use these culture-specific settlement naming examples as guidance, not a hard limit: {', '.join(settlement_names[:10])}.")
+            if inn_names:
+                prompt_lines.append(f"Use these culture-specific inn naming examples as guidance, not a hard limit: {', '.join(inn_names[:10])}.")
+        if ctype == "npc":
+            npc_pref_parts = []
+            if str(prefs.get("race") or "").strip():
+                npc_pref_parts.append(f"race: {prefs['race']}")
+            if str(prefs.get("variant") or "").strip():
+                npc_pref_parts.append(f"variant: {prefs['variant']}")
+            if str(prefs.get("gender") or "").strip():
+                npc_pref_parts.append(f"gender: {prefs['gender']}")
+            if str(prefs.get("profession") or "").strip():
+                npc_pref_parts.append(f"profession: {prefs['profession']}")
+            if str(prefs.get("culture") or "").strip():
+                npc_pref_parts.append(f"culture: {prefs['culture']}")
+            if npc_pref_parts:
+                prompt_lines.append(f"NPC generation preferences: {', '.join(npc_pref_parts)}.")
+                prompt_lines.append("Honor these NPC preferences unless the user brief clearly asks for something else.")
+            else:
+                prompt_lines.append("If the user leaves race, gender, or profession unspecified and an image is supplied, infer the best-fit values from the portrait and local lore.")
+            allowed_races = [str(x) for x in identity_vocab.get("races", []) if str(x)]
+            allowed_professions = [str(x) for x in identity_vocab.get("professions", []) if str(x)]
+            allowed_cultures = [str(x) for x in identity_vocab.get("cultures", []) if str(x)]
+            variants_by_race = identity_vocab.get("variants_by_race", {}) if isinstance(identity_vocab.get("variants_by_race"), dict) else {}
+            if allowed_races:
+                prompt_lines.append(f"Allowed setting races: {', '.join(allowed_races)}.")
+            variant_lines = []
+            for race_key, variant_values in variants_by_race.items():
+                if isinstance(variant_values, list) and variant_values:
+                    variant_lines.append(f"{race_key}: {', '.join(str(v) for v in variant_values)}")
+            if variant_lines:
+                prompt_lines.append(f"Allowed race variants by race: {'; '.join(variant_lines)}.")
+            if allowed_professions:
+                prompt_lines.append(f"Common local professions and role labels: {', '.join(allowed_professions)}.")
+            if allowed_cultures:
+                prompt_lines.append(f"Allowed setting cultures/identities: {', '.join(allowed_cultures)}.")
+            prompt_lines.append("Give NPCs proper in-setting personal names by default, not placeholder labels or trope names such as `Fox Lady`, `Mysterious Woman`, or `Dark Stranger` unless the user explicitly asks for an epithet-only figure.")
+            prompt_lines.append("When local lore includes race- or culture-specific naming patterns, use those patterns instead of generic fantasy names plus stock epithets like `the Cunning`.")
+            prompt_lines.append("When the brief does not specify an NPC name, invent a fresh personal name that is distinct from recent generated NPC names; do not reuse a recent innkeeper or tavernkeeper name unless the brief explicitly asks for that same person.")
+            prompt_lines.append("When useful, include a `culture` field if the subject reads as belonging to a distinct local culture, ancestry branch, or regional tradition.")
+            prompt_lines.append("For race, variant, profession, and culture, prefer explicit local-lore terms and setting-valid identities over generic fantasy defaults; do not invent unsupported ancestries or culture labels.")
+            prompt_lines.append("For NPC professions specifically, you may use broader in-world social roles, trades, offices, titles, faith roles, military ranks, criminal callings, or occupational labels even when they are not part of the player-character profession list.")
+            prompt_lines.append("If the portrait suggests a familiar fantasy trope but the local lore does not support that exact label, translate it into the nearest valid local race, variant, culture, or profession instead of using terms like dark elf, rogue, or assassin by default.")
+            prompt_lines.append("If no valid local race, variant, profession, or culture can be supported, return an empty string for that field rather than inventing a new label.")
+            prompt_lines.append("Do not infer thief, burglar, or similar stealth professions merely because the subject carries a dagger or wears dark clothing; rely on stronger contextual cues.")
+            prompt_lines.append("Do not infer pleasant, charming, or kindly interaction modifiers merely because the subject is female, a priest, or well-dressed; demeanor must come from image evidence, local lore, and the written concept.")
+            prompt_lines.append("If the portrait reads stern, severe, fanatical, cold, dangerous, or hostile, make the interaction notes and modifiers reflect that read instead of softening the subject into a pleasant counselor.")
+            prompt_lines.append("Do not default innkeepers, tavernkeepers, or proprietors to 'prefers to avoid conflict' or 'uses wit to diffuse tensions among rowdy patrons' unless the brief, portrait, or lore explicitly supports that exact temperament.")
+            prompt_lines.append("Use `modifications` only for meaningful deviations from the base level. Avoid redundant entries such as `pleasant interaction as level 5` on a level 5 NPC.")
+            prompt_lines.append("NPC `armor` should be numeric, and `damage_inflicted` should usually be a flat numeric value tied to the NPC's level, weapons, and role.")
+            prompt_lines.append("Keep NPC health in a believable Cypher range for the chosen level and concept rather than treating it like hit points from another system; level 5 NPCs should not all have the same health, and tougher or frailer roles should vary modestly around the norm.")
+            prompt_lines.append("Choose NPC level to fit the concept, role, and lore; do not default to level 4 unless the idea truly reads as a solid mid-tier standard NPC.")
+        if ctype == "creature":
+            prompt_lines.extend([
+                "Generate a non-player creature, beast, monster, horror, or animal threat rather than a social NPC.",
+                "Choose creature level to fit the concept, role, and lore; do not default to level 4 unless the idea truly reads as a mid-tier standard threat.",
+                "Keep creature stats Cypher-native: numeric armor, flat numeric `damage_inflicted`, and health that suits the level and resilience rather than another system's monster math.",
+                "Use motive, environment, combat behavior, interaction pattern, use, and GM intrusion to make the creature table-ready.",
+            ])
+        if ctype == "inn":
+            prompt_lines.extend([
+                "Generate a real inn, tavern, roadhouse, hostel, or public house card, not a settlement or lore essay.",
+                "If the brief specifies the inn's name, keep that exact inn name in the `name` field.",
+                "Use a culturally grounded establishment name that fits the area's naming patterns rather than generic names like The Prancing Pony.",
+                "If you include a `proprietor`, `innkeeper`, or owner figure inside the inn card and the brief does not explicitly name them, invent a fresh personal name that is distinct from recent generated innkeeper or proprietor names.",
+                "Do not fall back to stock tavernkeeper names like Mira unless the brief or retrieved lore explicitly supports that exact person; prefer a culture-appropriate personal name that feels local to the current area.",
+                "Do not default the proprietor to a genial conflict-diffuser who calms rowdy patrons with wit unless the brief or retrieved lore points there; vary proprietor temperament, methods, and flaws.",
+                "Include atmosphere, clientele, a notable feature, proprietor, and a rumor or hook that connect naturally to the current settlement, area, and local lore.",
+            ])
+        if ctype == "player_character":
+            pc_pref_parts = []
+            if str(prefs.get("race") or "").strip():
+                pc_pref_parts.append(f"race: {prefs['race']}")
+            if str(prefs.get("variant") or "").strip():
+                pc_pref_parts.append(f"variant: {prefs['variant']}")
+            if str(prefs.get("gender") or "").strip():
+                pc_pref_parts.append(f"gender: {prefs['gender']}")
+            if str(prefs.get("profession") or "").strip():
+                pc_pref_parts.append(f"profession: {prefs['profession']}")
+            if str(prefs.get("culture") or "").strip():
+                pc_pref_parts.append(f"culture: {prefs['culture']}")
+            if pc_pref_parts:
+                prompt_lines.append(f"Player character generation preferences: {', '.join(pc_pref_parts)}.")
+                prompt_lines.append("Honor these player character preferences unless the user brief clearly asks for something else.")
+            else:
+                prompt_lines.append("If the user leaves race, gender, or profession unspecified and an image is supplied, infer the best-fit values from the portrait and local lore.")
+            prompt_lines.extend([
+                "Generate a complete tier 1 Cypher System player character suitable as a starting campaign pregen.",
+                "Give the player character a proper in-setting personal name, not a descriptive placeholder or joke label.",
+                "The build must be rules-aware: pools, edges, effort, cypher limit, practiced weapons, chosen abilities, and chosen skills should stay internally consistent.",
+                "Include attacks that match the character's practiced weapons and starting equipment.",
+                "Include a concrete `starting_equipment` list and an `equipment` list that reflect what the character actually begins play carrying.",
+                "Prefer concise but playable attack entries such as weapon name, weapon class, and damage.",
+                "Write a short evocative description or notes block that helps the GM or player understand the character at a glance.",
+                "Include a `culture` field when the portrait and local lore support a meaningful cultural read such as Fenmir, Caldoran, Xanthir, Galadhrim, or another specific local identity.",
+            ])
+        if ctype == "rollable_table":
+            prompt_lines.extend([
+                "For rollable tables, set `primarycategory` to `rollable_table`.",
+                "Each row must include `roll` and `result`.",
+                "Only include `card_ref` when you know a real existing saved card path from the provided context or user brief.",
+                "Never invent filenames, timestamps, or storage paths for `card_ref`.",
+                "If a linked card is not explicitly known, omit `card_ref` and `card_label` entirely.",
+                "If you do include `card_ref`, it must match the correct card type such as `cypher/...json`, `artifact/...json`, `npc/...json`, or `location/...json`.",
+            ])
         if image_supplied and ctype in AI_GENERATE_VISION_TYPES:
             prompt_lines.append(ai_generate_vision_prompt(ctype))
-            prompt_lines.append("Base your answer on the image evidence first, then fill small gaps with restrained RPG inference.")
+            prompt_lines.append("Base your answer on the image evidence first, then reconcile it with retrieved local lore, then fill small gaps with restrained RPG inference.")
         elif image_supplied:
-            prompt_lines.append("Use the uploaded image as a primary source of inspiration for the generated content.")
+            prompt_lines.append("Use the uploaded image as a primary source of inspiration, but keep the final result aligned with retrieved local lore.")
         prompt_lines.extend([
             f"Follow this JSON shape exactly (keys may be added if useful):\n{schema_text}",
             f"Allowed vector sources/compendiums: {allowed_compendium_ids if allowed_compendium_ids else 'all indexed sources'}",
@@ -3777,6 +4945,7 @@ def register_routes(app: Flask) -> None:
     @app.post("/ai-generate/save")
     def ai_generate_save():
         body = request.get_json(force=True, silent=False) or {}
+        storage_dir = current_app.config["LOL_STORAGE_DIR"]
         content_type = str(body.get("content_type") or "").strip().lower()
         card = body.get("card")
         payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
@@ -3787,16 +4956,53 @@ def register_routes(app: Flask) -> None:
         if not isinstance(card, dict):
             return jsonify({"error": "card must be an object"}), 400
 
+        card = _normalize_ai_generated_card(
+            card,
+            content_type=content_type,
+            setting_id=str(payload.get("setting") or "").strip(),
+            area_id=str(payload.get("area") or "").strip(),
+            generation_preferences={
+                "race": str(payload.get("race") or "").strip(),
+                "variant": str(payload.get("variant") or "").strip(),
+                "gender": str(payload.get("gender") or "").strip(),
+                "profession": str(payload.get("profession") or "").strip(),
+                "culture": str(payload.get("culture") or "").strip(),
+            },
+        )
+
+        if content_type == "rollable_table":
+            rows = card.get("rows")
+            if isinstance(rows, list):
+                sanitized_rows: list[dict] = []
+                for row in rows:
+                    if not isinstance(row, dict):
+                        sanitized_rows.append(row)
+                        continue
+                    next_row = dict(row)
+                    ref_value = next_row.get("card_ref") or next_row.get("ref") or next_row.get("target_ref")
+                    if ref_value and not _storage_card_ref_exists(storage_dir, ref_value):
+                        next_row.pop("card_ref", None)
+                        next_row.pop("ref", None)
+                        next_row.pop("target_ref", None)
+                        next_row.pop("card_label", None)
+                        next_row.pop("label", None)
+                    sanitized_rows.append(next_row)
+                card = dict(card)
+                card["rows"] = sanitized_rows
+
         type_map = {
             "free_text": "lore",
             "lore": "lore",
-            "rollable_table": "lore",
+            "rollable_table": "rollable_table",
             "cypher": "cypher",
             "artifact": "artifact",
             "encounter": "encounter",
             "settlement": "settlement",
+            "inn": "inn",
             "landmark": "location",
+            "creature": "creature",
             "npc": "npc",
+            "player_character": "character_sheet",
         }
         result_type = type_map.get(content_type)
         if not result_type:
@@ -3821,29 +5027,52 @@ def register_routes(app: Flask) -> None:
         ).strip()
 
         metadata = card.get("metadata") if isinstance(card.get("metadata"), dict) else {}
-        result = {
-            "type": result_type,
-            "name": name,
-            "description": description,
-            "sections": dict(card),
-            "metadata": {
-                "source": "House",
-                "origin": "ai_generate",
-                "content_type": content_type,
-                "ai_generated": "true",
-                "setting": metadata.get("setting") or payload.get("setting"),
-                "settings": metadata.get("settings") or payload.get("settings"),
-                "area": metadata.get("area") or payload.get("area") or metadata.get("environment") or payload.get("environment"),
-                "location": metadata.get("location") or payload.get("location"),
-                "environment": metadata.get("environment") or metadata.get("area") or payload.get("environment") or payload.get("area"),
-                "race": metadata.get("race") or payload.get("race"),
-                "profession": metadata.get("profession") or payload.get("profession"),
-                "sourcebook": metadata.get("sourcebook") or payload.get("sourcebook"),
-                "page": metadata.get("page") or payload.get("page"),
-            },
-        }
+        if content_type == "player_character":
+            result = _normalize_ai_generated_player_character(card, payload)
+        else:
+            result = {
+                "type": result_type,
+                "name": name,
+                "description": description,
+                "sections": dict(card),
+                "metadata": {
+                    "source": "House",
+                    "origin": "ai_generate",
+                    "content_type": content_type,
+                    "ai_generated": "true",
+                    "setting": metadata.get("setting") or payload.get("setting"),
+                    "settings": metadata.get("settings") or payload.get("settings"),
+                    "area": metadata.get("area") or payload.get("area") or metadata.get("environment") or payload.get("environment"),
+                    "location": metadata.get("location") or payload.get("location"),
+                    "environment": metadata.get("environment") or metadata.get("area") or payload.get("environment") or payload.get("area"),
+                    "race": metadata.get("race") or payload.get("race"),
+                    "variant": metadata.get("variant") or payload.get("variant"),
+                    "gender": metadata.get("gender") or payload.get("gender"),
+                    "profession": metadata.get("profession") or payload.get("profession"),
+                    "culture": metadata.get("culture") or payload.get("culture"),
+                    "sourcebook": metadata.get("sourcebook") or payload.get("sourcebook"),
+                    "page": metadata.get("page") or payload.get("page"),
+                },
+            }
+        if content_type in {"npc", "creature"}:
+            level = _ai_generate_parse_int(card.get("level"), minimum=1, maximum=10)
+            stat_block = {
+                "level": level,
+                "target_number": level * 3 if level is not None else None,
+                "health": _ai_generate_parse_int(card.get("health"), minimum=1, maximum=60),
+                "armor": _ai_generate_parse_int(card.get("armor"), minimum=0, maximum=5),
+                "damage": _ai_generate_parse_int(card.get("damage_inflicted"), minimum=1, maximum=12),
+                "movement": str(card.get("movement") or "").strip(),
+                "modifications": [str(card.get("modifications") or "").strip()] if str(card.get("modifications") or "").strip() else [],
+                "combat": [str(card.get("combat") or "").strip()] if str(card.get("combat") or "").strip() else [],
+                "interaction": [str(card.get("interaction") or "").strip()] if str(card.get("interaction") or "").strip() else [],
+                "loot": [str(card.get("loot") or "").strip()] if str(card.get("loot") or "").strip() else [],
+            }
+            result["stat_block"] = stat_block
         if content_type == "rollable_table":
             result["metadata"]["subtype"] = "rollable_table"
+            result["metadata"]["primarycategory"] = "rollable_table"
+            result["primarycategory"] = "rollable_table"
         elif content_type == "landmark":
             # Canonicalize landmark payloads even if the model omits type markers.
             sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
@@ -3874,6 +5103,12 @@ def register_routes(app: Flask) -> None:
                     meta["image_url"] = image_ref
                     meta["images"] = [image_ref]
                     sections["metadata"] = meta
+                sheet = result.get("sheet") if isinstance(result.get("sheet"), dict) else {}
+                if isinstance(sheet, dict):
+                    meta = sheet.get("metadata") if isinstance(sheet.get("metadata"), dict) else {}
+                    meta["image_url"] = image_ref
+                    meta["images"] = [image_ref]
+                    sheet["metadata"] = meta
                 result["image"] = {
                     "path": image_ref,
                     "url": str(stored_image.get("url") or ""),
@@ -4069,6 +5304,10 @@ def register_routes(app: Flask) -> None:
         keep_alive = str(body.get("keep_alive") or ollama_keep_alive()).strip()
         system_prompt = str(body.get("system_prompt") or ollama_system_prompt()).strip()
         base_url = normalize_http_base_url(body.get("base_url"), ollama_base_url())
+        include_local = bool(body.get("include_local", True))
+        include_lore = bool(body.get("include_lore", False))
+        setting = str(body.get("setting") or "").strip()
+        location = str(body.get("location") or "").strip()
         compendium_id = str(body.get("compendium_id") or "").strip().lower()
         compendium_ids_raw = body.get("compendium_ids")
         compendium_ids: list[str] = []
@@ -4079,11 +5318,19 @@ def register_routes(app: Flask) -> None:
                     compendium_ids.append(cid)
         if compendium_id and compendium_id not in compendium_ids:
             compendium_ids.append(compendium_id)
+        if include_local and "local_library" not in compendium_ids:
+            compendium_ids.append("local_library")
         k_raw = body.get("k")
         try:
             k = max(1, min(20, int(k_raw))) if k_raw is not None else 8
         except Exception:
             k = 8
+
+        def source_priority(row: dict) -> tuple[int, float]:
+            cid = str(row.get("compendium_id") or "").strip().lower()
+            if cid == "local_library":
+                return (0, -float(row.get("score") or 0.0))
+            return (2, -float(row.get("score") or 0.0))
 
         try:
             if compendium_ids:
@@ -4111,7 +5358,7 @@ def register_routes(app: Flask) -> None:
                             continue
                         seen_keys.add(key)
                         merged_items.append(item)
-                merged_items.sort(key=lambda row: float(row.get("score") or 0.0), reverse=True)
+                merged_items.sort(key=source_priority)
                 vec = {"items": merged_items[:k]}
             else:
                 vec = vector_query_index(
@@ -4145,9 +5392,28 @@ def register_routes(app: Flask) -> None:
                 f"[{idx}] source={source_path} heading={heading}\n{snippet}"
             )
 
+        lore_items: list[dict] = []
+        lore_citations: list[dict] = []
+        lore_context = "No lore context available."
+        if include_lore:
+            lore_items, lore_citations, lore_context = _build_lore_context(
+                q,
+                setting=setting,
+                location=location,
+                k=max(2, min(6, k // 2 or 2)),
+            )
+            if lore_context != "No lore context available.":
+                context_lines.insert(0, lore_context)
+
         grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
+        grounding_instruction = (
+            "Answer only from the supplied context. Do not invent facts, pantheons, deities, practices, or setting details that are not supported by the cited chunks. "
+            "If the context is ambiguous or insufficient, say so plainly. Treat place names, cultures, factions, and religions as distinct unless the context explicitly equates them. "
+            "Prefer short, specific answers over generic fantasy filler, and cite claims with [n] where possible."
+        )
         prompt = (
             f"{system_prompt}\n\n"
+            f"Instructions:\n{grounding_instruction}\n\n"
             f"Question:\n{q}\n\n"
             f"Context:\n{grounded_context}\n\n"
             "Answer:"
@@ -4185,9 +5451,9 @@ def register_routes(app: Flask) -> None:
             "system_prompt_set": bool(system_prompt),
             "k": k,
             "compendium_ids": compendium_ids,
-            "citation_count": len(citations),
-            "citations": citations,
-            "vector_items": items,
+            "citation_count": len(citations) + len(lore_citations),
+            "citations": citations + lore_citations,
+            "vector_items": items + lore_items,
         })
 
     @app.get("/plugins/openai-remote/health")
@@ -4252,6 +5518,10 @@ def register_routes(app: Flask) -> None:
         api_key = str(body.get("api_key") or openai_api_key()).strip()
         if not api_key:
             return jsonify({"error": "api_key is required in plugin settings or request"}), 400
+        include_local = bool(body.get("include_local", True))
+        include_lore = bool(body.get("include_lore", False))
+        setting = str(body.get("setting") or "").strip()
+        location = str(body.get("location") or "").strip()
 
         compendium_id = str(body.get("compendium_id") or "").strip().lower()
         compendium_ids_raw = body.get("compendium_ids")
@@ -4263,11 +5533,19 @@ def register_routes(app: Flask) -> None:
                     compendium_ids.append(cid)
         if compendium_id and compendium_id not in compendium_ids:
             compendium_ids.append(compendium_id)
+        if include_local and "local_library" not in compendium_ids:
+            compendium_ids.append("local_library")
         k_raw = body.get("k")
         try:
             k = max(1, min(20, int(k_raw))) if k_raw is not None else 8
         except Exception:
             k = 8
+
+        def source_priority(row: dict) -> tuple[int, float]:
+            cid = str(row.get("compendium_id") or "").strip().lower()
+            if cid == "local_library":
+                return (0, -float(row.get("score") or 0.0))
+            return (2, -float(row.get("score") or 0.0))
 
         try:
             if compendium_ids:
@@ -4295,7 +5573,7 @@ def register_routes(app: Flask) -> None:
                             continue
                         seen_keys.add(key)
                         merged_items.append(item)
-                merged_items.sort(key=lambda row: float(row.get("score") or 0.0), reverse=True)
+                merged_items.sort(key=source_priority)
                 vec = {"items": merged_items[:k]}
             else:
                 vec = vector_query_index(
@@ -4327,13 +5605,27 @@ def register_routes(app: Flask) -> None:
             })
             context_lines.append(f"[{idx}] source={source_path} heading={heading}\n{snippet}")
 
+        lore_items: list[dict] = []
+        lore_citations: list[dict] = []
+        lore_context = "No lore context available."
+        if include_lore:
+            lore_items, lore_citations, lore_context = _build_lore_context(q, setting=setting, location=location, k=max(2, min(6, k // 2 or 2)))
+            if lore_context != "No lore context available.":
+                context_lines.insert(0, lore_context)
+
         grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
+        grounding_instruction = (
+            "Answer only from the supplied context. Do not invent facts, pantheons, deities, practices, or setting details that are not supported by the cited chunks. "
+            "If the context is ambiguous or insufficient, say so plainly. Treat place names, cultures, factions, and religions as distinct unless the context explicitly equates them. "
+            "Prefer short, specific answers over generic fantasy filler, and cite claims with [n]."
+        )
         messages = []
         if system_prompt:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({
             "role": "user",
             "content": (
+                f"Instructions:\n{grounding_instruction}\n\n"
                 f"Question:\n{q}\n\n"
                 f"Context:\n{grounded_context}\n\n"
                 "Answer with citations like [n] where possible."
@@ -4373,9 +5665,9 @@ def register_routes(app: Flask) -> None:
             "system_prompt_set": bool(system_prompt),
             "k": k,
             "compendium_ids": compendium_ids,
-            "citation_count": len(citations),
-            "citations": citations,
-            "vector_items": items,
+            "citation_count": len(citations) + len(lore_citations),
+            "citations": citations + lore_citations,
+            "vector_items": items + lore_items,
         })
 
     @app.get("/compendiums")
@@ -4537,7 +5829,7 @@ def register_routes(app: Flask) -> None:
                 continue
             items.append({
                 "id": pid,
-                "name": profile.get("name") or pid.title(),
+                "name": _display_sourcebook_label(profile.get("name") or pid.title()),
                 "subtitle": profile.get("subtitle") or "Official Sourcebook (Private Import)",
                 "thumbnail_url": profile.get("thumbnail_url") or "/images/CypherLogo/CSOL%20Logo-Cypher%20System%20Compatible-Color%20with%20White-Small.png",
                 "stats": stats,
@@ -4689,8 +5981,8 @@ def register_routes(app: Flask) -> None:
             }
 
             type_label_map = {
-                "character": "Characters",
-                "character_sheet": "Character Sheets",
+                "character": "Player Characters",
+                "character_sheet": "Player Characters",
                 "npc": "NPCs",
                 "creature": "Creatures",
                 "cypher": "Cyphers",
@@ -4882,6 +6174,14 @@ def register_routes(app: Flask) -> None:
         )
         return jsonify(result)
 
+    @app.post("/vector/storage/sync")
+    def api_vector_storage_sync():
+        summary = sync_storage_index(
+            storage_root=current_app.config["LOL_STORAGE_DIR"],
+            output_root=vector_index_root(),
+        )
+        return jsonify({"ok": True, **summary})
+
     @app.get("/pdf-repository/<path:filename>")
     def pdf_repository_file(filename: str):
         rel = str(filename or "").replace("\\", "/").lstrip("/")
@@ -4995,6 +6295,24 @@ def register_routes(app: Flask) -> None:
                 "tags": tags,
                 "notes": notes,
             },
+        })
+
+    @app.post("/ai-generate/image-from-url")
+    def api_ai_generate_image_from_url():
+        body = request.get_json(force=True, silent=False) or {}
+        try:
+            image_data_url, image_name, mime_type = _download_image_as_data_url(body.get("url"))
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        except Exception as exc:
+            return jsonify({"error": f"failed to download image: {exc}"}), 400
+
+        return jsonify({
+            "ok": True,
+            "image_data_url": image_data_url,
+            "image_name": image_name,
+            "mime_type": mime_type,
+            "source_url": str(body.get("url") or "").strip(),
         })
 
     @app.post("/media/images/attach")
@@ -5339,7 +6657,8 @@ def register_routes(app: Flask) -> None:
             updated = update_saved_result(storage_dir, filename, record)
         except FileNotFoundError as exc:
             return jsonify({"error": str(exc)}), 404
-        return jsonify({"ok": True, "record": updated})
+        vector_sync = sync_saved_record_to_vector(filename)
+        return jsonify({"ok": True, "record": updated, "vector_sync": vector_sync})
 
     @app.post("/storage/mirror-foundry-images")
     def api_storage_mirror_foundry_images():
@@ -5388,10 +6707,12 @@ def register_routes(app: Flask) -> None:
         updated_record["result"] = cached_result
         update_saved_result(storage_dir, filename, updated_record)
         refreshed = load_saved_result(storage_dir, filename, default_settings=configured_default_settings())
+        vector_sync = sync_saved_record_to_vector(filename)
         return jsonify({
             "mirrored": True,
             "reason": "updated",
             "record": refreshed,
+            "vector_sync": vector_sync,
         })
 
     @app.get("/storage/trash")
@@ -5422,7 +6743,8 @@ def register_routes(app: Flask) -> None:
             result = trash_saved_result(storage_dir, filename)
         except FileNotFoundError as exc:
             return jsonify({"error": str(exc)}), 404
-        return jsonify({"ok": True, **result})
+        vector_sync = remove_saved_record_from_vector(filename)
+        return jsonify({"ok": True, **result, "vector_sync": vector_sync})
 
     @app.post("/storage/trash/restore")
     def api_storage_trash_restore():
@@ -5435,7 +6757,8 @@ def register_routes(app: Flask) -> None:
             result = restore_trashed_result(storage_dir, filename)
         except FileNotFoundError as exc:
             return jsonify({"error": str(exc)}), 404
-        return jsonify({"ok": True, **result})
+        vector_sync = sync_saved_record_to_vector(str(result.get("filename") or ""))
+        return jsonify({"ok": True, **result, "vector_sync": vector_sync})
 
     @app.post("/storage/trash/expunge")
     def api_storage_trash_expunge():
@@ -6641,7 +7964,7 @@ def register_routes(app: Flask) -> None:
             allowed = ", ".join(sorted(SUPPORTED_OFFICIAL_COMPENDIUM_TYPES))
             return jsonify({"error": f"type must be one of: {allowed}"}), 400
         official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
-        items = list_official_items(official_dir, item_type)
+        items = [_with_display_sourcebook_label(item) for item in list_official_items(official_dir, item_type)]
         return jsonify({"type": item_type, "count": len(items), "items": items})
 
     @app.get("/official-compendium/<item_type>/<slug>")
@@ -6650,7 +7973,7 @@ def register_routes(app: Flask) -> None:
             allowed = ", ".join(sorted(SUPPORTED_OFFICIAL_COMPENDIUM_TYPES))
             return jsonify({"error": f"type must be one of: {allowed}"}), 400
         official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
-        return jsonify(load_official_item(official_dir, item_type, slug))
+        return jsonify(_with_display_sourcebook_label(load_official_item(official_dir, item_type, slug)))
 
     @app.get("/official-compendium/search")
     def api_official_compendium_search():
@@ -6952,12 +8275,30 @@ def register_routes(app: Flask) -> None:
         compendium_dir = current_app.config["LOL_COMPENDIUM_DIR"]
         enabled_compendiums = enabled_compendium_ids_for_search()
 
+        def result_source_priority(item: dict) -> tuple[int, str]:
+            source = str(item.get("source") or "").strip().lower()
+            if source == "storage":
+                return (0, str(item.get("name") or "").lower())
+            if source == "lore":
+                return (1, str(item.get("name") or "").lower())
+            if source in {FOUNDRY_COMPENDIUM_ID, "foundry_vtt"}:
+                return (2, str(item.get("name") or "").lower())
+            if source == "compendium" or source == "csrd":
+                return (3, str(item.get("name") or "").lower())
+            return (4, str(item.get("name") or "").lower())
+
         raw_item_type = str(request.args.get("type") or "").strip().lower()
         item_type_aliases = {
             "artifacts": "artifact",
             "cyphers": "cypher",
+            "landmarks": "landmark",
         }
         item_type = item_type_aliases.get(raw_item_type, raw_item_type) or None
+        storage_item_type = item_type
+        compendium_item_type = item_type
+        if item_type == "player_character":
+            storage_item_type = "player_character"
+            compendium_item_type = "character"
         q = request.args.get("q")
         area = request.args.get("area")
         location = request.args.get("location")
@@ -7005,7 +8346,7 @@ def register_routes(app: Flask) -> None:
         if include_local or include_foundry:
             storage_results = search_saved_results(
                 storage_dir,
-                item_type=item_type,
+                item_type=storage_item_type,
                 setting=setting,
                 area=area,
                 location=location,
@@ -7019,13 +8360,13 @@ def register_routes(app: Flask) -> None:
             storage_results = []
 
         if include_csrd:
-            if item_type:
+            if compendium_item_type:
                 # If user selected a non-compendium type (e.g. character_sheet),
                 # do not include compendium results.
-                if item_type in SUPPORTED_COMPENDIUM_TYPES:
+                if compendium_item_type in SUPPORTED_COMPENDIUM_TYPES:
                     compendium_results = search_compendium(
                         compendium_dir,
-                        item_type=item_type,
+                        item_type=compendium_item_type,
                         setting=setting,
                         query=q,
                     ) or []
@@ -7042,7 +8383,7 @@ def register_routes(app: Flask) -> None:
         else:
             compendium_results = []
 
-        if include_lore and (not item_type or item_type == "lore"):
+        if include_lore and (not compendium_item_type or compendium_item_type == "lore"):
             lore_dir = current_app.config["LOL_LORE_DIR"]
             lore_results = search_lore(
                 lore_dir,
@@ -7056,11 +8397,11 @@ def register_routes(app: Flask) -> None:
 
         if include_official or include_godforsaken:
             official_dir = current_app.config["LOL_OFFICIAL_COMPENDIUM_DIR"]
-            if item_type:
-                if item_type in SUPPORTED_OFFICIAL_COMPENDIUM_TYPES:
+            if compendium_item_type:
+                if compendium_item_type in SUPPORTED_OFFICIAL_COMPENDIUM_TYPES:
                     official_results = search_official_compendium(
                         official_dir,
-                        item_type=item_type,
+                        item_type=compendium_item_type,
                         setting=setting,
                         query=q,
                     ) or []
@@ -7109,6 +8450,7 @@ def register_routes(app: Flask) -> None:
             + normalize_compendium_results(compendium_results)
             + normalized_official_results
         )
+        items.sort(key=result_source_priority)
 
         return jsonify({
             "items": items,

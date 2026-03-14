@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T00:06:39.238854+00:00",
+  "filename": "npc/npc_20260314T000639.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_highlands",
+    "environment": "fenmir_highlands",
+    "location": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Thalira Frostbane",
+    "description": "Thalira Frostbane is a striking figure, with fiery red hair cascading down her back and fierce blue war paint adorning her face. Clad in rugged furs and armor, she wields a massive axe, a symbol of her warrior status. Her tattoos tell stories of her victories and losses, and her piercing gaze reflects a deep-seated determination to protect her people from the harsh realities of their icy world.",
+    "sections": {
+      "type": "npc",
+      "name": "Thalira Frostbane",
+      "level": 5,
+      "health": 15,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "Short",
+      "modifications": "Intimidating presence as level 6",
+      "motive": "To protect her clan and seek vengeance against those who threaten her homeland.",
+      "environment": "Snowy mountains and icy tundras, often found in the wilds or near clan settlements.",
+      "combat": "Aggressive and tactical, preferring to engage enemies head-on with her axe while using the terrain to her advantage.",
+      "interaction": "Thalira is fiercely loyal and protective, often coming off as intimidating. However, she respects strength and bravery in others, making her a potential ally for those who prove themselves.",
+      "use": "Thalira can serve as a powerful ally in battles against common foes or as a quest-giver for missions involving her clan's safety. Players may seek her out for guidance in navigating the treacherous northern territories.",
+      "gm_intrusion": "If players fail to impress Thalira, she may challenge them to a test of strength or skill, leading to unexpected consequences.",
+      "loot": "Players may find unique weapons or armor crafted from rare materials in her possession, as well as valuable clan artifacts.",
+      "description": "Thalira Frostbane is a striking figure, with fiery red hair cascading down her back and fierce blue war paint adorning her face. Clad in rugged furs and armor, she wields a massive axe, a symbol of her warrior status. Her tattoos tell stories of her victories and losses, and her piercing gaze reflects a deep-seated determination to protect her people from the harsh realities of their icy world.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg",
+        "images": [
+          "uploads/ai_generate/d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_highlands",
+      "location": "",
+      "environment": "fenmir_highlands",
+      "race": null,
+      "profession": null,
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg",
+      "images": [
+        "uploads/ai_generate/d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg",
+      "url": "/images/uploads/ai_generate/d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg",
+      "name": "d5ece77f58b388ccd49498566a8c7cbb_20260314T000639_452c4927.jpg"
+    }
+  }
+}

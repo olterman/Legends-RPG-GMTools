@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T01:59:59.465245+00:00",
+  "filename": "npc/npc_20260314T015959.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "",
+    "race": "alfirin",
+    "variant": "sky_children",
+    "gender": "",
+    "profession": "",
+    "culture": "shadowed",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Lirael the Wavecaller",
+    "description": "Lirael is a striking figure with shimmering blue skin that reflects the light like water. Her hair flows like waves, and she wears a fitted leather vest adorned with symbols of the sea. Often seen with a piece of glowing crystal in hand, she embodies the mysteries of the ocean, drawing adventurers into her world of enchantment and danger.",
+    "sections": {
+      "type": "npc",
+      "name": "Lirael the Wavecaller",
+      "race": "alfirin",
+      "variant": "sky_children",
+      "gender": "Female",
+      "profession": "mage",
+      "culture": "sky_children",
+      "level": 5,
+      "health": 17,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "Long",
+      "modifications": "Water manipulation as level 4",
+      "motive": "To uncover ancient secrets of the sea and harness their power",
+      "environment": "Coastal ruins and underwater caves",
+      "combat": "Uses water-based spells to control the battlefield, preferring to incapacitate rather than kill",
+      "interaction": "Charming and enigmatic, often draws others in with her captivating stories and knowledge of the ocean",
+      "use": "As a quest giver or ally, she can provide insights into aquatic mysteries or lead players to hidden treasures",
+      "gm_intrusion": "A sudden storm conjured by Lirael disrupts the players' plans, forcing them to adapt quickly",
+      "loot": "Rare sea crystals and ancient scrolls detailing forgotten water magic",
+      "description": "Lirael is a striking figure with shimmering blue skin that reflects the light like water. Her hair flows like waves, and she wears a fitted leather vest adorned with symbols of the sea. Often seen with a piece of glowing crystal in hand, she embodies the mysteries of the ocean, drawing adventurers into her world of enchantment and danger.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png",
+        "images": [
+          "uploads/ai_generate/Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "",
+      "environment": "fenmir_free_cities",
+      "race": "alfirin",
+      "variant": "sky_children",
+      "gender": "",
+      "profession": "",
+      "culture": "shadowed",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png",
+      "images": [
+        "uploads/ai_generate/Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png",
+      "url": "/images/uploads/ai_generate/Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png",
+      "name": "Screenshot_from_2026-03-14_02-58-02_20260314T015959_2341ada4.png"
+    }
+  }
+}

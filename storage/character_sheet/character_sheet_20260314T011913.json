@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T01:19:13.560924+00:00",
+  "filename": "character_sheet/character_sheet_20260314T011913.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "gender": "",
+    "profession": "",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Tharok",
+    "description": "Tharok is a Strong Warrior who Masters Weaponry.. Battleaxe (medium weapon, 4 damage). Backpack. Tharok is a protector of his tribe, driven by a deep sense of duty and honor. His combat style is aggressive yet calculated, using his strength to overpower foes while maintaining a strategic mind.",
+    "sheet": {
+      "name": "Tharok",
+      "sentence": "Tharok is a Strong Warrior who Masters Weaponry.",
+      "type": "Warrior",
+      "flavor": "A towering figure with striking blue skin and long, braided hair adorned with bones and beads, Tharok embodies the fierce spirit of the Fenmir tribes. His presence commands respect, and his piercing gaze hints at a life spent honing his combat skills in the rugged highlands. Clad in furs and leather, he carries the weight of his ancestors' traditions while embracing the thrill of battle. Tharok's connection to the land is palpable, and he fights not just for glory, but to protect his people and their way of life.",
+      "descriptor": "Strong",
+      "focus": "Masters Weaponry",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "Practiced with light, medium, and heavy weapons.",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 10,
+          "intellect": 8
+        },
+        "current": {
+          "might": 12,
+          "speed": 10,
+          "intellect": 8
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 2,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Melee Combat"
+        ],
+        "inabilities": [],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [
+        "Defensive Stance",
+        "Weapon Mastery"
+      ],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [
+        "Weapon Proficiency"
+      ],
+      "chosen_abilities": [
+        "Melee Attack",
+        "Shield Defense",
+        "Intimidating Presence",
+        "Battle Cry"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Athletics",
+          "level": "trained"
+        }
+      ],
+      "attacks": [
+        "Battleaxe (medium weapon, 4 damage)",
+        "Knife (light weapon, 2 damage)"
+      ],
+      "starting_equipment": [
+        "Backpack",
+        "Explorer's pack",
+        "Battleaxe",
+        "Knife"
+      ],
+      "equipment": [
+        "Fur armor",
+        "Bone necklace",
+        "Leather straps"
+      ],
+      "notes": "Tharok is a protector of his tribe, driven by a deep sense of duty and honor. His combat style is aggressive yet calculated, using his strength to overpower foes while maintaining a strategic mind.",
+      "metadata": {
+        "name": "Tharok",
+        "race": "orc",
+        "gender": "male",
+        "profession": "warrior",
+        "culture": "fenmir",
+        "area": "fenmir_highlands",
+        "location": "",
+        "setting": "lands_of_legends",
+        "settings": [
+          "lands_of_legends"
+        ],
+        "character_type": "Warrior",
+        "flavor": "A towering figure with striking blue skin and long, braided hair adorned with bones and beads, Tharok embodies the fierce spirit of the Fenmir tribes. His presence commands respect, and his piercing gaze hints at a life spent honing his combat skills in the rugged highlands. Clad in furs and leather, he carries the weight of his ancestors' traditions while embracing the thrill of battle. Tharok's connection to the land is palpable, and he fights not just for glory, but to protect his people and their way of life.",
+        "descriptor": "Strong",
+        "focus": "Masters Weaponry",
+        "tier": 1,
+        "source": "AI Generate",
+        "origin": "ai_generate",
+        "content_type": "player_character",
+        "ai_generated": "true",
+        "description": "Tharok is a Strong Warrior who Masters Weaponry.. Battleaxe (medium weapon, 4 damage). Backpack. Tharok is a protector of his tribe, driven by a deep sense of duty and honor. His combat style is aggressive yet calculated, using his strength to overpower foes while maintaining a strategic mind.",
+        "image_url": "uploads/ai_generate/74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg",
+        "images": [
+          "uploads/ai_generate/74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg"
+        ]
+      },
+      "wizard_completed": true,
+      "generated": "ai_generate",
+      "tier": 1
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "player_character",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_highlands",
+      "location": "",
+      "environment": "fenmir_highlands",
+      "race": "orc",
+      "gender": "male",
+      "profession": "warrior",
+      "culture": "fenmir",
+      "character_type": "Warrior",
+      "flavor": "A towering figure with striking blue skin and long, braided hair adorned with bones and beads, Tharok embodies the fierce spirit of the Fenmir tribes. His presence commands respect, and his piercing gaze hints at a life spent honing his combat skills in the rugged highlands. Clad in furs and leather, he carries the weight of his ancestors' traditions while embracing the thrill of battle. Tharok's connection to the land is palpable, and he fights not just for glory, but to protect his people and their way of life.",
+      "descriptor": "Strong",
+      "focus": "Masters Weaponry",
+      "tier": 1,
+      "description": "Tharok is a Strong Warrior who Masters Weaponry.. Battleaxe (medium weapon, 4 damage). Backpack. Tharok is a protector of his tribe, driven by a deep sense of duty and honor. His combat style is aggressive yet calculated, using his strength to overpower foes while maintaining a strategic mind.",
+      "image_url": "uploads/ai_generate/74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg",
+      "images": [
+        "uploads/ai_generate/74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg",
+      "url": "/images/uploads/ai_generate/74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg",
+      "name": "74ac810c90a29a9abf87ca1eda90d25a_20260314T011913_d8531dc9.jpg"
+    }
+  }
+}

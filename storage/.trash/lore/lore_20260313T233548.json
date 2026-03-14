@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T23:35:48.961042+00:00",
+  "filename": "lore/lore_20260313T233548.json",
+  "payload": {
+    "setting": "Lands of Legend",
+    "settings": [
+      "Lands of Legend"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "lore",
+    "name": "Quirky Cyphers",
+    "description": "",
+    "sections": {
+      "primarycategory": "rollable_table",
+      "name": "Quirky Cyphers",
+      "dice": "d20",
+      "rows": [
+        {
+          "roll": "1-2",
+          "result": "A shimmering orb that, when held, allows the user to hear the thoughts of nearby creatures. The thoughts are often jumbled and chaotic, filled with snippets of emotions and desires, creating a cacophony that can be overwhelming. The user must succeed on a difficulty task to focus on a single thought, or risk being distracted by the noise.",
+          "card_ref": "cypher/cypher_20260312T120000.json"
+        },
+        {
+          "roll": "3-4",
+          "result": "A small, enchanted mirror that reflects not the user's image but their greatest fear. Gazing into it reveals a haunting vision that can instill dread or grant insight into overcoming personal challenges. The user can choose to confront this fear, gaining a temporary boost to their courage.",
+          "card_ref": "cypher/cypher_20260312T120001.json"
+        },
+        {
+          "roll": "5-6",
+          "result": "A vial of liquid laughter that, when splashed on a target, causes uncontrollable giggles for a short duration. The laughter is infectious, spreading to nearby allies and potentially disrupting serious situations. However, it can also lead to unexpected alliances or distractions.",
+          "card_ref": "cypher/cypher_20260312T120002.json"
+        },
+        {
+          "roll": "7-8",
+          "result": "A pair of mismatched socks that, when worn, grants the ability to dance with extraordinary grace. While wearing them, the user can perform feats of agility and charm, captivating onlookers and potentially winning over foes with their mesmerizing movements.",
+          "card_ref": "cypher/cypher_20260312T120003.json"
+        },
+        {
+          "roll": "9-10",
+          "result": "A tiny, enchanted bell that, when rung, causes all creatures within earshot to momentarily forget their current task. This can be used to create a diversion or to escape from a tense situation, but it may also lead to confusion among allies.",
+          "card_ref": "cypher/cypher_20260312T120004.json"
+        },
+        {
+          "roll": "11-12",
+          "result": "A feather from a mythical bird that, when waved, allows the user to float gently to the ground from any height. This can be used to escape danger or to make a dramatic entrance, but the user must be careful not to attract unwanted attention while floating.",
+          "card_ref": "cypher/cypher_20260312T120005.json"
+        },
+        {
+          "roll": "13-14",
+          "result": "A jar of glowing fireflies that, when released, can illuminate a dark area or create a dazzling light show. The fireflies can also be used to distract enemies or to signal allies from a distance, but they have a tendency to attract curious creatures.",
+          "card_ref": "cypher/cypher_20260312T120006.json"
+        },
+        {
+          "roll": "15-16",
+          "result": "A small, enchanted book that, when opened, reveals a random piece of advice or wisdom. This can provide guidance in a moment of need, but the advice is often cryptic and requires interpretation, leading to unexpected outcomes.",
+          "card_ref": "cypher/cypher_20260312T120007.json"
+        },
+        {
+          "roll": "17-18",
+          "result": "A pair of enchanted glasses that allow the wearer to see the world through the eyes of a nearby animal. This can provide valuable insights into the environment, but the experience can be disorienting and may lead to unexpected behaviors.",
+          "card_ref": "cypher/cypher_20260312T120008.json"
+        },
+        {
+          "roll": "19-20",
+          "result": "A small pouch of enchanted seeds that, when scattered, can grow into a temporary garden of vibrant flowers. The flowers can have various effects, such as healing or creating a calming atmosphere, but they may also attract unwanted attention from creatures drawn to their beauty.",
+          "card_ref": "cypher/cypher_20260312T120009.json"
+        }
+      ]
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "rollable_table",
+      "ai_generated": "true",
+      "setting": "lands_of_legend",
+      "settings": [
+        "lands_of_legend"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": null,
+      "profession": null,
+      "sourcebook": "",
+      "page": "",
+      "subtype": "rollable_table",
+      "primarycategory": "rollable_table",
+      "genre": "lands_of_legend",
+      "genres": [
+        "lands_of_legend"
+      ]
+    },
+    "primarycategory": "rollable_table"
+  }
+}

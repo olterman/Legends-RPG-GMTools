@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T23:55:43.877515+00:00",
+  "filename": "rollable_table/rollable_table_20260313T235543.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "aldamir",
+    "environment": "aldamir",
+    "location": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "rollable_table",
+    "name": "Random Encounters in Aldamir",
+    "description": "",
+    "sections": {
+      "primarycategory": "rollable_table",
+      "name": "Random Encounters in Aldamir",
+      "dice": "d20",
+      "rows": [
+        {
+          "roll": "1-2",
+          "result": "As you traverse the dense, mist-laden woods of Aldamir, you stumble upon a fey noble, wounded and in need of aid. Their ethereal beauty is marred by a deep gash on their arm, and they plead for your assistance. Helping them may earn you a favor or a boon, but be wary; the fey are known for their capricious nature."
+        },
+        {
+          "roll": "3-4",
+          "result": "You find a common-looking wooden table set in the middle of a clearing. As you approach, you hear a voice echoing, 'Table be set!' Suddenly, the table fills with an abundance of food and drink. However, be cautious; using this artifact may attract unwanted attention from hungry beasts or thieves lurking nearby."
+        },
+        {
+          "roll": "5-6",
+          "result": "A bard appears from the shadows, strumming a lute and singing tales of old. Their music captivates you, and for a moment, you feel a sense of camaraderie. The bard offers to share a story or a song, but they may also ask for a favor in return, weaving you deeper into the fabric of Aldamir's lore."
+        },
+        {
+          "roll": "7-8",
+          "result": "You encounter a group of villagers gathered around a flickering bonfire, sharing stories and laughter. They invite you to join them, offering food and drink. However, whispers of a dark cult seeking to summon a demon lord linger in the air, and you sense that not all is as it seems."
+        },
+        {
+          "roll": "9-10",
+          "result": "A sudden rustle in the underbrush draws your attention, and a small creature, perhaps a sprite or a mischievous fae, darts past you. It giggles and beckons you to follow, leading you to a hidden glade filled with vibrant flowers and strange, glowing mushrooms. This place feels enchanted, but tread carefully; the fey are known for their tricks."
+        },
+        {
+          "roll": "11-12",
+          "result": "You come across a weathered stone altar, overgrown with vines and moss. The air is thick with the scent of damp earth and ancient magic. As you approach, you feel a strange pull, as if the altar is waiting for an offering. What will you give in exchange for its secrets?"
+        },
+        {
+          "roll": "13-14",
+          "result": "A mysterious stranger appears, cloaked in shadows. They offer you assistance but demand a favor to be named later. Their eyes glint with hidden knowledge, and you can't shake the feeling that this encounter will change your fate in Aldamir."
+        },
+        {
+          "roll": "15-16",
+          "result": "You hear the distant sound of a fairy ball, laughter and music drifting through the trees. If you choose to investigate, you may find yourself amidst a gathering of fey, where the rules of reality bend and anything is possible. But be wary; the fey love to play games, and not all are friendly."
+        },
+        {
+          "roll": "17-18",
+          "result": "A sudden storm brews overhead, dark clouds swirling ominously. As the first raindrops fall, you spot a figure in the distance, seemingly unaffected by the weather. This druid may offer guidance or shelter, but their motives are as unpredictable as the storm itself."
+        },
+        {
+          "roll": "19-20",
+          "result": "You find a hidden path leading to a serene pond, its surface reflecting the stars above. The water shimmers with an otherworldly glow, and you feel a sense of peace wash over you. However, the tranquility is deceptive, as ancient spirits may guard this sacred place, testing your intentions."
+        }
+      ]
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "rollable_table",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "aldamir",
+      "location": "",
+      "environment": "aldamir",
+      "race": null,
+      "profession": null,
+      "sourcebook": "",
+      "page": "",
+      "subtype": "rollable_table",
+      "primarycategory": "rollable_table",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "primarycategory": "rollable_table"
+  }
+}

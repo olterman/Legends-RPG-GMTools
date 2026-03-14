@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T04:16:25.955168+00:00",
+  "filename": "inn/inn_20260314T041625.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "Freeport",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "human",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "inn",
+    "name": "The Gilded Harpoon",
+    "description": "The Gilded Harpoon serves as a vibrant hub for the diverse community of Freeport, where the tales of the sea come alive. Patrons gather not just for food and drink, but to share their adventures and dreams of the horizon. With its rich decor and lively atmosphere, it is a place where friendships are forged and legends are born.",
+    "sections": {
+      "type": "inn",
+      "name": "The Gilded Harpoon",
+      "inn_type": "tavern",
+      "atmosphere": "The Gilded Harpoon buzzes with the lively chatter of sailors and merchants, the air thick with the scent of salt and roasted fish. Lanterns flicker overhead, casting warm light on the polished wooden tables that are often filled to capacity. The walls are adorned with nautical memorabilia, including maps of the surrounding waters and trophies from legendary sea hunts, creating an ambiance that celebrates the maritime spirit of Freeport.",
+      "clientele": "A mix of local fishermen, adventurous sailors, and traders from distant lands, all sharing tales of the sea and seeking respite from their journeys.",
+      "notable_feature": "A massive harpoon, said to have been used to catch a legendary sea beast, hangs above the bar, drawing the eye of every patron. It is rumored to bring good luck to those who touch it before embarking on a voyage.",
+      "proprietor": "Mira Tidestrider, a sharp-witted woman with a knack for storytelling, runs the tavern with a firm but friendly hand. Her knowledge of the sea and its secrets makes her a beloved figure among the regulars.",
+      "rumor_or_hook": "Whispers circulate that a hidden treasure map was recently found in the tavern, leading to a sunken ship rumored to hold the riches of a long-lost pirate captain. Many patrons are eager to uncover its secrets, but few have the courage to seek it out.",
+      "description": "The Gilded Harpoon serves as a vibrant hub for the diverse community of Freeport, where the tales of the sea come alive. Patrons gather not just for food and drink, but to share their adventures and dreams of the horizon. With its rich decor and lively atmosphere, it is a place where friendships are forged and legends are born."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "inn",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "Freeport",
+      "environment": "fenmir_free_cities",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "human",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T04:39:20.676684+00:00",
+  "filename": "character_sheet/character_sheet_20260314T043920.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "Freeport",
+    "race": "lilim",
+    "variant": "",
+    "gender": "female",
+    "profession": "poet_warrior",
+    "culture": "lilim",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Zyra Vex",
+    "description": "Zyra Vex is a fierce poet-warrior who weaves words as deftly as she wields her blade.. Scimitar (medium weapon, 4 damage). Backpack. Zyra Vex embodies the duality of a warrior and a poet, using her sharp wit and sharper blade to navigate the tumultuous streets of Freeport. Her vibrant tattoos tell stories of battles fought and verses penned, making h…",
+    "sheet": {
+      "name": "Zyra Vex",
+      "sentence": "Zyra Vex is a fierce poet-warrior who weaves words as deftly as she wields her blade.",
+      "type": "Warrior",
+      "flavor": "",
+      "descriptor": "Fierce",
+      "focus": "Masters Weaponry",
+      "effort": 1,
+      "cypher_limit": 2,
+      "weapons": "Practiced with light and medium weapons.",
+      "pools": {
+        "max": {
+          "might": 12,
+          "speed": 10,
+          "intellect": 8
+        },
+        "current": {
+          "might": 12,
+          "speed": 10,
+          "intellect": 8
+        }
+      },
+      "edges": {
+        "might": 1,
+        "speed": 0,
+        "intellect": 0
+      },
+      "damage_track": "Hale",
+      "recovery_rolls_used": {
+        "action": false,
+        "ten_minutes": false,
+        "one_hour": false,
+        "ten_hours": false
+      },
+      "descriptor_effects": {
+        "pool": {
+          "might": 2,
+          "speed": 0,
+          "intellect": 0
+        },
+        "skills": [
+          "Intimidation"
+        ],
+        "inabilities": [],
+        "traits": [],
+        "equipment": []
+      },
+      "type_tier_1_abilities": [
+        "Defensive Stance",
+        "Weapon Mastery"
+      ],
+      "flavor_tier_1_abilities": [],
+      "focus_tier_1_abilities": [
+        "Poetic Inspiration"
+      ],
+      "chosen_abilities": [
+        "Combat Training",
+        "Inspiring Presence",
+        "Versatile Weaponry",
+        "Quick Draw"
+      ],
+      "chosen_skills": [
+        {
+          "name": "Performance",
+          "level": "trained"
+        }
+      ],
+      "attacks": [
+        "Scimitar (medium weapon, 4 damage)",
+        "Dagger (light weapon, 2 damage)"
+      ],
+      "starting_equipment": [
+        "Backpack",
+        "Explorer's pack",
+        "Scimitar"
+      ],
+      "equipment": [
+        "Dagger",
+        "Traveler's clothes",
+        "Notebook of poetry"
+      ],
+      "notes": "Zyra Vex embodies the duality of a warrior and a poet, using her sharp wit and sharper blade to navigate the tumultuous streets of Freeport. Her vibrant tattoos tell stories of battles fought and verses penned, making her a respected figure among both fighters and artists.",
+      "metadata": {
+        "name": "Zyra Vex",
+        "race": "lilim",
+        "variant": "fenmir",
+        "gender": "female",
+        "profession": "poet_warrior",
+        "culture": "lilim",
+        "area": "fenmir_free_cities",
+        "location": "Freeport",
+        "setting": "lands_of_legends",
+        "settings": [
+          "lands_of_legends"
+        ],
+        "character_type": "Warrior",
+        "flavor": "",
+        "descriptor": "Fierce",
+        "focus": "Masters Weaponry",
+        "tier": 1,
+        "source": "AI Generate",
+        "origin": "ai_generate",
+        "content_type": "player_character",
+        "ai_generated": "true",
+        "description": "Zyra Vex is a fierce poet-warrior who weaves words as deftly as she wields her blade.. Scimitar (medium weapon, 4 damage). Backpack. Zyra Vex embodies the duality of a warrior and a poet, using her sharp wit and sharper blade to navigate the tumultuous streets of Freeport. Her vibrant tattoos tell stories of battles fought and verses penned, making h…",
+        "image_url": "uploads/ai_generate/3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg",
+        "images": [
+          "uploads/ai_generate/3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg"
+        ]
+      },
+      "race": "lilim",
+      "variant": "",
+      "profession": "poet_warrior",
+      "culture": "lilim",
+      "wizard_completed": true,
+      "generated": "ai_generate",
+      "tier": 1
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "player_character",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "Freeport",
+      "environment": "fenmir_free_cities",
+      "race": "lilim",
+      "variant": "fenmir",
+      "gender": "female",
+      "profession": "poet_warrior",
+      "culture": "lilim",
+      "character_type": "Warrior",
+      "flavor": "",
+      "descriptor": "Fierce",
+      "focus": "Masters Weaponry",
+      "tier": 1,
+      "description": "Zyra Vex is a fierce poet-warrior who weaves words as deftly as she wields her blade.. Scimitar (medium weapon, 4 damage). Backpack. Zyra Vex embodies the duality of a warrior and a poet, using her sharp wit and sharper blade to navigate the tumultuous streets of Freeport. Her vibrant tattoos tell stories of battles fought and verses penned, making h…",
+      "image_url": "uploads/ai_generate/3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg",
+      "images": [
+        "uploads/ai_generate/3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg",
+      "url": "/images/uploads/ai_generate/3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg",
+      "name": "3f57a2051706af58567d46b70e33fcdc_20260314T043920_b4e5688d.jpg"
+    }
+  }
+}

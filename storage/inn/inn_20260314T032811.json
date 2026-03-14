@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T03:28:11.546850+00:00",
+  "filename": "inn/inn_20260314T032811.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "Harbor's Edge",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "inn",
+    "name": "The Salty Seagull",
+    "description": "The Salty Seagull stands as a vibrant hub of community life in South Point, where the spirit of the sea is celebrated daily. Its walls are adorned with fishing gear and nautical artifacts, creating an inviting atmosphere that reflects the village's maritime heritage. Patrons often find themselves lost in stories of daring escapades and legendary catches, while Mira ensures that the tavern remains a lively and welcoming place for all who enter. The tavern not only serves food and drink but als…",
+    "sections": {
+      "type": "inn",
+      "name": "The Salty Seagull",
+      "inn_type": "tavern",
+      "atmosphere": "The lively chatter of patrons fills the air, harmonizing with the distant crash of waves against the rocky shore. The scent of salt and freshly grilled fish wafts through the open windows, mingling with the warm glow of lanterns that illuminate the rustic wooden beams overhead. Fishermen and travelers alike gather around sturdy tables, sharing tales of the sea and laughter that echoes through the tavern.",
+      "clientele": "Local fishermen, adventurous travelers, and the occasional merchant seeking a hearty meal and a warm drink after a long day at sea.",
+      "notable_feature": "A large, hand-painted mural of a seagull soaring over the ocean, its wings spread wide, serves as a focal point, inspiring patrons with dreams of adventure and freedom.",
+      "proprietor": "Mira Lark, a jovial woman with sun-kissed skin and a quick wit, is known for her signature dish of spiced fish stew and her ability to remember the names and stories of her regulars.",
+      "rumor_or_hook": "Locals whisper of a mysterious fog that rolls in from the sea, said to reveal hidden treasures to those brave enough to venture into it, but many who have entered have never returned.",
+      "description": "The Salty Seagull stands as a vibrant hub of community life in South Point, where the spirit of the sea is celebrated daily. Its walls are adorned with fishing gear and nautical artifacts, creating an inviting atmosphere that reflects the village's maritime heritage. Patrons often find themselves lost in stories of daring escapades and legendary catches, while Mira ensures that the tavern remains a lively and welcoming place for all who enter. The tavern not only serves food and drink but als…",
+      "area": "caldor_island",
+      "environment": "caldor_island",
+      "location": "South Point",
+      "race": "",
+      "variant": "",
+      "profession": "",
+      "culture": "",
+      "family": "",
+      "role": ""
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "inn",
+      "ai_generated": "true",
+      "setting": "fantasy",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "caldor_island",
+      "location": "South Point",
+      "environment": "caldor_island",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ],
+      "images": [],
+      "description": "The Salty Seagull stands as a vibrant hub of community life in South Point, where the spirit of the sea is celebrated daily. Its walls are adorned with fishing gear and nautical artifacts, creating an inviting atmosphere that reflects the village's maritime heritage. Patrons often find themselves lost in stories of daring escapades and legendary catches, while Mira ensures that the tavern remains a lively and welcoming place for all who enter. The tavern not only serves food and drink but als…",
+      "family": "",
+      "role": ""
+    },
+    "text": "",
+    "stat_block": {}
+  }
+}

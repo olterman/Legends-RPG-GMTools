@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T03:25:43.575898+00:00",
+  "filename": "inn/inn_20260314T032543.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "human",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "inn",
+    "name": "The Fisherman's Rest",
+    "description": "The Fisherman's Rest serves as a welcoming haven for those who brave the waters surrounding Caldor Island. Its walls are adorned with fishing nets and nautical paraphernalia, creating an ambiance that celebrates the village's maritime heritage. Patrons often gather around the bar, sharing stories of their exploits on the sea, while Mira ensures that no glass goes empty. The tavern is not just a place to eat and drink; it is a hub of local lore and camaraderie, where the spirit of the ocean is a…",
+    "sections": {
+      "type": "inn",
+      "name": "The Fisherman's Rest",
+      "inn_type": "tavern",
+      "atmosphere": "The air is thick with the scent of salt and grilled fish, mingling with the laughter and chatter of patrons. Lanterns flicker softly, casting warm light over the rough-hewn tables where fishermen and travelers share tales of the sea. The sound of waves crashing against the nearby shore provides a rhythmic backdrop to the lively conversations.",
+      "clientele": "Local fishermen, weary travelers, and the occasional merchant seeking respite from the sea's demands.",
+      "notable_feature": "A large, intricately carved wooden mural depicting the legendary sea serpent said to guard the waters around Caldor Island, drawing the eyes of all who enter.",
+      "proprietor": "Mira Lark, a stout woman with a hearty laugh and a knack for storytelling, known for her delicious seafood stew and her ability to keep the peace among rowdy patrons.",
+      "rumor_or_hook": "Whispers circulate about a hidden cove nearby, rumored to be the resting place of a shipwreck laden with treasures, but only the bravest dare to seek it out due to the tales of ghostly sailors guarding their lost cargo.",
+      "description": "The Fisherman's Rest serves as a welcoming haven for those who brave the waters surrounding Caldor Island. Its walls are adorned with fishing nets and nautical paraphernalia, creating an ambiance that celebrates the village's maritime heritage. Patrons often gather around the bar, sharing stories of their exploits on the sea, while Mira ensures that no glass goes empty. The tavern is not just a place to eat and drink; it is a hub of local lore and camaraderie, where the spirit of the ocean is alive in every tale told."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "inn",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "caldor_island",
+      "location": "",
+      "environment": "caldor_island",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "human",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T01:15:22.410249+00:00",
+  "filename": "artifact/artifact_20260314T011522.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "gate_ruins",
+    "environment": "gate_ruins",
+    "location": "",
+    "race": "human",
+    "gender": "female",
+    "profession": "rogue",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Grimoire of the Forsaken",
+    "description": "When opened, the Grimoire reveals forbidden knowledge and spells that can manipulate life and death. The user can cast powerful necromantic spells, summon spirits, or even bind the souls of the fallen to their will. However, each use risks attracting the attention of malevolent entities that dwell beyond the veil of reality.",
+    "sections": {
+      "type": "artifact",
+      "name": "Grimoire of the Forsaken",
+      "level": "1d6+3",
+      "form": "A large, ancient tome bound in dark leather, adorned with intricate carvings of skulls and twisted vines. The cover features a central gemstone that glows faintly with an eerie green light.",
+      "effect": "When opened, the Grimoire reveals forbidden knowledge and spells that can manipulate life and death. The user can cast powerful necromantic spells, summon spirits, or even bind the souls of the fallen to their will. However, each use risks attracting the attention of malevolent entities that dwell beyond the veil of reality.",
+      "depletion": "1 in 1d10",
+      "metadata": {
+        "image_url": "uploads/ai_generate/048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg",
+        "images": [
+          "uploads/ai_generate/048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "artifact",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "gate_ruins",
+      "location": "",
+      "environment": "gate_ruins",
+      "race": "human",
+      "gender": "female",
+      "profession": "rogue",
+      "culture": "",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg",
+      "images": [
+        "uploads/ai_generate/048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg",
+      "url": "/images/uploads/ai_generate/048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg",
+      "name": "048269e71f2be9af0c615a676ef52db8_20260314T011522_e3824624.jpg"
+    }
+  }
+}

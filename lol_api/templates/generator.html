@@ -3,14 +3,13 @@
 {% block content %}
 
     <h1>Lands of Legends Generator</h1>
-    <p>Generate characters, NPCs, settlements, encounters, cyphers, artifacts, and inns.</p>
+    <p>Generate NPCs, monsters, settlements, encounters, cyphers, artifacts, and inns.</p>
 
     <div class="grid">
       <form id="generator-form" class="panel">
         <div class="field">
           <label for="type">Content type</label>
           <select id="type" name="type">
-            <option value="character">character</option>
             <option value="npc">npc</option>
             <option value="monster">monster</option>
             <option value="settlement">settlement</option>
@@ -104,7 +103,6 @@
               <option value="npc">npc</option>
               <option value="creature">creature</option>
               <option value="monster">monster</option>
-              <option value="character">character</option>
               <option value="settlement">settlement</option>
               <option value="encounter">encounter</option>
               <option value="inn">inn</option>
@@ -273,7 +271,7 @@
 
     function updateVisibleFields() {
       const type = els.type.value;
-      const isCharacterLike = type === 'character' || type === 'npc';
+      const isCharacterLike = type === 'npc';
       const isMonster = type === 'monster';
 
       els.characterFields.classList.toggle('hidden', !isCharacterLike);
@@ -295,7 +293,7 @@
         seed: els.seed.value.trim()
       };
 
-      if (type === 'character' || type === 'npc') {
+      if (type === 'npc') {
         payload.gender = els.gender.value;
         payload.profession = els.profession.value;
         payload.race = els.race.value;

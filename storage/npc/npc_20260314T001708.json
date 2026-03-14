@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T00:17:08.423324+00:00",
+  "filename": "npc/npc_20260314T001708.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "Freeport",
+    "race": "lilim",
+    "gender": "female",
+    "profession": "poet_warrior",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Lyra the Versed",
+    "description": "Lyra the Versed stands confidently, her striking pink skin and elegant horns framing a face that radiates both strength and allure. Dressed in a mix of practical armor and flowing fabrics, she embodies the duality of a warrior and an artist. Her sword, always at her side, gleams with a promise of protection, while her eyes sparkle with the wisdom of countless tales. In the bustling taverns of her city, she is known not just for her combat prowess but for her ability to weave words into spells t…",
+    "sections": {
+      "type": "npc",
+      "name": "Lyra the Versed",
+      "race": "lilim",
+      "gender": "female",
+      "profession": "poet_warrior",
+      "level": 4,
+      "health": 12,
+      "armor": 1,
+      "damage_inflicted": 4,
+      "movement": "Short",
+      "modifications": "Pleasant social interactions as level 5",
+      "motive": "To inspire and protect her community through art and combat",
+      "environment": "Urban taverns and battlefields, often found where stories are shared",
+      "combat": "Engages with a blend of poetic taunts and swift swordplay, using her words to distract and disarm opponents",
+      "interaction": "Lyra is charismatic and eloquent, often using her poetry to charm or provoke. She enjoys engaging in debates and storytelling, making her a captivating presence in any gathering.",
+      "use": "Lyra can serve as a quest giver, providing players with tasks that involve both combat and artistic challenges. She may also offer insights into local lore and history through her poetry.",
+      "gm_intrusion": "If players underestimate her, Lyra can turn the tide of battle with a powerful verse that inspires allies or demoralizes foes, shifting the dynamics unexpectedly.",
+      "loot": "A collection of rare poems, a finely crafted sword, and a charm that enhances social interactions.",
+      "description": "Lyra the Versed stands confidently, her striking pink skin and elegant horns framing a face that radiates both strength and allure. Dressed in a mix of practical armor and flowing fabrics, she embodies the duality of a warrior and an artist. Her sword, always at her side, gleams with a promise of protection, while her eyes sparkle with the wisdom of countless tales. In the bustling taverns of her city, she is known not just for her combat prowess but for her ability to weave words into spells that can uplift or devastate.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg",
+        "images": [
+          "uploads/ai_generate/1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "Freeport",
+      "environment": "fenmir_free_cities",
+      "race": "lilim",
+      "gender": "female",
+      "profession": "poet_warrior",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg",
+      "images": [
+        "uploads/ai_generate/1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg",
+      "url": "/images/uploads/ai_generate/1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg",
+      "name": "1170bae73aee60866f1b704864e84aa4_20260314T001708_7ab8a24f.jpg"
+    }
+  }
+}

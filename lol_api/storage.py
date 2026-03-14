@@ -48,8 +48,12 @@ def storage_subdir_for_result(result: dict[str, Any]) -> str:
     """
     Store records by high-level type to keep storage manageable.
     """
-    item_type = safe_slug(str(result.get("type", "item")))
     metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+    item_type = safe_slug(str(
+        result.get("primarycategory")
+        or metadata.get("primarycategory")
+        or result.get("type", "item")
+    ))
     source_raw = str(metadata.get("source") or "").strip().lower()
     source_norm = re.sub(r"[^a-z0-9]+", "", source_raw)
     if source_norm == "foundryvtt":
@@ -70,7 +74,12 @@ def effective_seed(payload: dict[str, Any]) -> str:
 
 
 def build_storage_filename(result: dict[str, Any], payload: dict[str, Any]) -> str:
-    item_type = safe_slug(str(result.get("type", "item")))
+    metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+    item_type = safe_slug(str(
+        result.get("primarycategory")
+        or metadata.get("primarycategory")
+        or result.get("type", "item")
+    ))
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
 
     return f"{item_type}_{timestamp}.json"
@@ -382,6 +391,11 @@ def search_saved_results(
     def norm(value: str | None) -> str:
         return (value or "").strip().lower()
 
+    def norm_search_text(value: str | None) -> str:
+        text = norm(value)
+        text = text.replace("_", " ").replace("-", " ")
+        return " ".join(text.split())
+
     item_type = norm(item_type)
     setting = norm(setting)
     area = norm(area)
@@ -389,7 +403,7 @@ def search_saved_results(
     environment = norm(environment)
     race = norm(race)
     profession = norm(profession)
-    name_contains = norm(name_contains)
+    name_contains = norm_search_text(name_contains)
 
     filtered: list[dict[str, Any]] = []
 
@@ -404,9 +418,36 @@ def search_saved_results(
         current_location = norm(metadata.get("location"))
         current_race = norm(metadata.get("race"))
         current_profession = norm(metadata.get("profession"))
+        current_subtype = norm(metadata.get("subtype") or metadata.get("location_category_type"))
+        current_primarycategory = norm(metadata.get("primarycategory") or current_subtype)
+        description = norm_search_text(item.get("description"))
+        text_haystack = " ".join(
+            value for value in [
+                norm_search_text(name),
+                description,
+                norm_search_text(current_type),
+                norm_search_text(current_subtype),
+                norm_search_text(current_primarycategory),
+                norm_search_text(current_area),
+                norm_search_text(current_location),
+                norm_search_text(current_race),
+                norm_search_text(current_profession),
+                norm_search_text(" ".join(current_settings)),
+            ] if value
+        )
 
-        if item_type and current_type != item_type:
-            continue
+        if item_type:
+            if item_type == "landmark":
+                if current_type != "location" or current_subtype != "landmark":
+                    continue
+            elif item_type == "player_character":
+                if current_type not in {"character", "character_sheet"}:
+                    continue
+            elif item_type == "rollable_table":
+                if current_type != "rollable_table" and current_primarycategory != "rollable_table":
+                    continue
+            elif current_type != item_type:
+                continue
         if setting and setting not in current_settings:
             continue
         # Legacy alias support: `environment` behaves like `area`.
@@ -419,7 +460,7 @@ def search_saved_results(
             continue
         if profession and current_profession != profession:
             continue
-        if name_contains and name_contains not in name:
+        if name_contains and name_contains not in text_haystack:
             continue
 
         filtered.append(item)

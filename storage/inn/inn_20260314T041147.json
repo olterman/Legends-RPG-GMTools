@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T04:11:47.920902+00:00",
+  "filename": "inn/inn_20260314T041147.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "human",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "inn",
+    "name": "The Drunken Kraken",
+    "description": "Nestled in the seedier part of Freeport, The Drunken Kraken serves as a refuge for those seeking warmth and companionship away from the harsh realities of the world. Its walls are adorned with nautical memorabilia, and the atmosphere is alive with stories of adventure and danger. Whether you're looking for a place to rest your weary head or to plot your next escapade, this tavern offers a welcoming embrace amidst the chaos of the port city.",
+    "sections": {
+      "type": "inn",
+      "name": "The Drunken Kraken",
+      "inn_type": "tavern",
+      "atmosphere": "Dimly lit and filled with the raucous laughter of patrons, The Drunken Kraken exudes a sense of chaotic camaraderie. The air is thick with the scent of spiced rum and the salty tang of the sea, mingling with the occasional waft of grilled fish from the kitchen. Flickering lanterns cast dancing shadows on the weathered wooden beams, while the sound of clinking mugs and boisterous shanties creates a lively backdrop.",
+      "clientele": "The tavern attracts a mix of sailors, mercenaries, and local fishermen, each sharing tales of the sea and their latest exploits. Regulars include grizzled old sea captains and young adventurers eager to prove themselves, all drawn together by the promise of strong drink and hearty laughter.",
+      "notable_feature": "A massive, intricately carved figurehead of a kraken hangs above the bar, its tentacles reaching out as if to embrace the patrons. This centerpiece is said to have once adorned a ship that vanished in a storm, and many believe it brings good fortune to those who drink beneath its gaze.",
+      "proprietor": "Endra Thorne, a sharp-witted woman with a quick smile and a quicker temper, runs the tavern. Her fiery red hair and numerous tattoos tell stories of her own adventures on the high seas. Known for her strong drinks and no-nonsense attitude, she keeps a watchful eye on her patrons, ensuring that trouble is swiftly dealt with.",
+      "rumor_or_hook": "Whispers circulate among the patrons about a hidden treasure map that was recently discovered in the possession of a drunken sailor. Some claim it leads to a sunken ship rumored to be filled with gold, while others believe it may be a trap set by vengeful spirits of the sea. Adventurers are drawn to The Drunken Kraken, eager to uncover the truth behind the tale.",
+      "description": "Nestled in the seedier part of Freeport, The Drunken Kraken serves as a refuge for those seeking warmth and companionship away from the harsh realities of the world. Its walls are adorned with nautical memorabilia, and the atmosphere is alive with stories of adventure and danger. Whether you're looking for a place to rest your weary head or to plot your next escapade, this tavern offers a welcoming embrace amidst the chaos of the port city."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "inn",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "human",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

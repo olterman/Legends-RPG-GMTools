@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T04:29:19.930976+00:00",
+  "filename": "npc/npc_20260314T042919.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "The Drunken Kraken",
+    "race": "human",
+    "variant": "fenmir",
+    "gender": "male",
+    "profession": "innkeeper",
+    "culture": "human",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Jorren Blacktide",
+    "description": "Jorren Blacktide stands behind the bar, a broad-shouldered man with a weathered face that tells tales of the sea. His dark hair is streaked with silver, and his laugh is infectious, echoing through the tavern as he serves drinks to a mix of sailors and adventurers. The flickering lanterns cast shadows on his sturdy frame, while the kraken figurehead looms above, a fitting emblem for a man who knows the depths of both the ocean and the stories it holds. Jorren's presence is a blend of warmth and…",
+    "sections": {
+      "type": "npc",
+      "name": "Jorren Blacktide",
+      "race": "human",
+      "variant": "fenmir",
+      "gender": "male",
+      "profession": "innkeeper",
+      "culture": "human",
+      "level": 4,
+      "health": 14,
+      "armor": 1,
+      "damage_inflicted": 5,
+      "movement": "short",
+      "modifications": "",
+      "motive": "To provide a welcoming atmosphere and gather tales from patrons.",
+      "environment": "The Drunken Kraken, a lively tavern filled with the scent of spiced rum and grilled fish.",
+      "combat": "Jorren prefers to avoid conflict, using his wit to diffuse tensions among rowdy patrons.",
+      "interaction": "Jorren is jovial and quick with a joke, but his keen eyes miss little, always assessing the mood of the room.",
+      "use": "As a source of local rumors and quests, Jorren can provide adventurers with leads on treasure or dangers at sea.",
+      "gm_intrusion": "Jorren may unexpectedly reveal a secret about a patron that leads to a twist in the story.",
+      "loot": "A small stash of coins hidden behind the bar, along with a few old maps of the surrounding waters.",
+      "description": "Jorren Blacktide stands behind the bar, a broad-shouldered man with a weathered face that tells tales of the sea. His dark hair is streaked with silver, and his laugh is infectious, echoing through the tavern as he serves drinks to a mix of sailors and adventurers. The flickering lanterns cast shadows on his sturdy frame, while the kraken figurehead looms above, a fitting emblem for a man who knows the depths of both the ocean and the stories it holds. Jorren's presence is a blend of warmth and authority, making him a beloved figure among the regulars."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "The Drunken Kraken",
+      "environment": "fenmir_free_cities",
+      "race": "human",
+      "variant": "fenmir",
+      "gender": "male",
+      "profession": "innkeeper",
+      "culture": "human",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 14,
+      "armor": 1,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [],
+      "combat": [
+        "Jorren prefers to avoid conflict, using his wit to diffuse tensions among rowdy patrons."
+      ],
+      "interaction": [
+        "Jorren is jovial and quick with a joke, but his keen eyes miss little, always assessing the mood of the room."
+      ],
+      "loot": [
+        "A small stash of coins hidden behind the bar, along with a few old maps of the surrounding waters."
+      ]
+    }
+  }
+}

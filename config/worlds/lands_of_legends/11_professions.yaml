@@ -1,0 +1,287 @@
+professions:
+  warrior: &warrior_profile
+    prompt_type: default_npc
+    role: warrior
+
+    appearance: >
+      battle-ready posture, seasoned scars,
+      practical confidence, disciplined martial bearing
+
+    clothing: >
+      layered armor, weathered leathers,
+      travel-ready cloaks, clan marks,
+      practical gear built for war and hard roads
+
+    weapon_options:
+      - sword and shield
+      - long spear
+      - hand axe
+      - broad war blade
+
+    gear_options:
+      - worn shield
+      - travel pack
+      - oath tokens
+      - field supplies
+
+    pose_options:
+      - grounded guard stance
+      - weapon held in measured readiness
+      - marching with hardened purpose
+      - standing firm against danger
+
+    lighting:
+      - cold dawn light
+      - storm-lit sky
+      - firelit camp glow
+
+  fighter:
+    <<: *warrior_profile
+    role: fighter
+
+  knight:
+    <<: *warrior_profile
+    role: knight
+
+  paladin:
+    <<: *warrior_profile
+    role: paladin
+
+  champion:
+    <<: *warrior_profile
+    role: champion
+
+  guard:
+    <<: *warrior_profile
+    role: guard
+
+  soldier:
+    <<: *warrior_profile
+    role: soldier
+
+  raider:
+    <<: *warrior_profile
+    role: raider
+
+  adept: &adept_profile
+    prompt_type: default_npc
+    role: adept
+
+    appearance: >
+      intense thoughtful gaze,
+      charged presence, disciplined stillness,
+      a sense of hidden power or sacred knowledge
+
+    clothing: >
+      layered robes, ritual wrappings,
+      symbolic jewelry, charms, and stitched sigils,
+      garments marked by study, devotion, or strange craft
+
+    weapon_options:
+      - ritual staff
+      - carved wand
+      - sacrificial blade
+      - spell focus talisman
+
+    gear_options:
+      - scroll cases
+      - charms and talismans
+      - herb bundles
+      - ritual books or tablets
+
+    pose_options:
+      - one hand raised in invocation
+      - calm ceremonial posture
+      - reading omens in a focus object
+      - standing in poised concentration
+
+    lighting:
+      - candle-lit ritual glow
+      - moonlit haze
+      - arcane shimmer
+
+  wizard:
+    <<: *adept_profile
+    role: wizard
+
+  sorcerer:
+    <<: *adept_profile
+    role: sorcerer
+
+  warlock:
+    <<: *adept_profile
+    role: warlock
+
+  witch:
+    <<: *adept_profile
+    role: witch
+
+  druid:
+    <<: *adept_profile
+    role: druid
+
+  shaman:
+    <<: *adept_profile
+    role: shaman
+
+  cleric:
+    <<: *adept_profile
+    role: cleric
+
+  priest:
+    <<: *adept_profile
+    role: priest
+
+  oracle:
+    <<: *adept_profile
+    role: oracle
+
+  seer:
+    <<: *adept_profile
+    role: seer
+
+  mystic:
+    <<: *adept_profile
+    role: mystic
+
+  explorer: &explorer_profile
+    prompt_type: default_npc
+    role: explorer
+
+    appearance: >
+      weather-hardened features, alert eyes,
+      agile movement, practiced caution,
+      the look of someone who survives by noticing first
+
+    clothing: >
+      layered travel leathers, field cloaks,
+      practical boots, packs, belts,
+      gear made for rough country and uncertain roads
+
+    weapon_options:
+      - hunting bow
+      - short spear
+      - trail blade
+      - compact axe
+
+    gear_options:
+      - maps and route tokens
+      - rope and hooks
+      - trail rations
+      - field tools
+
+    pose_options:
+      - scanning the horizon
+      - crouched over tracks
+      - moving carefully through rough ground
+      - standing ready to bolt or strike
+
+    lighting:
+      - overcast trail light
+      - forest-filtered daylight
+      - misty dawn
+
+  scout:
+    <<: *explorer_profile
+    role: scout
+
+  hunter:
+    <<: *explorer_profile
+    role: hunter
+
+  tracker:
+    <<: *explorer_profile
+    role: tracker
+
+  thief:
+    <<: *explorer_profile
+    role: thief
+
+  burglar:
+    <<: *explorer_profile
+    role: burglar
+
+  wayfinder:
+    <<: *explorer_profile
+    role: wayfinder
+
+  wanderer:
+    <<: *explorer_profile
+    role: wanderer
+
+  speaker: &speaker_profile
+    prompt_type: default_npc
+    role: speaker
+
+    appearance: >
+      expressive face, poised confidence,
+      attentive eyes, controlled charisma,
+      someone clearly used to moving others with voice and presence
+
+    clothing: >
+      layered fine garments, symbolic adornments,
+      trade silks or formal cloaks,
+      practical elegance suited to courts, caravans, or councils
+
+    weapon_options:
+      - ceremonial dagger
+      - dueling cane
+      - jeweled short blade
+      - staff of office
+
+    gear_options:
+      - seals and letters
+      - account ledgers
+      - song tokens
+      - gifts or diplomatic offerings
+
+    pose_options:
+      - speaking with measured authority
+      - one hand extended in negotiation
+      - standing in composed courtly posture
+      - smiling while carefully reading the room
+
+    lighting:
+      - warm hall light
+      - lantern-lit chamber glow
+      - soft market-day daylight
+
+  bard:
+    <<: *speaker_profile
+    role: bard
+
+  diplomat:
+    <<: *speaker_profile
+    role: diplomat
+
+  envoy:
+    <<: *speaker_profile
+    role: envoy
+
+  merchant:
+    <<: *speaker_profile
+    role: merchant
+
+  noble:
+    <<: *speaker_profile
+    role: noble
+
+  courtier:
+    <<: *speaker_profile
+    role: courtier
+
+  preacher:
+    <<: *speaker_profile
+    role: preacher
+
+  law_speaker:
+    <<: *speaker_profile
+    role: law-speaker
+
+  herald:
+    <<: *speaker_profile
+    role: herald
+
+  negotiator:
+    <<: *speaker_profile
+    role: negotiator

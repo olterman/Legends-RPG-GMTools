@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T00:38:19.236086+00:00",
+  "filename": "npc/npc_20260314T003819.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "Freeport",
+    "race": "human",
+    "gender": "female",
+    "profession": "rogue",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Elara Voss",
+    "description": "Elara Voss is a striking figure with long, fiery red hair cascading in wild curls, adorned with intricate braids. Her attire is a blend of leather and fabric, designed for both style and function, featuring numerous pockets and hidden compartments for her tools of the trade. With sharp green eyes that seem to miss nothing, she exudes confidence and a hint of danger. Elara's presence is magnetic, drawing people in while simultaneously keeping them at arm's length, embodying the essence of a rogu…",
+    "sections": {
+      "type": "npc",
+      "name": "Elara Voss",
+      "race": "Human",
+      "gender": "Female",
+      "profession": "Rogue",
+      "level": 4,
+      "health": 12,
+      "armor": 1,
+      "damage_inflicted": 4,
+      "movement": "Short",
+      "modifications": "Pleasant social interactions as level 5",
+      "motive": "To uncover hidden treasures and secrets of the past",
+      "environment": "Urban areas filled with shadows and intrigue, often found in taverns or back alleys",
+      "combat": "Elara prefers stealth and cunning over brute force, using her agility to evade attacks and strike from the shadows.",
+      "interaction": "She is charming and quick-witted, often using her charisma to manipulate conversations to her advantage. Elara is known to be resourceful and can be a valuable ally or a cunning adversary.",
+      "use": "Elara can serve as a guide for players seeking information about the underbelly of the city or as a quest giver for jobs that require stealth and cunning.",
+      "gm_intrusion": "Elara may betray the players if it serves her interests, or she might have a hidden agenda that complicates their mission.",
+      "loot": "Players may find various lockpicks, a map of secret passages, or a small stash of gold coins in her possession.",
+      "description": "Elara Voss is a striking figure with long, fiery red hair cascading in wild curls, adorned with intricate braids. Her attire is a blend of leather and fabric, designed for both style and function, featuring numerous pockets and hidden compartments for her tools of the trade. With sharp green eyes that seem to miss nothing, she exudes confidence and a hint of danger. Elara's presence is magnetic, drawing people in while simultaneously keeping them at arm's length, embodying the essence of a rogue in a world filled with secrets.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg",
+        "images": [
+          "uploads/ai_generate/d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "Freeport",
+      "environment": "fenmir_free_cities",
+      "race": "human",
+      "gender": "female",
+      "profession": "rogue",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg",
+      "images": [
+        "uploads/ai_generate/d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg",
+      "url": "/images/uploads/ai_generate/d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg",
+      "name": "d2d282b32eb054b6024791d28e74bd0f_20260314T003819_ca7825db.jpg"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T00:25:58.960726+00:00",
+  "filename": "npc/npc_20260314T002558.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "Freeport",
+    "race": "lilim",
+    "gender": "female",
+    "profession": "bard",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Lyra the Melodious",
+    "description": "Lyra the Melodious is a striking lilim bard with deep violet skin and elegant, curling horns that frame her face. Dressed in a flowing blue and gold ensemble, she captivates audiences with her enchanting melodies and infectious laughter. Her presence lights up any room, and her playful demeanor invites camaraderie among strangers. Often found in the heart of bustling taverns, she collects stories and songs, weaving them into her performances, making her a beloved figure in the community.",
+    "sections": {
+      "type": "npc",
+      "name": "Lyra the Melodious",
+      "race": "lilim",
+      "gender": "female",
+      "profession": "bard",
+      "level": 4,
+      "health": 12,
+      "armor": 1,
+      "damage_inflicted": 4,
+      "movement": "Short",
+      "modifications": "Pleasant social interactions as level 5",
+      "motive": "To spread joy and gather stories from travelers",
+      "environment": "Bustling taverns and vibrant marketplaces, often performing in lively gatherings",
+      "combat": "Avoids direct confrontation, using charm and wit to defuse tensions or distract foes",
+      "interaction": "Engages with a warm smile and captivating melodies, often encouraging others to share their tales in return",
+      "use": "Can serve as a source of local lore, a quest giver, or a means to gather information through her extensive network",
+      "gm_intrusion": "Her enchanting performance draws unwanted attention from a rival bard or a jealous patron, complicating the players' plans",
+      "loot": "A beautifully crafted lute, enchanted to enhance musical performances, and a collection of rare songs and tales",
+      "description": "Lyra the Melodious is a striking lilim bard with deep violet skin and elegant, curling horns that frame her face. Dressed in a flowing blue and gold ensemble, she captivates audiences with her enchanting melodies and infectious laughter. Her presence lights up any room, and her playful demeanor invites camaraderie among strangers. Often found in the heart of bustling taverns, she collects stories and songs, weaving them into her performances, making her a beloved figure in the community.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg",
+        "images": [
+          "uploads/ai_generate/7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "Freeport",
+      "environment": "fenmir_free_cities",
+      "race": "lilim",
+      "gender": "female",
+      "profession": "bard",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg",
+      "images": [
+        "uploads/ai_generate/7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg",
+      "url": "/images/uploads/ai_generate/7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg",
+      "name": "7e0ab57388350ab6f3fceac4055571df_20260314T002558_65f3c169.jpg"
+    }
+  }
+}

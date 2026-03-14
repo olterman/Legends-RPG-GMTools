@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T03:28:19.988823+00:00",
+  "filename": "settlement/settlement_20260314T032819.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "human",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "settlement",
+    "name": "South Point",
+    "description": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…",
+    "sections": {
+      "type": "settlement",
+      "name": "South Point",
+      "settlement_type": "Fishing Village",
+      "environment": "caldor_island",
+      "visual_feature": "Colorful fishing boats bobbing in the harbor",
+      "landmark": "The Old Lighthouse",
+      "economy_survival_basis": "Fishing and trade",
+      "current_tension": "Low, but wary of storms",
+      "atmosphere": "Bustling yet relaxed, filled with the scent of salt and fresh catch",
+      "local_inn_or_tavern": "The Salty Seagull",
+      "description": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…",
+      "area": "caldor_island",
+      "location": "",
+      "race": "",
+      "variant": "",
+      "profession": "",
+      "culture": "human",
+      "family": "",
+      "role": ""
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "settlement",
+      "ai_generated": "true",
+      "setting": "fantasy",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "caldor_island",
+      "location": "",
+      "environment": "caldor_island",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "human",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ],
+      "images": [],
+      "description": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…",
+      "family": "",
+      "role": ""
+    },
+    "text": "",
+    "stat_block": {}
+  }
+}

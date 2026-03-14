@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T04:10:07.719028+00:00",
+  "filename": "creature/creature_20260314T041007.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "The Drunken Kraken",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "creature",
+    "name": "Vengeful Wraith of the Deep",
+    "description": "Emerging from the depths, the Vengeful Wraith of the Deep is a swirling mass of dark water and ethereal mist, its form constantly shifting and undulating. Glowing eyes pierce through the gloom, filled with the sorrow and anger of those lost to the sea. The air around it grows cold, and the sound of distant waves crashing echoes ominously. Legends speak of its connection to a sunken ship laden with gold, but many who seek it have vanished, leaving only whispers of its haunting presence.",
+    "sections": {
+      "type": "creature",
+      "name": "Vengeful Wraith of the Deep",
+      "level": 5,
+      "health": 19,
+      "armor": 2,
+      "damage_inflicted": 6,
+      "movement": "Short (swimming)",
+      "modifications": "Stealth as level 4",
+      "motive": "To guard the secrets of the sunken ship and exact revenge on those who disturb its resting place.",
+      "environment": "Coastal waters near shipwrecks, particularly around The Drunken Kraken.",
+      "combat": "The wraith attacks with chilling tendrils of water, draining warmth and vitality from its victims. It can also create illusions of the sunken ship to lure adventurers into traps.",
+      "interaction": "Outside of combat, the wraith may attempt to communicate through whispers carried by the waves, warning intruders away or enticing them with promises of treasure.",
+      "use": "This creature can serve as a guardian of a hidden treasure, creating tension as players must decide whether to confront it or heed its warnings.",
+      "gm_intrusion": "The wraith manifests unexpectedly, causing a sudden drop in temperature that disorients characters, imposing a penalty on their next action.",
+      "loot": "If defeated, the wraith may leave behind a fragment of its essence, which can be used to create a unique cypher or artifact related to the sea.",
+      "description": "Emerging from the depths, the Vengeful Wraith of the Deep is a swirling mass of dark water and ethereal mist, its form constantly shifting and undulating. Glowing eyes pierce through the gloom, filled with the sorrow and anger of those lost to the sea. The air around it grows cold, and the sound of distant waves crashing echoes ominously. Legends speak of its connection to a sunken ship laden with gold, but many who seek it have vanished, leaving only whispers of its haunting presence."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "creature",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "The Drunken Kraken",
+      "environment": "",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "stat_block": {
+      "level": 5,
+      "target_number": 15,
+      "health": 19,
+      "armor": 2,
+      "damage": 6,
+      "movement": "Short (swimming)",
+      "modifications": [
+        "Stealth as level 4"
+      ],
+      "combat": [
+        "The wraith attacks with chilling tendrils of water, draining warmth and vitality from its victims. It can also create illusions of the sunken ship to lure adventurers into traps."
+      ],
+      "interaction": [
+        "Outside of combat, the wraith may attempt to communicate through whispers carried by the waves, warning intruders away or enticing them with promises of treasure."
+      ],
+      "loot": [
+        "If defeated, the wraith may leave behind a fragment of its essence, which can be used to create a unique cypher or artifact related to the sea."
+      ]
+    }
+  }
+}

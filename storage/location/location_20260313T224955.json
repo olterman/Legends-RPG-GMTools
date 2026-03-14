@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-13T22:49:55.624099+00:00",
+  "filename": "location/location_20260313T224955.json",
+  "payload": {
+    "setting": "",
+    "settings": [],
+    "area": "fenmir_wilds",
+    "environment": "fenmir_wilds",
+    "location": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "location",
+    "name": "The Whispering Cliffs",
+    "description": "Rising dramatically from the lush landscape, the Whispering Cliffs are a series of towering stone formations that seem to touch the sky. Their surfaces are etched with ancient runes, hinting at a long-lost civilization that once thrived in this area. The cliffs are surrounded by vibrant greenery, with streams of crystal-clear water winding through the valley below, reflecting the sunlight in a dazzling display. As the wind sweeps through the crevices, it carries soft, melodic whispers that have…",
+    "sections": {
+      "type": "location",
+      "location_category_type": "landmark",
+      "content_type": "landmark",
+      "name": "The Whispering Cliffs",
+      "area": "The Verdant Vale",
+      "description": "Rising dramatically from the lush landscape, the Whispering Cliffs are a series of towering stone formations that seem to touch the sky. Their surfaces are etched with ancient runes, hinting at a long-lost civilization that once thrived in this area. The cliffs are surrounded by vibrant greenery, with streams of crystal-clear water winding through the valley below, reflecting the sunlight in a dazzling display. As the wind sweeps through the crevices, it carries soft, melodic whispers that have captivated travelers for generations, leading some to believe that the cliffs are alive with the spirits of the past.",
+      "distinctive_features": [
+        "Towering stone formations with ancient runes",
+        "Crystal-clear streams winding through the valley"
+      ],
+      "history": "The Whispering Cliffs have been a site of pilgrimage for centuries, believed to be a sacred place where the ancients communicated with the spirits of nature. Local legends tell of a great oracle who once resided here, offering wisdom to those brave enough to seek it.",
+      "hooks": [
+        "Adventurers seeking the lost oracle's wisdom may find clues hidden among the runes.",
+        "A recent surge in strange phenomena around the cliffs has drawn the attention of scholars and treasure hunters alike."
+      ],
+      "risks": [
+        "The cliffs are prone to sudden rockslides, especially after heavy rains."
+      ],
+      "metadata": {
+        "image_url": "uploads/ai_generate/176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg",
+        "images": [
+          "uploads/ai_generate/176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "landmark",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_wilds",
+      "location": "",
+      "environment": "fenmir_wilds",
+      "race": null,
+      "profession": null,
+      "sourcebook": "",
+      "page": "",
+      "subtype": "landmark",
+      "location_category_type": "landmark",
+      "image_url": "uploads/ai_generate/176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg",
+      "images": [
+        "uploads/ai_generate/176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg",
+      "url": "/images/uploads/ai_generate/176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg",
+      "name": "176848-artwork-digital_art-nature-landscape-mountain-mesa-river-valley-cliff_20260313T224955_859134c6.jpg"
+    }
+  }
+}

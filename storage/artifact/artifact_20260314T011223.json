@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T01:12:23.417640+00:00",
+  "filename": "artifact/artifact_20260314T011223.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "aldamir",
+    "environment": "aldamir",
+    "location": "",
+    "race": "human",
+    "gender": "female",
+    "profession": "rogue",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "artifact",
+    "name": "Verdant Shield of the Sylvan Guardian",
+    "description": "When wielded, the Verdant Shield grants the user enhanced protection against natural and magical attacks, absorbing energy from the environment to bolster its defenses. Additionally, once per day, the shield can unleash a wave of protective energy, granting allies within a short radius temporary resistance to damage. However, prolonged use may attract the attention of nature spirits, who may demand tribute or retribution for the shield's power.",
+    "sections": {
+      "type": "artifact",
+      "name": "Verdant Shield of the Sylvan Guardian",
+      "level": "1d6+3",
+      "form": "A large, intricately carved shield made of a dark green, leaf-like material, adorned with a face that resembles an elven guardian. The shield has a prominent horn curving from its top, and its surface is etched with swirling vines and leaves that seem to pulse with life.",
+      "effect": "When wielded, the Verdant Shield grants the user enhanced protection against natural and magical attacks, absorbing energy from the environment to bolster its defenses. Additionally, once per day, the shield can unleash a wave of protective energy, granting allies within a short radius temporary resistance to damage. However, prolonged use may attract the attention of nature spirits, who may demand tribute or retribution for the shield's power.",
+      "depletion": "1 in 1d10",
+      "metadata": {
+        "image_url": "uploads/ai_generate/b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg",
+        "images": [
+          "uploads/ai_generate/b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "artifact",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "aldamir",
+      "location": "",
+      "environment": "aldamir",
+      "race": "human",
+      "gender": "female",
+      "profession": "rogue",
+      "culture": "",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg",
+      "images": [
+        "uploads/ai_generate/b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg",
+      "url": "/images/uploads/ai_generate/b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg",
+      "name": "b4c0bf9f6e9f7bc5f98fa6164ce4a5f0_20260314T011223_d49a7eef.jpg"
+    }
+  }
+}

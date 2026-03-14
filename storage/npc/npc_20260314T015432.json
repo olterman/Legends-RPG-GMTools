@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T01:54:32.412226+00:00",
+  "filename": "npc/npc_20260314T015432.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "shadowed",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Zyra Nightshade",
+    "description": "Zyra Nightshade moves with a predatory grace, her silver hair cascading down her back, contrasting sharply with her dark leather attire adorned with spikes and chains. Intricate tattoos snake across her arms, hinting at her shadowy past and allegiance to the duathrim culture. Her piercing gaze seems to analyze every detail, revealing a mind always calculating its next move. In the dim light, she blends seamlessly into the shadows, a master of stealth and deception.",
+    "sections": {
+      "type": "npc",
+      "name": "Zyra Nightshade",
+      "race": "alfirin",
+      "variant": "duathrim",
+      "gender": "Female",
+      "profession": "thief",
+      "culture": "duathrim",
+      "level": 5,
+      "health": 17,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "Short",
+      "modifications": "stealth as level 5",
+      "motive": "To eliminate targets for the highest bidder and gather secrets for her own gain.",
+      "environment": "Shadowy urban areas or dense forests where she can blend in and strike unseen.",
+      "combat": "Prefers ambush tactics, using agility and stealth to outmaneuver opponents before delivering lethal strikes.",
+      "interaction": "Cynical and guarded, she speaks in a low voice, often assessing others for potential threats or opportunities.",
+      "use": "Zyra can serve as a potential ally or antagonist, providing players with quests involving espionage or assassination.",
+      "gm_intrusion": "Zyra's past catches up with her, leading to unexpected complications during a mission.",
+      "loot": "A collection of throwing knives, a map of secret passages in the city, and a mysterious vial of poison.",
+      "description": "Zyra Nightshade moves with a predatory grace, her silver hair cascading down her back, contrasting sharply with her dark leather attire adorned with spikes and chains. Intricate tattoos snake across her arms, hinting at her shadowy past and allegiance to the duathrim culture. Her piercing gaze seems to analyze every detail, revealing a mind always calculating its next move. In the dim light, she blends seamlessly into the shadows, a master of stealth and deception.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg",
+        "images": [
+          "uploads/ai_generate/730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "shadowed",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg",
+      "images": [
+        "uploads/ai_generate/730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg",
+      "url": "/images/uploads/ai_generate/730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg",
+      "name": "730768c0a29067f7aa7a10f1946cd3f2_20260314T015432_c07d1f1e.jpg"
+    }
+  }
+}

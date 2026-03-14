@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T00:14:44.253636+00:00",
+  "filename": "settlement/settlement_20260314T001444.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "fenmir_free_cities",
+    "environment": "fenmir_free_cities",
+    "location": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "settlement",
+    "name": "Freeport",
+    "description": "Freeport is a lively coastal city that serves as a haven for freebooters, buccaneers, and privateers. The salty air is thick with the scent of the sea and the sounds of merchants hawking their wares in the bustling marketplace. Colorful ships line the docks, their sails billowing in the wind, while the Great Lighthouse stands sentinel, its light guiding vessels safely to harbor. Amidst the vibrant chaos, rival pirate factions plot and scheme, each seeking to dominate the lucrative trade routes…",
+    "sections": {
+      "type": "settlement",
+      "name": "Freeport",
+      "settlement_type": "Coastal City",
+      "environment": "Bustling harbor with a mix of sandy beaches and rocky cliffs",
+      "visual_feature": "Colorful sails of ships dotting the horizon, with a lively marketplace filled with exotic goods",
+      "landmark": "The Great Lighthouse of Freeport, a towering structure guiding ships safely to shore",
+      "economy_survival_basis": "Trade and piracy, with a thriving market for stolen goods and rare artifacts",
+      "current_tension": "Rival pirate factions vying for control over the lucrative trade routes",
+      "atmosphere": "A vibrant yet dangerous place, filled with the sounds of laughter, shouts, and the crashing of waves, where every corner hides a potential ally or enemy",
+      "local_inn_or_tavern": "The Salty Seagull, known for its raucous atmosphere and tales of adventure",
+      "description": "Freeport is a lively coastal city that serves as a haven for freebooters, buccaneers, and privateers. The salty air is thick with the scent of the sea and the sounds of merchants hawking their wares in the bustling marketplace. Colorful ships line the docks, their sails billowing in the wind, while the Great Lighthouse stands sentinel, its light guiding vessels safely to harbor. Amidst the vibrant chaos, rival pirate factions plot and scheme, each seeking to dominate the lucrative trade routes that pass through these waters. The Salty Seagull tavern is a hub of activity, where sailors share tales of their exploits over mugs of frothy ale, and the atmosphere is charged with the thrill of adventure and the ever-present danger of betrayal."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "settlement",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "fenmir_free_cities",
+      "location": "",
+      "environment": "fenmir_free_cities",
+      "race": null,
+      "gender": null,
+      "profession": null,
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

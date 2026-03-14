@@ -2,6 +2,176 @@
 
 {% block title %}AI Generate — Lands of Legends GM-Tools{% endblock %}
 
+{% block head_extra %}
+<style>
+  .ai-generator-card[hidden],
+  .ai-empty-state[hidden] {
+    display: none !important;
+  }
+
+  .ai-empty-state {
+    padding: 16px;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+  }
+
+  .ai-type-intro {
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background:
+      linear-gradient(135deg, rgba(180, 88, 28, 0.18), rgba(34, 74, 71, 0.18)),
+      rgba(255, 255, 255, 0.03);
+  }
+
+  .ai-type-intro h3 {
+    margin: 0 0 6px;
+  }
+
+  .ai-type-intro p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .ai-card-title {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .ai-generate-meta .row:last-child .field {
+    margin-bottom: 0;
+  }
+
+  .ai-checkbox-list {
+    display: grid;
+    gap: 8px;
+  }
+
+  .ai-checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+  }
+
+  .ai-checkbox-row input[type="checkbox"] {
+    width: auto;
+    min-width: 16px;
+    margin: 2px 0 0;
+    padding: 0;
+    flex: 0 0 auto;
+  }
+
+  .ai-checkbox-copy {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .ai-checkbox-copy .small {
+    margin: 0;
+  }
+
+  .output-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .output-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .output-card-icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .output-card-icon:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .output-card-icon:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .output-editor {
+    width: 100%;
+    min-height: 300px;
+    resize: vertical;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .ai-chain-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .ai-linked-card-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .ai-linked-card {
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .ai-linked-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .ai-linked-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ai-suggestion-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .ai-generate-meta .row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 <h1>AI Content Generator</h1>
 <p>Generate Cypher System content with your configured AI provider (Ollama or OpenAI).</p>
@@ -18,25 +188,51 @@
     <div class="field">
       <label for="ai-type">Content Type</label>
       <select id="ai-type">
+        <option value="">Choose a type</option>
         <option value="free_text">Free Text</option>
         <option value="lore">Lore</option>
+        <option value="player_character">Player Character</option>
         <option value="rollable_table">Rollable Table</option>
         <option value="cypher">Cypher</option>
         <option value="artifact">Artifact</option>
         <option value="encounter">Encounter</option>
         <option value="settlement">Settlement</option>
+        <option value="inn">Inn</option>
         <option value="landmark">Landmark</option>
+        <option value="creature">Creature</option>
         <option value="npc">NPC</option>
       </select>
     </div>
-    <div class="field">
-      <label for="ai-brief">Prompt / Brief</label>
-      <textarea id="ai-brief" rows="12" placeholder="Describe what you want generated..."></textarea>
-      <div class="small" style="margin-top:6px;">You can use text, an image, or both. Image-only guidance is tuned for encounter, NPC, artifact, cypher, landmark, and settlement.</div>
+    <div id="ai-empty-state" class="ai-empty-state">
+      Choose a content type to load the generation cards for that kind of content.
     </div>
-    <div class="field">
-      <label for="ai-image">Reference Image</label>
+    <div id="ai-type-intro" class="ai-type-intro ai-generator-card" hidden>
+      <h3 id="ai-type-intro-title">Generator Setup</h3>
+      <p id="ai-type-intro-copy">Choose a type to load focused guidance.</p>
+    </div>
+    <div id="ai-card-brief" class="field ai-generator-card" hidden>
+      <label for="ai-brief">
+        <span class="ai-card-title">Prompt / Brief</span>
+        <span id="ai-brief-copy" class="small">Describe what you want generated.</span>
+      </label>
+      <textarea id="ai-brief" rows="12" placeholder="Describe what you want generated..."></textarea>
+      <div class="small" style="margin-top:6px;">You can use text, an image, or both. Image-only guidance is tuned for NPCs, player characters, encounters, artifacts, cyphers, landmarks, and settlements.</div>
+    </div>
+    <div id="ai-card-image" class="field ai-generator-card" hidden>
+      <label for="ai-image">
+        <span class="ai-card-title">Reference Image</span>
+        <span id="ai-image-copy" class="small">Use a portrait, scene, or object image when visual cues matter.</span>
+      </label>
       <input id="ai-image" type="file" accept="image/*" />
+      <div class="row" style="margin-top:8px;">
+        <div class="field">
+          <label for="ai-image-url">Or Image URL</label>
+          <input id="ai-image-url" type="url" placeholder="https://example.com/image.jpg" />
+        </div>
+        <div class="field" style="align-self:end;">
+          <button id="ai-image-url-btn" type="button" class="secondary" style="width:100%;">Load URL Image</button>
+        </div>
+      </div>
       <div class="actions" style="margin-top:8px;">
         <button id="ai-image-clear-btn" type="button" class="secondary">Clear Image</button>
       </div>
@@ -45,24 +241,99 @@
         <img id="ai-image-preview" alt="AI generate preview" style="max-width:100%; max-height:280px; border-radius:10px; border:1px solid rgba(255,255,255,0.15);" />
       </div>
     </div>
-    <div class="field">
-      <label>Allowed Sources</label>
+    <div id="ai-card-metadata" class="field ai-generator-card ai-generate-meta" hidden>
+      <label>
+        <span class="ai-card-title">Entry Metadata</span>
+        <span id="ai-metadata-copy" class="small">Ground the result in the current setting and local context.</span>
+      </label>
+      <div class="row">
+        <div class="field">
+          <label for="ai-setting">Genre / Setting</label>
+          <select id="ai-setting">
+            <option value="">None</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ai-area">Area</label>
+          <select id="ai-area">
+            <option value="">None</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="ai-location">Location</label>
+          <select id="ai-location" disabled>
+            <option value="">Select an area first</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ai-sourcebook">Sourcebook</label>
+          <select id="ai-sourcebook">
+            <option value="">None</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="ai-page">Page(s)</label>
+          <input id="ai-page" type="text" placeholder="e.g. 142-143" />
+        </div>
+      </div>
+      <div id="ai-npc-options" style="display:none;">
+        <div class="row">
+          <div class="field">
+            <label for="ai-npc-race">Character Race</label>
+            <select id="ai-npc-race">
+              <option value="">Any</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ai-npc-variant">Character Variant</label>
+            <select id="ai-npc-variant" disabled>
+              <option value="">Select a race first</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="ai-npc-gender">Character Gender</label>
+            <select id="ai-npc-gender">
+              <option value="">Any</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ai-npc-profession">Character Profession</label>
+            <input id="ai-npc-profession" type="text" list="ai-npc-profession-list" placeholder="Suggested local role or any NPC profession" />
+            <datalist id="ai-npc-profession-list"></datalist>
+          </div>
+          <div class="field">
+            <label for="ai-npc-culture">Character Culture</label>
+            <input id="ai-npc-culture" type="text" placeholder="Auto-detect or enter culture" />
+          </div>
+        </div>
+        <div class="actions" style="margin-top:8px;">
+          <button id="ai-detect-character-btn" type="button" class="secondary">Auto-Detect From Image</button>
+        </div>
+      </div>
+    </div>
+    <div id="ai-card-sources" class="field ai-generator-card" hidden>
+      <label>
+        <span class="ai-card-title">Allowed Sources</span>
+        <span id="ai-sources-copy" class="small">Use the active setting’s lore plus genre-matched books.</span>
+      </label>
+      <div class="small" style="margin-bottom:8px;">Sources are automatically restricted to the current genre/setting. Local lore for the active setting is available as its own source.</div>
       <div class="actions" style="margin-bottom: 8px;">
         <button id="ai-sources-all-btn" type="button" class="secondary">Select All Sources</button>
         <button id="ai-sources-none-btn" type="button" class="secondary">Clear Sources</button>
       </div>
       <div id="ai-sources" class="small">Loading sources...</div>
     </div>
-    <div class="field">
-      <label>Allowed Compendiums</label>
-      <div class="actions" style="margin-bottom: 8px;">
-        <button id="ai-comp-all-btn" type="button" class="secondary">Select All Compendiums</button>
-        <button id="ai-comp-none-btn" type="button" class="secondary">Clear Compendiums</button>
-      </div>
-      <div id="ai-compendiums" class="small">Loading compendiums...</div>
-    </div>
-    <div class="field">
-      <label for="ai-schema">Type JSON Schema Prompt</label>
+    <div id="ai-card-schema" class="field ai-generator-card" hidden>
+      <label for="ai-schema">
+        <span class="ai-card-title">Type JSON Schema Prompt</span>
+        <span id="ai-schema-copy" class="small">This is the structure the model is being asked to return.</span>
+      </label>
       <pre id="ai-schema" class="small" style="white-space: pre-wrap; margin: 0; max-height: 260px; overflow: auto;"></pre>
     </div>
     <div class="actions">
@@ -76,12 +347,21 @@
 
   <div class="panel">
     <div class="output-card">
-      <div class="small">Pretty Output</div>
+      <div class="output-card-header">
+        <div class="small">Pretty Output</div>
+        <div class="output-card-actions">
+          <button id="ai-output-edit-btn" type="button" class="output-card-icon" title="Edit Output" aria-label="Edit Output">✎</button>
+          <button id="ai-output-regenerate-btn" type="button" class="output-card-icon" title="Regenerate" aria-label="Regenerate">↻</button>
+          <button id="ai-output-save-btn" type="button" class="output-card-icon" title="Save Card" aria-label="Save Card" disabled>💾</button>
+        </div>
+      </div>
       <div id="ai-rendered" style="margin-top: 0.5rem;"></div>
     </div>
     <div class="output-card" style="margin-top:12px;">
       <div class="small">Raw JSON / Model Output</div>
       <pre id="ai-output" style="white-space: pre-wrap; word-break: break-word; margin: 0.5rem 0 0;"></pre>
+      <textarea id="ai-output-editor" class="output-editor" style="display:none; margin-top:0.5rem;"></textarea>
+      <div id="ai-output-editor-help" class="small" style="display:none; margin-top:8px;">Edit the JSON and click the pencil again to apply your changes.</div>
     </div>
     <div class="output-card" style="margin-top:12px;">
       <div class="small">Citations</div>
@@ -98,38 +378,212 @@
     type: document.getElementById('ai-type'),
     brief: document.getElementById('ai-brief'),
     imageInput: document.getElementById('ai-image'),
+    imageUrl: document.getElementById('ai-image-url'),
+    imageUrlBtn: document.getElementById('ai-image-url-btn'),
     imageClearBtn: document.getElementById('ai-image-clear-btn'),
     imageMeta: document.getElementById('ai-image-meta'),
     imagePreviewWrap: document.getElementById('ai-image-preview-wrap'),
     imagePreview: document.getElementById('ai-image-preview'),
+    emptyState: document.getElementById('ai-empty-state'),
+    typeIntro: document.getElementById('ai-type-intro'),
+    typeIntroTitle: document.getElementById('ai-type-intro-title'),
+    typeIntroCopy: document.getElementById('ai-type-intro-copy'),
+    cardBrief: document.getElementById('ai-card-brief'),
+    briefCopy: document.getElementById('ai-brief-copy'),
+    cardImage: document.getElementById('ai-card-image'),
+    imageCopy: document.getElementById('ai-image-copy'),
+    cardMetadata: document.getElementById('ai-card-metadata'),
+    metadataCopy: document.getElementById('ai-metadata-copy'),
+    cardSources: document.getElementById('ai-card-sources'),
+    sourcesCopy: document.getElementById('ai-sources-copy'),
+    cardSchema: document.getElementById('ai-card-schema'),
+    schemaCopy: document.getElementById('ai-schema-copy'),
+    setting: document.getElementById('ai-setting'),
+    area: document.getElementById('ai-area'),
+    location: document.getElementById('ai-location'),
+    sourcebook: document.getElementById('ai-sourcebook'),
+    page: document.getElementById('ai-page'),
+    npcOptions: document.getElementById('ai-npc-options'),
+    npcRace: document.getElementById('ai-npc-race'),
+    npcVariant: document.getElementById('ai-npc-variant'),
+    npcGender: document.getElementById('ai-npc-gender'),
+    npcProfession: document.getElementById('ai-npc-profession'),
+    npcProfessionList: document.getElementById('ai-npc-profession-list'),
+    npcCulture: document.getElementById('ai-npc-culture'),
+    detectCharacterBtn: document.getElementById('ai-detect-character-btn'),
     sources: document.getElementById('ai-sources'),
-    compendiums: document.getElementById('ai-compendiums'),
     schema: document.getElementById('ai-schema'),
     generateBtn: document.getElementById('ai-generate-btn'),
     saveBtn: document.getElementById('ai-save-btn'),
     sourcesAllBtn: document.getElementById('ai-sources-all-btn'),
     sourcesNoneBtn: document.getElementById('ai-sources-none-btn'),
-    compAllBtn: document.getElementById('ai-comp-all-btn'),
-    compNoneBtn: document.getElementById('ai-comp-none-btn'),
     clearBtn: document.getElementById('ai-clear-btn'),
     copyBtn: document.getElementById('ai-copy-btn'),
+    outputEditBtn: document.getElementById('ai-output-edit-btn'),
+    outputRegenerateBtn: document.getElementById('ai-output-regenerate-btn'),
+    outputSaveBtn: document.getElementById('ai-output-save-btn'),
     status: document.getElementById('ai-status'),
     rendered: document.getElementById('ai-rendered'),
     output: document.getElementById('ai-output'),
+    outputEditor: document.getElementById('ai-output-editor'),
+    outputEditorHelp: document.getElementById('ai-output-editor-help'),
     citations: document.getElementById('ai-citations'),
   };
   const state = {
     compendiums: [],
+    locationsByArea: new Map(),
     parsedCard: null,
+    linkedCards: [],
+    suggestions: [],
     lastType: 'free_text',
     lastRawAnswer: '',
     imageDataUrl: '',
     imageName: '',
+    imageSourceUrl: '',
+    restoredPrefs: null,
+    settingsNav: {},
+    sourceEntries: [],
+    races: {},
+    isEditingOutput: false,
   };
+  const LOCATION_CARD_TYPES = new Set(['location', 'settlement', 'inn']);
+  const LOCATION_CARD_SUBTYPES = new Set(['landmark', 'city', 'inn', 'settlement', 'mountain', 'river', 'lake']);
+  const AI_GENERATE_PREFS_KEY = 'lol.aiGenerate.lastPrefs.v1';
+  const AI_GENERATE_RECENTS_KEY = 'lol.aiGenerate.recents.v1';
+
+  function fillSelect(select, values, includeBlank = false) {
+    if (!select) return;
+    const current = String(select.value || '');
+    select.innerHTML = '';
+    if (includeBlank) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = 'None';
+      select.appendChild(opt);
+    }
+    for (const value of values || []) {
+      const opt = document.createElement('option');
+      opt.value = String(value || '');
+      opt.textContent = String(value || '');
+      select.appendChild(opt);
+    }
+    if (current && Array.from(select.options).some((opt) => opt.value === current)) {
+      select.value = current;
+    }
+  }
+
+  function fillDatalist(list, values) {
+    if (!list) return;
+    list.innerHTML = '';
+    for (const value of values || []) {
+      const opt = document.createElement('option');
+      opt.value = String(value || '');
+      list.appendChild(opt);
+    }
+  }
+
+  function fillOptionObjects(select, items, includeBlank = false, blankLabel = 'None') {
+    if (!select) return;
+    const current = String(select.value || '');
+    select.innerHTML = '';
+    if (includeBlank) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = blankLabel;
+      select.appendChild(opt);
+    }
+    for (const item of items || []) {
+      const opt = document.createElement('option');
+      opt.value = String(item?.value || '');
+      opt.textContent = String(item?.label || item?.value || '');
+      select.appendChild(opt);
+    }
+    if (current && Array.from(select.options).some((opt) => opt.value === current)) {
+      select.value = current;
+    }
+  }
+
+  function normalizeToken(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/_+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+
+  function currentSettingId() {
+    return normalizeToken(String(els.setting?.value || document.getElementById('nav-world-setting')?.value || ''));
+  }
+
+  function currentGenreId() {
+    const currentSetting = currentSettingId();
+    const settingsByGenre = state.settingsNav?.settings_by_genre || {};
+    for (const [genreKey, values] of Object.entries(settingsByGenre)) {
+      const rows = Array.isArray(values) ? values : [];
+      if (rows.some((row) => normalizeToken(row?.value) === currentSetting)) {
+        return normalizeToken(genreKey);
+      }
+    }
+    return currentSetting;
+  }
+
+  function currentSettingLabel() {
+    const current = String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim();
+    if (!current) return 'Local Lore';
+    const option = Array.from(els.setting?.options || []).find((row) => String(row.value || '') === current);
+    return option?.textContent?.trim() || titleCase(current);
+  }
+
+  function currentNpcPreferences() {
+    return {
+      race: String(els.npcRace?.value || '').trim(),
+      variant: String(els.npcVariant?.value || '').trim(),
+      gender: String(els.npcGender?.value || '').trim(),
+      profession: String(els.npcProfession?.value || '').trim(),
+      culture: String(els.npcCulture?.value || '').trim(),
+    };
+  }
+
+  function updateTypeSpecificOptions() {
+    const currentType = String(els.type?.value || '').trim().toLowerCase();
+    const isNpc = currentType === 'npc' || currentType === 'player_character';
+    if (els.npcOptions) {
+      els.npcOptions.style.display = isNpc ? '' : 'none';
+    }
+    updateGeneratorCards();
+    updateDetectButtonState();
+  }
+
+  function updateVariantOptions() {
+    const race = String(els.npcRace?.value || '').trim();
+    const raceData = state.races?.[race] || {};
+    const variants = Object.keys(raceData.variants || {});
+    if (!els.npcVariant) return;
+    if (!race) {
+      fillOptionObjects(els.npcVariant, [], true, 'Select a race first');
+      els.npcVariant.disabled = true;
+      return;
+    }
+    fillOptionObjects(
+      els.npcVariant,
+      variants.map((value) => ({ value, label: titleCase(value) })),
+      true,
+      variants.length ? 'Any' : 'No variants'
+    );
+    els.npcVariant.disabled = variants.length === 0;
+  }
 
   const TYPE_CONFIG = {
     free_text: {
       label: 'Free Text',
+      introTitle: 'Freeform Drafting',
+      introCopy: 'Use this for unconstrained prose when you want the model to write in-setting text without a stricter card template.',
+      briefCopy: 'Describe the text you want, the tone, and any setting hooks it should pull forward.',
+      imageCopy: 'Optional reference art can steer mood or imagery, but text guidance does most of the work here.',
+      metadataCopy: 'Point the draft at the right setting, area, and location so it stays grounded in local lore.',
+      sourcesCopy: 'These sources become the lore boundary for the generated prose.',
+      schemaCopy: 'The model is asked for a minimal named text object here.',
       schema: {
         name: 'Title',
         description: 'Main generated text',
@@ -137,6 +591,13 @@
     },
     lore: {
       label: 'Lore',
+      introTitle: 'Lore Entry',
+      introCopy: 'Generate a reusable worldbuilding card that feels native to the current setting rather than generic fantasy filler.',
+      briefCopy: 'Describe the rumor, faction, tradition, place, person, or mystery you want added to the world.',
+      imageCopy: 'Use an image when you want the lore to grow from a visual artifact, portrait, or place.',
+      metadataCopy: 'Setting, area, and sourcebook clues help the model resolve contradictions in favor of local lore.',
+      sourcesCopy: 'Keep only the books and local lore that should inform this piece of canon.',
+      schemaCopy: 'The schema asks for a compact lore card with summary and hooks.',
       schema: {
         type: 'lore',
         name: 'Entry Name',
@@ -145,19 +606,96 @@
         hooks: ['Hook 1', 'Hook 2'],
       },
     },
+    player_character: {
+      label: 'Player Character',
+      introTitle: 'Level 1 Pregen Builder',
+      introCopy: 'Build a fully playable tier 1 character with pools, edges, abilities, attacks, and starting gear tied to the active setting.',
+      briefCopy: 'Describe the kind of hero you want, or leave it broad and let the portrait plus local lore do the shaping.',
+      imageCopy: 'Portraits work especially well here for ancestry, culture, demeanor, gear, and fighting style cues.',
+      metadataCopy: 'Use setting, area, and identity fields to steer the pregen toward the right culture and campaign role.',
+      sourcesCopy: 'These sources define the lore and rules flavor used to assemble the pregen.',
+      schemaCopy: 'The model is asked for a complete player-character sheet shape rather than a loose character idea.',
+      schema: {
+        name: 'Character Name',
+        sentence: 'Character Name is a Descriptor Type who Focus.',
+        type: 'Warrior',
+        flavor: '',
+        descriptor: 'Strong',
+        focus: 'Masters Weaponry',
+        effort: 1,
+        cypher_limit: 2,
+        weapons: 'Practiced with light, medium, and heavy weapons.',
+        pools: {
+          max: { might: 12, speed: 10, intellect: 8 },
+          current: { might: 12, speed: 10, intellect: 8 },
+        },
+        edges: { might: 1, speed: 0, intellect: 0 },
+        damage_track: 'Hale',
+        recovery_rolls_used: {
+          action: false,
+          ten_minutes: false,
+          one_hour: false,
+          ten_hours: false,
+        },
+        descriptor_effects: {
+          pool: { might: 2, speed: 0, intellect: 0 },
+          skills: ['Skill from descriptor'],
+          inabilities: [],
+          traits: [],
+          equipment: [],
+        },
+        type_tier_1_abilities: ['Tier 1 ability option 1', 'Tier 1 ability option 2'],
+        flavor_tier_1_abilities: [],
+        focus_tier_1_abilities: ['Tier 1 focus ability'],
+        chosen_abilities: ['Chosen ability 1', 'Chosen ability 2', 'Chosen ability 3', 'Chosen ability 4'],
+        chosen_skills: [{ name: 'Skill Name', level: 'trained' }],
+        attacks: ['Battleaxe (medium weapon, 4 damage)', 'Knife (light weapon, 2 damage)'],
+        starting_equipment: ['Backpack', 'Explorer\'s pack', 'Medium weapon'],
+        equipment: ['Item 1', 'Item 2'],
+        notes: 'Short notes',
+        metadata: {
+          race: 'human',
+          variant: 'fenmir',
+          gender: 'female',
+          profession: 'guard',
+          culture: 'fenmir',
+          area: 'fenmir_highlands',
+          character_type: 'Warrior',
+          flavor: '',
+          descriptor: 'Strong',
+          focus: 'Masters Weaponry',
+          tier: 1,
+        },
+      },
+    },
     rollable_table: {
       label: 'Rollable Table',
+      introTitle: 'Rollable Table',
+      introCopy: 'Create a usable table with a die expression and clear outcomes that can be rolled directly from saved cards.',
+      briefCopy: 'Describe what the table is for: encounters, loot, rumors, weather, travel events, or anything else.',
+      imageCopy: 'Images are less important here unless you want the table seeded from a visual theme or location.',
+      metadataCopy: 'Area and setting still matter when you want the results to feel region-specific.',
+      sourcesCopy: 'Use only the sources that should shape the table’s tone and content.',
+      schemaCopy: 'The schema requires a die expression and rows that can be resolved at the table.',
       schema: {
+        primarycategory: 'rollable_table',
         name: 'Table Name',
         dice: 'd20',
         rows: [
-          { roll: '1-2', result: 'Outcome text' },
+          { roll: '1-2', result: 'Outcome text', card_ref: 'cypher/cypher_20260314T120000.json', card_label: 'Open linked cypher (optional, only if real)' },
           { roll: '3-4', result: 'Outcome text' },
         ],
       },
     },
     cypher: {
       label: 'Cypher',
+      introTitle: 'Cypher Generator',
+      introCopy: 'Generate a one-use Cypher item that feels at home in the active setting and source mix.',
+      briefCopy: 'Describe the desired effect, mood, source tradition, or strange limitation.',
+      imageCopy: 'Object images are useful here when you want form and effect inferred together.',
+      metadataCopy: 'Setting and sourcebook hints help the model pick the right magic-tech language.',
+      sourcesCopy: 'These are the only rules and lore sources the item should draw from.',
+      schemaCopy: 'The schema asks for form, level, effect, and depletion in a card-ready shape.',
       schema: {
         type: 'cypher',
         name: 'Cypher Name',
@@ -169,6 +707,13 @@
     },
     artifact: {
       label: 'Artifact',
+      introTitle: 'Artifact Generator',
+      introCopy: 'Generate a rarer, more storied item with stronger setting identity and a clear depletion profile.',
+      briefCopy: 'Describe the artifact’s role, history, danger, or mythic reputation.',
+      imageCopy: 'Use a visual when the artifact’s shape, material, or symbolism should drive the design.',
+      metadataCopy: 'Sourcebook and setting hints help anchor the artifact’s origin and traditions.',
+      sourcesCopy: 'Only the selected sources will be used to flavor the artifact.',
+      schemaCopy: 'The schema expects a durable item entry with form, effect, and depletion.',
       schema: {
         type: 'artifact',
         name: 'Artifact Name',
@@ -180,6 +725,13 @@
     },
     encounter: {
       label: 'Encounter',
+      introTitle: 'Encounter Seed',
+      introCopy: 'Build a playable Cypher System encounter with pressure, creatures, tactics, and consequences.',
+      briefCopy: 'Describe the conflict, locale, factions, pacing, or danger you want the scene to deliver.',
+      imageCopy: 'Scene art works well here for terrain, factions, and immediate tension.',
+      metadataCopy: 'Area and location are especially useful for getting local stakes and factions right.',
+      sourcesCopy: 'Keep only the books and lore that should shape the encounter’s threats and tone.',
+      schemaCopy: 'The schema requests a table-ready encounter card with tactics and intrusion hooks.',
       schema: {
         type: 'encounter',
         encounter_title: 'Encounter Name',
@@ -204,6 +756,13 @@
     },
     settlement: {
       label: 'Settlement',
+      introTitle: 'Settlement Builder',
+      introCopy: 'Generate an inhabited place with economy, tension, atmosphere, and landmarks that fit the active world.',
+      briefCopy: 'Describe the kind of town, village, district, or outpost you want to place in the campaign.',
+      imageCopy: 'Architecture or landscape images help the model infer settlement type and mood.',
+      metadataCopy: 'Area and setting choices matter a lot for culture, materials, and current tensions.',
+      sourcesCopy: 'These sources define the settlement’s lore boundaries.',
+      schemaCopy: 'The schema expects a compact settlement card with atmosphere, tension, and survival details.',
       schema: {
         type: 'settlement',
         name: 'Settlement Name',
@@ -218,8 +777,36 @@
         description: 'Short summary',
       },
     },
+    inn: {
+      label: 'Inn',
+      introTitle: 'Inn Builder',
+      introCopy: 'Generate a tavern, inn, roadhouse, or lodging place with a distinct atmosphere, clientele, and local role.',
+      briefCopy: 'Describe the kind of inn you want, or let the current settlement context shape it.',
+      imageCopy: 'Facade, common-room, or roadside images can help the model infer the inn’s tone and clientele.',
+      metadataCopy: 'Area, settlement location, and sourcebook clues help place the inn in the right part of the world.',
+      sourcesCopy: 'These sources define the inn’s lore boundaries and social texture.',
+      schemaCopy: 'The schema expects an inn card with atmosphere, patrons, and hooks.',
+      schema: {
+        type: 'inn',
+        name: 'Inn Name',
+        inn_type: 'Inn, tavern, roadhouse, hostel, or public house',
+        atmosphere: 'Atmosphere',
+        clientele: 'Typical clientele',
+        notable_feature: 'Notable feature',
+        proprietor: 'Innkeeper or owner',
+        rumor_or_hook: 'Rumor or hook',
+        description: 'Short summary',
+      },
+    },
     landmark: {
       label: 'Landmark',
+      introTitle: 'Landmark Generator',
+      introCopy: 'Create a memorable place card with history, danger, features, and hooks tied to the surrounding area.',
+      briefCopy: 'Describe the site, its mood, and why adventurers should care about it.',
+      imageCopy: 'Landscape or ruin art is especially strong here for deriving features and atmosphere.',
+      metadataCopy: 'Set the area and location context so the landmark lands in the right part of the world.',
+      sourcesCopy: 'Only the selected local and genre sources should inform this site.',
+      schemaCopy: 'The schema asks for a location-shaped landmark entry with risks and hooks.',
       schema: {
         type: 'location',
         location_category_type: 'landmark',
@@ -233,17 +820,57 @@
         risks: ['Risk 1'],
       },
     },
+    creature: {
+      label: 'Creature',
+      introTitle: 'Creature Generator',
+      introCopy: 'Generate a creature, beast, monster, horror, or other non-player threat with Cypher-ready stats and behavior.',
+      briefCopy: 'Describe the beast or threat you want, or let a portrait or creature image set the tone and anatomy.',
+      imageCopy: 'Creature portraits, bestiary art, and monster scenes work well here for anatomy, threat style, and habitat clues.',
+      metadataCopy: 'Use setting, area, location, and sourcebook to place the creature in the right ecology and lore.',
+      sourcesCopy: 'These sources define the creature’s rules flavor, habitat, and mythic context.',
+      schemaCopy: 'The schema asks for a creature card with Cypher-native level, stats, motive, combat, and encounter use.',
+      schema: {
+        type: 'creature',
+        name: 'Creature Name',
+        level: 'Choose a fitting level, often 1-10 depending on threat',
+        health: 'Cypher health appropriate to the chosen level and resilience',
+        armor: 1,
+        damage_inflicted: 4,
+        movement: 'Short, long, flying, swimming, burrowing, or other movement',
+        modifications: 'Cypher-style modifications such as stealth as level 5 or tasks eased/hindered',
+        motive: 'Motive or instinct',
+        environment: 'Habitat or region',
+        combat: 'Combat behavior and special attacks',
+        interaction: 'How it behaves outside direct combat',
+        use: 'How to use it in play',
+        gm_intrusion: 'GM intrusion',
+        loot: 'Loot or remains',
+        description: 'Short summary',
+      },
+    },
     npc: {
       label: 'NPC',
+      introTitle: 'NPC Generator',
+      introCopy: 'Generate a playable NPC with motive, interaction style, combat hooks, and identity grounded in local lore.',
+      briefCopy: 'Describe the person you need, or let a portrait and a few metadata hints do most of the work.',
+      imageCopy: 'Portraits are ideal here for detecting role, ancestry, culture, demeanor, and gear.',
+      metadataCopy: 'Use race, gender, profession, culture, area, and sourcebook to steer the character precisely.',
+      sourcesCopy: 'These sources become the lore boundary for the NPC’s voice, culture, and function.',
+      schemaCopy: 'The schema asks for a card-ready NPC entry with local-lore identity and Cypher-native stats.',
       schema: {
         type: 'npc',
         name: 'NPC Name',
-        level: 4,
-        health: 12,
+        race: 'Setting-valid race or ancestry',
+        variant: 'Setting-valid branch or variant if any',
+        gender: 'Gender',
+        profession: 'Local profession or role',
+        culture: 'Local culture or regional identity',
+        level: 'Choose a fitting level, often 1-7 depending on role',
+        health: 'Cypher health appropriate to the chosen level and role',
         armor: 1,
         damage_inflicted: 4,
-        movement: 'Short',
-        modifications: 'Pleasant social interactions as level 5',
+        movement: 'Short, long, or other fitting movement',
+        modifications: 'Cypher-style modifications only when they stand out, such as religious lore as level 6 or stealth as level 4',
         motive: 'Motive',
         environment: 'Environment',
         combat: 'Combat behavior',
@@ -274,6 +901,172 @@
     return data;
   }
 
+  function loadSavedPrefs() {
+    try {
+      const raw = window.localStorage.getItem(AI_GENERATE_PREFS_KEY);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      return data && typeof data === 'object' ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function savePrefs(prefs) {
+    try {
+      window.localStorage.setItem(AI_GENERATE_PREFS_KEY, JSON.stringify(prefs));
+    } catch {}
+  }
+
+  function loadRecentGenerationHints() {
+    try {
+      const raw = window.localStorage.getItem(AI_GENERATE_RECENTS_KEY);
+      if (!raw) return { names: [], name_roots: [], surname_roots: [], description_openers: [] };
+      const data = JSON.parse(raw);
+      return {
+        names: Array.isArray(data?.names) ? data.names.map((v) => String(v || '').trim()).filter(Boolean) : [],
+        name_roots: Array.isArray(data?.name_roots) ? data.name_roots.map((v) => String(v || '').trim()).filter(Boolean) : [],
+        surname_roots: Array.isArray(data?.surname_roots) ? data.surname_roots.map((v) => String(v || '').trim()).filter(Boolean) : [],
+        description_openers: Array.isArray(data?.description_openers) ? data.description_openers.map((v) => String(v || '').trim()).filter(Boolean) : [],
+      };
+    } catch {
+      return { names: [], name_roots: [], surname_roots: [], description_openers: [] };
+    }
+  }
+
+  function saveRecentGenerationHints(hints) {
+    try {
+      window.localStorage.setItem(AI_GENERATE_RECENTS_KEY, JSON.stringify(hints));
+    } catch {}
+  }
+
+  function extractDescriptionOpener(text) {
+    const raw = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!raw) return '';
+    const firstSentence = raw.split(/[.!?]/)[0] || raw;
+    return firstSentence.trim().slice(0, 120);
+  }
+
+  function extractNameRoot(name) {
+    const raw = String(name || '').trim();
+    if (!raw) return '';
+    const left = raw.split(/\s+the\s+/i)[0] || raw;
+    const first = left.split(/\s+/)[0] || left;
+    return first.trim();
+  }
+
+  function extractSurnameRoot(name) {
+    const raw = String(name || '').trim();
+    if (!raw) return '';
+    const left = raw.split(/\s+the\s+/i)[0] || raw;
+    const parts = left.split(/\s+/).filter(Boolean);
+    if (parts.length < 2) return '';
+    return String(parts[parts.length - 1] || '').trim();
+  }
+
+  function rememberGeneratedCard(card) {
+    if (!card || typeof card !== 'object' || Array.isArray(card)) return;
+    const recents = loadRecentGenerationHints();
+    const name = String(card.name || '').trim();
+    const extraNames = [
+      String(card.proprietor || '').trim(),
+      String(card.innkeeper || '').trim(),
+      String(card.owner || '').trim(),
+    ].filter(Boolean);
+    const names = [name, ...extraNames, ...recents.names].filter(Boolean);
+    const nameRoots = [extractNameRoot(name), ...extraNames.map((value) => extractNameRoot(value)), ...recents.name_roots].filter(Boolean);
+    const surnameRoots = [extractSurnameRoot(name), ...extraNames.map((value) => extractSurnameRoot(value)), ...(recents.surname_roots || [])].filter(Boolean);
+    const opener = extractDescriptionOpener(card.description);
+    const descriptionOpeners = [opener, ...recents.description_openers].filter(Boolean);
+    saveRecentGenerationHints({
+      names: Array.from(new Set(names)).slice(0, 16),
+      name_roots: Array.from(new Set(nameRoots)).slice(0, 16),
+      surname_roots: Array.from(new Set(surnameRoots)).slice(0, 16),
+      description_openers: Array.from(new Set(descriptionOpeners)).slice(0, 12),
+    });
+  }
+
+  function applyCheckedValues(selector, values) {
+    const wanted = new Set((Array.isArray(values) ? values : []).map((value) => String(value || '').trim().toLowerCase()).filter(Boolean));
+    if (!wanted.size) return;
+    document.querySelectorAll(selector).forEach((node) => {
+      const value = String(node.value || '').trim().toLowerCase();
+      node.checked = wanted.has(value);
+    });
+  }
+
+  function captureGenerationPrefs() {
+    return {
+      provider: String(els.provider?.value || 'ollama_local').trim(),
+      type: String(els.type?.value || '').trim(),
+      setting: String(els.setting?.value || '').trim(),
+      area: String(els.area?.value || '').trim(),
+      location: String(els.location?.value || '').trim(),
+      sourcebook: String(els.sourcebook?.value || '').trim(),
+      page: String(els.page?.value || '').trim(),
+      npcRace: String(els.npcRace?.value || '').trim(),
+      npcVariant: String(els.npcVariant?.value || '').trim(),
+      npcGender: String(els.npcGender?.value || '').trim(),
+      npcProfession: String(els.npcProfession?.value || '').trim(),
+      npcCulture: String(els.npcCulture?.value || '').trim(),
+      sourceIds: selectedSourceEntryKeys(),
+    };
+  }
+
+  function applySavedPrefsToFilters() {
+    const prefs = state.restoredPrefs;
+    if (!prefs) return;
+    applyCheckedValues('.ai-source-checkbox', prefs.sourceIds);
+  }
+
+  async function restoreSavedPrefs() {
+    const prefs = loadSavedPrefs();
+    state.restoredPrefs = prefs;
+    if (!prefs) return;
+    if (els.provider && prefs.provider) {
+      els.provider.value = String(prefs.provider);
+    }
+    if (els.type && prefs.type) {
+      els.type.value = String(prefs.type);
+      renderSchema(String(els.type.value || 'free_text'));
+    }
+    if (els.setting && prefs.setting && Array.from(els.setting.options).some((opt) => opt.value === prefs.setting)) {
+      els.setting.value = String(prefs.setting);
+    }
+    if (els.area && prefs.area && Array.from(els.area.options).some((opt) => opt.value === prefs.area)) {
+      els.area.value = String(prefs.area);
+    }
+    renderFilters();
+    if (els.sourcebook && prefs.sourcebook && Array.from(els.sourcebook.options).some((opt) => opt.value === prefs.sourcebook)) {
+      els.sourcebook.value = String(prefs.sourcebook);
+    }
+    if (els.page) {
+      els.page.value = String(prefs.page || '');
+    }
+    if (els.npcRace && prefs.npcRace && Array.from(els.npcRace.options).some((opt) => opt.value === prefs.npcRace)) {
+      els.npcRace.value = String(prefs.npcRace);
+    }
+    updateVariantOptions();
+    if (els.npcVariant && prefs.npcVariant && Array.from(els.npcVariant.options).some((opt) => opt.value === prefs.npcVariant)) {
+      els.npcVariant.value = String(prefs.npcVariant);
+    }
+    if (els.npcGender && prefs.npcGender && Array.from(els.npcGender.options).some((opt) => opt.value === prefs.npcGender)) {
+      els.npcGender.value = String(prefs.npcGender);
+    }
+    if (els.npcProfession) {
+      els.npcProfession.value = String(prefs.npcProfession || '');
+    }
+    if (els.npcCulture) {
+      els.npcCulture.value = String(prefs.npcCulture || '');
+    }
+    await loadLocationsForArea(String(els.area?.value || '').trim());
+    if (els.location && prefs.location && Array.from(els.location.options).some((opt) => opt.value === prefs.location)) {
+      els.location.value = String(prefs.location);
+    }
+    applySavedPrefsToFilters();
+    updateTypeSpecificOptions();
+  }
+
   function schemaForType(type) {
     return TYPE_CONFIG[type]?.schema || TYPE_CONFIG.free_text.schema;
   }
@@ -293,80 +1086,182 @@
   }
 
   function imageSupportedForType(type) {
-    return ['encounter', 'npc', 'artifact', 'cypher', 'landmark', 'settlement'].includes(String(type || '').toLowerCase());
+    return ['encounter', 'npc', 'creature', 'player_character', 'artifact', 'cypher', 'landmark', 'settlement', 'inn'].includes(String(type || '').toLowerCase());
   }
 
   function setSaveEnabled(enabled) {
     els.saveBtn.disabled = !enabled;
+    if (els.outputSaveBtn) {
+      els.outputSaveBtn.disabled = !enabled;
+    }
   }
 
-  function sourceKindLabel(kind) {
-    const k = String(kind || '').toLowerCase();
-    if (k === 'local') return 'Local Library';
-    if (k === 'csrd') return 'CSRD';
-    if (k === 'official') return 'Official Sourcebooks';
-    if (k === 'core_pdf') return 'Core Rules';
-    if (k === 'foundry') return 'FoundryVTT';
-    return k || 'Unknown';
+  function setOutputEditMode(editing) {
+    state.isEditingOutput = Boolean(editing);
+    if (els.output) {
+      els.output.style.display = editing ? 'none' : '';
+    }
+    if (els.outputEditor) {
+      els.outputEditor.style.display = editing ? '' : 'none';
+    }
+    if (els.outputEditorHelp) {
+      els.outputEditorHelp.style.display = editing ? '' : 'none';
+    }
+    if (els.outputEditBtn) {
+      els.outputEditBtn.textContent = editing ? '✓' : '✎';
+      els.outputEditBtn.title = editing ? 'Apply Edits' : 'Edit Output';
+      els.outputEditBtn.setAttribute('aria-label', editing ? 'Apply Edits' : 'Edit Output');
+    }
+    if (els.outputRegenerateBtn) {
+      els.outputRegenerateBtn.disabled = editing;
+    }
   }
 
-  function compendiumCandidates() {
-    const out = [];
+  function enterOutputEditMode() {
+    if (!state.parsedCard || typeof state.parsedCard !== 'object') {
+      els.status.textContent = 'Generate valid JSON output first.';
+      return;
+    }
+    if (els.outputEditor) {
+      els.outputEditor.value = JSON.stringify(state.parsedCard, null, 2);
+      els.outputEditor.focus();
+      els.outputEditor.setSelectionRange(0, 0);
+    }
+    setOutputEditMode(true);
+    setSaveEnabled(false);
+    els.status.textContent = 'Editing output JSON. Click the pencil again to apply your changes.';
+  }
+
+  function applyOutputEdits() {
+    const raw = String(els.outputEditor?.value || '').trim();
+    if (!raw) {
+      els.status.textContent = 'Editor is empty.';
+      return;
+    }
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (err) {
+      els.status.textContent = `Edit parse failed: ${err.message}`;
+      return;
+    }
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      els.status.textContent = 'Edited output must be a JSON object.';
+      return;
+    }
+    const type = String(state.lastType || els.type?.value || 'free_text');
+    const normalized = applyTypeDefaults(type, parsed);
+    state.parsedCard = normalized;
+    els.rendered.innerHTML = renderPrettyOutput(type, normalized);
+    els.output.textContent = JSON.stringify(normalized, null, 2);
+    setOutputEditMode(false);
+    setSaveEnabled(true);
+    els.status.textContent = 'Edits applied.';
+  }
+
+  function toggleOutputEdit() {
+    if (state.isEditingOutput) {
+      applyOutputEdits();
+      return;
+    }
+    enterOutputEditMode();
+  }
+
+  function eligibleSourceEntries() {
+    const settingId = currentSettingId();
+    const genreId = currentGenreId();
+    const entries = [];
     const seen = new Set();
-    for (const item of state.compendiums) {
-      if (!item || item.searchable === false || item.enabled === false) continue;
-      const id = String(item.id || '').trim().toLowerCase();
-      if (!id || seen.has(id)) continue;
-      seen.add(id);
-      out.push({
-        id,
-        name: String(item.name || id),
-        source_kind: String(item.source_kind || '').toLowerCase(),
+    const pushEntry = (entry) => {
+      const key = String(entry?.key || '').trim().toLowerCase();
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      entries.push(entry);
+    };
+
+    if (settingId) {
+      pushEntry({
+        key: `setting:${settingId}`,
+        label: currentSettingLabel(),
+        subtitle: 'Local lore for the active setting',
+        compendium_ids: ['local_library'],
       });
     }
-    if (!seen.has('local_library')) {
-      out.push({ id: 'local_library', name: 'Local Library', source_kind: 'local' });
+
+    const coreBundle = [];
+    if (state.compendiums.some((item) => normalizeToken(item?.id) === 'csrd')) coreBundle.push('csrd');
+    if (state.compendiums.some((item) => normalizeToken(item?.id) === 'core_rulebook')) coreBundle.push('core_rulebook');
+    if (coreBundle.length) {
+      pushEntry({
+        key: 'core_rules',
+        label: 'Core Rules',
+        subtitle: 'CSRD and core rulebook grounding',
+        compendium_ids: coreBundle,
+      });
     }
-    return out;
+
+    for (const item of state.compendiums) {
+      if (!item || item.searchable === false || item.enabled === false) continue;
+      const id = normalizeToken(item.id);
+      if (!id || ['csrd', 'core_rulebook', 'settings_catalog', 'foundryvtt'].includes(id)) continue;
+      const sourceKind = normalizeToken(item.source_kind);
+      if (!['official', 'core_pdf'].includes(sourceKind)) continue;
+      const tags = item.tags || {};
+      const itemGenre = normalizeToken(tags.genre);
+      const itemSetting = normalizeToken(tags.setting);
+      if (!(genreId && itemGenre === genreId) && !(settingId && itemSetting === settingId)) continue;
+      pushEntry({
+        key: id,
+        label: String(item.name || id),
+        subtitle: settingId && itemSetting === settingId ? 'Matches the active setting' : `Tagged for ${titleCase(itemGenre || genreId)}`,
+        compendium_ids: [id],
+      });
+    }
+    return entries;
   }
 
   function renderFilters() {
-    const candidates = compendiumCandidates();
-    const kinds = Array.from(new Set(candidates.map((row) => row.source_kind).filter(Boolean))).sort();
-    if (!kinds.length) {
-      els.sources.textContent = 'No sources available.';
-      els.compendiums.textContent = 'No compendiums available.';
+    state.sourceEntries = eligibleSourceEntries();
+    if (!state.sourceEntries.length) {
+      els.sources.textContent = 'No sources available for the current setting.';
+      fillOptionObjects(els.sourcebook, [], true);
       return;
     }
-    els.sources.innerHTML = kinds.map((kind) => (
-      `<label style="display:block; margin-bottom:4px;">
-        <input type="checkbox" class="ai-source-checkbox" value="${escapeHtml(kind)}" checked />
-        ${escapeHtml(sourceKindLabel(kind))}
+    els.sources.innerHTML = `<div class="ai-checkbox-list">${state.sourceEntries.map((row) => (
+      `<label class="ai-checkbox-row">
+        <input type="checkbox" class="ai-source-checkbox" value="${escapeHtml(row.key)}" data-compendium-ids="${escapeHtml((row.compendium_ids || []).join(','))}" checked />
+        <span class="ai-checkbox-copy">
+          <span>${escapeHtml(row.label)}</span>
+          <span class="small">${escapeHtml(row.subtitle || '')}</span>
+        </span>
       </label>`
-    )).join('');
-    els.compendiums.innerHTML = candidates.map((row) => (
-      `<label style="display:block; margin-bottom:4px;">
-        <input type="checkbox" class="ai-comp-checkbox" value="${escapeHtml(row.id)}" data-kind="${escapeHtml(row.source_kind)}" checked />
-        ${escapeHtml(row.name)} <span class="small">(${escapeHtml(sourceKindLabel(row.source_kind))})</span>
-      </label>`
-    )).join('');
+    )).join('')}</div>`;
+    const sourcebookOptions = state.sourceEntries
+      .map((row) => ({
+        value: row.compendium_ids?.length === 1 ? String(row.compendium_ids[0]) : String(row.key || row.label),
+        label: row.label,
+      }));
+    fillOptionObjects(els.sourcebook, sourcebookOptions, true);
+    applySavedPrefsToFilters();
   }
 
-  function selectedSourceKinds() {
-    const nodes = document.querySelectorAll('.ai-source-checkbox:checked');
-    return new Set(Array.from(nodes).map((node) => String(node.value || '').trim().toLowerCase()).filter(Boolean));
+  function selectedSourceEntryKeys() {
+    return Array.from(document.querySelectorAll('.ai-source-checkbox:checked'))
+      .map((node) => String(node.value || '').trim().toLowerCase())
+      .filter(Boolean);
   }
 
   function selectedCompendiumIds() {
-    const kinds = selectedSourceKinds();
-    const nodes = document.querySelectorAll('.ai-comp-checkbox:checked');
+    const nodes = document.querySelectorAll('.ai-source-checkbox:checked');
     const ids = [];
     for (const node of nodes) {
-      const id = String(node.value || '').trim().toLowerCase();
-      const kind = String(node.getAttribute('data-kind') || '').trim().toLowerCase();
-      if (!id) continue;
-      if (kinds.size && kind && !kinds.has(kind)) continue;
-      if (!ids.includes(id)) ids.push(id);
+      const rawIds = String(node.getAttribute('data-compendium-ids') || '')
+        .split(',')
+        .map((value) => String(value || '').trim().toLowerCase())
+        .filter(Boolean);
+      for (const id of rawIds) {
+        if (!ids.includes(id)) ids.push(id);
+      }
     }
     return ids;
   }
@@ -430,7 +1325,222 @@
     `;
   }
 
-  function renderPrettyOutput(type, obj) {
+  function formatAttackEntry(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return compact(value);
+    const name = compact(value.name);
+    const parts = [
+      compact(value.weapon_type),
+      compact(value.damage) ? `${compact(value.damage)} damage` : '',
+      compact(value.range),
+      compact(value.skill_rating),
+    ].filter(Boolean);
+    if (name && parts.length) return `${name} (${parts.join(', ')})`;
+    return name || parts.join(', ');
+  }
+
+  function formatSkillEntry(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return compact(value);
+    const name = compact(value.name);
+    const level = compact(value.level);
+    if (name && level) return `${level}: ${name}`;
+    return name || level;
+  }
+
+  function splitIntoSuggestionSentences(value) {
+    const text = compact(value);
+    if (!text) return [];
+    return text
+      .split(/(?<=[.!?])\s+/)
+      .map((part) => compact(part))
+      .filter((part) => part.length >= 20)
+      .slice(0, 8);
+  }
+
+  function inferNpcProfessionFromText(text) {
+    const lower = compact(text).toLowerCase();
+    const pairs = [
+      ['innkeeper', 'innkeeper'],
+      ['barkeep', 'innkeeper'],
+      ['mayor', 'mayor'],
+      ['priest', 'priest'],
+      ['judge', 'judge'],
+      ['captain', 'captain'],
+      ['guard', 'guard'],
+      ['merchant', 'merchant'],
+      ['witch', 'witch'],
+      ['hunter', 'hunter'],
+      ['scholar', 'scholar'],
+      ['keeper', 'keeper'],
+    ];
+    for (const [needle, profession] of pairs) {
+      if (lower.includes(needle)) return profession;
+    }
+    return '';
+  }
+
+  function inferSuggestionTypeFromText(text) {
+    const lower = compact(text).toLowerCase();
+    if (!lower) return '';
+    if (/(inn|tavern|roadhouse|hostel|public house|alehouse)/.test(lower)) return 'inn';
+    if (/(mayor|innkeeper|barkeep|priest|judge|captain|guard captain|merchant|witch|hunter|scholar|keeper|lord|lady|reeve)/.test(lower)) return 'npc';
+    if (/(courthouse|temple|shrine|market|gate|tower|bridge|keep|hall|archive|dock|harbor|harbour|ruin|cairn|circle|graveyard|cemetery|manor|mill|forge|watchtower)/.test(lower)) return 'landmark';
+    if (/(beast|creature|monster|wolf|dragon|spider|horror|predator|ghoul|wraith|spirit)/.test(lower)) return 'creature';
+    if (/(district|quarter|village|hamlet|camp|outpost|steading|settlement)/.test(lower)) return 'settlement';
+    return '';
+  }
+
+  function cardAnchorLocation(type, obj) {
+    const t = String(type || '').toLowerCase();
+    if (compact(obj?.location)) return compact(obj.location);
+    if (compact(obj?.metadata?.location)) return compact(obj.metadata.location);
+    if (['settlement', 'landmark', 'inn'].includes(t)) return compact(obj?.name) || compact(obj?.title);
+    return String(els.location?.value || '').trim();
+  }
+
+  function renderSuggestionButtons(suggestions) {
+    const items = Array.isArray(suggestions) ? suggestions : [];
+    if (!items.length) return '';
+    return `
+      <div style="margin-top:14px;">
+        <strong>Suggested Additions:</strong>
+        <div class="ai-suggestion-list">
+          ${items.map((item, index) => `<button type="button" class="secondary ai-suggest-generate-btn" data-suggestion-index="${index}">${escapeHtml(item?.label || 'Generate')}</button>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  function deriveCardSuggestions(type, obj) {
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return [];
+    const suggestions = [];
+    const seen = new Set();
+    const anchorLocation = cardAnchorLocation(type, obj);
+    const anchorName = compact(obj.name) || compact(obj.title) || labelForType(type);
+
+    function pushSuggestion(suggestion) {
+      if (!suggestion || !suggestion.type || !suggestion.brief) return;
+      const key = `${suggestion.type}|${suggestion.label}|${suggestion.brief}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      suggestions.push(suggestion);
+    }
+
+    function addSentenceSuggestions(value, sourceLabel) {
+      for (const sentence of splitIntoSuggestionSentences(value)) {
+        const inferredType = inferSuggestionTypeFromText(sentence);
+        if (!inferredType) continue;
+        const npcProfession = inferredType === 'npc' ? inferNpcProfessionFromText(sentence) : '';
+        const sourceText = sourceLabel ? `${sourceLabel} on ${anchorName}` : anchorName;
+        pushSuggestion({
+          type: inferredType,
+          location: anchorLocation,
+          generationPreferences: npcProfession ? { ...currentNpcPreferences(), profession: npcProfession } : {},
+          label: `${labelForType(inferredType)} from sentence`,
+          brief: `Create a ${labelForType(inferredType).toLowerCase()} card from this sentence in ${sourceText}: "${sentence}" Keep it tied to ${anchorName}, the active area, and the current local lore.`,
+        });
+      }
+    }
+
+    const t = String(type || '').toLowerCase();
+    if (t === 'settlement') {
+      const landmarkName = compact(obj.landmark);
+      const innName = compact(obj.local_inn_or_tavern);
+      const baseSummary = [compact(obj.description), compact(obj.environment), compact(obj.atmosphere), compact(obj.current_tension)].filter(Boolean).join(' ');
+      if (landmarkName) {
+        pushSuggestion({
+          type: 'landmark',
+          location: compact(obj.name),
+          generationPreferences: {},
+          label: `Generate landmark: ${landmarkName}`,
+          brief: `Create a landmark card for "${landmarkName}" tied to the settlement "${anchorName}". Base it on this settlement context: ${baseSummary || anchorName}. Include history, distinctive features, risks, and hooks that fit the local lore.`,
+        });
+      }
+      if (innName) {
+        pushSuggestion({
+          type: 'inn',
+          location: compact(obj.name),
+          generationPreferences: {},
+          label: `Generate inn: ${innName}`,
+          brief: `Create an inn card for "${innName}" in the settlement "${anchorName}". Keep the inn name exactly as "${innName}". Base it on this settlement context: ${baseSummary || anchorName}. Include atmosphere, clientele, notable features, and a rumor or hook rooted in local lore.`,
+        });
+        pushSuggestion({
+          type: 'npc',
+          location: innName,
+          generationPreferences: { ...currentNpcPreferences(), profession: 'innkeeper' },
+          label: `Generate innkeeper for ${innName}`,
+          brief: `Create the innkeeper or proprietor for "${innName}" in the settlement "${anchorName}". Invent a fresh personal name that is not one of the recently generated innkeeper names unless the brief explicitly names the character. Base the NPC on this inn and settlement context: ${baseSummary || anchorName}. Make the NPC feel native to the local lore and suitable for running or owning the inn.`,
+        });
+      }
+    }
+
+    if (t === 'inn' && compact(obj.proprietor)) {
+      pushSuggestion({
+        type: 'npc',
+        location: compact(obj.name),
+        generationPreferences: { ...currentNpcPreferences(), profession: inferNpcProfessionFromText(obj.proprietor) || 'innkeeper' },
+        label: `Generate proprietor: ${compact(obj.proprietor)}`,
+        brief: `Create the proprietor "${compact(obj.proprietor)}" for the inn "${anchorName}". Keep the NPC name exactly as "${compact(obj.proprietor)}". Use the inn's atmosphere, clientele, and local lore context to shape the NPC.`,
+      });
+    }
+
+    if (t === 'encounter' && Array.isArray(obj.creatures)) {
+      obj.creatures.slice(0, 4).forEach((entry, index) => {
+        const creatureName = compact(entry?.name);
+        if (!creatureName) return;
+        const inferredType = compact(entry?.interaction) || compact(entry?.profession) || compact(entry?.culture) ? 'npc' : 'creature';
+        pushSuggestion({
+          type: inferredType,
+          location: anchorLocation,
+          generationPreferences: {},
+          label: `Generate ${labelForType(inferredType).toLowerCase()}: ${creatureName}`,
+          brief: `Create a full ${labelForType(inferredType).toLowerCase()} card for "${creatureName}" based on its mention in the encounter "${anchorName}". Use this encounter as context and stay grounded in the current local lore.`,
+        });
+      });
+    }
+
+    [
+      ['description', obj.description],
+      ['situation', obj.situation],
+      ['history', obj.history],
+      ['current tension', obj.current_tension],
+      ['atmosphere', obj.atmosphere],
+      ['notable feature', obj.notable_feature],
+      ['visual feature', obj.visual_feature],
+      ['rumor', obj.rumor_or_hook],
+      ['combat', obj.combat],
+      ['interaction', obj.interaction],
+      ['use', obj.use],
+    ].forEach(([label, value]) => addSentenceSuggestions(value, label));
+
+    ['hooks', 'rumors', 'risks', 'loot', 'tactics'].forEach((key) => {
+      asArray(obj[key]).forEach((value) => addSentenceSuggestions(value, key));
+    });
+
+    return suggestions.slice(0, 8);
+  }
+
+  function renderLinkedCards(linkedCards) {
+    const items = Array.isArray(linkedCards) ? linkedCards : [];
+    if (!items.length) return '';
+    return `
+      <div class="ai-linked-card-list">
+        ${items.map((item, index) => `
+          <div class="ai-linked-card">
+            <div class="ai-linked-card-header">
+              <strong>${escapeHtml(item?.label || labelForType(item?.type || '') || 'Linked Card')}</strong>
+              <div class="ai-linked-card-actions">
+                <button type="button" class="secondary ai-chain-load-btn" data-chain-index="${index}">Load Into Main</button>
+                <button type="button" class="secondary ai-chain-save-btn" data-chain-index="${index}">Save Card</button>
+              </div>
+            </div>
+            ${renderPrettyOutput(item?.type || 'free_text', item?.card || {}, { linkedCards: [] })}
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderPrettyOutput(type, obj, options = {}) {
     if (!obj || typeof obj !== 'object' || Array.isArray(obj)) {
       return `<div class="small">No structured JSON detected.</div>`;
     }
@@ -514,6 +1624,22 @@
       `;
     }
 
+    if (t === 'inn') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Inn Type', obj.inn_type)}
+          ${renderRow('Atmosphere', obj.atmosphere)}
+          ${renderRow('Clientele', obj.clientele)}
+          ${renderRow('Notable Feature', obj.notable_feature)}
+          ${renderRow('Proprietor', obj.proprietor)}
+          ${renderRow('Rumor or Hook', obj.rumor_or_hook)}
+          ${renderRow('Description', obj.description)}
+        </div>
+      `;
+    }
+
     if (t === 'landmark') {
       return `
         <div>
@@ -530,7 +1656,7 @@
       `;
     }
 
-    if (t === 'npc') {
+    if (t === 'creature') {
       return `
         <div>
           <h3 style="margin:0 0 8px;">${escapeHtml(name)}${compact(obj.level) ? ` (Lv ${escapeHtml(compact(obj.level))})` : ''}</h3>
@@ -548,6 +1674,75 @@
           ${renderRow('Use', obj.use)}
           ${renderRow('GM Intrusion', obj.gm_intrusion)}
           ${renderRow('Loot', obj.loot)}
+        </div>
+      `;
+    }
+
+    if (t === 'npc') {
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}${compact(obj.level) ? ` (Lv ${escapeHtml(compact(obj.level))})` : ''}</h3>
+          ${renderRow('Type', typeText)}
+          ${renderRow('Description', obj.description)}
+          ${renderRow('Race', obj.race)}
+          ${renderRow('Variant', obj.variant || obj?.metadata?.variant)}
+          ${renderRow('Gender', obj.gender)}
+          ${renderRow('Profession', obj.profession)}
+          ${renderRow('Culture', obj.culture || obj?.metadata?.culture)}
+          ${renderRow('Motive', obj.motive)}
+          ${renderRow('Environment', obj.environment)}
+          ${renderRow('Health', obj.health)}
+          ${renderRow('Armor', obj.armor)}
+          ${renderRow('Damage Inflicted', obj.damage_inflicted)}
+          ${renderRow('Movement', obj.movement)}
+          ${renderRow('Modifications', obj.modifications)}
+          ${renderRow('Combat', obj.combat)}
+          ${renderRow('Interaction', obj.interaction)}
+          ${renderRow('Use', obj.use)}
+          ${renderRow('GM Intrusion', obj.gm_intrusion)}
+          ${renderRow('Loot', obj.loot)}
+        </div>
+      `;
+    }
+
+    if (t === 'player_character') {
+      const chosenAbilities = asArray(obj.chosen_abilities).map((v) => compact(v)).filter(Boolean);
+      const attacks = asArray(obj.attacks).map((v) => formatAttackEntry(v)).filter(Boolean);
+      const startingEquipment = asArray(obj.starting_equipment).map((v) => compact(v)).filter(Boolean);
+      const chosenSkills = (Array.isArray(obj.chosen_skills) ? obj.chosen_skills : []).map((item) => formatSkillEntry(item)).filter(Boolean);
+      return `
+        <div>
+          <h3 style="margin:0 0 8px;">${escapeHtml(name)}</h3>
+          ${renderRow('Sentence', obj.sentence)}
+          ${renderRow('Type', obj.type)}
+          ${renderRow('Flavor', obj.flavor)}
+          ${renderRow('Descriptor', obj.descriptor)}
+          ${renderRow('Focus', obj.focus)}
+          ${renderRow('Race', obj?.metadata?.race || obj.race)}
+          ${renderRow('Variant', obj?.metadata?.variant || obj.variant)}
+          ${renderRow('Gender', obj?.metadata?.gender || obj.gender)}
+          ${renderRow('Profession', obj?.metadata?.profession || obj.profession)}
+          ${renderRow('Culture', obj?.metadata?.culture || obj.culture)}
+          ${renderRow('Area', obj?.metadata?.area || obj.area)}
+          ${renderRow('Effort', obj.effort)}
+          ${renderRow('Cypher Limit', obj.cypher_limit)}
+          ${renderRow('Weapons', obj.weapons)}
+          ${renderRow('Pools (Max)', obj?.pools?.max ? `M ${obj.pools.max.might} / S ${obj.pools.max.speed} / I ${obj.pools.max.intellect}` : '')}
+          ${renderRow('Pools (Current)', obj?.pools?.current ? `M ${obj.pools.current.might} / S ${obj.pools.current.speed} / I ${obj.pools.current.intellect}` : '')}
+          ${renderRow('Edges', obj?.edges ? `M ${obj.edges.might} / S ${obj.edges.speed} / I ${obj.edges.intellect}` : '')}
+          ${renderList('Chosen Abilities', chosenAbilities)}
+          ${chosenSkills.length ? `
+            <div style="margin: 8px 0;">
+              <strong>Chosen Skills:</strong>
+              <ul style="margin:6px 0 0 18px;">
+                ${chosenSkills.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+          ${renderList('Attacks', attacks)}
+          ${renderList('Starting Equipment', startingEquipment)}
+          ${renderList('Equipment', obj.equipment)}
+          ${renderRow('Notes', obj.notes)}
         </div>
       `;
     }
@@ -611,6 +1806,7 @@
     if (t === 'artifact' && !compact(out.type)) out.type = 'artifact';
     if (t === 'encounter' && !compact(out.type)) out.type = 'encounter';
     if (t === 'settlement' && !compact(out.type)) out.type = 'settlement';
+    if (t === 'inn' && !compact(out.type)) out.type = 'inn';
     if (t === 'npc' && !compact(out.type)) out.type = 'npc';
     return out;
   }
@@ -619,6 +1815,105 @@
     const data = await fetchJson('/compendiums');
     state.compendiums = Array.isArray(data.items) ? data.items : [];
     renderFilters();
+  }
+
+  async function loadLocationsForArea(area) {
+    const normalizedArea = String(area || '').trim();
+    if (!els.location) return;
+    if (!normalizedArea) {
+      state.locationsByArea.delete('');
+      fillOptionObjects(els.location, [], true, 'Select an area first');
+      els.location.disabled = true;
+      return;
+    }
+    if (state.locationsByArea.has(normalizedArea)) {
+      const cached = state.locationsByArea.get(normalizedArea) || [];
+      fillOptionObjects(els.location, cached, true);
+      els.location.disabled = false;
+      return;
+    }
+    const data = await fetchJson(`/storage/search?area=${encodeURIComponent(normalizedArea)}`);
+    const items = Array.isArray(data?.items) ? data.items : [];
+    const options = items
+      .map((item) => {
+        const name = String(item?.name || '').trim();
+        const itemType = String(item?.type || '').trim().toLowerCase();
+        const subtype = String(item?.metadata?.subtype || item?.metadata?.location_category_type || '').trim();
+        const normalizedSubtype = subtype.toLowerCase();
+        if (!name) return null;
+        if (!LOCATION_CARD_TYPES.has(itemType) && !LOCATION_CARD_SUBTYPES.has(normalizedSubtype)) {
+          return null;
+        }
+        const labelType = subtype || item?.type || '';
+        return {
+          value: name,
+          label: labelType ? `${name} (${labelType})` : name,
+        };
+      })
+      .filter((item) => item && item.value);
+    const deduped = Array.from(new Map(options.map((item) => [item.value, item])).values())
+      .sort((a, b) => a.label.localeCompare(b.label));
+    state.locationsByArea.set(normalizedArea, deduped);
+    fillOptionObjects(els.location, deduped, true, deduped.length ? 'None' : 'No saved locations found');
+    els.location.disabled = false;
+  }
+
+  async function loadMeta() {
+    const data = await fetchJson('/meta');
+    const raceData = await fetchJson('/meta/races');
+    state.settingsNav = data.settings_nav || {};
+    state.races = raceData?.races || {};
+    fillSelect(els.setting, data.settings || [], true);
+    fillSelect(els.area, data.areas || data.environments || [], true);
+    fillSelect(els.npcRace, data.races || [], true);
+    updateVariantOptions();
+    fillSelect(els.npcGender, data.genders || [], true);
+    fillDatalist(els.npcProfessionList, data.professions || []);
+    if (els.setting && !String(els.setting.value || '').trim()) {
+      els.setting.value = String(document.getElementById('nav-world-setting')?.value || '');
+    }
+    renderFilters();
+    await loadLocationsForArea(String(els.area?.value || '').trim());
+  }
+
+  function updateGeneratorCards() {
+    const type = String(els.type?.value || '').trim().toLowerCase();
+    const hasType = Boolean(type);
+    const showImage = hasType && imageSupportedForType(type);
+    const config = TYPE_CONFIG[type] || {};
+    if (els.emptyState) {
+      els.emptyState.hidden = hasType;
+    }
+    if (els.typeIntro) {
+      els.typeIntro.hidden = !hasType;
+    }
+    if (els.typeIntroTitle) {
+      els.typeIntroTitle.textContent = config.introTitle || labelForType(type) || 'Generator Setup';
+    }
+    if (els.typeIntroCopy) {
+      els.typeIntroCopy.textContent = config.introCopy || 'Choose a type to load focused guidance.';
+    }
+    if (els.briefCopy) {
+      els.briefCopy.textContent = config.briefCopy || 'Describe what you want generated.';
+    }
+    if (els.imageCopy) {
+      els.imageCopy.textContent = config.imageCopy || 'Use a portrait, scene, or object image when visual cues matter.';
+    }
+    if (els.metadataCopy) {
+      els.metadataCopy.textContent = config.metadataCopy || 'Ground the result in the current setting and local context.';
+    }
+    if (els.sourcesCopy) {
+      els.sourcesCopy.textContent = config.sourcesCopy || 'Use the active setting’s lore plus genre-matched books.';
+    }
+    if (els.schemaCopy) {
+      els.schemaCopy.textContent = config.schemaCopy || 'This is the structure the model is being asked to return.';
+    }
+    if (els.cardBrief) els.cardBrief.hidden = !hasType;
+    if (els.cardImage) els.cardImage.hidden = !showImage;
+    if (els.cardMetadata) els.cardMetadata.hidden = !hasType;
+    if (els.cardSources) els.cardSources.hidden = !hasType;
+    if (els.cardSchema) els.cardSchema.hidden = !hasType;
+    if (els.generateBtn) els.generateBtn.disabled = !hasType;
   }
 
   function renderCitations(citations) {
@@ -638,15 +1933,139 @@
   function updateImageUi() {
     if (state.imageDataUrl) {
       els.imageMeta.textContent = imageSupportedForType(els.type?.value)
-        ? `Selected image: ${state.imageName || 'uploaded image'}. Ollama will use llama3.2-vision for this generation.`
-        : `Selected image: ${state.imageName || 'uploaded image'}. The image will still be sent, but this type has less specialized visual prompting.`;
+        ? `Selected image: ${state.imageName || 'uploaded image'}${state.imageSourceUrl ? ` from ${state.imageSourceUrl}` : ''}. Ollama will use llama3.2-vision for this generation.`
+        : `Selected image: ${state.imageName || 'uploaded image'}${state.imageSourceUrl ? ` from ${state.imageSourceUrl}` : ''}. The image will still be sent, but this type has less specialized visual prompting.`;
       els.imagePreviewWrap.style.display = '';
       els.imagePreview.src = state.imageDataUrl;
+      updateDetectButtonState();
       return;
     }
     els.imageMeta.textContent = 'No image selected.';
     els.imagePreviewWrap.style.display = 'none';
     els.imagePreview.removeAttribute('src');
+    updateDetectButtonState();
+  }
+
+  function updateDetectButtonState() {
+    if (!els.detectCharacterBtn) return;
+    const type = String(els.type?.value || '').trim().toLowerCase();
+    els.detectCharacterBtn.disabled = !state.imageDataUrl || !['npc', 'player_character'].includes(type);
+  }
+
+  function currentContextPayload() {
+    return {
+      provider: String(els.provider?.value || 'ollama_local').trim().toLowerCase(),
+      setting: String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim(),
+      area: String(els.area?.value || '').trim(),
+      location: String(els.location?.value || '').trim(),
+      sourcebook: String(els.sourcebook?.value || '').trim(),
+      compendium_ids: selectedCompendiumIds(),
+      generation_preferences: currentNpcPreferences(),
+      recent_examples: loadRecentGenerationHints(),
+      image_data_url: state.imageDataUrl,
+    };
+  }
+
+  async function requestAiGeneration({ type, brief, location = '', generationPreferences = null, imageDataUrl = undefined }) {
+    return fetchJson('/ai-generate/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...currentContextPayload(),
+        provider: String(els.provider?.value || 'ollama_local').trim().toLowerCase(),
+        content_type: type,
+        brief: String(brief || '').trim(),
+        location: String(location || currentContextPayload().location || '').trim(),
+        schema: schemaForType(type),
+        k: 12,
+        generation_preferences: generationPreferences || currentNpcPreferences(),
+        image_data_url: imageDataUrl === undefined ? state.imageDataUrl : imageDataUrl,
+      }),
+    });
+  }
+
+  function renderCurrentOutput() {
+    if (!state.parsedCard || typeof state.parsedCard !== 'object') {
+      els.rendered.innerHTML = '<div class="small">No structured JSON detected.</div>';
+      return;
+    }
+    state.suggestions = deriveCardSuggestions(state.lastType || String(els.type?.value || 'free_text'), state.parsedCard);
+    els.rendered.innerHTML = [
+      renderPrettyOutput(state.lastType || String(els.type?.value || 'free_text'), state.parsedCard),
+      renderSuggestionButtons(state.suggestions),
+      renderLinkedCards(state.linkedCards),
+    ].join('');
+  }
+
+  async function generateSuggestedCard(index) {
+    const suggestion = Array.isArray(state.suggestions) ? state.suggestions[index] : null;
+    if (!suggestion) {
+      els.status.textContent = 'Suggestion not found.';
+      return;
+    }
+    const providerLabel = String(els.provider?.value || 'ollama_local').trim().toLowerCase() === 'openai_remote' ? 'OpenAI' : 'Ollama';
+    els.status.textContent = `Generating ${suggestion.label} with ${providerLabel}...`;
+    const data = await requestAiGeneration({
+      type: suggestion.type,
+      brief: suggestion.brief,
+      location: suggestion.location,
+      generationPreferences: suggestion.generationPreferences || {},
+      imageDataUrl: '',
+    });
+    const parsed = extractJsonObject(String(data.answer || '').trim());
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      throw new Error(`No structured JSON returned for ${suggestion.label}.`);
+    }
+    const normalizedCard = applyTypeDefaults(suggestion.type, parsed);
+    rememberGeneratedCard(normalizedCard);
+    state.linkedCards = [
+      {
+        key: `${suggestion.type}:${suggestion.label}`,
+        label: suggestion.label,
+        type: suggestion.type,
+        location: suggestion.location,
+        generationPreferences: suggestion.generationPreferences || {},
+        card: normalizedCard,
+      },
+      ...state.linkedCards,
+    ].slice(0, 8);
+    renderCurrentOutput();
+    els.status.textContent = `Generated ${suggestion.label}.`;
+  }
+
+  async function saveLinkedCard(index) {
+    const item = Array.isArray(state.linkedCards) ? state.linkedCards[index] : null;
+    if (!item || !item.card) {
+      els.status.textContent = 'Linked card not found.';
+      return;
+    }
+    const payload = {
+      setting: String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim(),
+      settings: String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim()
+        ? [String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim()]
+        : [],
+      area: String(els.area?.value || '').trim(),
+      environment: String(els.area?.value || '').trim(),
+      location: compact(item.location || item.card?.metadata?.location || item.card?.location || ''),
+      race: item.type === 'npc' ? compact(item.card?.race) : '',
+      variant: item.type === 'npc' ? compact(item.card?.variant) : '',
+      gender: item.type === 'npc' ? compact(item.card?.gender) : '',
+      profession: item.type === 'npc' ? compact(item.card?.profession) : '',
+      culture: item.type === 'npc' ? compact(item.card?.culture) : '',
+      sourcebook: String(els.sourcebook?.value || '').trim(),
+      page: String(els.page?.value || '').trim(),
+    };
+    const data = await fetchJson('/ai-generate/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content_type: item.type,
+        card: item.card,
+        payload,
+      }),
+    });
+    const filename = String(data?.result?.storage?.filename || '');
+    els.status.textContent = filename ? `Saved linked card: ${filename}` : 'Linked card saved.';
   }
 
   function readFileAsDataUrl(file) {
@@ -669,27 +2088,25 @@
     const allowedCompendiumIds = selectedCompendiumIds();
     const provider = String(els.provider?.value || 'ollama_local').trim().toLowerCase();
     const providerLabel = provider === 'openai_remote' ? 'OpenAI' : 'Ollama';
+    const npcPreferences = currentNpcPreferences();
 
     els.status.textContent = state.imageDataUrl
       ? `Generating with ${providerLabel} from image${brief ? ' + brief' : ''}...`
       : `Generating with ${providerLabel}...`;
     state.parsedCard = null;
+    state.linkedCards = [];
+    setOutputEditMode(false);
     setSaveEnabled(false);
     els.output.textContent = '';
+    if (els.outputEditor) {
+      els.outputEditor.value = '';
+    }
     els.citations.textContent = '';
     try {
-      const data = await fetchJson('/ai-generate/run', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          provider,
-          content_type: type,
-          brief,
-          schema,
-          k: 12,
-          compendium_ids: allowedCompendiumIds,
-          image_data_url: state.imageDataUrl,
-        }),
+      const data = await requestAiGeneration({
+        type,
+        brief,
+        generationPreferences: npcPreferences,
       });
       const answer = String(data.answer || '').trim();
       state.lastType = type;
@@ -698,7 +2115,8 @@
       if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
         const normalized = applyTypeDefaults(type, parsed);
         state.parsedCard = normalized;
-        els.rendered.innerHTML = renderPrettyOutput(type, normalized);
+        rememberGeneratedCard(normalized);
+        renderCurrentOutput();
         els.output.textContent = JSON.stringify(normalized, null, 2);
         setSaveEnabled(true);
       } else {
@@ -707,6 +2125,7 @@
         setSaveEnabled(false);
       }
       renderCitations(data.citations || []);
+      savePrefs(captureGenerationPrefs());
       const modelInfo = String(data.model || 'model');
       els.status.textContent = data.image_used
         ? `Done with ${modelInfo} using image analysis.`
@@ -714,6 +2133,92 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       els.status.textContent = `Generation failed: ${err.message}`;
+    }
+  }
+
+  async function detectCharacterFromImage() {
+    const type = String(els.type?.value || '').trim().toLowerCase();
+    if (!['npc', 'player_character'].includes(type)) {
+      els.status.textContent = 'Auto-detect only works for NPC or Player Character.';
+      return;
+    }
+    if (!state.imageDataUrl) {
+      els.status.textContent = 'Select an image first.';
+      return;
+    }
+    const provider = String(els.provider?.value || 'ollama_local').trim().toLowerCase();
+    const providerLabel = provider === 'openai_remote' ? 'OpenAI' : 'Ollama';
+    els.status.textContent = `Detecting character details with ${providerLabel}...`;
+    try {
+      const data = await fetchJson('/ai-generate/detect-character', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          provider,
+          content_type: type,
+          brief: String(els.brief?.value || '').trim(),
+          image_data_url: state.imageDataUrl,
+          setting: String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim(),
+          area: String(els.area?.value || '').trim(),
+          location: String(els.location?.value || '').trim(),
+          sourcebook: String(els.sourcebook?.value || '').trim(),
+          compendium_ids: selectedCompendiumIds(),
+        }),
+      });
+      const detection = data?.detection || {};
+      if (els.npcRace && detection.race && Array.from(els.npcRace.options).some((opt) => opt.value === detection.race)) {
+        els.npcRace.value = String(detection.race);
+      }
+      if (els.npcGender && detection.gender && Array.from(els.npcGender.options).some((opt) => opt.value === detection.gender)) {
+        els.npcGender.value = String(detection.gender);
+      }
+      if (els.npcProfession && detection.profession) {
+        els.npcProfession.value = String(detection.profession);
+      }
+      if (els.npcCulture) {
+        els.npcCulture.value = String(detection.culture || '');
+      }
+      renderCitations(data.citations || []);
+      savePrefs(captureGenerationPrefs());
+      const bits = [
+        detection.race ? `race ${detection.race}` : '',
+        detection.gender ? `gender ${detection.gender}` : '',
+        detection.profession ? `profession ${detection.profession}` : '',
+        detection.culture ? `culture ${detection.culture}` : '',
+      ].filter(Boolean);
+      const summary = String(detection.appearance_summary || '').trim();
+      const confidence = String(detection.confidence || '').trim();
+      els.status.textContent = bits.length
+        ? `Detected ${bits.join(', ')}${confidence ? ` (${confidence} confidence)` : ''}${summary ? `. ${summary}` : ''}`
+        : 'No confident character details detected from the image.';
+    } catch (err) {
+      els.status.textContent = `Auto-detect failed: ${err.message}`;
+    }
+  }
+
+  async function loadImageFromUrl() {
+    const imageUrl = String(els.imageUrl?.value || '').trim();
+    if (!imageUrl) {
+      els.status.textContent = 'Enter an image URL first.';
+      return;
+    }
+    els.status.textContent = 'Downloading image from URL...';
+    try {
+      const data = await fetchJson('/ai-generate/image-from-url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: imageUrl }),
+      });
+      state.imageDataUrl = String(data?.image_data_url || '');
+      state.imageName = String(data?.image_name || 'remote image');
+      state.imageSourceUrl = imageUrl;
+      if (els.imageInput) {
+        els.imageInput.value = '';
+      }
+      updateImageUi();
+      els.status.textContent = `Loaded image from URL: ${state.imageName}`;
+    } catch (err) {
+      els.status.textContent = `Image URL load failed: ${err.message}`;
     }
   }
 
@@ -737,9 +2242,20 @@
       return;
     }
     const payload = {
-      setting: document.getElementById('nav-world-setting')?.value || '',
-      area: '',
-      location: '',
+      setting: String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim(),
+      settings: String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim()
+        ? [String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim()]
+        : [],
+      area: String(els.area?.value || '').trim(),
+      environment: String(els.area?.value || '').trim(),
+      location: String(els.location?.value || '').trim(),
+      race: String(els.npcRace?.value || '').trim(),
+      variant: String(els.npcVariant?.value || '').trim(),
+      gender: String(els.npcGender?.value || '').trim(),
+      profession: String(els.npcProfession?.value || '').trim(),
+      culture: String(els.npcCulture?.value || '').trim(),
+      sourcebook: String(els.sourcebook?.value || '').trim(),
+      page: String(els.page?.value || '').trim(),
     };
     els.status.textContent = 'Saving card...';
     try {
@@ -766,16 +2282,57 @@
 
   function clearAll() {
     els.brief.value = '';
+    if (els.setting) {
+      els.setting.value = String(document.getElementById('nav-world-setting')?.value || '');
+    }
+    if (els.area) {
+      els.area.value = '';
+    }
+    if (els.location) {
+      els.location.value = '';
+    }
+    if (els.sourcebook) {
+      els.sourcebook.value = '';
+    }
+    if (els.page) {
+      els.page.value = '';
+    }
+    if (els.npcRace) {
+      els.npcRace.value = '';
+    }
+    if (els.npcVariant) {
+      els.npcVariant.value = '';
+      els.npcVariant.disabled = true;
+    }
+    if (els.npcGender) {
+      els.npcGender.value = '';
+    }
+    if (els.npcProfession) {
+      els.npcProfession.value = '';
+    }
+    if (els.npcCulture) {
+      els.npcCulture.value = '';
+    }
     state.parsedCard = null;
+    state.linkedCards = [];
+    state.suggestions = [];
     state.lastRawAnswer = '';
     state.imageDataUrl = '';
     state.imageName = '';
+    state.imageSourceUrl = '';
     if (els.imageInput) {
       els.imageInput.value = '';
     }
+    if (els.imageUrl) {
+      els.imageUrl.value = '';
+    }
     updateImageUi();
+    setOutputEditMode(false);
     setSaveEnabled(false);
     els.output.textContent = '';
+    if (els.outputEditor) {
+      els.outputEditor.value = '';
+    }
     els.rendered.innerHTML = '';
     els.citations.textContent = 'No citations yet.';
     els.status.textContent = 'Cleared.';
@@ -784,24 +2341,86 @@
   els.type?.addEventListener('change', () => {
     renderSchema(String(els.type?.value || 'free_text'));
     updateImageUi();
+    updateTypeSpecificOptions();
+  });
+  els.area?.addEventListener('change', async () => {
+    try {
+      await loadLocationsForArea(String(els.area?.value || '').trim());
+    } catch (err) {
+      fillOptionObjects(els.location, [], true, 'Failed to load locations');
+      if (els.location) {
+        els.location.disabled = true;
+      }
+      els.status.textContent = `Location load failed: ${err.message}`;
+    }
+  });
+  els.npcRace?.addEventListener('change', () => {
+    updateVariantOptions();
+  });
+  els.setting?.addEventListener('change', () => {
+    renderFilters();
   });
   els.generateBtn?.addEventListener('click', doGenerate);
+  els.outputEditBtn?.addEventListener('click', toggleOutputEdit);
+  els.outputRegenerateBtn?.addEventListener('click', doGenerate);
+  els.detectCharacterBtn?.addEventListener('click', detectCharacterFromImage);
   els.saveBtn?.addEventListener('click', saveCard);
+  els.outputSaveBtn?.addEventListener('click', saveCard);
+  els.rendered?.addEventListener('click', async (event) => {
+    const suggestBtn = event.target.closest('.ai-suggest-generate-btn');
+    if (suggestBtn) {
+      try {
+        await generateSuggestedCard(Number(suggestBtn.getAttribute('data-suggestion-index')));
+      } catch (err) {
+        els.status.textContent = `Suggested generation failed: ${err.message}`;
+      }
+      return;
+    }
+    const loadBtn = event.target.closest('.ai-chain-load-btn');
+    if (loadBtn) {
+      const index = Number(loadBtn.getAttribute('data-chain-index'));
+      const item = Array.isArray(state.linkedCards) ? state.linkedCards[index] : null;
+      if (!item || !item.card) {
+        els.status.textContent = 'Linked card not found.';
+        return;
+      }
+      state.lastType = item.type;
+      state.parsedCard = item.card;
+      state.linkedCards = [];
+      els.output.textContent = JSON.stringify(item.card, null, 2);
+      setSaveEnabled(true);
+      renderCurrentOutput();
+      els.status.textContent = `Loaded ${item.label} into the main output.`;
+      return;
+    }
+    const saveBtn = event.target.closest('.ai-chain-save-btn');
+    if (saveBtn) {
+      try {
+        await saveLinkedCard(Number(saveBtn.getAttribute('data-chain-index')));
+      } catch (err) {
+        els.status.textContent = `Linked save failed: ${err.message}`;
+      }
+    }
+  });
   els.copyBtn?.addEventListener('click', copyOutput);
   els.clearBtn?.addEventListener('click', clearAll);
   els.sourcesAllBtn?.addEventListener('click', () => setAllBySelector('.ai-source-checkbox', true));
   els.sourcesNoneBtn?.addEventListener('click', () => setAllBySelector('.ai-source-checkbox', false));
-  els.compAllBtn?.addEventListener('click', () => setAllBySelector('.ai-comp-checkbox', true));
-  els.compNoneBtn?.addEventListener('click', () => setAllBySelector('.ai-comp-checkbox', false));
   els.imageClearBtn?.addEventListener('click', () => {
     state.imageDataUrl = '';
     state.imageName = '';
+    state.imageSourceUrl = '';
     if (els.imageInput) {
       els.imageInput.value = '';
     }
+    if (els.imageUrl) {
+      els.imageUrl.value = '';
+    }
     updateImageUi();
+    setOutputEditMode(false);
     els.status.textContent = 'Image cleared.';
   });
+  els.imageUrlBtn?.addEventListener('click', loadImageFromUrl);
   els.imageInput?.addEventListener('change', async (event) => {
     const input = event.currentTarget;
     const file = input?.files && input.files[0] ? input.files[0] : null;
@@ -814,13 +2433,21 @@
     try {
       state.imageDataUrl = await readFileAsDataUrl(file);
       state.imageName = String(file.name || 'uploaded image');
+      state.imageSourceUrl = '';
       updateImageUi();
       els.status.textContent = `Loaded image: ${state.imageName}`;
     } catch (err) {
       state.imageDataUrl = '';
       state.imageName = '';
+      state.imageSourceUrl = '';
       updateImageUi();
       els.status.textContent = err.message || 'Failed to load image.';
+    }
+  });
+  els.imageUrl?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      loadImageFromUrl();
     }
   });
   els.brief?.addEventListener('keydown', (event) => {
@@ -830,11 +2457,26 @@
     }
   });
   renderSchema(String(els.type?.value || 'free_text'));
+  setOutputEditMode(false);
   setSaveEnabled(false);
   updateImageUi();
-  loadCompendiums().catch((err) => {
-    els.sources.textContent = `Failed to load sources: ${err.message}`;
-    els.compendiums.textContent = `Failed to load compendiums: ${err.message}`;
+  updateTypeSpecificOptions();
+  Promise.allSettled([loadCompendiums(), loadMeta()]).then(async (results) => {
+    const compendiumResult = results[0];
+    const metaResult = results[1];
+    if (compendiumResult?.status === 'rejected') {
+      els.sources.textContent = `Failed to load sources: ${compendiumResult.reason?.message || 'unknown error'}`;
+      els.compendiums.textContent = `Failed to load compendiums: ${compendiumResult.reason?.message || 'unknown error'}`;
+    }
+    if (metaResult?.status === 'rejected') {
+      els.status.textContent = `Metadata load failed: ${metaResult.reason?.message || 'unknown error'}`;
+      return;
+    }
+    try {
+      await restoreSavedPrefs();
+    } catch (err) {
+      els.status.textContent = `Could not restore last AI generate settings: ${err.message}`;
+    }
   });
 </script>
 {% endblock %}

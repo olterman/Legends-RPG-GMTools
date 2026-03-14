@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T01:56:26.369880+00:00",
+  "filename": "npc/npc_20260314T015626.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "shadowed",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Zyra the Shadowed",
+    "description": "Zyra moves with a grace that belies her small stature, her dark cloak blending seamlessly into the shadows of the alleyways. Her bright yellow eyes glint with mischief and intelligence, hinting at a life spent navigating the dangers of urban life. With a quick wit and a penchant for thievery, she is both a valuable ally and a potential liability, always seeking the next thrill or treasure.",
+    "sections": {
+      "type": "npc",
+      "name": "Zyra the Shadowed",
+      "race": "gitz",
+      "variant": "",
+      "gender": "Female",
+      "profession": "burglar",
+      "culture": "gitz",
+      "level": 3,
+      "health": 11,
+      "armor": 1,
+      "damage_inflicted": 5,
+      "movement": "Short",
+      "modifications": "stealth as level 4",
+      "motive": "To gather secrets and treasures for her clan",
+      "environment": "Urban ruins and shadowy alleys",
+      "combat": "Prefers ambush tactics, striking swiftly before retreating into the shadows",
+      "interaction": "Cunning and playful, she often uses charm to disarm potential threats",
+      "use": "Can serve as a guide through the underbelly of urban areas or as a source of information",
+      "gm_intrusion": "Zyra's playful nature may lead her to trick the players into a dangerous situation",
+      "loot": "Small trinkets, stolen goods, and local secrets",
+      "description": "Zyra moves with a grace that belies her small stature, her dark cloak blending seamlessly into the shadows of the alleyways. Her bright yellow eyes glint with mischief and intelligence, hinting at a life spent navigating the dangers of urban life. With a quick wit and a penchant for thievery, she is both a valuable ally and a potential liability, always seeking the next thrill or treasure.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg",
+        "images": [
+          "uploads/ai_generate/0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "shadowed",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg",
+      "images": [
+        "uploads/ai_generate/0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg",
+      "url": "/images/uploads/ai_generate/0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg",
+      "name": "0f559591ab558fad6c2ac7a1f61e7507_20260314T015626_bfac1879.jpg"
+    }
+  }
+}

@@ -128,6 +128,90 @@ races:
         symbolic threshold markings
 
 
+  lhainim:
+    name: Lhainim
+    group: The First Little Ones
+    character_base: lhainim
+
+    core_truths:
+      - Primordial small folk who belonged to the land before later peoples arrived.
+      - Bound to old balances, sacred places, and instructions older than mortal morality.
+      - Known to mortals through many local kinds such as pixies, pucks, willows, nobs, and redcaps.
+
+    themes:
+      - belonging rather than conquest
+      - ancient service
+      - mischief and correction
+      - living memory of the land
+
+    tone:
+      - mythic
+      - uncanny
+      - playful
+      - dangerous
+
+    avoid:
+      - portraying them as harmless fairy mascots
+      - portraying them as simple nature spirits without agency
+      - reducing them to one temperament or one body type
+
+    visual_defaults:
+      scale: small
+      skin_palette: leaf-bright, bark-muted, moon-pale, or ember-touched tones
+      signature_features:
+        - quick expressive features
+        - old knowing eyes
+        - fey or elemental traits tied to their function
+        - a presence that makes the landscape seem responsive
+
+      clothing: >
+        improvised natural finery, old-path charms,
+        threshold tokens, scavenged ornaments,
+        garments that feel grown, woven, or gifted by place
+
+    variants:
+
+      pixie:
+        label: Pixie
+        appearance:
+          - delicate or sharp-boned features
+          - dragonfly or moth-like wings
+          - luminous dust or color-trailing motion
+        tone: quick guides tricksters sky-dancers
+
+      willow:
+        label: Willow
+        appearance:
+          - reed-slim frame
+          - water-bright hair or moss-soft features
+          - calm ancient stillness
+        tone: quiet wardens of streams groves and boundaries
+
+      puck:
+        label: Puck
+        appearance:
+          - sly grin
+          - agile posture
+          - mismatched or theatrical garb
+        tone: disruptors lesson-teachers boundary-testers
+
+      nob:
+        label: Nob
+        appearance:
+          - compact sturdy build
+          - domestic charms or tool-belts
+          - soot, flour, or hearth marks
+        tone: threshold guardians hearth-keepers loyal bargainers
+
+      redcap:
+        label: Redcap
+        appearance:
+          - feral stare
+          - blood-marked cap or war token
+          - sharp-toothed or iron-shy menace
+        tone: oath-punishers feared wardens of violated ground
+
+
   human:
     name: Humans
     group: The Mortal Peoples

@@ -252,6 +252,16 @@
       </div>
 
       <div class="field">
+        <label for="attacks">Attacks (one per line)</label>
+        <textarea id="attacks" style="min-height:90px;" placeholder="e.g. Sword (medium weapon, 4 damage)"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="starting-equipment">Starting Equipment (one per line)</label>
+        <textarea id="starting-equipment" style="min-height:90px;" placeholder="Type-based starting gear and chosen items"></textarea>
+      </div>
+
+      <div class="field">
         <label for="equipment">Equipment (one per line)</label>
         <textarea id="equipment" style="min-height:100px;"></textarea>
       </div>
@@ -267,9 +277,7 @@
         <div id="pdf-fields-editor" class="field"></div>
       </details>
 
-      <div class="actions">
-        <button type="button" id="generate-btn">Generate Name + Flavor</button>
-      </div>
+      <div class="small">Legacy standalone character generation has been retired. Use this studio workflow for sheet-ready characters.</div>
     </div>
 
     <div class="status" id="status">Loading studio data...</div>
@@ -293,6 +301,7 @@
       pools: { might: 10, speed: 10, intellect: 8 },
       effort: 1,
       cypher_limit: 2,
+      starting_equipment: 'Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items.',
       edge_profiles: [
         { label: 'Might 1, Speed 0, Intellect 0', might: 1, speed: 0, intellect: 0 },
         { label: 'Might 0, Speed 1, Intellect 0', might: 0, speed: 1, intellect: 0 }
@@ -303,6 +312,7 @@
       pools: { might: 7, speed: 9, intellect: 12 },
       effort: 1,
       cypher_limit: 3,
+      starting_equipment: 'Appropriate clothing, plus two expensive items, two moderately priced items, and up to four inexpensive items of your choice.',
       edge_profiles: [
         { label: 'Might 0, Speed 0, Intellect 1', might: 0, speed: 0, intellect: 1 }
       ],
@@ -312,6 +322,7 @@
       pools: { might: 10, speed: 9, intellect: 9 },
       effort: 1,
       cypher_limit: 2,
+      starting_equipment: 'Appropriate clothing and a weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items.',
       edge_profiles: [
         { label: 'Might 1, Speed 0, Intellect 0', might: 1, speed: 0, intellect: 0 }
       ],
@@ -321,6 +332,7 @@
       pools: { might: 7, speed: 10, intellect: 11 },
       effort: 1,
       cypher_limit: 2,
+      starting_equipment: 'Appropriate clothing and a light weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items.',
       edge_profiles: [
         { label: 'Might 0, Speed 0, Intellect 1', might: 0, speed: 0, intellect: 1 }
       ],
@@ -394,6 +406,8 @@
     environment: document.getElementById('environment'),
     mood: document.getElementById('mood'),
     seed: document.getElementById('seed'),
+    attacks: document.getElementById('attacks'),
+    startingEquipment: document.getElementById('starting-equipment'),
     equipment: document.getElementById('equipment'),
     notes: document.getElementById('notes'),
     abilityRemaining: document.getElementById('ability-remaining'),
@@ -409,7 +423,6 @@
     recovery1Hr: document.getElementById('recovery-1hr'),
     recovery10Hr: document.getElementById('recovery-10hr'),
 
-    generateBtn: document.getElementById('generate-btn'),
     printBtn: document.getElementById('print-btn'),
     downloadPdfBtn: document.getElementById('download-pdf-btn'),
     exportFoundryBtn: document.getElementById('export-foundry-btn'),
@@ -988,6 +1001,7 @@
       focus: focusTitle,
       effort: baseline.effort,
       cypher_limit: baseline.cypher_limit,
+      starting_equipment_rule: baseline.starting_equipment || '',
       weapons: baseline.weapons,
       pools: {
         max: maxPools,
@@ -1007,6 +1021,8 @@
       focus_tier_1_abilities: focusTier1,
       chosen_abilities: chosenAbilities,
       chosen_skills: chosenSkills,
+      attacks: parseList(els.attacks.value),
+      starting_equipment: parseList(els.startingEquipment.value),
       equipment: parseList(els.equipment.value),
       notes: els.notes.value.trim(),
       pdf_fields: collectPdfFieldOverrides(),
@@ -1309,6 +1325,8 @@
       ${abilityRows ? `<div class="output-card"><h3>Abilities</h3><ul class="output-list">${abilityRows}</ul></div>` : ''}
       ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
       ${descriptorSkillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${descriptorSkillRows}</ul></div>` : ''}
+      ${renderListCard('Attacks', c.attacks || [])}
+      ${renderListCard('Starting Equipment', c.starting_equipment || [])}
       ${renderListCard('Equipment', c.equipment)}
       ${c.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${renderNotesWithKeywordLinks(c.notes, c)}</div></div>` : ''}
     `;
@@ -1410,6 +1428,8 @@
       ${abilityRows ? `<div class="output-card"><h3>Abilities</h3><ul class="output-list">${abilityRows}</ul></div>` : ''}
       ${pickedSkillRows ? `<div class="output-card"><h3>Chosen Skill Picks</h3><ul class="output-list">${pickedSkillRows}</ul></div>` : ''}
       ${descriptorSkillRows ? `<div class="output-card"><h3>Descriptor Skills</h3><ul class="output-list">${descriptorSkillRows}</ul></div>` : ''}
+      ${renderListCard('Attacks', sheet.attacks || [])}
+      ${renderListCard('Starting Equipment', sheet.starting_equipment || [])}
       ${renderListCard('Equipment', sheet.equipment || [])}
       ${sheet.notes ? `<div class="output-card"><h3>Notes</h3><div class="output-value">${renderNotesWithKeywordLinks(sheet.notes, sheet)}</div></div>` : ''}
     `;
@@ -1457,6 +1477,10 @@
           <div class="output-label">Weapon Proficiency</div>
           <div class="output-value">${escapeHtml(c.weapons)}</div>
         </div>
+        <div class="output-row" style="margin-top:10px;">
+          <div class="output-label">Starting Equipment Rule</div>
+          <div class="output-value">${escapeHtml(c.starting_equipment_rule || '')}</div>
+        </div>
       </div>
     `;
 
@@ -1469,6 +1493,8 @@
       renderListCard('Focus Tier 1 Abilities', c.focus_tier_1_abilities),
       renderLinkedListCard('Chosen Abilities', c.chosen_abilities, 'ability'),
       renderListCard('Chosen Skill Picks', (c.chosen_skills || []).map(s => `${s.level}: ${s.name}`)),
+      renderListCard('Attacks', c.attacks),
+      renderListCard('Starting Equipment', c.starting_equipment),
       renderListCard('Equipment', c.equipment),
     ].join('');
 
@@ -1640,28 +1666,6 @@
   async function refreshSelectedFocus() {
     state.selected.focus = await fetchSelectedCompendium('focus', els.focus.value);
     renderSheet();
-  }
-
-  async function generateCharacter() {
-    const payload = buildGenerationPayload();
-    state.lastPayload = payload;
-    els.status.textContent = 'Generating name and flavor text...';
-
-    try {
-      const result = await fetchJson('/generate/character', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      state.generated = result;
-      if (!els.characterName.value.trim()) {
-        els.characterName.value = result.name || '';
-      }
-      renderSheet();
-      els.status.textContent = result.name ? `Generated: ${result.name}` : 'Generated.';
-    } catch (err) {
-      els.status.textContent = `Error: ${err.message}`;
-    }
   }
 
   async function saveSheet() {
@@ -1898,6 +1902,8 @@
 
       els.characterName.value = sheet.name || result.name || '';
       els.notes.value = sheet.notes || '';
+      els.attacks.value = Array.isArray(sheet.attacks) ? sheet.attacks.join('\n') : '';
+      els.startingEquipment.value = Array.isArray(sheet.starting_equipment) ? sheet.starting_equipment.join('\n') : '';
       els.equipment.value = Array.isArray(sheet.equipment) ? sheet.equipment.join('\n') : '';
       els.damageTrack.value = sheet.damage_track || 'Hale';
       setRecoveryCheckboxes(sheet.recovery_rolls_used || {});
@@ -1948,8 +1954,7 @@
       const opt = document.createElement('option');
       opt.value = item.filename;
       const name = item.name || item.filename;
-      const typeLabel = item.type === 'character_sheet' ? 'sheet' : 'legacy';
-      opt.textContent = `${name} (${typeLabel})`;
+      opt.textContent = `${name} (Player Character)`;
       els.storedSheetSelect.appendChild(opt);
     });
     els.loadSheetBtn.disabled = false;
@@ -2142,7 +2147,7 @@
   els.focus.addEventListener('change', refreshSelectedFocus);
 
   [els.bonusMight, els.bonusSpeed, els.bonusIntellect, els.characterName, els.equipment, els.notes,
-   els.gender, els.profession, els.environment, els.mood, els.seed, els.variant,
+   els.gender, els.profession, els.environment, els.mood, els.seed, els.variant, els.attacks, els.startingEquipment,
    els.currentMightPool, els.currentSpeedPool, els.currentIntellectPool, els.damageTrack,
    els.recoveryAction, els.recovery10Min, els.recovery1Hr, els.recovery10Hr].forEach(el => {
     el.addEventListener('input', renderSheet);
@@ -2154,7 +2159,6 @@
     renderSheet();
   });
 
-  els.generateBtn.addEventListener('click', generateCharacter);
   els.addSkillBtn.addEventListener('click', addSkillPick);
   els.copyBtn.addEventListener('click', copySheet);
   els.printBtn.addEventListener('click', async () => {

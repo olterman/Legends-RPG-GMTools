@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T02:12:19.711795+00:00",
+  "filename": "npc/npc_20260314T021219.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "shadowed",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Veyara",
+    "description": "Veyara moves with a fluid grace, her fox-like features accentuated by the shimmering fabrics of her attire. Adorned with intricate jewelry and a dagger at her side, she blends seamlessly into the bustling streets of the marketplace. Her keen eyes scan the surroundings, always alert for opportunities or threats. With a playful demeanor, she engages with others, often leaving them charmed and unaware of her true intentions.",
+    "sections": {
+      "type": "npc",
+      "name": "Veyara",
+      "race": "fellic",
+      "variant": "fox",
+      "gender": "Female",
+      "profession": "thief",
+      "culture": "fox",
+      "level": 5,
+      "health": 15,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "Short",
+      "modifications": "stealth as level 4",
+      "motive": "To gather valuable artifacts and secrets for her clan",
+      "environment": "Urban marketplaces and shadowy alleyways",
+      "combat": "Prefers to avoid direct confrontation, using agility and cunning to outmaneuver foes",
+      "interaction": "Charming and quick-witted, Veyara can easily win over those she meets, often using her charm to gather information",
+      "use": "Can serve as a guide through the underbelly of cities or as a source of information about hidden treasures",
+      "gm_intrusion": "Veyara's past catches up with her, leading to unexpected complications during the players' quest",
+      "loot": "A small pouch of stolen gems and a map to a hidden treasure",
+      "description": "Veyara moves with a fluid grace, her fox-like features accentuated by the shimmering fabrics of her attire. Adorned with intricate jewelry and a dagger at her side, she blends seamlessly into the bustling streets of the marketplace. Her keen eyes scan the surroundings, always alert for opportunities or threats. With a playful demeanor, she engages with others, often leaving them charmed and unaware of her true intentions.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg",
+        "images": [
+          "uploads/ai_generate/bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "shadowed",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg",
+      "images": [
+        "uploads/ai_generate/bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg",
+      "url": "/images/uploads/ai_generate/bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg",
+      "name": "bb623eba53889ced384b9dac2dcd4e2e_20260314T021219_53a4ada1.jpg"
+    }
+  }
+}

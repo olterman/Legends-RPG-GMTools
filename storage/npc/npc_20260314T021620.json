@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T02:16:20.853322+00:00",
+  "filename": "npc/npc_20260314T021620.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "",
+    "environment": "",
+    "location": "",
+    "race": "velim",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "shadowed",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Myrin Shadowmoss",
+    "description": "Myrin Shadowmoss stands amidst the shadows of the Fenmir wilds, their cloak adorned with vibrant fungi that pulse softly with light. A gnarled staff, topped with a cluster of glowing mushrooms, is firmly gripped in one hand, while the other is laden with vials and charms. Their eyes, a deep violet, seem to reflect the mysteries of the forest, hinting at a connection to the unseen forces that dwell within.",
+    "sections": {
+      "type": "npc",
+      "name": "Myrin Shadowmoss",
+      "race": "velim",
+      "variant": "",
+      "gender": "Genderless",
+      "profession": "shaman",
+      "culture": "velim",
+      "level": 4,
+      "health": 14,
+      "armor": 2,
+      "damage_inflicted": 5,
+      "movement": "Short",
+      "modifications": "Stealth as level 4",
+      "motive": "To protect the secrets of the wilds and commune with the spirits of nature.",
+      "environment": "Fenmir wilds, dense with bioluminescent flora and the whispers of ancient spirits.",
+      "combat": "Uses nature-based magic and illusions to confuse and deter foes, preferring to avoid direct confrontation.",
+      "interaction": "Speaks in riddles and metaphors, often testing the intentions of those who approach. They are more likely to assist those who show respect for nature.",
+      "use": "Can serve as a guide through the wilds or as a source of mystical knowledge. May provide quests related to the balance of nature.",
+      "gm_intrusion": "The spirits of the wilds become restless, causing unexpected phenomena that disrupt the party's plans.",
+      "loot": "Potions made from rare herbs, enchanted trinkets, and knowledge of hidden paths.",
+      "description": "Myrin Shadowmoss stands amidst the shadows of the Fenmir wilds, their cloak adorned with vibrant fungi that pulse softly with light. A gnarled staff, topped with a cluster of glowing mushrooms, is firmly gripped in one hand, while the other is laden with vials and charms. Their eyes, a deep violet, seem to reflect the mysteries of the forest, hinting at a connection to the unseen forces that dwell within.",
+      "metadata": {
+        "image_url": "uploads/ai_generate/a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg",
+        "images": [
+          "uploads/ai_generate/a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg"
+        ]
+      }
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "lands_of_legends",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "",
+      "location": "",
+      "environment": "",
+      "race": "velim",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "shadowed",
+      "sourcebook": "",
+      "page": "",
+      "image_url": "uploads/ai_generate/a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg",
+      "images": [
+        "uploads/ai_generate/a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg"
+      ],
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "image": {
+      "path": "uploads/ai_generate/a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg",
+      "url": "/images/uploads/ai_generate/a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg",
+      "name": "a7ccecdeb3d41b575f5e0d9ed0cacbef_20260314T021620_3d5a47a0.jpg"
+    }
+  }
+}

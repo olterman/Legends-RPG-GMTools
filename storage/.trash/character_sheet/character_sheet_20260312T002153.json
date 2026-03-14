@@ -1,0 +1,48 @@
+{
+  "saved_at": "2026-03-12T00:21:53.559065+00:00",
+  "filename": "character_sheet/character_sheet_20260312T002153.json",
+  "payload": {
+    "gender": "female",
+    "profession": "rogue",
+    "race": "human",
+    "environment": "fenmir_highlands",
+    "seed": "studio-dd-test"
+  },
+  "result": {
+    "type": "character_sheet",
+    "name": "Ysra Greymark",
+    "sheet": {
+      "name": "Ysra Greymark",
+      "tier": 1,
+      "character_type": "Warrior",
+      "flavor": "Combat Flavor",
+      "descriptor": "Rugged",
+      "focus": "Abides in Stone",
+      "metadata": {
+        "race": "human",
+        "profession": "rogue",
+        "environment": "fenmir_highlands",
+        "character_type": "Warrior",
+        "flavor": "Combat Flavor",
+        "descriptor": "Rugged",
+        "focus": "Abides in Stone"
+      }
+    },
+    "metadata": {
+      "environment": "fenmir_highlands",
+      "race": "human",
+      "profession": "rogue",
+      "character_type": "Warrior",
+      "flavor": "Combat Flavor",
+      "descriptor": "Rugged",
+      "focus": "Abides in Stone",
+      "tier": 1,
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "setting": "lands_of_legends"
+    }
+  },
+  "schema_version": "1.0"
+}

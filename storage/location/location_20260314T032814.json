@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T03:28:14.792653+00:00",
+  "filename": "location/location_20260314T032814.json",
+  "payload": {
+    "setting": "lands_of_legends",
+    "settings": [
+      "lands_of_legends"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "Harbor's Edge",
+    "race": "",
+    "variant": "",
+    "gender": "",
+    "profession": "",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "location",
+    "name": "The Old Lighthouse",
+    "description": "Standing tall against the backdrop of crashing waves, The Old Lighthouse is a weathered stone structure that has guided countless fishermen and traders safely to the shores of South Point. Its once-bright paint has faded, giving way to a rugged charm that speaks of years spent battling the elements. The lantern room, now dimmed, still holds the remnants of a powerful light that once pierced through the thickest fog. Surrounding the lighthouse, wildflowers cling to the rocky outcrops, their vi…",
+    "sections": {
+      "type": "location",
+      "location_category_type": "landmark",
+      "content_type": "landmark",
+      "name": "The Old Lighthouse",
+      "area": "caldor_island",
+      "description": "Standing tall against the backdrop of crashing waves, The Old Lighthouse is a weathered stone structure that has guided countless fishermen and traders safely to the shores of South Point. Its once-bright paint has faded, giving way to a rugged charm that speaks of years spent battling the elements. The lantern room, now dimmed, still holds the remnants of a powerful light that once pierced through the thickest fog. Surrounding the lighthouse, wildflowers cling to the rocky outcrops, their vi…",
+      "distinctive_features": [
+        "A spiral staircase leading to the lantern room, worn smooth by generations of footsteps.",
+        "An intricate mural on the lighthouse's base depicting the legendary sea serpent said to protect the waters."
+      ],
+      "history": "Built over a century ago, The Old Lighthouse has been a steadfast guardian for the village of Harbor's Edge. It was constructed after a series of shipwrecks claimed the lives of many fishermen, prompting the community to invest in a beacon of hope. Over the years, it has become a symbol of resilience, standing firm against storms and the passage of time.",
+      "hooks": [
+        "Local lore suggests that the lighthouse is haunted by the spirit of its first keeper, who perished in a storm while trying to save a ship in distress.",
+        "Rumors circulate about a hidden treasure buried near the lighthouse, left behind by a shipwrecked crew, drawing adventurers eager to uncover its secrets."
+      ],
+      "risks": [
+        "The rocky terrain surrounding the lighthouse is treacherous, especially during storms, posing a danger to those who venture too close."
+      ],
+      "environment": "caldor_island",
+      "location": "South Point",
+      "race": "",
+      "variant": "",
+      "profession": "",
+      "culture": "",
+      "family": "",
+      "role": ""
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "landmark",
+      "ai_generated": "true",
+      "setting": "fantasy",
+      "settings": [
+        "fantasy",
+        "lands_of_legends"
+      ],
+      "area": "caldor_island",
+      "location": "South Point",
+      "environment": "caldor_island",
+      "race": "",
+      "variant": "",
+      "gender": "",
+      "profession": "",
+      "culture": "",
+      "sourcebook": "",
+      "page": "",
+      "subtype": "landmark",
+      "location_category_type": "landmark",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ],
+      "images": [],
+      "description": "Standing tall against the backdrop of crashing waves, The Old Lighthouse is a weathered stone structure that has guided countless fishermen and traders safely to the shores of South Point. Its once-bright paint has faded, giving way to a rugged charm that speaks of years spent battling the elements. The lantern room, now dimmed, still holds the remnants of a powerful light that once pierced through the thickest fog. Surrounding the lighthouse, wildflowers cling to the rocky outcrops, their vi…",
+      "family": "",
+      "role": ""
+    },
+    "text": "",
+    "stat_block": {}
+  }
+}

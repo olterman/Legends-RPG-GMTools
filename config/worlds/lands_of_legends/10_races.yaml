@@ -119,7 +119,7 @@ races:
       skin_palette: luminous pale tones
       signature_features:
         - faint inner glow
-        - delicate luminous wings
+        - threshold-marked luminous bodies
         - translucent skin
         - delicate body structure
 
@@ -257,17 +257,17 @@ races:
         clothing: >
           highland leathers, clan cloth,
           carved bone charms
-        tone: spiritual proud highlanders
+        tone: shamanic proud tribal highlanders
 
       lowland_fenmir:
         label: Lowland Fenmir
         appearance:
-          - sea-weathered skin
-          - practical layered garb
+          - weathered farming hands
+          - practical layered work garb
         clothing: >
-          coastal leathers, patched trade fabrics,
-          privateer insignia
-        tone: adaptable free-city survivors
+          patched wool, farm leathers, militia gear,
+          scavenged armor pieces from generations of defense
+        tone: hard-bitten farmers and villagers forced to arms by relentless lowland uruk raids
 
       caldoran:
         label: Caldorans

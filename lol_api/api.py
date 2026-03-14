@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import base64
+import hashlib
 import json
 import html
 import os
@@ -75,8 +76,10 @@ from .official_compendium import (
 from .lore import (
     LOCATION_CATEGORY_PRIORITY,
     load_lore_index,
+    list_ai_lore_items,
     list_lore_items,
     load_lore_item,
+    search_ai_lore,
     search_lore,
     update_lore_item,
     list_trashed_lore_items,
@@ -1723,10 +1726,28 @@ def register_routes(app: Flask) -> None:
                 continue
             meta = raw_meta if isinstance(raw_meta, dict) else {}
             tags = [str(x).strip() for x in (meta.get("tags") or []) if str(x).strip()]
+            attached_to_raw = meta.get("attached_to") if isinstance(meta.get("attached_to"), list) else []
+            attached_to: list[dict[str, str]] = []
+            for row in attached_to_raw:
+                if not isinstance(row, dict):
+                    continue
+                target = str(row.get("target") or "").strip().lower()
+                target_id = str(row.get("id") or "").strip()
+                if not target or not target_id:
+                    continue
+                attached_to.append({
+                    "target": target,
+                    "id": target_id,
+                    "label": str(row.get("label") or "").strip(),
+                    "type": str(row.get("type") or "").strip().lower(),
+                })
             catalog[key] = {
                 "friendly_name": str(meta.get("friendly_name") or "").strip(),
                 "tags": sorted(set(tags)),
-                "notes": str(meta.get("notes") or "").strip(),
+                "description": str(meta.get("description") or meta.get("notes") or "").strip(),
+                "attached_to": attached_to,
+                "content_hash": str(meta.get("content_hash") or "").strip(),
+                "source_url": str(meta.get("source_url") or "").strip(),
             }
         return catalog
 
@@ -1736,7 +1757,19 @@ def register_routes(app: Flask) -> None:
             key: {
                 "friendly_name": str(meta.get("friendly_name") or "").strip(),
                 "tags": sorted(set(str(x).strip() for x in (meta.get("tags") or []) if str(x).strip())),
-                "notes": str(meta.get("notes") or "").strip(),
+                "description": str(meta.get("description") or meta.get("notes") or "").strip(),
+                "attached_to": [
+                    {
+                        "target": str(row.get("target") or "").strip().lower(),
+                        "id": str(row.get("id") or "").strip(),
+                        "label": str(row.get("label") or "").strip(),
+                        "type": str(row.get("type") or "").strip().lower(),
+                    }
+                    for row in (meta.get("attached_to") or [])
+                    if isinstance(row, dict) and str(row.get("target") or "").strip() and str(row.get("id") or "").strip()
+                ],
+                "content_hash": str(meta.get("content_hash") or "").strip(),
+                "source_url": str(meta.get("source_url") or "").strip(),
             }
             for key, meta in sorted(catalog.items())
             if key
@@ -1750,6 +1783,302 @@ def register_routes(app: Flask) -> None:
             if ref and ref not in refs:
                 refs.append(ref)
         return refs
+
+    def compute_image_content_hash(payload: bytes) -> str:
+        return hashlib.sha256(payload).hexdigest()
+
+    def image_catalog_entry_for_ref(catalog: dict[str, dict], ref: str) -> dict[str, object]:
+        return dict(catalog.get(normalize_image_ref(ref)) or {})
+
+    def merge_image_catalog_metadata(
+        *,
+        existing: dict[str, object] | None = None,
+        friendly_name: str = "",
+        tags: list[str] | None = None,
+        description: str = "",
+        attached_to: list[dict[str, str]] | None = None,
+        content_hash: str = "",
+        source_url: str = "",
+    ) -> dict[str, object]:
+        current = dict(existing or {})
+        merged_tags = sorted(set(
+            str(x).strip()
+            for x in [*(current.get("tags") or []), *(tags or [])]
+            if str(x).strip()
+        ))
+        return {
+            "friendly_name": str(current.get("friendly_name") or "").strip() or str(friendly_name or "").strip(),
+            "tags": merged_tags,
+            "description": str(current.get("description") or current.get("notes") or "").strip() or str(description or "").strip(),
+            "attached_to": list(attached_to or current.get("attached_to") or []),
+            "content_hash": str(current.get("content_hash") or "").strip() or str(content_hash or "").strip(),
+            "source_url": str(current.get("source_url") or "").strip() or str(source_url or "").strip(),
+        }
+
+    def find_catalog_ref_by_content_hash(catalog: dict[str, dict], content_hash: str, *, exclude_ref: str = "") -> str:
+        target_hash = str(content_hash or "").strip()
+        excluded = normalize_image_ref(exclude_ref)
+        if not target_hash:
+            return ""
+        for ref, meta in catalog.items():
+            normalized_ref = normalize_image_ref(ref)
+            if excluded and normalized_ref == excluded:
+                continue
+            if str((meta or {}).get("content_hash") or "").strip() == target_hash:
+                candidate = resolve_image_ref_path(normalized_ref)
+                if candidate.exists():
+                    return normalized_ref
+        return ""
+
+    def collect_image_attachment_index() -> dict[str, list[dict[str, str]]]:
+        index: dict[str, list[dict[str, str]]] = {}
+
+        def add_attachment(image_ref: str, payload: dict[str, str]) -> None:
+            ref = normalize_image_ref(image_ref)
+            if not ref:
+                return
+            target = str(payload.get("target") or "").strip().lower()
+            target_id = str(payload.get("id") or "").strip()
+            if not target or not target_id:
+                return
+            rows = index.setdefault(ref, [])
+            if any(str(row.get("target") or "") == target and str(row.get("id") or "") == target_id for row in rows):
+                return
+            rows.append({
+                "target": target,
+                "id": target_id,
+                "label": str(payload.get("label") or "").strip(),
+                "type": str(payload.get("type") or "").strip().lower(),
+            })
+
+        def refs_from_metadata_block(metadata: dict[str, object] | None) -> list[str]:
+            block = metadata if isinstance(metadata, dict) else {}
+            refs: list[str] = []
+            image_url = normalize_image_ref(str(block.get("image_url") or ""))
+            if image_url:
+                refs.append(image_url)
+            refs.extend(
+                normalize_image_refs(block.get("images") if isinstance(block.get("images"), list) else [])
+            )
+            return normalize_image_refs(refs)
+
+        for item in list_saved_results(
+            current_app.config["LOL_STORAGE_DIR"],
+            default_settings=configured_default_settings(),
+        ):
+            filename = str(item.get("filename") or "").strip()
+            if not filename or not validate_filename(filename):
+                continue
+            try:
+                record = load_saved_result(
+                    current_app.config["LOL_STORAGE_DIR"],
+                    filename,
+                    default_settings=configured_default_settings(),
+                )
+            except Exception:
+                continue
+            result = record.get("result") if isinstance(record.get("result"), dict) else {}
+            metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+            sheet = result.get("sheet") if isinstance(result.get("sheet"), dict) else {}
+            sheet_metadata = sheet.get("metadata") if isinstance(sheet.get("metadata"), dict) else {}
+            refs = normalize_image_refs([
+                *refs_from_metadata_block(metadata),
+                *refs_from_metadata_block(sheet_metadata),
+            ])
+            if not refs:
+                continue
+            payload = {
+                "target": "storage",
+                "id": filename,
+                "label": str(item.get("name") or item.get("filename") or "Saved Card").strip(),
+                "type": str(item.get("type") or "").strip().lower(),
+            }
+            for ref in refs:
+                add_attachment(ref, payload)
+
+        for item in list_lore_items(
+            current_app.config["LOL_LORE_DIR"],
+            default_settings=configured_default_settings(),
+        ):
+            refs = normalize_image_refs(item.get("images") if isinstance(item.get("images"), list) else [])
+            if not refs:
+                continue
+            payload = {
+                "target": "lore",
+                "id": str(item.get("slug") or "").strip(),
+                "label": str(item.get("title") or item.get("slug") or "Lore").strip(),
+                "type": "lore",
+            }
+            for ref in refs:
+                add_attachment(ref, payload)
+
+        for rows in index.values():
+            rows.sort(key=lambda row: (row.get("target") != "storage", row.get("label") or row.get("id") or ""))
+        return index
+
+    def _attachment_tags_from_values(*values: object) -> list[str]:
+        tags: list[str] = []
+        for value in values:
+            if isinstance(value, list):
+                for item in value:
+                    token = _safe_slug(str(item or "").strip())
+                    if token and token not in tags:
+                        tags.append(token)
+                continue
+            token = _safe_slug(str(value or "").strip())
+            if token and token not in tags:
+                tags.append(token)
+        return tags
+
+    def _describe_storage_image_attachment(row: dict[str, str]) -> dict[str, object]:
+        filename = str(row.get("id") or "").strip()
+        if not filename or not validate_filename(filename):
+            return {}
+        try:
+            record = load_saved_result(
+                current_app.config["LOL_STORAGE_DIR"],
+                filename,
+                default_settings=configured_default_settings(),
+            )
+        except Exception:
+            return {}
+        result = record.get("result") if isinstance(record.get("result"), dict) else {}
+        metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+        sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
+        friendly_name = str(
+            result.get("name")
+            or metadata.get("friendly_name")
+            or row.get("label")
+            or filename
+        ).strip()
+        description = str(
+            result.get("description")
+            or metadata.get("description")
+            or sections.get("description")
+            or sections.get("summary")
+            or sections.get("effect")
+            or ""
+        ).strip()
+        tags = _attachment_tags_from_values(
+            "attached",
+            "storage",
+            result.get("type"),
+            metadata.get("primarycategory"),
+            metadata.get("subtype"),
+            metadata.get("location_category_type"),
+            metadata.get("setting"),
+            metadata.get("settings") if isinstance(metadata.get("settings"), list) else [],
+            metadata.get("area"),
+            metadata.get("location"),
+            metadata.get("race"),
+            metadata.get("variant"),
+            metadata.get("profession"),
+            metadata.get("culture"),
+        )
+        return {
+            "friendly_name": friendly_name,
+            "description": description,
+            "tags": tags,
+        }
+
+    def _describe_lore_image_attachment(row: dict[str, str]) -> dict[str, object]:
+        slug = str(row.get("id") or "").strip()
+        if not slug:
+            return {}
+        try:
+            item = load_lore_item(
+                current_app.config["LOL_LORE_DIR"],
+                slug,
+                default_settings=configured_default_settings(),
+            )
+        except Exception:
+            return {}
+        friendly_name = str(item.get("title") or row.get("label") or slug).strip()
+        description = str(item.get("description") or item.get("excerpt") or "").strip()
+        tags = _attachment_tags_from_values(
+            "attached",
+            "lore",
+            item.get("categories") if isinstance(item.get("categories"), list) else [],
+            item.get("settings") if isinstance(item.get("settings"), list) else [],
+            item.get("setting"),
+            item.get("area"),
+            item.get("location"),
+            item.get("location_type"),
+            item.get("terms") if isinstance(item.get("terms"), list) else [],
+        )
+        return {
+            "friendly_name": friendly_name,
+            "description": description,
+            "tags": tags,
+        }
+
+    def describe_image_attachment(row: dict[str, str]) -> dict[str, object]:
+        target = str(row.get("target") or "").strip().lower()
+        if target == "storage":
+            return _describe_storage_image_attachment(row)
+        if target == "lore":
+            return _describe_lore_image_attachment(row)
+        return {}
+
+    def sync_image_catalog_attachments(catalog: dict[str, dict] | None = None) -> dict[str, dict]:
+        current_catalog = dict(catalog or load_image_catalog())
+        attachment_index = collect_image_attachment_index()
+        all_keys = set(current_catalog.keys()) | set(attachment_index.keys())
+        refs_by_hash: dict[str, list[str]] = {}
+        content_hash_by_ref: dict[str, str] = {}
+        for key in sorted(all_keys):
+            meta = dict(current_catalog.get(key) or {})
+            content_hash = str(meta.get("content_hash") or "").strip()
+            if not content_hash:
+                try:
+                    path = resolve_image_ref_path(key)
+                except Exception:
+                    path = None
+                if path and path.exists() and path.is_file():
+                    try:
+                        content_hash = compute_image_content_hash(path.read_bytes())
+                    except Exception:
+                        content_hash = ""
+            if content_hash:
+                content_hash_by_ref[key] = content_hash
+                refs_by_hash.setdefault(content_hash, []).append(key)
+        synced: dict[str, dict] = {}
+        for key in sorted(all_keys):
+            meta = dict(current_catalog.get(key) or {})
+            content_hash = content_hash_by_ref.get(key, "")
+            sibling_refs = refs_by_hash.get(content_hash, [key]) if content_hash else [key]
+            attached_rows: list[dict[str, str]] = []
+            seen_rows: set[tuple[str, str]] = set()
+            for ref in sibling_refs:
+                for row in (attachment_index.get(ref) or []):
+                    marker = (str(row.get("target") or ""), str(row.get("id") or ""))
+                    if not marker[0] or not marker[1] or marker in seen_rows:
+                        continue
+                    seen_rows.add(marker)
+                    attached_rows.append(row)
+            derived_infos = [info for info in (describe_image_attachment(row) for row in attached_rows) if isinstance(info, dict) and info]
+            derived_name = next((str(info.get("friendly_name") or "").strip() for info in derived_infos if str(info.get("friendly_name") or "").strip()), "")
+            derived_description = next((str(info.get("description") or "").strip() for info in derived_infos if str(info.get("description") or "").strip()), "")
+            derived_tags: list[str] = []
+            for info in derived_infos:
+                for tag in (info.get("tags") or []):
+                    token = str(tag or "").strip()
+                    if token and token not in derived_tags:
+                        derived_tags.append(token)
+            synced[key] = {
+                "friendly_name": str(meta.get("friendly_name") or "").strip() or derived_name,
+                "tags": sorted(set(
+                    str(x).strip()
+                    for x in [*(meta.get("tags") or []), *derived_tags]
+                    if str(x).strip()
+                )),
+                "description": str(meta.get("description") or meta.get("notes") or "").strip() or derived_description,
+                "attached_to": attached_rows,
+                "content_hash": content_hash,
+                "source_url": str(meta.get("source_url") or "").strip(),
+            }
+        save_image_catalog(synced)
+        return synced
 
     def mirror_remote_image(
         url: str,
@@ -1778,6 +2107,7 @@ def register_routes(app: Flask) -> None:
 
         if not payload:
             return None
+        content_hash = compute_image_content_hash(payload)
 
         parsed = urlparse(raw_url)
         guessed_ext = Path(parsed.path).suffix.lower()
@@ -1788,18 +2118,35 @@ def register_routes(app: Flask) -> None:
         if guessed_ext not in IMAGE_SUFFIXES:
             guessed_ext = ".jpg"
 
+        catalog = load_image_catalog()
+        existing_ref = find_catalog_ref_by_content_hash(catalog, content_hash)
+        normalized_tags = sorted(set(str(x).strip().lower().replace(" ", "_") for x in (tags or []) if str(x).strip()))
+        if existing_ref:
+            catalog[existing_ref] = merge_image_catalog_metadata(
+                existing=image_catalog_entry_for_ref(catalog, existing_ref),
+                friendly_name=str(friendly_name or "").strip(),
+                tags=normalized_tags,
+                description=str(notes or "").strip(),
+                content_hash=content_hash,
+                source_url=raw_url,
+            )
+            save_image_catalog(catalog)
+            return existing_ref
+
         stem = secure_filename(Path(parsed.path).stem or friendly_name or "foundry_image") or "foundry_image"
         final_name = f"{stem}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex[:8]}{guessed_ext}"
         path = upload_dir / final_name
         path.write_bytes(payload)
 
         rel = str(path.relative_to(images_dir)).replace("\\", "/")
-        catalog = load_image_catalog()
-        catalog[rel] = {
-            "friendly_name": str(friendly_name or "").strip(),
-            "tags": sorted(set(str(x).strip().lower().replace(" ", "_") for x in (tags or []) if str(x).strip())),
-            "notes": str(notes or "").strip(),
-        }
+        catalog[rel] = merge_image_catalog_metadata(
+            existing=image_catalog_entry_for_ref(catalog, rel),
+            friendly_name=str(friendly_name or "").strip(),
+            tags=normalized_tags,
+            description=str(notes or "").strip(),
+            content_hash=content_hash,
+            source_url=raw_url,
+        )
         save_image_catalog(catalog)
         return rel
 
@@ -1877,7 +2224,7 @@ def register_routes(app: Flask) -> None:
 
     def list_image_assets() -> list[dict]:
         images_dir = current_app.config["LOL_IMAGES_DIR"]
-        catalog = load_image_catalog()
+        catalog = sync_image_catalog_attachments()
         files: list[dict] = []
         if not images_dir.exists():
             return files
@@ -1893,8 +2240,10 @@ def register_routes(app: Flask) -> None:
                 "url": f"/images/{rel}",
                 "name": path.name,
                 "friendly_name": str(meta.get("friendly_name") or "").strip(),
+                "description": str(meta.get("description") or "").strip(),
                 "tags": [str(x) for x in (meta.get("tags") or []) if str(x).strip()],
-                "notes": str(meta.get("notes") or "").strip(),
+                "attached_to": [row for row in (meta.get("attached_to") or []) if isinstance(row, dict)],
+                "attached_count": len(meta.get("attached_to") or []),
             })
         return files
 
@@ -1939,6 +2288,119 @@ def register_routes(app: Flask) -> None:
         item["images"] = images
         update_lore_item(lore_dir, slug, item)
         return {"images": images}
+
+    def replace_image_ref_across_records(old_ref: str, new_ref: str) -> dict[str, int]:
+        old_norm = normalize_image_ref(old_ref)
+        new_norm = normalize_image_ref(new_ref)
+        if not old_norm or not new_norm or old_norm == new_norm:
+            return {"storage_updated": 0, "lore_updated": 0}
+
+        storage_updated = 0
+        for item in list_saved_results(
+            current_app.config["LOL_STORAGE_DIR"],
+            default_settings=configured_default_settings(),
+        ):
+            filename = str(item.get("filename") or "").strip()
+            if not filename or not validate_filename(filename):
+                continue
+            record = load_saved_result(
+                current_app.config["LOL_STORAGE_DIR"],
+                filename,
+                default_settings=configured_default_settings(),
+            )
+            result = record.get("result") if isinstance(record.get("result"), dict) else {}
+            metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+            images = normalize_image_refs(metadata.get("images") if isinstance(metadata.get("images"), list) else [])
+            if old_norm not in images:
+                continue
+            images = [new_norm if ref == old_norm else ref for ref in images]
+            images = normalize_image_refs(images)
+            metadata = dict(metadata)
+            metadata["images"] = images
+            result = dict(result)
+            result["metadata"] = metadata
+            updated_record = dict(record)
+            updated_record["result"] = result
+            update_saved_result(current_app.config["LOL_STORAGE_DIR"], filename, updated_record)
+            storage_updated += 1
+
+        lore_updated = 0
+        for item in list_lore_items(
+            current_app.config["LOL_LORE_DIR"],
+            default_settings=configured_default_settings(),
+        ):
+            slug = str(item.get("slug") or "").strip()
+            if not slug:
+                continue
+            full_item = load_lore_item(
+                current_app.config["LOL_LORE_DIR"],
+                slug,
+                default_settings=configured_default_settings(),
+            )
+            images = normalize_image_refs(full_item.get("images") if isinstance(full_item.get("images"), list) else [])
+            if old_norm not in images:
+                continue
+            images = [new_norm if ref == old_norm else ref for ref in images]
+            full_item = dict(full_item)
+            full_item["images"] = normalize_image_refs(images)
+            update_lore_item(current_app.config["LOL_LORE_DIR"], slug, full_item)
+            lore_updated += 1
+
+        return {"storage_updated": storage_updated, "lore_updated": lore_updated}
+
+    def dedupe_image_catalog_files() -> dict[str, object]:
+        images_dir = current_app.config["LOL_IMAGES_DIR"]
+        catalog = load_image_catalog()
+        by_hash: dict[str, list[str]] = {}
+        for path in sorted(images_dir.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in IMAGE_SUFFIXES:
+                continue
+            rel = str(path.relative_to(images_dir)).replace("\\", "/")
+            try:
+                content_hash = compute_image_content_hash(path.read_bytes())
+            except Exception:
+                continue
+            entry = merge_image_catalog_metadata(
+                existing=image_catalog_entry_for_ref(catalog, rel),
+                content_hash=content_hash,
+            )
+            catalog[rel] = entry
+            by_hash.setdefault(content_hash, []).append(rel)
+
+        merged_pairs: list[dict[str, object]] = []
+        removed_files = 0
+        for refs in by_hash.values():
+            normalized_refs = sorted({normalize_image_ref(ref) for ref in refs if normalize_image_ref(ref)})
+            if len(normalized_refs) < 2:
+                continue
+            canonical = normalized_refs[0]
+            canonical_meta = dict(catalog.get(canonical) or {})
+            for duplicate in normalized_refs[1:]:
+                duplicate_meta = dict(catalog.get(duplicate) or {})
+                canonical_meta = merge_image_catalog_metadata(
+                    existing=canonical_meta,
+                    friendly_name=str(duplicate_meta.get("friendly_name") or "").strip(),
+                    tags=[str(x) for x in (duplicate_meta.get("tags") or []) if str(x).strip()],
+                    description=str(duplicate_meta.get("description") or "").strip(),
+                    content_hash=str(duplicate_meta.get("content_hash") or "").strip(),
+                    source_url=str(duplicate_meta.get("source_url") or "").strip(),
+                )
+                replace_image_ref_across_records(duplicate, canonical)
+                duplicate_path = resolve_image_ref_path(duplicate)
+                if duplicate_path.exists():
+                    duplicate_path.unlink()
+                    removed_files += 1
+                catalog.pop(duplicate, None)
+                merged_pairs.append({"canonical": canonical, "removed": duplicate})
+            catalog[canonical] = canonical_meta
+
+        save_image_catalog(images_dir, catalog)
+        sync_image_catalog_attachments(catalog)
+        return {
+            "ok": True,
+            "duplicates_removed": removed_files,
+            "merged_pairs": merged_pairs,
+        }
 
     def lock_path_for(filename: str) -> Path:
         safe_name = filename.replace("/", "__").replace(".json", ".lock.json")
@@ -2181,6 +2643,10 @@ def register_routes(app: Flask) -> None:
             "filename": str(path.relative_to(storage_dir)).replace("\\", "/"),
             "saved": True,
         }
+        try:
+            sync_image_catalog_attachments()
+        except Exception:
+            pass
         try:
             result["vector_sync"] = sync_single_storage_card(
                 storage_root=storage_dir,
@@ -3220,6 +3686,7 @@ def register_routes(app: Flask) -> None:
                     setting=setting_id,
                     location=location_id or area_id,
                     k=max(2, min(6, k // 2 or 2)),
+                    focus_type=content_type,
                 )
             except Exception:
                 lore_items, lore_citations, lore_context = [], [], "No lore context available."
@@ -3352,6 +3819,7 @@ def register_routes(app: Flask) -> None:
                 setting=setting,
                 location=location or area,
                 k=4,
+                focus_type=content_type,
             )
         except Exception:
             lore_items, lore_citations, lore_context = [], [], "No lore context available."
@@ -3551,10 +4019,37 @@ def register_routes(app: Flask) -> None:
         suffix = _image_suffix_for_mime_type(mime_type)
         if suffix not in IMAGE_SUFFIXES:
             raise ValueError(f"unsupported image type '{mime_type or 'unknown'}'")
+        content_hash = compute_image_content_hash(decoded)
 
         images_dir = current_app.config["LOL_IMAGES_DIR"]
         upload_dir = images_dir / upload_subdir
         upload_dir.mkdir(parents=True, exist_ok=True)
+        normalized_tags = sorted(set(
+            str(tag or "").strip().lower().replace(" ", "_")
+            for tag in (tags or [])
+            if str(tag or "").strip()
+        ))
+        catalog = load_image_catalog()
+        existing_ref = find_catalog_ref_by_content_hash(catalog, content_hash)
+        if existing_ref:
+            catalog[existing_ref] = merge_image_catalog_metadata(
+                existing=image_catalog_entry_for_ref(catalog, existing_ref),
+                friendly_name=str(friendly_name or "").strip(),
+                tags=normalized_tags,
+                description=str(notes or "").strip(),
+                content_hash=content_hash,
+            )
+            save_image_catalog(catalog)
+            existing_path = resolve_image_ref_path(existing_ref)
+            return {
+                "path": existing_ref,
+                "url": f"/images/{existing_ref}",
+                "name": existing_path.name,
+                "friendly_name": str((catalog.get(existing_ref) or {}).get("friendly_name") or friendly_name or "").strip(),
+                "tags": [str(x) for x in ((catalog.get(existing_ref) or {}).get("tags") or []) if str(x).strip()],
+                "description": str((catalog.get(existing_ref) or {}).get("description") or notes or "").strip(),
+                "attached_to": list((catalog.get(existing_ref) or {}).get("attached_to") or []),
+            }
 
         safe_name = secure_filename(friendly_name or "")
         stem = Path(safe_name).stem or "ai_generate"
@@ -3563,17 +4058,13 @@ def register_routes(app: Flask) -> None:
         path.write_bytes(decoded)
 
         rel = str(path.relative_to(images_dir)).replace("\\", "/")
-        normalized_tags = sorted(set(
-            str(tag or "").strip().lower().replace(" ", "_")
-            for tag in (tags or [])
-            if str(tag or "").strip()
-        ))
-        catalog = load_image_catalog()
-        catalog[rel] = {
-            "friendly_name": str(friendly_name or "").strip(),
-            "tags": normalized_tags,
-            "notes": str(notes or "").strip(),
-        }
+        catalog[rel] = merge_image_catalog_metadata(
+            existing=image_catalog_entry_for_ref(catalog, rel),
+            friendly_name=str(friendly_name or "").strip(),
+            tags=normalized_tags,
+            description=str(notes or "").strip(),
+            content_hash=content_hash,
+        )
         save_image_catalog(catalog)
         return {
             "path": rel,
@@ -3581,7 +4072,8 @@ def register_routes(app: Flask) -> None:
             "name": path.name,
             "friendly_name": str(friendly_name or "").strip(),
             "tags": normalized_tags,
-            "notes": str(notes or "").strip(),
+            "description": str(notes or "").strip(),
+            "attached_to": list((catalog.get(rel) or {}).get("attached_to") or []),
         }
 
     def _build_vector_context(query: str, *, compendium_id: str = "", compendium_ids: list[str] | None = None, k: int = 8) -> tuple[list[dict], list[dict], str]:
@@ -3662,21 +4154,46 @@ def register_routes(app: Flask) -> None:
         grounded_context = "\n\n".join(context_lines) if context_lines else "No vector context available."
         return items, citations, grounded_context
 
-    def _build_lore_context(query: str, *, setting: str = "", location: str = "", k: int = 4) -> tuple[list[dict], list[dict], str]:
+    def _build_lore_context(
+        query: str,
+        *,
+        setting: str = "",
+        location: str = "",
+        k: int = 4,
+        focus_type: str = "",
+    ) -> tuple[list[dict], list[dict], str]:
         lore_dir = current_app.config["LOL_LORE_DIR"]
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+
+        def ai_lore_focus_priorities(value: str) -> dict[str, int]:
+            token = str(value or "").strip().lower()
+            base = {"race": 40, "area": 30, "doctrine": 20, "role": 25}
+            if token in {"npc", "creature"}:
+                return {"race": 100, "role": 90, "area": 60, "doctrine": 35}
+            if token == "player_character":
+                return {"race": 100, "role": 95, "area": 55, "doctrine": 30}
+            if token in {"settlement", "inn", "landmark", "location"}:
+                return {"area": 100, "doctrine": 45, "role": 35, "race": 25}
+            if token in {"lore", "religion", "myth", "faction", "doctrine"}:
+                return {"doctrine": 100, "area": 75, "race": 35, "role": 30}
+            if token in {"encounter"}:
+                return {"area": 90, "role": 70, "race": 60, "doctrine": 35}
+            return base
 
         def lore_blob(item: dict) -> str:
             if not isinstance(item, dict):
                 return ""
-            slug = str(item.get("slug") or "").strip()
+            source_kind = str(item.get("source") or "").strip().lower()
             full_item = item
-            if slug:
-                try:
-                    loaded = load_lore_item(lore_dir, slug, default_settings=configured_default_settings())
-                    if isinstance(loaded, dict):
-                        full_item = loaded
-                except Exception:
-                    full_item = item
+            if source_kind != "ai_lore":
+                slug = str(item.get("slug") or "").strip()
+                if slug:
+                    try:
+                        loaded = load_lore_item(lore_dir, slug, default_settings=configured_default_settings())
+                        if isinstance(loaded, dict):
+                            full_item = loaded
+                    except Exception:
+                        full_item = item
             return " ".join([
                 str(full_item.get("title", "")),
                 str(full_item.get("description", "")),
@@ -3691,6 +4208,14 @@ def register_routes(app: Flask) -> None:
             ]).strip()
 
         try:
+            ai_lore_matches = search_ai_lore(
+                lore_dir,
+                query=query,
+                config_dir=config_dir,
+                setting=setting,
+                location=location,
+                default_settings=configured_default_settings(),
+            ) or []
             direct_matches = search_lore(
                 lore_dir,
                 query=query,
@@ -3698,8 +4223,19 @@ def register_routes(app: Flask) -> None:
                 location=location,
                 default_settings=configured_default_settings(),
             ) or []
-            if direct_matches:
-                lore_items = direct_matches
+            if ai_lore_matches or direct_matches:
+                ai_focus = ai_lore_focus_priorities(focus_type)
+                def ai_lore_sort_key(item: dict) -> tuple[int, str]:
+                    kind = str(item.get("ai_lore_kind") or "").strip().lower()
+                    title = str(item.get("title") or "").strip().lower()
+                    return (-int(ai_focus.get(kind, 0)), title)
+                ai_lore_matches = sorted(ai_lore_matches, key=ai_lore_sort_key)
+                lore_items = ai_lore_matches + [
+                    item for item in direct_matches
+                    if str(item.get("slug") or "").strip() not in {
+                        str(ai_item.get("slug") or "").strip() for ai_item in ai_lore_matches
+                    }
+                ]
             else:
                 stopwords = {
                     "a", "an", "and", "are", "as", "at", "about", "be", "by", "for", "from", "how",
@@ -3736,13 +4272,48 @@ def register_routes(app: Flask) -> None:
                     if score > 0:
                         scored_items.append((score, item))
                 scored_items.sort(key=lambda row: row[0], reverse=True)
-                lore_items = [item for _, item in scored_items]
+                lore_items = ai_lore_matches + [item for _, item in scored_items]
         except Exception:
             lore_items = []
 
-        selected_items = lore_items[:max(0, int(k or 0))]
+        def ai_lore_section_label(item: dict) -> str:
+            kind = str(item.get("ai_lore_kind") or "").strip().lower()
+            return {
+                "race": "Race Guide",
+                "area": "Area Guide",
+                "doctrine": "Doctrine Guide",
+                "role": "Role Guide",
+            }.get(kind, "AI Lore Guide")
+
+        max_items = max(0, int(k or 0))
+        if max_items and any(str(item.get("source") or "").strip().lower() == "ai_lore" for item in lore_items):
+            ai_focus = ai_lore_focus_priorities(focus_type)
+            ai_lore_matches = [item for item in lore_items if str(item.get("source") or "").strip().lower() == "ai_lore"]
+            plain_lore_matches = [item for item in lore_items if str(item.get("source") or "").strip().lower() != "ai_lore"]
+            ai_target = min(len(ai_lore_matches), max(2, max_items // 2))
+            grouped_ai: dict[str, list[dict]] = {}
+            for item in ai_lore_matches:
+                grouped_ai.setdefault(str(item.get("ai_lore_kind") or "").strip().lower(), []).append(item)
+            selected_items: list[dict] = []
+            for section_name in sorted(grouped_ai.keys(), key=lambda kind: -int(ai_focus.get(kind, 0))):
+                if len(selected_items) >= ai_target:
+                    break
+                section_items = grouped_ai.get(section_name) or []
+                if section_items:
+                    selected_items.append(section_items[0])
+            for item in ai_lore_matches:
+                if len(selected_items) >= ai_target:
+                    break
+                if item not in selected_items:
+                    selected_items.append(item)
+            remaining_slots = max_items - len(selected_items)
+            if remaining_slots > 0:
+                selected_items.extend(plain_lore_matches[:remaining_slots])
+        else:
+            selected_items = lore_items[:max_items]
         citations: list[dict] = []
-        context_lines: list[str] = []
+        ai_lore_sections: dict[str, list[str]] = {}
+        plain_context_lines: list[str] = []
         normalized_items: list[dict] = []
         for idx, item in enumerate(selected_items, start=1):
             if not isinstance(item, dict):
@@ -3753,23 +4324,37 @@ def register_routes(app: Flask) -> None:
             snippet = re.sub(r"\s+", " ", full_blob).strip()
             if len(snippet) > 1600:
                 snippet = f"{snippet[:1597].rstrip()}..."
-            source_path = f"/lore/{slug}" if slug else "/lore"
+            source_path = str(item.get("source_path") or "").strip()
+            if not source_path:
+                source_path = f"/lore/{slug}" if slug else "/lore"
+            compendium_id = "ai_lore" if str(item.get("source") or "").strip().lower() == "ai_lore" else "lore"
             citations.append({
                 "n": idx,
-                "compendium_id": "lore",
+                "compendium_id": compendium_id,
                 "source_path": source_path,
                 "heading": title,
                 "score": 1.0,
             })
-            context_lines.append(f"[L{idx}] source={source_path} heading={title}\n{snippet}")
+            context_line = f"[L{idx}] source={source_path} heading={title}\n{snippet}"
+            if compendium_id == "ai_lore":
+                section = ai_lore_section_label(item)
+                ai_lore_sections.setdefault(section, []).append(context_line)
+            else:
+                plain_context_lines.append(context_line)
             normalized_items.append({
-                "compendium_id": "lore",
+                "compendium_id": compendium_id,
                 "source_path": source_path,
                 "heading": title,
                 "text": snippet,
                 "score": 1.0,
             })
 
+        context_lines: list[str] = []
+        for section_name in ["Race Guide", "Area Guide", "Doctrine Guide", "Role Guide", "AI Lore Guide"]:
+            section_lines = ai_lore_sections.get(section_name) or []
+            if section_lines:
+                context_lines.append(f"{section_name}:\n" + "\n\n".join(section_lines))
+        context_lines.extend(plain_context_lines)
         grounded_context = "\n\n".join(context_lines) if context_lines else "No lore context available."
         return normalized_items, citations, grounded_context
 
@@ -5401,6 +5986,7 @@ def register_routes(app: Flask) -> None:
                 setting=setting,
                 location=location,
                 k=max(2, min(6, k // 2 or 2)),
+                focus_type="lore",
             )
             if lore_context != "No lore context available.":
                 context_lines.insert(0, lore_context)
@@ -5609,7 +6195,13 @@ def register_routes(app: Flask) -> None:
         lore_citations: list[dict] = []
         lore_context = "No lore context available."
         if include_lore:
-            lore_items, lore_citations, lore_context = _build_lore_context(q, setting=setting, location=location, k=max(2, min(6, k // 2 or 2)))
+            lore_items, lore_citations, lore_context = _build_lore_context(
+                q,
+                setting=setting,
+                location=location,
+                k=max(2, min(6, k // 2 or 2)),
+                focus_type="lore",
+            )
             if lore_context != "No lore context available.":
                 context_lines.insert(0, lore_context)
 
@@ -6201,15 +6793,23 @@ def register_routes(app: Flask) -> None:
     def api_media_images_list():
         q = str(request.args.get("q") or "").strip().lower()
         tag = str(request.args.get("tag") or "").strip().lower()
+        path_filter = normalize_image_ref(str(request.args.get("path") or ""))
         files = list_image_assets()
+        if path_filter:
+            files = [item for item in files if normalize_image_ref(str(item.get("path") or "")) == path_filter]
         if q:
             files = [
                 item for item in files
                 if q in " ".join([
                     str(item.get("path") or ""),
                     str(item.get("friendly_name") or ""),
-                    str(item.get("notes") or ""),
+                    str(item.get("description") or ""),
                     " ".join(item.get("tags") or []),
+                    " ".join(
+                        str(row.get("label") or row.get("id") or "")
+                        for row in (item.get("attached_to") or [])
+                        if isinstance(row, dict)
+                    ),
                 ]).lower()
             ]
         if tag:
@@ -6217,7 +6817,7 @@ def register_routes(app: Flask) -> None:
                 item for item in files
                 if tag in [str(x).strip().lower() for x in (item.get("tags") or [])]
             ]
-        return jsonify({"items": files, "count": len(files), "filters": {"q": q, "tag": tag}})
+        return jsonify({"items": files, "count": len(files), "filters": {"q": q, "tag": tag, "path": path_filter}})
 
     @app.post("/media/images/upload")
     def api_media_images_upload():
@@ -6246,11 +6846,12 @@ def register_routes(app: Flask) -> None:
             for x in tags_raw.split(",")
             if str(x).strip()
         ))
-        notes = str(request.form.get("notes") or "").strip()
+        description = str(request.form.get("description") or request.form.get("notes") or "").strip()
         catalog[rel] = {
             "friendly_name": friendly_name,
             "tags": tags,
-            "notes": notes,
+            "description": description,
+            "attached_to": [],
         }
         save_image_catalog(catalog)
         return jsonify({
@@ -6260,7 +6861,8 @@ def register_routes(app: Flask) -> None:
             "name": path.name,
             "friendly_name": friendly_name,
             "tags": tags,
-            "notes": notes,
+            "description": description,
+            "attached_to": [],
         })
 
     @app.post("/media/images/meta")
@@ -6276,13 +6878,14 @@ def register_routes(app: Flask) -> None:
         tags_raw = body.get("tags") if isinstance(body.get("tags"), list) else str(body.get("tags") or "").split(",")
         tags = sorted(set(str(x).strip().lower().replace(" ", "_") for x in tags_raw if str(x).strip()))
         friendly_name = str(body.get("friendly_name") or "").strip()
-        notes = str(body.get("notes") or "").strip()
+        description = str(body.get("description") or body.get("notes") or "").strip()
 
         catalog = load_image_catalog()
         catalog[image_ref] = {
             "friendly_name": friendly_name,
             "tags": tags,
-            "notes": notes,
+            "description": description,
+            "attached_to": list((catalog.get(image_ref) or {}).get("attached_to") or []),
         }
         save_image_catalog(catalog)
         return jsonify({
@@ -6293,7 +6896,8 @@ def register_routes(app: Flask) -> None:
                 "name": image_path.name,
                 "friendly_name": friendly_name,
                 "tags": tags,
-                "notes": notes,
+                "description": description,
+                "attached_to": list((catalog.get(image_ref) or {}).get("attached_to") or []),
             },
         })
 
@@ -6337,6 +6941,7 @@ def register_routes(app: Flask) -> None:
             payload = update_storage_images(target_id, image_ref, action="attach")
         else:
             payload = update_lore_images(target_id, image_ref, action="attach")
+        sync_image_catalog_attachments()
         return jsonify({"ok": True, **payload})
 
     @app.post("/media/images/unattach")
@@ -6358,6 +6963,7 @@ def register_routes(app: Flask) -> None:
             payload = update_storage_images(target_id, image_ref, action="unattach")
         else:
             payload = update_lore_images(target_id, image_ref, action="unattach")
+        sync_image_catalog_attachments()
         return jsonify({"ok": True, **payload})
 
     @app.post("/media/images/delete")
@@ -6366,10 +6972,6 @@ def register_routes(app: Flask) -> None:
         target = str(body.get("target") or "").strip().lower()
         target_id = str(body.get("id") or "").strip()
         image_ref = normalize_image_ref(str(body.get("image") or ""))
-        if target not in {"storage", "lore"}:
-            return jsonify({"error": "target must be 'storage' or 'lore'"}), 400
-        if not target_id:
-            return jsonify({"error": "id is required"}), 400
         if not image_ref:
             return jsonify({"error": "image is required"}), 400
 
@@ -6379,17 +6981,45 @@ def register_routes(app: Flask) -> None:
         if not str(image_path).startswith(str(uploads_root) + "/") and image_path != uploads_root:
             return jsonify({"error": "only images under /images/uploads can be deleted"}), 400
 
-        # Always unattach first from current target.
-        if target == "storage":
-            if not validate_filename(target_id):
-                return jsonify({"error": "invalid storage filename"}), 400
-            payload = update_storage_images(target_id, image_ref, action="unattach")
+        detached_from: list[dict[str, str]] = []
+        if target or target_id:
+            if target not in {"storage", "lore"}:
+                return jsonify({"error": "target must be 'storage' or 'lore'"}), 400
+            if not target_id:
+                return jsonify({"error": "id is required"}), 400
+            if target == "storage":
+                if not validate_filename(target_id):
+                    return jsonify({"error": "invalid storage filename"}), 400
+                payload = update_storage_images(target_id, image_ref, action="unattach")
+            else:
+                payload = update_lore_images(target_id, image_ref, action="unattach")
+            detached_from.append({"target": target, "id": target_id})
         else:
-            payload = update_lore_images(target_id, image_ref, action="unattach")
+            payload = {"images": []}
+            for row in collect_image_attachment_index().get(image_ref, []):
+                row_target = str(row.get("target") or "").strip().lower()
+                row_id = str(row.get("id") or "").strip()
+                if row_target == "storage":
+                    if not validate_filename(row_id):
+                        continue
+                    update_storage_images(row_id, image_ref, action="unattach")
+                    detached_from.append({"target": row_target, "id": row_id})
+                elif row_target == "lore":
+                    update_lore_images(row_id, image_ref, action="unattach")
+                    detached_from.append({"target": row_target, "id": row_id})
 
         if image_path.exists():
             image_path.unlink()
-        return jsonify({"ok": True, **payload, "deleted": image_ref})
+        catalog = load_image_catalog()
+        catalog.pop(image_ref, None)
+        save_image_catalog(catalog)
+        sync_image_catalog_attachments()
+        return jsonify({"ok": True, **payload, "deleted": image_ref, "detached_from": detached_from})
+
+    @app.post("/media/images/dedupe")
+    def api_media_images_dedupe():
+        summary = dedupe_image_catalog_files()
+        return jsonify(summary)
 
     @app.get("/images/<path:filename>")
     def image_assets(filename: str):
@@ -8057,7 +8687,11 @@ def register_routes(app: Flask) -> None:
 
     @app.get("/lore-browser")
     def lore_browser():
-        return redirect("/search")
+        return render_template("ai_lore_browser.html")
+
+    @app.get("/ai-lore-browser")
+    def ai_lore_browser():
+        return render_template("ai_lore_browser.html")
 
     @app.get("/prompt-browser")
     def prompt_browser():
@@ -8067,6 +8701,44 @@ def register_routes(app: Flask) -> None:
     def api_lore_index():
         lore_dir = current_app.config["LOL_LORE_DIR"]
         return jsonify(load_lore_index(lore_dir, default_settings=configured_default_settings()))
+
+    @app.get("/lore/ai")
+    def api_ai_lore_index():
+        lore_dir = current_app.config["LOL_LORE_DIR"]
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        setting = request.args.get("setting")
+        items = list_ai_lore_items(
+            lore_dir,
+            config_dir=config_dir,
+            setting=setting,
+            default_settings=configured_default_settings(),
+        )
+        return jsonify({
+            "items": items,
+            "count": len(items),
+            "filters": {"setting": setting},
+        })
+
+    @app.get("/lore/ai/search")
+    def api_ai_lore_search():
+        lore_dir = current_app.config["LOL_LORE_DIR"]
+        config_dir = current_app.config["LOL_CONFIG_DIR"]
+        query = request.args.get("q")
+        setting = request.args.get("setting")
+        location = request.args.get("location")
+        items = search_ai_lore(
+            lore_dir,
+            query=query,
+            config_dir=config_dir,
+            setting=setting,
+            location=location,
+            default_settings=configured_default_settings(),
+        )
+        return jsonify({
+            "items": items,
+            "count": len(items),
+            "filters": {"q": query, "setting": setting, "location": location},
+        })
 
     @app.get("/lore/search")
     def api_lore_search():

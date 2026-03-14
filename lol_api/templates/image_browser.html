@@ -4,25 +4,321 @@
 
 {% block content %}
 <h1>Image Browser</h1>
-<p>Search uploaded and existing image assets, then edit friendly name, tags, and notes.</p>
+<p>Browse image assets as a gallery. Hover a tile for metadata, or use the icons to edit or delete.</p>
 
-<div class="panel">
-  <div class="row">
+<style>
+  .image-browser-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: 1.2rem;
+    align-items: start;
+  }
+  .image-browser-sidebar {
+    display: grid;
+    gap: 0.9rem;
+    position: sticky;
+    top: 1rem;
+  }
+  .image-browser-main {
+    display: grid;
+    gap: 0.9rem;
+  }
+  .image-browser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+  }
+  .image-tag-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+  .image-tag-filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    color: inherit;
+    border-radius: 999px;
+    padding: 0.22rem 0.6rem;
+    font-size: 0.78rem;
+    line-height: 1.1;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .image-tag-filter.is-active {
+    background: rgba(62, 207, 94, 0.16);
+    border-color: rgba(62, 207, 94, 0.55);
+  }
+  .image-tile {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  }
+  .image-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .image-tile-toolbar {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    display: flex;
+    gap: 0.35rem;
+    z-index: 3;
+  }
+  .image-icon-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(22, 27, 34, 0.76);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+  .image-tile-attach-indicator {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+    background: #3ecf5e;
+    border: 2px solid rgba(10, 14, 18, 0.78);
+    z-index: 3;
+    box-shadow: 0 0 0 3px rgba(62, 207, 94, 0.18);
+  }
+  .image-icon-btn:hover {
+    background: rgba(22, 27, 34, 0.92);
+  }
+  .image-tile-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.55rem 0.65rem;
+    background: linear-gradient(to top, rgba(7, 10, 14, 0.92), rgba(7, 10, 14, 0.1));
+    color: #fff;
+    z-index: 2;
+  }
+  .image-tile-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .image-tile-sub {
+    font-size: 0.74rem;
+    opacity: 0.82;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .image-tile-tooltip {
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    top: 0.7rem;
+    z-index: 2;
+    padding: 0.75rem;
+    border-radius: 12px;
+    background: rgba(10, 14, 18, 0.94);
+    color: #fff;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity 0.16s ease, transform 0.16s ease;
+    max-height: calc(100% - 1.4rem);
+    overflow: auto;
+  }
+  .image-tile:hover .image-tile-tooltip,
+  .image-tile:focus-within .image-tile-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .image-tooltip-label {
+    display: block;
+    font-weight: 700;
+    margin-top: 0.35rem;
+  }
+  .image-tooltip-label:first-child {
+    margin-top: 0;
+  }
+  .image-generate-actions {
+    position: absolute;
+    left: 0.65rem;
+    right: 0.65rem;
+    bottom: 3.1rem;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.16s ease, transform 0.16s ease;
+  }
+  .image-tile:hover .image-generate-actions,
+  .image-tile:focus-within .image-generate-actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .image-generate-btn {
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(10, 14, 18, 0.82);
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.28rem 0.55rem;
+    font-size: 0.72rem;
+    cursor: pointer;
+  }
+  .image-generate-btn:hover {
+    background: rgba(10, 14, 18, 0.95);
+  }
+  .image-attached-list {
+    margin: 0.2rem 0 0;
+    padding-left: 1rem;
+  }
+  .image-modal[hidden] {
+    display: none;
+  }
+  .image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(0,0,0,0.58);
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+  }
+  .image-modal-card {
+    width: min(640px, 100%);
+    background: var(--panel, #151923);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1rem;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  }
+  .image-modal-grid {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .image-modal-preview {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+  .image-meta-chip {
+    display: inline-block;
+    margin: 0.1rem 0.2rem 0 0;
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    font-size: 0.72rem;
+  }
+  .image-meta-chip--clickable {
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .image-meta-chip--clickable:hover {
+    border-color: rgba(255,255,255,0.32);
+    background: rgba(255,255,255,0.14);
+  }
+  @media (max-width: 740px) {
+    .image-browser-panel {
+      grid-template-columns: 1fr;
+    }
+    .image-browser-sidebar {
+      position: static;
+    }
+    .image-modal-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="panel image-browser-panel">
+  <aside class="image-browser-sidebar">
     <div class="field">
       <label for="image-q">Search</label>
-      <input id="image-q" placeholder="name, path, tag, notes" />
+      <input id="image-q" placeholder="name, tag, description, attached card" />
     </div>
     <div class="field">
       <label for="image-tag">Tag</label>
       <input id="image-tag" placeholder="e.g. fenmir_highlands" />
     </div>
+    <div class="actions">
+      <button id="image-search-btn" type="button">Search</button>
+      <button id="image-reset-btn" type="button" class="secondary">Reset</button>
+    </div>
+    <div class="actions">
+      <button id="image-dedupe-btn" type="button" class="secondary">Dedupe Images</button>
+    </div>
+    <div>
+      <div class="small" style="margin-bottom:0.35rem;">Tags</div>
+      <div class="image-tag-bar" id="image-tag-bar"></div>
+    </div>
+    <div class="status" id="image-status">Loading images...</div>
+  </aside>
+  <section class="image-browser-main">
+    <div class="small">Gallery</div>
+    <div class="image-browser-grid" id="image-results"></div>
+  </section>
+</div>
+
+<div class="image-modal" id="image-edit-modal" hidden>
+  <div class="image-modal-card">
+    <div class="row" style="justify-content:space-between;align-items:center;">
+      <h2 style="margin:0;">Edit Image Metadata</h2>
+      <button type="button" class="secondary" id="image-edit-close-btn">Close</button>
+    </div>
+    <div class="image-modal-grid" style="margin-top:1rem;">
+      <img id="image-edit-preview" class="image-modal-preview" alt="" />
+      <div>
+        <div class="field">
+          <label for="image-edit-friendly-name">Friendly Name</label>
+          <input id="image-edit-friendly-name" />
+        </div>
+        <div class="field">
+          <label for="image-edit-description">Description</label>
+          <textarea id="image-edit-description" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label for="image-edit-tags">Tags</label>
+          <input id="image-edit-tags" placeholder="comma-separated tags" />
+        </div>
+        <div class="field">
+          <label>Attached To</label>
+          <div id="image-edit-attached"></div>
+        </div>
+        <div class="field">
+          <label>Path</label>
+          <input id="image-edit-path" disabled />
+        </div>
+        <div class="actions">
+          <button type="button" id="image-edit-save-btn">Save</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <button id="image-search-btn" type="button">Search</button>
-    <button id="image-reset-btn" type="button" class="secondary">Reset</button>
-  </div>
-  <div class="status" id="image-status">Loading images...</div>
-  <div class="results" id="image-results"></div>
 </div>
 {% endblock %}
 
@@ -33,15 +329,32 @@
     tag: document.getElementById('image-tag'),
     searchBtn: document.getElementById('image-search-btn'),
     resetBtn: document.getElementById('image-reset-btn'),
+    dedupeBtn: document.getElementById('image-dedupe-btn'),
     status: document.getElementById('image-status'),
     results: document.getElementById('image-results'),
+    tagBar: document.getElementById('image-tag-bar'),
+    modal: document.getElementById('image-edit-modal'),
+    modalClose: document.getElementById('image-edit-close-btn'),
+    modalPreview: document.getElementById('image-edit-preview'),
+    modalFriendlyName: document.getElementById('image-edit-friendly-name'),
+    modalDescription: document.getElementById('image-edit-description'),
+    modalTags: document.getElementById('image-edit-tags'),
+    modalAttached: document.getElementById('image-edit-attached'),
+    modalPath: document.getElementById('image-edit-path'),
+    modalSave: document.getElementById('image-edit-save-btn'),
+  };
+
+  const state = {
+    items: [],
+    editingPath: '',
   };
 
   function escapeHtml(text) {
     return String(text ?? '')
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   async function fetchJson(url, init = undefined) {
@@ -59,90 +372,255 @@
     return qs ? `/media/images?${qs}` : "/media/images";
   }
 
+  function buildTooltip(item) {
+    const tags = Array.isArray(item.tags) ? item.tags : [];
+    const attached = Array.isArray(item.attached_to) ? item.attached_to : [];
+    const attachedMarkup = attached.length
+      ? `<ul class="image-attached-list">${attached.map(row => `<li>${escapeHtml(row.label || row.id || '')} (${escapeHtml(row.target || '')})</li>`).join('')}</ul>`
+      : '<div>none</div>';
+    const tagMarkup = tags.length
+      ? tags.map(tag => `<button type="button" class="image-meta-chip image-meta-chip--clickable" data-action="tag-filter" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join('')
+      : 'none';
+    return `
+      <span class="image-tooltip-label">Friendly Name</span>
+      <div>${escapeHtml(item.friendly_name || item.name || '')}</div>
+      <span class="image-tooltip-label">Description</span>
+      <div>${escapeHtml(item.description || 'No description')}</div>
+      <span class="image-tooltip-label">Tags</span>
+      <div>${tagMarkup}</div>
+      <span class="image-tooltip-label">Attached Cards</span>
+      ${attachedMarkup}
+    `;
+  }
+
+  function allTags(items) {
+    return Array.from(new Set(
+      items.flatMap((item) => Array.isArray(item.tags) ? item.tags.map((tag) => String(tag || '').trim()).filter(Boolean) : [])
+    )).sort((a, b) => a.localeCompare(b));
+  }
+
+  function renderTagBar(items) {
+    const tags = allTags(items);
+    if (!tags.length) {
+      els.tagBar.innerHTML = '';
+      return;
+    }
+    const activeTag = String(els.tag.value || '').trim().toLowerCase();
+    els.tagBar.innerHTML = tags.map((tag) => `
+      <button
+        type="button"
+        class="image-tag-filter ${activeTag === String(tag).toLowerCase() ? 'is-active' : ''}"
+        data-action="tag-filter"
+        data-tag="${escapeHtml(tag)}"
+      >${escapeHtml(tag)}</button>
+    `).join('');
+    els.tagBar.querySelectorAll('[data-action="tag-filter"]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tag = String(btn.getAttribute('data-tag') || '').trim();
+        els.tag.value = tag;
+        search();
+      });
+    });
+  }
+
+  function tagSet(item) {
+    return new Set((Array.isArray(item.tags) ? item.tags : []).map((tag) => String(tag || '').trim().toLowerCase()));
+  }
+
+  function actionTypesForItem(item) {
+    const tags = tagSet(item);
+    const hasAny = (values) => values.some((value) => tags.has(value));
+    const actions = [];
+    if (hasAny(['character', 'player_character', 'pc', 'portrait', 'race', 'culture'])) {
+      actions.push({ type: 'player_character', label: 'Generate Character' });
+    }
+    if (hasAny(['npc', 'portrait', 'race', 'culture', 'character'])) {
+      actions.push({ type: 'npc', label: 'Generate NPC' });
+    }
+    if (hasAny(['cypher', 'oddity', 'device', 'item', 'artifact', 'trinket'])) {
+      actions.push({ type: 'cypher', label: 'Generate Cypher' });
+    }
+    if (hasAny(['artifact', 'item', 'weapon', 'gear', 'loot', 'trinket'])) {
+      actions.push({ type: 'artifact', label: 'Generate Artifact' });
+    }
+    return actions;
+  }
+
+  function renderGenerateActions(item) {
+    const actions = actionTypesForItem(item);
+    if (!actions.length) return '';
+    return `
+      <div class="image-generate-actions">
+        ${actions.map((action) => `
+          <button
+            type="button"
+            class="image-generate-btn"
+            data-action="generate"
+            data-type="${escapeHtml(action.type)}"
+            data-path="${escapeHtml(item.path || '')}"
+          >${escapeHtml(action.label)}</button>
+        `).join('')}
+      </div>
+    `;
+  }
+
   function renderItems(items) {
     if (!items.length) {
       els.results.innerHTML = `<div class="output-card"><div class="output-value">No images found.</div></div>`;
       return;
     }
-    els.results.innerHTML = items.map(item => {
-      const tags = Array.isArray(item.tags) ? item.tags.join(", ") : "";
-      return `
-        <div class="output-card">
-          <div class="row">
-            <div style="max-width:220px;">
-              <img src="${escapeHtml(item.url || "")}" data-image-popup="1" data-fullsrc="${escapeHtml(item.url || "")}" alt="${escapeHtml(item.path || "")}" style="width:100%;max-width:220px;height:140px;object-fit:cover;border:1px solid var(--border);border-radius:10px;" loading="lazy" />
-            </div>
-            <div style="flex:1;min-width:0;">
-              <div class="field">
-                <label>Path</label>
-                <input value="${escapeHtml(item.path || "")}" disabled />
-              </div>
-              <div class="field">
-                <label for="friendly-${escapeHtml(item.path || "").replace(/[^a-zA-Z0-9_-]/g, "_")}">Friendly Name</label>
-                <input data-meta="friendly_name" data-path="${escapeHtml(item.path || "")}" value="${escapeHtml(item.friendly_name || "")}" />
-              </div>
-              <div class="field">
-                <label>Tags (comma-separated)</label>
-                <input data-meta="tags" data-path="${escapeHtml(item.path || "")}" value="${escapeHtml(tags)}" />
-              </div>
-              <div class="field">
-                <label>Notes</label>
-                <textarea data-meta="notes" data-path="${escapeHtml(item.path || "")}" rows="3">${escapeHtml(item.notes || "")}</textarea>
-              </div>
-              <div class="actions">
-                <button type="button" class="result-action" data-action="save-meta" data-path="${escapeHtml(item.path || "")}">Save Metadata</button>
-              </div>
-            </div>
-          </div>
+    els.results.innerHTML = items.map(item => `
+      <article class="image-tile">
+        ${Number(item.attached_count || 0) > 0 ? '<span class="image-tile-attach-indicator" title="Attached to one or more cards"></span>' : ''}
+        <div class="image-tile-toolbar">
+          <button type="button" class="image-icon-btn" data-action="edit" data-path="${escapeHtml(item.path || '')}" title="Edit metadata">✎</button>
+          <button type="button" class="image-icon-btn" data-action="delete" data-path="${escapeHtml(item.path || '')}" title="Delete image">🗑</button>
         </div>
-      `;
-    }).join("");
+        <img
+          src="${escapeHtml(item.url || '')}"
+          alt="${escapeHtml(item.friendly_name || item.name || item.path || '')}"
+          data-image-popup="1"
+          data-fullsrc="${escapeHtml(item.url || '')}"
+          loading="lazy"
+        />
+        <div class="image-tile-tooltip">${buildTooltip(item)}</div>
+        ${renderGenerateActions(item)}
+        <div class="image-tile-caption">
+          <div class="image-tile-name">${escapeHtml(item.friendly_name || item.name || 'Unnamed image')}</div>
+          <div class="image-tile-sub">${escapeHtml((item.attached_count || 0) + ' attached · ' + ((item.tags || []).slice(0, 2).join(', ') || 'untagged'))}</div>
+        </div>
+      </article>
+    `).join('');
 
-    els.results.querySelectorAll('button[data-action="save-meta"]').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const path = btn.getAttribute('data-path');
-        if (!path) return;
-        const fieldValues = {};
-        els.results.querySelectorAll('[data-meta]').forEach(el => {
-          if (el.getAttribute('data-path') !== path) return;
-          fieldValues[el.getAttribute('data-meta')] = el.value;
-        });
-        try {
-          await fetchJson('/media/images/meta', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              image: path,
-              friendly_name: fieldValues.friendly_name || "",
-              tags: String(fieldValues.tags || "").split(",").map(x => x.trim()).filter(Boolean),
-              notes: fieldValues.notes || "",
-            }),
-          });
-          els.status.textContent = `Saved metadata for ${path}.`;
-        } catch (err) {
-          els.status.textContent = `Save failed: ${err.message}`;
-        }
+    els.results.querySelectorAll('[data-action="edit"]').forEach(btn => {
+      btn.addEventListener('click', () => openEditor(btn.getAttribute('data-path') || ''));
+    });
+    els.results.querySelectorAll('[data-action="delete"]').forEach(btn => {
+      btn.addEventListener('click', () => deleteImage(btn.getAttribute('data-path') || ''));
+    });
+    els.results.querySelectorAll('[data-action="generate"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const path = String(btn.getAttribute('data-path') || '').trim();
+        const type = String(btn.getAttribute('data-type') || '').trim();
+        if (!path || !type) return;
+        window.location.href = `/ai-generate?type=${encodeURIComponent(type)}&image=${encodeURIComponent(path)}`;
+      });
+    });
+    els.results.querySelectorAll('.image-tile-tooltip [data-action="tag-filter"]').forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const tag = String(btn.getAttribute('data-tag') || '').trim();
+        els.tag.value = tag;
+        search();
       });
     });
   }
 
+  function currentItem(path) {
+    return state.items.find(item => String(item.path || '') === String(path || '')) || null;
+  }
+
+  function openEditor(path) {
+    const item = currentItem(path);
+    if (!item) return;
+    state.editingPath = path;
+    els.modalPreview.src = item.url || '';
+    els.modalPreview.alt = item.friendly_name || item.name || item.path || '';
+    els.modalFriendlyName.value = item.friendly_name || '';
+    els.modalDescription.value = item.description || '';
+    els.modalTags.value = Array.isArray(item.tags) ? item.tags.join(', ') : '';
+    els.modalPath.value = item.path || '';
+    const attached = Array.isArray(item.attached_to) ? item.attached_to : [];
+    els.modalAttached.innerHTML = attached.length
+      ? attached.map(row => `<span class="image-meta-chip">${escapeHtml(row.label || row.id || '')}</span>`).join('')
+      : '<span class="small">Not attached to any cards.</span>';
+    els.modal.hidden = false;
+  }
+
+  function closeEditor() {
+    els.modal.hidden = true;
+    state.editingPath = '';
+  }
+
+  async function saveEditor() {
+    if (!state.editingPath) return;
+    const body = {
+      image: state.editingPath,
+      friendly_name: els.modalFriendlyName.value.trim(),
+      description: els.modalDescription.value.trim(),
+      tags: els.modalTags.value.split(',').map(x => x.trim()).filter(Boolean),
+    };
+    await fetchJson('/media/images/meta', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    closeEditor();
+    await search();
+    els.status.textContent = `Saved metadata for ${body.image}.`;
+  }
+
+  async function deleteImage(path) {
+    if (!path) return;
+    const item = currentItem(path);
+    const label = item?.friendly_name || item?.name || path;
+    const ok = window.confirm(`Delete image "${label}"? This will also detach it from any linked cards.`);
+    if (!ok) return;
+    await fetchJson('/media/images/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: path }),
+    });
+    await search();
+    els.status.textContent = `Deleted ${label}.`;
+  }
+
+  async function dedupeImages() {
+    const ok = window.confirm('Dedupe identical images? This will rewrite attachments to one canonical file and remove duplicate files.');
+    if (!ok) return;
+    els.status.textContent = 'Deduping images...';
+    const data = await fetchJson('/media/images/dedupe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+    await search();
+    const removed = Number(data?.duplicates_removed || 0);
+    els.status.textContent = removed
+      ? `Deduped images. Removed ${removed} duplicate file(s).`
+      : 'No duplicate images were found.';
+  }
+
   async function search() {
-    els.status.textContent = "Searching images...";
+    els.status.textContent = 'Searching images...';
     const data = await fetchJson(buildUrl());
-    renderItems(data.items || []);
+    state.items = Array.isArray(data.items) ? data.items : [];
+    renderItems(state.items);
+    renderTagBar(state.items);
     els.status.textContent = `Found ${data.count ?? 0} image(s).`;
   }
 
   function reset() {
-    els.q.value = "";
-    els.tag.value = "";
+    els.q.value = '';
+    els.tag.value = '';
     search();
   }
 
   els.searchBtn.addEventListener('click', search);
   els.resetBtn.addEventListener('click', reset);
-  els.q.addEventListener('keydown', (e) => { if (e.key === "Enter") search(); });
-  els.tag.addEventListener('keydown', (e) => { if (e.key === "Enter") search(); });
+  els.dedupeBtn?.addEventListener('click', () => {
+    dedupeImages().catch(err => {
+      els.status.textContent = `Dedupe failed: ${err.message}`;
+    });
+  });
+  els.q.addEventListener('keydown', (e) => { if (e.key === 'Enter') search(); });
+  els.tag.addEventListener('keydown', (e) => { if (e.key === 'Enter') search(); });
+  els.modalClose.addEventListener('click', closeEditor);
+  els.modalSave.addEventListener('click', saveEditor);
+  els.modal.addEventListener('click', (e) => {
+    if (e.target === els.modal) closeEditor();
+  });
 
   search().catch(err => {
     els.status.textContent = `Error: ${err.message}`;

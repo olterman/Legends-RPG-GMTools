@@ -14,9 +14,11 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from lol_api.lore import (
     expunge_trashed_lore_item,
+    list_ai_lore_items,
     list_trashed_lore_items,
     load_lore_index,
     restore_trashed_lore_item,
+    search_ai_lore,
     trash_lore_item,
     update_lore_item,
 )
@@ -106,6 +108,7 @@ class SmokeTests(unittest.TestCase):
         self.assertIn("If no valid local race, variant, profession, or culture can be supported", source)
         self.assertIn("Treat place names, cultures, factions, and religions as distinct unless the context explicitly equates them.", source)
         self.assertIn("def _build_lore_context(", source)
+        self.assertIn("search_ai_lore(", source)
         self.assertIn('if cid == "local_library"', source)
         self.assertIn("query_tokens =", source)
         self.assertIn('str(full_item.get("content_markdown", ""))', source)
@@ -138,14 +141,83 @@ class SmokeTests(unittest.TestCase):
         self.assertIn('Invent a fresh personal name that is not one of the recently generated innkeeper names', source)
         self.assertIn("String(card.proprietor || '').trim()", source)
 
+    def test_ai_lore_browser_route_and_template_exist(self) -> None:
+        api_source = Path(PROJECT_ROOT / "lol_api" / "api.py").read_text(encoding="utf-8")
+        base_source = Path(PROJECT_ROOT / "lol_api" / "templates" / "base.html").read_text(encoding="utf-8")
+        browser_source = Path(PROJECT_ROOT / "lol_api" / "templates" / "ai_lore_browser.html").read_text(encoding="utf-8")
+        self.assertIn('return render_template("ai_lore_browser.html")', api_source)
+        self.assertIn('<a href="/lore-browser">AI Lore Browser</a>', base_source)
+        self.assertIn("Source Lore Inputs", browser_source)
+        self.assertIn("Model Context Preview", browser_source)
+        self.assertIn("related_lore_slugs", browser_source)
+        self.assertIn("Config-only scaffold", browser_source)
+        self.assertIn("Thin source backing", browser_source)
+
+    def test_image_browser_gallery_and_attachment_metadata_exist(self) -> None:
+        api_source = Path(PROJECT_ROOT / "lol_api" / "api.py").read_text(encoding="utf-8")
+        browser_source = Path(PROJECT_ROOT / "lol_api" / "templates" / "image_browser.html").read_text(encoding="utf-8")
+        self.assertIn("collect_image_attachment_index()", api_source)
+        self.assertIn("describe_image_attachment(row)", api_source)
+        self.assertIn("_describe_storage_image_attachment", api_source)
+        self.assertIn("_describe_lore_image_attachment", api_source)
+        self.assertIn("sync_image_catalog_attachments()", api_source)
+        self.assertIn('"attached_to": attached_rows', api_source)
+        self.assertIn('str(meta.get("description") or meta.get("notes") or "").strip()', api_source)
+        self.assertIn('"friendly_name": str(meta.get("friendly_name") or "").strip() or derived_name', api_source)
+        self.assertIn('[*(meta.get("tags") or []), *derived_tags]', api_source)
+        self.assertIn("compute_image_content_hash", api_source)
+        self.assertIn("find_catalog_ref_by_content_hash", api_source)
+        self.assertIn("dedupe_image_catalog_files()", api_source)
+        self.assertIn('@app.post("/media/images/dedupe")', api_source)
+        self.assertIn("replace_image_ref_across_records", api_source)
+        self.assertIn("refs_by_hash", api_source)
+        self.assertIn("sibling_refs = refs_by_hash.get(content_hash, [key])", api_source)
+        self.assertIn("refs_from_metadata_block", api_source)
+        self.assertIn("sheet_metadata", api_source)
+        self.assertIn("*refs_from_metadata_block(sheet_metadata)", api_source)
+        self.assertIn("detached_from", api_source)
+        self.assertIn('request.args.get("path")', api_source)
+        self.assertIn("image-browser-grid", browser_source)
+        self.assertIn("image-browser-sidebar", browser_source)
+        self.assertIn("image-browser-main", browser_source)
+        self.assertIn("image-tag-bar", browser_source)
+        self.assertIn("image-tag-filter", browser_source)
+        self.assertIn("image-dedupe-btn", browser_source)
+        self.assertIn("image-tile-tooltip", browser_source)
+        self.assertIn("image-tile-attach-indicator", browser_source)
+        self.assertIn('data-action="edit"', browser_source)
+        self.assertIn('data-action="delete"', browser_source)
+        self.assertIn('data-action="generate"', browser_source)
+        self.assertIn('data-action="tag-filter"', browser_source)
+        self.assertIn("dedupeImages()", browser_source)
+        self.assertIn("renderTagBar(state.items);", browser_source)
+        self.assertIn("/ai-generate?type=", browser_source)
+        self.assertIn("Edit Image Metadata", browser_source)
+        self.assertIn("attached_to", browser_source)
+
+    def test_ai_generate_can_prefill_from_gallery_query(self) -> None:
+        source = Path(PROJECT_ROOT / "lol_api" / "templates" / "ai_generate.html").read_text(encoding="utf-8")
+        self.assertIn("async function prefillFromGalleryQuery()", source)
+        self.assertIn("/media/images?path=", source)
+        self.assertIn("readBlobAsDataUrl", source)
+        self.assertIn("await prefillFromGalleryQuery();", source)
+
     def test_ai_generate_routes_prepend_lore_context(self) -> None:
         source = Path(PROJECT_ROOT / "lol_api" / "api.py").read_text(encoding="utf-8")
         self.assertIn("lore_items, lore_citations, lore_context = _build_lore_context(", source)
         self.assertIn('location=location_id or area_id', source)
         self.assertIn('location=location or area', source)
+        self.assertIn("focus_type=content_type", source)
+        self.assertIn('focus_type="lore"', source)
         self.assertIn('grounded_context = f\"{lore_context}\\n\\n{grounded_context}\"', source)
         self.assertIn('"citations": lore_citations + citations', source)
         self.assertIn('"vector_items": lore_items + items', source)
+        self.assertIn("def ai_lore_focus_priorities(value: str)", source)
+        self.assertIn('if token in {"npc", "creature"}', source)
+        self.assertIn('if token == "player_character"', source)
+        self.assertIn('if token in {"lore", "religion", "myth", "faction", "doctrine"}', source)
+        self.assertIn('section_name in ["Race Guide", "Area Guide", "Doctrine Guide", "Role Guide", "AI Lore Guide"]', source)
+        self.assertIn('context_lines.append(f"{section_name}:\\n" + "\\n\\n".join(section_lines))', source)
 
     def test_ai_generate_npc_professions_are_not_limited_to_player_character_list(self) -> None:
         source = Path(PROJECT_ROOT / "lol_api" / "api.py").read_text(encoding="utf-8")
@@ -158,6 +230,21 @@ class SmokeTests(unittest.TestCase):
         self.assertIn("Use these culture-specific settlement naming examples as guidance", source)
         self.assertIn("Use these culture-specific inn naming examples as guidance", source)
         self.assertIn('"inn": "inn"', source)
+
+    def test_lands_of_legends_human_variants_keep_highland_and_lowland_fenmir_distinct(self) -> None:
+        source = Path(PROJECT_ROOT / "config" / "worlds" / "lands_of_legends" / "10_races.yaml").read_text(encoding="utf-8")
+        self.assertIn("label: Highland Fenmir", source)
+        self.assertIn("- ritual tattoos", source)
+        self.assertIn("tone: shamanic proud tribal highlanders", source)
+        self.assertIn("label: Lowland Fenmir", source)
+        self.assertIn("- weathered farming hands", source)
+        self.assertIn("forced to arms by relentless lowland uruk raids", source)
+
+    def test_human_ai_lore_matcher_does_not_use_variant_labels_as_generic_race_tokens(self) -> None:
+        source = Path(PROJECT_ROOT / "lol_api" / "lore.py").read_text(encoding="utf-8")
+        self.assertIn('if race_slug != "human":', source)
+        self.assertIn("variant_tokens", source)
+        self.assertIn("Fenmir/Xanthir area", source)
 
     def test_search_template_storage_editor_preserves_variant_and_culture(self) -> None:
         source = Path(PROJECT_ROOT / "lol_api" / "templates" / "search.html").read_text(encoding="utf-8")
@@ -188,6 +275,529 @@ class SmokeTests(unittest.TestCase):
         self.assertIn('if source == "storage"', source)
         self.assertIn('if source == "lore"', source)
         self.assertIn("items.sort(key=result_source_priority)", source)
+        self.assertIn('@app.get("/lore/ai")', source)
+        self.assertIn('@app.get("/lore/ai/search")', source)
+
+    def test_ai_lore_derives_race_guides_from_config_and_lore(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            lore_root = root / "lore"
+            entries_dir = lore_root / "entries"
+            entries_dir.mkdir(parents=True, exist_ok=True)
+            config_root = root / "config"
+            world_dir = config_root / "worlds" / "lands_of_legends"
+            world_dir.mkdir(parents=True, exist_ok=True)
+
+            (world_dir / "10_races.yaml").write_text(
+                """
+races:
+  fellic:
+    name: Fellic
+    core_truths:
+      - They have always been here.
+    themes:
+      - balance
+      - memory
+    tone:
+      - mythic
+    visual_defaults:
+      signature_features:
+        - animal-aspected traits
+        - watchful stillness
+      clothing: woven natural garments
+    variants:
+      fox:
+        label: Fox
+        appearance:
+          - fox ears
+          - brush tail
+        tone: diplomats and weavers
+""",
+                encoding="utf-8",
+            )
+            (world_dir / "12_areas.yaml").write_text(
+                """
+areas:
+  fenmir_wilds:
+    name: Fenmir Wilds
+    culture: fellic
+""",
+                encoding="utf-8",
+            )
+            (world_dir / "24_names.yaml").write_text(
+                """
+names:
+  personal_names:
+    fellic:
+      first: [Sable, Bramble]
+      surnames: [Nightreed, Mosswake]
+      by_variant:
+        fox:
+          first: [Thistle, Reed]
+""",
+                encoding="utf-8",
+            )
+            entry = {
+                "type": "lore",
+                "title": "The Fellic",
+                "slug": "the_fellic",
+                "source_path": "logseq/pages/The Fellic.md",
+                "excerpt": "The Fellic are watchers of the wild.",
+                "categories": ["race"],
+                "terms": ["fellic", "fox"],
+                "content_markdown": "# The Fellic\nThe Fox Fellic are diplomats and negotiators.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            (entries_dir / "the_fellic.json").write_text(json.dumps(entry, indent=2), encoding="utf-8")
+            (lore_root / "index.json").write_text(
+                json.dumps(
+                    {
+                        "count": 1,
+                        "items": [
+                            {
+                                "title": entry["title"],
+                                "slug": entry["slug"],
+                                "source_path": entry["source_path"],
+                                "excerpt": entry["excerpt"],
+                                "categories": entry["categories"],
+                                "settings": entry["settings"],
+                                "setting": entry["setting"],
+                            }
+                        ],
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            items = list_ai_lore_items(
+                lore_root,
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            race_items = [item for item in items if item.get("ai_lore_kind") == "race"]
+            self.assertEqual(len(race_items), 1)
+            item = race_items[0]
+            self.assertEqual(item["source"], "ai_lore")
+            self.assertIn("ai_lore", item["categories"])
+            self.assertEqual(item["ai_lore_kind"], "race")
+            self.assertEqual(item["recognition_profile"]["animal_traits"], "yes")
+            self.assertIn("fox", item["allowed_identity_labels"])
+            self.assertTrue(item["disambiguation_rules"])
+            self.assertIn("Recognition Profile", item["content_markdown"])
+            self.assertIn("Recognition Clues", item["content_markdown"])
+            self.assertIn("Allowed Identity Labels", item["content_markdown"])
+            self.assertIn("Disambiguation Rules", item["content_markdown"])
+            self.assertIn("Naming Cues", item["content_markdown"])
+            self.assertIn("Fenmir Wilds", item["content_markdown"])
+            self.assertIn("The Fellic", item["content_markdown"])
+
+            search_items = search_ai_lore(
+                lore_root,
+                query="fox fellic diplomat",
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            self.assertEqual(search_items[0]["slug"], "ai_lore_race_fellic")
+
+    def test_ai_lore_includes_non_playable_creature_categories_in_identity_family(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            lore_root = root / "lore"
+            entries_dir = lore_root / "entries"
+            entries_dir.mkdir(parents=True, exist_ok=True)
+            config_root = root / "config"
+            world_dir = config_root / "worlds" / "lands_of_legends"
+            world_dir.mkdir(parents=True, exist_ok=True)
+
+            (world_dir / "10_races.yaml").write_text("races: {}\n", encoding="utf-8")
+            (world_dir / "12_areas.yaml").write_text("areas: {}\n", encoding="utf-8")
+            (world_dir / "24_names.yaml").write_text("names: {}\n", encoding="utf-8")
+            sands = {
+                "type": "lore",
+                "title": "The Sands",
+                "slug": "the_sands",
+                "source_path": "logseq/pages/The Sands.md",
+                "excerpt": "Gorothim horrors and Gurthim dead haunt the Sands.",
+                "categories": ["lore"],
+                "content_markdown": "# The Sands\nThe Gorothim are warped horrors. The Gurthim are restless dead caused by failed death and Daelgast mismatch.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            world_seed = {
+                "type": "lore",
+                "title": "World Seed",
+                "slug": "world_seed",
+                "source_path": "logseq/pages/World Seed.md",
+                "excerpt": "Daelgast creates horrors and undead as byproducts.",
+                "categories": ["lore"],
+                "content_markdown": "# World Seed\nDaelgast creates horrors and undead as byproducts rather than designs.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            for entry in [sands, world_seed]:
+                (entries_dir / f"{entry['slug']}.json").write_text(json.dumps(entry, indent=2), encoding="utf-8")
+            (lore_root / "index.json").write_text(
+                json.dumps(
+                    {
+                        "count": 2,
+                        "items": [
+                            {
+                                "title": entry["title"],
+                                "slug": entry["slug"],
+                                "source_path": entry["source_path"],
+                                "excerpt": entry["excerpt"],
+                                "categories": entry["categories"],
+                                "settings": entry["settings"],
+                                "setting": entry["setting"],
+                            }
+                            for entry in [sands, world_seed]
+                        ],
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            items = list_ai_lore_items(
+                lore_root,
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            by_slug = {item["slug"]: item for item in items}
+            self.assertIn("ai_lore_identity_gorothim", by_slug)
+            self.assertIn("ai_lore_identity_gurthim", by_slug)
+            self.assertEqual(by_slug["ai_lore_identity_gorothim"]["recognition_profile"]["playable_race"], "no")
+            self.assertEqual(by_slug["ai_lore_identity_gorothim"]["recognition_profile"]["entity_class"], "creature_category")
+            self.assertIn("not a playable race", by_slug["ai_lore_identity_gorothim"]["content_markdown"].lower())
+            self.assertIn("not a playable race", by_slug["ai_lore_identity_gurthim"]["content_markdown"].lower())
+
+            search_items = search_ai_lore(
+                lore_root,
+                query="gorothim horror gurthim undead",
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            self.assertIn("ai_lore_identity_gorothim", [item["slug"] for item in search_items[:4]])
+            self.assertIn("ai_lore_identity_gurthim", [item["slug"] for item in search_items[:4]])
+
+    def test_ai_lore_derives_area_guides_with_belief_cues(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            lore_root = root / "lore"
+            entries_dir = lore_root / "entries"
+            entries_dir.mkdir(parents=True, exist_ok=True)
+            config_root = root / "config"
+            world_dir = config_root / "worlds" / "lands_of_legends"
+            world_dir.mkdir(parents=True, exist_ok=True)
+
+            (world_dir / "10_races.yaml").write_text("races: {}\n", encoding="utf-8")
+            (world_dir / "12_areas.yaml").write_text(
+                """
+areas:
+  xanthir:
+    name: Xanthir
+    type: coastal_theocracy
+    culture: xanthir
+    description: militant theocratic coast
+    visual_traits:
+      - red temple banners
+      - fortified sacred harbors
+    mood:
+      - disciplined
+      - severe
+""",
+                encoding="utf-8",
+            )
+            (world_dir / "24_names.yaml").write_text("names: {}\n", encoding="utf-8")
+            entry = {
+                "type": "lore",
+                "title": "Xanthir",
+                "slug": "xanthir",
+                "source_path": "logseq/pages/Xanthir.md",
+                "excerpt": "The Red Faith Ascendant.",
+                "categories": ["area"],
+                "terms": ["xanthir", "red god", "synod"],
+                "content_markdown": "# Xanthir\nThe Red God, the Crimson Synod, sacrifice, doctrine, and priests define Xanthir.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            (entries_dir / "xanthir.json").write_text(json.dumps(entry, indent=2), encoding="utf-8")
+            (lore_root / "index.json").write_text(
+                json.dumps(
+                    {
+                        "count": 1,
+                        "items": [
+                            {
+                                "title": entry["title"],
+                                "slug": entry["slug"],
+                                "source_path": entry["source_path"],
+                                "excerpt": entry["excerpt"],
+                                "categories": entry["categories"],
+                                "settings": entry["settings"],
+                                "setting": entry["setting"],
+                            }
+                        ],
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            items = list_ai_lore_items(
+                lore_root,
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            area_items = [item for item in items if item.get("ai_lore_kind") == "area"]
+            self.assertEqual(len(area_items), 1)
+            item = area_items[0]
+            self.assertEqual(item["area"], "xanthir")
+            self.assertEqual(item["recognition_profile"]["coastal_or_sea"], "yes")
+            self.assertEqual(item["recognition_profile"]["religious_or_ritual"], "yes")
+            self.assertIn("xanthir", item["allowed_identity_labels"])
+            self.assertIn("Belief and Power Cues", item["content_markdown"])
+            self.assertIn("red god", item["content_markdown"].lower())
+
+            search_items = search_ai_lore(
+                lore_root,
+                query="xanthir priest red god doctrine",
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            self.assertIn("ai_lore_area_xanthir", [item["slug"] for item in search_items[:3]])
+
+    def test_ai_lore_derives_doctrine_guides_with_drift_test(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            lore_root = root / "lore"
+            entries_dir = lore_root / "entries"
+            entries_dir.mkdir(parents=True, exist_ok=True)
+            config_root = root / "config"
+            world_dir = config_root / "worlds" / "lands_of_legends"
+            world_dir.mkdir(parents=True, exist_ok=True)
+
+            (world_dir / "10_races.yaml").write_text("races: {}\n", encoding="utf-8")
+            (world_dir / "12_areas.yaml").write_text("areas: {}\n", encoding="utf-8")
+            (world_dir / "24_names.yaml").write_text("names: {}\n", encoding="utf-8")
+
+            gods = {
+                "type": "lore",
+                "title": "Gods and Powers",
+                "slug": "gods_and_powers",
+                "source_path": "logseq/pages/Gods and Powers.md",
+                "excerpt": "In this world the gods are not beings.",
+                "categories": ["lore"],
+                "content_markdown": "# Gods and Powers\nThe gods are not beings. The Red God, Lilith, Daelgast, the Old Gods, and the Breath of the World are pressures or conditions.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            world_seed = {
+                "type": "lore",
+                "title": "World Seed",
+                "slug": "world_seed",
+                "source_path": "logseq/pages/World Seed.md",
+                "excerpt": "World seed.",
+                "categories": ["lore"],
+                "content_markdown": "# World Seed\nReligion is interpretation. Faith shapes behavior, not reality.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            xanthir = {
+                "type": "lore",
+                "title": "Xanthir",
+                "slug": "xanthir",
+                "source_path": "logseq/pages/Xanthir.md",
+                "excerpt": "Red Faith.",
+                "categories": ["lore"],
+                "content_markdown": "# Xanthir\nXanthir doctrine personifies the Red God through the Crimson Synod and harsh priestly rule.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            daelgast = {
+                "type": "lore",
+                "title": "The Daelgast",
+                "slug": "the_daelgast",
+                "source_path": "logseq/pages/The Daelgast.md",
+                "excerpt": "The Hollow Accord rises in the Pall of Tharun.",
+                "categories": ["lore"],
+                "content_markdown": "# The Daelgast\nThe Hollow Accord calls Daelgast revelation, practices self-exposure to necrotic resonance, and spreads contamination by rejecting containment.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            for entry in [gods, world_seed, xanthir, daelgast]:
+                (entries_dir / f"{entry['slug']}.json").write_text(json.dumps(entry, indent=2), encoding="utf-8")
+            (lore_root / "index.json").write_text(
+                json.dumps(
+                    {
+                        "count": 4,
+                        "items": [
+                            {
+                                "title": entry["title"],
+                                "slug": entry["slug"],
+                                "source_path": entry["source_path"],
+                                "excerpt": entry["excerpt"],
+                                "categories": entry["categories"],
+                                "settings": entry["settings"],
+                                "setting": entry["setting"],
+                            }
+                            for entry in [gods, world_seed, xanthir, daelgast]
+                        ],
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            (lore_root / "prompts_index.json").write_text(
+                json.dumps(
+                    {
+                        "items": [
+                            {
+                                "title": "## THE DRIFT TEST",
+                                "category": "art",
+                                "text": "Does this turn Daelgast, Ul-Nha'rath, or the Breath into an actor rather than a condition? If it adds answers, it's drifting. If it adds pressure, it belongs.",
+                                "settings": ["fantasy", "lands_of_legends"],
+                                "setting": "lands_of_legends",
+                            }
+                        ]
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            items = list_ai_lore_items(
+                lore_root,
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            doctrine_items = [item for item in items if item.get("ai_lore_kind") == "doctrine"]
+            self.assertEqual(len(doctrine_items), 4)
+            by_slug = {item["slug"]: item for item in doctrine_items}
+            self.assertIn("ai_lore_doctrine_cosmology", by_slug)
+            self.assertIn("ai_lore_doctrine_xanthir", by_slug)
+            self.assertIn("ai_lore_doctrine_breath_traditions", by_slug)
+            self.assertIn("ai_lore_doctrine_hollow_accord", by_slug)
+            self.assertIn("Drift Test", by_slug["ai_lore_doctrine_cosmology"]["content_markdown"])
+            self.assertIn("adds pressure", by_slug["ai_lore_doctrine_cosmology"]["content_markdown"].lower())
+            self.assertEqual(by_slug["ai_lore_doctrine_cosmology"]["recognition_profile"]["anthropomorphic_gods_expected"], "no")
+            self.assertIn("Separate Xanthir orthodoxy from setting-level metaphysical truth.", by_slug["ai_lore_doctrine_xanthir"]["disambiguation_rules"])
+            self.assertIn("gor-kha", by_slug["ai_lore_doctrine_breath_traditions"]["content_markdown"].lower())
+            self.assertIn("hollow accord", by_slug["ai_lore_doctrine_hollow_accord"]["content_markdown"].lower())
+
+            search_items = search_ai_lore(
+                lore_root,
+                query="religion red god daelgast drift test hollow accord",
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            self.assertIn("ai_lore_doctrine_cosmology", [item["slug"] for item in search_items[:3]])
+
+    def test_ai_lore_derives_role_guides_even_when_role_lore_is_thin(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            lore_root = root / "lore"
+            entries_dir = lore_root / "entries"
+            entries_dir.mkdir(parents=True, exist_ok=True)
+            config_root = root / "config"
+            world_dir = config_root / "worlds" / "lands_of_legends"
+            world_dir.mkdir(parents=True, exist_ok=True)
+
+            (world_dir / "10_races.yaml").write_text("races: {}\n", encoding="utf-8")
+            (world_dir / "12_areas.yaml").write_text(
+                """
+areas:
+  xanthir:
+    name: Xanthir
+    type: coastal_theocracy
+    culture: xanthir
+    description: sacred harbor cities and severe ritual law
+    visual_traits:
+      - red temple banners
+      - sacred harbors
+""",
+                encoding="utf-8",
+            )
+            (world_dir / "24_names.yaml").write_text("names: {}\n", encoding="utf-8")
+            (world_dir / "11_professions.yaml").write_text(
+                """
+professions:
+  priest:
+    prompt_type: default_npc
+    role: priest
+    appearance: stern ritual authority
+    clothing: crimson vestments and sacred bindings
+    gear_options:
+      - ritual staff
+      - prayer tablets
+""",
+                encoding="utf-8",
+            )
+            xanthir = {
+                "type": "lore",
+                "title": "Xanthir",
+                "slug": "xanthir",
+                "source_path": "logseq/pages/Xanthir.md",
+                "excerpt": "Red Faith.",
+                "categories": ["lore"],
+                "content_markdown": "# Xanthir\nThe Red God and Crimson Synod dominate Xanthir.",
+                "settings": ["fantasy", "lands_of_legends"],
+                "setting": "lands_of_legends",
+            }
+            (entries_dir / "xanthir.json").write_text(json.dumps(xanthir, indent=2), encoding="utf-8")
+            (lore_root / "index.json").write_text(
+                json.dumps(
+                    {
+                        "count": 1,
+                        "items": [
+                            {
+                                "title": xanthir["title"],
+                                "slug": xanthir["slug"],
+                                "source_path": xanthir["source_path"],
+                                "excerpt": xanthir["excerpt"],
+                                "categories": xanthir["categories"],
+                                "settings": xanthir["settings"],
+                                "setting": xanthir["setting"],
+                            }
+                        ],
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            items = list_ai_lore_items(
+                lore_root,
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            role_items = [item for item in items if item.get("ai_lore_kind") == "role"]
+            self.assertEqual(len(role_items), 1)
+            item = role_items[0]
+            self.assertEqual(item["profession"], "priest")
+            self.assertEqual(item["recognition_profile"]["ritual_or_sacred"], "yes")
+            self.assertIn("Doctrine and Belief Hints", item["content_markdown"])
+            self.assertIn("Creative Scaffolds", item["content_markdown"])
+            self.assertIn("war-faith discipline", item["content_markdown"])
+
+            search_items = search_ai_lore(
+                lore_root,
+                query="xanthir priest ritual law synod",
+                config_dir=config_root,
+                setting="lands_of_legends",
+                default_settings=["fantasy", "lands_of_legends"],
+            )
+            self.assertIn("ai_lore_role_priest", [item["slug"] for item in search_items[:4]])
 
     def test_setting_world_filtering(self) -> None:
         with tempfile.TemporaryDirectory() as td:

@@ -2222,6 +2222,48 @@
     }
   }
 
+  async function readBlobAsDataUrl(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ''));
+      reader.onerror = () => reject(new Error('Failed to read image blob.'));
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  async function prefillFromGalleryQuery() {
+    const params = new URLSearchParams(window.location.search);
+    const imagePath = String(params.get('image') || '').trim();
+    const requestedType = String(params.get('type') || '').trim().toLowerCase();
+    if (requestedType && els.type) {
+      const hasRequestedType = Array.from(els.type.options || []).some((opt) => String(opt.value || '').trim().toLowerCase() === requestedType);
+      if (hasRequestedType) {
+        els.type.value = requestedType;
+        renderSchema(String(els.type?.value || 'free_text'));
+        updateImageUi();
+        updateTypeSpecificOptions();
+      }
+    }
+    if (!imagePath) {
+      return;
+    }
+    const data = await fetchJson(`/media/images?path=${encodeURIComponent(imagePath)}`);
+    const item = Array.isArray(data?.items) ? data.items[0] : null;
+    if (!item || !item.url) {
+      throw new Error('Gallery image not found.');
+    }
+    const response = await fetch(item.url);
+    if (!response.ok) {
+      throw new Error(`Image download failed: ${response.status}`);
+    }
+    const blob = await response.blob();
+    state.imageDataUrl = await readBlobAsDataUrl(blob);
+    state.imageName = String(item.friendly_name || item.name || 'gallery image');
+    state.imageSourceUrl = String(item.url || '');
+    updateImageUi();
+    els.status.textContent = `Loaded gallery image: ${state.imageName}`;
+  }
+
   async function copyOutput() {
     const text = String(els.output?.textContent || '').trim();
     if (!text) {
@@ -2474,8 +2516,9 @@
     }
     try {
       await restoreSavedPrefs();
+      await prefillFromGalleryQuery();
     } catch (err) {
-      els.status.textContent = `Could not restore last AI generate settings: ${err.message}`;
+      els.status.textContent = `Could not initialize AI generate page: ${err.message}`;
     }
   });
 </script>

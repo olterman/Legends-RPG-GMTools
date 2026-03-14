@@ -1,0 +1,365 @@
+{% extends "base.html" %}
+
+{% block title %}AI Lore Browser — Lands of Legends GM-Tools{% endblock %}
+
+{% block content %}
+<h1>AI Lore Browser</h1>
+<p>Inspect the derived AI guide layer, see which source lore feeds each guide, and spot places where the lore still needs harmonization.</p>
+
+<div class="layout">
+  <div class="panel">
+    <div class="field">
+      <label for="ai-lore-search">Search AI Lore</label>
+      <input id="ai-lore-search" placeholder="e.g. xanthir priest, fox fellic, red god, fenmir" />
+    </div>
+    <div class="field">
+      <label for="ai-lore-kind">Guide Family</label>
+      <select id="ai-lore-kind">
+        <option value="">All</option>
+        <option value="race">Race</option>
+        <option value="area">Area</option>
+        <option value="doctrine">Doctrine</option>
+        <option value="role">Role</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="ai-lore-setting">Genre / Setting</label>
+      <select id="ai-lore-setting">
+        <option value="">Current Nav Setting</option>
+      </select>
+    </div>
+    <div class="actions">
+      <button id="ai-lore-run-btn" type="button">Browse</button>
+      <button id="ai-lore-reset-btn" type="button" class="secondary">Reset</button>
+    </div>
+    <div class="status" id="ai-lore-status">Loading AI lore guides...</div>
+    <div class="results" id="ai-lore-results"></div>
+  </div>
+
+  <div class="panel">
+    <div id="ai-lore-viewer">
+      <div class="output-card empty-state-card" style="min-height: 420px;">
+        <div class="empty-text">Select an AI lore guide to inspect its structure and source lore.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const state = {
+    meta: null,
+    items: [],
+    selectedSlug: '',
+    sourceCache: {},
+  };
+
+  const els = {
+    q: document.getElementById('ai-lore-search'),
+    kind: document.getElementById('ai-lore-kind'),
+    setting: document.getElementById('ai-lore-setting'),
+    runBtn: document.getElementById('ai-lore-run-btn'),
+    resetBtn: document.getElementById('ai-lore-reset-btn'),
+    status: document.getElementById('ai-lore-status'),
+    results: document.getElementById('ai-lore-results'),
+    viewer: document.getElementById('ai-lore-viewer'),
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function titleCase(value) {
+    return String(value || '')
+      .replace(/[_-]+/g, ' ')
+      .replace(/\b\w/g, (m) => m.toUpperCase());
+  }
+
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `${res.status} ${res.statusText}`);
+    return data;
+  }
+
+  function currentSetting() {
+    const explicit = String(els.setting.value || '').trim();
+    if (explicit) return explicit;
+    return String(document.getElementById('nav-world-setting')?.value || '').trim();
+  }
+
+  function populateSettings(meta) {
+    const settings = Array.isArray(meta?.settings || []) ? meta.settings : [];
+    const current = currentSetting();
+    const options = ['<option value="">Current Nav Setting</option>']
+      .concat(settings.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(titleCase(value))}</option>`));
+    els.setting.innerHTML = options.join('');
+    if (current && settings.includes(current)) {
+      els.setting.value = current;
+    }
+  }
+
+  function issueBadges(item) {
+    const issues = [];
+    const related = Array.isArray(item.related_lore_slugs) ? item.related_lore_slugs.filter(Boolean) : [];
+    const labels = Array.isArray(item.allowed_identity_labels) ? item.allowed_identity_labels.filter(Boolean) : [];
+    if (!related.length) issues.push('Config-only scaffold');
+    if (related.length === 1) issues.push('Thin source backing');
+    if (!labels.length) issues.push('Missing labels');
+    return issues;
+  }
+
+  function renderResultCard(item) {
+    const issues = issueBadges(item);
+    const badges = [
+      `<span class="tag">${escapeHtml(titleCase(item.ai_lore_kind || 'guide'))}</span>`,
+      ...issues.map((issue) => `<span class="tag warn">${escapeHtml(issue)}</span>`)
+    ].join('');
+    return `
+      <button type="button" class="result-card ai-lore-result" data-slug="${escapeHtml(item.slug || '')}">
+        <div class="result-head">
+          <strong>${escapeHtml(item.title || item.slug || 'Untitled')}</strong>
+        </div>
+        <div class="result-meta">${badges}</div>
+        <div class="small">${escapeHtml(item.description || item.excerpt || '')}</div>
+      </button>
+    `;
+  }
+
+  function renderKeyValueList(title, obj) {
+    const entries = Object.entries(obj || {}).filter(([, value]) => {
+      if (Array.isArray(value)) return value.length > 0;
+      return String(value ?? '').trim() !== '';
+    });
+    if (!entries.length) return '';
+    return `
+      <div class="output-card">
+        <strong>${escapeHtml(title)}</strong>
+        <div class="results" style="margin-top:8px;">
+          ${entries.map(([key, value]) => `
+            <div class="result-card" style="cursor:default;">
+              <div class="small"><strong>${escapeHtml(titleCase(key))}</strong></div>
+              <div>${Array.isArray(value) ? escapeHtml(value.join(', ')) : escapeHtml(value)}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderListCard(title, values) {
+    const items = Array.isArray(values) ? values.filter((value) => String(value || '').trim()) : [];
+    if (!items.length) return '';
+    return `
+      <div class="output-card">
+        <strong>${escapeHtml(title)}</strong>
+        <ul class="clean-list">
+          ${items.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderMarkdownBlock(text) {
+    return `<pre class="ai-lore-markdown">${escapeHtml(text || '')}</pre>`;
+  }
+
+  async function loadSourceLore(slugs) {
+    const out = [];
+    for (const slug of slugs) {
+      if (!slug) continue;
+      if (!state.sourceCache[slug]) {
+        try {
+          state.sourceCache[slug] = await fetchJson(`/lore/${encodeURIComponent(slug)}`);
+        } catch (err) {
+          state.sourceCache[slug] = { slug, title: slug, error: err.message };
+        }
+      }
+      out.push(state.sourceCache[slug]);
+    }
+    return out;
+  }
+
+  function renderSourceLoreCard(item) {
+    const error = String(item?.error || '').trim();
+    if (error) {
+      return `
+        <div class="result-card" style="cursor:default;">
+          <strong>${escapeHtml(item.title || item.slug || 'Source Lore')}</strong>
+          <div class="small">Failed to load source lore: ${escapeHtml(error)}</div>
+        </div>
+      `;
+    }
+    return `
+      <div class="result-card" style="cursor:default;">
+        <div class="small"><strong>${escapeHtml(item.title || item.slug || 'Source Lore')}</strong></div>
+        <div class="small">${escapeHtml((item.categories || []).join(', '))}</div>
+        <div style="margin-top:6px;">${escapeHtml(item.description || item.excerpt || '')}</div>
+      </div>
+    `;
+  }
+
+  async function selectItem(slug) {
+    state.selectedSlug = slug;
+    const item = state.items.find((row) => row.slug === slug);
+    if (!item) return;
+    els.viewer.innerHTML = `<div class="output-card">Loading guide...</div>`;
+    const relatedSlugs = Array.isArray(item.related_lore_slugs) ? item.related_lore_slugs.filter(Boolean) : [];
+    const sources = await loadSourceLore(relatedSlugs);
+    const issues = issueBadges(item);
+    els.viewer.innerHTML = `
+      <div class="results">
+        <div class="output-card">
+          <div class="actions" style="justify-content:space-between;align-items:flex-start;">
+            <div>
+              <strong>${escapeHtml(item.title || item.slug || 'Untitled')}</strong>
+              <div class="small">${escapeHtml(item.description || item.excerpt || '')}</div>
+            </div>
+            <div class="small">${escapeHtml(titleCase(item.ai_lore_kind || 'guide'))}</div>
+          </div>
+          <div class="results" style="margin-top:8px;">
+            ${issues.length ? issues.map((issue) => `<div class="result-card" style="cursor:default;"><strong>${escapeHtml(issue)}</strong></div>`).join('') : '<div class="result-card" style="cursor:default;"><strong>Looks Well-Grounded</strong><div class="small">This guide has multiple structure signals and backing lore.</div></div>'}
+          </div>
+        </div>
+        ${renderKeyValueList('Recognition Profile', item.recognition_profile || {})}
+        ${renderListCard('Disambiguation Rules', item.disambiguation_rules || [])}
+        ${renderListCard('Allowed Identity Labels', item.allowed_identity_labels || [])}
+        <div class="output-card">
+          <strong>Model Context Preview</strong>
+          ${renderMarkdownBlock(item.content_markdown || '')}
+        </div>
+        <div class="output-card">
+          <strong>Source Lore Inputs</strong>
+          <div class="small">${relatedSlugs.length ? 'These lore entries feed the derived guide.' : 'This guide is currently leaning mostly on config and scaffolding rather than explicit lore entries.'}</div>
+          <div class="results" style="margin-top:8px;">
+            ${sources.length ? sources.map(renderSourceLoreCard).join('') : '<div class="result-card" style="cursor:default;">No source lore entries linked yet.</div>'}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function applyFilters(items) {
+    const q = String(els.q.value || '').trim().toLowerCase();
+    const kind = String(els.kind.value || '').trim().toLowerCase();
+    return items.filter((item) => {
+      if (kind && String(item.ai_lore_kind || '').trim().toLowerCase() !== kind) return false;
+      if (!q) return true;
+      const hay = [
+        item.title,
+        item.description,
+        item.excerpt,
+        item.content_markdown,
+        ...(item.allowed_identity_labels || []),
+        ...(item.disambiguation_rules || []),
+        ...(item.related_lore_slugs || []),
+      ].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  async function runBrowse() {
+    els.status.textContent = 'Loading AI lore guides...';
+    const setting = currentSetting();
+    const query = setting ? `?setting=${encodeURIComponent(setting)}` : '';
+    const data = await fetchJson(`/lore/ai${query}`);
+    state.items = Array.isArray(data.items) ? data.items : [];
+    const filtered = applyFilters(state.items);
+    els.results.innerHTML = filtered.map(renderResultCard).join('') || '<div class="small">No guides matched your filters.</div>';
+    els.status.textContent = `${filtered.length} guide${filtered.length === 1 ? '' : 's'} shown.`;
+    if (filtered.length) {
+      await selectItem(filtered[0].slug);
+    } else {
+      els.viewer.innerHTML = '<div class="output-card empty-state-card"><div class="empty-text">No guide selected.</div></div>';
+    }
+  }
+
+  async function init() {
+    state.meta = await fetchJson('/meta');
+    populateSettings(state.meta || {});
+    await runBrowse();
+  }
+
+  els.runBtn.addEventListener('click', () => { runBrowse().catch((err) => { els.status.textContent = err.message; }); });
+  els.resetBtn.addEventListener('click', () => {
+    els.q.value = '';
+    els.kind.value = '';
+    els.setting.value = '';
+    runBrowse().catch((err) => { els.status.textContent = err.message; });
+  });
+  els.q.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runBrowse().catch((err) => { els.status.textContent = err.message; });
+    }
+  });
+  els.kind.addEventListener('change', () => { runBrowse().catch((err) => { els.status.textContent = err.message; }); });
+  els.setting.addEventListener('change', () => { runBrowse().catch((err) => { els.status.textContent = err.message; }); });
+  els.results.addEventListener('click', (event) => {
+    const card = event.target.closest('.ai-lore-result');
+    if (!card) return;
+    selectItem(card.dataset.slug).catch((err) => { els.status.textContent = err.message; });
+  });
+
+  init().catch((err) => {
+    els.status.textContent = `Failed to initialize AI lore browser: ${err.message}`;
+  });
+</script>
+
+<style>
+  .clean-list {
+    margin: 10px 0 0;
+    padding-left: 18px;
+  }
+
+  .clean-list li {
+    margin-bottom: 6px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(122, 162, 255, 0.12);
+    color: var(--text);
+    border: 1px solid rgba(122, 162, 255, 0.35);
+    font-size: 0.78rem;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  .tag.warn {
+    background: rgba(240, 171, 78, 0.12);
+    border-color: rgba(240, 171, 78, 0.35);
+  }
+
+  .ai-lore-markdown {
+    margin: 10px 0 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: rgba(0,0,0,0.18);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    color: var(--text);
+  }
+
+  .ai-lore-result {
+    text-align: left;
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .ai-lore-result:hover {
+    border-color: var(--accent);
+  }
+</style>
+{% endblock %}

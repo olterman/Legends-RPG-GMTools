@@ -1,0 +1,8 @@
+{
+  "id": "edge",
+  "label": "Edge",
+  "kind": "village",
+  "status": "draft",
+  "summary": "Starter village entry within The Vale.",
+  "notes": "Authored subregion village scaffold."
+}

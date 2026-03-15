@@ -16,17 +16,17 @@ class GraphServiceTests(unittest.TestCase):
     def test_upsert_and_list_tags(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             graph = GraphService(Path(td) / "gmforge.db")
-            tag = graph.upsert_tag(tag="Lands of Legends")
-            self.assertEqual(tag.tag_key, "lands_of_legends")
-            self.assertEqual(tag.label, "Lands Of Legends")
+            tag = graph.upsert_tag(tag="Land of Legends")
+            self.assertEqual(tag.tag_key, "land_of_legends")
+            self.assertEqual(tag.label, "Land Of Legends")
 
-            updated = graph.upsert_tag(tag="lands_of_legends", label="Lands of Legends")
+            updated = graph.upsert_tag(tag="land_of_legends", label="Land of Legends")
             self.assertEqual(updated.id, tag.id)
-            self.assertEqual(updated.label, "Lands of Legends")
+            self.assertEqual(updated.label, "Land of Legends")
 
             tags = graph.list_tags(query="legend")
             self.assertEqual(len(tags), 1)
-            self.assertEqual(tags[0].tag_key, "lands_of_legends")
+            self.assertEqual(tags[0].tag_key, "land_of_legends")
 
     def test_tag_entity_and_query_by_tag(self) -> None:
         with tempfile.TemporaryDirectory() as td:

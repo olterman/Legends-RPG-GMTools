@@ -1,0 +1,18 @@
+{
+  "id": "fenmir_free_cities",
+  "label": "Fenmir Free Cities",
+  "kind": "top_level_region",
+  "status": "proposed",
+  "summary": "Independent coastal city-states bound by the Free Accords, where trade, privateering, and survival matter more than banners.",
+  "notes": "Migrated and normalized from legacy Land of Legends lore for the first Free Cities region slice.",
+  "description": "The Fenmir Free Cities are the law-bent harbors of the western and southern coast: city-states born from exile, necessity, and opportunity. Freeport, Xul, and Kahn are linked less by loyalty than by survival, commerce, and the shared understanding that no empire will save them if the sea turns hostile.",
+  "details": {
+    "accords": "The Free Accords keep the cities loosely aligned: any race may enter, any creed may be practiced, no slavery may stand within the walls, and no war may be waged inside the harbor.",
+    "identity": "Cosmopolitan pirate havens, mercantile ports, and refuge cities where contracts matter more than crowns.",
+    "survival": "Trade, smuggling, privateering, and quick alliances keep the coast alive under constant pressure from storms, rivals, and ambition."
+  },
+  "source_refs": [
+    "lore/entries/fenmir.json",
+    "lore/entries/places.json"
+  ]
+}

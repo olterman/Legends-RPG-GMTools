@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "record_version": 1,
+  "id": "rec_220996da635243218c0ed532dd1d4702",
+  "type": "lore_entry",
+  "title": "Old Gods Draft",
+  "slug": "",
+  "system": {
+    "id": "cypher",
+    "addon_id": "godforsaken"
+  },
+  "context": {
+    "system_id": "cypher",
+    "setting_id": "land_of_legends",
+    "campaign_id": ""
+  },
+  "source": {
+    "kind": "generated",
+    "origin": "user",
+    "sourcebook": "",
+    "pages": [],
+    "external_ref": ""
+  },
+  "content": {
+    "body": "Draft title: Old Gods Draft\nRecord type: lore_entry\nSystem: cypher\nExpansion: godforsaken\nSetting: land_of_legends\nCampaign: none\n\nFocus: Old Gods\n\nAuthor notes:\nFocus on religion and hidden costs.\n\nRetrieved context:\n- [module_lore] Peoples / Fellic / Subgroups / Bovine / Overview.Md / Bovine Overview\n  Bovine Fellic should carry force, patience, and grounded physical presence. They are strong when written with: - agricultural or pastoral weight - stubborn stability - communal endurance - power that feels anchored, not flashy\n- [module_lore] Creatures / Daelgast / Relationships.Md / Daelgast Relationships\n  Daelgast defines itself through pressure on other forces rather than through intent of its own. The Velim relate to it as load, containment, and proof that some passages should never be stabilized. The Alfir relate to it with silence and guilt, because its persistence is entangled with their survival. The Old Gods are weakened where dissonance spreads. Lilith and the Red God oppose it in different ways, one through motion and refusal, the other through resistance and sacrifice. Mortals encounter Daelgast through symptoms: undead, tainted zones, impossible fatigue in magic, and places where beauty refuses to resolve properly. It becomes most dangerous when belief systems, cults, or policies begin organizing themselves around its continued presence. _Imported and adapted from legacy `the_daelgast.json` and `gods_and_powers.json`._\n- [module_lore] Religion.Md / The Old Gods\n  The Old Gods are not dead rulers displaced by newer gods. They are ancient resonances that no longer align cleanly with the wounded world. They are strongest where rhythm survives: - seasonal fire - standing stones - ancestral custom - blood memory - land still permitted to remain itself Bel, Cernunnos, Ceridwen, Danu, and Lugh should all be understood as handles for vast recurring forces rather than self-contained personalities. They matter because they preserve the idea that the world once moved more cleanly through cycle, patience, continuity, and excellence than it does now.\n- [module_lore] Peoples / Lhainim / Subgroups / Redcap / Overview.Md / Redcap Overview\n  Redcaps should feel folkloric, blood-marked, and dangerous in a way that makes old warnings sound reasonable. They work best when they remain: - visceral - morally sharp - place-haunting - more than simply feral\n- [module_lore] Peoples / Lhainim / Overview.Md / Lhainîm Overview\n  The Lhainîm gather the smaller, stranger, and more liminal folk whose lives often sit close to hidden water, old growth, folklore, and thresholds other peoples barely notice. Pixies, Willows, Pucks, Nobs, Redcaps, Dryads, Nayads, and Merfolk should not collapse into one mood, but they do share a place near the edges of ordinary settlement logic. Their stories are often personal, local, uncanny, and bound to place. As a parent group, `Lhainîm` is especially good for organizing lore that needs to feel: - folkloric - uncanny but not always hostile - tied to hidden ecologies and old agreements\n- [module_lore] Relationships.Md / Relationships\n  nce - the Old Gods persist as distant resonances, no longer fully aligned with reality Peoples and cultures are defined by how they stand among these forces and among one another. The Alfir remain bound by origin but divided by purpose. The Duergar and Velim relate to the world through stabilization and containment. Human cultures are plural, often contradictory, and deeply responsive to geography. The Uruk are split between endurance and combustion. The Lilim move through the world rather than ruling it. Fellic and other elder peoples serve as living memory for rhythms others have forgotten. No single culture has the whole truth. The setting works because relationships are partial, tense, and often mutually misread. _Imported and adapted from legacy `world_seed.json` and `gods_and_powers.json`._\n- [module_lore] Peoples / Lhainim / Subgroups / Dryad / Overview.Md / Dryad Overview\n  Dryads should feel inseparable from living groves, rooted covenants, and the slow intelligence of old growth. Their subgroup identity benefits from: - place-bound personhood - beauty tied to ecology - patience with sharp territorial boundaries - the sense that forests are never unoccupied\n- [module_lore] Secrets.Md / Secrets\n  Several truths about the Lands of Legends are not obvious to most inhabitants, even when fragments of them survive in taboo, myth, or forbidden doctrine. - The world was not merely troubled by strange magic. It was wounded by a failed passage between realities. - Daelgast is not a scheming evil power. It is corruption without intent, a condition created by unresolved rupture. - Ul-Nha'rath is distinct from Daelgast. It is the affirmation that collapse is correct, the philosophy that gives persistence and purpose to ruin. - The gods as commonly imagined are misunderstandings. What mortals call gods are usually pressures, resonances, or interpretive masks placed over larger realities. - The Old Gods were not destroyed. They were pushed out of alignment, and their distance is part of why the world remains vulnerable. - The Breath of the World is not a cult mystery or a religion. It is immediacy carried by the living, and it weakens when life yields to despair, domination, or abstraction."
+  },
+  "metadata": {
+    "tags": [],
+    "summary": "Draft packet for: Old Gods",
+    "description": "",
+    "area_id": "",
+    "location_id": "",
+    "visibility": "private",
+    "status": "draft",
+    "images": []
+  },
+  "audit": {
+    "created_at": "2026-03-15T14:36:38.464023+00:00",
+    "updated_at": "2026-03-15T14:36:38.464023+00:00",
+    "created_by": "local_user",
+    "updated_by": "local_user"
+  },
+  "links": [],
+  "extensions": {}
+}

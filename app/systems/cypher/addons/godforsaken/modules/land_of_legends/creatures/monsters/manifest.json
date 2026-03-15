@@ -1,0 +1,8 @@
+{
+  "id": "monsters",
+  "label": "Monsters",
+  "kind": "creature_group",
+  "status": "planned",
+  "summary": "Monster category for Land of Legends creature taxonomy.",
+  "notes": "Starter creature grouping scaffold for future monster authoring."
+}

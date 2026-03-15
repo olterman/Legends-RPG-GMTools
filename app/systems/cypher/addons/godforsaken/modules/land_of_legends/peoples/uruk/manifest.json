@@ -1,0 +1,12 @@
+{
+  "id": "uruk",
+  "label": "Uruk",
+  "kind": "top_level_people",
+  "status": "proposed",
+  "summary": "Top-level Uruk people grouping for Land of Legends.",
+  "notes": "Starter authored scaffold for future people and culture content.",
+  "subgroups": [
+    "highland_uruk",
+    "lowland_uruk"
+  ]
+}

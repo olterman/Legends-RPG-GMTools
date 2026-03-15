@@ -1,0 +1,9 @@
+{
+  "id": "land_of_legends_first",
+  "label": "Land of Legends - First",
+  "kind": "campaign",
+  "system_id": "cypher",
+  "expansion_id": "godforsaken",
+  "setting_id": "land_of_legends",
+  "summary": "This is the Campaign for Anna & Gnapp"
+}

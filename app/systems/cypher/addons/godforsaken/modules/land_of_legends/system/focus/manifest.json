@@ -1,0 +1,8 @@
+{
+  "id": "focus",
+  "label": "Focus",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Focus category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future focus authoring."
+}

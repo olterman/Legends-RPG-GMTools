@@ -1,0 +1,18 @@
+{
+  "id": "mountain_home",
+  "label": "Mountain Home",
+  "kind": "village",
+  "status": "draft",
+  "summary": "Insular mining and herding village built into the lower slopes watching the surrounding passes.",
+  "notes": "Migrated and normalized from legacy Land of Legends lore and settlement storage.",
+  "description": "Mountain Home is built into the lower slopes of the surrounding peaks, where herders, stoneworkers, and wardens of ancient trails live under the belief that the mountains are alive in a slow, deliberate way. It is cautious, rich in old customs, and deeply suspicious of anything that comes from beyond the ridges.",
+  "details": {
+    "notable_inn": "The Lucky Pick",
+    "economy": "Mining, herding, and stonework sustain the village, while river barges bring fish and produce from Lake Home.",
+    "culture": "Mountain Home is insular, cautious, rich in old customs, and deeply suspicious of anything that comes from beyond the ridges."
+  },
+  "source_refs": [
+    "lore/entries/caldor.json",
+    "storage/settlement/settlement_20260314T154650.json"
+  ]
+}

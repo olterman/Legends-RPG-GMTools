@@ -36,7 +36,7 @@ class WaveAContextTests(unittest.TestCase):
         service = ContextService(default_context=build_context(system_id="none"))
         resolved = service.resolve(
             system_defaults={"system_id": "cypher"},
-            setting_defaults={"setting_id": "lands_of_legends"},
+            setting_defaults={"setting_id": "land_of_legends"},
             session={"campaign_id": "session_campaign"},
             requested={"campaign_id": "requested_campaign"},
         )
@@ -44,7 +44,7 @@ class WaveAContextTests(unittest.TestCase):
             resolved,
             {
                 "system_id": "cypher",
-                "setting_id": "lands_of_legends",
+                "setting_id": "land_of_legends",
                 "campaign_id": "requested_campaign",
             },
         )
@@ -53,14 +53,14 @@ class WaveAContextTests(unittest.TestCase):
         service = ContextService(default_context=build_context(system_id="cypher"))
         context = build_context(
             system_id="cypher",
-            setting_id="lands_of_legends",
+            setting_id="land_of_legends",
             campaign_id="campaign_alpha",
         )
         self.assertEqual(
             service.clear_to_level(context, level="setting"),
             {
                 "system_id": "cypher",
-                "setting_id": "lands_of_legends",
+                "setting_id": "land_of_legends",
                 "campaign_id": "",
             },
         )
@@ -76,15 +76,15 @@ class WaveAContextTests(unittest.TestCase):
     def test_build_context_catalog_and_manifests(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
-            campaign_dir = root / "cypher" / "lands_of_legends" / "campaign_alpha"
+            campaign_dir = root / "cypher" / "land_of_legends" / "campaign_alpha"
             campaign_dir.mkdir(parents=True, exist_ok=True)
 
             (root / "cypher" / MANIFEST_FILENAME).write_text(
                 json.dumps({"label": "Cypher System"}),
                 encoding="utf-8",
             )
-            (root / "cypher" / "lands_of_legends" / MANIFEST_FILENAME).write_text(
-                json.dumps({"label": "Lands of Legends"}),
+            (root / "cypher" / "land_of_legends" / MANIFEST_FILENAME).write_text(
+                json.dumps({"label": "Land of Legends"}),
                 encoding="utf-8",
             )
             (campaign_dir / MANIFEST_FILENAME).write_text(
@@ -99,7 +99,7 @@ class WaveAContextTests(unittest.TestCase):
                     "systems": {
                         "cypher": {
                             "settings": {
-                                "lands_of_legends": {
+                                "land_of_legends": {
                                     "campaigns": ["campaign_alpha"]
                                 }
                             }
@@ -113,14 +113,14 @@ class WaveAContextTests(unittest.TestCase):
                 default_context,
                 {
                     "system_id": "cypher",
-                    "setting_id": "lands_of_legends",
+                    "setting_id": "land_of_legends",
                     "campaign_id": "campaign_alpha",
                 },
             )
 
             manifests = load_context_manifests(root, default_context)
             self.assertEqual(sorted(manifests.keys()), ["campaign", "setting", "system"])
-            self.assertEqual(manifests["setting"]["label"], "Lands of Legends")
+            self.assertEqual(manifests["setting"]["label"], "Land of Legends")
 
 
 if __name__ == "__main__":

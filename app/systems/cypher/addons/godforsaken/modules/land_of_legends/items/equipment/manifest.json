@@ -1,0 +1,8 @@
+{
+  "id": "equipment",
+  "label": "Equipment",
+  "kind": "item_category",
+  "status": "planned",
+  "summary": "Equipment category for Land of Legends item taxonomy.",
+  "notes": "Starter item grouping scaffold for future equipment authoring."
+}

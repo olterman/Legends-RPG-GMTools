@@ -1,0 +1,18 @@
+{
+  "id": "fellic",
+  "label": "Fellic",
+  "kind": "top_level_people",
+  "status": "proposed",
+  "summary": "Top-level Fellic grouping for Land of Legends.",
+  "notes": "Starter authored scaffold for future people and culture content.",
+  "subgroups": [
+    "feline",
+    "lupine",
+    "canine",
+    "ursine",
+    "bovine",
+    "chelonian",
+    "avian",
+    "anatine"
+  ]
+}

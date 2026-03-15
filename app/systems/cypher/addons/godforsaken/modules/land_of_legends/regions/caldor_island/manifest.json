@@ -1,0 +1,17 @@
+{
+  "id": "caldor_island",
+  "label": "Caldor Island",
+  "kind": "top_level_region",
+  "status": "proposed",
+  "summary": "Large mountainous island realm of Caldor, rich in resources but still largely unexplored beyond its coasts and hidden valleys.",
+  "notes": "Migrated and normalized from legacy Land of Legends lore for the first top-level region import slice.",
+  "description": "Caldor Island is Caldor's largest western possession and one of its greatest contradictions: an island rich in forests, rivers, and mineral wealth whose interior remains shielded by mountain walls, strange weather, and incomplete maps. Official charts promise roads and settlements that do not exist, while the true heart of the island remains hidden in isolated valleys and forgotten passes.",
+  "details": {
+    "identity": "A frontier holding of Caldor where imperial claims thin out quickly and geography defeats certainty.",
+    "terrain": "Mountain ranges, central valleys, isolated shores, and untouched wilderness dominate the island interior.",
+    "contradiction": "Official maps show roads and settlements that do not exist, while unofficial maps often show nothing at all."
+  },
+  "source_refs": [
+    "lore/entries/caldor.json"
+  ]
+}

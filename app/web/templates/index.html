@@ -37,7 +37,26 @@ main { max-width: 1040px; margin: 0 auto; padding: 28px 20px 64px; }
 }
 .card h2 { margin-top: 0; }
 .card ul { padding-left: 18px; }
+.addon-list {
+  display: grid;
+  gap: 12px;
+  padding-left: 0;
+  list-style: none;
+}
+.addon-group-title {
+  margin: 14px 0 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 .rulebook-list { margin-top: 8px; }
+.module-list {
+  margin-top: 8px;
+}
+.module-list li {
+  margin: 4px 0;
+}
 .quick-links { display: flex; gap: 12px; margin: 18px 0 26px; flex-wrap: wrap; }
 .quick-links a { padding: 10px 14px; border-radius: 999px; background: var(--accent-soft); }
 @media (max-width: 700px) {
@@ -62,6 +81,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 28px 20px 64px; }
   <section class="quick-links">
     <a href="{{ url_for('campaigns_workspace') }}">Open Campaign Workspace</a>
     <a href="{{ url_for('records_workspace') }}">Open Record Workspace</a>
+    <a href="{{ url_for('generate_workspace') }}">Open Generator Workspace</a>
     <a href="{{ url_for('api_systems') }}">View Systems API</a>
   </section>
   <section class="system-grid">
@@ -70,10 +90,21 @@ main { max-width: 1040px; margin: 0 auto; padding: 28px 20px 64px; }
       <h2>{{ system.name }}</h2>
       <p class="meta">{{ system.summary or "System shell" }}</p>
       {% if system.addons %}
-      <ul>
-        {% for addon in system.addons %}
+      {% set core_rules = system.addons | selectattr('kind', 'equalto', 'core_rules') | list %}
+      {% set expansions = system.addons | rejectattr('kind', 'equalto', 'core_rules') | list %}
+      {% if core_rules %}
+      <div class="addon-group-title">Core Rules</div>
+      <ul class="addon-list">
+        {% for addon in core_rules %}
         <li>
-          <strong>Expansion: {{ addon.name }}</strong>
+          <strong>{{ addon.name }}</strong>
+          {% if addon.modules %}
+          <ul class="module-list">
+            {% for module in addon.modules %}
+            <li><span class="meta">Module:</span> <a href="{{ module.ui_url }}">{{ module.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
           {% if addon.rulebooks %}
           <ul class="rulebook-list">
             {% for rulebook in addon.rulebooks %}
@@ -86,8 +117,35 @@ main { max-width: 1040px; margin: 0 auto; padding: 28px 20px 64px; }
         </li>
         {% endfor %}
       </ul>
+      {% endif %}
+      {% if expansions %}
+      <div class="addon-group-title">Expansions</div>
+      <ul class="addon-list">
+        {% for addon in expansions %}
+        <li>
+          <strong>{{ addon.name }}</strong>
+          {% if addon.modules %}
+          <ul class="module-list">
+            {% for module in addon.modules %}
+            <li><span class="meta">Module:</span> <a href="{{ module.ui_url }}">{{ module.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% if addon.rulebooks %}
+          <ul class="rulebook-list">
+            {% for rulebook in addon.rulebooks %}
+            <li><a href="{{ url_for('rulebook_view', system_id=system.id, addon_id=addon.id, rulebook_id=rulebook.id) }}">{{ rulebook.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <span class="meta">No rulebook declared yet.</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
       {% else %}
-      <p class="meta">No expansions discovered yet.</p>
+      <p class="meta">No core rules or expansions discovered yet.</p>
       {% endif %}
     </article>
     {% endfor %}

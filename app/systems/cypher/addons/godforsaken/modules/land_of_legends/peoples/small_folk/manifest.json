@@ -1,0 +1,13 @@
+{
+  "id": "small_folk",
+  "label": "Small Folk",
+  "kind": "top_level_people",
+  "status": "proposed",
+  "summary": "Top-level small-folk grouping for Land of Legends.",
+  "notes": "Starter authored scaffold for future people and culture content.",
+  "subgroups": [
+    "vaettyr",
+    "duergar",
+    "gitz"
+  ]
+}

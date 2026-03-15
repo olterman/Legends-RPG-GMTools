@@ -1,0 +1,24 @@
+{
+  "id": "land_of_legends",
+  "system_id": "cypher",
+  "addon_id": "godforsaken",
+  "label": "Land of Legends",
+  "status": "planned",
+  "kind": "setting_module",
+  "summary": "Base module scaffold for the Land of Legends fantasy setting under the Godforsaken expansion.",
+  "theme": "epic fantasy",
+  "scope": "setting",
+  "default_campaign_style": "heroic sandbox",
+  "tags": [
+    "fantasy",
+    "mythic",
+    "land_of_legends"
+  ],
+  "feature_flags": {
+    "ships_lore": false,
+    "ships_npcs": false,
+    "ships_items": false,
+    "ships_maps": false,
+    "ships_campaign_templates": false
+  }
+}

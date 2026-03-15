@@ -1,0 +1,8 @@
+{
+  "id": "armor",
+  "label": "Armor",
+  "kind": "item_category",
+  "status": "planned",
+  "summary": "Armor category for Land of Legends item taxonomy.",
+  "notes": "Starter item grouping scaffold for future armor authoring."
+}

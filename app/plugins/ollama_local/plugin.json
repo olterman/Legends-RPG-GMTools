@@ -1,0 +1,8 @@
+{
+  "id": "ollama_local",
+  "name": "Ollama Local",
+  "status": "active",
+  "bundled": true,
+  "enabled_by_default": true,
+  "summary": "Bundled Ollama-backed generation provider for local structured drafting."
+}

@@ -1,0 +1,59 @@
+# Legacy Staging: World Seed
+
+## Metadata
+
+- Legacy file: `lore/entries/world_seed.json`
+- Legacy slug: `world_seed`
+- Title: `World Seed`
+- Source path: `logseq/pages/World Seed.md`
+- Excerpt: The Lands of Legends is a mythic fantasy world shaped by ancient passage, fracture, and restraint.
+- Categories: area, city, location, race
+- Terms: alfirin, duergar, fellic, gitz, lilim, sands, uruk, vaettyr, velim, xanthir
+
+## Suggested Destinations
+
+- `lore/overview.md`
+- `lore/history.md`
+- `lore/culture.md`
+- `lore/relationships.md`
+- `lore/secrets.md`
+- `lore/ai_lore/drift_tests/overview.md`
+
+## Full Legacy Markdown
+
+# Seed
+
+The Lands of Legends is a mythic fantasy world shaped by ancient passage, fracture, and restraint.
+
+Reality was once breached when the immortal Alfirin fled a shattered world, negotiating passage through the Gates guarded by the Velim. The passage failed. The Gates opened imperfectly, scarring existence and allowing Daelgast — a non-sentient cosmic dissonance, a magical cancer from beyond the world — to seep into reality. Daelgast corrupts matter, life, and memory without intent, creating horrors and undead as byproducts rather than designs. It persists only because the breach was never fully resolved.
+
+The world is not governed by anthropomorphic gods. Divinity exists as pressures and principles, not persons. The Alfirin do not worship. The Duergar name no gods. The Lilim do not revere Lilith — they are Lilith in motion. The Red God and Lilith are opposing forces of resistance that together hold Daelgast in check, not out of mercy, but necessity.
+
+The Old Gods — distant, nature-aligned forces remembered through fractured myth and rhythm — were not destroyed, but pushed away by dissonance. They did not leave. The world drifted out of tune.
+
+Three great conditions now define existence.
+
+Daelgast is corruption without will: erosion, mutation, and decay born of wounded reality.
+
+Ul-Nha’rath, known in forbidden texts as the Black Affirmation, is an infernal cosmic pressure that validates collapse. It does not create Daelgast, but sanctifies it, turning disintegration into purpose and despair into truth. Ul-Nha’rath requires consent — the belief that existence is a mistake. It manifests through cult, hierarchy, ritualized cruelty, and demonic crystallizations that are decisions made flesh. It seeks not the end of the world, but acceptance of why it should end.
+
+Opposed to both is the Breath of the World — Anáil, Súlennaeth, Gor-Kha — not a god or spirit, but immediacy itself. The Breath is the living tension between land, flesh, instinct, and the present moment. It cannot be worshipped or stored, only entered. It exists only where life actively chooses to persist. Daelgast erodes it. Ul-Nha’rath denies its value. The gods ignore it. Only the living can carry it.
+
+Among the Fellic, Galadhrim shamans, Fenmir highlanders, and Highland Uruk, the Breath manifests as attunement — trance, song, ritual movement, blood-memory, and clarity without domination. Among the Lowland Uruk it becomes Gor-Kha, the Red Surge: a violent, communal war-breath that grants terrifying unity at the cost of longevity, stability, and peace.
+
+Cultures arise from survival, restraint, and ancient pacts rather than destiny.
+
+The Alfirin are immortal exiles divided into Sky Children (Kalaquendi, open and cultured), Forest Folk (Galadhrim, feral stewards of living realms), Nightshades (Duathrim, secretive manipulators of shadow and discipline), and the lost Children of the Deep (Falthrim, nomadic whale-herders beneath the waves). Their arrival scarred the world, and the world remembers.
+
+Humans are mortal and adaptive. Fenmir highlanders are spiritual nomads bound by ancestral law; Fenmir lowlanders became freebooters and survivors along lawless coasts; Caldorans build renaissance trade empires with layered theology; Xanthir form a brutal theocracy devoted to the Red God as absolute resistance, walking a dangerous line between martyrdom and affirmation; scattered tribes endure in wetlands and sands.
+
+Uruk arrived suddenly from the east. Highland Uruk are philosophical herders and poets living in wary coexistence with Fenmir clans. Lowland Uruk are militant conquerors whose war-cultures draw power from Gor-Kha rather than malice, burning faster than they can endure.
+
+The Lilim are wandering cosmic beings of rebellion, innovation, and art — inherently magical travelers bound by inner calling and shared ritual language (Darb-Naṣr). They have no lands, no rulers, and no fixed morality, only motion.
+
+The Small Folk predate most histories. Velim are tiny luminous custodians of Gates and reality itself; Gitz are clever forest survivors with oral traditions older than empires; Vaettyr are subterranean tinkerfolk maintaining ancient machines that stabilize magic. Lhainîm — pixies, pucks, redcaps, and willows — are bound to the land as servants of elder rhythms.
+
+Fellic are ancient beast-aspected peoples — Cat, Fox, Dog, Bear, Bull, Turtle, and Bird — who have always existed in the wild. They act as watchers, elders, warriors, and living memory, guiding shamans of the Galadhrim, Fenmir highlanders, and Highland Uruk through the Breath of the World.
+
+The world favors quiet myth over spectacle, ancient consequence over prophecy, and restraint over destiny. Beauty and horror coexist. Nothing is wholly good or evil — except Daelgast, which is not evil, only wrong.
+The Lands of Legends is a restrained mythic fantasy world shaped by a failed passage: immortal Alfirin fleeing a shattered world damaged reality itself, allowing Daelgast — a non-sentient cosmic dissonance — to seep in and corrupt existence without intent. The world is governed not by gods but by pressures: Daelgast erodes, Ul-Nha’rath affirms collapse through belief and despair, and the Breath of the World exists as immediacy — the living choice to persist, accessible only through presence and action. Cultures arise from survival and ancient pacts, not destiny. War is terrifying without being demonic, divinity is distant without absence, and hope exists only in motion, resistance, and restraint rather than prophecy or salvation.

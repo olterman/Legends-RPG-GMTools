@@ -1,0 +1,18 @@
+{
+  "id": "lhainim",
+  "label": "Lhainîm",
+  "kind": "top_level_people",
+  "status": "proposed",
+  "summary": "Top-level Lhainim grouping for Land of Legends.",
+  "notes": "Starter authored scaffold for future people and culture content.",
+  "subgroups": [
+    "pixie",
+    "willow",
+    "puck",
+    "nob",
+    "redcap",
+    "dryad",
+    "nayad",
+    "merefolk"
+  ]
+}

@@ -103,6 +103,7 @@ Set the boundaries before any migration work begins.
 - Addons may extend systems but may not bypass system contracts.
 - Optional plugins must integrate through public capabilities only.
 - Content hierarchy must be navigable without system-specific hacks.
+- reusable world content should live in system/addon/module-owned space, while campaign-local play state should live in campaign-owned space
 - Sourcebook parsing should follow one markdown-first path: addon-owned raw source, bundled `docling` conversion, addon-owned markdown parser/importer, then canonical core records.
 - Addons may also ship addon-owned html rulebook artifacts for browser reading, but backend parsing stays markdown-based.
 - Core, systems, addons, and tools should all expose API endpoints where their capabilities are user-facing or automation-facing.

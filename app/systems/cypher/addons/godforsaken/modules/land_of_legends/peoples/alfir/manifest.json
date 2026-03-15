@@ -1,0 +1,14 @@
+{
+  "id": "alfir",
+  "label": "Alfir",
+  "kind": "top_level_people",
+  "status": "proposed",
+  "summary": "Top-level elder people grouping for Land of Legends.",
+  "notes": "Starter authored scaffold for future people and culture content.",
+  "subgroups": [
+    "faltrim",
+    "kalaquendi",
+    "duathrim",
+    "galadhrim"
+  ]
+}

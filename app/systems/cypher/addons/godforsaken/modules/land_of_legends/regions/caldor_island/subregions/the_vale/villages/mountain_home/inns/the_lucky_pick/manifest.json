@@ -1,0 +1,19 @@
+{
+  "id": "the_lucky_pick",
+  "label": "The Lucky Pick",
+  "kind": "inn",
+  "status": "draft",
+  "summary": "Mountain Home's hard-worn inn, serving strong drinks and heavier meals to miners, herders, and travelers.",
+  "notes": "Migrated and normalized from legacy Land of Legends settlement storage.",
+  "description": "The Lucky Pick is the local inn of Mountain Home, run by the gruff retired miner Kirk Dunbar. It serves as a meeting place for villagers returning from the slopes and for anyone carrying ore, gossip, or trouble down from the ridges.",
+  "details": {
+    "proprietor": "Kirk Dunbar",
+    "atmosphere": "A hard-worn mountain inn of strong drink, heavy meals, and blunt hospitality where miners, herders, and ridge-watchers trade stories at the end of the day.",
+    "clientele": "Locals from Mountain Home, especially miners, herders, stoneworkers, and anyone returning from the slopes or the old trails.",
+    "notable_feature": "The Lucky Pick is known for hearty meals, strong drink, and its role as the social heart of Mountain Home.",
+    "rumor_or_hook": "Travelers say Kirk hears everything worth knowing in Mountain Home, but only parts with the truth when he thinks someone has earned it."
+  },
+  "source_refs": [
+    "storage/settlement/settlement_20260314T154650.json"
+  ]
+}

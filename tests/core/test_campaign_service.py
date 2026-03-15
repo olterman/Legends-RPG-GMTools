@@ -18,7 +18,7 @@ class CampaignServiceTests(unittest.TestCase):
             service = CampaignService(Path(td))
             campaign = service.create_campaign(
                 system_id="cypher",
-                setting_id="lands_of_legends",
+                setting_id="land_of_legends",
                 campaign_id="campaign_alpha",
                 campaign_label="Campaign Alpha",
                 summary="Primary test campaign",
@@ -27,7 +27,7 @@ class CampaignServiceTests(unittest.TestCase):
             self.assertEqual(campaign["id"], "campaign_alpha")
             items = service.list_campaigns(
                 system_id="cypher",
-                setting_id="lands_of_legends",
+                setting_id="land_of_legends",
             )
             self.assertEqual(len(items), 1)
             self.assertEqual(items[0]["label"], "Campaign Alpha")
@@ -37,12 +37,29 @@ class CampaignServiceTests(unittest.TestCase):
             service = CampaignService(Path(td))
             service.create_campaign(
                 system_id="cypher",
-                setting_id="lands_of_legends",
+                setting_id="land_of_legends",
                 campaign_id="campaign_alpha",
             )
             with self.assertRaises(FileExistsError):
                 service.create_campaign(
                     system_id="cypher",
-                    setting_id="lands_of_legends",
+                    setting_id="land_of_legends",
                     campaign_id="campaign_alpha",
                 )
+
+    def test_create_campaign_generates_id_from_label_when_missing(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            service = CampaignService(Path(td))
+            campaign = service.create_campaign(
+                system_id="cypher",
+                setting_id="land_of_legends",
+                campaign_id="",
+                campaign_label="My First Campaign",
+            )
+
+            self.assertEqual(campaign["id"], "my_first_campaign")
+            items = service.list_campaigns(
+                system_id="cypher",
+                setting_id="land_of_legends",
+            )
+            self.assertEqual(items[0]["id"], "my_first_campaign")

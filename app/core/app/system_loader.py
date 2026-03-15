@@ -10,6 +10,7 @@ SYSTEM_MANIFEST_FILENAME = "system.json"
 ADDON_MANIFEST_FILENAME = "addon.json"
 CONTENT_TYPE_MANIFEST_FILENAME = "content_types.json"
 RULEBOOK_MANIFEST_FILENAME = "rulebook.json"
+MODULE_MANIFEST_FILENAME = "module.json"
 
 
 def _load_json_object(path: Path) -> dict[str, Any]:
@@ -148,6 +149,45 @@ def validate_rulebook_manifest(
     }
 
 
+def validate_module_manifest(
+    manifest: dict[str, Any],
+    *,
+    expected_system_id: str,
+    expected_addon_id: str,
+    expected_module_id: str | None = None,
+) -> dict[str, Any]:
+    if not isinstance(manifest, dict):
+        raise ValueError("module manifest must be an object")
+    module_id = normalize_token(manifest.get("id"))
+    if not module_id:
+        raise ValueError("module manifest id is required")
+    if expected_module_id and module_id != normalize_token(expected_module_id):
+        raise ValueError(f"module manifest id '{module_id}' does not match folder '{expected_module_id}'")
+    system_id = normalize_token(manifest.get("system_id"))
+    addon_id = normalize_token(manifest.get("addon_id"))
+    if system_id != normalize_token(expected_system_id):
+        raise ValueError(f"module manifest system_id '{system_id}' does not match '{expected_system_id}'")
+    if addon_id != normalize_token(expected_addon_id):
+        raise ValueError(f"module manifest addon_id '{addon_id}' does not match '{expected_addon_id}'")
+    label = str(manifest.get("label") or manifest.get("name") or "").strip()
+    if not label:
+        raise ValueError("module manifest label is required")
+    return {
+        "id": module_id,
+        "system_id": system_id,
+        "addon_id": addon_id,
+        "label": label,
+        "status": str(manifest.get("status") or "planned").strip().lower() or "planned",
+        "summary": str(manifest.get("summary") or "").strip(),
+        "kind": str(manifest.get("kind") or "setting_module").strip().lower() or "setting_module",
+        "theme": str(manifest.get("theme") or "").strip(),
+        "scope": str(manifest.get("scope") or "").strip().lower() or "setting",
+        "default_campaign_style": str(manifest.get("default_campaign_style") or "").strip(),
+        "tags": [str(tag).strip() for tag in list(manifest.get("tags") or []) if str(tag).strip()],
+        "feature_flags": dict(manifest.get("feature_flags") or {}),
+    }
+
+
 def discover_systems(systems_root: Path) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for system_dir in _sorted_child_dirs(systems_root):
@@ -184,7 +224,22 @@ def discover_systems(systems_root: Path) -> list[dict[str, Any]]:
                         expected_addon_id=addon["id"],
                     )
                 )
+            modules: list[dict[str, Any]] = []
+            modules_dir = addon_dir / "modules"
+            for module_dir in _sorted_child_dirs(modules_dir):
+                module_path = module_dir / MODULE_MANIFEST_FILENAME
+                if not module_path.exists():
+                    continue
+                modules.append(
+                    validate_module_manifest(
+                        _load_json_object(module_path),
+                        expected_system_id=system["id"],
+                        expected_addon_id=addon["id"],
+                        expected_module_id=module_dir.name,
+                    )
+                )
             addon["rulebooks"] = rulebooks
+            addon["modules"] = modules
             addons.append(addon)
 
         item = dict(system)

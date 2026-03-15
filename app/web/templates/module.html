@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block title %}{{ module.label }} | GMForge{% endblock %}
+
+{% block page_styles %}
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px 20px 64px;
+}
+.module-title-panel,
+.module-panel,
+.category-card {
+  background: linear-gradient(180deg, rgba(27, 37, 49, 0.96), rgba(18, 26, 35, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+.module-title-panel,
+.module-panel {
+  padding: 26px;
+}
+.module-title-panel {
+  margin-bottom: 20px;
+}
+.title-panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 168px;
+  gap: 24px;
+  align-items: start;
+}
+.title-panel-copy {
+  min-width: 0;
+}
+.title-panel-art {
+  width: 168px;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 1px dashed rgba(209, 138, 79, 0.45);
+  background:
+    linear-gradient(145deg, rgba(209, 138, 79, 0.16), rgba(255, 255, 255, 0.03)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.04) 10px,
+      rgba(0, 0, 0, 0.04) 10px,
+      rgba(0, 0, 0, 0.04) 20px
+    );
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 12px;
+}
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.meta-row,
+.tag-list,
+.badge-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 20px;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+.category-card {
+  padding: 18px;
+}
+.category-card h3 {
+  margin: 0 0 8px;
+}
+.category-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+.category-card h3 a:hover {
+  color: var(--accent);
+}
+.category-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.category-footer {
+  margin-top: 16px;
+}
+.category-link {
+  color: var(--accent);
+  font-weight: 600;
+}
+.feature-list {
+  display: grid;
+  gap: 8px;
+}
+.feature-off {
+  color: var(--muted);
+}
+@media (max-width: 900px) {
+  .title-panel-grid,
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .title-panel-art {
+    width: min(100%, 220px);
+  }
+}
+{% endblock %}
+
+{% block body %}
+<main>
+  <section class="module-title-panel">
+    {% set title_content %}
+      <div class="eyebrow">{{ system.name }} / Expansion: {{ addon.name }} / Module</div>
+      <h1>{{ module.label }}</h1>
+      <p class="meta">{{ module.summary or "No module summary yet." }}</p>
+      <div class="meta-row">
+        <span class="pill">Status: {{ module.status }}</span>
+        {% if module.theme %}<span class="pill">Theme: {{ module.theme }}</span>{% endif %}
+        {% if module.scope %}<span class="pill">Scope: {{ module.scope }}</span>{% endif %}
+        {% if module.default_campaign_style %}<span class="pill">Default Campaign Style: {{ module.default_campaign_style }}</span>{% endif %}
+      </div>
+      {% if module.tags %}
+      <div class="tag-list">
+        {% for tag in module.tags %}
+        <span class="pill">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endset %}
+    {% include "_title_panel.html" %}
+  </section>
+
+  <div class="layout">
+    <section class="module-panel">
+      <h2>Category Guide</h2>
+      <p>This module page is the clean top-level map for <strong>{{ module.label }}</strong>. Each category has its own page, while the badges below give quick access to the current entries.</p>
+      <div class="category-grid">
+        {% for card in collection_cards %}
+        <article class="category-card">
+          <div class="category-count">{{ card["count"] }} entries</div>
+          <h3><a href="{{ card["ui_url"] }}">{{ card["label"] }}</a></h3>
+          <p>{{ card["description"] }}</p>
+          {% if card["items"] %}
+          <div class="badge-list">
+            {% for item in card["items"] %}
+            <span class="pill">
+              {% if item.ui_url %}<a href="{{ item.ui_url }}">{{ item.label }}</a>{% else %}{{ item.label }}{% endif %}
+            </span>
+            {% endfor %}
+          </div>
+          {% if card["badge_field"] %}
+          <div class="badge-list">
+            {% for item in card["items"] %}
+              {% for badge in item[card["badge_field"]] or [] %}
+              <span class="pill">
+                {% if card["id"] == "peoples" %}
+                <a href="/systems/{{ system.id }}/addons/{{ addon.id }}/modules/{{ module.id }}/peoples/{{ item.id }}/subgroups/{{ badge }}">{{ badge }}</a>
+                {% else %}
+                {{ badge }}
+                {% endif %}
+              </span>
+              {% endfor %}
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% else %}
+          <p class="meta">{{ card["empty_text"] }}</p>
+          {% endif %}
+          <div class="category-footer">
+            <a class="category-link" href="{{ card["ui_url"] }}">Open {{ card["label"] }}</a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <aside class="module-panel">
+      <h2>Shipped Content Flags</h2>
+      <div class="feature-list">
+        {% for key, value in module.feature_flags.items() %}
+        <div class="{% if not value %}feature-off{% endif %}">{{ key }}: {{ "yes" if value else "no" }}</div>
+        {% endfor %}
+      </div>
+      <p class="meta" style="margin-top: 16px;">Campaigns should layer on top of this module instead of mutating its base content.</p>
+    </aside>
+  </div>
+</main>
+{% endblock %}

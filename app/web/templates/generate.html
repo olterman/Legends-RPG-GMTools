@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Generation Workspace | GMForge{% endblock %}
+
+{% block page_styles %}
+main { max-width: 1280px; margin: 0 auto; padding: 32px 20px 64px; }
+.layout { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 20px; }
+.panel {
+  background: linear-gradient(180deg, rgba(27, 37, 49, 0.96), rgba(18, 26, 35, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+label { display: block; margin: 12px 0 6px; color: var(--muted); }
+input, textarea, select {
+  width: 100%;
+  background: rgba(8, 12, 17, 0.68);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
+button {
+  margin-top: 14px;
+  background: var(--accent);
+  color: #17120e;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+.snippet { border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 12px; background: rgba(10, 15, 21, 0.35); }
+.meta-row { color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
+pre { white-space: pre-wrap; word-break: break-word; }
+@media (max-width: 1100px) { .layout { grid-template-columns: 1fr; } }
+{% endblock %}
+
+{% block body %}
+<main>
+  <h1>Generation Workspace</h1>
+  <p class="meta">Build a generated draft from scoped retrieval, review the structured output, and then open it as an editable draft record.</p>
+  {% if error %}
+  <section class="panel" style="margin-bottom: 20px; border-color: rgba(216, 92, 92, 0.55);">
+    <h2>Generation Error</h2>
+    <p>{{ error }}</p>
+  </section>
+  {% endif %}
+  <div class="layout">
+    <section class="panel">
+      <h2>Generation Inputs</h2>
+      <form method="post">
+        <label for="title">Draft Title</label>
+        <input id="title" name="title" value="{{ form.title }}" required>
+        <label for="record_type">Record Type</label>
+        <input id="record_type" name="record_type" value="{{ form.record_type }}" required>
+        <label for="system_id">System</label>
+        <select id="system_id" name="system_id">
+          {% for system in options.systems %}
+          <option value="{{ system.id }}" {% if system.id == form.system_id %}selected{% endif %}>{{ system.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="expansion_id">Expansion</label>
+        <select id="expansion_id" name="expansion_id">
+          <option value="">No expansion</option>
+          {% for expansion in options.expansions %}
+          <option value="{{ expansion.id }}" {% if expansion.id == form.expansion_id %}selected{% endif %}>{{ expansion.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="setting_id">Setting</label>
+        <select id="setting_id" name="setting_id">
+          {% for setting in options.settings %}
+          <option value="{{ setting.id }}" {% if setting.id == form.setting_id %}selected{% endif %}>{{ setting.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="campaign_id">Campaign</label>
+        <select id="campaign_id" name="campaign_id">
+          <option value="">No campaign</option>
+          {% for campaign in options.campaigns %}
+          <option value="{{ campaign.id }}" {% if campaign.id == form.campaign_id %}selected{% endif %}>{{ campaign.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="focus_query">Focus Query</label>
+        <input id="focus_query" name="focus_query" value="{{ form.focus_query }}" placeholder="What should the draft focus on?" required>
+        <label for="notes">Author Notes</label>
+        <textarea id="notes" name="notes" rows="6">{{ form.notes }}</textarea>
+        <label for="source_kind">Source Filter</label>
+        <select id="source_kind" name="source_kind">
+          <option value="">Any available source</option>
+          {% for source_kind in source_kind_options %}
+          <option value="{{ source_kind }}" {% if source_kind == form.source_kind %}selected{% endif %}>{{ source_kind }}</option>
+          {% endfor %}
+        </select>
+        <label for="provider_id">Provider</label>
+        <select id="provider_id" name="provider_id">
+          {% for provider in provider_options %}
+          <option value="{{ provider.id }}" {% if provider.id == form.provider_id %}selected{% endif %}>{{ provider.label }}</option>
+          {% endfor %}
+        </select>
+        {% for provider in provider_options %}
+        {% if provider.id == form.provider_id and provider.warmup_note %}
+        <p class="meta-row" style="margin-top:8px;">{{ provider.warmup_note }}</p>
+        {% endif %}
+        {% endfor %}
+        <button type="submit" name="action" value="preview">Generate Draft</button>
+        {% if draft_result %}
+        <button type="submit" name="action" value="create_record">Create Draft Record</button>
+        {% endif %}
+      </form>
+    </section>
+    <section class="panel">
+      <h2>Generated Draft</h2>
+      {% if draft_result %}
+      <div class="snippet">
+        <div class="meta-row">{{ draft_result.provider_label }} / Prompt Packet</div>
+        <pre>{{ draft_result.prompt_text }}</pre>
+      </div>
+      <div class="snippet">
+        <div class="meta-row">Draft Context</div>
+        <p><strong>Provider:</strong> {{ draft_result.provider_label }}</p>
+        <p><strong>Record Type:</strong> {{ draft_result.proposed_record.record_type }}</p>
+      </div>
+      <div class="snippet">
+        <div class="meta-row">Proposed Record</div>
+        <p><strong>Summary:</strong> {{ draft_result.proposed_record.summary }}</p>
+        <p><strong>Tags:</strong> {{ draft_result.proposed_record.tags | join(', ') }}</p>
+        <pre>{{ draft_result.proposed_record.body }}</pre>
+      </div>
+      {% for section in draft_result.sections %}
+      <article class="snippet">
+        <div class="meta-row">{{ section.heading }}</div>
+        <p>{{ section.content }}</p>
+      </article>
+      {% endfor %}
+      {% for snippet in draft_result.snippets %}
+      <article class="snippet">
+        <div class="meta-row">{{ snippet.source_kind }} / {{ snippet.title }} / {{ snippet.heading }} / score {{ snippet.score }}</div>
+        <p>{{ snippet.text }}</p>
+      </article>
+      {% endfor %}
+      {% else %}
+      <p class="meta">No generated draft yet.</p>
+      {% endif %}
+    </section>
+  </div>
+</main>
+{% endblock %}

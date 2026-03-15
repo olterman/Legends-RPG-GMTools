@@ -60,6 +60,20 @@ But the day-to-day campaign workflow should center on:
 - campaigns can add or override local content without mutating the base setting
 - the same app instance can hold multiple systems side by side
 
+## Content Layering
+`GMForge` should use layered ownership for reusable world content versus campaign play state.
+
+- canonical reusable content belongs to the system/addon/module layer
+- campaign-local play state belongs to the campaign layer
+- campaigns may reference or override canonical content without mutating it
+
+Examples:
+- characters are campaign-owned
+- NPCs are module/setting-owned with campaign overlays when needed
+- maps use module-owned base layers plus campaign-owned overlay layers
+
+See [`docs/CONTENT_OWNERSHIP_AND_LAYERING.md`](/home/olterman/Projects/Legends-RPG-GMTools/docs/CONTENT_OWNERSHIP_AND_LAYERING.md).
+
 ## Storage Model
 `GMForge` should use a hybrid storage architecture.
 

@@ -1,0 +1,12 @@
+{
+  "id": "godforsaken_rulebook",
+  "system_id": "cypher",
+  "addon_id": "godforsaken",
+  "title": "Godforsaken",
+  "markdown_path": "source_markdown/Godforsaken.md",
+  "html_path": "source_html/Godforsaken.html",
+  "source_path": "source/Godforsaken.pdf",
+  "format": "markdown",
+  "generated_toc": true,
+  "summary": "Primary readable rulebook artifact for the Cypher Godforsaken expansion."
+}

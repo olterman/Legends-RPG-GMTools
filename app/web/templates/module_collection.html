@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}{{ collection.label }} | {{ module.label }} | GMForge{% endblock %}
+
+{% block page_styles %}
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 30px 20px 64px;
+}
+.collection-title-panel,
+.collection-panel,
+.entry-card {
+  background: linear-gradient(180deg, rgba(27, 37, 49, 0.96), rgba(18, 26, 35, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+.collection-title-panel,
+.collection-panel {
+  padding: 26px;
+}
+.collection-title-panel {
+  margin-bottom: 20px;
+}
+.title-panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 168px;
+  gap: 24px;
+  align-items: start;
+}
+.title-panel-copy {
+  min-width: 0;
+}
+.title-panel-art {
+  width: 168px;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 1px dashed rgba(209, 138, 79, 0.45);
+  background:
+    linear-gradient(145deg, rgba(209, 138, 79, 0.16), rgba(255, 255, 255, 0.03)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.04) 10px,
+      rgba(0, 0, 0, 0.04) 10px,
+      rgba(0, 0, 0, 0.04) 20px
+    );
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 12px;
+}
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.meta-row,
+.badge-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+}
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 14px;
+}
+.entry-card {
+  padding: 18px;
+}
+.entry-card h3 {
+  margin: 0 0 8px;
+}
+.entry-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+.entry-card h3 a:hover {
+  color: var(--accent);
+}
+.entry-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--accent);
+}
+.rich-lore {
+  display: grid;
+  gap: 18px;
+  margin: 18px 0 10px;
+}
+.rich-lore article {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(10, 15, 21, 0.35);
+}
+.rich-lore article h3 {
+  margin: 0 0 10px;
+}
+.rich-lore article :first-child {
+  margin-top: 0;
+}
+.rich-lore article :last-child {
+  margin-bottom: 0;
+}
+.rich-lore-path {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+@media (max-width: 900px) {
+  .title-panel-grid {
+    grid-template-columns: 1fr;
+  }
+  .title-panel-art {
+    width: min(100%, 220px);
+  }
+}
+{% endblock %}
+
+{% block body %}
+<main>
+  <section class="collection-title-panel">
+    {% set title_content %}
+      <div class="eyebrow">{{ system.name }} / Expansion: {{ addon.name }} / <a href="/systems/{{ system.id }}/addons/{{ addon.id }}/modules/{{ module.id }}">{{ module.label }}</a></div>
+      <h1>{{ collection.label }}</h1>
+      <p class="meta">{{ collection.description }}</p>
+      <div class="meta-row">
+        <span class="pill">{{ collection.count }} entries</span>
+      </div>
+    {% endset %}
+    {% include "_title_panel.html" %}
+  </section>
+
+  <section class="collection-panel">
+    <h2>{{ collection.label }}</h2>
+    {% if lore_documents %}
+    <div class="rich-lore">
+      {% for doc in lore_documents %}
+      <article>
+        <h3>{{ doc.title }}</h3>
+        <div>{{ doc.rendered_html | safe }}</div>
+        <div class="rich-lore-path">{{ doc.path }}</div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if items %}
+    <div class="entry-grid">
+      {% for item in items %}
+      <article class="entry-card">
+        <div class="entry-meta">{{ collection.item_kind_label }}</div>
+        <h3>{% if item.ui_url %}<a href="{{ item.ui_url }}">{{ item.label }}</a>{% else %}{{ item.label }}{% endif %}</h3>
+        <p>{{ item.summary or "No summary yet." }}</p>
+        <div class="badge-list">
+          <span class="pill">Status: {{ item.status or "planned" }}</span>
+          {% if item.kind %}<span class="pill">Kind: {{ item.kind }}</span>{% endif %}
+        </div>
+        {% if item.collection_tags %}
+        <div class="badge-list">
+          {% for tag in item.collection_tags %}
+          <span class="pill">
+            {% if tag.ui_url %}<a href="{{ tag.ui_url }}">{{ tag.label }}</a>{% else %}{{ tag.label }}{% endif %}
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="meta">{{ collection.empty_text }}</p>
+    {% endif %}
+    <a class="back-link" href="{{ back_url }}">Back to {{ back_label }}</a>
+  </section>
+</main>
+{% endblock %}

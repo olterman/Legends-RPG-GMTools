@@ -1,0 +1,8 @@
+{
+  "id": "cyphers",
+  "label": "Cyphers",
+  "kind": "item_category",
+  "status": "planned",
+  "summary": "Cypher category for Land of Legends item taxonomy.",
+  "notes": "Starter item grouping scaffold for future cypher authoring."
+}

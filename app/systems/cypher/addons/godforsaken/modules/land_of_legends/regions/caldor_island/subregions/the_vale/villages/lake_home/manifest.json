@@ -1,0 +1,18 @@
+{
+  "id": "lake_home",
+  "label": "Lake Home",
+  "kind": "village",
+  "status": "draft",
+  "summary": "Fishing village on the eastern shore of the great lake, built from stilted houses, quays, and reed docks.",
+  "notes": "Migrated and normalized from legacy Land of Legends lore and settlement storage.",
+  "description": "Lake Home is a lakeshore village of fishers and net-makers whose stilted houses, stone quays, and reed docks have been weathered smooth by generations of hands. The elders mark history through knotted fishing cords, and the lake is treated with reverence rather than worship.",
+  "details": {
+    "notable_inn": "The Sizzling Trout",
+    "economy": "Smokehouses, preserved lake-meat, skilled fishers, and net-making define the village economy.",
+    "culture": "Songs are sung in rhythm with oars and tides, and memory is kept in knotted fishing cords."
+  },
+  "source_refs": [
+    "lore/entries/caldor.json",
+    "storage/settlement/settlement_20260314T150846.json"
+  ]
+}

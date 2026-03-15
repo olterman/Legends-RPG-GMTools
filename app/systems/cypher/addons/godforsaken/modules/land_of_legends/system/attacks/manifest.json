@@ -1,0 +1,8 @@
+{
+  "id": "attacks",
+  "label": "Attacks",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Attack category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future attack authoring."
+}

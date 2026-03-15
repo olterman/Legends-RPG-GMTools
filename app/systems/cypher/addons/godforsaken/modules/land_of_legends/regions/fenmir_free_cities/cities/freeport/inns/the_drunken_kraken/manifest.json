@@ -1,0 +1,19 @@
+{
+  "id": "the_drunken_kraken",
+  "label": "The Drunken Kraken",
+  "kind": "inn",
+  "status": "draft",
+  "summary": "A rougher Freeport tavern where sailors, mercenaries, and hard-luck schemers drink under the gaze of a carved kraken figurehead.",
+  "notes": "Migrated and normalized from legacy inn storage.",
+  "description": "The Drunken Kraken is a seedier refuge in Freeport, offering warmth, noise, and just enough welcome to make dangerous people linger. Its weathered beams, sea-stained decor, and hard laughter make it a natural gathering place for those who live closer to the knife edge of the harbor.",
+  "details": {
+    "proprietor": "Endra Thorne, a hard-eyed former sailor with a quick temper, a quicker smile, and no patience for troublemakers.",
+    "atmosphere": "Dim lantern light, spiced rum, grilled fish, loud shanties, and the coarse camaraderie of people who expect storms and betrayal.",
+    "clientele": "Mercenaries, sailors, local fishermen, reckless adventurers, and old sea captains who prefer their gossip unfiltered.",
+    "notable_feature": "A massive carved kraken figurehead hangs above the bar, rumored to have come from a ship lost in a storm and to still carry the sea's favor.",
+    "rumor_or_hook": "Word spreads of a treasure map found on a drunken sailor, and everyone in the tavern has a different idea about whether it leads to gold or death."
+  },
+  "source_refs": [
+    "storage/inn/inn_20260314T042857.json"
+  ]
+}

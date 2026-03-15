@@ -1,0 +1,19 @@
+{
+  "id": "the_sizzling_trout",
+  "label": "The Sizzling Trout",
+  "kind": "inn",
+  "status": "draft",
+  "summary": "Lively inn at the heart of Lake Home, known for grilled trout, laughter, and strong personalities.",
+  "notes": "Migrated and normalized from legacy Land of Legends inn and settlement storage.",
+  "description": "The Sizzling Trout serves as the heart of Lake Home, where locals gather to share stories and enjoy hearty meals. Wooden beams, fishing trophies, and local artwork give the inn a warm, lived-in atmosphere, while its savory grilled trout draws visitors from around the lake.",
+  "details": {
+    "proprietor": "Amelia Greenheart",
+    "atmosphere": "The room buzzes with laughter, clinking mugs, lantern light, and the scent of fish and stew.",
+    "clientele": "Locals from Lake Home, including farmers, fishers, and the occasional traveler seeking the village's famed grilled trout.",
+    "rumor_or_hook": "Amelia is said to have once caught a legendary wish-granting fish and lost it in a bet."
+  },
+  "source_refs": [
+    "storage/settlement/settlement_20260314T150846.json",
+    "storage/inn/inn_20260314T162854.json"
+  ]
+}

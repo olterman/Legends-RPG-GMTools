@@ -1,0 +1,8 @@
+{
+  "id": "kahn",
+  "label": "Kahn",
+  "kind": "city",
+  "status": "proposed",
+  "summary": "Third of the Fenmir Free Cities, present in legacy world taxonomy but not yet migrated from detailed source material.",
+  "notes": "Authored city scaffold retained until dedicated Kahn source material is migrated into the new module structure."
+}

@@ -1,0 +1,8 @@
+{
+  "id": "the_mosey",
+  "label": "The Mosey",
+  "kind": "river",
+  "status": "draft",
+  "summary": "Starter river entry within The Vale.",
+  "notes": "Authored subregion river scaffold."
+}

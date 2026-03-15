@@ -20,7 +20,7 @@ class WaveACoreTests(unittest.TestCase):
             title="The Red Gate",
             slug="The Red Gate",
             system_id="None",
-            setting_id="Lands of Legends",
+            setting_id="Land of Legends",
             source={"kind": "local", "origin": "user"},
             metadata={"summary": "Ancient gate ruin", "tags": ["gate", "ruins"]},
             content={"body": "A shattered gate stands on the ridge."},
@@ -30,7 +30,7 @@ class WaveACoreTests(unittest.TestCase):
 
         self.assertEqual(validated["slug"], "the_red_gate")
         self.assertEqual(validated["context"]["system_id"], "none")
-        self.assertEqual(validated["context"]["setting_id"], "lands_of_legends")
+        self.assertEqual(validated["context"]["setting_id"], "land_of_legends")
         self.assertEqual(validated["source"]["kind"], "local")
         self.assertEqual(validated["metadata"]["summary"], "Ancient gate ruin")
 
@@ -57,7 +57,7 @@ class WaveACoreTests(unittest.TestCase):
                     record_type="lore_entry",
                     title="Fenmir Watchtower",
                     system_id="none",
-                    setting_id="lands_of_legends",
+                    setting_id="land_of_legends",
                     metadata={"summary": "A lonely tower in the north", "tags": ["tower", "fenmir"]},
                     content={"body": "It watches the old road."},
                 )
@@ -72,7 +72,7 @@ class WaveACoreTests(unittest.TestCase):
             updated = store.update(created["id"], updated_payload)
             self.assertEqual(updated["metadata"]["summary"], "An old tower guarding the road")
 
-            listed = store.list(filters={"setting_id": "lands_of_legends"})
+            listed = store.list(filters={"setting_id": "land_of_legends"})
             self.assertEqual(len(listed), 1)
             self.assertEqual(listed[0]["id"], created["id"])
 

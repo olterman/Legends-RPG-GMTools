@@ -66,7 +66,7 @@ This inventory is based on the current monolith structure, especially:
 - PDF import pipeline
 
 ### Likely Setting or Campaign Content
-- Lands of Legends data files
+- Land of Legends data files
 - lore entries
 - area/settlement/race/profession/world flavor content
 - campaign-specific maps and saved play assets
@@ -123,7 +123,7 @@ This inventory is based on the current monolith structure, especially:
 | Semantic/vector search | `Plugins/docling/vector_index.py`, `api.py` vector routes | Builds sparse index and queries semantic snippets across docs and cards | plugin | `plugins/docling` | yes | medium | medium | Good plugin candidate with generic indexing contract |
 | Plugin-backed compendium sync/index maintenance | `api.py`, `Plugins/docling/vector_index.py` | Syncs storage cards into vector index | plugin | `plugins/docling` | yes | low | medium | Useful extension point once storage contracts are stable |
 | Search aliases and legacy browse routes | multiple redirects in `api.py` | Redirects old browse pages into unified search | retire-or-rethink | remove after rebuild | yes | low | low | Do not reintroduce legacy aliases unless still useful |
-| Lands of Legends world data | `config/worlds/lands_of_legends/*`, `lore/entries/*` | Setting-specific races, areas, settlements, names, and lore | setting-content | `content/cypher/fantasy/lands_of_legends/...` | no | low | high | This is content, not platform logic |
+| Land of Legends world data | `config/worlds/lands_of_legends/*`, `lore/entries/*` | Setting-specific races, areas, settlements, names, and lore | setting-content | `content/cypher/fantasy/land_of_legends/...` | no | low | high | This is content, not platform logic |
 | Saved generated records | `storage/*` | Local generated content across many types | campaign-content | campaign-aware storage under canonical contracts | yes | medium | high | Decide inheritance/reference model during migration |
 
 ## Recommended Migration Queue

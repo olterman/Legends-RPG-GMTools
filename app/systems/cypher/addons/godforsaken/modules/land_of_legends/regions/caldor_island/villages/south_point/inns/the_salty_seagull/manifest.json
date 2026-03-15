@@ -1,0 +1,21 @@
+{
+  "id": "the_salty_seagull",
+  "label": "The Salty Seagull",
+  "kind": "inn",
+  "status": "draft",
+  "summary": "South Point's lively tavern and gathering place, full of sea tales, grilled fish, and village gossip.",
+  "notes": "Migrated and normalized from legacy Land of Legends inn, settlement, and NPC storage.",
+  "description": "The Salty Seagull is the social heart of South Point, where fishermen, travelers, and merchants gather beneath nautical beams and lantern light to trade stories of the sea. The inn is known for its spiced fish stew, Mira Lark's welcoming presence, and the sense that every storm eventually becomes a tale told over a mug.",
+  "details": {
+    "proprietor": "Mira Lark",
+    "atmosphere": "A lively coastal tavern of laughter, salt air, lantern glow, and the scent of grilled fish drifting in from the harbor.",
+    "clientele": "Local fishers, travelers, and the occasional merchant looking for a warm meal and the latest harbor gossip.",
+    "notable_feature": "A hand-painted mural of a seagull soaring over the sea anchors the room and captures the inn's spirit of freedom and adventure.",
+    "rumor_or_hook": "Locals whisper of a strange sea fog that reveals hidden treasures to the brave, but not everyone who enters it comes back."
+  },
+  "source_refs": [
+    "storage/settlement/settlement_20260314T032819.json",
+    "storage/inn/inn_20260314T032811.json",
+    "storage/npc/npc_20260314T032804.json"
+  ]
+}

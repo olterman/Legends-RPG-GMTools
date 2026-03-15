@@ -1,0 +1,18 @@
+{
+  "id": "xul",
+  "label": "Xul",
+  "kind": "city",
+  "status": "draft",
+  "summary": "A rough coastal Free City where bonfires, contraband, and pirate councils keep a precarious order at the edge of the sea.",
+  "notes": "Migrated and normalized from legacy settlement storage.",
+  "description": "Xul clings to a rugged stretch of coast where weathered buildings, bonfire-lit gatherings, and a restless market make chaos feel almost communal. It survives by piracy, trade, and smuggling, but beneath the rough exterior lies a fiercely practical city that knows how to protect its own.",
+  "details": {
+    "notable_inn": "The Kraken's Embrace Tavern",
+    "economy": "Piracy, smuggling, fishing, shipbuilding, and contraband trade sustain Xul, with treasure-seekers and opportunists feeding the market.",
+    "culture": "Xul is chaotic, close-knit, and survival-minded, governed as much by practical respect and shared risk as by formal law."
+  },
+  "source_refs": [
+    "lore/entries/fenmir.json",
+    "storage/settlement/settlement_20260314T143621.json"
+  ]
+}

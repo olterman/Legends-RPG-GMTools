@@ -1,0 +1,19 @@
+{
+  "id": "the_gilded_harpoon",
+  "label": "The Gilded Harpoon",
+  "kind": "inn",
+  "status": "draft",
+  "summary": "A bright, crowded Freeport tavern where sailors, merchants, and fortune-seekers trade stories over roasted fish and sea rumors.",
+  "notes": "Migrated and normalized from legacy inn storage.",
+  "description": "The Gilded Harpoon serves as a vibrant hub for the diverse community of Freeport, where the tales of the sea come alive. Patrons gather not just for food and drink, but to share their adventures and dreams of the horizon, turning the tavern into one of the city's most reliable crossroads.",
+  "details": {
+    "proprietor": "Mira Tidestrider, a sharp-witted host with a storyteller's poise and a firm hand on the room.",
+    "atmosphere": "The tavern buzzes with sailors, merchants, lantern-light, roasted fish, salt air, and constant talk of the next profitable voyage.",
+    "clientele": "Local fishermen, adventurous sailors, traders from distant ports, and anyone who wants to be seen hearing the latest sea-tales.",
+    "notable_feature": "A massive harpoon said to have felled a legendary sea beast hangs above the bar and is believed to bless departing voyages.",
+    "rumor_or_hook": "A newly surfaced treasure map may point toward a sunken pirate captain's hoard, if its discoverers survive the interest it has attracted."
+  },
+  "source_refs": [
+    "storage/inn/inn_20260314T041625.json"
+  ]
+}

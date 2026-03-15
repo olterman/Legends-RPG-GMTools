@@ -1,0 +1,8 @@
+{
+  "id": "abilities",
+  "label": "Abilities",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Ability category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future ability authoring."
+}

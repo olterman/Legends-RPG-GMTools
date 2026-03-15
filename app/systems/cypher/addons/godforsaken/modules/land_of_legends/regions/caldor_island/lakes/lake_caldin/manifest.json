@@ -1,0 +1,8 @@
+{
+  "id": "lake_caldin",
+  "label": "Lake Caldin",
+  "kind": "lake",
+  "status": "draft",
+  "summary": "Starter lake entry under Caldor Island.",
+  "notes": "Authored lake scaffold for future geographic and regional content."
+}

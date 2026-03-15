@@ -1,0 +1,8 @@
+{
+  "id": "lowland_uruk",
+  "label": "Lowland Uruk",
+  "kind": "people_subgroup",
+  "status": "draft",
+  "summary": "Authored Uruk subgroup scaffold under the Land of Legends module.",
+  "notes": "Starter subgroup manifest for future culture, homeland, and lore expansion."
+}

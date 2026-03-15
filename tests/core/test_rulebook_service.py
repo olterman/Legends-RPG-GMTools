@@ -8,7 +8,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.core.rulebooks import build_rulebook_toc, extract_markdown_headings, load_rulebook_document
+from app.core.rulebooks import (
+    build_rulebook_toc,
+    extract_markdown_headings,
+    load_rulebook_document,
+    render_rulebook_html,
+)
 
 
 class RulebookServiceTests(unittest.TestCase):
@@ -56,6 +61,24 @@ Section Two
         toc = build_rulebook_toc(document, max_level=2)
         self.assertGreater(len(toc), 10)
         self.assertLessEqual(len(toc), len(document.headings))
+
+    def test_render_rulebook_html_filters_inline_image_blobs(self) -> None:
+        markdown = """
+# Godforsaken
+
+![page image](data:image/png;base64,AAAAABBBBBCCCCCDDDD)
+
+Intro text after image.
+"""
+        document = load_rulebook_document(Path(__file__), title="Godforsaken")
+        object.__setattr__(document, "markdown_text", markdown)
+        object.__setattr__(document, "headings", extract_markdown_headings(markdown))
+
+        html = render_rulebook_html(document)
+
+        self.assertIn("Godforsaken", html)
+        self.assertIn("Intro text after image.", html)
+        self.assertNotIn("data:image/png;base64", html)
 
 
 if __name__ == "__main__":

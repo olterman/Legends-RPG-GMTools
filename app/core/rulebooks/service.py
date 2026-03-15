@@ -10,6 +10,7 @@ HEADING_RE = re.compile(r"^(?P<hashes>#{1,6})\s+(?P<title>.+?)\s*$")
 SETEXT_UNDERLINE_RE = re.compile(r"^(=+|-+)\s*$")
 NON_ALNUM_RE = re.compile(r"[^a-z0-9]+")
 WORD_RE = re.compile(r"[A-Za-z][A-Za-z0-9'()-]*")
+INLINE_IMAGE_BLOB_RE = re.compile(r"!\[[^\]]*\]\(\s*data:image/[^)]+\)", re.IGNORECASE)
 
 
 @dataclass(frozen=True)
@@ -154,11 +155,15 @@ def render_rulebook_html(document: RulebookDocument) -> str:
             html_parts.append(f"<li>{escape(item)}</li>")
         html_parts.append(f"</{tag}>")
 
+    def strip_inline_image_blobs(text: str) -> str:
+        return INLINE_IMAGE_BLOB_RE.sub("", text).strip()
+
     index = 0
     while index < len(lines):
         line_number = index + 1
         raw_line = lines[index]
         stripped = raw_line.strip()
+        stripped = strip_inline_image_blobs(stripped)
 
         heading = heading_by_line.get(line_number)
         if heading is not None:
@@ -189,7 +194,7 @@ def render_rulebook_html(document: RulebookDocument) -> str:
             flush_paragraph()
             items: list[str] = []
             while index < len(lines):
-                candidate = lines[index].strip()
+                candidate = strip_inline_image_blobs(lines[index].strip())
                 if not candidate.startswith(("- ", "* ")):
                     break
                 items.append(candidate[2:].strip())
@@ -202,7 +207,7 @@ def render_rulebook_html(document: RulebookDocument) -> str:
             flush_paragraph()
             items = []
             while index < len(lines):
-                candidate = lines[index].strip()
+                candidate = strip_inline_image_blobs(lines[index].strip())
                 match = re.match(r"^\d+\.\s+(.*)$", candidate)
                 if not match:
                     break

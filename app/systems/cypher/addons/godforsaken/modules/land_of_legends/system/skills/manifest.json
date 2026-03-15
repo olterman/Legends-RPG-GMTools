@@ -1,0 +1,8 @@
+{
+  "id": "skills",
+  "label": "Skills",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Skill category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future skill authoring."
+}

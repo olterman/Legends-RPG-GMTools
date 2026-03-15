@@ -1,0 +1,8 @@
+{
+  "id": "types",
+  "label": "Types",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Type category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future type authoring."
+}

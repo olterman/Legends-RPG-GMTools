@@ -1,0 +1,13 @@
+{
+  "id": "human",
+  "label": "Human",
+  "kind": "top_level_people",
+  "status": "proposed",
+  "summary": "Top-level human grouping for Land of Legends.",
+  "notes": "Starter authored scaffold for future people and culture content.",
+  "subgroups": [
+    "caldoran",
+    "xanthir",
+    "fenmir"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "record_version": 1,
+  "id": "rec_8adbd37e4c42461788b8b9ddc3523e8c",
+  "type": "lore_entry",
+  "title": "Old Gods Draft",
+  "slug": "",
+  "system": {
+    "id": "cypher",
+    "addon_id": "godforsaken"
+  },
+  "context": {
+    "system_id": "cypher",
+    "setting_id": "land_of_legends",
+    "campaign_id": ""
+  },
+  "source": {
+    "kind": "generated",
+    "origin": "user",
+    "sourcebook": "",
+    "pages": [],
+    "external_ref": ""
+  },
+  "content": {
+    "body": "# Old Gods Draft\n\n## Concept\nOld Gods Draft is being drafted as a lore entry within land_of_legends, focused on old gods.\n\n## Context Fit\nThis draft should align with the retrieved setting material, especially its established tone, regional pressures, and social tensions.\n\n## Author Notes\nFocus on religion and hidden costs.\n\n## Religious Pressure\nFaith, taboo, and old pacts should matter in how this draft is written and framed.\n\n## Source Anchors\nPeoples / Fellic / Subgroups / Bovine / Overview.Md / Bovine Overview; Creatures / Daelgast / Relationships.Md / Daelgast Relationships; Religion.Md / The Old Gods; Peoples / Lhainim / Subgroups / Redcap / Overview.Md / Redcap Overview\n\n## Retrieved Snippets\n- Peoples / Fellic / Subgroups / Bovine / Overview.Md / Bovine Overview: Bovine Fellic should carry force, patience, and grounded physical presence. They are strong when written with: - agricultural or pastoral weight - stubborn stability - communal endurance - power that feels anchored, not flashy\n- Creatures / Daelgast / Relationships.Md / Daelgast Relationships: Daelgast defines itself through pressure on other forces rather than through intent of its own. The Velim relate to it as load, containment, and proof that some passages should never be stabilized. The Alfir relate to it with silence and guilt, because its persistence is entangled with their survival. The Old Gods are weakened where dissonance spreads. Lilith and the Red God oppose it in different ways, one through motion and refusal, the other through resistance and sacrifice. Mortals encounter Daelgast through symptoms: undead, tainted zones, impossible fatigue in magic, and places where beauty refuses to resolve properly. It becomes most dangerous when belief systems, cults, or policies begin organizing themselves around its continued presence. _Imported and adapted from legacy `the_daelgast.json` and `gods_and_powers.json`._\n- Religion.Md / The Old Gods: The Old Gods are not dead rulers displaced by newer gods. They are ancient resonances that no longer align cleanly with the wounded world. They are strongest where rhythm survives: - seasonal fire - standing stones - ancestral custom - blood memory - land still permitted to remain itself Bel, Cernunnos, Ceridwen, Danu, and Lugh should all be understood as handles for vast recurring forces rather than self-contained personalities. They matter because they preserve the idea that the world once moved more cleanly through cycle, patience, continuity, and excellence than it does now.\n- Peoples / Lhainim / Subgroups / Redcap / Overview.Md / Redcap Overview: Redcaps should feel folkloric, blood-marked, and dangerous in a way that makes old warnings sound reasonable. They work best when they remain: - visceral - morally sharp - place-haunting - more than simply feral\n- Peoples / Lhainim / Overview.Md / Lhainîm Overview: The Lhainîm gather the smaller, stranger, and more liminal folk whose lives often sit close to hidden water, old growth, folklore, and thresholds other peoples barely notice. Pixies, Willows, Pucks, Nobs, Redcaps, Dryads, Nayads, and Merfolk should not collapse into one mood, but they do share a place near the edges of ordinary settlement logic. Their stories are often personal, local, uncanny, and bound to place. As a parent group, `Lhainîm` is especially good for organizing lore that needs to feel: - folkloric - uncanny but not always hostile - tied to hidden ecologies and old agreements"
+  },
+  "metadata": {
+    "tags": [
+      "lore_entry",
+      "land_of_legends",
+      "old",
+      "peoples_/_fellic_/_subgroups_/_bovine_/_overview.md",
+      "creatures_/_daelgast_/_relationships.md",
+      "religion.md"
+    ],
+    "summary": "Draft lore entry for Old Gods Draft, grounded in Peoples / Fellic / Subgroups / Bovine / Overview.Md and related scoped setting material.",
+    "description": "",
+    "area_id": "",
+    "location_id": "",
+    "visibility": "private",
+    "status": "draft",
+    "images": []
+  },
+  "audit": {
+    "created_at": "2026-03-15T14:45:04.760756+00:00",
+    "updated_at": "2026-03-15T14:45:04.760756+00:00",
+    "created_by": "local_user",
+    "updated_by": "local_user"
+  },
+  "links": [],
+  "extensions": {}
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "record_version": 1,
+  "id": "rec_9c9a4fd7a0d74d5baa0e9d6d70189665",
+  "type": "lore_entry",
+  "title": "Iron Hollow",
+  "slug": "iron_hollow",
+  "system": {
+    "id": "cypher",
+    "addon_id": "godforsaken"
+  },
+  "context": {
+    "system_id": "cypher",
+    "setting_id": "land_of_legends",
+    "campaign_id": ""
+  },
+  "source": {
+    "kind": "local",
+    "origin": "user",
+    "sourcebook": "",
+    "pages": [],
+    "external_ref": ""
+  },
+  "content": {
+    "body": "Iron Hollow survives on ore, grit, and stubborn memory."
+  },
+  "metadata": {
+    "tags": [
+      "mine",
+      "village"
+    ],
+    "summary": "A hard-bitten mining hamlet in the shadow of old stone.",
+    "description": "",
+    "area_id": "",
+    "location_id": "",
+    "visibility": "private",
+    "status": "active",
+    "images": []
+  },
+  "audit": {
+    "created_at": "2026-03-15T14:45:14.417841+00:00",
+    "updated_at": "2026-03-15T14:45:14.417841+00:00",
+    "created_by": "local_user",
+    "updated_by": "local_user"
+  },
+  "links": [],
+  "extensions": {}
+}

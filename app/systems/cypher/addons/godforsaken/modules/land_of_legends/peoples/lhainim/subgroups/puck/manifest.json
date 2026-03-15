@@ -1,0 +1,8 @@
+{
+  "id": "puck",
+  "label": "Puck",
+  "kind": "people_subgroup",
+  "status": "draft",
+  "summary": "Authored Lhainim subgroup scaffold under the Land of Legends module.",
+  "notes": "Starter subgroup manifest for future culture, homeland, and lore expansion."
+}

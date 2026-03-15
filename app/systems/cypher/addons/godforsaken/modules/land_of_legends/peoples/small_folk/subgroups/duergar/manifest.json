@@ -1,0 +1,8 @@
+{
+  "id": "duergar",
+  "label": "Duergar",
+  "kind": "people_subgroup",
+  "status": "draft",
+  "summary": "Authored Small Folk subgroup scaffold under the Land of Legends module.",
+  "notes": "Starter subgroup manifest for future culture, homeland, and lore expansion."
+}

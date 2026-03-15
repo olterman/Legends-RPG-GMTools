@@ -126,7 +126,7 @@ This second pass covers the first rebuild waves:
   - `settings`
   - `genre`
 - still supports legacy aliases such as:
-  - `lands_of_legends`
+  - `land_of_legends`
   - `lands_of_legend`
 - treats `worlds` and `settings` as interchangeable in places
 - current config loader also handles `environment -> area` aliasing
@@ -169,7 +169,7 @@ This second pass covers the first rebuild waves:
 
 ### Done Criteria
 - no new core code uses legacy `world/settings` ambiguity
-- core can resolve context without knowing Cypher or Lands of Legends
+- core can resolve context without knowing Cypher or Land of Legends
 - existing settings can be imported through adapters or validated pack loaders
 
 ## 3. Search Shell

@@ -1,0 +1,8 @@
+{
+  "id": "openai_remote",
+  "name": "OpenAI Remote",
+  "status": "active",
+  "bundled": true,
+  "enabled_by_default": true,
+  "summary": "Bundled OpenAI-backed generation provider for structured GMForge drafting."
+}

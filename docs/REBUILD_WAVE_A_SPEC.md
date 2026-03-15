@@ -102,6 +102,10 @@ User and project content organized by:
 - supporting taxonomy:
   - genre
 
+This should hold user/project content and campaign-local state.
+
+Shipped canonical content for official systems, addons, and modules should live under `app/systems/...`, not be duplicated into `content/...` by default.
+
 #### `data`
 Runtime-managed records, indexes, assets, and trash.
 
@@ -135,6 +139,18 @@ Developer utilities, scaffolds, validators, migration runners.
 - campaign management primitives
 - search provider contracts
 - plugin and system registration
+
+### Ownership Rule
+The rebuild should follow layered content ownership.
+
+- module/setting-owned content is the canonical reusable layer
+- campaign-owned content is the mutable play-state layer
+- campaigns may reference or override canonical content without mutating it
+
+Examples:
+- characters are campaign-owned
+- NPCs are module-owned with campaign overlays
+- maps use module-owned bases plus campaign-owned overlays
 
 ### Core Must Not Own
 - rules mechanics
@@ -200,7 +216,7 @@ Every persisted record should use one top-level envelope shape regardless of sou
   },
   "context": {
     "genre_id": "fantasy",
-    "setting_id": "lands_of_legends",
+    "setting_id": "land_of_legends",
     "campaign_id": "campaign_alpha"
   },
   "source": {
@@ -286,7 +302,7 @@ Every record and every runtime session should resolve through the same four-leve
 {
   "system_id": "cypher",
   "genre_id": "fantasy",
-  "setting_id": "lands_of_legends",
+  "setting_id": "land_of_legends",
   "campaign_id": "campaign_alpha"
 }
 ```
@@ -478,7 +494,7 @@ Alternative sharded layout can be added later if scale requires it.
   "title": "The Red Gate",
   "system_id": "none",
   "genre_id": "fantasy",
-  "setting_id": "lands_of_legends",
+  "setting_id": "land_of_legends",
   "campaign_id": "campaign_alpha",
   "status": "active",
   "summary": "Ancient shattered gate ruin in the northern hills.",
@@ -576,7 +592,7 @@ Legacy compatibility should live in adapters, not in new core services.
   },
   "context": {
     "genre_id": "fantasy",
-    "setting_id": "lands_of_legends",
+    "setting_id": "land_of_legends",
     "campaign_id": ""
   },
   "source": {

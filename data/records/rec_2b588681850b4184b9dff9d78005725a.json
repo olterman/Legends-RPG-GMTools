@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "record_version": 1,
+  "id": "rec_2b588681850b4184b9dff9d78005725a",
+  "type": "lore_entry",
+  "title": "Whisper Bridge",
+  "slug": "whisper_bridge",
+  "system": {
+    "id": "cypher",
+    "addon_id": "godforsaken"
+  },
+  "context": {
+    "system_id": "cypher",
+    "setting_id": "land_of_legends",
+    "campaign_id": ""
+  },
+  "source": {
+    "kind": "local",
+    "origin": "user",
+    "sourcebook": "",
+    "pages": [],
+    "external_ref": ""
+  },
+  "content": {
+    "body": "Whisper Bridge is watched by old river vows and lantern smoke."
+  },
+  "metadata": {
+    "tags": [
+      "bridge",
+      "river"
+    ],
+    "summary": "A haunted crossing in Land of Legends.",
+    "description": "",
+    "area_id": "",
+    "location_id": "",
+    "visibility": "private",
+    "status": "active",
+    "images": []
+  },
+  "audit": {
+    "created_at": "2026-03-15T15:08:44.800856+00:00",
+    "updated_at": "2026-03-15T15:08:44.800856+00:00",
+    "created_by": "local_user",
+    "updated_by": "local_user"
+  },
+  "links": [],
+  "extensions": {}
+}

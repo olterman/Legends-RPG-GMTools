@@ -1,0 +1,8 @@
+{
+  "id": "dragons_maw",
+  "label": "Dragon's Maw",
+  "kind": "village",
+  "status": "draft",
+  "summary": "Starter village entry under Caldor Island.",
+  "notes": "Authored village scaffold for future location and settlement content."
+}

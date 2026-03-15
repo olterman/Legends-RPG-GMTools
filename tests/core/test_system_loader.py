@@ -90,6 +90,21 @@ class SystemLoaderTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
+            module_dir = addon_dir / "modules" / "neon_district"
+            module_dir.mkdir(parents=True, exist_ok=True)
+            (module_dir / "module.json").write_text(
+                json.dumps(
+                    {
+                        "id": "neon_district",
+                        "system_id": "mist_engine",
+                        "addon_id": "city_of_mist",
+                        "label": "Neon District",
+                        "status": "planned",
+                        "kind": "setting_module",
+                    }
+                ),
+                encoding="utf-8",
+            )
 
             systems = discover_systems(root)
             self.assertEqual(len(systems), 1)
@@ -98,6 +113,9 @@ class SystemLoaderTests(unittest.TestCase):
             self.assertEqual(len(systems[0]["addons"]), 1)
             self.assertEqual(systems[0]["addons"][0]["id"], "city_of_mist")
             self.assertEqual(systems[0]["addons"][0]["rulebooks"][0]["id"], "city_of_mist_core")
+            self.assertEqual(systems[0]["addons"][0]["modules"][0]["id"], "neon_district")
+            self.assertEqual(systems[0]["addons"][0]["modules"][0]["label"], "Neon District")
+            self.assertEqual(systems[0]["addons"][0]["modules"][0]["scope"], "setting")
             self.assertEqual(
                 systems[0]["addons"][0]["rulebooks"][0]["html_path"],
                 "source_html/city-of-mist.html",
@@ -129,11 +147,30 @@ class SystemLoaderTests(unittest.TestCase):
         )
         self.assertEqual(
             sorted(addon["id"] for addon in by_id["cypher"]["addons"]),
-            ["csrd"],
+            ["csrd", "godforsaken"],
+        )
+        cypher_addons = {addon["id"]: addon for addon in by_id["cypher"]["addons"]}
+        self.assertEqual(cypher_addons["csrd"]["kind"], "core_rules")
+        self.assertEqual(cypher_addons["godforsaken"]["kind"], "genre_book")
+        self.assertEqual(
+            cypher_addons["csrd"]["rulebooks"][0]["id"],
+            "cypher_system_reference_document",
         )
         self.assertEqual(
-            by_id["cypher"]["addons"][0]["rulebooks"][0]["id"],
-            "cypher_system_reference_document",
+            cypher_addons["godforsaken"]["rulebooks"][0]["id"],
+            "godforsaken_rulebook",
+        )
+        self.assertEqual(
+            [module["id"] for module in cypher_addons["godforsaken"]["modules"]],
+            ["land_of_legends"],
+        )
+        self.assertEqual(
+            cypher_addons["godforsaken"]["modules"][0]["theme"],
+            "epic fantasy",
+        )
+        self.assertEqual(
+            cypher_addons["godforsaken"]["modules"][0]["default_campaign_style"],
+            "heroic sandbox",
         )
 
         self.assertEqual(

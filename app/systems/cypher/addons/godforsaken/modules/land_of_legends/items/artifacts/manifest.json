@@ -1,0 +1,8 @@
+{
+  "id": "artifacts",
+  "label": "Artifacts",
+  "kind": "item_category",
+  "status": "planned",
+  "summary": "Artifact category for Land of Legends item taxonomy.",
+  "notes": "Starter item grouping scaffold for future artifact authoring."
+}

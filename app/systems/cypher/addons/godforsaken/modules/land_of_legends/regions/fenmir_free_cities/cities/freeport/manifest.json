@@ -1,0 +1,20 @@
+{
+  "id": "freeport",
+  "label": "Freeport",
+  "kind": "city",
+  "status": "draft",
+  "summary": "Largest and loudest of the Free Cities, a harbor of privateers, merchants, rival captains, and dangerous opportunity.",
+  "notes": "Migrated and normalized from legacy settlement and inn storage. Canonicalized around Freeport-specific tavern data instead of cross-contaminated legacy labels.",
+  "description": "Freeport is a lively coastal city where colorful ships crowd the docks, merchants hawk contraband beside honest wares, and rival captains scheme beneath the watch of the Great Lighthouse. The city thrives on the tension between commerce and piracy, offering refuge, fortune, and betrayal in equal measure.",
+  "details": {
+    "notable_inn": "The Gilded Harpoon",
+    "economy": "Trade, piracy, smuggling, and the resale of rare goods drive Freeport's wealth, with every tide bringing cargo, rumor, and risk.",
+    "culture": "Freeport is loud, cosmopolitan, and morally flexible, where sea tales, quick bargains, and the Free Accords matter more than noble pedigree."
+  },
+  "source_refs": [
+    "lore/entries/fenmir.json",
+    "storage/settlement/settlement_20260314T001444.json",
+    "storage/inn/inn_20260314T041625.json",
+    "storage/inn/inn_20260314T042857.json"
+  ]
+}

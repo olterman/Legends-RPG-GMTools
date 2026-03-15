@@ -1,0 +1,8 @@
+{
+  "id": "spells",
+  "label": "Spells",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Spell category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future spell authoring."
+}

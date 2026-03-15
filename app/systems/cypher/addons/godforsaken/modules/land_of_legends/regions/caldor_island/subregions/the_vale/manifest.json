@@ -1,0 +1,17 @@
+{
+  "id": "the_vale",
+  "label": "The Vale",
+  "kind": "subregion",
+  "status": "draft",
+  "summary": "A broad, fertile basin hidden within the ring of mountains at the heart of Caldor Island.",
+  "notes": "Migrated and normalized from legacy Land of Legends lore for the first geographic import slice.",
+  "description": "The Vale is a secluded basin centered around a deep, clear lake fed by mountain melt and underground springs. No roads lead into it and no ships sail beyond it. Its people live by fishing, small-scale farming, herding, and seasonal craft, largely unaware of the wider world beyond the surrounding ridges.",
+  "details": {
+    "life": "Life in the Vale follows the lake's rhythm rather than the sun's. Trade exists only within the Vale, coin is rare, and old charms persist though no one remembers when they were first learned.",
+    "importance": "The Vale is a human culture untouched by empire, faith wars, or Alfirin influence, making it a natural player starting homeland in Land of Legends.",
+    "saying": "The water remembers. The mountains decide."
+  },
+  "source_refs": [
+    "lore/entries/caldor.json"
+  ]
+}

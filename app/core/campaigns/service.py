@@ -17,6 +17,16 @@ def _title_from_token(value: str) -> str:
     return str(value or "").replace("_", " ").strip().title()
 
 
+def _campaign_token(campaign_id: str, campaign_label: str) -> str:
+    token = normalize_token(campaign_id)
+    if token:
+        return token
+    token = normalize_token(campaign_label)
+    if token:
+        return token
+    raise ValueError("campaign_id or campaign_label is required")
+
+
 class CampaignService:
     def __init__(self, content_root: Path) -> None:
         self.content_root = Path(content_root)
@@ -66,7 +76,7 @@ class CampaignService:
             build_context(
                 system_id=system_id,
                 setting_id=setting_id,
-                campaign_id=campaign_id,
+                campaign_id=_campaign_token(campaign_id, campaign_label),
             )
         )
         self.ensure_setting(

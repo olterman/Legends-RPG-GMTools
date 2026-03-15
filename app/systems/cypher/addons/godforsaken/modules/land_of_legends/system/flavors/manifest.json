@@ -1,0 +1,8 @@
+{
+  "id": "flavors",
+  "label": "Flavors",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Flavor category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future flavor authoring."
+}

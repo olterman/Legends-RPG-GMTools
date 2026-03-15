@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.label }} | {{ module.label }} | GMForge{% endblock %}
+
+{% block page_styles %}
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 20px 64px;
+}
+.item-title-panel,
+.item-panel {
+  background: linear-gradient(180deg, rgba(27, 37, 49, 0.96), rgba(18, 26, 35, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+.item-title-panel {
+  padding: 26px;
+  margin-bottom: 20px;
+}
+.title-panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 168px;
+  gap: 24px;
+  align-items: start;
+}
+.title-panel-copy {
+  min-width: 0;
+}
+.item-panel {
+  padding: 20px;
+}
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.eyebrow a {
+  color: var(--muted);
+}
+.eyebrow a:hover {
+  color: var(--accent);
+}
+.meta-row,
+.subgroup-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+}
+.pill .meta {
+  margin-left: 0.35rem;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--accent);
+}
+.section-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+.section-card {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(10, 15, 21, 0.35);
+}
+.section-card h4 {
+  margin: 0 0 10px;
+}
+.rich-lore {
+  display: grid;
+  gap: 18px;
+  margin-top: 12px;
+}
+.rich-lore article {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(10, 15, 21, 0.35);
+}
+.rich-lore article h4 {
+  margin: 0 0 10px;
+}
+.rich-lore article :first-child {
+  margin-top: 0;
+}
+.rich-lore article :last-child {
+  margin-bottom: 0;
+}
+.rich-lore-path {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.title-panel-art {
+  width: 168px;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 1px dashed rgba(209, 138, 79, 0.45);
+  background:
+    linear-gradient(145deg, rgba(209, 138, 79, 0.16), rgba(255, 255, 255, 0.03)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.04) 10px,
+      rgba(0, 0, 0, 0.04) 10px,
+      rgba(0, 0, 0, 0.04) 20px
+    );
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 12px;
+}
+@media (max-width: 900px) {
+  .title-panel-grid {
+    grid-template-columns: 1fr;
+  }
+  .title-panel-art {
+    width: min(100%, 220px);
+  }
+}
+{% endblock %}
+
+{% block body %}
+<main>
+  <section class="item-title-panel">
+    {% set title_content %}
+      <div class="eyebrow">
+        <a href="/"> {{ system.name }} </a> /
+        <a href="/systems/{{ system.id }}/addons/{{ addon.id }}/modules/{{ module.id }}">Expansion: {{ addon.name }}</a> /
+        <a href="/systems/{{ system.id }}/addons/{{ addon.id }}/modules/{{ module.id }}">{{ module.label }}</a>
+        {% if breadcrumb_links %}
+          {% for crumb in breadcrumb_links %}
+            / {% if crumb.url %}<a href="{{ crumb.url }}">{{ crumb.label }}</a>{% else %}{{ crumb.label }}{% endif %}
+          {% endfor %}
+        {% endif %}
+        / {{ item_kind_label }}
+      </div>
+      <h1>{{ item.label }}</h1>
+      <p class="meta">{{ item.summary or "No summary yet." }}</p>
+      <div class="meta-row">
+        <span class="pill">Status: {{ item.status or "planned" }}</span>
+        {% if item.kind %}<span class="pill">Kind: {{ item.kind }}</span>{% endif %}
+      </div>
+    {% endset %}
+    {% include "_title_panel.html" %}
+  </section>
+
+  <section class="item-panel">
+    {% if lore_documents %}
+    <h2>Lore</h2>
+    <div class="rich-lore">
+      {% for doc in lore_documents %}
+      <article>
+        <h4>{{ doc.title }}</h4>
+        <div>{{ doc.rendered_html | safe }}</div>
+        <div class="rich-lore-path">{{ doc.path }}</div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <h2>Review Notes</h2>
+    <p>{{ item.notes or "No notes yet." }}</p>
+    {% if item.description %}
+    <h3>Description</h3>
+    <p>{{ item.description }}</p>
+    {% endif %}
+    {% if item.details %}
+    <h3>Details</h3>
+    <div class="section-list">
+      {% for key, value in item.details.items() %}
+      <article class="section-card">
+        <h4>{{ key.replace('_', ' ')|title }}</h4>
+        <p>{{ value }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if item.subgroups and not child_items %}
+    <h3>Subgroups</h3>
+    <div class="subgroup-list">
+      {% for subgroup in item.subgroups %}
+      <span class="pill">{{ subgroup }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if child_items %}
+    <h3>{{ child_kind_label }}</h3>
+    <div class="subgroup-list">
+      {% for child in child_items %}
+      <span class="pill">{% if child.ui_url %}<a href="{{ child.ui_url }}">{{ child.label }}</a>{% else %}{{ child.label }}{% endif %}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if grouped_child_sections %}
+    <h3>{{ grouped_child_label }}</h3>
+    <div class="section-list">
+      {% for section in grouped_child_sections %}
+      <article class="section-card">
+        <h4>{{ section.label }}</h4>
+        <div class="subgroup-list">
+          {% for entry in section.entries %}
+          <span class="pill">
+            {% if entry.ui_url %}<a href="{{ entry.ui_url }}">{{ entry.label }}</a>{% else %}{{ entry.label }}{% endif %}
+            {% if entry.parent_region_label %}<span class="meta">({{ entry.parent_region_label }})</span>{% endif %}
+          </span>
+          {% endfor %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if item.source_refs %}
+    <h3>Migration Sources</h3>
+    <div class="subgroup-list">
+      {% for source_ref in item.source_refs %}
+      <span class="pill">{{ source_ref }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <a class="back-link" href="{{ back_url or ('/systems/' ~ system.id ~ '/addons/' ~ addon.id ~ '/modules/' ~ module.id) }}">Back to {{ back_label or module.label }}</a>
+  </section>
+</main>
+{% endblock %}

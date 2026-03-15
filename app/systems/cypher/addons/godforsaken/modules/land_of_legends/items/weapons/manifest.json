@@ -1,0 +1,8 @@
+{
+  "id": "weapons",
+  "label": "Weapons",
+  "kind": "item_category",
+  "status": "planned",
+  "summary": "Weapon category for Land of Legends item taxonomy.",
+  "notes": "Starter item grouping scaffold for future weapon authoring."
+}

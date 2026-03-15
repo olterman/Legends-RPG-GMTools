@@ -1,0 +1,17 @@
+{
+  "id": "south_point",
+  "label": "South Point",
+  "kind": "village",
+  "status": "draft",
+  "summary": "Vibrant fishing village at the southern tip of Caldor Island, known for its harbor, lighthouse, and lively maritime culture.",
+  "notes": "Migrated and normalized from legacy Land of Legends settlement storage.",
+  "description": "South Point is a bustling fishing village where waves, trade, and sea stories shape daily life. Colorful boats crowd the harbor, the Old Lighthouse watches over the shore, and the village thrives on fishing, trade, and the constant rhythm of the sea.",
+  "details": {
+    "notable_inn": "The Salty Seagull",
+    "economy": "Fishing and trade sustain the village, with the harbor and local catch driving daily life.",
+    "culture": "South Point is lively, communal, and sea-minded, with a relaxed but weather-aware spirit shaped by storms and coastal work."
+  },
+  "source_refs": [
+    "storage/settlement/settlement_20260314T032819.json"
+  ]
+}

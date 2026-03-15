@@ -1,0 +1,8 @@
+{
+  "id": "northridge",
+  "label": "Northridge",
+  "kind": "mountain",
+  "status": "draft",
+  "summary": "Starter mountain entry within The Vale.",
+  "notes": "Authored subregion mountain scaffold."
+}

@@ -1,0 +1,8 @@
+{
+  "id": "the_black_tooth",
+  "label": "The Black Tooth",
+  "kind": "inn",
+  "status": "draft",
+  "summary": "Example inn nested under the village of Dragon's Maw.",
+  "notes": "Starter inn scaffold to illustrate how village-owned locations are stored under a village."
+}

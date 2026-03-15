@@ -1,0 +1,8 @@
+{
+  "id": "the_lake",
+  "label": "The Lake",
+  "kind": "lake",
+  "status": "draft",
+  "summary": "Starter lake entry within The Vale.",
+  "notes": "Authored subregion lake scaffold."
+}

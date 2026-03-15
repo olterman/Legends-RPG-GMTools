@@ -1,0 +1,8 @@
+{
+  "id": "ingredients",
+  "label": "Ingredients",
+  "kind": "item_category",
+  "status": "planned",
+  "summary": "Ingredient category for Land of Legends item taxonomy.",
+  "notes": "Starter item grouping scaffold for future ingredient authoring."
+}

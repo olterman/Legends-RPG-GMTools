@@ -1,0 +1,8 @@
+{
+  "id": "cantrips",
+  "label": "Cantrips",
+  "kind": "system_category",
+  "status": "planned",
+  "summary": "Cantrip category for Land of Legends system taxonomy.",
+  "notes": "Starter system grouping scaffold for future cantrip authoring."
+}

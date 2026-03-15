@@ -25,7 +25,7 @@ from app.core.contracts import build_record, validate_authored_manifest
 from app.core.contracts.context import normalize_token
 from app.core.database import ensure_database
 from app.core.config import MANIFEST_FILENAME, load_json_object
-from app.core.generation import GenerationService
+from app.core.generation import GenerationPublisher, GenerationService
 from app.core.generation.service import GenerationRequest
 from app.core.lore_docs import load_lore_documents
 from app.core.plugins import PluginService
@@ -330,6 +330,12 @@ REGION_CATEGORY_LABELS = {
 
 PLACE_CATEGORY_LABELS = {
     "inns": "Inns",
+}
+
+SETTLEMENT_COLLECTION_LABELS = {
+    "villages": "Village",
+    "cities": "City",
+    "settlements": "Settlement",
 }
 
 
@@ -937,6 +943,10 @@ def _generation_form(
     notes: str = "",
     source_kind: str = "",
     provider_id: str = "",
+    canonical_region_id: str = "",
+    canonical_subregion_id: str = "",
+    canonical_parent_collection: str = "villages",
+    canonical_parent_id: str = "",
 ) -> dict[str, str]:
     return {
         "title": title,
@@ -949,6 +959,10 @@ def _generation_form(
         "notes": notes,
         "source_kind": source_kind,
         "provider_id": provider_id,
+        "canonical_region_id": canonical_region_id,
+        "canonical_subregion_id": canonical_subregion_id,
+        "canonical_parent_collection": canonical_parent_collection,
+        "canonical_parent_id": canonical_parent_id,
     }
 
 
@@ -1038,6 +1052,7 @@ def create_app(*, project_root: Path | None = None) -> Flask:
     vector_service = VectorIndexService(project_root=resolved_root, index_root=_vector_index_root(resolved_root))
     plugin_service = PluginService(project_root=resolved_root)
     generation_service = GenerationService(vector_service=vector_service, plugin_service=plugin_service)
+    generation_publisher = GenerationPublisher(project_root=resolved_root)
     app = Flask(
         __name__,
         template_folder=str(Path(__file__).resolve().parent / "templates"),
@@ -1049,6 +1064,7 @@ def create_app(*, project_root: Path | None = None) -> Flask:
     app.config["GMFORGE_VECTOR_SERVICE"] = vector_service
     app.config["GMFORGE_GENERATION_SERVICE"] = generation_service
     app.config["GMFORGE_PLUGIN_SERVICE"] = plugin_service
+    app.config["GMFORGE_GENERATION_PUBLISHER"] = generation_publisher
 
     def _session_user():
         session_id = str(session.get("session_id") or "").strip()
@@ -1378,6 +1394,10 @@ def create_app(*, project_root: Path | None = None) -> Flask:
             notes=str(request.values.get("notes") or "").strip(),
             source_kind=str(request.values.get("source_kind") or "").strip(),
             provider_id=str(request.values.get("provider_id") or "local_structured_draft").strip(),
+            canonical_region_id=str(request.values.get("canonical_region_id") or "").strip(),
+            canonical_subregion_id=str(request.values.get("canonical_subregion_id") or "").strip(),
+            canonical_parent_collection=str(request.values.get("canonical_parent_collection") or "villages").strip(),
+            canonical_parent_id=str(request.values.get("canonical_parent_id") or "").strip(),
         )
         options = _build_workspace_options(
             resolved_root,
@@ -1388,6 +1408,33 @@ def create_app(*, project_root: Path | None = None) -> Flask:
         )
         source_kind_options = ["module_lore", "module_manifest", "ai_lore", "migration_staging", "record", "rulebook_markdown"]
         provider_options = generation_service.list_providers()
+        record_type_token = normalize_token(form["record_type"])
+        canonical_region_options = generation_publisher.list_regions(
+            system_id=form["system_id"],
+            addon_id=form["expansion_id"],
+            module_id=form["setting_id"],
+        ) if form["system_id"] and form["expansion_id"] and form["setting_id"] else []
+        if not form["canonical_region_id"] and canonical_region_options:
+            form["canonical_region_id"] = canonical_region_options[0]["id"]
+        canonical_subregion_options = generation_publisher.list_subregions(
+            system_id=form["system_id"],
+            addon_id=form["expansion_id"],
+            module_id=form["setting_id"],
+            region_id=form["canonical_region_id"],
+        ) if form["canonical_region_id"] else []
+        canonical_parent_collection_options = [
+            {"id": key, "label": label} for key, label in SETTLEMENT_COLLECTION_LABELS.items()
+        ]
+        canonical_parent_options = generation_publisher.list_places(
+            system_id=form["system_id"],
+            addon_id=form["expansion_id"],
+            module_id=form["setting_id"],
+            region_id=form["canonical_region_id"],
+            subregion_id=form["canonical_subregion_id"],
+            collection_name=form["canonical_parent_collection"] or "villages",
+        ) if record_type_token == "inn" and form["canonical_region_id"] else []
+        if record_type_token == "inn" and not form["canonical_parent_id"] and canonical_parent_options:
+            form["canonical_parent_id"] = canonical_parent_options[0]["id"]
         draft_result: dict[str, Any] | None = None
         if request.method == "POST":
             try:
@@ -1430,6 +1477,63 @@ def create_app(*, project_root: Path | None = None) -> Flask:
                     )
                     _sync_vector_index(vector_service)
                     return redirect(url_for("record_edit_workspace", record_id=created["id"]))
+                if str(request.form.get("action") or "") == "publish_canonical":
+                    title = draft_result["proposed_record"]["title"] or form["title"]
+                    summary = draft_result["proposed_record"]["summary"]
+                    markdown_body = draft_result["proposed_record"]["body"]
+                    provider_id = draft_result["provider_id"]
+                    if record_type_token == "top_level_region":
+                        published = generation_publisher.publish_region(
+                            system_id=form["system_id"],
+                            addon_id=form["expansion_id"],
+                            module_id=form["setting_id"],
+                            title=title,
+                            summary=summary,
+                            markdown_body=markdown_body,
+                            provider_id=provider_id,
+                        )
+                    elif record_type_token == "subregion":
+                        published = generation_publisher.publish_subregion(
+                            system_id=form["system_id"],
+                            addon_id=form["expansion_id"],
+                            module_id=form["setting_id"],
+                            region_id=form["canonical_region_id"],
+                            title=title,
+                            summary=summary,
+                            markdown_body=markdown_body,
+                            provider_id=provider_id,
+                        )
+                    elif record_type_token in {"settlement", "village", "city"}:
+                        published = generation_publisher.publish_settlement_like(
+                            kind=record_type_token,
+                            system_id=form["system_id"],
+                            addon_id=form["expansion_id"],
+                            module_id=form["setting_id"],
+                            region_id=form["canonical_region_id"],
+                            subregion_id=form["canonical_subregion_id"],
+                            title=title,
+                            summary=summary,
+                            markdown_body=markdown_body,
+                            provider_id=provider_id,
+                        )
+                    elif record_type_token == "inn":
+                        published = generation_publisher.publish_inn(
+                            system_id=form["system_id"],
+                            addon_id=form["expansion_id"],
+                            module_id=form["setting_id"],
+                            region_id=form["canonical_region_id"],
+                            subregion_id=form["canonical_subregion_id"],
+                            parent_collection=form["canonical_parent_collection"],
+                            parent_id=form["canonical_parent_id"],
+                            title=title,
+                            summary=summary,
+                            markdown_body=markdown_body,
+                            provider_id=provider_id,
+                        )
+                    else:
+                        raise ValueError(f"Canonical publishing is not supported for record type '{form['record_type']}'")
+                    _sync_vector_index(vector_service)
+                    return redirect(published.ui_url)
             except Exception as exc:
                 error = str(exc)
         return render_template(
@@ -1438,6 +1542,10 @@ def create_app(*, project_root: Path | None = None) -> Flask:
             options=options,
             source_kind_options=source_kind_options,
             provider_options=provider_options,
+            canonical_region_options=canonical_region_options,
+            canonical_subregion_options=canonical_subregion_options,
+            canonical_parent_collection_options=canonical_parent_collection_options,
+            canonical_parent_options=canonical_parent_options,
             draft_result=draft_result,
             error=error,
         )
@@ -2301,6 +2409,91 @@ def create_app(*, project_root: Path | None = None) -> Flask:
             ],
         )
 
+    @app.get("/systems/<system_id>/addons/<addon_id>/modules/<module_id>/regions/<region_id>/settlements/<settlement_id>")
+    def module_region_settlement_view(
+        system_id: str,
+        addon_id: str,
+        module_id: str,
+        region_id: str,
+        settlement_id: str,
+    ) -> str:
+        try:
+            system, addon, module = _find_module(
+                project_root=resolved_root,
+                system_id=system_id,
+                addon_id=addon_id,
+                module_id=module_id,
+            )
+            module_root = resolved_root / "app" / "systems" / system_id / "addons" / addon_id / "modules" / module_id
+            region = _load_module_item(module_root, "regions", region_id)
+            settlement_root = module_root / "regions" / region_id / "settlements" / settlement_id
+            settlement = _load_manifest_file(settlement_root / "manifest.json", fallback_id=settlement_id, fallback_label=settlement_id)
+            settlement_sections = _add_place_ui_urls(
+                _load_place_sections(settlement_root),
+                base_path=f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/settlements/{settlement_id}",
+            )
+        except FileNotFoundError:
+            abort(404)
+        return _render_module_item(
+            system=system,
+            addon=addon,
+            module=module,
+            module_root=module_root,
+            item=settlement,
+            item_root=settlement_root,
+            item_kind_label="Settlement",
+            collection_name="settlements",
+            grouped_child_sections=settlement_sections,
+            grouped_child_label="Settlement Entries",
+            back_url=f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}",
+            back_label=region["label"],
+            breadcrumb_links=[
+                {"label": region["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}"},
+                {"label": settlement["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/settlements/{settlement_id}"},
+            ],
+        )
+
+    @app.get("/systems/<system_id>/addons/<addon_id>/modules/<module_id>/regions/<region_id>/settlements/<settlement_id>/inns/<inn_id>")
+    def module_region_settlement_inn_view(
+        system_id: str,
+        addon_id: str,
+        module_id: str,
+        region_id: str,
+        settlement_id: str,
+        inn_id: str,
+    ) -> str:
+        try:
+            system, addon, module = _find_module(
+                project_root=resolved_root,
+                system_id=system_id,
+                addon_id=addon_id,
+                module_id=module_id,
+            )
+            module_root = resolved_root / "app" / "systems" / system_id / "addons" / addon_id / "modules" / module_id
+            settlement_root = module_root / "regions" / region_id / "settlements" / settlement_id
+            settlement = _load_manifest_file(settlement_root / "manifest.json", fallback_id=settlement_id, fallback_label=settlement_id)
+            inn_root = settlement_root / "inns" / inn_id
+            inn = _load_manifest_file(inn_root / "manifest.json", fallback_id=inn_id, fallback_label=inn_id)
+        except FileNotFoundError:
+            abort(404)
+        return _render_module_item(
+            system=system,
+            addon=addon,
+            module=module,
+            module_root=module_root,
+            item=inn,
+            item_root=inn_root,
+            item_kind_label="Inn",
+            collection_name="inns",
+            back_url=f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/settlements/{settlement_id}",
+            back_label=settlement["label"],
+            breadcrumb_links=[
+                {"label": region_id.replace('_', ' ').title(), "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}"},
+                {"label": settlement["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/settlements/{settlement_id}"},
+                {"label": inn["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/settlements/{settlement_id}/inns/{inn_id}"},
+            ],
+        )
+
     @app.get("/systems/<system_id>/addons/<addon_id>/modules/<module_id>/regions/<region_id>/subregions/<subregion_id>/villages/<village_id>/inns/<inn_id>")
     def module_subregion_village_inn_view(
         system_id: str,
@@ -2378,6 +2571,102 @@ def create_app(*, project_root: Path | None = None) -> Flask:
                         f"/regions/{region_id}/subregions/{subregion_id}/villages/{village_id}/inns/{inn_id}"
                     ),
                 },
+            ],
+        )
+
+    @app.get("/systems/<system_id>/addons/<addon_id>/modules/<module_id>/regions/<region_id>/subregions/<subregion_id>/settlements/<settlement_id>")
+    def module_subregion_settlement_view(
+        system_id: str,
+        addon_id: str,
+        module_id: str,
+        region_id: str,
+        subregion_id: str,
+        settlement_id: str,
+    ) -> str:
+        try:
+            system, addon, module = _find_module(
+                project_root=resolved_root,
+                system_id=system_id,
+                addon_id=addon_id,
+                module_id=module_id,
+            )
+            module_root = resolved_root / "app" / "systems" / system_id / "addons" / addon_id / "modules" / module_id
+            region_root = module_root / "regions" / region_id
+            subregion_root = _find_subregion_path(region_root, subregion_id)
+            if subregion_root is None:
+                raise FileNotFoundError(subregion_id)
+            settlement_root = subregion_root / "settlements" / settlement_id
+            settlement = _load_manifest_file(settlement_root / "manifest.json", fallback_id=settlement_id, fallback_label=settlement_id)
+            settlement_sections = _add_place_ui_urls(
+                _load_place_sections(settlement_root),
+                base_path=f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}/settlements/{settlement_id}",
+            )
+        except FileNotFoundError:
+            abort(404)
+        return _render_module_item(
+            system=system,
+            addon=addon,
+            module=module,
+            module_root=module_root,
+            item=settlement,
+            item_root=settlement_root,
+            item_kind_label="Settlement",
+            collection_name="settlements",
+            grouped_child_sections=settlement_sections,
+            grouped_child_label="Settlement Entries",
+            back_url=f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}",
+            back_label=subregion_id.replace("_", " ").title(),
+            breadcrumb_links=[
+                {"label": region_id.replace('_', ' ').title(), "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}"},
+                {"label": subregion_id.replace('_', ' ').title(), "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}"},
+                {"label": settlement["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}/settlements/{settlement_id}"},
+            ],
+        )
+
+    @app.get("/systems/<system_id>/addons/<addon_id>/modules/<module_id>/regions/<region_id>/subregions/<subregion_id>/settlements/<settlement_id>/inns/<inn_id>")
+    def module_subregion_settlement_inn_view(
+        system_id: str,
+        addon_id: str,
+        module_id: str,
+        region_id: str,
+        subregion_id: str,
+        settlement_id: str,
+        inn_id: str,
+    ) -> str:
+        try:
+            system, addon, module = _find_module(
+                project_root=resolved_root,
+                system_id=system_id,
+                addon_id=addon_id,
+                module_id=module_id,
+            )
+            module_root = resolved_root / "app" / "systems" / system_id / "addons" / addon_id / "modules" / module_id
+            region_root = module_root / "regions" / region_id
+            subregion_root = _find_subregion_path(region_root, subregion_id)
+            if subregion_root is None:
+                raise FileNotFoundError(subregion_id)
+            settlement_root = subregion_root / "settlements" / settlement_id
+            settlement = _load_manifest_file(settlement_root / "manifest.json", fallback_id=settlement_id, fallback_label=settlement_id)
+            inn_root = settlement_root / "inns" / inn_id
+            inn = _load_manifest_file(inn_root / "manifest.json", fallback_id=inn_id, fallback_label=inn_id)
+        except FileNotFoundError:
+            abort(404)
+        return _render_module_item(
+            system=system,
+            addon=addon,
+            module=module,
+            module_root=module_root,
+            item=inn,
+            item_root=inn_root,
+            item_kind_label="Inn",
+            collection_name="inns",
+            back_url=f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}/settlements/{settlement_id}",
+            back_label=settlement["label"],
+            breadcrumb_links=[
+                {"label": region_id.replace('_', ' ').title(), "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}"},
+                {"label": subregion_id.replace('_', ' ').title(), "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}"},
+                {"label": settlement["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}/settlements/{settlement_id}"},
+                {"label": inn["label"], "url": f"/systems/{system_id}/addons/{addon_id}/modules/{module_id}/regions/{region_id}/subregions/{subregion_id}/settlements/{settlement_id}/inns/{inn_id}"},
             ],
         )
 

@@ -56,6 +56,37 @@ pre { white-space: pre-wrap; word-break: break-word; }
         <input id="title" name="title" value="{{ form.title }}" required>
         <label for="record_type">Record Type</label>
         <input id="record_type" name="record_type" value="{{ form.record_type }}" required>
+        {% if form.record_type in ["subregion", "settlement", "village", "city", "inn"] %}
+        <label for="canonical_region_id">Target Region</label>
+        <select id="canonical_region_id" name="canonical_region_id">
+          {% for region in canonical_region_options %}
+          <option value="{{ region.id }}" {% if region.id == form.canonical_region_id %}selected{% endif %}>{{ region.label }}</option>
+          {% endfor %}
+        </select>
+        {% endif %}
+        {% if form.record_type in ["settlement", "village", "city", "inn"] %}
+        <label for="canonical_subregion_id">Target Subregion</label>
+        <select id="canonical_subregion_id" name="canonical_subregion_id">
+          <option value="">No subregion</option>
+          {% for subregion in canonical_subregion_options %}
+          <option value="{{ subregion.id }}" {% if subregion.id == form.canonical_subregion_id %}selected{% endif %}>{{ subregion.label }}</option>
+          {% endfor %}
+        </select>
+        {% endif %}
+        {% if form.record_type == "inn" %}
+        <label for="canonical_parent_collection">Inn Parent Type</label>
+        <select id="canonical_parent_collection" name="canonical_parent_collection">
+          {% for item in canonical_parent_collection_options %}
+          <option value="{{ item.id }}" {% if item.id == form.canonical_parent_collection %}selected{% endif %}>{{ item.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="canonical_parent_id">Inn Parent</label>
+        <select id="canonical_parent_id" name="canonical_parent_id">
+          {% for item in canonical_parent_options %}
+          <option value="{{ item.id }}" {% if item.id == form.canonical_parent_id %}selected{% endif %}>{{ item.label }}</option>
+          {% endfor %}
+        </select>
+        {% endif %}
         <label for="system_id">System</label>
         <select id="system_id" name="system_id">
           {% for system in options.systems %}
@@ -107,6 +138,9 @@ pre { white-space: pre-wrap; word-break: break-word; }
         <button type="submit" name="action" value="preview">Generate Draft</button>
         {% if draft_result %}
         <button type="submit" name="action" value="create_record">Create Draft Record</button>
+        {% if form.record_type in ["top_level_region", "subregion", "settlement", "village", "city", "inn"] %}
+        <button type="submit" name="action" value="publish_canonical">Publish Canonical</button>
+        {% endif %}
         {% endif %}
       </form>
     </section>

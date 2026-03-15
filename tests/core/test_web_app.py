@@ -116,6 +116,56 @@ class WebAppTests(unittest.TestCase):
         self.assertIn("OpenAI Remote", text)
         self.assertIn("Ollama Local", text)
 
+    def test_generate_workspace_shows_village_publish_targets(self) -> None:
+        app = create_app(project_root=PROJECT_ROOT)
+        client = app.test_client()
+        self.login_owner(client)
+
+        response = client.get("/workspace/generate?record_type=village")
+
+        self.assertEqual(response.status_code, 200)
+        text = response.get_data(as_text=True)
+        self.assertIn("Target Region", text)
+        self.assertIn("Target Subregion", text)
+        self.assertIn("Caldor Island", text)
+
+    def test_generate_workspace_shows_subregion_publish_targets(self) -> None:
+        app = create_app(project_root=PROJECT_ROOT)
+        client = app.test_client()
+        self.login_owner(client)
+
+        response = client.get("/workspace/generate?record_type=subregion")
+
+        self.assertEqual(response.status_code, 200)
+        text = response.get_data(as_text=True)
+        self.assertIn("Target Region", text)
+        self.assertNotIn("Target Subregion", text)
+        self.assertIn("Caldor Island", text)
+
+    def test_generate_workspace_shows_city_publish_targets(self) -> None:
+        app = create_app(project_root=PROJECT_ROOT)
+        client = app.test_client()
+        self.login_owner(client)
+
+        response = client.get("/workspace/generate?record_type=city")
+
+        self.assertEqual(response.status_code, 200)
+        text = response.get_data(as_text=True)
+        self.assertIn("Target Region", text)
+        self.assertIn("Target Subregion", text)
+
+    def test_generate_workspace_shows_inn_publish_targets(self) -> None:
+        app = create_app(project_root=PROJECT_ROOT)
+        client = app.test_client()
+        self.login_owner(client)
+
+        response = client.get("/workspace/generate?record_type=inn")
+
+        self.assertEqual(response.status_code, 200)
+        text = response.get_data(as_text=True)
+        self.assertIn("Inn Parent Type", text)
+        self.assertIn("Inn Parent", text)
+
     def test_rulebook_route_renders_toc_and_content(self) -> None:
         app = create_app(project_root=PROJECT_ROOT)
         client = app.test_client()

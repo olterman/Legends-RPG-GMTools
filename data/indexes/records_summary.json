@@ -1,6 +1,278 @@
 {
-  "count": 30,
+  "count": 46,
   "items": [
+    {
+      "id": "rec_439625488e784dea81f9dc80e5476d13",
+      "type": "lore_entry",
+      "title": "Iron Hollow",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A hard-bitten mining hamlet in the shadow of old stone.",
+      "tags": [
+        "mine",
+        "village"
+      ],
+      "updated_at": "2026-03-15T15:43:30.787559+00:00"
+    },
+    {
+      "id": "rec_5a492bf7389c4941bc0b2b113de68483",
+      "type": "lore_entry",
+      "title": "Stone Ford",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "Updated crossing summary",
+      "tags": [
+        "river",
+        "crossing"
+      ],
+      "updated_at": "2026-03-15T15:43:27.726389+00:00"
+    },
+    {
+      "id": "rec_544404c027394936b0b2848af51c349a",
+      "type": "lore_entry",
+      "title": "Old Gods Draft",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "draft",
+      "summary": "Draft lore entry for Old Gods Draft, grounded in Peoples / Fellic / Subgroups / Bovine / Overview.Md and related scoped setting material.",
+      "tags": [
+        "lore_entry",
+        "land_of_legends",
+        "old",
+        "peoples_/_fellic_/_subgroups_/_bovine_/_overview.md",
+        "creatures_/_daelgast_/_relationships.md",
+        "religion.md"
+      ],
+      "updated_at": "2026-03-15T15:43:20.409240+00:00"
+    },
+    {
+      "id": "rec_20b2909306da4358bab44989eb0c4b29",
+      "type": "lore_entry",
+      "title": "Whisper Bridge",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A haunted crossing in Land of Legends.",
+      "tags": [
+        "bridge",
+        "river"
+      ],
+      "updated_at": "2026-03-15T15:43:13.439886+00:00"
+    },
+    {
+      "id": "rec_48560017e0d54c07a7659966ada1a0d2",
+      "type": "lore_entry",
+      "title": "Iron Hollow",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A hard-bitten mining hamlet in the shadow of old stone.",
+      "tags": [
+        "mine",
+        "village"
+      ],
+      "updated_at": "2026-03-15T15:41:10.320266+00:00"
+    },
+    {
+      "id": "rec_ad76c854072041d5a5f17ace28f9fd81",
+      "type": "lore_entry",
+      "title": "Stone Ford",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "Updated crossing summary",
+      "tags": [
+        "river",
+        "crossing"
+      ],
+      "updated_at": "2026-03-15T15:41:07.276585+00:00"
+    },
+    {
+      "id": "rec_dc2c9eb8c63e4958a0bb3941c433a1b3",
+      "type": "lore_entry",
+      "title": "Old Gods Draft",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "draft",
+      "summary": "Draft lore entry for Old Gods Draft, grounded in Peoples / Fellic / Subgroups / Bovine / Overview.Md and related scoped setting material.",
+      "tags": [
+        "lore_entry",
+        "land_of_legends",
+        "old",
+        "peoples_/_fellic_/_subgroups_/_bovine_/_overview.md",
+        "creatures_/_daelgast_/_relationships.md",
+        "religion.md"
+      ],
+      "updated_at": "2026-03-15T15:41:00.300654+00:00"
+    },
+    {
+      "id": "rec_a7e2ef1a391a4422bcf4f92511d4ff7a",
+      "type": "lore_entry",
+      "title": "Whisper Bridge",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A haunted crossing in Land of Legends.",
+      "tags": [
+        "bridge",
+        "river"
+      ],
+      "updated_at": "2026-03-15T15:40:53.313088+00:00"
+    },
+    {
+      "id": "rec_81b3580772f843d7b5a0ace0229cbabf",
+      "type": "lore_entry",
+      "title": "Iron Hollow",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A hard-bitten mining hamlet in the shadow of old stone.",
+      "tags": [
+        "mine",
+        "village"
+      ],
+      "updated_at": "2026-03-15T15:36:22.011540+00:00"
+    },
+    {
+      "id": "rec_a18be4dd29e54be8b89c73b8f0f099c0",
+      "type": "lore_entry",
+      "title": "Stone Ford",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "Updated crossing summary",
+      "tags": [
+        "river",
+        "crossing"
+      ],
+      "updated_at": "2026-03-15T15:36:18.995142+00:00"
+    },
+    {
+      "id": "rec_20c887bac2154468a5a312ad08004d24",
+      "type": "lore_entry",
+      "title": "Old Gods Draft",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "draft",
+      "summary": "Draft lore entry for Old Gods Draft, grounded in Peoples / Fellic / Subgroups / Bovine / Overview.Md and related scoped setting material.",
+      "tags": [
+        "lore_entry",
+        "land_of_legends",
+        "old",
+        "peoples_/_fellic_/_subgroups_/_bovine_/_overview.md",
+        "creatures_/_daelgast_/_relationships.md",
+        "religion.md"
+      ],
+      "updated_at": "2026-03-15T15:36:12.083964+00:00"
+    },
+    {
+      "id": "rec_1e106bf0099b419dad84e2f7cd33ff42",
+      "type": "lore_entry",
+      "title": "Whisper Bridge",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A haunted crossing in Land of Legends.",
+      "tags": [
+        "bridge",
+        "river"
+      ],
+      "updated_at": "2026-03-15T15:36:05.193780+00:00"
+    },
+    {
+      "id": "rec_121141b5cfe94de0a005e32c7fcf762b",
+      "type": "lore_entry",
+      "title": "Iron Hollow",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A hard-bitten mining hamlet in the shadow of old stone.",
+      "tags": [
+        "mine",
+        "village"
+      ],
+      "updated_at": "2026-03-15T15:35:50.886988+00:00"
+    },
+    {
+      "id": "rec_915b2cabbf6441e69707aeb34dd2074d",
+      "type": "lore_entry",
+      "title": "Stone Ford",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "Updated crossing summary",
+      "tags": [
+        "river",
+        "crossing"
+      ],
+      "updated_at": "2026-03-15T15:35:47.807488+00:00"
+    },
+    {
+      "id": "rec_d146f97166564a70a2c2a62c90686f5b",
+      "type": "lore_entry",
+      "title": "Old Gods Draft",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "draft",
+      "summary": "Draft lore entry for Old Gods Draft, grounded in Peoples / Fellic / Subgroups / Bovine / Overview.Md and related scoped setting material.",
+      "tags": [
+        "lore_entry",
+        "land_of_legends",
+        "old",
+        "peoples_/_fellic_/_subgroups_/_bovine_/_overview.md",
+        "creatures_/_daelgast_/_relationships.md",
+        "religion.md"
+      ],
+      "updated_at": "2026-03-15T15:35:40.938948+00:00"
+    },
+    {
+      "id": "rec_425800ea1f964abcb591638b31201d2a",
+      "type": "lore_entry",
+      "title": "Whisper Bridge",
+      "system_id": "cypher",
+      "addon_id": "godforsaken",
+      "setting_id": "land_of_legends",
+      "campaign_id": "",
+      "status": "active",
+      "summary": "A haunted crossing in Land of Legends.",
+      "tags": [
+        "bridge",
+        "river"
+      ],
+      "updated_at": "2026-03-15T15:35:34.092603+00:00"
+    },
     {
       "id": "rec_f008a3609719435bb5881ff8aba1b3a1",
       "type": "lore_entry",

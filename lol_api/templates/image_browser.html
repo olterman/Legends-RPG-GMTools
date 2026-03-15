@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Image Browser — Lands of Legends GM-Tools{% endblock %}
+{% block title %}Image Browser — Lands of Legend GM-Tools{% endblock %}
 
 {% block content %}
 <h1>Image Browser</h1>
@@ -267,6 +267,7 @@
     </div>
     <div class="actions">
       <button id="image-search-btn" type="button">Search</button>
+      <button id="image-refresh-btn" type="button" class="secondary">Refresh Metadata</button>
       <button id="image-reset-btn" type="button" class="secondary">Reset</button>
     </div>
     <div class="actions">
@@ -328,6 +329,7 @@
     q: document.getElementById('image-q'),
     tag: document.getElementById('image-tag'),
     searchBtn: document.getElementById('image-search-btn'),
+    refreshBtn: document.getElementById('image-refresh-btn'),
     resetBtn: document.getElementById('image-reset-btn'),
     dedupeBtn: document.getElementById('image-dedupe-btn'),
     status: document.getElementById('image-status'),
@@ -364,12 +366,29 @@
     return data;
   }
 
-  function buildUrl() {
+  function buildUrl(refresh = false) {
     const params = new URLSearchParams();
     if (els.q.value.trim()) params.set("q", els.q.value.trim());
     if (els.tag.value.trim()) params.set("tag", els.tag.value.trim());
+    if (refresh) params.set("refresh", "1");
     const qs = params.toString();
     return qs ? `/media/images?${qs}` : "/media/images";
+  }
+
+  function canonicalizeTag(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const key = raw.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    if (['lands_of_legends', 'land_of_legends', 'land_of_legend'].includes(key)) return 'lands_of_legend';
+    return key;
+  }
+
+  function displayTag(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const normalized = canonicalizeTag(raw);
+    if (normalized === 'lands_of_legend') return 'Lands of Legend';
+    return raw;
   }
 
   function buildTooltip(item) {
@@ -379,7 +398,7 @@
       ? `<ul class="image-attached-list">${attached.map(row => `<li>${escapeHtml(row.label || row.id || '')} (${escapeHtml(row.target || '')})</li>`).join('')}</ul>`
       : '<div>none</div>';
     const tagMarkup = tags.length
-      ? tags.map(tag => `<button type="button" class="image-meta-chip image-meta-chip--clickable" data-action="tag-filter" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join('')
+      ? tags.map(tag => `<button type="button" class="image-meta-chip image-meta-chip--clickable" data-action="tag-filter" data-tag="${escapeHtml(canonicalizeTag(tag) || String(tag || '').trim())}">${escapeHtml(displayTag(tag))}</button>`).join('')
       : 'none';
     return `
       <span class="image-tooltip-label">Friendly Name</span>
@@ -395,8 +414,10 @@
 
   function allTags(items) {
     return Array.from(new Set(
-      items.flatMap((item) => Array.isArray(item.tags) ? item.tags.map((tag) => String(tag || '').trim()).filter(Boolean) : [])
-    )).sort((a, b) => a.localeCompare(b));
+      items.flatMap((item) => Array.isArray(item.tags)
+        ? item.tags.map((tag) => canonicalizeTag(tag) || String(tag || '').trim()).filter(Boolean)
+        : [])
+    )).sort((a, b) => displayTag(a).localeCompare(displayTag(b)));
   }
 
   function renderTagBar(items) {
@@ -412,7 +433,7 @@
         class="image-tag-filter ${activeTag === String(tag).toLowerCase() ? 'is-active' : ''}"
         data-action="tag-filter"
         data-tag="${escapeHtml(tag)}"
-      >${escapeHtml(tag)}</button>
+      >${escapeHtml(displayTag(tag))}</button>
     `).join('');
     els.tagBar.querySelectorAll('[data-action="tag-filter"]').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -424,7 +445,7 @@
   }
 
   function tagSet(item) {
-    return new Set((Array.isArray(item.tags) ? item.tags : []).map((tag) => String(tag || '').trim().toLowerCase()));
+    return new Set((Array.isArray(item.tags) ? item.tags : []).map((tag) => canonicalizeTag(tag) || String(tag || '').trim().toLowerCase()));
   }
 
   function actionTypesForItem(item) {
@@ -487,7 +508,7 @@
         ${renderGenerateActions(item)}
         <div class="image-tile-caption">
           <div class="image-tile-name">${escapeHtml(item.friendly_name || item.name || 'Unnamed image')}</div>
-          <div class="image-tile-sub">${escapeHtml((item.attached_count || 0) + ' attached · ' + ((item.tags || []).slice(0, 2).join(', ') || 'untagged'))}</div>
+          <div class="image-tile-sub">${escapeHtml((item.attached_count || 0) + ' attached · ' + (((item.tags || []).slice(0, 2).map(displayTag).join(', ')) || 'untagged'))}</div>
         </div>
       </article>
     `).join('');
@@ -592,13 +613,15 @@
       : 'No duplicate images were found.';
   }
 
-  async function search() {
-    els.status.textContent = 'Searching images...';
-    const data = await fetchJson(buildUrl());
+  async function search(refresh = false) {
+    els.status.textContent = refresh ? 'Refreshing image metadata...' : 'Searching images...';
+    const data = await fetchJson(buildUrl(refresh));
     state.items = Array.isArray(data.items) ? data.items : [];
     renderItems(state.items);
     renderTagBar(state.items);
-    els.status.textContent = `Found ${data.count ?? 0} image(s).`;
+    els.status.textContent = refresh
+      ? `Refreshed metadata for ${data.count ?? 0} image(s).`
+      : `Found ${data.count ?? 0} image(s).`;
   }
 
   function reset() {
@@ -608,6 +631,7 @@
   }
 
   els.searchBtn.addEventListener('click', search);
+  els.refreshBtn.addEventListener('click', () => search(true));
   els.resetBtn.addEventListener('click', reset);
   els.dedupeBtn?.addEventListener('click', () => {
     dedupeImages().catch(err => {

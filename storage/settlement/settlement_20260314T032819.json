@@ -41,7 +41,9 @@
       "profession": "",
       "culture": "human",
       "family": "",
-      "role": ""
+      "role": "",
+      "economy": "Fishing and trade",
+      "tension": "Low, but wary of storms"
     },
     "metadata": {
       "source": "House",

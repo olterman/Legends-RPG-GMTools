@@ -19,7 +19,13 @@
       "tension": "old alliance terms with nearby Uruk are being tested",
       "atmosphere": "communal memory held against the wind",
       "inn_name": "The Wind Ram",
-      "style": "painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration"
+      "style": "painted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration",
+      "type": "settlement",
+      "name": "Morstead Stead",
+      "area": "Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.",
+      "local_inn_or_tavern": "The Wind Ram",
+      "economy_survival_basis": "hunting and preservation of scarce resources",
+      "current_tension": "old alliance terms with nearby Uruk are being tested"
     },
     "text": "Dark fantasy settlement prompt.\n\nSetting:\nLands of Legends: A mythic fantasy world shaped by ancient migrations, damaged Gates, and conflicting origin myths. Tone and style: Epic, mystical, grounded, ancient-but-lived-in, high fantasy with mythic ambiguity. Cultures feel old, layered, and internally consistent. Core world truths: The Alfirin are immortal exiles who entered this world through Gates after a failed negotiation with the Velim, damaging reality. The Velim are ancient custodians of Gates and thresholds, forced into guardianship after the Alfirin passage went wrong. History is fragmented; myths contradict; no single culture is fully correct. Cultural themes: ancient wounds still shaping the present, survival over destiny, balance versus permanence, quiet guardianship versus visible power, myth over absolute truth.\n\nSettlement Name:\nMorstead Stead.\n\nSettlement Type:\nmountain pass hamlet.\n\nEnvironment:\nWind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape.\n\nVisual Feature:\nsmoke rising into wind-scoured air.\n\nLandmark:\na great stone circle used for oaths and mourning.\n\nEconomy / Survival Basis:\nhunting and preservation of scarce resources.\n\nCurrent Tension:\nold alliance terms with nearby Uruk are being tested.\n\nAtmosphere:\ncommunal memory held against the wind.\n\nLocal Inn or Tavern:\nThe Wind Ram.\n\nSTYLE:\npainted british comic environment illustration, gritty graphic novel landscape art, heavy ink outlines, thick painterly brush strokes, high contrast saturated colors, layered architecture, dramatic environmental perspective, weathered surfaces, dark fantasy settlement illustration.\n",
     "metadata": {
@@ -28,7 +34,8 @@
         "fantasy",
         "lands_of_legends"
       ],
-      "setting": "lands_of_legends"
+      "setting": "lands_of_legends",
+      "area": "Wind-carved mountains where nomadic human clans and Highland Uruk share the land. Stone circles, ritual tattoos, and ancestral memory define a harsh but spiritual landscape."
     }
   },
   "schema_version": "1.0"

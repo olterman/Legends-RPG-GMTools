@@ -23,6 +23,7 @@ from lol_api.lore import (
     update_lore_item,
 )
 from lol_api.config_loader import load_config_dir
+from lol_api.settings import normalize_setting_token, normalize_settings_values
 from lol_api.storage import (
     expunge_trashed_result,
     list_saved_results,
@@ -36,6 +37,21 @@ from lol_api.storage import (
 
 
 class SmokeTests(unittest.TestCase):
+    def test_setting_normalization_harmonizes_lands_of_legend_aliases(self) -> None:
+        self.assertEqual(normalize_setting_token("lands of legends"), "lands_of_legend")
+        self.assertEqual(normalize_setting_token("land of legends"), "lands_of_legend")
+        self.assertEqual(normalize_setting_token("lands_of_legends"), "lands_of_legend")
+        self.assertEqual(
+            normalize_settings_values(["fantasy", "lands_of_legends", "land of legends"]),
+            ["fantasy", "lands_of_legend"],
+        )
+
+    def test_load_config_dir_accepts_canonical_lands_of_legend_world_id(self) -> None:
+        config = load_config_dir(PROJECT_ROOT / "config", world_id="lands_of_legend")
+        world = config.get("world", {}) if isinstance(config, dict) else {}
+        self.assertEqual(str((world or {}).get("id") or ""), "lands_of_legend")
+        self.assertEqual(str((world or {}).get("label") or ""), "Lands of Legend")
+
     def test_plugin_discovery_accepts_metadata_only_folders(self) -> None:
         try:
             from lol_api.api import discover_plugins_from_roots
@@ -88,6 +104,146 @@ class SmokeTests(unittest.TestCase):
         self.assertIn("player character portrait", ai_generate_vision_prompt("player_character").lower())
         self.assertIn("settlement", ai_generate_vision_prompt("settlement").lower())
         self.assertIn("inn", ai_generate_vision_prompt("inn").lower())
+
+    def test_harmonize_lands_of_legend_script_normalizes_structured_values(self) -> None:
+        from scripts.harmonize_lands_of_legend import harmonize_project
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            target = root / "storage" / "npc"
+            target.mkdir(parents=True, exist_ok=True)
+            path = target / "npc.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "result": {
+                            "metadata": {
+                                "setting": "lands_of_legends",
+                                "settings": ["fantasy", "lands_of_legends"],
+                                "tags": ["Lands of Legends", "fenmir"],
+                            }
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            preview = harmonize_project(root, write=False)
+            self.assertEqual(preview["count"], 1)
+
+            result = harmonize_project(root, write=True)
+            self.assertEqual(result["count"], 1)
+            data = json.loads(path.read_text(encoding="utf-8"))
+            metadata = data["result"]["metadata"]
+            self.assertEqual(metadata["setting"], "lands_of_legend")
+            self.assertEqual(metadata["settings"], ["fantasy", "lands_of_legend"])
+            self.assertEqual(metadata["tags"], ["Lands of Legend", "fenmir"])
+
+    def test_harmonize_lands_of_legend_script_normalizes_tag_typos(self) -> None:
+        from scripts.harmonize_lands_of_legend import harmonize_project
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            target = root / "images"
+            target.mkdir(parents=True, exist_ok=True)
+            path = target / "_index.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "uploads/example.png": {
+                            "tags": ["highland_urukculture", "lands_of_legends", "highland_uruk"]
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            result = harmonize_project(root, write=True)
+            self.assertEqual(result["count"], 1)
+            data = json.loads(path.read_text(encoding="utf-8"))
+            self.assertEqual(
+                data["uploads/example.png"]["tags"],
+                ["culture", "lands_of_legend", "highland_uruk"],
+            )
+
+    def test_harmonize_lands_of_legend_script_normalizes_image_taxonomy_aliases(self) -> None:
+        from scripts.harmonize_lands_of_legend import harmonize_project
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            target = root / "images"
+            target.mkdir(parents=True, exist_ok=True)
+            path = target / "_index.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "uploads/example.png": {
+                            "tags": [
+                                "alfir_sky_children",
+                                "sky_children",
+                                "alfir_wave_riders",
+                                "faltrim",
+                                "race_alfir",
+                                "cyfer",
+                                "cyphers_artifacts",
+                                "human_highlanders",
+                                "the_other_human_tribes",
+                                "the_dead",
+                                "dangers_undead",
+                                "dangers_monsters",
+                            ]
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            result = harmonize_project(root, write=True)
+            self.assertEqual(result["count"], 1)
+            data = json.loads(path.read_text(encoding="utf-8"))
+            self.assertEqual(
+                data["uploads/example.png"]["tags"],
+                ["kalaquendi", "falthrim", "alfir", "cypher", "highland_fenmir", "gurthim", "monster"],
+            )
+
+    def test_cleanup_foundry_legacy_records_promotes_helper_cypher(self) -> None:
+        from scripts.cleanup_foundry_legacy_records import cleanup_foundry_legacy_records
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source_path = root / "foundryvtt" / "fantasy" / "cypher"
+            source_path.mkdir(parents=True, exist_ok=True)
+            record_path = source_path / "cypher_1.json"
+            record_path.write_text(
+                json.dumps(
+                    {
+                        "filename": "foundryvtt/fantasy/cypher/cypher_1.json",
+                        "result": {
+                            "type": "cypher",
+                            "name": "Borrowed Spark",
+                            "metadata": {
+                                "source": "FoundryVTT",
+                                "origin": "foundry_import",
+                                "owner_character_filename": "character_sheet/example.json",
+                            },
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            preview = cleanup_foundry_legacy_records(root, write=False)
+            self.assertEqual(preview["count"], 1)
+
+            result = cleanup_foundry_legacy_records(root, write=True)
+            self.assertEqual(result["count"], 1)
+            promoted = root / "cypher" / "cypher_1.json"
+            self.assertTrue(promoted.exists())
+            data = json.loads(promoted.read_text(encoding="utf-8"))
+            metadata = data["result"]["metadata"]
+            self.assertEqual(metadata["source"], "storage")
+            self.assertEqual(metadata["origin"], "foundry_item_extracted")
+            self.assertFalse(record_path.exists())
 
     def test_ai_generate_prompt_discourages_default_level_four_npcs(self) -> None:
         source = Path(PROJECT_ROOT / "lol_api" / "api.py").read_text(encoding="utf-8")
@@ -177,12 +333,15 @@ class SmokeTests(unittest.TestCase):
         self.assertIn("*refs_from_metadata_block(sheet_metadata)", api_source)
         self.assertIn("detached_from", api_source)
         self.assertIn('request.args.get("path")', api_source)
+        self.assertIn("def list_image_assets(*, refresh_catalog: bool = False)", api_source)
+        self.assertIn('request.args.get("refresh")', api_source)
         self.assertIn("image-browser-grid", browser_source)
         self.assertIn("image-browser-sidebar", browser_source)
         self.assertIn("image-browser-main", browser_source)
         self.assertIn("image-tag-bar", browser_source)
         self.assertIn("image-tag-filter", browser_source)
         self.assertIn("image-dedupe-btn", browser_source)
+        self.assertIn("image-refresh-btn", browser_source)
         self.assertIn("image-tile-tooltip", browser_source)
         self.assertIn("image-tile-attach-indicator", browser_source)
         self.assertIn('data-action="edit"', browser_source)
@@ -190,6 +349,7 @@ class SmokeTests(unittest.TestCase):
         self.assertIn('data-action="generate"', browser_source)
         self.assertIn('data-action="tag-filter"', browser_source)
         self.assertIn("dedupeImages()", browser_source)
+        self.assertIn('params.set("refresh", "1")', browser_source)
         self.assertIn("renderTagBar(state.items);", browser_source)
         self.assertIn("/ai-generate?type=", browser_source)
         self.assertIn("Edit Image Metadata", browser_source)
@@ -870,6 +1030,54 @@ professions:
             self.assertEqual(len(by_description), 1)
             self.assertEqual(by_description[0]["name"], "The Black Spire")
 
+    def test_storage_search_matches_village_filter_against_settlement_type(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            save_generated_result(
+                root,
+                {
+                    "type": "settlement",
+                    "name": "South Point",
+                    "description": "A weathered fishing village on Caldor Island.",
+                    "sections": {
+                        "settlement_type": "Fishing Village",
+                    },
+                    "metadata": {
+                        "settings": ["lands_of_legend"],
+                        "area": "caldor_island",
+                    },
+                },
+                {},
+            )
+
+            by_village = search_saved_results(root, item_type="village")
+            self.assertEqual(len(by_village), 1)
+            self.assertEqual(by_village[0]["name"], "South Point")
+
+    def test_storage_search_matches_city_filter_against_settlement_type(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            save_generated_result(
+                root,
+                {
+                    "type": "settlement",
+                    "name": "Crownharbor",
+                    "description": "A storm-battered port city.",
+                    "sections": {
+                        "settlement_type": "Port City",
+                    },
+                    "metadata": {
+                        "settings": ["lands_of_legend"],
+                        "area": "caldor_island",
+                    },
+                },
+                {},
+            )
+
+            by_city = search_saved_results(root, item_type="city")
+            self.assertEqual(len(by_city), 1)
+            self.assertEqual(by_city[0]["name"], "Crownharbor")
+
     def test_storage_search_matches_spaced_area_query_against_slugged_metadata(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
@@ -1250,6 +1458,382 @@ professions:
             self.assertEqual(stat_block["health"], 6)
             self.assertEqual(stat_block["damage"], 2)
             self.assertEqual(stat_block["movement"], "Short")
+
+    def test_ai_generate_save_normalizes_settlement_shapes_without_losing_fields(self) -> None:
+        try:
+            from lol_api.api import register_routes
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"ai generate settlement save test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            app = Flask(__name__, template_folder=str(PROJECT_ROOT / "lol_api" / "templates"))
+            app.config.update(
+                TESTING=True,
+                LOL_STORAGE_DIR=root,
+                LOL_PROJECT_ROOT=PROJECT_ROOT,
+                LOL_CONFIG={},
+                LOL_CONFIG_DIR=PROJECT_ROOT / "config",
+                LOL_OFFICIAL_COMPENDIUM_DIR=PROJECT_ROOT / "official_compendium",
+                LOL_COMPENDIUM_DIR=PROJECT_ROOT / "CSRD" / "compendium",
+            )
+            register_routes(app)
+            client = app.test_client()
+
+            response = client.post(
+                "/ai-generate/save",
+                json={
+                    "content_type": "settlement",
+                    "card": {
+                        "type": "Settlement",
+                        "name": "Xul",
+                        "description": "A rough little pirate haven on the coast.",
+                        "population": 300,
+                        "notable_features": [
+                            {
+                                "name": "The Kraken's Embrace Tavern",
+                                "description": "A loud tavern with a carved kraken above the bar.",
+                            },
+                            {
+                                "name": "The Smuggler's Cove",
+                                "description": "A hidden inlet for pirates and contraband.",
+                            },
+                        ],
+                        "governance": "A loose pirate council.",
+                        "economy": "Piracy, fishing, and black-market trade.",
+                    },
+                    "payload": {
+                        "setting": "lands_of_legend",
+                        "settings": ["lands_of_legend"],
+                        "area": "caldor_island",
+                        "environment": "caldor_island",
+                    },
+                },
+            )
+            self.assertEqual(response.status_code, 200)
+            data = response.get_json()
+            filename = str(data["result"]["storage"]["filename"])
+            saved = json.loads((root / filename).read_text(encoding="utf-8"))
+            result = saved["result"]
+            sections = result["sections"]
+
+            self.assertEqual(result["type"], "settlement")
+            self.assertEqual(sections["type"], "settlement")
+            self.assertEqual(sections["name"], "Xul")
+            self.assertEqual(sections["area"], "caldor_island")
+            self.assertEqual(sections["environment"], "caldor_island")
+            self.assertEqual(sections["economy_survival_basis"], "Piracy, fishing, and black-market trade.")
+            self.assertEqual(sections["economy"], "Piracy, fishing, and black-market trade.")
+            self.assertEqual(sections["local_inn_or_tavern"], "The Kraken's Embrace Tavern")
+            self.assertEqual(sections["landmark"], "The Smuggler's Cove")
+            self.assertEqual(sections["governance"], "A loose pirate council.")
+            self.assertEqual(sections["population"], 300)
+            self.assertEqual(len(sections["notable_features"]), 2)
+
+    def test_map_project_routes_save_and_load_project(self) -> None:
+        try:
+            from lol_api.api import register_routes
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"map project test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            storage = root / "storage"
+            storage.mkdir(parents=True, exist_ok=True)
+            app = Flask(__name__, template_folder=str(PROJECT_ROOT / "lol_api" / "templates"))
+            app.config.update(
+                TESTING=True,
+                LOL_STORAGE_DIR=storage,
+                LOL_PROJECT_ROOT=root,
+                LOL_CONFIG={},
+                LOL_CONFIG_DIR=PROJECT_ROOT / "config",
+                LOL_OFFICIAL_COMPENDIUM_DIR=PROJECT_ROOT / "official_compendium",
+                LOL_COMPENDIUM_DIR=PROJECT_ROOT / "CSRD" / "compendium",
+            )
+            register_routes(app)
+            client = app.test_client()
+
+            save_response = client.post(
+                "/map-projects/save",
+                json={
+                    "project": {
+                        "name": "Fenmir Routes",
+                        "setting": "lands_of_legends",
+                        "area": "fenmir_highlands",
+                        "map_image": "/images/uploads/maps/fenmir_blank.png",
+                        "markers": [
+                            {
+                                "id": "marker_1",
+                                "type": "village",
+                                "x": 42.5,
+                                "y": 61.25,
+                                "label": "Stonewake",
+                                "storage_filename": "settlement/settlement_20990101T000000.json",
+                            }
+                        ],
+                        "areas": [
+                            {
+                                "id": "area_1",
+                                "name": "Fenmir Highlands",
+                                "points": [
+                                    {"x": 10, "y": 10},
+                                    {"x": 35, "y": 12},
+                                    {"x": 28, "y": 32},
+                                ],
+                                "label_x": 22,
+                                "label_y": 18,
+                            }
+                        ],
+                    }
+                },
+            )
+            self.assertEqual(save_response.status_code, 200)
+            saved = save_response.get_json()["project"]
+            self.assertEqual(saved["setting"], "lands_of_legend")
+            self.assertEqual(saved["markers"][0]["type"], "village")
+            self.assertEqual(saved["areas"][0]["name"], "Fenmir Highlands")
+
+            project_id = str(saved["id"])
+            load_response = client.get(f"/map-projects/{project_id}")
+            self.assertEqual(load_response.status_code, 200)
+            loaded = load_response.get_json()["project"]
+            self.assertEqual(loaded["name"], "Fenmir Routes")
+            self.assertEqual(loaded["markers"][0]["label"], "Stonewake")
+            self.assertEqual(loaded["areas"][0]["label_x"], 22)
+
+            list_response = client.get("/map-projects")
+            self.assertEqual(list_response.status_code, 200)
+            listing = list_response.get_json()["items"]
+            self.assertEqual(len(listing), 1)
+            self.assertEqual(listing[0]["marker_count"], 1)
+            self.assertEqual(listing[0]["area_count"], 1)
+
+    def test_map_project_default_flag_is_unique_and_listed_first(self) -> None:
+        try:
+            from lol_api.api import register_routes
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"map project default test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            storage = root / "storage"
+            storage.mkdir(parents=True, exist_ok=True)
+            app = Flask(__name__, template_folder=str(PROJECT_ROOT / "lol_api" / "templates"))
+            app.config.update(
+                TESTING=True,
+                LOL_STORAGE_DIR=storage,
+                LOL_PROJECT_ROOT=root,
+                LOL_CONFIG={},
+                LOL_CONFIG_DIR=PROJECT_ROOT / "config",
+                LOL_OFFICIAL_COMPENDIUM_DIR=PROJECT_ROOT / "official_compendium",
+                LOL_COMPENDIUM_DIR=PROJECT_ROOT / "CSRD" / "compendium",
+            )
+            register_routes(app)
+            client = app.test_client()
+
+            first = client.post(
+                "/map-projects/save",
+                json={
+                    "project": {
+                        "name": "First Project",
+                        "setting": "lands_of_legend",
+                        "is_default": True,
+                        "map_image": "/images/uploads/maps/first.png",
+                    }
+                },
+            )
+            self.assertEqual(first.status_code, 200)
+            first_project = first.get_json()["project"]
+            self.assertTrue(first_project["is_default"])
+
+            second = client.post(
+                "/map-projects/save",
+                json={
+                    "project": {
+                        "name": "Second Project",
+                        "setting": "lands_of_legend",
+                        "is_default": True,
+                        "map_image": "/images/uploads/maps/second.png",
+                    }
+                },
+            )
+            self.assertEqual(second.status_code, 200)
+            second_project = second.get_json()["project"]
+            self.assertTrue(second_project["is_default"])
+
+            reloaded_first = client.get(f"/map-projects/{first_project['id']}")
+            self.assertEqual(reloaded_first.status_code, 200)
+            self.assertFalse(reloaded_first.get_json()["project"]["is_default"])
+
+            listing = client.get("/map-projects")
+            self.assertEqual(listing.status_code, 200)
+            items = listing.get_json()["items"]
+            self.assertEqual(len(items), 2)
+            self.assertTrue(items[0]["is_default"])
+            self.assertEqual(items[0]["id"], second_project["id"])
+            self.assertFalse(items[1]["is_default"])
+
+    def test_map_project_location_cards_route_filters_place_cards(self) -> None:
+        try:
+            from lol_api.api import register_routes
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"map project location route test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            storage = root / "storage"
+            storage.mkdir(parents=True, exist_ok=True)
+            save_generated_result(
+                storage,
+                {
+                    "type": "location",
+                    "name": "Whispering Cliffs",
+                    "description": "Wind-carved cliffs overlooking the western sea.",
+                    "metadata": {
+                        "setting": "lands_of_legend",
+                        "settings": ["lands_of_legend"],
+                        "area": "caldor_island",
+                        "subtype": "landmark",
+                    },
+                },
+                {"setting": "lands_of_legend", "area": "caldor_island"},
+            )
+            save_generated_result(
+                storage,
+                {
+                    "type": "settlement",
+                    "name": "Crownharbor",
+                    "description": "A storm-battered port city.",
+                    "metadata": {
+                        "setting": "lands_of_legend",
+                        "settings": ["lands_of_legend"],
+                        "area": "caldor_island",
+                        "subtype": "city",
+                    },
+                },
+                {"setting": "lands_of_legend", "area": "caldor_island"},
+            )
+            save_generated_result(
+                storage,
+                {
+                    "type": "npc",
+                    "name": "Captain Rowan",
+                    "description": "A harbor captain.",
+                    "metadata": {
+                        "setting": "lands_of_legend",
+                        "settings": ["lands_of_legend"],
+                        "area": "caldor_island",
+                    },
+                },
+                {"setting": "lands_of_legend", "area": "caldor_island"},
+            )
+            app = Flask(__name__, template_folder=str(PROJECT_ROOT / "lol_api" / "templates"))
+            app.config.update(
+                TESTING=True,
+                LOL_STORAGE_DIR=storage,
+                LOL_PROJECT_ROOT=root,
+                LOL_CONFIG={},
+                LOL_CONFIG_DIR=PROJECT_ROOT / "config",
+                LOL_OFFICIAL_COMPENDIUM_DIR=PROJECT_ROOT / "official_compendium",
+                LOL_COMPENDIUM_DIR=PROJECT_ROOT / "CSRD" / "compendium",
+            )
+            register_routes(app)
+            client = app.test_client()
+
+            response = client.get("/map-projects/location-cards?setting=lands_of_legend&area=caldor_island")
+            self.assertEqual(response.status_code, 200)
+            data = response.get_json()
+            self.assertEqual(data["count"], 2)
+            by_name = {item["name"]: item for item in data["items"]}
+            self.assertIn("Whispering Cliffs", by_name)
+            self.assertIn("Crownharbor", by_name)
+            self.assertEqual(by_name["Whispering Cliffs"]["place_type"], "landmark")
+
+            city_response = client.get("/map-projects/location-cards?setting=lands_of_legend&area=caldor_island&marker_type=city")
+            self.assertEqual(city_response.status_code, 200)
+            city_data = city_response.get_json()
+            self.assertEqual(city_data["count"], 1)
+            self.assertEqual(city_data["items"][0]["name"], "Crownharbor")
+
+    def test_map_project_placements_route_finds_marker_by_storage_filename(self) -> None:
+        try:
+            from lol_api.api import register_routes
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"map project placements route test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            storage = root / "storage"
+            storage.mkdir(parents=True, exist_ok=True)
+            app = Flask(__name__, template_folder=str(PROJECT_ROOT / "lol_api" / "templates"))
+            app.config.update(
+                TESTING=True,
+                LOL_STORAGE_DIR=storage,
+                LOL_PROJECT_ROOT=root,
+                LOL_CONFIG={},
+                LOL_CONFIG_DIR=PROJECT_ROOT / "config",
+                LOL_OFFICIAL_COMPENDIUM_DIR=PROJECT_ROOT / "official_compendium",
+                LOL_COMPENDIUM_DIR=PROJECT_ROOT / "CSRD" / "compendium",
+            )
+            register_routes(app)
+            client = app.test_client()
+
+            save_response = client.post(
+                "/map-projects/save",
+                json={
+                    "project": {
+                        "name": "Big Map",
+                        "setting": "lands_of_legend",
+                        "map_image": "/images/uploads/maps/big.png",
+                        "markers": [
+                            {
+                                "id": "marker_xul",
+                                "type": "settlement",
+                                "x": 50,
+                                "y": 50,
+                                "label": "Xul",
+                                "card_name": "Xul",
+                                "storage_filename": "settlement/settlement_20990101T000000.json",
+                            }
+                        ],
+                    }
+                },
+            )
+            self.assertEqual(save_response.status_code, 200)
+
+            placements = client.get("/map-projects/placements?filename=settlement/settlement_20990101T000000.json")
+            self.assertEqual(placements.status_code, 200)
+            data = placements.get_json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["items"][0]["project_name"], "Big Map")
+            self.assertEqual(data["items"][0]["marker_id"], "marker_xul")
+
+    def test_map_editor_route_renders(self) -> None:
+        try:
+            from lol_api.api import register_routes
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"map editor route test requires app dependencies: {exc}")
+
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            storage = root / "storage"
+            storage.mkdir(parents=True, exist_ok=True)
+            app = Flask(__name__, template_folder=str(PROJECT_ROOT / "lol_api" / "templates"))
+            app.config.update(
+                TESTING=True,
+                LOL_STORAGE_DIR=storage,
+                LOL_PROJECT_ROOT=root,
+                LOL_CONFIG={},
+                LOL_CONFIG_DIR=PROJECT_ROOT / "config",
+                LOL_OFFICIAL_COMPENDIUM_DIR=PROJECT_ROOT / "official_compendium",
+                LOL_COMPENDIUM_DIR=PROJECT_ROOT / "CSRD" / "compendium",
+            )
+            register_routes(app)
+            client = app.test_client()
+
+            response = client.get("/map-editor")
+            self.assertEqual(response.status_code, 200)
+            self.assertIn("Map Editor", response.get_data(as_text=True))
 
     def test_storage_save_and_trash_sync_vector_index(self) -> None:
         try:

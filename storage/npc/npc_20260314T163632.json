@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T16:36:32.566299+00:00",
+  "filename": "npc/npc_20260314T163632.json",
+  "payload": {
+    "setting": "fantasy",
+    "settings": [
+      "fantasy"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "Lake Home",
+    "race": "human",
+    "variant": "caldoran",
+    "gender": "female",
+    "profession": "innkeeper",
+    "culture": "",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "npc",
+    "name": "Amelia Greenheart",
+    "description": "Amelia Greenheart runs her inn with a vibrant energy that matches her fiery red hair. The walls of The Sizzling Trout are adorned with fishing trophies, each telling a story of her many exploits on the lake. Laughter often fills the air as she recounts tales of her adventures, though her quick temper is well-known among the locals. When the sun sets, the inn transforms into a lively hub where the scent of grilled trout mingles with the sounds of clinking mugs and friendly banter, making it a mu…",
+    "sections": {
+      "type": "npc",
+      "name": "Amelia Greenheart",
+      "race": "human",
+      "variant": "caldoran",
+      "gender": "female",
+      "profession": "innkeeper",
+      "culture": "caldoran",
+      "level": 4,
+      "health": 14,
+      "armor": 1,
+      "damage_inflicted": 5,
+      "movement": "short",
+      "modifications": "",
+      "motive": "To provide a welcoming space for the community and share her love of fishing.",
+      "environment": "The bustling inn filled with laughter, the aroma of grilled fish, and the sound of clinking mugs.",
+      "combat": "Amelia is not afraid to defend her establishment, using her fists if necessary, especially when provoked.",
+      "interaction": "She engages patrons with humor and stories, but can quickly turn fierce if disrespected.",
+      "use": "As a source of local gossip, quests, and hearty meals, Amelia can provide valuable information about Lake Home.",
+      "gm_intrusion": "If Amelia is angered, she might rally the patrons to defend her honor, turning the inn into a chaotic brawl.",
+      "loot": "Patrons may leave behind small tokens of appreciation, such as local herbs or fishing gear.",
+      "description": "Amelia Greenheart runs her inn with a vibrant energy that matches her fiery red hair. The walls of The Sizzling Trout are adorned with fishing trophies, each telling a story of her many exploits on the lake. Laughter often fills the air as she recounts tales of her adventures, though her quick temper is well-known among the locals. When the sun sets, the inn transforms into a lively hub where the scent of grilled trout mingles with the sounds of clinking mugs and friendly banter, making it a must-visit for anyone in Lake Home."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "npc",
+      "ai_generated": "true",
+      "setting": "fantasy",
+      "settings": [
+        "fantasy"
+      ],
+      "area": "caldor_island",
+      "location": "Lake Home",
+      "environment": "caldor_island",
+      "race": "human",
+      "variant": "caldoran",
+      "gender": "female",
+      "profession": "innkeeper",
+      "culture": "",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    },
+    "stat_block": {
+      "level": 4,
+      "target_number": 12,
+      "health": 14,
+      "armor": 1,
+      "damage": 5,
+      "movement": "short",
+      "modifications": [],
+      "combat": [
+        "Amelia is not afraid to defend her establishment, using her fists if necessary, especially when provoked."
+      ],
+      "interaction": [
+        "She engages patrons with humor and stories, but can quickly turn fierce if disrespected."
+      ],
+      "loot": [
+        "Patrons may leave behind small tokens of appreciation, such as local herbs or fishing gear."
+      ]
+    }
+  }
+}

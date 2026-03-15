@@ -189,6 +189,8 @@ def list_saved_results(
                 "type": result_obj.get("type"),
                 "name": result_obj.get("name"),
                 "description": description,
+                "settlement_type": result_obj.get("settlement_type") or sections.get("settlement_type"),
+                "sections": sections if isinstance(sections, dict) else {},
                 "metadata": normalized_metadata,
             })
 
@@ -420,6 +422,12 @@ def search_saved_results(
         current_profession = norm(metadata.get("profession"))
         current_subtype = norm(metadata.get("subtype") or metadata.get("location_category_type"))
         current_primarycategory = norm(metadata.get("primarycategory") or current_subtype)
+        sections = item.get("sections") if isinstance(item.get("sections"), dict) else {}
+        current_settlement_type = norm(
+            item.get("settlement_type")
+            or metadata.get("settlement_type")
+            or sections.get("settlement_type")
+        )
         description = norm_search_text(item.get("description"))
         text_haystack = " ".join(
             value for value in [
@@ -432,6 +440,7 @@ def search_saved_results(
                 norm_search_text(current_location),
                 norm_search_text(current_race),
                 norm_search_text(current_profession),
+                norm_search_text(current_settlement_type),
                 norm_search_text(" ".join(current_settings)),
             ] if value
         )
@@ -439,6 +448,12 @@ def search_saved_results(
         if item_type:
             if item_type == "landmark":
                 if current_type != "location" or current_subtype != "landmark":
+                    continue
+            elif item_type == "city":
+                if current_subtype != "city" and "city" not in current_settlement_type:
+                    continue
+            elif item_type == "village":
+                if current_subtype != "village" and "village" not in current_settlement_type:
                     continue
             elif item_type == "player_character":
                 if current_type not in {"character", "character_sheet"}:

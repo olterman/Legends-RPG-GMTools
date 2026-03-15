@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-03-15T07:22:19.920751+00:00",
+  "plan": {
+    "command": "docling \"/home/olterman/Projects/Legends-RPG-GMTools/app/systems/cypher/addons/csrd/source/Cypher-System-Reference-Document-2025-08-22.docx\" --output \"/home/olterman/Projects/Legends-RPG-GMTools/app/systems/cypher/addons/csrd/source_markdown\"",
+    "device": "auto",
+    "dry_run": false,
+    "expected_markdown_path": "/home/olterman/Projects/Legends-RPG-GMTools/app/systems/cypher/addons/csrd/source_markdown/Cypher-System-Reference-Document-2025-08-22.md",
+    "output_dir": "/home/olterman/Projects/Legends-RPG-GMTools/app/systems/cypher/addons/csrd/source_markdown",
+    "source_path": "/home/olterman/Projects/Legends-RPG-GMTools/app/systems/cypher/addons/csrd/source/Cypher-System-Reference-Document-2025-08-22.docx"
+  },
+  "status": "ok",
+  "stderr_tail": "",
+  "stdout_tail": ""
+}

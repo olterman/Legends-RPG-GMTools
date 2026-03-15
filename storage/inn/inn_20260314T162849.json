@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T16:28:49.703238+00:00",
+  "filename": "inn/inn_20260314T162849.json",
+  "payload": {
+    "setting": "fantasy",
+    "settings": [
+      "fantasy"
+    ],
+    "area": "caldor_island",
+    "environment": "caldor_island",
+    "location": "Lake Home",
+    "race": "lilim",
+    "variant": "",
+    "gender": "female",
+    "profession": "poet_warrior",
+    "culture": "lilim",
+    "sourcebook": "",
+    "page": ""
+  },
+  "result": {
+    "type": "inn",
+    "name": "The Sizzling Trout",
+    "description": "The Sizzling Trout serves as the heart of Lake Home, where locals gather to share stories and enjoy hearty meals. Amelia Greenheart, a boisterous redhead known for her quick wit and even quicker fists, runs the establishment with a firm but friendly hand. Patrons often find themselves laughing over Amelia's tales of her own fishing exploits, though many have learned to tread carefully around her when she’s had a few too many drinks.",
+    "sections": {
+      "type": "inn",
+      "name": "The Sizzling Trout",
+      "inn_type": "tavern",
+      "atmosphere": "The Sizzling Trout buzzes with laughter and the clinking of mugs, the air thick with the savory aroma of grilled fish and hearty stews. Wooden beams support the low ceiling, adorned with fishing trophies and vibrant local artwork that tell tales of the lake's bounty. Patrons gather around sturdy tables, their faces illuminated by the warm glow of lanterns, creating an inviting space that feels like an extension of the community itself.",
+      "clientele": "Locals from Lake Home, including farmers, fishermen, and the occasional traveler seeking a taste of the village's famed grilled trout. The atmosphere is lively, with groups sharing stories and laughter, while others engage in friendly debates about fishing techniques and local lore.",
+      "notable_feature": "The inn's signature dish, a perfectly grilled trout seasoned with herbs from nearby gardens, draws visitors from afar. The dish is served with a side of fresh vegetables, and patrons often rave about the secret recipe that Amelia claims was passed down through generations.",
+      "proprietor": "Amelia Greenheart",
+      "rumor_or_hook": "Rumor has it that Amelia once caught a legendary fish that granted wishes, but she lost it in a bet. Some say the fish still swims in the depths of the lake, waiting for the right person to find it.",
+      "description": "The Sizzling Trout serves as the heart of Lake Home, where locals gather to share stories and enjoy hearty meals. Amelia Greenheart, a boisterous redhead known for her quick wit and even quicker fists, runs the establishment with a firm but friendly hand. Patrons often find themselves laughing over Amelia's tales of her own fishing exploits, though many have learned to tread carefully around her when she’s had a few too many drinks."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "inn",
+      "ai_generated": "true",
+      "setting": "fantasy",
+      "settings": [
+        "fantasy"
+      ],
+      "area": "caldor_island",
+      "location": "Lake Home",
+      "environment": "caldor_island",
+      "race": "lilim",
+      "variant": "",
+      "gender": "female",
+      "profession": "poet_warrior",
+      "culture": "lilim",
+      "sourcebook": "",
+      "page": "",
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

@@ -61,9 +61,32 @@ def clean_text(value: str) -> str:
 
 def parse_tags(raw_tags: Iterable[str]) -> list[str]:
     values: set[str] = set()
+    aliases = {
+        "lands_of_legends": "lands_of_legend",
+        "land_of_legends": "lands_of_legend",
+        "land_of_legend": "lands_of_legend",
+        "highland_urukculture": "culture",
+        "alfirin": "alfir",
+        "alfir_sombra": "duathrim",
+        "alfir_sylvani": "galadhrim",
+        "alfir_sky_children": "kalaquendi",
+        "sky_children": "kalaquendi",
+        "alfir_wave_riders": "falthrim",
+        "faltrim": "falthrim",
+        "race_alfir": "alfir",
+        "cyfer": "cypher",
+        "cyphers_artifacts": "",
+        "human_highlanders": "highland_fenmir",
+        "the_other_human_tribes": "",
+        "the_dead": "gurthim",
+        "dangers_undead": "gurthim",
+        "dangers_monsters": "monster",
+        "liilim": "lilim",
+    }
     for raw in raw_tags:
         for part in str(raw or "").split(","):
             token = slugify(part)
+            token = aliases.get(token, token)
             if token:
                 values.add(token)
     return sorted(values)

@@ -1,0 +1,18 @@
+{
+  "id": "daggerheart",
+  "name": "Daggerheart",
+  "engine": "daggerheart",
+  "status": "planned",
+  "summary": "Base system shell for Daggerheart content and tools.",
+  "content_roots": [
+    "core_rules",
+    "addons"
+  ],
+  "default_types": [
+    "character_record",
+    "adversary_record",
+    "domain_record",
+    "lore_entry"
+  ],
+  "supports_addons": true
+}

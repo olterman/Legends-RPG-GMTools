@@ -44,6 +44,7 @@ from .config_loader import (
     list_setting_descriptors,
     infer_default_setting_id,
     load_world_layer,
+    resolve_world_dir,
 )
 from .generator import (
     deterministic_rng,
@@ -104,6 +105,7 @@ from .config_enrichment import (
 from .settings import (
     attach_settings_metadata,
     default_settings,
+    normalize_setting_token,
     settings_catalog,
     settings_nav_model,
 )
@@ -506,6 +508,309 @@ def register_routes(app: Flask) -> None:
     def _write_json(path: Path, payload: dict) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def map_projects_dir() -> Path:
+        return current_app.config["LOL_PROJECT_ROOT"] / "maps" / "projects"
+
+    def map_project_path(project_id: str) -> Path:
+        pid = _safe_slug(project_id)
+        return map_projects_dir() / f"{pid}.json"
+
+    def _normalize_map_marker(value: object) -> dict[str, object]:
+        raw = value if isinstance(value, dict) else {}
+        marker_type = str(raw.get("type") or "landmark").strip().lower()
+        if marker_type not in {"city", "settlement", "village", "landmark"}:
+            marker_type = "landmark"
+        try:
+            x = float(raw.get("x"))
+        except Exception:
+            x = 0.0
+        try:
+            y = float(raw.get("y"))
+        except Exception:
+            y = 0.0
+        x = max(0.0, min(100.0, x))
+        y = max(0.0, min(100.0, y))
+        return {
+            "id": str(raw.get("id") or uuid.uuid4().hex[:10]).strip() or uuid.uuid4().hex[:10],
+            "type": marker_type,
+            "x": round(x, 4),
+            "y": round(y, 4),
+            "label": str(raw.get("label") or raw.get("name") or "").strip(),
+            "brief": str(raw.get("brief") or "").strip(),
+            "provider": str(raw.get("provider") or "").strip().lower() or "ollama_local",
+            "content_type": str(raw.get("content_type") or "").strip().lower(),
+            "storage_filename": str(raw.get("storage_filename") or "").strip(),
+            "card_name": str(raw.get("card_name") or "").strip(),
+            "card_type": str(raw.get("card_type") or "").strip().lower(),
+            "card_summary": str(raw.get("card_summary") or "").strip(),
+            "card": raw.get("card") if isinstance(raw.get("card"), dict) else {},
+        }
+
+    def _normalize_map_area(value: object) -> dict[str, object]:
+        raw = value if isinstance(value, dict) else {}
+        points_raw = raw.get("points") if isinstance(raw.get("points"), list) else []
+        points: list[dict[str, float]] = []
+        for item in points_raw:
+            if not isinstance(item, dict):
+                continue
+            try:
+                x = float(item.get("x"))
+                y = float(item.get("y"))
+            except Exception:
+                continue
+            x = max(0.0, min(100.0, x))
+            y = max(0.0, min(100.0, y))
+            points.append({"x": round(x, 4), "y": round(y, 4)})
+        if len(points) < 3:
+            points = []
+
+        def centroid(values: list[dict[str, float]]) -> tuple[float, float]:
+            if not values:
+                return (50.0, 50.0)
+            return (
+                sum(point["x"] for point in values) / len(values),
+                sum(point["y"] for point in values) / len(values),
+            )
+
+        default_x, default_y = centroid(points)
+        try:
+            label_x = float(raw.get("label_x"))
+        except Exception:
+            label_x = default_x
+        try:
+            label_y = float(raw.get("label_y"))
+        except Exception:
+            label_y = default_y
+        label_x = max(0.0, min(100.0, label_x))
+        label_y = max(0.0, min(100.0, label_y))
+
+        return {
+            "id": str(raw.get("id") or uuid.uuid4().hex[:10]).strip() or uuid.uuid4().hex[:10],
+            "name": str(raw.get("name") or raw.get("label") or "").strip() or "Unnamed Area",
+            "points": points,
+            "label_x": round(label_x, 4),
+            "label_y": round(label_y, 4),
+            "notes": str(raw.get("notes") or "").strip(),
+        }
+
+    def _normalize_map_project(value: object) -> dict[str, object]:
+        raw = value if isinstance(value, dict) else {}
+        name = str(raw.get("name") or "").strip() or "Untitled Map"
+        raw_id = str(raw.get("id") or "").strip()
+        project_id = _safe_slug(raw_id) if raw_id else ""
+        if not project_id or project_id == "unknown":
+            project_id = _safe_slug(name)
+        if project_id == "unknown":
+            project_id = ""
+        project_id = project_id or f"map_project_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')}"
+        markers_raw = raw.get("markers") if isinstance(raw.get("markers"), list) else []
+        markers = [_normalize_map_marker(item) for item in markers_raw if isinstance(item, dict)]
+        areas_raw = raw.get("areas") if isinstance(raw.get("areas"), list) else []
+        areas = [_normalize_map_area(item) for item in areas_raw if isinstance(item, dict)]
+        updated_at = str(raw.get("updated_at") or datetime.now(timezone.utc).isoformat()).strip()
+        created_at = str(raw.get("created_at") or updated_at).strip()
+        return {
+            "id": project_id,
+            "name": name,
+            "setting": normalize_setting_token(str(raw.get("setting") or "").strip()),
+            "area": str(raw.get("area") or "").strip(),
+            "map_image": str(raw.get("map_image") or raw.get("image") or "").strip(),
+            "map_image_path": normalize_image_ref(str(raw.get("map_image_path") or "").strip()),
+            "notes": str(raw.get("notes") or "").strip(),
+            "is_default": bool(raw.get("is_default")),
+            "markers": markers,
+            "areas": areas,
+            "created_at": created_at,
+            "updated_at": updated_at,
+        }
+
+    def list_map_projects() -> list[dict[str, object]]:
+        root = map_projects_dir()
+        items: list[dict[str, object]] = []
+        if not root.exists():
+            return items
+        for path in sorted(root.glob("*.json"), reverse=True):
+            data = _read_json(path)
+            if not data:
+                continue
+            project = _normalize_map_project(data)
+            items.append({
+                "id": str(project.get("id") or ""),
+                "name": str(project.get("name") or ""),
+                "setting": str(project.get("setting") or ""),
+                "area": str(project.get("area") or ""),
+                "map_image": str(project.get("map_image") or ""),
+                "map_image_path": str(project.get("map_image_path") or ""),
+                "is_default": bool(project.get("is_default")),
+                "marker_count": len(project.get("markers") or []),
+                "area_count": len(project.get("areas") or []),
+                "updated_at": str(project.get("updated_at") or ""),
+            })
+        items.sort(
+            key=lambda item: (
+                0 if bool(item.get("is_default")) else 1,
+                -datetime.fromisoformat(
+                    str(item.get("updated_at") or datetime.now(timezone.utc).isoformat())
+                ).timestamp(),
+            )
+        )
+        return items
+
+    def load_map_project(project_id: str) -> dict[str, object]:
+        path = map_project_path(project_id)
+        if not path.exists():
+            raise FileNotFoundError(project_id)
+        return _normalize_map_project(_read_json(path))
+
+    def save_map_project(data: object) -> dict[str, object]:
+        project = _normalize_map_project(data)
+        project["updated_at"] = datetime.now(timezone.utc).isoformat()
+        if not str(project.get("created_at") or "").strip():
+            project["created_at"] = str(project["updated_at"])
+        if bool(project.get("is_default")):
+            root = map_projects_dir()
+            root.mkdir(parents=True, exist_ok=True)
+            for path in sorted(root.glob("*.json")):
+                if path == map_project_path(str(project.get("id") or "")):
+                    continue
+                existing = _read_json(path)
+                if not existing:
+                    continue
+                normalized = _normalize_map_project(existing)
+                if not bool(normalized.get("is_default")):
+                    continue
+                normalized["is_default"] = False
+                _write_json(path, normalized)
+        _write_json(map_project_path(str(project.get("id") or "")), project)
+        return project
+
+    def find_map_project_placements(*, storage_filename: str = "", card_name: str = "") -> list[dict[str, object]]:
+        target_filename = str(storage_filename or "").strip()
+        target_name = str(card_name or "").strip().lower()
+        if not target_filename and not target_name:
+            return []
+        placements: list[dict[str, object]] = []
+        for project_summary in list_map_projects():
+            project_id = str(project_summary.get("id") or "").strip()
+            if not project_id:
+                continue
+            try:
+                project = load_map_project(project_id)
+            except FileNotFoundError:
+                continue
+            markers = project.get("markers") if isinstance(project.get("markers"), list) else []
+            for marker in markers:
+                if not isinstance(marker, dict):
+                    continue
+                marker_filename = str(marker.get("storage_filename") or "").strip()
+                marker_name = str(marker.get("card_name") or marker.get("label") or "").strip().lower()
+                filename_match = bool(target_filename and marker_filename and marker_filename == target_filename)
+                name_match = bool(target_name and marker_name and marker_name == target_name)
+                if not filename_match and not name_match:
+                    continue
+                placements.append({
+                    "project_id": project_id,
+                    "project_name": str(project.get("name") or project_summary.get("name") or "").strip(),
+                    "project_setting": str(project.get("setting") or project_summary.get("setting") or "").strip(),
+                    "project_area": str(project.get("area") or project_summary.get("area") or "").strip(),
+                    "marker_id": str(marker.get("id") or "").strip(),
+                    "marker_label": str(marker.get("label") or marker.get("card_name") or "").strip(),
+                    "marker_type": str(marker.get("type") or "").strip(),
+                    "storage_filename": marker_filename,
+                    "x": marker.get("x"),
+                    "y": marker.get("y"),
+                })
+        return placements
+
+    def _map_location_card_entries(
+        *,
+        setting: str = "",
+        area: str = "",
+        marker_type: str = "",
+        query: str = "",
+    ) -> list[dict[str, object]]:
+        items = list_saved_results(
+            current_app.config["LOL_STORAGE_DIR"],
+            default_settings=configured_default_settings(),
+        )
+        wanted_setting = normalize_setting_token(setting)
+        wanted_area = str(area or "").strip().lower()
+        wanted_marker_type = str(marker_type or "").strip().lower()
+        wanted_query = " ".join(str(query or "").strip().lower().replace("_", " ").split())
+        rows: list[dict[str, object]] = []
+        seen: set[str] = set()
+
+        for item in items:
+            filename = str(item.get("filename") or "").strip()
+            if not filename or filename in seen:
+                continue
+            metadata = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
+            result_type = str(item.get("type") or "").strip().lower()
+            subtype = str(metadata.get("subtype") or metadata.get("location_category_type") or "").strip().lower()
+            place_type = subtype or result_type
+            is_place = (
+                result_type in {"location", "settlement", "inn", "city", "village", "landmark"}
+                or subtype in {"landmark", "city", "village", "settlement", "inn", "river", "lake", "mountain"}
+            )
+            if not is_place:
+                continue
+
+            if wanted_marker_type:
+                if wanted_marker_type == "landmark":
+                    if place_type != "landmark":
+                        continue
+                elif wanted_marker_type == "city":
+                    if place_type not in {"city", "settlement"}:
+                        continue
+                elif wanted_marker_type == "village":
+                    if place_type not in {"village", "settlement"}:
+                        continue
+                elif wanted_marker_type == "settlement":
+                    if place_type not in {"settlement", "city", "village", "inn"}:
+                        continue
+
+            settings = metadata.get("settings") if isinstance(metadata.get("settings"), list) else []
+            normalized_settings = [normalize_setting_token(value) for value in settings if str(value or "").strip()]
+            fallback_setting = normalize_setting_token(str(metadata.get("setting") or "").strip())
+            if fallback_setting and fallback_setting not in normalized_settings:
+                normalized_settings.append(fallback_setting)
+            if wanted_setting and wanted_setting not in normalized_settings:
+                continue
+
+            current_area = str(metadata.get("area") or metadata.get("environment") or "").strip().lower()
+            if wanted_area and current_area != wanted_area:
+                continue
+
+            name = str(item.get("name") or "").strip()
+            description = str(item.get("description") or "").strip()
+            current_location = str(metadata.get("location") or "").strip()
+            haystack = " ".join(
+                bit for bit in [
+                    name.lower(),
+                    description.lower(),
+                    current_location.lower(),
+                    current_area,
+                    place_type.replace("_", " "),
+                ] if bit
+            )
+            if wanted_query and wanted_query not in haystack.replace("_", " "):
+                continue
+
+            seen.add(filename)
+            rows.append({
+                "filename": filename,
+                "name": name or filename,
+                "type": result_type or "location",
+                "place_type": place_type or result_type or "location",
+                "area": str(metadata.get("area") or metadata.get("environment") or "").strip(),
+                "location": current_location,
+                "setting": normalized_settings[0] if normalized_settings else "",
+                "description": description,
+            })
+
+        rows.sort(key=lambda row: (str(row.get("name") or "").lower(), str(row.get("filename") or "").lower()))
+        return rows
 
     def resolve_profile_pdf_path(profile: dict) -> Path | None:
         rel = str(profile.get("pdf_relative_path") or "").strip().replace("\\", "/")
@@ -1787,6 +2092,32 @@ def register_routes(app: Flask) -> None:
     def compute_image_content_hash(payload: bytes) -> str:
         return hashlib.sha256(payload).hexdigest()
 
+    def normalize_image_tag_token(value: object) -> str:
+        token = _safe_slug(str(value or "").strip())
+        aliases = {
+            "lands_of_legends": "lands_of_legend",
+            "land_of_legends": "lands_of_legend",
+            "land_of_legend": "lands_of_legend",
+            "highland_urukculture": "culture",
+            "alfirin": "alfir",
+            "alfir_sombra": "duathrim",
+            "alfir_sylvani": "galadhrim",
+            "alfir_sky_children": "kalaquendi",
+            "sky_children": "kalaquendi",
+            "alfir_wave_riders": "falthrim",
+            "faltrim": "falthrim",
+            "race_alfir": "alfir",
+            "cyfer": "cypher",
+            "cyphers_artifacts": "",
+            "human_highlanders": "highland_fenmir",
+            "the_other_human_tribes": "",
+            "the_dead": "gurthim",
+            "dangers_undead": "gurthim",
+            "dangers_monsters": "monster",
+            "liilim": "lilim",
+        }
+        return aliases.get(token, token)
+
     def image_catalog_entry_for_ref(catalog: dict[str, dict], ref: str) -> dict[str, object]:
         return dict(catalog.get(normalize_image_ref(ref)) or {})
 
@@ -1802,9 +2133,9 @@ def register_routes(app: Flask) -> None:
     ) -> dict[str, object]:
         current = dict(existing or {})
         merged_tags = sorted(set(
-            str(x).strip()
+            normalize_image_tag_token(x)
             for x in [*(current.get("tags") or []), *(tags or [])]
-            if str(x).strip()
+            if normalize_image_tag_token(x)
         ))
         return {
             "friendly_name": str(current.get("friendly_name") or "").strip() or str(friendly_name or "").strip(),
@@ -2062,15 +2393,15 @@ def register_routes(app: Flask) -> None:
             derived_tags: list[str] = []
             for info in derived_infos:
                 for tag in (info.get("tags") or []):
-                    token = str(tag or "").strip()
+                    token = normalize_image_tag_token(tag)
                     if token and token not in derived_tags:
                         derived_tags.append(token)
             synced[key] = {
                 "friendly_name": str(meta.get("friendly_name") or "").strip() or derived_name,
                 "tags": sorted(set(
-                    str(x).strip()
+                    normalize_image_tag_token(x)
                     for x in [*(meta.get("tags") or []), *derived_tags]
-                    if str(x).strip()
+                    if normalize_image_tag_token(x)
                 )),
                 "description": str(meta.get("description") or meta.get("notes") or "").strip() or derived_description,
                 "attached_to": attached_rows,
@@ -2222,9 +2553,9 @@ def register_routes(app: Flask) -> None:
             raise ValueError("invalid image path")
         return candidate
 
-    def list_image_assets() -> list[dict]:
+    def list_image_assets(*, refresh_catalog: bool = False) -> list[dict]:
         images_dir = current_app.config["LOL_IMAGES_DIR"]
-        catalog = sync_image_catalog_attachments()
+        catalog = sync_image_catalog_attachments() if refresh_catalog else load_image_catalog()
         files: list[dict] = []
         if not images_dir.exists():
             return files
@@ -2310,15 +2641,37 @@ def register_routes(app: Flask) -> None:
             )
             result = record.get("result") if isinstance(record.get("result"), dict) else {}
             metadata = result.get("metadata") if isinstance(result.get("metadata"), dict) else {}
+            sheet = result.get("sheet") if isinstance(result.get("sheet"), dict) else {}
+            sheet_metadata = sheet.get("metadata") if isinstance(sheet.get("metadata"), dict) else {}
             images = normalize_image_refs(metadata.get("images") if isinstance(metadata.get("images"), list) else [])
-            if old_norm not in images:
+            metadata_image_url = normalize_image_ref(str(metadata.get("image_url") or ""))
+            sheet_images = normalize_image_refs(sheet_metadata.get("images") if isinstance(sheet_metadata.get("images"), list) else [])
+            sheet_image_url = normalize_image_ref(str(sheet_metadata.get("image_url") or ""))
+            result_image_url = normalize_image_ref(str(result.get("image_url") or ""))
+            if old_norm not in images and old_norm != metadata_image_url and old_norm not in sheet_images and old_norm != sheet_image_url and old_norm != result_image_url:
                 continue
             images = [new_norm if ref == old_norm else ref for ref in images]
             images = normalize_image_refs(images)
             metadata = dict(metadata)
             metadata["images"] = images
+            if metadata_image_url == old_norm:
+                metadata["image_url"] = new_norm
+
+            if sheet_metadata:
+                next_sheet_metadata = dict(sheet_metadata)
+                if old_norm in sheet_images:
+                    next_sheet_metadata["images"] = normalize_image_refs([new_norm if ref == old_norm else ref for ref in sheet_images])
+                if sheet_image_url == old_norm:
+                    next_sheet_metadata["image_url"] = new_norm
+                sheet = dict(sheet)
+                sheet["metadata"] = next_sheet_metadata
+
             result = dict(result)
             result["metadata"] = metadata
+            if result_image_url == old_norm:
+                result["image_url"] = new_norm
+            if sheet:
+                result["sheet"] = sheet
             updated_record = dict(record)
             updated_record["result"] = result
             update_saved_result(current_app.config["LOL_STORAGE_DIR"], filename, updated_record)
@@ -2868,8 +3221,8 @@ def register_routes(app: Flask) -> None:
                         "effect": description,
                     },
                     "metadata": {
-                        "source": "FoundryVTT",
-                        "origin": "foundry_import",
+                        "source": "storage",
+                        "origin": "foundry_item_extracted",
                         "owner_character_name": owner_name,
                         "owner_character_filename": owner_filename,
                         "settings": list(parent_settings or []),
@@ -2902,8 +3255,8 @@ def register_routes(app: Flask) -> None:
                         "skill_rating": str(basic_data.get("skillRating") or ""),
                     },
                     "metadata": {
-                        "source": "FoundryVTT",
-                        "origin": "foundry_import",
+                        "source": "storage",
+                        "origin": "foundry_item_extracted",
                         "owner_character_name": owner_name,
                         "owner_character_filename": owner_filename,
                         "settings": list(parent_settings or []),
@@ -4707,6 +5060,122 @@ def register_routes(app: Flask) -> None:
             next_card["movement"] = "Short"
         return next_card
 
+    def _normalize_ai_generated_settlement_fields(card: dict) -> dict:
+        if not isinstance(card, dict):
+            return card
+        next_card = dict(card)
+        description_text = str(
+            next_card.get("description")
+            or next_card.get("summary")
+            or ""
+        ).strip()
+        notable_features_raw = next_card.get("notable_features")
+        notable_features: list[dict[str, str]] = []
+        if isinstance(notable_features_raw, list):
+            for item in notable_features_raw:
+                if isinstance(item, dict):
+                    name = str(item.get("name") or item.get("title") or "").strip()
+                    description = str(item.get("description") or item.get("summary") or "").strip()
+                    if name or description:
+                        notable_features.append({"name": name, "description": description})
+                elif str(item or "").strip():
+                    notable_features.append({"name": str(item).strip(), "description": ""})
+        elif isinstance(notable_features_raw, dict):
+            name = str(notable_features_raw.get("name") or notable_features_raw.get("title") or "").strip()
+            description = str(notable_features_raw.get("description") or notable_features_raw.get("summary") or "").strip()
+            if name or description:
+                notable_features.append({"name": name, "description": description})
+
+        environment = str(next_card.get("environment") or next_card.get("area") or "").strip()
+        area = str(next_card.get("area") or environment).strip()
+        location = str(next_card.get("location") or "").strip()
+        economy = str(next_card.get("economy_survival_basis") or next_card.get("economy") or "").strip()
+        tension = str(next_card.get("current_tension") or next_card.get("tension") or "").strip()
+        landmark = str(next_card.get("landmark") or "").strip()
+        local_inn = str(next_card.get("local_inn_or_tavern") or next_card.get("inn") or next_card.get("tavern") or "").strip()
+        visual_feature = str(next_card.get("visual_feature") or "").strip()
+        governance = str(next_card.get("governance") or "").strip()
+        atmosphere = str(next_card.get("atmosphere") or "").strip()
+        settlement_type = str(next_card.get("settlement_type") or "").strip()
+        proprietor = str(next_card.get("proprietor") or next_card.get("innkeeper") or next_card.get("owner") or "").strip()
+        population = next_card.get("population")
+
+        if description_text:
+            lower_desc = description_text.lower()
+            if not settlement_type:
+                if "village" in lower_desc:
+                    settlement_type = "village"
+                elif "city" in lower_desc:
+                    settlement_type = "city"
+                elif any(token in lower_desc for token in ["settlement", "hamlet", "outpost", "steading"]):
+                    settlement_type = "settlement"
+            if not local_inn:
+                inn_match = re.search(r"\b(The [A-Z][A-Za-z' -]+)\b", description_text)
+                if inn_match:
+                    candidate = str(inn_match.group(1) or "").strip()
+                    if re.search(r"\b(inn|tavern|pick|trout|arms|roost|house|kraken|cup|boar|stag|lion|anchor|harp|forge)\b", candidate, re.IGNORECASE):
+                        local_inn = candidate
+            if not proprietor:
+                proprietor_match = re.search(r"\bis run by\s+([A-Z][A-Za-z' -]+?)(?:,|\swho\b|\sand\b|\.)", description_text, re.IGNORECASE)
+                if proprietor_match:
+                    proprietor = str(proprietor_match.group(1) or "").strip()
+
+        if not landmark:
+            inn_patterns = ("inn", "tavern", "roadhouse", "hostel", "public house")
+            for item in notable_features:
+                name = str(item.get("name") or "").strip()
+                if not name:
+                    continue
+                if any(token in name.lower() for token in inn_patterns):
+                    if not local_inn:
+                        local_inn = name
+                    continue
+                landmark = name
+                break
+
+        if not local_inn:
+            inn_patterns = ("inn", "tavern", "roadhouse", "hostel", "public house")
+            for item in notable_features:
+                name = str(item.get("name") or "").strip()
+                if name and any(token in name.lower() for token in inn_patterns):
+                    local_inn = name
+                    break
+
+        if not visual_feature and notable_features:
+            visual_feature = str(notable_features[0].get("name") or "").strip()
+
+        next_card["type"] = "settlement"
+        if area:
+            next_card["area"] = area
+            next_card["environment"] = environment or area
+        if location:
+            next_card["location"] = location
+        if settlement_type:
+            next_card["settlement_type"] = settlement_type
+        if atmosphere:
+            next_card["atmosphere"] = atmosphere
+        if visual_feature:
+            next_card["visual_feature"] = visual_feature
+        if landmark:
+            next_card["landmark"] = landmark
+        if local_inn:
+            next_card["local_inn_or_tavern"] = local_inn
+        if proprietor:
+            next_card["proprietor"] = proprietor
+            next_card["innkeeper"] = proprietor
+        if economy:
+            next_card["economy_survival_basis"] = economy
+            next_card["economy"] = economy
+        if tension:
+            next_card["current_tension"] = tension
+        if governance:
+            next_card["governance"] = governance
+        if population not in {None, ""}:
+            next_card["population"] = population
+        if notable_features:
+            next_card["notable_features"] = notable_features
+        return next_card
+
     def _normalize_ai_generated_card(
         card: dict,
         *,
@@ -4729,6 +5198,8 @@ def register_routes(app: Flask) -> None:
         if content_type in {"npc", "creature"}:
             next_card = _normalize_ai_generated_cypher_stats(next_card, content_type=content_type)
             next_card = _normalize_ai_generated_modifications(next_card, content_type=content_type)
+        if content_type == "settlement":
+            next_card = _normalize_ai_generated_settlement_fields(next_card)
         return next_card
 
     def _ai_generate_prompt(
@@ -5667,6 +6138,24 @@ def register_routes(app: Flask) -> None:
                 sections.setdefault("content_type", "landmark")
             result["metadata"]["subtype"] = "landmark"
             result["metadata"]["location_category_type"] = "landmark"
+        elif content_type == "settlement":
+            sections = result.get("sections") if isinstance(result.get("sections"), dict) else {}
+            if isinstance(sections, dict):
+                area_value = str(sections.get("area") or result["metadata"].get("area") or payload.get("area") or "").strip()
+                environment_value = str(
+                    sections.get("environment")
+                    or result["metadata"].get("environment")
+                    or payload.get("environment")
+                    or area_value
+                    or ""
+                ).strip()
+                location_value = str(sections.get("location") or result["metadata"].get("location") or payload.get("location") or "").strip()
+                if area_value:
+                    sections.setdefault("area", area_value)
+                if environment_value:
+                    sections.setdefault("environment", environment_value)
+                if location_value:
+                    sections.setdefault("location", location_value)
 
         if image_data_url:
             try:
@@ -5707,8 +6196,73 @@ def register_routes(app: Flask) -> None:
         })
 
     @app.get("/map-tools")
+    @app.get("/map-editor")
     def map_tools():
-        return render_template("map_tools.html")
+        return render_template("map_editor.html")
+
+    @app.get("/map-projects")
+    def api_map_projects_list():
+        items = list_map_projects()
+        return jsonify({"items": items, "count": len(items)})
+
+    @app.get("/map-projects/location-cards")
+    def api_map_projects_location_cards():
+        setting = str(request.args.get("setting") or "").strip()
+        area = str(request.args.get("area") or "").strip()
+        marker_type = str(request.args.get("marker_type") or request.args.get("type") or "").strip()
+        query = str(request.args.get("q") or request.args.get("name") or "").strip()
+        items = _map_location_card_entries(setting=setting, area=area, marker_type=marker_type, query=query)
+        return jsonify({
+            "items": items,
+            "count": len(items),
+            "filters": {
+                "setting": normalize_setting_token(setting) if setting else "",
+                "area": area,
+                "marker_type": marker_type,
+                "q": query,
+            },
+        })
+
+    @app.get("/map-projects/placements")
+    def api_map_projects_placements():
+        storage_filename = str(request.args.get("filename") or "").strip()
+        card_name = str(request.args.get("name") or "").strip()
+        placements = find_map_project_placements(storage_filename=storage_filename, card_name=card_name)
+        return jsonify({
+            "items": placements,
+            "count": len(placements),
+            "filters": {
+                "filename": storage_filename,
+                "name": card_name,
+            },
+        })
+
+    @app.get("/map-projects/<project_id>")
+    def api_map_projects_load(project_id: str):
+        try:
+            project = load_map_project(project_id)
+        except FileNotFoundError:
+            return jsonify({"error": f"map project not found: {project_id}"}), 404
+        return jsonify({"project": project})
+
+    @app.post("/map-projects/save")
+    def api_map_projects_save():
+        body = request.get_json(force=True, silent=False) or {}
+        project_raw = body.get("project") if isinstance(body.get("project"), dict) else body
+        project = save_map_project(project_raw)
+        return jsonify({"ok": True, "project": project})
+
+    @app.post("/map-projects/delete")
+    def api_map_projects_delete():
+        body = request.get_json(force=True, silent=False) or {}
+        project_id = _safe_slug(str(body.get("id") or "").strip())
+        if not project_id:
+            return jsonify({"error": "id is required"}), 400
+        path = map_project_path(project_id)
+        if not path.exists():
+            return jsonify({"error": f"map project not found: {project_id}"}), 404
+        path.unlink()
+        return jsonify({"ok": True, "deleted": project_id})
 
     @app.get("/dice-roller")
     def dice_roller():
@@ -6793,8 +7347,10 @@ def register_routes(app: Flask) -> None:
     def api_media_images_list():
         q = str(request.args.get("q") or "").strip().lower()
         tag = str(request.args.get("tag") or "").strip().lower()
+        normalized_tag = normalize_setting_token(tag) if tag else ""
         path_filter = normalize_image_ref(str(request.args.get("path") or ""))
-        files = list_image_assets()
+        refresh_catalog = str(request.args.get("refresh") or "").strip().lower() in {"1", "true", "yes"}
+        files = list_image_assets(refresh_catalog=refresh_catalog)
         if path_filter:
             files = [item for item in files if normalize_image_ref(str(item.get("path") or "")) == path_filter]
         if q:
@@ -6815,9 +7371,12 @@ def register_routes(app: Flask) -> None:
         if tag:
             files = [
                 item for item in files
-                if tag in [str(x).strip().lower() for x in (item.get("tags") or [])]
+                if any(
+                    tag == str(x).strip().lower() or normalized_tag == normalize_setting_token(x)
+                    for x in (item.get("tags") or [])
+                )
             ]
-        return jsonify({"items": files, "count": len(files), "filters": {"q": q, "tag": tag, "path": path_filter}})
+        return jsonify({"items": files, "count": len(files), "filters": {"q": q, "tag": normalized_tag or tag, "path": path_filter, "refresh": refresh_catalog}})
 
     @app.post("/media/images/upload")
     def api_media_images_upload():
@@ -8354,14 +8913,15 @@ def register_routes(app: Flask) -> None:
     @app.post("/settings/delete")
     def api_settings_delete():
         body = request.get_json(force=True, silent=False) or {}
-        setting_id = _safe_slug(str(body.get("setting_id") or "").strip().lower())
+        setting_id = normalize_setting_token(str(body.get("setting_id") or "").strip().lower())
         if not setting_id:
             return jsonify({"error": "setting_id is required"}), 400
-        if setting_id == "lands_of_legends":
-            return jsonify({"error": "Refusing to delete protected baseline setting 'lands_of_legends'"}), 403
+        if setting_id == "lands_of_legend":
+            return jsonify({"error": "Refusing to delete protected baseline setting 'lands_of_legend'"}), 403
 
         config_dir = current_app.config["LOL_CONFIG_DIR"]
-        world_dir = (config_dir / "worlds" / setting_id).resolve()
+        resolved_world_dir = resolve_world_dir(config_dir, setting_id)
+        world_dir = (resolved_world_dir or (config_dir / "worlds" / setting_id)).resolve()
         worlds_root = (config_dir / "worlds").resolve()
         if not str(world_dir).startswith(str(worlds_root) + os.sep):
             return jsonify({"error": "invalid setting path"}), 400

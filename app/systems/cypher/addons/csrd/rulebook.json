@@ -1,0 +1,12 @@
+{
+  "id": "cypher_system_reference_document",
+  "system_id": "cypher",
+  "addon_id": "csrd",
+  "title": "Cypher System Reference Document 2025-08-22",
+  "summary": "Addon-owned online rulebook generated from the CSRD markdown output.",
+  "markdown_path": "source_markdown/Cypher-System-Reference-Document-2025-08-22.md",
+  "html_path": "source_html/Cypher-System-Reference-Document-2025-08-22.html",
+  "source_path": "source/Cypher-System-Reference-Document-2025-08-22.docx",
+  "format": "markdown",
+  "generated_toc": true
+}

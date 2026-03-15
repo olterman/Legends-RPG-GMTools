@@ -1,0 +1,8 @@
+{
+  "id": "adventure",
+  "system_id": "outgunned",
+  "name": "Adventure",
+  "status": "planned",
+  "summary": "Outgunned addon shell for pulp or adventure action play.",
+  "kind": "genre_variant"
+}

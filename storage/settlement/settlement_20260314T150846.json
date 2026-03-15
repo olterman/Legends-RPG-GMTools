@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T15:08:46.532018+00:00",
+  "filename": "settlement/settlement_20260314T150846.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "settings": [
+      "lands_of_legend"
+    ],
+    "area": "",
+    "environment": ""
+  },
+  "result": {
+    "type": "settlement",
+    "name": "Lake Home",
+    "description": "Nestled in a serene vale on Caldor Island, Lake Home is a quaint village where the gentle lapping of water against the shore harmonizes with the rustle of crops swaying in the breeze. The villagers, primarily farmers and fishermen, lead a simple life, relying on the rich resources of the nearby lake for sustenance. Wooden cottages with thatched roofs dot the landscape, each adorned with small gardens bursting with vibrant vegetables and herbs. The air is often filled with the scent of fresh fis…",
+    "sections": {
+      "type": "settlement",
+      "name": "Lake Home",
+      "description": "Nestled in a serene vale on Caldor Island, Lake Home is a quaint village where the gentle lapping of water against the shore harmonizes with the rustle of crops swaying in the breeze. The villagers, primarily farmers and fishermen, lead a simple life, relying on the rich resources of the nearby lake for sustenance. Wooden cottages with thatched roofs dot the landscape, each adorned with small gardens bursting with vibrant vegetables and herbs. The air is often filled with the scent of fresh fis…",
+      "notable_inn": {
+        "name": "The Sizzling Trout",
+        "proprietor": "Amelia Greenheart",
+        "description": "The Sizzling Trout is a lively inn that serves as the heart of Lake Home, where locals gather to share stories and enjoy hearty meals. Amelia Greenheart, a boisterous redhead known for her quick wit and even quicker fists, runs the establishment with a firm but friendly hand. The inn's walls are adorned with fishing trophies and local artwork, creating a warm and inviting atmosphere. Patrons often find themselves laughing over Amelia's tales of her own fishing exploits, though many have learned to tread carefully around her when she’s had a few too many drinks. The inn's signature dish, grilled trout, is a must-try for anyone visiting the village."
+      },
+      "area": "caldor_island",
+      "environment": "caldor_island",
+      "location": "The Vale",
+      "race": "",
+      "variant": "",
+      "profession": "",
+      "culture": "",
+      "family": "",
+      "role": ""
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "settlement",
+      "ai_generated": "true",
+      "setting": "fantasy",
+      "settings": [
+        "fantasy",
+        "lands_of_legend"
+      ],
+      "area": "caldor_island",
+      "location": "The Vale",
+      "environment": "caldor_island",
+      "race": "",
+      "variant": "",
+      "gender": null,
+      "profession": "",
+      "culture": "",
+      "sourcebook": null,
+      "page": null,
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ],
+      "images": [],
+      "description": "Nestled in a serene vale on Caldor Island, Lake Home is a quaint village where the gentle lapping of water against the shore harmonizes with the rustle of crops swaying in the breeze. The villagers, primarily farmers and fishermen, lead a simple life, relying on the rich resources of the nearby lake for sustenance. Wooden cottages with thatched roofs dot the landscape, each adorned with small gardens bursting with vibrant vegetables and herbs. The air is often filled with the scent of fresh fis…",
+      "family": "",
+      "role": ""
+    },
+    "text": "",
+    "stat_block": {}
+  }
+}

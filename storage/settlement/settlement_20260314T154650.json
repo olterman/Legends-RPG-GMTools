@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T15:46:50.683931+00:00",
+  "filename": "settlement/settlement_20260314T154650.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "settings": [
+      "lands_of_legend"
+    ],
+    "area": "caldor_island",
+    "location": "Mountain Home"
+  },
+  "result": {
+    "type": "settlement",
+    "name": "Mountain Home",
+    "settlement_type": "village",
+    "area": "caldor_island",
+    "local_inn_or_tavern": "The Lucky Pick",
+    "proprietor": "Kirk Dunbar",
+    "description": "Nestled at the foot of the northern mountain range of Caldor Island, Mountain Home is a small mining village that thrives on the rich veins of minerals and ores hidden within the mountains. The village is encircled by rugged terrain, with wooden cottages scattered in a rough circle around a small central pond that glows with an eerie light at night, a mystery that has puzzled the villagers for generations. The air is filled with the scent of freshly mined ore mingling with the earthy aroma of t…",
+    "sections": {
+      "type": "settlement",
+      "name": "Mountain Home",
+      "settlement_type": "village",
+      "area": "caldor_island",
+      "local_inn_or_tavern": "The Lucky Pick",
+      "proprietor": "Kirk Dunbar",
+      "description": "Nestled at the foot of the northern mountain range of Caldor Island, Mountain Home is a small mining village that thrives on the rich veins of minerals and ores hidden within the mountains. The village is encircled by rugged terrain, with wooden cottages scattered in a rough circle around a small central pond that glows with an eerie light at night, a mystery that has puzzled the villagers for generations. The air is filled with the scent of freshly mined ore mingling with the earthy aroma of the surrounding forest. River barges slowly navigate the winding river, bringing in fish and produce from Lake Home, creating a vital trade route that sustains the community. The local inn, The Lucky Pick, is run by Kirk Dunbar, a grumpy old retired miner with a thick white braided beard, who serves hearty meals and strong drinks to weary travelers and locals alike."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "settlement",
+      "ai_generated": "true",
+      "setting": "lands_of_legend",
+      "settings": [
+        "fantasy",
+        "lands_of_legend"
+      ],
+      "area": "caldor_island",
+      "location": "Mountain Home",
+      "race": null,
+      "variant": null,
+      "gender": null,
+      "profession": null,
+      "culture": null,
+      "sourcebook": null,
+      "page": null,
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

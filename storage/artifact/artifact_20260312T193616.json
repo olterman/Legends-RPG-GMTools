@@ -16,9 +16,9 @@
       "origin": "raw_text_parser",
       "settings": [
         "fantasy",
-        "lands_of_legends"
+        "lands_of_legend"
       ],
-      "setting": "lands_of_legends",
+      "setting": "lands_of_legend",
       "genre": "fantasy",
       "genres": [
         "fantasy"

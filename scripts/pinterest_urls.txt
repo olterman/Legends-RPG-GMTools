@@ -1,0 +1,2 @@
+url,tags,friendly_prefix
+https://se.pinterest.com/patrikolterman/lands-of-legend/cyphers-artifacts/,"cyfer,artifact,item,land_of_legends","Cyphers & Artifacts"

@@ -1,0 +1,8 @@
+{
+  "id": "starbreaker",
+  "system_id": "savage_worlds",
+  "name": "Starbreaker",
+  "status": "planned",
+  "summary": "Savage Worlds addon shell for Starbreaker.",
+  "kind": "setting_line"
+}

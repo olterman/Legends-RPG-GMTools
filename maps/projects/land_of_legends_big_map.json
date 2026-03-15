@@ -1,0 +1,320 @@
+{
+  "id": "land_of_legends_big_map",
+  "name": "Land Of Legends - Big Map",
+  "setting": "lands_of_legend",
+  "area": "",
+  "map_image": "/images/uploads/Legends-big-map-unmarked_20260314T142309_ab0335f8.png",
+  "map_image_path": "uploads/Legends-big-map-unmarked_20260314T142309_ab0335f8.png",
+  "notes": "",
+  "is_default": true,
+  "markers": [
+    {
+      "id": "marker_mmqf35x9_zb70i",
+      "type": "settlement",
+      "x": 42.1661,
+      "y": 55.0339,
+      "label": "South Point",
+      "brief": "",
+      "provider": "ollama_local",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T032819.json",
+      "card_name": "South Point",
+      "card_type": "settlement",
+      "card_summary": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…",
+      "card": {
+        "name": "South Point",
+        "type": "settlement",
+        "description": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…"
+      }
+    },
+    {
+      "id": "marker_mmqf42un_sbgxb",
+      "type": "settlement",
+      "x": 56.2806,
+      "y": 51.1148,
+      "label": "Freeport",
+      "brief": "",
+      "provider": "ollama_local",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T001444.json",
+      "card_name": "Freeport",
+      "card_type": "settlement",
+      "card_summary": "Freeport is a lively coastal city that serves as a haven for freebooters, buccaneers, and privateers. The salty air is thick with the scent of the sea and the sounds of merchants hawking their wares in the bustling marketplace. Colorful ships line the docks, their sails billowing in the wind, while the Great Lighthouse stands sentinel, its light guiding vessels safely to harbor. Amidst the vibrant chaos, rival pirate factions plot and scheme, each seeking to dominate the lucrative trade routes…",
+      "card": {
+        "name": "Freeport",
+        "type": "settlement",
+        "description": "Freeport is a lively coastal city that serves as a haven for freebooters, buccaneers, and privateers. The salty air is thick with the scent of the sea and the sounds of merchants hawking their wares in the bustling marketplace. Colorful ships line the docks, their sails billowing in the wind, while the Great Lighthouse stands sentinel, its light guiding vessels safely to harbor. Amidst the vibrant chaos, rival pirate factions plot and scheme, each seeking to dominate the lucrative trade routes…"
+      }
+    },
+    {
+      "id": "marker_mmqfi6p3_qo0nn",
+      "type": "settlement",
+      "x": 52.8629,
+      "y": 43.1128,
+      "label": "Xul",
+      "brief": "Xul is a small coastal settlement mostly populated by pirates and other riff raff, it is part of the fenmir free cities",
+      "provider": "openai_remote",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T143621.json",
+      "card_name": "Xul",
+      "card_type": "settlement",
+      "card_summary": "Nestled along a rugged stretch of coastline, Xul is a small but vibrant settlement that thrives on the edge of lawlessness. The salty air carries the scent of the sea, mingling with the smoke from the numerous bonfires that dot the shoreline, where pirates and adventurers gather to share tales of their exploits. Weathered wooden buildings lean precariously, their paint peeling from years of exposure to the elements, while colorful flags flutter above taverns and shops, signaling the presence of various factions within the Fenmir Free Cities. The heart of Xul is its bustling market, where traders hawk everything from stolen treasures to exotic goods, and the sound of laughter and raucous shouts fills the air, creating an atmosphere both chaotic and inviting. Despite its rough exterior, the community is tightly knit, bound by shared experiences and the ever-present threat of the sea's wrath.",
+      "card": {
+        "type": "Settlement",
+        "name": "Xul",
+        "description": "Nestled along a rugged stretch of coastline, Xul is a small but vibrant settlement that thrives on the edge of lawlessness. The salty air carries the scent of the sea, mingling with the smoke from the numerous bonfires that dot the shoreline, where pirates and adventurers gather to share tales of their exploits. Weathered wooden buildings lean precariously, their paint peeling from years of exposure to the elements, while colorful flags flutter above taverns and shops, signaling the presence of various factions within the Fenmir Free Cities. The heart of Xul is its bustling market, where traders hawk everything from stolen treasures to exotic goods, and the sound of laughter and raucous shouts fills the air, creating an atmosphere both chaotic and inviting. Despite its rough exterior, the community is tightly knit, bound by shared experiences and the ever-present threat of the sea's wrath.",
+        "population": 300,
+        "notable_features": [
+          {
+            "name": "The Kraken's Embrace Tavern",
+            "description": "A lively tavern known for its strong drinks and raucous atmosphere, adorned with a massive kraken figurehead that looms over the bar. The tavern is a favorite haunt for locals and travelers alike, where secrets are traded as freely as drinks."
+          },
+          {
+            "name": "The Smuggler's Cove",
+            "description": "A hidden inlet used by pirates to dock their ships away from prying eyes. The cove is rumored to hold treasures from countless shipwrecks, and many adventurers seek to uncover its secrets."
+          }
+        ],
+        "governance": "Xul operates under a loose council of the most influential pirates and traders, who convene to make decisions that affect the settlement. While there is no formal law, a code of conduct exists among the residents, primarily focused on mutual respect and the avoidance of unnecessary violence.",
+        "economy": "The economy of Xul is driven by piracy, trade, and smuggling. Residents engage in fishing, shipbuilding, and the sale of contraband, with many seeking fortune on the high seas. The settlement also attracts adventurers looking for work or treasure, further enriching its bustling market."
+      }
+    },
+    {
+      "id": "marker_mmqgnvkn_i0gi2",
+      "type": "village",
+      "x": 38.8304,
+      "y": 41.2251,
+      "label": "Lake Home",
+      "brief": "Lake Home is a small rural village situated in the vale on Caldor Island. Farming and fishing sustains the village, which is why little to no contact happens with the rest of the island or the world. The local inn \"The Sizzling Trout\" is run by Amelia Greenheart, A boisterous Redhead with a mean right hook, as many over innebriated patrons can attest to.",
+      "provider": "openai_remote",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T150846.json",
+      "card_name": "Lake Home",
+      "card_type": "settlement",
+      "card_summary": "Nestled in a serene vale on Caldor Island, Lake Home is a quaint village where the gentle lapping of water against the shore harmonizes with the rustle of crops swaying in the breeze. The villagers, primarily farmers and fishermen, lead a simple life, relying on the rich resources of the nearby lake for sustenance. Wooden cottages with thatched roofs dot the landscape, each adorned with small gardens bursting with vibrant vegetables and herbs. The air is often filled with the scent of fresh fish being grilled over open fires, mingling with the earthy aroma of tilled soil. Despite its idyllic setting, Lake Home remains largely isolated from the rest of the island, with few travelers venturing into its peaceful embrace.",
+      "card": {
+        "type": "settlement",
+        "name": "Lake Home",
+        "description": "Nestled in a serene vale on Caldor Island, Lake Home is a quaint village where the gentle lapping of water against the shore harmonizes with the rustle of crops swaying in the breeze. The villagers, primarily farmers and fishermen, lead a simple life, relying on the rich resources of the nearby lake for sustenance. Wooden cottages with thatched roofs dot the landscape, each adorned with small gardens bursting with vibrant vegetables and herbs. The air is often filled with the scent of fresh fish being grilled over open fires, mingling with the earthy aroma of tilled soil. Despite its idyllic setting, Lake Home remains largely isolated from the rest of the island, with few travelers venturing into its peaceful embrace.",
+        "notable_inn": {
+          "name": "The Sizzling Trout",
+          "proprietor": "Amelia Greenheart",
+          "description": "The Sizzling Trout is a lively inn that serves as the heart of Lake Home, where locals gather to share stories and enjoy hearty meals. Amelia Greenheart, a boisterous redhead known for her quick wit and even quicker fists, runs the establishment with a firm but friendly hand. The inn's walls are adorned with fishing trophies and local artwork, creating a warm and inviting atmosphere. Patrons often find themselves laughing over Amelia's tales of her own fishing exploits, though many have learned to tread carefully around her when she’s had a few too many drinks. The inn's signature dish, grilled trout, is a must-try for anyone visiting the village."
+        }
+      }
+    },
+    {
+      "id": "marker_mmqm13wn_ivgm7",
+      "type": "village",
+      "x": 37.83,
+      "y": 37.4769,
+      "label": "Mountain Home",
+      "brief": "Mountain Home is a small mining village nestled in at the foot of Caldor Island Northern mountain range that separates the vale from the sea and the rest of the world. Rich Ore is being traded for fish and produce that is transported on river barges going up and down the lazy river between Mountain Home and Lake Home. The Village is laid out in a circle around a central pond that glows with an eerie light at night. No knows why, it's always been that way. The local in named the Lucky Pick  is run by Kirk Dunbar a grumpy old retired miner with a bald head and a thick white braided beard.",
+      "provider": "openai_remote",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T173902.json",
+      "card_name": "Mountain Home",
+      "card_type": "settlement",
+      "card_summary": "Nestled at the foot of the northern mountain range of Caldor Island, Mountain Home is a small mining village that thrives on the rich veins of minerals and ores hidden within the mountains. The village is encircled by rugged terrain, with wooden cottages scattered in a rough circle around a small central pond that glows with an eerie light at night, a mystery that has puzzled the villagers for generations. The air is filled with the scent of freshly mined ore mingling with the earthy aroma of the surrounding forest. River barges slowly navigate the winding river, bringing in fish and produce from Lake Home, creating a vital trade route that sustains the community. The local inn, The Lucky Pick, is run by Kirk Dunbar, a grumpy old retired miner with a thick white braided beard, who serves hearty meals and strong drinks to weary travelers.",
+      "card": {
+        "type": "settlement",
+        "name": "Mountain Home",
+        "description": "Nestled at the foot of the northern mountain range of Caldor Island, Mountain Home is a small mining village that thrives on the rich veins of minerals and ores hidden within the mountains. The village is encircled by rugged terrain, with wooden cottages scattered in a rough circle around a small central pond that glows with an eerie light at night, a mystery that has puzzled the villagers for generations. The air is filled with the scent of freshly mined ore mingling with the earthy aroma of the surrounding forest. River barges slowly navigate the winding river, bringing in fish and produce from Lake Home, creating a vital trade route that sustains the community. The local inn, The Lucky Pick, is run by Kirk Dunbar, a grumpy old retired miner with a thick white braided beard, who serves hearty meals and strong drinks to weary travelers.",
+        "settlement_type": "village",
+        "local_inn_or_tavern": "The Lucky Pick",
+        "proprietor": "Kirk Dunbar",
+        "innkeeper": "Kirk Dunbar"
+      }
+    },
+    {
+      "id": "marker_mmqqdb1p_k7jbg",
+      "type": "village",
+      "x": 57.3804,
+      "y": 54.01,
+      "label": "Dan's Place",
+      "brief": "Dan's place is a small settlement with a handful of Houses. The settlement is owned by Dan himself an ex soldier, He has settled this farm with his three wives and their many children. Dan sends his day in a rocking on the porch smoking his corncob pipe. Gertruud is a highland fenmir shieldmaiden  keeping the settlement saafe from raiding uruks, while martha is keeping the corn soup boiling in the kitchen. If you cury is favour Dan might even invite you to share some corn on the cob moonshine",
+      "provider": "openai_remote",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T194029.json",
+      "card_name": "Dan's Place",
+      "card_type": "settlement",
+      "card_summary": "Nestled within the lush greenery of Aldamir, Dan's Place is a quaint village characterized by a handful of sturdy wooden houses, each adorned with vibrant flower boxes. The air is thick with the aroma of corn soup simmering in the kitchen, a staple of the household. Dan, an ex-soldier with a weathered face and a gentle demeanor, spends his days rocking on the porch, puffing on his corncob pipe while keeping a watchful eye on his children playing in the yard. His three wives contribute to the village's warmth: Gertruud, a fierce highland fenmir shieldmaiden, stands guard against any raiding uruks, her presence a reassuring shield for the community. Martha, ever the diligent caretaker, ensures that the hearth is always warm and welcoming, often inviting travelers to share in a meal and perhaps a taste of Dan's famed corn on the cob moonshine, should they earn his favor.",
+      "card": {
+        "type": "settlement",
+        "name": "Dan's Place",
+        "description": "Nestled within the lush greenery of Aldamir, Dan's Place is a quaint village characterized by a handful of sturdy wooden houses, each adorned with vibrant flower boxes. The air is thick with the aroma of corn soup simmering in the kitchen, a staple of the household. Dan, an ex-soldier with a weathered face and a gentle demeanor, spends his days rocking on the porch, puffing on his corncob pipe while keeping a watchful eye on his children playing in the yard. His three wives contribute to the village's warmth: Gertruud, a fierce highland fenmir shieldmaiden, stands guard against any raiding uruks, her presence a reassuring shield for the community. Martha, ever the diligent caretaker, ensures that the hearth is always warm and welcoming, often inviting travelers to share in a meal and perhaps a taste of Dan's famed corn on the cob moonshine, should they earn his favor.",
+        "notable_feature": "The village is known for its vibrant cornfields, which not only provide sustenance but also serve as a gathering place for community events and celebrations.",
+        "proprietor": "Dan",
+        "hooks": "Rumors circulate about a hidden stash of ancient artifacts buried somewhere in the fields, said to be left behind by a long-forgotten civilization.",
+        "settlement_type": "village",
+        "innkeeper": "Dan"
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "area_mmqi8e3a_uwpje",
+      "name": "Caldor Island",
+      "points": [
+        {
+          "x": 37.6726,
+          "y": 35.0188
+        },
+        {
+          "x": 39.414,
+          "y": 35.2361
+        },
+        {
+          "x": 40.8498,
+          "y": 39.4733
+        },
+        {
+          "x": 41.7968,
+          "y": 39.9078
+        },
+        {
+          "x": 43.0188,
+          "y": 47.7846
+        },
+        {
+          "x": 41.6441,
+          "y": 56.1502
+        },
+        {
+          "x": 37.6115,
+          "y": 54.5205
+        },
+        {
+          "x": 35.4119,
+          "y": 47.5673
+        },
+        {
+          "x": 34.5565,
+          "y": 40.8856
+        }
+      ],
+      "label_x": 38.6538,
+      "label_y": 47.1798,
+      "notes": ""
+    },
+    {
+      "id": "area_mmqs1x60_n4j09",
+      "name": "Lomeanor",
+      "points": [
+        {
+          "x": 25.7892,
+          "y": 14.6649
+        },
+        {
+          "x": 31.9262,
+          "y": 15.3531
+        },
+        {
+          "x": 34.6907,
+          "y": 19.2856
+        },
+        {
+          "x": 38.395,
+          "y": 16.9261
+        },
+        {
+          "x": 41.9887,
+          "y": 19.3839
+        },
+        {
+          "x": 40.9382,
+          "y": 24.0046
+        },
+        {
+          "x": 36.3493,
+          "y": 25.1843
+        },
+        {
+          "x": 32.7556,
+          "y": 32.4594
+        },
+        {
+          "x": 28.0008,
+          "y": 35.2122
+        },
+        {
+          "x": 23.9094,
+          "y": 34.7206
+        },
+        {
+          "x": 19.3205,
+          "y": 27.7405
+        },
+        {
+          "x": 19.2652,
+          "y": 22.235
+        },
+        {
+          "x": 19.7628,
+          "y": 18.4008
+        }
+      ],
+      "label_x": 27.9455,
+      "label_y": 24.3978,
+      "notes": ""
+    },
+    {
+      "id": "area_mmqs9fyt_ix3v5",
+      "name": "Fenmir Highlands",
+      "points": [
+        {
+          "x": 47.1161,
+          "y": 7.3893
+        },
+        {
+          "x": 53.8148,
+          "y": 13.2677
+        },
+        {
+          "x": 57.2947,
+          "y": 18.8367
+        },
+        {
+          "x": 61.7315,
+          "y": 27.809
+        },
+        {
+          "x": 62.8625,
+          "y": 31.6764
+        },
+        {
+          "x": 68.6043,
+          "y": 31.0576
+        },
+        {
+          "x": 71.1272,
+          "y": 22.5494
+        },
+        {
+          "x": 71.1272,
+          "y": 17.4444
+        },
+        {
+          "x": 67.5603,
+          "y": 3.8313
+        },
+        {
+          "x": 47.203,
+          "y": 3.0578
+        },
+        {
+          "x": 37.1114,
+          "y": 3.8313
+        },
+        {
+          "x": 39.2863,
+          "y": 10.1738
+        }
+      ],
+      "label_x": 63.2105,
+      "label_y": 17.135,
+      "notes": ""
+    }
+  ],
+  "created_at": "2026-03-14T14:24:02.247634+00:00",
+  "updated_at": "2026-03-14T20:33:45.396696+00:00"
+}

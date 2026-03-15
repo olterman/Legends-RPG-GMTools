@@ -1,0 +1,18 @@
+{
+  "id": "savage_worlds",
+  "name": "Savage Worlds",
+  "engine": "savage_worlds",
+  "status": "planned",
+  "summary": "Base system shell for Savage Worlds and its major setting lines.",
+  "content_roots": [
+    "core_rules",
+    "addons"
+  ],
+  "default_types": [
+    "character_record",
+    "creature_record",
+    "gear_record",
+    "lore_entry"
+  ],
+  "supports_addons": true
+}

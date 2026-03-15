@@ -1,0 +1,52 @@
+{
+  "id": "unknown",
+  "name": "Land Of Legends - Big Map",
+  "setting": "lands_of_legend",
+  "area": "",
+  "map_image": "/images/uploads/Legends-big-map-unmarked_20260314T142309_ab0335f8.png",
+  "map_image_path": "uploads/Legends-big-map-unmarked_20260314T142309_ab0335f8.png",
+  "notes": "",
+  "markers": [
+    {
+      "id": "marker_mmqf35x9_zb70i",
+      "type": "settlement",
+      "x": 42.1661,
+      "y": 55.0339,
+      "label": "South Point",
+      "brief": "",
+      "provider": "ollama_local",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T032819.json",
+      "card_name": "South Point",
+      "card_type": "settlement",
+      "card_summary": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…",
+      "card": {
+        "name": "South Point",
+        "type": "settlement",
+        "description": "South Point is a vibrant fishing village perched at the southern tip of Caldor Island, where the rhythmic sound of waves crashing against the shore mingles with the laughter of fishermen recounting their tales. The village is characterized by its colorful boats, each bearing the marks of their owners, and the Old Lighthouse stands sentinel, guiding vessels safely to shore. The economy thrives on the bountiful sea, with locals skilled in the art of fishing and trade. The Salty Seagull, a livel…"
+      }
+    },
+    {
+      "id": "marker_mmqf42un_sbgxb",
+      "type": "settlement",
+      "x": 56.2806,
+      "y": 51.1148,
+      "label": "Freeport",
+      "brief": "",
+      "provider": "ollama_local",
+      "content_type": "settlement",
+      "storage_filename": "settlement/settlement_20260314T001444.json",
+      "card_name": "Freeport",
+      "card_type": "settlement",
+      "card_summary": "Freeport is a lively coastal city that serves as a haven for freebooters, buccaneers, and privateers. The salty air is thick with the scent of the sea and the sounds of merchants hawking their wares in the bustling marketplace. Colorful ships line the docks, their sails billowing in the wind, while the Great Lighthouse stands sentinel, its light guiding vessels safely to harbor. Amidst the vibrant chaos, rival pirate factions plot and scheme, each seeking to dominate the lucrative trade routes…",
+      "card": {
+        "name": "Freeport",
+        "type": "settlement",
+        "description": "Freeport is a lively coastal city that serves as a haven for freebooters, buccaneers, and privateers. The salty air is thick with the scent of the sea and the sounds of merchants hawking their wares in the bustling marketplace. Colorful ships line the docks, their sails billowing in the wind, while the Great Lighthouse stands sentinel, its light guiding vessels safely to harbor. Amidst the vibrant chaos, rival pirate factions plot and scheme, each seeking to dominate the lucrative trade routes…"
+      }
+    }
+  ],
+  "areas": [],
+  "created_at": "2026-03-14T14:24:02.247634+00:00",
+  "updated_at": "2026-03-14T14:25:26.643081+00:00"
+}

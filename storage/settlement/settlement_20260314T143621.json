@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T14:36:21.484104+00:00",
+  "filename": "settlement/settlement_20260314T143621.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "settings": [
+      "lands_of_legend"
+    ],
+    "area": "",
+    "environment": ""
+  },
+  "result": {
+    "type": "settlement",
+    "name": "Xul",
+    "description": "Nestled along a rugged stretch of coastline, Xul is a small but vibrant settlement that thrives on the edge of lawlessness. The salty air carries the scent of the sea, mingling with the smoke from the numerous bonfires that dot the shoreline, where pirates and adventurers gather to share tales of their exploits. Weathered wooden buildings lean precariously, their paint peeling from years of exposure to the elements, while colorful flags flutter above taverns and shops, signaling the presence of…",
+    "sections": {
+      "type": "settlement",
+      "name": "Xul",
+      "description": "Nestled along a rugged stretch of coastline, Xul is a small but vibrant settlement that thrives on the edge of lawlessness. The salty air carries the scent of the sea, mingling with the smoke from the numerous bonfires that dot the shoreline, where pirates and adventurers gather to share tales of their exploits. Weathered wooden buildings lean precariously, their paint peeling from years of exposure to the elements, while colorful flags flutter above taverns and shops, signaling the presence of various factions within the Fenmir Free Cities. The heart of Xul is its bustling market, where traders hawk everything from stolen treasures to exotic goods, and the sound of laughter and raucous shouts fills the air, creating an atmosphere both chaotic and inviting. Despite its rough exterior, the community is tightly knit, bound by shared experiences and the ever-present threat of the sea's wrath.",
+      "population": 300,
+      "notable_features": [
+        {
+          "name": "The Kraken's Embrace Tavern",
+          "description": "A lively tavern known for its strong drinks and raucous atmosphere, adorned with a massive kraken figurehead that looms over the bar. The tavern is a favorite haunt for locals and travelers alike, where secrets are traded as freely as drinks."
+        },
+        {
+          "name": "The Smuggler's Cove",
+          "description": "A hidden inlet used by pirates to dock their ships away from prying eyes. The cove is rumored to hold treasures from countless shipwrecks, and many adventurers seek to uncover its secrets."
+        }
+      ],
+      "governance": "Xul operates under a loose council of the most influential pirates and traders, who convene to make decisions that affect the settlement. While there is no formal law, a code of conduct exists among the residents, primarily focused on mutual respect and the avoidance of unnecessary violence.",
+      "economy": "The economy of Xul is driven by piracy, trade, and smuggling. Residents engage in fishing, shipbuilding, and the sale of contraband, with many seeking fortune on the high seas. The settlement also attracts adventurers looking for work or treasure, further enriching its bustling market.",
+      "visual_feature": "The Smuggler's Cove",
+      "landmark": "The Smuggler's Cove",
+      "local_inn_or_tavern": "The Kraken's Embrace Tavern",
+      "economy_survival_basis": "The economy of Xul is driven by piracy, trade, and smuggling. Residents engage in fishing, shipbuilding, and the sale of contraband, with many seeking fortune on the high seas. The settlement also attracts adventurers looking for work or treasure, further enriching its bustling market."
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "settlement",
+      "ai_generated": "true",
+      "setting": "lands_of_legend",
+      "settings": [
+        "fantasy",
+        "lands_of_legend"
+      ],
+      "area": "",
+      "location": null,
+      "environment": "",
+      "race": null,
+      "variant": null,
+      "gender": null,
+      "profession": null,
+      "culture": null,
+      "sourcebook": null,
+      "page": null,
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

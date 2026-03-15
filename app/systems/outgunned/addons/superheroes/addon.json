@@ -1,0 +1,8 @@
+{
+  "id": "superheroes",
+  "system_id": "outgunned",
+  "name": "Superheroes",
+  "status": "planned",
+  "summary": "Outgunned addon shell for superhero action play.",
+  "kind": "genre_variant"
+}

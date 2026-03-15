@@ -1,0 +1,18 @@
+{
+  "id": "mist_engine",
+  "name": "Mist Engine",
+  "engine": "mist_engine",
+  "status": "planned",
+  "summary": "Base system shell for Mist Engine titles and variants.",
+  "content_roots": [
+    "core_rules",
+    "addons"
+  ],
+  "default_types": [
+    "character_record",
+    "scene_record",
+    "theme_record",
+    "lore_entry"
+  ],
+  "supports_addons": true
+}

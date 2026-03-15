@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}AI Generate — Lands of Legends GM-Tools{% endblock %}
+{% block title %}AI Generate — Lands of Legend GM-Tools{% endblock %}
 
 {% block head_extra %}
 <style>
@@ -2231,10 +2231,23 @@
     });
   }
 
-  async function prefillFromGalleryQuery() {
+  async function prefillFromQuery() {
     const params = new URLSearchParams(window.location.search);
     const imagePath = String(params.get('image') || '').trim();
     const requestedType = String(params.get('type') || '').trim().toLowerCase();
+    const requestedBrief = String(params.get('brief') || '').trim();
+    const requestedSetting = String(params.get('setting') || '').trim();
+    const requestedArea = String(params.get('area') || '').trim();
+    const requestedLocation = String(params.get('location') || '').trim();
+    const requestedRace = String(params.get('race') || '').trim();
+    const requestedVariant = String(params.get('variant') || '').trim();
+    const requestedGender = String(params.get('gender') || '').trim();
+    const requestedProfession = String(params.get('profession') || '').trim();
+    const requestedCulture = String(params.get('culture') || '').trim();
+    const hasExplicitIdentity = Boolean(
+      requestedRace || requestedVariant || requestedGender || requestedProfession || requestedCulture
+    );
+    const shouldClearSavedIdentity = Boolean((requestedLocation || requestedArea) && !hasExplicitIdentity);
     if (requestedType && els.type) {
       const hasRequestedType = Array.from(els.type.options || []).some((opt) => String(opt.value || '').trim().toLowerCase() === requestedType);
       if (hasRequestedType) {
@@ -2243,6 +2256,64 @@
         updateImageUi();
         updateTypeSpecificOptions();
       }
+    }
+    if (shouldClearSavedIdentity) {
+      if (els.npcRace) els.npcRace.value = '';
+      updateVariantOptions();
+      if (els.npcVariant) {
+        els.npcVariant.value = '';
+      }
+      if (els.npcGender) els.npcGender.value = '';
+      if (els.npcProfession) els.npcProfession.value = '';
+      if (els.npcCulture) els.npcCulture.value = '';
+    }
+    if (requestedSetting && els.setting) {
+      const hasRequestedSetting = Array.from(els.setting.options || []).some((opt) => String(opt.value || '').trim() === requestedSetting);
+      if (hasRequestedSetting) {
+        els.setting.value = requestedSetting;
+        renderFilters();
+      }
+    }
+    if (requestedArea && els.area) {
+      const hasRequestedArea = Array.from(els.area.options || []).some((opt) => String(opt.value || '').trim() === requestedArea);
+      if (hasRequestedArea) {
+        els.area.value = requestedArea;
+        await loadLocationsForArea(requestedArea);
+      }
+    }
+    if (requestedLocation && els.location) {
+      const hasRequestedLocation = Array.from(els.location.options || []).some((opt) => String(opt.value || '').trim() === requestedLocation);
+      if (hasRequestedLocation) {
+        els.location.value = requestedLocation;
+      } else {
+        if (els.location.disabled) {
+          els.location.disabled = false;
+        }
+        const opt = document.createElement('option');
+        opt.value = requestedLocation;
+        opt.textContent = requestedLocation;
+        els.location.appendChild(opt);
+        els.location.value = requestedLocation;
+      }
+    }
+    if (requestedRace && els.npcRace && Array.from(els.npcRace.options).some((opt) => String(opt.value || '').trim() === requestedRace)) {
+      els.npcRace.value = requestedRace;
+      updateVariantOptions();
+    }
+    if (requestedVariant && els.npcVariant && Array.from(els.npcVariant.options).some((opt) => String(opt.value || '').trim() === requestedVariant)) {
+      els.npcVariant.value = requestedVariant;
+    }
+    if (requestedGender && els.npcGender && Array.from(els.npcGender.options).some((opt) => String(opt.value || '').trim() === requestedGender)) {
+      els.npcGender.value = requestedGender;
+    }
+    if (requestedProfession && els.npcProfession) {
+      els.npcProfession.value = requestedProfession;
+    }
+    if (requestedCulture && els.npcCulture) {
+      els.npcCulture.value = requestedCulture;
+    }
+    if (requestedBrief && els.brief) {
+      els.brief.value = requestedBrief;
     }
     if (!imagePath) {
       return;
@@ -2516,7 +2587,7 @@
     }
     try {
       await restoreSavedPrefs();
-      await prefillFromGalleryQuery();
+      await prefillFromQuery();
     } catch (err) {
       els.status.textContent = `Could not initialize AI generate page: ${err.message}`;
     }

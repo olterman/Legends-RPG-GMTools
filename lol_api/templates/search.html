@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Search — Lands of Legends GM-Tools{% endblock %}
+{% block title %}Search — Lands of Legend GM-Tools{% endblock %}
 
 {% block content %}
 <h1>Search</h1>
@@ -26,6 +26,8 @@
         <option value="npc">npc</option>
         <option value="monster">monster</option>
         <option value="settlement">settlement</option>
+        <option value="village">village</option>
+        <option value="city">city</option>
         <option value="encounter">encounter</option>
         <option value="landmark">landmark</option>
         <option value="rollable_table">rollable_table</option>
@@ -317,6 +319,8 @@
       inn: "Inn",
       encounter: "Encounter",
       settlement: "Settlement",
+      village: "Village",
+      city: "City",
       rollable_table: "Rollable Table",
       player_character: "Player Character",
       character: "Player Character",
@@ -331,6 +335,47 @@
       lore: "Lore"
     };
     return labels[value] || titleCase(value || "item");
+  }
+
+  function canonicalizeSettingToken(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    const key = raw
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "");
+    if (["lands_of_legends", "land_of_legends", "land_of_legend"].includes(key)) return "lands_of_legend";
+    return key;
+  }
+
+  function displaySettingValue(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    const normalized = canonicalizeSettingToken(raw);
+    if (normalized === "lands_of_legend") return "Lands of Legend";
+    if (normalized === "all_settings") return "All Genres";
+    return raw.includes("_") ? titleCase(raw) : raw;
+  }
+
+  function displaySettingList(values) {
+    const parts = Array.isArray(values)
+      ? values
+      : String(values || "").split(",");
+    const seen = new Set();
+    const out = [];
+    for (const part of parts) {
+      const text = displaySettingValue(part);
+      if (!text) continue;
+      const key = text.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(text);
+    }
+    return out.join(", ");
+  }
+
+  function currentSearchSettingValue() {
+    return String(els.setting?.value || document.getElementById('nav-world-setting')?.value || '').trim();
   }
 
   function sourceLabel(value) {
@@ -1303,7 +1348,7 @@
       ["Target Number", statBlock.target_number],
       ["Health", statBlock.health],
       ["Armor", statBlock.armor],
-      ["Damage", statBlock.damage],
+      ["Damage", statBlock.damage ?? statBlock.damage_inflicted],
       ["Movement", statBlock.movement],
     ].filter(([, value]) => String(value ?? "").trim() !== "");
 
@@ -1346,6 +1391,35 @@
         ${includeNarrativeLists ? renderList("Loot", statBlock.loot) : ""}
       </div>
     `;
+  }
+
+  function effectiveStatBlock(result) {
+    const source = (result && typeof result === "object") ? result : {};
+    const sections = (source && typeof source.sections === "object" && source.sections) ? source.sections : {};
+    const raw = (source && typeof source.stat_block === "object" && source.stat_block) ? source.stat_block : {};
+    const normalizeList = (value) => {
+      if (Array.isArray(value)) return value.filter((item) => String(item ?? "").trim() !== "");
+      return String(value ?? "").trim() ? [String(value).trim()] : [];
+    };
+    const stat = {
+      level: raw.level ?? source.level ?? sections.level ?? "",
+      target_number: raw.target_number ?? source.target_number ?? sections.target_number ?? "",
+      health: raw.health ?? source.health ?? sections.health ?? "",
+      armor: raw.armor ?? source.armor ?? sections.armor ?? "",
+      damage: raw.damage ?? raw.damage_inflicted ?? source.damage ?? source.damage_inflicted ?? sections.damage ?? sections.damage_inflicted ?? "",
+      movement: raw.movement ?? source.movement ?? sections.movement ?? "",
+      modifications: normalizeList(raw.modifications),
+      combat: normalizeList(raw.combat),
+      interaction: normalizeList(raw.interaction),
+      loot: normalizeList(raw.loot),
+    };
+    const hasData = ["level", "target_number", "health", "armor", "damage", "movement"]
+      .some((key) => String(stat[key] ?? "").trim() !== "") ||
+      stat.modifications.length ||
+      stat.combat.length ||
+      stat.interaction.length ||
+      stat.loot.length;
+    return hasData ? stat : null;
   }
 
   function extractOfficialEntryText(fullText, title) {
@@ -1802,11 +1876,12 @@
     return imageUrl(normalized, metadata.foundry_origin);
   }
 
-  function renderSearchTag(label, value, kind = "") {
+  function renderSearchTag(label, value, kind = "", rawFilterValue = null) {
     const text = String(value || "").trim();
     if (!text) return "";
     const filterKind = String(kind || label || "").trim().toLowerCase();
-    return `<button type="button" class="tag-badge clickable-tag" data-tag-kind="${escapeHtml(filterKind)}" data-tag-value="${escapeHtml(text)}"><span class="k">${escapeHtml(label)}</span>${escapeHtml(text)}</button>`;
+    const filterValue = String(rawFilterValue ?? text).trim();
+    return `<button type="button" class="tag-badge clickable-tag" data-tag-kind="${escapeHtml(filterKind)}" data-tag-value="${escapeHtml(filterValue)}"><span class="k">${escapeHtml(label)}</span>${escapeHtml(text)}</button>`;
   }
 
   async function applyTagSearch(kind, value) {
@@ -1857,18 +1932,19 @@
     const tags = [];
     const resultType = String(result?.type || "").trim();
     const sourceText = sourceLabel(metadata.source || "storage");
-    const settingText = pickFirstNonEmpty(
+    const settingRaw = pickFirstNonEmpty(
       Array.isArray(metadata.settings) ? metadata.settings.join(", ") : "",
       metadata.setting,
       Array.isArray(result?.settings) ? result.settings.join(", ") : "",
       result?.setting
     );
+    const settingText = displaySettingList(settingRaw);
     const areaText = pickFirstNonEmpty(metadata.area, metadata.environment, result?.area, result?.environment);
     const locationText = pickFirstNonEmpty(metadata.location, result?.location);
     if (resultType) tags.push(renderSearchTag("Type", typeLabel(resultType), "type"));
     if (sourceText) tags.push(renderSearchTag("Source", sourceText, "source"));
     if (isFoundrySourceValue(metadata.source)) tags.push(foundrySyncBadge());
-    if (settingText) tags.push(renderSearchTag("Genre/Setting", settingText, "setting"));
+    if (settingText) tags.push(renderSearchTag("Genre/Setting", settingText, "setting", canonicalizeSettingToken(settingRaw.split(",")[0] || settingRaw)));
     if (areaText) tags.push(renderSearchTag("Area", areaText, "area"));
     if (locationText) tags.push(renderSearchTag("Location", locationText, "location"));
     if (metadata.race) tags.push(renderSearchTag("Race", metadata.race, "race"));
@@ -1894,7 +1970,12 @@
 
     if (itemType === "settlement") {
       const pick = (...values) => pickFirstNonEmpty(...values);
-      push("Settlement Type", pick(result.settlement_type, sections.settlement_type, sections.type));
+      const notableInn = (sections.notable_inn && typeof sections.notable_inn === "object") ? sections.notable_inn : {};
+      const notableFeatures = Array.isArray(sections.notable_features) ? sections.notable_features : [];
+      const description = pick(result.description, sections.description, sections.summary);
+      const inferred = inferSettlementFieldsFromDescription(description);
+      push("Settlement Type", pick(result.settlement_type, sections.settlement_type, inferred.settlementType, sections.type));
+      push("Description", description);
       push("Environment", pick(result.environment, result.area, sections.environment, sections.area));
       push("Visual Feature", pick(result.visual_feature, sections.visual_feature, sections.visuals));
       push("Landmark", pick(result.landmark, sections.landmark));
@@ -1907,13 +1988,38 @@
       ));
       push("Current Tension", pick(result.current_tension, sections.current_tension, sections.tension));
       push("Atmosphere", pick(result.atmosphere, sections.atmosphere));
+      push("Population", pick(result.population, sections.population));
+      push("Governance", pick(result.governance, sections.governance));
       push("Local Inn or Tavern", pick(
         result.local_inn_or_tavern,
         sections.local_inn_or_tavern,
+        notableInn.name,
+        inferred.innName,
         result.inn,
         sections.inn,
         sections.tavern
       ));
+      push("Innkeeper / Proprietor", pick(
+        sections.proprietor,
+        inferred.proprietor,
+        notableInn.proprietor
+      ));
+      push("Inn Description", pick(
+        sections.inn_description,
+        notableInn.description
+      ));
+      if (notableFeatures.length) {
+        notableFeatures.forEach((feature, index) => {
+          const name = pick(feature?.name, feature?.title);
+          const description = pick(feature?.description, feature?.summary);
+          if (name || description) {
+            push(
+              index === 0 ? "Notable Features" : "Feature",
+              [name, description].filter(Boolean).join(": ")
+            );
+          }
+        });
+      }
     }
 
     if (itemType === "inn") {
@@ -1941,7 +2047,9 @@
       push("GM Intrusion", pick(sections.gm_intrusion, sections.gmIntrusion, result.gm_intrusion, result.gmIntrusion, parsed.gm_intrusion));
     }
 
-    push("Description", result.description);
+    if (itemType !== "settlement") {
+      push("Description", result.description);
+    }
     const sectionOrder = [
       ["Summary", sections.summary],
       ["Details", sections.details],
@@ -2004,9 +2112,172 @@
     `;
   }
 
-  function renderRelatedLocationItems(items) {
+  function normalizeLooseText(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function inferSettlementFieldsFromDescription(value) {
+    const text = normalizeLooseText(value);
+    if (!text) return { settlementType: '', innName: '', proprietor: '' };
+    const lower = text.toLowerCase();
+    let settlementType = '';
+    if (/\bvillage\b/.test(lower)) settlementType = 'village';
+    else if (/\bcity\b/.test(lower)) settlementType = 'city';
+    else if (/\bsettlement\b|\bhamlet\b|\boutpost\b|\bsteading\b/.test(lower)) settlementType = 'settlement';
+
+    let innName = '';
+    const namedInnMatch = text.match(/\b(The [A-Z][A-Za-z' -]+)\b/);
+    if (namedInnMatch && namedInnMatch[1]) {
+      const candidate = String(namedInnMatch[1]).trim();
+      if (/\b(inn|tavern|pick|trout|arms|roost|house|kraken|cup|boar|stag|lion|anchor|harp|forge)\b/i.test(candidate)) {
+        innName = candidate;
+      }
+    }
+
+    let proprietor = '';
+    const proprietorMatch = text.match(/\bis run by\s+([A-Z][A-Za-z' -]+?)(?:,|\swho\b|\sand\b|\.)/i);
+    if (proprietorMatch && proprietorMatch[1]) {
+      proprietor = String(proprietorMatch[1]).trim();
+    }
+
+    return { settlementType, innName, proprietor };
+  }
+
+  function settlementFollowupContext(result) {
+    const source = (result && typeof result === 'object') ? result : {};
+    const sections = (source && typeof source.sections === 'object' && source.sections) ? source.sections : {};
+    const notableInn = (sections.notable_inn && typeof sections.notable_inn === 'object') ? sections.notable_inn : {};
+    const description = normalizeLooseText(pickFirstNonEmpty(source.description, sections.description, sections.summary));
+    const inferred = inferSettlementFieldsFromDescription(description);
+    const landmark = normalizeLooseText(pickFirstNonEmpty(source.landmark, sections.landmark));
+    const innName = normalizeLooseText(pickFirstNonEmpty(
+      source.local_inn_or_tavern,
+      sections.local_inn_or_tavern,
+      notableInn.name,
+      inferred.innName,
+      source.inn,
+      sections.inn,
+      sections.tavern
+    ));
+    const proprietor = normalizeLooseText(pickFirstNonEmpty(
+      source.proprietor,
+      sections.proprietor,
+      sections.innkeeper,
+      sections.owner,
+      inferred.proprietor,
+      notableInn.proprietor
+    ));
+    const innDescription = normalizeLooseText(pickFirstNonEmpty(
+      source.inn_description,
+      sections.inn_description,
+      notableInn.description
+    ));
+    return {
+      description,
+      landmark,
+      innName,
+      proprietor,
+      innDescription,
+    };
+  }
+
+  function buildAiGenerateHref({ type = "", brief = "", setting = "", area = "", location = "" } = {}) {
+    const params = new URLSearchParams();
+    if (type) params.set("type", type);
+    if (brief) params.set("brief", brief);
+    if (setting) params.set("setting", setting);
+    if (area) params.set("area", area);
+    if (location) params.set("location", location);
+    return `/ai-generate?${params.toString()}`;
+  }
+
+  function renderEmptyLocationGenerationBadges({ locationName = "", setting = "", area = "", result = null } = {}) {
+    const place = String(locationName || "").trim();
+    const context = settlementFollowupContext(result);
+    const effectiveSetting = String(currentSearchSettingValue() || setting || '').trim();
+    const tags = [];
+    if (context.innName) {
+      tags.push({
+        label: "Generate Inn",
+        href: buildAiGenerateHref({
+          type: "inn",
+          brief: [
+            `Create an inn card for "${context.innName}" in ${place}.`,
+            `Keep the inn name exactly as "${context.innName}".`,
+            context.innDescription ? `Use this inn context: ${context.innDescription}` : "",
+            context.description ? `Settlement context: ${context.description}` : "",
+          ].filter(Boolean).join(" "),
+          setting: effectiveSetting,
+          area,
+          location: place,
+        }),
+      });
+    }
+    if (context.landmark) {
+      tags.push({
+        label: "Generate Landmark",
+        href: buildAiGenerateHref({
+          type: "landmark",
+          brief: [
+            `Create a landmark card for "${context.landmark}" in ${place}.`,
+            context.description ? `Settlement context: ${context.description}` : "",
+          ].filter(Boolean).join(" "),
+          setting: effectiveSetting,
+          area,
+          location: place,
+        }),
+      });
+    }
+    if (context.innName && context.proprietor) {
+      tags.push({
+        label: "Generate Proprietor",
+        href: buildAiGenerateHref({
+          type: "npc",
+          brief: [
+            `Create an NPC card for "${context.proprietor}", the proprietor of "${context.innName}" in ${place}.`,
+            context.innDescription ? `Inn context: ${context.innDescription}` : "",
+            context.description ? `Settlement context: ${context.description}` : "",
+          ].filter(Boolean).join(" "),
+          setting: effectiveSetting,
+          area,
+          location: place,
+        }),
+      });
+    }
+    if (!tags.length) {
+      return `<div class="small">No saved cards are tagged with this location yet.</div>`;
+    }
+    return `
+      <div class="small" style="margin-bottom:8px;">No saved cards are tagged with this location yet.</div>
+      <div class="tag-row">
+        ${tags.map((tag) => `
+          <a class="tag-badge"
+             href="${escapeHtml(tag.href)}"
+             target="_blank"
+             rel="noopener">
+            ${escapeHtml(tag.label)}
+          </a>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderMapPlacementSection() {
+    return `
+      <div class="output-card" id="map-placement-card">
+        <h3>Map Placement</h3>
+        <div class="small" id="map-placement-status">Checking saved map projects for this card...</div>
+        <div id="map-placement-results" class="tag-row" style="margin-top:10px;"></div>
+      </div>
+    `;
+  }
+
+  function renderRelatedLocationItems(items, options = {}) {
     const rows = Array.isArray(items) ? items : [];
     if (!rows.length) {
+      if (options.allowGeneration) {
+        return renderEmptyLocationGenerationBadges(options);
+      }
       return `<div class="small">No saved cards are tagged with this location yet.</div>`;
     }
     return rows.map((item) => {
@@ -2038,7 +2309,7 @@
     }).join("");
   }
 
-  async function loadRelatedLocationCards({ locationName = "", setting = "", area = "", excludeFilename = "" } = {}) {
+  async function loadRelatedLocationCards({ locationName = "", setting = "", area = "", excludeFilename = "", locationType = "", result = null } = {}) {
     const statusEl = document.getElementById("related-location-status");
     const resultsEl = document.getElementById("related-location-results");
     const normalizedLocation = String(locationName || "").trim();
@@ -2055,7 +2326,15 @@
         return !excludeFilename || filename !== excludeFilename;
       });
       statusEl.textContent = `${items.length} related card${items.length === 1 ? "" : "s"} tagged with ${normalizedLocation}.`;
-      resultsEl.innerHTML = renderRelatedLocationItems(items);
+      const normalizedType = String(locationType || "").trim().toLowerCase();
+      const allowGeneration = ["settlement", "village", "city"].includes(normalizedType) && items.length === 0;
+      resultsEl.innerHTML = renderRelatedLocationItems(items, {
+        allowGeneration,
+        locationName: normalizedLocation,
+        setting,
+        area,
+        result,
+      });
       resultsEl.querySelectorAll(".related-location-open-btn").forEach((button) => {
         button.addEventListener("click", async () => {
           const filename = String(button.getAttribute("data-filename") || "").trim();
@@ -2067,6 +2346,38 @@
       });
     } catch (err) {
       statusEl.textContent = `Related card lookup failed: ${err.message}`;
+      resultsEl.innerHTML = "";
+    }
+  }
+
+  async function loadMapPlacements({ filename = "", name = "" } = {}) {
+    const statusEl = document.getElementById("map-placement-status");
+    const resultsEl = document.getElementById("map-placement-results");
+    const normalizedFilename = String(filename || "").trim();
+    const normalizedName = String(name || "").trim();
+    if (!statusEl || !resultsEl || (!normalizedFilename && !normalizedName)) return;
+    try {
+      const params = new URLSearchParams();
+      if (normalizedFilename) params.set("filename", normalizedFilename);
+      if (normalizedName) params.set("name", normalizedName);
+      const data = await fetchJson(`/map-projects/placements?${params.toString()}`);
+      const items = Array.isArray(data?.items) ? data.items : [];
+      if (!items.length) {
+        statusEl.textContent = "This card is not placed on any saved map project yet.";
+        resultsEl.innerHTML = "";
+        return;
+      }
+      statusEl.textContent = `${items.length} map placement${items.length === 1 ? "" : "s"} found.`;
+      resultsEl.innerHTML = items.map((item) => {
+        const projectId = String(item?.project_id || "").trim();
+        const markerId = String(item?.marker_id || "").trim();
+        const projectName = String(item?.project_name || projectId || "Map Project").trim();
+        const markerLabel = String(item?.marker_label || normalizedName || "Marker").trim();
+        const href = `/map-editor?project=${encodeURIComponent(projectId)}${markerId ? `&marker=${encodeURIComponent(markerId)}` : ""}`;
+        return `<a class="tag-badge clickable-tag" href="${escapeHtml(href)}"><span class="k">Show On Map</span>${escapeHtml(projectName)} · ${escapeHtml(markerLabel)}</a>`;
+      }).join("");
+    } catch (err) {
+      statusEl.textContent = `Could not load map placements: ${err.message}`;
       resultsEl.innerHTML = "";
     }
   }
@@ -2088,7 +2399,7 @@
           ? rows.map(row => renderOutputRow(row.label, row.value)).join("")
           : `<div class="empty-state-card"><div class="empty-text">No detailed text found for this entry yet.</div></div>`}
       </div>
-      ${result.stat_block ? renderStatBlockCard(result.stat_block, { includeNarrativeLists: false }) : ""}
+      ${effectiveStatBlock(result) ? renderStatBlockCard(effectiveStatBlock(result), { includeNarrativeLists: false }) : ""}
       ${renderNormalizedTagRow({ result, metadata, source, book, pages })}
       ${isLocationLikeResult(result, metadata) ? renderRelatedLocationSection(name) : ""}
     `;
@@ -2096,7 +2407,7 @@
 
   function renderNpcOverviewCard(record, result) {
     const sections = result.sections || {};
-    const stat = (result && typeof result.stat_block === "object" && result.stat_block) ? result.stat_block : {};
+    const stat = effectiveStatBlock(result) || {};
     const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
     const parsedText = parseNpcNarrativeFields(result.text || result.description || "");
     const imageSrc = resolveNpcImage(record, result);
@@ -2405,9 +2716,17 @@
 
   function effectiveResultType(result) {
     const metadata = (result && typeof result.metadata === "object" && result.metadata) ? result.metadata : {};
+    const sections = (result && typeof result.sections === "object" && result.sections) ? result.sections : {};
     const primarycategory = String(metadata.primarycategory || metadata.subtype || "").trim().toLowerCase();
     if (primarycategory === "rollable_table") return "rollable_table";
     if (primarycategory === "landmark") return "landmark";
+    if (["village", "city", "inn"].includes(primarycategory)) return primarycategory;
+    const resultType = String(result?.type || "").trim().toLowerCase();
+    if (resultType === "settlement" || resultType === "location") {
+      const settlementType = String(result?.settlement_type || sections?.settlement_type || "").trim().toLowerCase();
+      if (settlementType.includes("village")) return "village";
+      if (settlementType.includes("city")) return "city";
+    }
     return String(result?.type || "").trim().toLowerCase();
   }
 
@@ -2641,13 +2960,22 @@
         images,
         source: isFoundrySourceValue(metadata.source) ? "foundryvtt" : "storage",
       });
+      if (isLocationLikeResult(result, metadata)) {
+        html += renderMapPlacementSection();
+      }
       els.viewer.innerHTML = html;
       if (isLocationLikeResult(result, metadata)) {
+        void loadMapPlacements({
+          filename: record.filename || "",
+          name: result.name || record.filename || "",
+        });
         void loadRelatedLocationCards({
           locationName: result.name || record.filename || "",
           setting: (Array.isArray(metadata.settings) ? metadata.settings[0] : metadata.setting) || "",
           area: metadata.area || metadata.environment || "",
           excludeFilename: record.filename || "",
+          locationType: displayType || result.type || "",
+          result,
         });
       }
       return;
@@ -2681,8 +3009,9 @@
     }
 
     if (result.type === "npc") {
-      if (result.stat_block) {
-        html += renderStatBlockCard(result.stat_block, { includeNarrativeLists: false });
+      const npcStatBlock = effectiveStatBlock(result);
+      if (npcStatBlock) {
+        html += renderStatBlockCard(npcStatBlock, { includeNarrativeLists: false });
       }
       html += renderTagBadges(result, metadata);
       // NPC view is intentionally streamlined; hide generated-content section.
@@ -2692,8 +3021,9 @@
       if (result.sections) {
         html += renderSectionsCard("Generated Content", result.sections);
       }
-      if (result.stat_block) {
-        html += renderStatBlockCard(result.stat_block);
+      const genericStatBlock = effectiveStatBlock(result);
+      if (genericStatBlock) {
+        html += renderStatBlockCard(genericStatBlock);
       }
     }
 
@@ -2726,6 +3056,8 @@
         setting: (Array.isArray(metadata.settings) ? metadata.settings[0] : metadata.setting) || "",
         area: metadata.area || metadata.environment || "",
         excludeFilename: record.filename || "",
+        locationType: displayType || result.type || "",
+        result,
       });
     }
   }

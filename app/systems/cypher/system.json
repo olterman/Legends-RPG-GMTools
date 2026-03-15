@@ -1,0 +1,20 @@
+{
+  "id": "cypher",
+  "name": "Cypher System",
+  "engine": "cypher_system",
+  "status": "planned",
+  "summary": "Base system shell for Cypher System content, rules, tools, and addons.",
+  "content_roots": [
+    "core_rules",
+    "addons"
+  ],
+  "default_types": [
+    "character_sheet",
+    "npc_record",
+    "creature_record",
+    "cypher_record",
+    "artifact_record",
+    "lore_entry"
+  ],
+  "supports_addons": true
+}

@@ -1,0 +1,8 @@
+{
+  "id": "docling",
+  "name": "Docling",
+  "status": "planned",
+  "bundled": true,
+  "enabled_by_default": true,
+  "summary": "Bundled document ingestion plugin that converts addon-owned source files into markdown for parsers and html for readable rulebooks."
+}

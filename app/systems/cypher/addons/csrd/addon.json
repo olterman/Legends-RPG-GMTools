@@ -1,0 +1,8 @@
+{
+  "id": "csrd",
+  "system_id": "cypher",
+  "name": "Cypher System Reference Document",
+  "status": "planned",
+  "summary": "Primary Cypher rules addon sourced from the CSRD corpus.",
+  "kind": "core_rules"
+}

@@ -1,7 +1,7 @@
 world:
-  id: lands_of_legends
-  label: Lands of Legends
+  id: lands_of_legend
+  label: Lands of Legend
   core_genre: fantasy
   core_setting: fantasy
-  description: Default world profile for Lands of Legends.
+  description: Default world profile for Lands of Legend.
   cover_image: images/uploads/Legends_20260313T142010_aaba8c7c.png

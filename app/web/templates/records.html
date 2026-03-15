@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Records | GMForge{% endblock %}
+
+{% block page_styles %}
+main { max-width: 1280px; margin: 0 auto; padding: 32px 20px 64px; }
+.layout { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 20px; }
+.panel {
+  background: linear-gradient(180deg, rgba(27, 37, 49, 0.96), rgba(18, 26, 35, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+label { display: block; margin: 12px 0 6px; color: var(--muted); }
+input, textarea, select {
+  width: 100%;
+  background: rgba(8, 12, 17, 0.68);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
+button {
+  margin-top: 14px;
+  background: var(--accent);
+  color: #17120e;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+.message { margin: 0 0 14px; padding: 10px 12px; border-radius: 12px; }
+.message.ok { background: rgba(77, 160, 112, 0.14); border: 1px solid rgba(77, 160, 112, 0.28); }
+.message.error { background: rgba(188, 87, 87, 0.14); border: 1px solid rgba(188, 87, 87, 0.28); }
+.record-list { display: grid; gap: 14px; }
+.record-card { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: rgba(10, 15, 21, 0.35); }
+.record-card h3 { margin-bottom: 6px; }
+.tag { display: inline-block; margin: 4px 6px 0 0; padding: 3px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); font-size: 0.9rem; }
+.searchbar { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+@media (max-width: 1100px) { .layout { grid-template-columns: 1fr; } .searchbar { grid-template-columns: 1fr 1fr; } }
+{% endblock %}
+
+{% block body %}
+<main>
+  <h1>Record Workspace</h1>
+  <p class="meta">Create and browse file-backed records in the new GMForge store.</p>
+  <div class="layout">
+    <section class="panel">
+      <h2>Create Record</h2>
+      {% if message %}<p class="message ok">{{ message }}</p>{% endif %}
+      {% if error %}<p class="message error">{{ error }}</p>{% endif %}
+      <form method="post">
+        <label for="record_type">Record Type</label>
+        <input id="record_type" name="record_type" value="lore_entry" required>
+        <label for="title">Title</label>
+        <input id="title" name="title" required>
+        <label for="slug">Slug</label>
+        <input id="slug" name="slug">
+        <label for="system_id">System ID</label>
+        <select id="system_id" name="system_id">
+          {% for system in options.systems %}
+          <option value="{{ system.id }}" {% if system.id == filters.system_id %}selected{% endif %}>{{ system.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="expansion_id">Expansion</label>
+        <select id="expansion_id" name="expansion_id">
+          <option value="">No expansion</option>
+          {% for expansion in options.expansions %}
+          <option value="{{ expansion.id }}" {% if expansion.id == filters.addon_id %}selected{% endif %}>{{ expansion.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="setting_id">Setting ID</label>
+        <select id="setting_id" name="setting_id">
+          {% for setting in options.settings %}
+          <option value="{{ setting.id }}" {% if setting.id == filters.setting_id %}selected{% endif %}>{{ setting.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="campaign_id">Campaign ID</label>
+        <select id="campaign_id" name="campaign_id">
+          <option value="">No campaign</option>
+          {% for campaign in options.campaigns %}
+          <option value="{{ campaign.id }}" {% if campaign.id == filters.campaign_id %}selected{% endif %}>{{ campaign.label }}</option>
+          {% endfor %}
+        </select>
+        <label for="summary">Summary</label>
+        <input id="summary" name="summary">
+        <label for="tags">Tags</label>
+        <input id="tags" name="tags" placeholder="gate, ruin, ancient">
+        <label for="body">Body</label>
+        <textarea id="body" name="body" rows="8"></textarea>
+        <button type="submit">Create Record</button>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>Records</h2>
+      <form class="searchbar" method="get">
+        <input name="q" placeholder="Search" value="{{ filters.query }}">
+        <input name="type" placeholder="Type" value="{{ filters.type }}">
+        <select name="system_id">
+          <option value="">All systems</option>
+          {% for system in options.systems %}
+          <option value="{{ system.id }}" {% if system.id == filters.system_id %}selected{% endif %}>{{ system.label }}</option>
+          {% endfor %}
+        </select>
+        <select name="expansion_id">
+          <option value="">All expansions</option>
+          {% for expansion in options.expansions %}
+          <option value="{{ expansion.id }}" {% if expansion.id == filters.addon_id %}selected{% endif %}>{{ expansion.label }}</option>
+          {% endfor %}
+        </select>
+        <select name="setting_id">
+          <option value="">All settings</option>
+          {% for setting in options.settings %}
+          <option value="{{ setting.id }}" {% if setting.id == filters.setting_id %}selected{% endif %}>{{ setting.label }}</option>
+          {% endfor %}
+        </select>
+        <select name="campaign_id">
+          <option value="">All campaigns</option>
+          {% for campaign in options.campaigns %}
+          <option value="{{ campaign.id }}" {% if campaign.id == filters.campaign_id %}selected{% endif %}>{{ campaign.label }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      <div class="record-list">
+        {% for record in records %}
+        <article class="record-card">
+          <h3>{{ record.title }}</h3>
+          <div class="meta">{{ record.type }} / {{ record.id }}</div>
+          <p>{{ record.summary or "No summary yet." }}</p>
+          <div>
+            {% for tag in record.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </article>
+        {% else %}
+        <p class="meta">No records found yet for the current filters.</p>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}

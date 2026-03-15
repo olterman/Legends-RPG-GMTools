@@ -6,6 +6,8 @@ from typing import Any
 import json
 import yaml
 
+from .settings import normalize_setting_token, setting_lookup_tokens
+
 
 def load_config_file(path: Path) -> dict[str, Any]:
     suffix = path.suffix.lower()
@@ -49,11 +51,13 @@ def list_world_ids(config_dir: Path) -> list[str]:
     worlds_dir = config_dir / "worlds"
     if not worlds_dir.exists():
         return []
-    ids = [
-        p.name
-        for p in sorted(worlds_dir.iterdir())
-        if p.is_dir() and not p.name.startswith(".")
-    ]
+    ids: list[str] = []
+    for p in sorted(worlds_dir.iterdir()):
+        if not p.is_dir() or p.name.startswith("."):
+            continue
+        token = normalize_setting_token(p.name)
+        if token and token not in ids:
+            ids.append(token)
     return ids
 
 
@@ -62,8 +66,10 @@ def list_setting_ids(config_dir: Path) -> list[str]:
 
 
 def load_world_layer(config_dir: Path, world_id: str) -> dict[str, Any]:
-    world_dir = config_dir / "worlds" / world_id
-    if not world_dir.exists():
+    world_dir = resolve_world_dir(config_dir, world_id)
+    if world_dir is None:
+        requested = normalize_setting_token(world_id) or str(world_id).strip()
+        world_dir = config_dir / "worlds" / requested
         raise FileNotFoundError(f"World config folder not found: {world_dir}")
 
     merged_world: dict[str, Any] = {}
@@ -136,8 +142,8 @@ def describe_world(config_dir: Path, world_id: str) -> dict[str, Any]:
         core_value = world_block.get("core_genre") or world_block.get("core_setting")
 
     return {
-        "id": world_id,
-        "label": str(world_block.get("label") or world_id).strip(),
+        "id": normalize_setting_token(world_block.get("id") or world_id),
+        "label": str(world_block.get("label") or normalize_setting_token(world_id).replace("_", " ").title()).strip(),
         "core_setting": str(core_value or "").strip() or None,
         "core_genre": str(core_value or "").strip() or None,
         "description": str(world_block.get("description") or "").strip() or None,
@@ -203,8 +209,10 @@ def load_config_dir(
 
     # Optional world-specific layer (highest precedence).
     if active_world:
-        world_dir = config_dir / "worlds" / active_world
-        if not world_dir.exists():
+        world_dir = resolve_world_dir(config_dir, active_world)
+        if world_dir is None:
+            requested = normalize_setting_token(active_world) or active_world
+            world_dir = config_dir / "worlds" / requested
             raise FileNotFoundError(f"World config folder not found: {world_dir}")
         for path in iter_config_mapping_files(world_dir):
             data = load_config_file(path)
@@ -232,3 +240,31 @@ def load_config_dir(
             monster_names["environments"] = monster_names.get("areas", {})
 
     return merged
+
+
+def resolve_world_dir(config_dir: Path, world_id: str) -> Path | None:
+    worlds_dir = config_dir / "worlds"
+    if not worlds_dir.exists():
+        return None
+
+    for candidate in setting_lookup_tokens(world_id):
+        exact = worlds_dir / candidate
+        if exact.exists() and exact.is_dir():
+            return exact
+
+    normalized_target = normalize_setting_token(world_id)
+    for entry in sorted(worlds_dir.iterdir()):
+        if not entry.is_dir() or entry.name.startswith("."):
+            continue
+        if normalize_setting_token(entry.name) == normalized_target:
+            return entry
+        world_file = entry / "00_world.yaml"
+        if world_file.exists():
+            try:
+                data = load_yaml_file(world_file)
+            except Exception:
+                continue
+            world_block = data.get("world", {}) if isinstance(data, dict) else {}
+            if normalize_setting_token((world_block or {}).get("id")) == normalized_target:
+                return entry
+    return None

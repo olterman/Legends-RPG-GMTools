@@ -1,0 +1,8 @@
+{
+  "id": "savage_pathfinder",
+  "system_id": "savage_worlds",
+  "name": "Savage Pathfinder",
+  "status": "planned",
+  "summary": "Savage Worlds addon shell for Savage Pathfinder.",
+  "kind": "setting_line"
+}

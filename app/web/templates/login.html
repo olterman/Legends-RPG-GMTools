@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Login | GMForge{% endblock %}
+
+{% block page_styles %}
+  .login-shell {
+    min-height: calc(100vh - 70px);
+    display: grid;
+    place-items: center;
+    padding: 32px 20px 56px;
+  }
+  .login-card {
+    width: min(460px, 100%);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 0 18px 60px var(--shadow);
+    padding: 28px;
+  }
+  .login-card h1 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+  }
+  .brand-block {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .brand-block img {
+    width: min(128px, 34vw);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.25));
+  }
+  .login-card p {
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .login-form {
+    display: grid;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .login-form label {
+    display: grid;
+    gap: 6px;
+    font-weight: 600;
+  }
+  .login-form input {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--ink);
+    background: rgba(9, 14, 20, 0.72);
+  }
+  .login-form button {
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    color: #11161c;
+    background: var(--accent);
+  }
+  .seeded-owner,
+  .login-error {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .seeded-owner {
+    background: var(--accent-soft);
+    border: 1px solid rgba(209, 138, 79, 0.28);
+  }
+  .login-error {
+    background: rgba(136, 44, 52, 0.18);
+    border: 1px solid rgba(197, 84, 92, 0.34);
+    color: #ffbdc2;
+  }
+{% endblock %}
+
+{% block body %}
+  <main class="login-shell">
+    <section class="login-card">
+      <div class="brand-block">
+        {% if branding.logo_url %}
+          <img src="{{ branding.logo_url }}" alt="GMForge logo">
+        {% endif %}
+        <h1>GMForge Login</h1>
+      </div>
+      <p>The new workspace is gated before any live data is added. Sign in with the seeded owner account to continue.</p>
+
+      {% if error %}
+        <div class="login-error">{{ error }}</div>
+      {% endif %}
+
+      <form class="login-form" method="post" action="{{ url_for('login', next=next_url) }}">
+        <input type="hidden" name="next" value="{{ next_url }}">
+        <label>
+          Username
+          <input type="text" name="username" autocomplete="username" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Log in</button>
+      </form>
+
+      <div class="seeded-owner">
+        <strong>Seeded owner account</strong><br>
+        Username: <code>{{ seeded_owner.username }}</code><br>
+        Email: <code>{{ seeded_owner.email }}</code>
+      </div>
+    </section>
+  </main>
+{% endblock %}

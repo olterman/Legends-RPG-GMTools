@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}GMForge{% endblock %}</title>
+    {% if branding.favicon_url %}
+      <link rel="icon" href="{{ branding.favicon_url }}">
+    {% endif %}
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #10161d;
+        --bg-alt: #17212b;
+        --panel: rgba(21, 29, 39, 0.92);
+        --panel-strong: #0f151c;
+        --ink: #e7edf5;
+        --muted: #92a1b2;
+        --line: rgba(160, 182, 205, 0.18);
+        --accent: #d18a4f;
+        --accent-soft: rgba(209, 138, 79, 0.14);
+        --shadow: rgba(0, 0, 0, 0.28);
+
+        /* Preserved light palette for a future optional theme toggle. */
+        --light-bg: #f4efe5;
+        --light-panel: #fffaf1;
+        --light-ink: #211c17;
+        --light-muted: #6a5d51;
+        --light-line: #d7c8b7;
+        --light-accent: #8b4a20;
+      }
+
+      * { box-sizing: border-box; }
+      html { background: var(--bg); }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top, rgba(52, 77, 103, 0.28) 0%, transparent 40%),
+          linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 68%);
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      h1, h2, h3 { font-family: "Palatino Linotype", "Book Antiqua", serif; letter-spacing: 0.01em; }
+      .meta { color: var(--muted); }
+      .topnav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(15, 21, 28, 0.78);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(10px);
+      }
+      .topnav-links,
+      .topnav-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .topnav-meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .topnav-meta form { margin: 0; }
+      .nav-button {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--ink);
+        padding: 8px 12px;
+        border-radius: 999px;
+        cursor: pointer;
+        font: inherit;
+      }
+      .nav-button:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .topnav a { color: var(--ink); }
+      .topnav a:hover { color: var(--accent); text-decoration: none; }
+      .brand-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+      }
+      .brand-home img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+      {% block page_styles %}{% endblock %}
+    </style>
+  </head>
+  <body>
+    <nav class="topnav">
+      <div class="topnav-links">
+        <a class="brand-home" href="{{ url_for('index') }}">
+          {% if branding.logo_url %}
+            <img src="{{ branding.logo_url }}" alt="GMForge logo">
+          {% endif %}
+          <span>GMForge</span>
+        </a>
+        <a href="{{ url_for('campaigns_workspace') }}">Campaigns</a>
+        <a href="{{ url_for('records_workspace') }}">Records</a>
+        <a href="{{ url_for('api_systems') }}">API</a>
+      </div>
+      {% if current_user %}
+        <div class="topnav-meta">
+          <span>{{ current_user.display_name }} · {{ current_user.role }}</span>
+          <form method="post" action="{{ url_for('logout') }}">
+            <button class="nav-button" type="submit">Log out</button>
+          </form>
+        </div>
+      {% endif %}
+    </nav>
+    {% block body %}{% endblock %}
+  </body>
+</html>

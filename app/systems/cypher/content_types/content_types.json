@@ -1,0 +1,77 @@
+{
+  "system_id": "cypher",
+  "types": [
+    {
+      "id": "character_sheet",
+      "label": "Character Sheet",
+      "category": "character",
+      "summary": "Cypher player character record with system-owned sheet structure.",
+      "supports_generation": true,
+      "supports_search": true
+    },
+    {
+      "id": "npc_record",
+      "label": "NPC",
+      "category": "character",
+      "summary": "Cypher NPC record with role and stat-block support.",
+      "supports_generation": true,
+      "supports_search": true
+    },
+    {
+      "id": "creature_record",
+      "label": "Creature",
+      "category": "creature",
+      "summary": "Cypher creature or monster record.",
+      "supports_generation": true,
+      "supports_search": true
+    },
+    {
+      "id": "cypher_record",
+      "label": "Cypher",
+      "category": "item",
+      "summary": "One-use Cypher item record.",
+      "supports_generation": true,
+      "supports_search": true
+    },
+    {
+      "id": "artifact_record",
+      "label": "Artifact",
+      "category": "item",
+      "summary": "Persistent Cypher artifact record.",
+      "supports_generation": true,
+      "supports_search": true
+    },
+    {
+      "id": "ability_record",
+      "label": "Ability",
+      "category": "rules",
+      "summary": "Cypher ability or rules element.",
+      "supports_generation": false,
+      "supports_search": true
+    },
+    {
+      "id": "descriptor_record",
+      "label": "Descriptor",
+      "category": "rules",
+      "summary": "Cypher descriptor rules entry.",
+      "supports_generation": false,
+      "supports_search": true
+    },
+    {
+      "id": "focus_record",
+      "label": "Focus",
+      "category": "rules",
+      "summary": "Cypher focus rules entry.",
+      "supports_generation": false,
+      "supports_search": true
+    },
+    {
+      "id": "type_record",
+      "label": "Type",
+      "category": "rules",
+      "summary": "Cypher character type rules entry.",
+      "supports_generation": false,
+      "supports_search": true
+    }
+  ]
+}

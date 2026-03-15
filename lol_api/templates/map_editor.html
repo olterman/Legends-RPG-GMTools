@@ -1,0 +1,1970 @@
+{% extends "base.html" %}
+
+{% block title %}Map Editor — Lands of Legend GM-Tools{% endblock %}
+
+{% block head_extra %}
+<style>
+  .map-editor-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .map-sidebar {
+    display: grid;
+    gap: 16px;
+  }
+
+  .map-stage {
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 16px;
+  }
+
+  .map-main-column,
+  .map-detail-column {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+    min-width: 0;
+  }
+
+  .map-canvas-wrap {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top, rgba(122,162,255,0.16), transparent 32%),
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    cursor: crosshair;
+  }
+
+  .map-canvas-wrap.is-empty {
+    min-height: 640px;
+  }
+
+  .map-canvas-empty {
+    min-height: 640px;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .map-canvas {
+    position: relative;
+    width: 100%;
+    display: block;
+    transform-origin: top left;
+    will-change: transform;
+    cursor: crosshair;
+  }
+
+  .map-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  #map-markers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  #map-areas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  #map-markers .map-marker {
+    pointer-events: auto;
+  }
+
+  #map-areas .area-label,
+  #map-areas .area-shape {
+    pointer-events: auto;
+  }
+
+  .map-marker {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    min-width: 6px;
+    min-height: 6px;
+    transform: translate(-50%, -100%);
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.9);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+
+  .map-marker:hover,
+  .map-marker.active {
+    transform: translate(-50%, -100%) scale(1.08);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+  }
+
+  .map-marker::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -5px;
+    left: 6px;
+    white-space: nowrap;
+    padding: 1px 4px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(17,19,24,0.92);
+    color: var(--text);
+    font-size: 0.52rem;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 120ms ease;
+  }
+
+  .map-marker:hover::after {
+    opacity: 1;
+  }
+
+  .map-marker.pending {
+    background: #9b24db;
+    animation: map-pulse 1.2s infinite;
+  }
+
+  .map-marker.city { background: #efb34a; }
+  .map-marker.settlement { background: #7aa2ff; }
+  .map-marker.village { background: #59d67b; }
+  .map-marker.landmark { background: #ff7c6b; }
+
+  .area-shape {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    opacity: 0;
+  }
+
+  .area-shape.selected,
+  .area-shape.pending {
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .area-shape.pending,
+  .area-shape.pending * {
+    pointer-events: none;
+  }
+
+  .area-shape svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+
+  .area-shape polygon {
+    fill: rgba(122,162,255,0.06);
+    stroke: rgba(122,162,255,0.55);
+    stroke-width: 1.25;
+    stroke-dasharray: 6 5;
+  }
+
+  .area-shape.pending polygon {
+    fill: rgba(255,124,107,0.06);
+    stroke: rgba(255,124,107,0.75);
+  }
+
+  .area-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(17,19,24,0.18);
+    color: var(--text);
+    padding: 1px 5px;
+    border-radius: 999px;
+    font-size: 0.6rem;
+    line-height: 1.05;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+  }
+
+  .area-label.selected {
+    border-color: var(--accent);
+    background: rgba(122,162,255,0.12);
+  }
+
+  @keyframes map-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(155,36,219,0.55); }
+    100% { box-shadow: 0 0 0 10px rgba(155,36,219,0); }
+  }
+
+  .map-chip-row,
+  .marker-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .map-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+    padding: 6px 10px;
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  .marker-item {
+    width: 100%;
+    text-align: left;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+    padding: 10px 12px;
+    cursor: pointer;
+  }
+
+  .marker-item.active {
+    border-color: var(--accent);
+    background: rgba(122,162,255,0.08);
+  }
+
+  .marker-item-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+
+  .marker-item-sub {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  .map-preview-card {
+    display: grid;
+    gap: 10px;
+  }
+
+  .map-preview-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .panel-header h3 {
+    margin: 0;
+  }
+
+  .panel-toggle-btn {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .small-note {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  .mode-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .mode-toggle button.active {
+    border-color: var(--accent);
+    background: rgba(122,162,255,0.12);
+  }
+
+  .existing-location-box[hidden],
+  .generate-location-box[hidden] {
+    display: none !important;
+  }
+
+  #map-empty[hidden],
+  #map-canvas[hidden] {
+    display: none !important;
+  }
+
+  .area-builder {
+    display: grid;
+    gap: 12px;
+  }
+
+  .panel-view[hidden],
+  .area-builder[hidden] {
+    display: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    .map-editor-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .map-stage {
+      grid-template-columns: 1fr;
+    }
+
+    .map-canvas-wrap,
+    .map-canvas-empty {
+      min-height: 520px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Map Editor</h1>
+<p>Load a blank or lightly marked map, click to place a point, and generate a city, settlement, village, or landmark directly onto it.</p>
+
+<div class="map-editor-layout">
+  <div class="map-sidebar">
+    <div class="panel">
+      <h3 style="margin-top:0;">Project</h3>
+      <div class="field">
+        <label for="project-picker">Saved Map Projects</label>
+        <select id="project-picker"></select>
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" id="project-load-btn">Load</button>
+        <button type="button" class="secondary" id="project-new-btn">New</button>
+        <button type="button" class="danger" id="project-delete-btn">Delete</button>
+      </div>
+      <div class="field">
+        <label for="project-name">Project Name</label>
+        <input id="project-name" placeholder="Fenmir Highlands Campaign Map" />
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="project-setting">Setting</label>
+          <select id="project-setting"></select>
+        </div>
+        <div class="field">
+          <label for="project-area">Area</label>
+          <select id="project-area"></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="project-notes">Notes</label>
+        <textarea id="project-notes" rows="3" placeholder="Campaign-facing notes about this map."></textarea>
+      </div>
+      <div class="field">
+        <label class="checkbox-row" for="project-default">
+          <input id="project-default" type="checkbox" />
+          <span>Load this project by default</span>
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button" id="project-save-btn">Save Project</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3 style="margin-top:0;">Base Map</h3>
+      <div class="field">
+        <label for="map-gallery">From Gallery</label>
+        <select id="map-gallery"></select>
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" id="map-gallery-load-btn">Load Gallery Image</button>
+      </div>
+      <div class="field">
+        <label for="map-image-url">Custom Image URL or `/images/...` Path</label>
+        <input id="map-image-url" placeholder="/images/uploads/maps/fenmir_blank.png" />
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" id="map-image-url-btn">Use Image</button>
+      </div>
+      <div class="field">
+        <label for="map-upload">Upload Map Image</label>
+        <input id="map-upload" type="file" accept="image/*" />
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" id="map-upload-btn">Upload And Use</button>
+      </div>
+      <div class="small-note">Tip: tagging gallery images with `map` makes them easier to find here.</div>
+    </div>
+
+  </div>
+
+  <div class="map-stage">
+    <div class="map-main-column">
+      <div class="panel">
+        <div class="map-chip-row" id="project-summary"></div>
+        <div class="small-note" style="margin-top:8px;">Click anywhere on the map image to create a marker at that exact point.</div>
+      </div>
+
+      <div class="map-canvas-wrap">
+        <div class="map-canvas-empty" id="map-empty">
+          <div>
+            <strong>No base map loaded yet.</strong>
+            <div class="small-note" style="margin-top:8px;">Choose a map from the gallery, paste an image path or URL, or upload one from disk.</div>
+          </div>
+        </div>
+        <div class="map-canvas" id="map-canvas" hidden>
+          <img id="map-image" class="map-image" alt="Campaign map" />
+          <div id="map-areas"></div>
+          <div id="map-markers"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Selection</h3>
+        </div>
+        <div id="selection-preview" class="map-preview-card">
+          <div class="small-note">No marker or area selected yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-detail-column">
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Areas</h3>
+          <button type="button" class="secondary panel-toggle-btn" id="area-panel-toggle-btn" aria-label="Add or edit area">+</button>
+        </div>
+        <div id="area-list-view" class="panel-view">
+          <div id="area-list" class="marker-list"></div>
+        </div>
+        <div id="area-form-view" class="panel-view" hidden>
+          <div class="small-note">Draw an invisible polygon region and keep only its label visible on the map.</div>
+          <div class="area-builder" id="area-builder">
+            <div class="field">
+              <label for="area-name">Area Label</label>
+              <input id="area-name" placeholder="Fenmir Highlands" />
+            </div>
+            <div class="field">
+              <label for="area-notes">Notes</label>
+              <textarea id="area-notes" rows="3" placeholder="Optional notes about this area region."></textarea>
+            </div>
+            <div class="actions">
+              <button type="button" id="area-start-btn">Start Polygon</button>
+              <button type="button" class="secondary" id="area-complete-btn">Complete Area</button>
+              <button type="button" class="secondary" id="area-save-btn">Save Area Label</button>
+              <button type="button" class="secondary" id="area-move-label-btn">Move Label</button>
+              <button type="button" class="secondary" id="area-cancel-btn">Cancel</button>
+            </div>
+            <div class="small-note" id="area-help">Open this panel, then start a polygon and click points on the map.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Markers</h3>
+          <button type="button" class="secondary panel-toggle-btn" id="marker-panel-toggle-btn" aria-label="Add or edit marker">+</button>
+        </div>
+        <div id="marker-list-view" class="panel-view">
+          <div id="marker-list" class="marker-list"></div>
+        </div>
+        <div id="marker-form-view" class="panel-view" hidden>
+          <div class="small-note" id="marker-help">Open this panel, then click on the map to place a marker.</div>
+          <div class="map-chip-row" id="marker-coords"></div>
+          <div class="mode-toggle">
+            <button type="button" class="secondary active" id="marker-mode-generate-btn">Generate New</button>
+            <button type="button" class="secondary" id="marker-mode-existing-btn">Use Existing</button>
+          </div>
+          <div class="field">
+            <label for="marker-type">Marker Type</label>
+            <select id="marker-type">
+              <option value="city">City</option>
+              <option value="settlement">Settlement</option>
+              <option value="village">Village</option>
+              <option value="landmark">Landmark</option>
+            </select>
+          </div>
+          <div class="existing-location-box" id="existing-location-box" hidden>
+            <div class="field">
+              <label for="existing-location-search">Search Existing Location Cards</label>
+              <input id="existing-location-search" placeholder="Search by name or description" />
+            </div>
+            <div class="field">
+              <label for="existing-location-picker">Existing Location Card</label>
+              <select id="existing-location-picker"></select>
+            </div>
+            <div class="actions">
+              <button type="button" class="secondary" id="existing-location-refresh-btn">Refresh List</button>
+              <button type="button" id="existing-location-place-btn">Place Existing Card</button>
+            </div>
+          </div>
+          <div class="generate-location-box" id="generate-location-box">
+            <div class="field">
+              <label for="marker-name">Desired Name</label>
+              <input id="marker-name" placeholder="Optional explicit name" />
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="marker-provider">AI Provider</label>
+                <select id="marker-provider">
+                  <option value="ollama_local">Ollama Local</option>
+                  <option value="openai_remote">OpenAI Remote</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="marker-auto-save">Save Generated Card</label>
+                <select id="marker-auto-save">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="marker-brief">Generation Brief</label>
+              <textarea id="marker-brief" rows="5" placeholder="What is special about this place? Tone, history, hook, local role..."></textarea>
+            </div>
+            <div class="actions">
+              <button type="button" id="marker-generate-btn">Generate And Place Marker</button>
+              <button type="button" class="secondary" id="marker-clear-btn">Clear Pending</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="status" id="status">Loading map editor...</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const els = {
+    projectPicker: document.getElementById('project-picker'),
+    projectLoadBtn: document.getElementById('project-load-btn'),
+    projectNewBtn: document.getElementById('project-new-btn'),
+    projectDeleteBtn: document.getElementById('project-delete-btn'),
+    projectName: document.getElementById('project-name'),
+    projectSetting: document.getElementById('project-setting'),
+    projectArea: document.getElementById('project-area'),
+    projectNotes: document.getElementById('project-notes'),
+    projectDefault: document.getElementById('project-default'),
+    projectSaveBtn: document.getElementById('project-save-btn'),
+    projectSummary: document.getElementById('project-summary'),
+    mapGallery: document.getElementById('map-gallery'),
+    mapGalleryLoadBtn: document.getElementById('map-gallery-load-btn'),
+    mapImageUrl: document.getElementById('map-image-url'),
+    mapImageUrlBtn: document.getElementById('map-image-url-btn'),
+    mapUpload: document.getElementById('map-upload'),
+    mapUploadBtn: document.getElementById('map-upload-btn'),
+    mapViewport: document.querySelector('.map-canvas-wrap'),
+    mapEmpty: document.getElementById('map-empty'),
+    mapCanvas: document.getElementById('map-canvas'),
+    mapImage: document.getElementById('map-image'),
+    mapAreas: document.getElementById('map-areas'),
+    mapMarkers: document.getElementById('map-markers'),
+    markerCoords: document.getElementById('marker-coords'),
+    markerHelp: document.getElementById('marker-help'),
+    markerPanelToggleBtn: document.getElementById('marker-panel-toggle-btn'),
+    markerListView: document.getElementById('marker-list-view'),
+    markerFormView: document.getElementById('marker-form-view'),
+    markerModeGenerateBtn: document.getElementById('marker-mode-generate-btn'),
+    markerModeExistingBtn: document.getElementById('marker-mode-existing-btn'),
+    existingLocationBox: document.getElementById('existing-location-box'),
+    generateLocationBox: document.getElementById('generate-location-box'),
+    markerType: document.getElementById('marker-type'),
+    existingLocationSearch: document.getElementById('existing-location-search'),
+    existingLocationPicker: document.getElementById('existing-location-picker'),
+    existingLocationRefreshBtn: document.getElementById('existing-location-refresh-btn'),
+    existingLocationPlaceBtn: document.getElementById('existing-location-place-btn'),
+    markerName: document.getElementById('marker-name'),
+    markerProvider: document.getElementById('marker-provider'),
+    markerAutoSave: document.getElementById('marker-auto-save'),
+    markerBrief: document.getElementById('marker-brief'),
+    markerGenerateBtn: document.getElementById('marker-generate-btn'),
+    markerClearBtn: document.getElementById('marker-clear-btn'),
+    areaName: document.getElementById('area-name'),
+    areaNotes: document.getElementById('area-notes'),
+    areaPanelToggleBtn: document.getElementById('area-panel-toggle-btn'),
+    areaListView: document.getElementById('area-list-view'),
+    areaFormView: document.getElementById('area-form-view'),
+    areaStartBtn: document.getElementById('area-start-btn'),
+    areaCompleteBtn: document.getElementById('area-complete-btn'),
+    areaSaveBtn: document.getElementById('area-save-btn'),
+    areaMoveLabelBtn: document.getElementById('area-move-label-btn'),
+    areaCancelBtn: document.getElementById('area-cancel-btn'),
+    areaHelp: document.getElementById('area-help'),
+    areaList: document.getElementById('area-list'),
+    markerList: document.getElementById('marker-list'),
+    selectionPreview: document.getElementById('selection-preview'),
+    status: document.getElementById('status'),
+  };
+
+  const state = {
+    meta: null,
+    galleryImages: [],
+    projects: [],
+    currentProject: null,
+    selectedMarkerId: '',
+    selectedAreaId: '',
+    pendingPoint: null,
+    markerMode: 'generate',
+    markerPanelMode: 'list',
+    areaPanelMode: 'list',
+    locationCards: [],
+    areaTool: {
+      mode: 'idle',
+      pendingPoints: [],
+    },
+    view: {
+      scale: 1,
+      panX: 0,
+      panY: 0,
+      isPanning: false,
+      moved: false,
+      lastClientX: 0,
+      lastClientY: 0,
+    },
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function titleCase(value) {
+    return String(value || '')
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, (m) => m.toUpperCase());
+  }
+
+  function normalizeToken(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+
+  function mapMarkerContentType(markerType) {
+    return String(markerType || '').toLowerCase() === 'landmark' ? 'landmark' : 'settlement';
+  }
+
+  function createEmptyProject() {
+    const setting = String(document.getElementById('nav-world-setting')?.value || document.getElementById('nav-core-setting')?.value || '').trim();
+    return {
+      id: '',
+      name: 'Untitled Map',
+      setting: setting === 'all_settings' ? '' : setting,
+      area: '',
+      map_image: '',
+      map_image_path: '',
+      notes: '',
+      is_default: false,
+      markers: [],
+      areas: [],
+    };
+  }
+
+  function locationCardLabel(item) {
+    const name = String(item?.name || 'Unnamed location').trim();
+    const kind = titleCase(item?.place_type || item?.type || 'location');
+    const area = item?.area ? titleCase(item.area) : '';
+    return [name, kind, area].filter(Boolean).join(' · ');
+  }
+
+  function areaById(areaId) {
+    return (state.currentProject?.areas || []).find((area) => String(area.id || '') === String(areaId || '')) || null;
+  }
+
+  function polygonPointsString(points) {
+    return (Array.isArray(points) ? points : [])
+      .map((point) => `${Number(point?.x || 0)},${Number(point?.y || 0)}`)
+      .join(' ');
+  }
+
+  function polygonCentroid(points) {
+    const rows = Array.isArray(points) ? points : [];
+    if (!rows.length) return { x: 50, y: 50 };
+    const x = rows.reduce((sum, point) => sum + Number(point?.x || 0), 0) / rows.length;
+    const y = rows.reduce((sum, point) => sum + Number(point?.y || 0), 0) / rows.length;
+    return { x, y };
+  }
+
+  function pointInPolygon(point, points) {
+    const x = Number(point?.x || 0);
+    const y = Number(point?.y || 0);
+    const vertices = Array.isArray(points) ? points : [];
+    if (vertices.length < 3) return false;
+    let inside = false;
+    for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i, i += 1) {
+      const xi = Number(vertices[i]?.x || 0);
+      const yi = Number(vertices[i]?.y || 0);
+      const xj = Number(vertices[j]?.x || 0);
+      const yj = Number(vertices[j]?.y || 0);
+      const intersects = ((yi > y) !== (yj > y))
+        && (x < ((xj - xi) * (y - yi)) / ((yj - yi) || Number.EPSILON) + xi);
+      if (intersects) inside = !inside;
+    }
+    return inside;
+  }
+
+  function configuredAreaOptions() {
+    const rows = Array.isArray(state.meta?.areas || state.meta?.environments) ? (state.meta.areas || state.meta.environments) : [];
+    return rows.map((value) => ({
+      value: String(value || '').trim(),
+      label: titleCase(String(value || '').trim()),
+      normalized: normalizeToken(value),
+    })).filter((row) => row.value);
+  }
+
+  function matchedProjectAreaForPoint(point) {
+    const areas = Array.isArray(state.currentProject?.areas) ? state.currentProject.areas : [];
+    const worldAreas = configuredAreaOptions();
+    for (let idx = areas.length - 1; idx >= 0; idx -= 1) {
+      const area = areas[idx];
+      if (!pointInPolygon(point, area?.points)) continue;
+      const areaName = String(area?.name || '').trim();
+      const normalizedName = normalizeToken(areaName);
+      const matchedWorld = worldAreas.find((row) => row.normalized === normalizedName) || null;
+      return {
+        mapAreaName: areaName,
+        worldArea: matchedWorld?.value || '',
+        worldAreaLabel: matchedWorld?.label || '',
+      };
+    }
+    return { mapAreaName: '', worldArea: '', worldAreaLabel: '' };
+  }
+
+  function applyViewTransform() {
+    const { scale, panX, panY, isPanning } = state.view;
+    els.mapCanvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+    els.mapViewport.style.cursor = isPanning ? 'grabbing' : (state.currentProject?.map_image ? 'crosshair' : 'default');
+  }
+
+  function centerViewOnMarker(marker) {
+    if (!marker || !state.currentProject?.map_image || els.mapCanvas.hidden) return;
+    const viewportWidth = els.mapViewport.clientWidth || 0;
+    const viewportHeight = els.mapViewport.clientHeight || 0;
+    const worldWidth = els.mapCanvas.offsetWidth || 0;
+    const worldHeight = els.mapCanvas.offsetHeight || 0;
+    if (!viewportWidth || !viewportHeight || !worldWidth || !worldHeight) return;
+    const worldX = (Number(marker.x || 0) / 100) * worldWidth;
+    const worldY = (Number(marker.y || 0) / 100) * worldHeight;
+    state.view.panX = (viewportWidth / 2) - (worldX * state.view.scale);
+    state.view.panY = (viewportHeight / 2) - (worldY * state.view.scale);
+    applyViewTransform();
+  }
+
+  function resetViewTransform() {
+    state.view.scale = 1;
+    state.view.panX = 0;
+    state.view.panY = 0;
+    state.view.isPanning = false;
+    state.view.moved = false;
+    applyViewTransform();
+  }
+
+  function resetAreaTool() {
+    state.areaTool.mode = 'idle';
+    state.areaTool.pendingPoints = [];
+    syncAreaForm();
+  }
+
+  function syncAreaForm() {
+    const area = areaById(state.selectedAreaId);
+    if (area) {
+      if (els.areaName) els.areaName.value = String(area.name || '');
+      if (els.areaNotes) els.areaNotes.value = String(area.notes || '');
+      return;
+    }
+    if (els.areaName) els.areaName.value = '';
+    if (els.areaNotes) els.areaNotes.value = '';
+  }
+
+  function fetchJson(url, options) {
+    return fetch(url, options).then(async (res) => {
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
+      return data;
+    });
+  }
+
+  function fillSelect(select, options, { valueKey = 'value', labelKey = 'label', includeBlank = '' } = {}) {
+    select.innerHTML = '';
+    if (includeBlank !== null) {
+      const blank = document.createElement('option');
+      blank.value = '';
+      blank.textContent = includeBlank || 'Select...';
+      select.appendChild(blank);
+    }
+    options.forEach((item) => {
+      const opt = document.createElement('option');
+      if (typeof item === 'string') {
+        opt.value = item;
+        opt.textContent = titleCase(item);
+      } else {
+        opt.value = String(item?.[valueKey] || '');
+        opt.textContent = String(item?.[labelKey] || item?.[valueKey] || '');
+      }
+      select.appendChild(opt);
+    });
+  }
+
+  function syncProjectForm() {
+    const project = state.currentProject || createEmptyProject();
+    els.projectName.value = project.name || '';
+    els.projectSetting.value = project.setting || String(document.getElementById('nav-world-setting')?.value || '');
+    els.projectArea.value = project.area || '';
+    els.projectNotes.value = project.notes || '';
+    els.projectDefault.checked = Boolean(project.is_default);
+    els.mapImageUrl.value = project.map_image || '';
+  }
+
+  function readProjectForm() {
+    const base = state.currentProject || createEmptyProject();
+    return {
+      ...base,
+      name: String(els.projectName.value || '').trim() || 'Untitled Map',
+      setting: String(els.projectSetting.value || document.getElementById('nav-world-setting')?.value || '').trim(),
+      area: String(els.projectArea.value || '').trim(),
+      notes: String(els.projectNotes.value || '').trim(),
+      is_default: Boolean(els.projectDefault.checked),
+      map_image: String(els.mapImageUrl.value || base.map_image || '').trim(),
+      markers: Array.isArray(base.markers) ? base.markers : [],
+      areas: Array.isArray(base.areas) ? base.areas : [],
+    };
+  }
+
+  function markerById(markerId) {
+    return (state.currentProject?.markers || []).find((marker) => String(marker.id || '') === String(markerId || '')) || null;
+  }
+
+  function syncMarkerModeUi() {
+    const useExisting = state.markerMode === 'existing';
+    els.markerModeGenerateBtn.classList.toggle('active', !useExisting);
+    els.markerModeExistingBtn.classList.toggle('active', useExisting);
+    els.existingLocationBox.hidden = !useExisting;
+    els.generateLocationBox.hidden = useExisting;
+    if (state.markerPanelMode !== 'form') {
+      els.markerHelp.textContent = 'Open the marker form to place a marker.';
+      return;
+    }
+    els.markerHelp.textContent = state.pendingPoint
+      ? (useExisting ? 'Choose an existing place card for the selected point.' : 'Pending marker location selected.')
+      : 'Click on the map to choose where the marker should go.';
+  }
+
+  function syncMarkerPanelUi() {
+    const isForm = state.markerPanelMode === 'form';
+    els.markerListView.hidden = isForm;
+    els.markerFormView.hidden = !isForm;
+    els.markerPanelToggleBtn.textContent = isForm ? 'X' : '+';
+    els.markerPanelToggleBtn.setAttribute('aria-label', isForm ? 'Close marker form' : 'Open marker form');
+  }
+
+  function syncAreaToolUi() {
+    const pointCount = state.areaTool.pendingPoints.length;
+    if (state.areaPanelMode !== 'form') {
+      els.areaHelp.textContent = 'Open the area form to draw or edit an area.';
+    } else if (state.areaTool.mode === 'drawing') {
+      els.areaHelp.textContent = `Drawing polygon: ${pointCount} point${pointCount === 1 ? '' : 's'} placed. Click the map to add more points, then complete the area.`;
+    } else if (state.areaTool.mode === 'moving_label') {
+      const area = areaById(state.selectedAreaId);
+      els.areaHelp.textContent = area
+        ? `Click on the map to move the label for ${area.name}.`
+        : 'Select an area first, then move its label.';
+    } else {
+      els.areaHelp.textContent = 'Start a polygon, click points on the map, then complete the area. Saved polygons stay invisible unless selected.';
+    }
+  }
+
+  function syncAreaPanelUi() {
+    const isForm = state.areaPanelMode === 'form';
+    els.areaListView.hidden = isForm;
+    els.areaFormView.hidden = !isForm;
+    els.areaPanelToggleBtn.textContent = isForm ? 'X' : '+';
+    els.areaPanelToggleBtn.setAttribute('aria-label', isForm ? 'Close area form' : 'Open area form');
+  }
+
+  function renderProjectSummary() {
+    const project = state.currentProject;
+    if (!project) {
+      els.projectSummary.innerHTML = '';
+      return;
+    }
+    const bits = [
+      ['Project', project.name || 'Untitled Map'],
+      ['Default', project.is_default ? 'Yes' : 'No'],
+      ['Setting', project.setting ? titleCase(project.setting) : 'None'],
+      ['Area', project.area ? titleCase(project.area) : 'None'],
+      ['Markers', String((project.markers || []).length)],
+    ];
+    els.projectSummary.innerHTML = bits.map(([k, v]) => `<span class="map-chip"><strong>${escapeHtml(k)}:</strong> ${escapeHtml(v)}</span>`).join('');
+  }
+
+  function renderMap() {
+    const project = state.currentProject;
+    const mapImage = String(project?.map_image || '').trim();
+    if (!mapImage) {
+      els.mapViewport.classList.add('is-empty');
+      els.mapEmpty.hidden = false;
+      els.mapCanvas.hidden = true;
+      els.mapMarkers.innerHTML = '';
+      resetViewTransform();
+      return;
+    }
+    els.mapViewport.classList.remove('is-empty');
+    els.mapEmpty.hidden = true;
+    els.mapCanvas.hidden = false;
+    els.mapImage.src = mapImage;
+    applyViewTransform();
+    renderMarkers();
+  }
+
+  function renderMarkers() {
+    const markers = state.currentProject?.markers || [];
+    const pending = state.pendingPoint;
+    const markerHtml = markers.map((marker) => {
+      const label = marker.label || marker.card_name || titleCase(marker.type || 'marker');
+      const activeClass = String(marker.id || '') === String(state.selectedMarkerId || '') ? 'active' : '';
+      return `
+        <button
+          type="button"
+          class="map-marker ${escapeHtml(marker.type || 'landmark')} ${activeClass}"
+          data-marker-id="${escapeHtml(marker.id || '')}"
+          data-label="${escapeHtml(label)}"
+          style="left:${Number(marker.x || 0)}%; top:${Number(marker.y || 0)}%;"
+        ></button>
+      `;
+    }).join('');
+    const pendingHtml = pending
+      ? `<div class="map-marker pending" data-label="New Marker" style="left:${Number(pending.x || 0)}%; top:${Number(pending.y || 0)}%;"></div>`
+      : '';
+    els.mapMarkers.innerHTML = markerHtml + pendingHtml;
+  }
+
+  function renderAreas() {
+    const areas = state.currentProject?.areas || [];
+    const selectedAreaId = String(state.selectedAreaId || '');
+    const areaHtml = areas.map((area) => {
+      const labelClass = String(area.id || '') === selectedAreaId ? 'selected' : '';
+      const shapeClass = String(area.id || '') === selectedAreaId ? 'selected' : '';
+      return `
+        <button
+          type="button"
+          class="area-shape ${shapeClass}"
+          data-area-id="${escapeHtml(area.id || '')}"
+          title="${escapeHtml(area.name || 'Area')}"
+        >
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <polygon points="${escapeHtml(polygonPointsString(area.points))}"></polygon>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="area-label ${labelClass}"
+          data-area-id="${escapeHtml(area.id || '')}"
+          style="left:${Number(area.label_x || polygonCentroid(area.points).x)}%; top:${Number(area.label_y || polygonCentroid(area.points).y)}%;"
+        >${escapeHtml(area.name || 'Area')}</button>
+      `;
+    }).join('');
+    const pendingPoints = state.areaTool.pendingPoints || [];
+    const pendingHtml = pendingPoints.length >= 2 ? `
+      <div class="area-shape pending">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="${escapeHtml(polygonPointsString(pendingPoints))}"></polygon>
+        </svg>
+      </div>
+    ` : '';
+    els.mapAreas.innerHTML = areaHtml + pendingHtml;
+  }
+
+  function renderMarkerCoords() {
+    if (!state.pendingPoint) {
+      els.markerCoords.innerHTML = '';
+      els.markerHelp.textContent = 'Click on the map to place a marker.';
+      return;
+    }
+    els.markerHelp.textContent = 'Pending marker location selected.';
+    els.markerCoords.innerHTML = [
+      `<span class="map-chip"><strong>X</strong> ${escapeHtml(state.pendingPoint.x.toFixed(2))}%</span>`,
+      `<span class="map-chip"><strong>Y</strong> ${escapeHtml(state.pendingPoint.y.toFixed(2))}%</span>`
+    ].join('');
+  }
+
+  function renderMarkerList() {
+    const markers = state.currentProject?.markers || [];
+    if (!markers.length) {
+      els.markerList.innerHTML = '<div class="small-note">No markers placed yet.</div>';
+      return;
+    }
+    els.markerList.innerHTML = markers.map((marker) => {
+      const label = marker.label || marker.card_name || titleCase(marker.type || 'marker');
+      const activeClass = String(marker.id || '') === String(state.selectedMarkerId || '') ? 'active' : '';
+      const savedLabel = marker.storage_filename ? 'saved card linked' : 'unsaved preview';
+      return `
+        <button type="button" class="marker-item ${activeClass}" data-select-marker="${escapeHtml(marker.id || '')}">
+          <div class="marker-item-title">${escapeHtml(label)}</div>
+          <div class="marker-item-sub">${escapeHtml(titleCase(marker.type || 'marker'))} · ${escapeHtml(savedLabel)}</div>
+        </button>
+      `;
+    }).join('');
+  }
+
+  function renderAreaList() {
+    const areas = state.currentProject?.areas || [];
+    if (!areas.length) {
+      els.areaList.innerHTML = '<div class="small-note">No area labels yet.</div>';
+      return;
+    }
+    els.areaList.innerHTML = areas.map((area) => {
+      const activeClass = String(area.id || '') === String(state.selectedAreaId || '') ? 'active' : '';
+      return `
+        <button type="button" class="marker-item ${activeClass}" data-select-area="${escapeHtml(area.id || '')}">
+          <div class="marker-item-title">${escapeHtml(area.name || 'Unnamed Area')}</div>
+          <div class="marker-item-sub">${escapeHtml((area.points || []).length + ' polygon points')}</div>
+        </button>
+      `;
+    }).join('');
+  }
+
+  function renderSelectionPreview() {
+    const area = areaById(state.selectedAreaId);
+    if (area) {
+      els.selectionPreview.innerHTML = `
+        <div><strong>${escapeHtml(area.name || 'Unnamed Area')}</strong></div>
+        <div class="small-note">${escapeHtml((area.points || []).length + ' polygon points')} · label at ${escapeHtml(Number(area.label_x || 0).toFixed(2))}%, ${escapeHtml(Number(area.label_y || 0).toFixed(2))}%</div>
+        ${area.notes ? `<div>${escapeHtml(area.notes)}</div>` : '<div class="small-note">No notes saved for this area.</div>'}
+        <div class="map-preview-actions">
+          <button type="button" class="secondary" data-center-area="${escapeHtml(area.id || '')}">Center On Area</button>
+          <button type="button" class="secondary" data-save-area="${escapeHtml(area.id || '')}">Save Label Text</button>
+          <button type="button" class="secondary" data-move-area-label="${escapeHtml(area.id || '')}">Move Label</button>
+          <button type="button" class="danger" data-delete-area="${escapeHtml(area.id || '')}">Delete Area</button>
+        </div>
+      `;
+      return;
+    }
+    const marker = markerById(state.selectedMarkerId);
+    if (!marker) {
+      els.selectionPreview.innerHTML = '<div class="small-note">No marker or area selected yet.</div>';
+      return;
+    }
+    const label = marker.label || marker.card_name || titleCase(marker.type || 'marker');
+    const card = marker.card || {};
+    const summary = marker.card_summary || card.description || card.summary || marker.brief || '';
+    const filename = String(marker.storage_filename || '').trim();
+    const markerArea = String(marker.world_area_label || marker.world_area || marker.map_area_name || '').trim();
+    els.selectionPreview.innerHTML = `
+      <div><strong>${escapeHtml(label)}</strong></div>
+      <div class="small-note">${escapeHtml(titleCase(marker.type || 'marker'))} at ${escapeHtml(marker.x.toFixed(2))}%, ${escapeHtml(marker.y.toFixed(2))}%</div>
+      ${markerArea ? `<div class="small-note">Area: ${escapeHtml(markerArea)}</div>` : ''}
+      ${summary ? `<div>${escapeHtml(summary)}</div>` : '<div class="small-note">No summary saved yet.</div>'}
+      <div class="map-preview-actions">
+        ${filename ? `<a class="secondary" href="/storage/${filename.split('/').map(encodeURIComponent).join('/')}" target="_blank" rel="noopener">Open Saved Card JSON</a>` : ''}
+        <button type="button" class="secondary" data-center-marker="${escapeHtml(marker.id || '')}">Center On Marker</button>
+        <button type="button" class="danger" data-delete-marker="${escapeHtml(marker.id || '')}">Delete Marker</button>
+      </div>
+    `;
+  }
+
+  function renderAll() {
+    syncProjectForm();
+    syncMarkerPanelUi();
+    syncMarkerModeUi();
+    syncAreaPanelUi();
+    syncAreaToolUi();
+    syncAreaForm();
+    renderProjectSummary();
+    renderMap();
+    renderMarkerCoords();
+    renderAreas();
+    renderAreaList();
+    renderMarkerList();
+    renderSelectionPreview();
+  }
+
+  async function loadProjects() {
+    const data = await fetchJson('/map-projects');
+    state.projects = Array.isArray(data.items) ? data.items : [];
+    fillSelect(
+      els.projectPicker,
+      state.projects.map((item) => ({
+        value: item.id,
+        label: `${item.is_default ? 'Default · ' : ''}${item.name} (${item.marker_count || 0})`,
+      })),
+      { includeBlank: 'Saved projects...' }
+    );
+  }
+
+  function defaultProjectId() {
+    const found = state.projects.find((item) => Boolean(item?.is_default) && String(item?.id || '').trim());
+    return found ? String(found.id) : '';
+  }
+
+  async function loadGalleryMaps() {
+    let data = await fetchJson('/media/images?tag=map');
+    let items = Array.isArray(data.items) ? data.items : [];
+    if (!items.length) {
+      data = await fetchJson('/media/images?q=map');
+      items = Array.isArray(data.items) ? data.items : [];
+    }
+    state.galleryImages = items;
+    fillSelect(
+      els.mapGallery,
+      items.map((item) => ({
+        value: item.url || `/images/${item.path}`,
+        label: item.friendly_name || item.path || 'Untitled image',
+      })),
+      { includeBlank: 'Map-tagged gallery images...' }
+    );
+  }
+
+  async function loadMeta() {
+    const [meta, settingsData] = await Promise.all([
+      fetchJson('/meta'),
+      fetchJson('/api/settings'),
+    ]);
+    state.meta = meta;
+    const rawSettings = Array.isArray(settingsData?.settings) ? settingsData.settings : [];
+    const settingOptions = rawSettings
+      .map((row) => ({
+        value: String(row?.id || '').trim(),
+        label: String(row?.label || row?.name || row?.id || '').trim(),
+      }))
+      .filter((row) => row.value);
+    fillSelect(els.projectSetting, settingOptions, { includeBlank: 'Setting...' });
+    fillSelect(els.projectArea, meta.areas || meta.environments || [], { includeBlank: 'Area...' });
+  }
+
+  async function loadLocationCards() {
+    const setting = String(els.projectSetting.value || document.getElementById('nav-world-setting')?.value || '').trim();
+    const area = String(els.projectArea.value || '').trim();
+    const markerType = String(els.markerType.value || '').trim();
+    const q = String(els.existingLocationSearch.value || '').trim();
+    const params = new URLSearchParams();
+    if (setting) params.set('setting', setting);
+    if (area) params.set('area', area);
+    if (markerType) params.set('marker_type', markerType);
+    if (q) params.set('q', q);
+    const data = await fetchJson(`/map-projects/location-cards?${params.toString()}`);
+    const placedRefs = new Set(
+      (state.currentProject?.markers || [])
+        .map((marker) => String(marker?.storage_filename || '').trim())
+        .filter(Boolean)
+    );
+    state.locationCards = (Array.isArray(data.items) ? data.items : [])
+      .filter((item) => !placedRefs.has(String(item?.filename || '').trim()));
+    fillSelect(
+      els.existingLocationPicker,
+      state.locationCards.map((item) => ({
+        value: item.filename,
+        label: locationCardLabel(item),
+      })),
+      { includeBlank: 'Existing place cards...' }
+    );
+  }
+
+  function resolveCanvasPoint(event) {
+    const rect = els.mapImage.getBoundingClientRect();
+    if (!rect.width || !rect.height) return null;
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    if (x < 0 || x > 100 || y < 0 || y > 100) return null;
+    return { x, y };
+  }
+
+  function primeMarkerForm(point) {
+    state.pendingPoint = point;
+    state.selectedAreaId = '';
+    els.markerName.value = '';
+    els.markerBrief.value = '';
+    renderAll();
+  }
+
+  function addAreaPoint(point) {
+    state.areaTool.pendingPoints = [...state.areaTool.pendingPoints, {
+      x: Number(point.x.toFixed(4)),
+      y: Number(point.y.toFixed(4)),
+    }];
+    state.selectedMarkerId = '';
+    renderAll();
+  }
+
+  async function completeAreaPolygon() {
+    const points = state.areaTool.pendingPoints || [];
+    if (points.length < 3) {
+      throw new Error('Add at least three points to complete an area polygon.');
+    }
+    const project = readProjectForm();
+    if (!project.map_image) {
+      throw new Error('Load a base map image first.');
+    }
+    const name = String(els.areaName.value || '').trim();
+    if (!name) {
+      throw new Error('Name the area before completing the polygon.');
+    }
+    const centroid = polygonCentroid(points);
+    const area = {
+      id: `area_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`,
+      name,
+      notes: String(els.areaNotes.value || '').trim(),
+      points: points.map((point) => ({ x: point.x, y: point.y })),
+      label_x: Number(centroid.x.toFixed(4)),
+      label_y: Number(centroid.y.toFixed(4)),
+    };
+    project.areas = [...(project.areas || []), area];
+    state.currentProject = project;
+    state.selectedAreaId = area.id;
+    state.selectedMarkerId = '';
+    resetAreaTool();
+    await saveCurrentProject({ quiet: true });
+    els.status.textContent = `Created area label: ${area.name}`;
+    renderAll();
+  }
+
+  async function saveAreaLabelPosition(areaId, point) {
+    const project = readProjectForm();
+    const nextAreas = (project.areas || []).map((area) => (
+      String(area.id || '') === String(areaId || '')
+        ? { ...area, label_x: Number(point.x.toFixed(4)), label_y: Number(point.y.toFixed(4)) }
+        : area
+    ));
+    project.areas = nextAreas;
+    state.currentProject = project;
+    await saveCurrentProject({ quiet: true });
+    renderAll();
+  }
+
+  async function saveAreaDetails(areaId) {
+    const project = readProjectForm();
+    const name = String(els.areaName.value || '').trim();
+    if (!name) {
+      throw new Error('Name the area before saving it.');
+    }
+    project.areas = (project.areas || []).map((area) => (
+      String(area.id || '') === String(areaId || '')
+        ? { ...area, name, notes: String(els.areaNotes.value || '').trim() }
+        : area
+    ));
+    state.currentProject = project;
+    await saveCurrentProject({ quiet: true });
+    renderAll();
+  }
+
+  async function placeExistingMarker() {
+    if (!state.pendingPoint) {
+      throw new Error('Click on the map first to choose where the marker should go.');
+    }
+    const project = readProjectForm();
+    if (!project.map_image) {
+      throw new Error('Load a base map image first.');
+    }
+    const filename = String(els.existingLocationPicker.value || '').trim();
+    if (!filename) {
+      throw new Error('Choose an existing location card first.');
+    }
+    const choice = state.locationCards.find((item) => String(item.filename || '') === filename);
+    if (!choice) {
+      throw new Error('Selected location card was not found in the current list.');
+    }
+    const matchedArea = matchedProjectAreaForPoint(state.pendingPoint);
+    const marker = {
+      id: `marker_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`,
+      type: String(choice.place_type || choice.type || 'location').toLowerCase(),
+      x: Number(state.pendingPoint.x.toFixed(4)),
+      y: Number(state.pendingPoint.y.toFixed(4)),
+      label: String(choice.name || '').trim() || titleCase(choice.place_type || choice.type || 'location'),
+      brief: '',
+      provider: '',
+      content_type: String(choice.place_type || choice.type || 'location').toLowerCase(),
+      storage_filename: filename,
+      card_name: String(choice.name || '').trim(),
+      card_type: String(choice.type || '').trim(),
+      card_summary: String(choice.description || '').trim(),
+      map_area_name: matchedArea.mapAreaName,
+      world_area: matchedArea.worldArea,
+      world_area_label: matchedArea.worldAreaLabel,
+      card: {
+        name: String(choice.name || '').trim(),
+        type: String(choice.type || '').trim(),
+        description: String(choice.description || '').trim(),
+      },
+    };
+    project.markers = [...(project.markers || []), marker];
+    state.currentProject = project;
+    state.pendingPoint = null;
+    state.selectedMarkerId = marker.id;
+    await saveCurrentProject({ quiet: true });
+    await loadLocationCards();
+    els.status.textContent = `Placed existing card on map: ${marker.label}`;
+    renderAll();
+  }
+
+  async function saveCurrentProject({ quiet = false } = {}) {
+    const project = readProjectForm();
+    if (!project.map_image) {
+      throw new Error('Load a base map image before saving the project.');
+    }
+    const data = await fetchJson('/map-projects/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ project }),
+    });
+    state.currentProject = data.project || project;
+    await loadProjects();
+    if (!quiet) {
+      els.status.textContent = `Saved map project: ${state.currentProject.name}`;
+    }
+    renderAll();
+    return state.currentProject;
+  }
+
+  async function generateMarker() {
+    if (!state.pendingPoint) {
+      throw new Error('Click on the map first to choose where the marker should go.');
+    }
+    const project = readProjectForm();
+    if (!project.map_image) {
+      throw new Error('Load a base map image first.');
+    }
+    const markerType = String(els.markerType.value || 'landmark').trim().toLowerCase();
+    const desiredName = String(els.markerName.value || '').trim();
+    const extraBrief = String(els.markerBrief.value || '').trim();
+    const contentType = mapMarkerContentType(markerType);
+    const provider = String(els.markerProvider.value || 'ollama_local').trim();
+    const kindLabel = titleCase(markerType);
+    const matchedArea = matchedProjectAreaForPoint(state.pendingPoint);
+    const effectiveArea = String(matchedArea.worldArea || project.area || '').trim();
+    const effectiveAreaLabel = String(matchedArea.worldAreaLabel || matchedArea.mapAreaName || titleCase(project.area || '')).trim();
+    const promptParts = [
+      `Create a ${markerType === 'landmark' ? 'landmark' : markerType} for a campaign map placement.`,
+      desiredName ? `The place should be named ${desiredName}.` : '',
+      effectiveAreaLabel ? `It belongs in the ${effectiveAreaLabel.replace(/_/g, ' ')} area.` : '',
+      project.setting ? `Keep it grounded in the ${project.setting.replace(/_/g, ' ')} setting.` : '',
+      markerType === 'city' ? 'Make it clearly a city, not a generic small settlement.' : '',
+      markerType === 'village' ? 'Make it clearly a village, not a city or generic town.' : '',
+      markerType === 'settlement' ? 'Make it a settlement that can sit naturally on a world or regional map.' : '',
+      extraBrief,
+    ].filter(Boolean).join(' ');
+
+    els.status.textContent = `Generating ${kindLabel.toLowerCase()}...`;
+    const run = await fetchJson('/ai-generate/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        provider,
+        content_type: contentType,
+        brief: promptParts,
+        setting: project.setting,
+        area: effectiveArea,
+      }),
+    });
+    const card = run.normalized_card;
+    if (!card || typeof card !== 'object') {
+      throw new Error('The AI did not return a structured card.');
+    }
+
+    let storageFilename = '';
+    let savedCardName = String(card.name || desiredName || '').trim();
+    if (String(els.markerAutoSave.value || 'yes') === 'yes') {
+      const save = await fetchJson('/ai-generate/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content_type: contentType,
+          card,
+          payload: {
+            setting: project.setting,
+            settings: project.setting ? [project.setting] : [],
+            area: effectiveArea,
+          },
+        }),
+      });
+      storageFilename = String(save?.result?.storage?.filename || '').trim();
+      savedCardName = String(save?.result?.name || card.name || desiredName || '').trim();
+    }
+
+    const marker = {
+      id: `marker_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`,
+      type: markerType,
+      x: Number(state.pendingPoint.x.toFixed(4)),
+      y: Number(state.pendingPoint.y.toFixed(4)),
+      label: desiredName || savedCardName || String(card.name || '').trim() || kindLabel,
+      brief: extraBrief,
+      provider,
+      content_type: contentType,
+      storage_filename: storageFilename,
+      card_name: savedCardName || String(card.name || '').trim(),
+      card_type: String(card.type || contentType || '').trim(),
+      card_summary: String(card.description || card.summary || '').trim(),
+      map_area_name: matchedArea.mapAreaName,
+      world_area: effectiveArea,
+      world_area_label: effectiveAreaLabel,
+      card,
+    };
+
+    project.markers = [...(project.markers || []), marker];
+    state.currentProject = project;
+    state.pendingPoint = null;
+    state.selectedMarkerId = marker.id;
+    await saveCurrentProject({ quiet: true });
+    els.status.textContent = storageFilename
+      ? `Generated and saved ${kindLabel.toLowerCase()}: ${marker.label}`
+      : `Generated ${kindLabel.toLowerCase()}: ${marker.label}`;
+    renderAll();
+  }
+
+  async function uploadMapImage() {
+    const file = els.mapUpload.files?.[0];
+    if (!file) throw new Error('Choose an image file first.');
+    const form = new FormData();
+    form.append('file', file);
+    form.append('friendly_name', file.name.replace(/\.[^.]+$/, ''));
+    form.append('tags', 'map');
+    form.append('description', 'Uploaded for Map Editor');
+    const res = await fetch('/media/images/upload', { method: 'POST', body: form });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `Upload failed: ${res.status}`);
+    await loadGalleryMaps();
+    els.mapImageUrl.value = String(data.url || '').trim();
+    if (!state.currentProject) state.currentProject = createEmptyProject();
+    state.currentProject.map_image = String(data.url || '').trim();
+    state.currentProject.map_image_path = String(data.path || '').trim();
+    resetViewTransform();
+    renderAll();
+    els.status.textContent = `Uploaded map image: ${data.friendly_name || data.name || data.path}`;
+  }
+
+  async function loadProjectById(projectId) {
+    if (!projectId) return;
+    const data = await fetchJson(`/map-projects/${encodeURIComponent(projectId)}`);
+    state.currentProject = data.project || createEmptyProject();
+    state.selectedMarkerId = '';
+    state.selectedAreaId = '';
+    state.pendingPoint = null;
+    state.markerPanelMode = 'list';
+    state.areaPanelMode = 'list';
+    resetAreaTool();
+    resetViewTransform();
+    renderAll();
+    els.status.textContent = `Loaded project: ${state.currentProject.name}`;
+  }
+
+  function chooseMarker(markerId) {
+    state.selectedMarkerId = String(markerId || '');
+    state.selectedAreaId = '';
+    renderAll();
+  }
+
+  function chooseArea(areaId) {
+    state.selectedAreaId = String(areaId || '');
+    state.selectedMarkerId = '';
+    syncAreaForm();
+    renderAll();
+  }
+
+  function deleteMarker(markerId) {
+    if (!state.currentProject) return;
+    state.currentProject.markers = (state.currentProject.markers || []).filter((marker) => String(marker.id || '') !== String(markerId || ''));
+    if (String(state.selectedMarkerId || '') === String(markerId || '')) {
+      state.selectedMarkerId = '';
+    }
+    renderAll();
+    saveCurrentProject({ quiet: true }).catch((err) => {
+      els.status.textContent = `Autosave failed: ${err.message}`;
+    });
+  }
+
+  function deleteArea(areaId) {
+    if (!state.currentProject) return;
+    state.currentProject.areas = (state.currentProject.areas || []).filter((area) => String(area.id || '') !== String(areaId || ''));
+    if (String(state.selectedAreaId || '') === String(areaId || '')) {
+      state.selectedAreaId = '';
+    }
+    renderAll();
+    saveCurrentProject({ quiet: true }).catch((err) => {
+      els.status.textContent = `Autosave failed: ${err.message}`;
+    });
+  }
+
+  async function init() {
+    await Promise.all([loadMeta(), loadProjects(), loadGalleryMaps()]);
+    const params = new URLSearchParams(window.location.search);
+    const requestedProjectId = String(params.get('project') || '').trim();
+    const requestedMarkerId = String(params.get('marker') || '').trim();
+    if (requestedProjectId) {
+      await loadProjectById(requestedProjectId);
+      els.projectPicker.value = requestedProjectId;
+      if (requestedMarkerId) {
+        const marker = markerById(requestedMarkerId);
+        if (marker) {
+          chooseMarker(requestedMarkerId);
+          centerViewOnMarker(marker);
+          els.status.textContent = `Loaded map project and centered on ${marker.label || marker.card_name || titleCase(marker.type)}.`;
+          return;
+        }
+      }
+      els.status.textContent = `Loaded map project: ${state.currentProject?.name || requestedProjectId}`;
+      return;
+    }
+    const preferredProjectId = defaultProjectId();
+    if (preferredProjectId) {
+      await loadProjectById(preferredProjectId);
+      els.projectPicker.value = preferredProjectId;
+      els.status.textContent = `Loaded default map project: ${state.currentProject?.name || preferredProjectId}`;
+      return;
+    }
+    state.currentProject = createEmptyProject();
+    resetViewTransform();
+    await loadLocationCards();
+    renderAll();
+    els.status.textContent = 'Map editor ready.';
+  }
+
+  els.projectLoadBtn.addEventListener('click', async () => {
+    try {
+      await loadProjectById(String(els.projectPicker.value || '').trim());
+    } catch (err) {
+      els.status.textContent = `Load failed: ${err.message}`;
+    }
+  });
+
+  els.projectNewBtn.addEventListener('click', () => {
+    state.currentProject = createEmptyProject();
+    state.selectedMarkerId = '';
+    state.selectedAreaId = '';
+    state.pendingPoint = null;
+    state.markerPanelMode = 'list';
+    state.areaPanelMode = 'list';
+    resetAreaTool();
+    resetViewTransform();
+    renderAll();
+    els.status.textContent = 'Started a new map project.';
+  });
+
+  els.projectDeleteBtn.addEventListener('click', async () => {
+    const projectId = String(state.currentProject?.id || els.projectPicker.value || '').trim();
+    if (!projectId) {
+      els.status.textContent = 'Load or save a project before deleting it.';
+      return;
+    }
+    if (!confirm('Delete this saved map project?')) return;
+    try {
+      await fetchJson('/map-projects/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: projectId }),
+      });
+      state.currentProject = createEmptyProject();
+      state.selectedMarkerId = '';
+      state.pendingPoint = null;
+      await loadProjects();
+      renderAll();
+      els.status.textContent = `Deleted map project: ${projectId}`;
+    } catch (err) {
+      els.status.textContent = `Delete failed: ${err.message}`;
+    }
+  });
+
+  els.projectSaveBtn.addEventListener('click', async () => {
+    try {
+      await saveCurrentProject();
+    } catch (err) {
+      els.status.textContent = `Save failed: ${err.message}`;
+    }
+  });
+
+  els.projectSetting.addEventListener('change', () => {
+    loadLocationCards().catch((err) => {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    });
+  });
+
+  els.projectArea.addEventListener('change', () => {
+    loadLocationCards().catch((err) => {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    });
+  });
+
+  els.markerType.addEventListener('change', () => {
+    loadLocationCards().catch((err) => {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    });
+  });
+
+  els.markerPanelToggleBtn.addEventListener('click', async () => {
+    const opening = state.markerPanelMode !== 'form';
+    state.markerPanelMode = opening ? 'form' : 'list';
+    if (!opening) {
+      state.pendingPoint = null;
+    }
+    renderAll();
+    if (opening) {
+      try {
+        await loadLocationCards();
+      } catch (err) {
+        els.status.textContent = `Location list failed: ${err.message}`;
+        return;
+      }
+      els.status.textContent = 'Marker form opened. Click the map to choose a point.';
+    } else {
+      els.status.textContent = 'Marker form closed.';
+    }
+  });
+
+  els.areaPanelToggleBtn.addEventListener('click', () => {
+    const opening = state.areaPanelMode !== 'form';
+    state.areaPanelMode = opening ? 'form' : 'list';
+    if (!opening) {
+      resetAreaTool();
+    }
+    renderAll();
+    els.status.textContent = opening ? 'Area form opened.' : 'Area form closed.';
+  });
+
+  els.mapGalleryLoadBtn.addEventListener('click', () => {
+    const chosen = String(els.mapGallery.value || '').trim();
+    if (!chosen) {
+      els.status.textContent = 'Choose a gallery image first.';
+      return;
+    }
+    if (!state.currentProject) state.currentProject = createEmptyProject();
+    state.currentProject.map_image = chosen;
+    els.mapImageUrl.value = chosen;
+    resetViewTransform();
+    renderAll();
+    els.status.textContent = 'Loaded base map from gallery.';
+  });
+
+  els.mapImageUrlBtn.addEventListener('click', () => {
+    const value = String(els.mapImageUrl.value || '').trim();
+    if (!value) {
+      els.status.textContent = 'Enter an image URL or /images/... path first.';
+      return;
+    }
+    if (!state.currentProject) state.currentProject = createEmptyProject();
+    state.currentProject.map_image = value;
+    resetViewTransform();
+    renderAll();
+    els.status.textContent = 'Loaded base map image.';
+  });
+
+  els.mapUploadBtn.addEventListener('click', async () => {
+    try {
+      await uploadMapImage();
+    } catch (err) {
+      els.status.textContent = `Upload failed: ${err.message}`;
+    }
+  });
+
+  els.markerModeGenerateBtn.addEventListener('click', () => {
+    state.markerMode = 'generate';
+    renderAll();
+  });
+
+  els.markerModeExistingBtn.addEventListener('click', async () => {
+    state.markerMode = 'existing';
+    renderAll();
+    try {
+      await loadLocationCards();
+    } catch (err) {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    }
+  });
+
+  els.existingLocationRefreshBtn.addEventListener('click', async () => {
+    try {
+      await loadLocationCards();
+      els.status.textContent = `Loaded ${state.locationCards.length} existing place cards.`;
+    } catch (err) {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    }
+  });
+
+  els.existingLocationSearch.addEventListener('change', () => {
+    loadLocationCards().catch((err) => {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    });
+  });
+
+  els.existingLocationSearch.addEventListener('input', () => {
+    loadLocationCards().catch((err) => {
+      els.status.textContent = `Location list failed: ${err.message}`;
+    });
+  });
+
+  els.existingLocationPlaceBtn.addEventListener('click', async () => {
+    try {
+      await placeExistingMarker();
+    } catch (err) {
+      els.status.textContent = `Place failed: ${err.message}`;
+    }
+  });
+
+  els.mapCanvas.addEventListener('click', (event) => {
+    if (state.view.moved) {
+      state.view.moved = false;
+      return;
+    }
+    if (state.areaTool.mode === 'moving_label') {
+      const point = resolveCanvasPoint(event);
+      const area = areaById(state.selectedAreaId);
+      if (!point || !area) return;
+      saveAreaLabelPosition(area.id, point).then(() => {
+        state.areaTool.mode = 'idle';
+        els.status.textContent = `Moved label for ${area.name}.`;
+        renderAll();
+      }).catch((err) => {
+        els.status.textContent = `Move failed: ${err.message}`;
+      });
+      return;
+    }
+    if (state.areaTool.mode === 'drawing') {
+      if (event.target.closest('.area-label')) return;
+      if (event.target.closest('.map-marker')) return;
+      const point = resolveCanvasPoint(event);
+      if (!point) return;
+      addAreaPoint(point);
+      els.status.textContent = `Added polygon point ${state.areaTool.pendingPoints.length}.`;
+      return;
+    }
+    if (event.target.closest('.map-marker')) return;
+    if (state.markerPanelMode !== 'form') return;
+    const point = resolveCanvasPoint(event);
+    if (!point) return;
+    primeMarkerForm(point);
+    els.status.textContent = `Pending marker set at ${point.x.toFixed(2)}%, ${point.y.toFixed(2)}%.`;
+  });
+
+  els.mapViewport.addEventListener('contextmenu', (event) => {
+    if (state.currentProject?.map_image) {
+      event.preventDefault();
+    }
+  });
+
+  els.mapViewport.addEventListener('wheel', (event) => {
+    if (!state.currentProject?.map_image || els.mapCanvas.hidden) return;
+    event.preventDefault();
+    const rect = els.mapCanvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const pointerX = event.clientX - rect.left;
+    const pointerY = event.clientY - rect.top;
+    const oldScale = state.view.scale;
+    const delta = event.deltaY < 0 ? 1.12 : 1 / 1.12;
+    const nextScale = Math.max(1, Math.min(4, oldScale * delta));
+    if (nextScale === oldScale) return;
+    const worldX = pointerX / oldScale;
+    const worldY = pointerY / oldScale;
+    state.view.scale = nextScale;
+    state.view.panX += pointerX - (worldX * nextScale);
+    state.view.panY += pointerY - (worldY * nextScale);
+    applyViewTransform();
+  }, { passive: false });
+
+  els.mapViewport.addEventListener('mousedown', (event) => {
+    if (event.button !== 2 || !state.currentProject?.map_image) return;
+    event.preventDefault();
+    state.view.isPanning = true;
+    state.view.moved = false;
+    state.view.lastClientX = event.clientX;
+    state.view.lastClientY = event.clientY;
+    applyViewTransform();
+  });
+
+  window.addEventListener('mousemove', (event) => {
+    if (!state.view.isPanning) return;
+    const dx = event.clientX - state.view.lastClientX;
+    const dy = event.clientY - state.view.lastClientY;
+    if (Math.abs(dx) > 0 || Math.abs(dy) > 0) {
+      state.view.moved = true;
+    }
+    state.view.panX += dx;
+    state.view.panY += dy;
+    state.view.lastClientX = event.clientX;
+    state.view.lastClientY = event.clientY;
+    applyViewTransform();
+  });
+
+  window.addEventListener('mouseup', (event) => {
+    if (event.button !== 2 && !state.view.isPanning) return;
+    if (!state.view.isPanning) return;
+    state.view.isPanning = false;
+    applyViewTransform();
+  });
+
+  els.mapMarkers.addEventListener('click', (event) => {
+    const marker = event.target.closest('[data-marker-id]');
+    if (!marker) return;
+    chooseMarker(String(marker.dataset.markerId || ''));
+  });
+
+  els.mapAreas.addEventListener('click', (event) => {
+    if (state.areaTool.mode === 'drawing') return;
+    const area = event.target.closest('[data-area-id]');
+    if (!area) return;
+    chooseArea(String(area.dataset.areaId || ''));
+  });
+
+  els.markerList.addEventListener('click', (event) => {
+    const item = event.target.closest('[data-select-marker]');
+    if (!item) return;
+    chooseMarker(String(item.dataset.selectMarker || ''));
+  });
+
+  els.areaList.addEventListener('click', (event) => {
+    const item = event.target.closest('[data-select-area]');
+    if (!item) return;
+    chooseArea(String(item.dataset.selectArea || ''));
+  });
+
+  els.selectionPreview.addEventListener('click', (event) => {
+    const deleteBtn = event.target.closest('[data-delete-marker]');
+    if (deleteBtn) {
+      deleteMarker(String(deleteBtn.dataset.deleteMarker || ''));
+      return;
+    }
+    const centerBtn = event.target.closest('[data-center-marker]');
+    if (centerBtn) {
+      const markerId = String(centerBtn.dataset.centerMarker || '');
+      const marker = markerById(markerId);
+      if (!marker) return;
+      chooseMarker(markerId);
+      centerViewOnMarker(marker);
+      els.status.textContent = `Centered on ${marker.label || marker.card_name || titleCase(marker.type)}.`;
+    }
+    const deleteAreaBtn = event.target.closest('[data-delete-area]');
+    if (deleteAreaBtn) {
+      deleteArea(String(deleteAreaBtn.dataset.deleteArea || ''));
+      return;
+    }
+    const saveAreaBtn = event.target.closest('[data-save-area]');
+    if (saveAreaBtn) {
+      const areaId = String(saveAreaBtn.dataset.saveArea || '');
+      if (!areaId) return;
+      saveAreaDetails(areaId).then(() => {
+        els.status.textContent = `Updated area label: ${String(els.areaName.value || '').trim() || 'Unnamed Area'}.`;
+      }).catch((err) => {
+        els.status.textContent = `Area update failed: ${err.message}`;
+      });
+      return;
+    }
+    const moveAreaLabelBtn = event.target.closest('[data-move-area-label]');
+    if (moveAreaLabelBtn) {
+      const areaId = String(moveAreaLabelBtn.dataset.moveAreaLabel || '');
+      chooseArea(areaId);
+      state.areaPanelMode = 'form';
+      state.areaTool.mode = 'moving_label';
+      renderAll();
+      els.status.textContent = 'Click on the map to reposition the area label.';
+      return;
+    }
+    const centerAreaBtn = event.target.closest('[data-center-area]');
+    if (centerAreaBtn) {
+      const areaId = String(centerAreaBtn.dataset.centerArea || '');
+      const area = areaById(areaId);
+      if (!area) return;
+      chooseArea(areaId);
+      centerViewOnMarker({ x: area.label_x, y: area.label_y });
+      els.status.textContent = `Centered on ${area.name}.`;
+    }
+  });
+
+  els.markerGenerateBtn.addEventListener('click', async () => {
+    try {
+      await generateMarker();
+    } catch (err) {
+      els.status.textContent = `Generation failed: ${err.message}`;
+    }
+  });
+
+  els.markerClearBtn.addEventListener('click', () => {
+    state.pendingPoint = null;
+    renderAll();
+    els.status.textContent = 'Cleared pending marker.';
+  });
+
+  els.areaStartBtn.addEventListener('click', () => {
+    state.areaPanelMode = 'form';
+    state.areaTool.mode = 'drawing';
+    state.areaTool.pendingPoints = [];
+    state.pendingPoint = null;
+    state.selectedMarkerId = '';
+    renderAll();
+    els.status.textContent = 'Area polygon started. Click points on the map.';
+  });
+
+  els.areaCompleteBtn.addEventListener('click', async () => {
+    try {
+      await completeAreaPolygon();
+    } catch (err) {
+      els.status.textContent = `Area save failed: ${err.message}`;
+    }
+  });
+
+  els.areaSaveBtn.addEventListener('click', async () => {
+    try {
+      if (!state.selectedAreaId) {
+        throw new Error('Select an existing area first.');
+      }
+      await saveAreaDetails(state.selectedAreaId);
+      els.status.textContent = `Updated area label: ${String(els.areaName.value || '').trim() || 'Unnamed Area'}.`;
+    } catch (err) {
+      els.status.textContent = `Area update failed: ${err.message}`;
+    }
+  });
+
+  els.areaMoveLabelBtn.addEventListener('click', () => {
+    const area = areaById(state.selectedAreaId);
+    if (!area) {
+      els.status.textContent = 'Select an area first.';
+      return;
+    }
+    state.areaTool.mode = 'moving_label';
+    renderAll();
+    els.status.textContent = `Click on the map to reposition ${area.name}.`;
+  });
+
+  els.areaCancelBtn.addEventListener('click', () => {
+    resetAreaTool();
+    renderAll();
+    els.status.textContent = 'Cancelled area editing.';
+  });
+
+  init().catch((err) => {
+    els.status.textContent = `Init failed: ${err.message}`;
+  });
+</script>
+{% endblock %}

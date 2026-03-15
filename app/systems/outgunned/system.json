@@ -1,0 +1,18 @@
+{
+  "id": "outgunned",
+  "name": "Outgunned",
+  "engine": "outgunned",
+  "status": "planned",
+  "summary": "Base system shell for Outgunned and its action-focused variants.",
+  "content_roots": [
+    "core_rules",
+    "addons"
+  ],
+  "default_types": [
+    "character_record",
+    "loadout_record",
+    "mission_record",
+    "lore_entry"
+  ],
+  "supports_addons": true
+}

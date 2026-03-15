@@ -16,7 +16,7 @@ settings:
     fantasy:
       label: Fantasy
       worlds:
-      - lands_of_legends
+      - lands_of_legend
     modern:
       label: Modern
       worlds: []
@@ -52,7 +52,7 @@ settings:
       worlds: []
   defaults:
   - fantasy
-  - lands_of_legends
+  - lands_of_legend
 genres:
   core:
   - fantasy
@@ -71,7 +71,7 @@ genres:
     fantasy:
       label: Fantasy
       settings:
-      - lands_of_legends
+      - lands_of_legend
     modern:
       label: Modern
       settings: []
@@ -107,4 +107,4 @@ genres:
       settings: []
   defaults:
   - fantasy
-  - lands_of_legends
+  - lands_of_legend

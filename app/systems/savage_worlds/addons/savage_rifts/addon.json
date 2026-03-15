@@ -1,0 +1,8 @@
+{
+  "id": "savage_rifts",
+  "system_id": "savage_worlds",
+  "name": "Savage Rifts",
+  "status": "planned",
+  "summary": "Savage Worlds addon shell for Savage Rifts.",
+  "kind": "setting_line"
+}

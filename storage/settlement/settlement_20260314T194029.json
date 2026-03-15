@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "saved_at": "2026-03-14T19:40:29.542805+00:00",
+  "filename": "settlement/settlement_20260314T194029.json",
+  "payload": {
+    "setting": "lands_of_legend",
+    "settings": [
+      "lands_of_legend"
+    ],
+    "area": ""
+  },
+  "result": {
+    "type": "settlement",
+    "name": "Dan's Place",
+    "description": "Nestled within the lush greenery of Aldamir, Dan's Place is a quaint village characterized by a handful of sturdy wooden houses, each adorned with vibrant flower boxes. The air is thick with the aroma of corn soup simmering in the kitchen, a staple of the household. Dan, an ex-soldier with a weathered face and a gentle demeanor, spends his days rocking on the porch, puffing on his corncob pipe while keeping a watchful eye on his children playing in the yard. His three wives contribute to the vi…",
+    "sections": {
+      "type": "settlement",
+      "name": "Dan's Place",
+      "description": "Nestled within the lush greenery of Aldamir, Dan's Place is a quaint village characterized by a handful of sturdy wooden houses, each adorned with vibrant flower boxes. The air is thick with the aroma of corn soup simmering in the kitchen, a staple of the household. Dan, an ex-soldier with a weathered face and a gentle demeanor, spends his days rocking on the porch, puffing on his corncob pipe while keeping a watchful eye on his children playing in the yard. His three wives contribute to the village's warmth: Gertruud, a fierce highland fenmir shieldmaiden, stands guard against any raiding uruks, her presence a reassuring shield for the community. Martha, ever the diligent caretaker, ensures that the hearth is always warm and welcoming, often inviting travelers to share in a meal and perhaps a taste of Dan's famed corn on the cob moonshine, should they earn his favor.",
+      "notable_feature": "The village is known for its vibrant cornfields, which not only provide sustenance but also serve as a gathering place for community events and celebrations.",
+      "proprietor": "Dan",
+      "hooks": "Rumors circulate about a hidden stash of ancient artifacts buried somewhere in the fields, said to be left behind by a long-forgotten civilization.",
+      "settlement_type": "village",
+      "innkeeper": "Dan"
+    },
+    "metadata": {
+      "source": "House",
+      "origin": "ai_generate",
+      "content_type": "settlement",
+      "ai_generated": "true",
+      "setting": "lands_of_legend",
+      "settings": [
+        "fantasy",
+        "lands_of_legend"
+      ],
+      "area": null,
+      "location": null,
+      "environment": "",
+      "race": null,
+      "variant": null,
+      "gender": null,
+      "profession": null,
+      "culture": null,
+      "sourcebook": null,
+      "page": null,
+      "genre": "fantasy",
+      "genres": [
+        "fantasy"
+      ]
+    }
+  }
+}

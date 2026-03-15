@@ -4,6 +4,21 @@ import re
 from typing import Any
 
 
+_CANONICAL_SETTING_ALIASES = {
+    "lands_of_legends": "lands_of_legend",
+    "land_of_legends": "lands_of_legend",
+    "land_of_legend": "lands_of_legend",
+}
+
+_SETTING_LOOKUP_ALIASES = {
+    "lands_of_legend": [
+        "lands_of_legends",
+        "land_of_legends",
+        "land_of_legend",
+    ],
+}
+
+
 def _taxonomy_root(config: dict[str, Any]) -> dict[str, Any]:
     """
     Compatibility layer:
@@ -40,7 +55,19 @@ def normalize_setting_token(value: Any) -> str:
         return ""
     text = re.sub(r"[^a-z0-9]+", "_", text)
     text = re.sub(r"_+", "_", text)
-    return text.strip("_")
+    text = text.strip("_")
+    return _CANONICAL_SETTING_ALIASES.get(text, text)
+
+
+def setting_lookup_tokens(value: Any) -> list[str]:
+    token = normalize_setting_token(value)
+    if not token:
+        return []
+    values = [token]
+    for alias in _SETTING_LOOKUP_ALIASES.get(token, []):
+        if alias not in values:
+            values.append(alias)
+    return values
 
 
 def normalize_settings_values(raw: Any) -> list[str]:

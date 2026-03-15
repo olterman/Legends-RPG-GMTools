@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}{{ rulebook.title }} | GMForge{% endblock %}
+
+{% block page_styles %}
+header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(15, 21, 28, 0.86);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+}
+header .meta { font-size: 0.95rem; }
+.layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+}
+aside, article {
+  background: linear-gradient(180deg, rgba(27, 37, 49, 0.96), rgba(17, 24, 32, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 20px 42px var(--shadow);
+}
+aside {
+  padding: 18px;
+  position: sticky;
+  top: 92px;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+}
+article { padding: 28px; }
+.toc a { color: var(--ink); text-decoration: none; display: block; padding: 5px 0; }
+.toc a:hover { color: var(--accent); }
+.toc .level-1 { font-weight: 700; }
+.toc .level-2 { padding-left: 10px; }
+.toc .level-3 { padding-left: 22px; color: var(--muted); }
+.actions { margin-top: 16px; }
+.notice {
+  padding: 10px 12px;
+  border: 1px dashed var(--line);
+  background: var(--accent-soft);
+  border-radius: 12px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+article h1, article h2, article h3 { scroll-margin-top: 90px; }
+article p, article li { line-height: 1.55; }
+article pre {
+  white-space: pre-wrap;
+  background: rgba(8, 12, 17, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  overflow: auto;
+}
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { position: static; max-height: none; }
+}
+{% endblock %}
+
+{% block body %}
+<header>
+  <a href="{{ url_for('index') }}">GMForge</a>
+  <div class="meta">{{ system.name }} / Expansion: {{ addon.name }}</div>
+  <strong>{{ rulebook.title }}</strong>
+</header>
+<main class="layout">
+  <aside>
+    <h2>Contents</h2>
+    <nav class="toc">
+      {% for heading in toc %}
+      <a class="level-{{ heading.level }}" href="#{{ heading.anchor }}">{{ heading.title }}</a>
+      {% endfor %}
+    </nav>
+    <div class="actions">
+      {% if html_exists %}
+      <a href="{{ raw_html_url }}" target="_blank" rel="noopener">Open raw Docling HTML</a>
+      {% else %}
+      <div class="meta">No expansion html artifact yet. Showing markdown-derived reader.</div>
+      {% endif %}
+    </div>
+  </aside>
+  <article>
+    <div class="notice">
+      This is the new GMForge rulebook reader. It uses expansion-owned markdown as the backend source of truth and can link to expansion-owned html when available.
+    </div>
+    {{ rendered_html|safe }}
+  </article>
+</main>
+{% endblock %}
